@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script src="/linkify.min.js"></script>
+<script src="/linkify-jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+	  		$.getJSON('https://graph.facebook.com/238065426321929/feed?access_token=229040647557399|MQKFlFYX7YW25XGj4GUYZ7B1lcY', function(data) {
+		var ahtml="";
+		for(var i = 0; i < 5; i++) {
+			ahtml=ahtml+"<li>"+data["data"][i]["message"]+"</li>";
+		}
+		ahtml=ahtml+"";
+		$("#fbquotes").html(ahtml);
+		$("#fbquotes").linkify();
+	});
+	 
+		$.getJSON('https://api.github.com/repos/gama-platform/gama/commits', function(data) {
+			var ahtml="";
+			for(var i = 0; i < 5; i++) {
+				ahtml=ahtml+"<li>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["commit"]["html_url"]+"'> See more</a></li>";
+			}
+			ahtml=ahtml+"";
+			$("#commitquotes").html(ahtml);
+			$("#commitquotes").linkify();
+		});
+				
+				
+		$.getJSON('https://api.github.com/repos/gama-platform/gama/issues', function(data) {
+			var ahtml="";
+			for(var i = 0; i < 5; i++) {
+				ahtml=ahtml+"<li>"+data[i]["title"]+" by "+data[i]["user"]["login"]+" <a href='"+data[i]["html_url"]+"'> See more</a></li>";
+			}
+			ahtml=ahtml+"";
+			$("#issuequotes").html(ahtml);
+			$("#issuequotes").linkify();
+		});
+		
+		$.getJSON('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fgroups.google.com%2Fforum%2Ffeed%2Fgama-platform%2Ftopics%2Frss.xml%3Fnum%3D15', function(data) {
+			var ahtml="";
+			for(var i = 0; i < 5; i++) {
+				ahtml=ahtml+"<li>"+data["items"][i]["title"]+" by "+data["items"][i]["author"]+" <a href='"+data["items"][i]["link"]+"'> See more</a></li>";
+			}
+			ahtml=ahtml+"";
+			$("#googleusersquotes").html(ahtml);
+			$("#googleusersquotes").linkify();
+			
+		});
+ });
+  
+</script>

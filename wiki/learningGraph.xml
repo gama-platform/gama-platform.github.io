@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<xmlFile>
+<learningConceptList>
+	<learningConcept id="model_structure" x="0.415" y="0.505">
+		<name>Model structure</name>
+		<description>organize your model : global/species/experiments</description>
+	</learningConcept>
+	<learningConcept id="programming_basis" x="0.497" y="0.475">
+		<name>Programming basis</name>
+		<description>learn about variables, operators, conditionnal\\nstructure, loop, containers, random...</description>
+		<prerequisiteList>
+			<prerequisite>model_structure</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="global_species" x="0.575" y="0.447">
+		<name>Global Species</name>
+		<description>world agent, environment size,\\nbuilt-in attributes/actions</description>
+		<prerequisiteList>
+			<prerequisite>programming_basis</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="regular_species" x="0.643" y="0.503">
+		<name>Regular Species</name>
+		<description>declaration, built-in attributes/actions,\\naspect and instantiation</description>
+		<prerequisiteList>
+			<prerequisite>global_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="actions_and_behaviors" x="0.640" y="0.560">
+		<name>Actions &amp; Behaviors</name>
+		<description>declare / call an action, "reflex" statement</description>
+		<prerequisiteList>
+			<prerequisite>regular_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="interaction_between_agents" x="0.545" y="0.605">
+		<name>Interaction\nbetween agents</name>
+		<description>"ask" statement, pseudo variables\\n"self" and "myself"</description>
+		<prerequisiteList>
+			<prerequisite>actions_and_behaviors</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="attaching_skills" x="0.420" y="0.595">
+		<name>Attaching\nskills</name>
+		<description>"skill" facet, moving skill,\\nexample of other skills</description>
+		<prerequisiteList>
+			<prerequisite>interaction_between_agents</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="inheritance" x="0.309" y="0.549">
+		<name>Inheritance</name>
+		<description>mother / child species, virtual actions</description>
+		<prerequisiteList>
+			<prerequisite>attaching_skills</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="grid" x="0.240" y="0.460">
+		<name>Grid</name>
+		<description>grid species, declaration,\\naccess cell, display grid</description>
+		<prerequisiteList>
+			<prerequisite>interaction_between_agents</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="graph" x="0.165" y="0.500">
+		<name>Graph</name>
+		<description>graph species, declaration,\\nuseful operators with graph topology</description>
+		<prerequisiteList>
+			<prerequisite>inheritance</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="equation" x="0.433" y="0.291">
+		<name>Equation</name>
+		<description>declare ode equation, solve equations</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="diffusion" x="0.353" y="0.361">
+		<name>Diffusion</name>
+		<description>diffuse a variable in a grid</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="gui_experiments" x="0.713" y="0.217">
+		<name>GUI Experiments</name>
+		<description>a word about GUI experiment structure\\n(where to put inputs and outputs)</description>
+		<prerequisiteList>
+			<prerequisite>programming_basis</prerequisite>
+		</prerequisiteList>
+	</learningConcept>	
+	<learningConcept id="defining_charts" x="0.573" y="0.335">
+		<name>Defining charts</name>
+		<description>declare charts layers : pies, histograms, graphs...</description>
+		<prerequisiteList>
+			<prerequisite>2d_displays</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="2d_displays" x="0.821" y="0.243">
+		<name>2D Displays</name>
+		<description>manipulate 2d layers : species layers,\\nimages layers, text layers...</description>
+		<prerequisiteList>
+			<prerequisite>gui_experiments</prerequisite>
+			<prerequisite>regular_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="3d_displays" x="0.791" y="0.455">
+		<name>3D Displays</name>
+		<description>displays using opengl, camera / light.</description>
+		<prerequisiteList>
+			<prerequisite>2d_displays</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="mirror_species" x="0.863" y="0.383">
+		<name>Mirror Species</name>
+		<description>duplicate agent with custom aspect</description>
+		<prerequisiteList>
+			<prerequisite>actions_and_behaviors</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="define_aspect" x="0.691" y="0.423">
+		<name>Define Aspect</name>
+		<description>bla bla bla</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="define_parameters" x="0.689" y="0.119">
+		<name>Define Parameters</name>
+		<description>define parameters for your experiment</description>
+		<prerequisiteList>
+			<prerequisite>gui_experiments</prerequisite>
+			<prerequisite>global_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="events_and_buttons" x="0.571" y="0.093">
+		<name>Events and\nButtons</name>
+		<description>"event"/"user_command"/"user_input" statements\\n(catch events, add buttons and input values)</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="monitors_and_inspectors" x="0.591" y="0.231">
+		<name>Monitors and\nInspectors</name>
+		<description>"monitor"/"inspect" statements (follow the\\nvalue of a variable, inspect element/population)</description>
+		<prerequisiteList>
+			<prerequisite>define_parameters</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="user_control_architecture" x="0.497" y="0.187">
+		<name>User Control\nArchitecture</name>
+		<description>runtime controlled by the user through the\\n"user_only"/"user_first"/"user_last" architectures</description>
+		<prerequisiteList>
+			<prerequisite>interaction_between_agents</prerequisite>
+			<prerequisite>define_parameters</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="finite_state_machine" x="0.403" y="0.199">
+		<name>Finite State\nMachine</name>
+		<description>finite state machine behavior model\\n("state"/"transition" statements)</description>
+		<prerequisiteList>
+			<prerequisite>regular_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="task_based" x="0.325" y="0.183">
+		<name>Task Based</name>
+		<description>"weighted_tasks"/"sorted_tasks"/"probabilistic_tasks" architectures\\n"ask" statement</description>
+		<prerequisiteList>
+			<prerequisite>regular_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="bdi" x="0.355" y="0.095">
+		<name>BDI</name>
+		<description>belief-desire-intention architecture,\\n"predicate"/"rule"/"plan" statements</description>
+		<prerequisiteList>
+			<prerequisite>attaching_skills</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="fipa_acl" x="0.199" y="0.135">
+		<name>FIPA / ACL</name>
+		<description>communication between agents</description>
+		<prerequisiteList>
+			<prerequisite>attaching_skills</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="runtime_and_schedulers" x="0.093" y="0.189">
+		<name>Runtime and\nSchedulers</name>
+		<description>control the runtime using scheduler</description>
+		<prerequisiteList>
+			<prerequisite>regular_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="optimizing_tips" x="0.111" y="0.319">
+		<name>Optimizing tips</name>
+		<description>tips about scheduler, grid, operators and displays</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+			<prerequisite>actions_and_behaviors</prerequisite>
+			<prerequisite>runtime_and_schedulers</prerequisite>
+			<prerequisite>3d_displays</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="run_simulations_as_agents" x="0.183" y="0.605">
+		<name>Run Simulations\nas Agents</name>
+		<description>run multiple simulations in the same experiment</description>
+		<prerequisiteList>
+			<prerequisite>grid</prerequisite>
+			<prerequisite>2d_displays</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="control_randomness" x="0.245" y="0.670">
+		<name>Control Randomness</name>
+		<description>control the seed, a word about RNG</description>
+		<prerequisiteList>
+			<prerequisite>run_simulations_as_agents</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="batch_experiments" x="0.285" y="0.759">
+		<name>Batch\nExperiments</name>
+		<description>run several experiments using batch experiments</description>
+		<prerequisiteList>
+			<prerequisite>actions_and_behaviors</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="run_several_models_using_gamanalyzer" x="0.079" y="0.635">
+		<name>Run several\nmodels (using\nGAMAnalyzer)</name>
+		<description>bla bla bla</description>
+		<prerequisiteList>
+			<prerequisite>actions_and_behaviors</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="exploration_methods" x="0.179" y="0.811">
+		<name>Exploration\nMethods</name>
+		<description>explore parameter space with methods :\\n"hill climbing", "tabu search", "genetic"...</description>
+		<prerequisiteList>
+			<prerequisite>batch_experiments</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="multi_level" x="0.217" y="0.259">
+		<name>Multi-level</name>
+		<description>micro/macro agents : "members"/"host" built-in,\\n"capture"/"release"/"migrate" statements</description>
+		<prerequisiteList>
+			<prerequisite>interaction_between_agents</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="call_r" x="0.627" y="0.871">
+		<name>Call R</name>
+		<description>data mining and statistics with R</description>
+		<prerequisiteList>
+			<prerequisite>actions_and_behaviors</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="use_database" x="0.743" y="0.817">
+		<name>Use Database</name>
+		<description>SQLSKILL and MDXSKILL for queries</description>
+		<prerequisiteList>
+			<prerequisite>attaching_skills</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="export_files" x="0.757" y="0.607">
+		<name>Export files</name>
+		<description>save files with "save"/"output_file" statements,\\nor with "autosave" facet.</description>
+		<prerequisiteList>
+			<prerequisite>gui_experiments</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="use_osm_datas" x="0.881" y="0.601">
+		<name>Use OSM Datas</name>
+		<description>load openstreetmap files in gama,\\na word about qgis software</description>
+		<prerequisiteList>
+			<prerequisite>regular_species</prerequisite>
+			<prerequisite>2d_displays</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+	<learningConcept id="load_complex_datas" x="0.860" y="0.735">
+		<name>Load complex\ndatas</name>
+		<description>load Text, CVS, Shapefile, OSM, Grid,\\nimages, SVG, 3DS, OBJ...</description>
+		<prerequisiteList>
+			<prerequisite>global_species</prerequisite>
+		</prerequisiteList>
+	</learningConcept>
+</learningConceptList>
+<topicList>
+	<topic id="gaml_basis" x="0.497" y="0.533" sizeBigHallow="130" xBigHallow="0.483" yBigHallow="0.550" color="rgba(0,32,96,1)">
+		<name>GAML Basis</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>model_structure</learningConceptAssociated>
+			<learningConceptAssociated>programming_basis</learningConceptAssociated>
+			<learningConceptAssociated>global_species</learningConceptAssociated>
+			<learningConceptAssociated>regular_species</learningConceptAssociated>
+			<learningConceptAssociated>actions_and_behaviors</learningConceptAssociated>
+			<learningConceptAssociated>interaction_between_agents</learningConceptAssociated>
+			<learningConceptAssociated>attaching_skills</learningConceptAssociated>
+			<learningConceptAssociated>inheritance</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="advanced_topology" x="0.160" y="0.410" sizeBigHallow="60" xBigHallow="0.175" yBigHallow="0.450" color="rgba(0,176,80,1)">
+		<name>Advanced\nTopology</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>grid</learningConceptAssociated>
+			<learningConceptAssociated>graph</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="mathematical_modelling" x="0.450" y="0.350" sizeBigHallow="90" xBigHallow="0.460" yBigHallow="0.340" color="rgba(0,176,80,1)">
+		<name>Mathematical\nModelling</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>equation</learningConceptAssociated>
+			<learningConceptAssociated>diffusion</learningConceptAssociated>
+			<learningConceptAssociated>defining_charts</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="multi_representation" x="0.815" y="0.307" sizeBigHallow="115" xBigHallow="0.725" yBigHallow="0.349" color="rgba(112,48,160,1)">
+		<name>Multi-representation</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>defining_charts</learningConceptAssociated>
+			<learningConceptAssociated>mirror_species</learningConceptAssociated>
+			<learningConceptAssociated>define_aspect</learningConceptAssociated>
+			<learningConceptAssociated>2d_displays</learningConceptAssociated>
+			<learningConceptAssociated>3d_displays</learningConceptAssociated>
+			<learningConceptAssociated>gui_experiments</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="user_interaction" x="0.633" y="0.157" sizeBigHallow="100" xBigHallow="0.615" yBigHallow="0.145" color="rgba(112,48,160,1)">
+		<name>User Interaction</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>events_and_buttons</learningConceptAssociated>
+			<learningConceptAssociated>user_control_architecture</learningConceptAssociated>
+			<learningConceptAssociated>monitors_and_inspectors</learningConceptAssociated>
+			<learningConceptAssociated>gui_experiments</learningConceptAssociated>
+			<learningConceptAssociated>define_parameters</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="architecture" x="0.455" y="0.115" sizeBigHallow="85" xBigHallow="0.425" yBigHallow="0.138" color="rgba(0,176,80,1)">
+		<name>Architecture</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>user_control_architecture</learningConceptAssociated>
+			<learningConceptAssociated>finite_state_machine</learningConceptAssociated>
+			<learningConceptAssociated>task_based</learningConceptAssociated>
+			<learningConceptAssociated>bdi</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="intelligent_agents" x="0.279" y="0.109" sizeBigHallow="100" xBigHallow="0.257" yBigHallow="0.031" color="rgba(0,176,80,1)">
+		<name>Intelligent\nAgents</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>bdi</learningConceptAssociated>
+			<learningConceptAssociated>fipa_acl</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="optimizing_models" x="0.121" y="0.241" sizeBigHallow="70" xBigHallow="0.145" yBigHallow="0.250" color="rgba(0,176,80,1)">
+		<name>Optimizing\nmodels</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>runtime_and_schedulers</learningConceptAssociated>
+			<learningConceptAssociated>optimizing_tips</learningConceptAssociated>
+			<learningConceptAssociated>multi_level</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="calibration_and_exploration" x="0.167" y="0.711" sizeBigHallow="110" xBigHallow="0.167" yBigHallow="0.711" color="rgba(0,176,240,1)">
+		<name>Calibration and\nExploration</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>run_simulations_as_agents</learningConceptAssociated>
+			<learningConceptAssociated>run_several_models_using_gamanalyzer</learningConceptAssociated>
+			<learningConceptAssociated>batch_experiments</learningConceptAssociated>
+			<learningConceptAssociated>exploration_methods</learningConceptAssociated>
+			<learningConceptAssociated>control_randomness</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="multi_level_multi_paradigm" x="0.335" y="0.261" sizeBigHallow="95" xBigHallow="0.335" yBigHallow="0.258" color="rgba(0,176,80,1)">
+		<name>Multi-level\nMulti-paradigm</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>multi_level</learningConceptAssociated>
+			<learningConceptAssociated>diffusion</learningConceptAssociated>
+			<learningConceptAssociated>equation</learningConceptAssociated>
+			<learningConceptAssociated>task_based</learningConceptAssociated>
+			<learningConceptAssociated>finite_state_machine</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="database_and_data_mining" x="0.653" y="0.765" sizeBigHallow="70" xBigHallow="0.670" yBigHallow="0.803" color="rgba(243,79,79,1)">
+		<name>Database and\nData mining</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>call_r</learningConceptAssociated>
+			<learningConceptAssociated>use_database</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+	<topic id="import_export_files" x="0.810" y="0.666" sizeBigHallow="80" xBigHallow="0.815" yBigHallow="0.663" color="rgba(243,79,79,1)">
+		<name>Import /\nExport files</name>
+		<learningConceptsAssociatedList>
+			<learningConceptAssociated>export_files</learningConceptAssociated>
+			<learningConceptAssociated>use_osm_datas</learningConceptAssociated>
+			<learningConceptAssociated>load_complex_datas</learningConceptAssociated>
+		</learningConceptsAssociatedList>
+	</topic>
+</topicList>
+</xmlFile>
