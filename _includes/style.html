@@ -18,7 +18,7 @@
 		$.getJSON('https://api.github.com/repos/gama-platform/gama/commits', function(data) {
 			var ahtml="";
 			for(var i = 0; i < 5; i++) {
-				ahtml=ahtml+"<li>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["commit"]["html_url"]+"'> See more</a></li>";
+				ahtml=ahtml+"<li>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["html_url"]+"'> See more</a></li>";
 			}
 			ahtml=ahtml+"";
 			$("#commitquotes").html(ahtml);
