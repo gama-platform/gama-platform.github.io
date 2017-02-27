@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multiple application domains
+title: Welcome to Gama Platform
 wikiPageName: Home
 wikiPagePath: wiki/Home.md
 ---
