@@ -1,6 +1,6 @@
 ---
 layout: default
-title: comparison_ABM_EBM_SIR
+title:  comparison_ABM_EBM_SIR
 wikiPageName: Epidemiology-SIR-(ABM-vs-EBM)
 wikiPagePath: wiki/Epidemiology-SIR-(ABM-vs-EBM).md
 ---

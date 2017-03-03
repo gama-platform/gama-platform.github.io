@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Driving Skill
+title:  Driving Skill
 wikiPageName: Driving-Skill
 wikiPagePath: wiki/Driving-Skill.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: simple_ODE_SIR_Predefined
+title:  simple_ODE_SIR_Predefined
 wikiPageName: Epidemiology-SIR-(Built-In)
 wikiPagePath: wiki/Epidemiology-SIR-(Built-In).md
 ---

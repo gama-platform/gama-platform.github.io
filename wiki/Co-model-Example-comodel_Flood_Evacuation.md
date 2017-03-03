@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Comodel of Flood and Evacuation model
+title:  Comodel of Flood and Evacuation model
 wikiPageName: Co-model-Example-comodel_Flood_Evacuation
 wikiPagePath: wiki/Co-model-Example-comodel_Flood_Evacuation.md
 ---

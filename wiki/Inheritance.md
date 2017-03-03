@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Inheritance
+title:  Inheritance
 wikiPageName: Inheritance
 wikiPagePath: wiki/Inheritance.md
 ---

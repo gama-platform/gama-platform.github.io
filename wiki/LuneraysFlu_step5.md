@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5. Definition of 3D displays
+title:  5. Definition of 3D displays
 wikiPageName: LuneraysFlu_step5
 wikiPagePath: wiki/LuneraysFlu_step5.md
 ---

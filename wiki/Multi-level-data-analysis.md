@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-level data analysis
+title:  Multi-level data analysis
 wikiPageName: Multi-level-data-analysis
 wikiPagePath: wiki/Multi-level-data-analysis.md
 ---

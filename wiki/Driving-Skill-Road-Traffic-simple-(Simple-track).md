@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Easy Road Network 
+title:  Easy Road Network 
 wikiPageName: Driving-Skill-Road-Traffic-simple-(Simple-track)
 wikiPagePath: wiki/Driving-Skill-Road-Traffic-simple-(Simple-track).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Boids 3D Analysis
+title:  Boids 3D Analysis
 wikiPageName: Boids-Boids-3D-Analysis
 wikiPagePath: wiki/Boids-Boids-3D-Analysis.md
 ---

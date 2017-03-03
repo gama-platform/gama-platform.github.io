@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Developing architecture
+title:  Developing architecture
 wikiPageName: DevelopingControlArchitectures
 wikiPagePath: wiki/DevelopingControlArchitectures.md
 ---

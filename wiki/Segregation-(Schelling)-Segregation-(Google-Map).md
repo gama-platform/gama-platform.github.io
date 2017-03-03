@@ -1,6 +1,6 @@
 ---
 layout: default
-title: segregationGoogleMap
+title:  segregationGoogleMap
 wikiPageName: Segregation-(Schelling)-Segregation-(Google-Map)
 wikiPagePath: wiki/Segregation-(Schelling)-Segregation-(Google-Map).md
 ---

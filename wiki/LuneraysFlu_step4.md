@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 4. Use of a graph to constraint the movements of people]
+title:  4. Use of a graph to constraint the movements of people]
 wikiPageName: LuneraysFlu_step4
 wikiPagePath: wiki/LuneraysFlu_step4.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Units and constants
+title:  Units and constants
 wikiPageName: UnitsAndConstants
 wikiPagePath: wiki/UnitsAndConstants.md
 ---
@@ -199,29 +199,50 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 
 ## Time units
 
+[//]: # (keyword|constant_#custom)
+* **`#custom`**, value= CUSTOM, Comment: custom: a custom date/time pattern that can be defined in the preferences of GAMA and reused in models
+
+[//]: # (keyword|constant_#cycle)
+* **`#cycle`** (#cycles), value= 1, Comment: cycle: the discrete measure of time in the simulation. Used to force a temporal expression to be expressed in terms of cycles rather than seconds
+
 [//]: # (keyword|constant_#day)
-* **`#day`** (#days,#day), value= 86400.0, Comment: day time unit
+* **`#day`** (#days), value= 86400.0, Comment: day time unit: defines an exact duration of 24 hours
+
+[//]: # (keyword|constant_#epoch)
+* **`#epoch`**, value= No Default Value, Comment: The epoch default starting date as defined by the ISO format (1970-01-01T00:00Z)
 
 [//]: # (keyword|constant_#h)
-* **`#h`** (#hour,#hours), value= 3600.0, Comment: hour time unit
+* **`#h`** (#hour,#hours), value= 3600.0, Comment: hour time unit: defines an exact duration of 60 minutes
+
+[//]: # (keyword|constant_#iso_local)
+* **`#iso_local`**, value= ISO_LOCAL_DATE_TIME, Comment: iso_local: the standard ISO 8601 output / parsing format for local dates (i.e. with no time-zone information)
+
+[//]: # (keyword|constant_#iso_offset)
+* **`#iso_offset`**, value= ISO_OFFSET_DATE_TIME, Comment: iso_offset: the standard ISO 8601 output / parsing format for dates with a time offset
+
+[//]: # (keyword|constant_#iso_zoned)
+* **`#iso_zoned`**, value= ISO_ZONED_DATE_TIME, Comment: iso_zoned: the standard ISO 8601 output / parsing format for dates with a time zone
 
 [//]: # (keyword|constant_#minute)
-* **`#minute`** (#minutes,#mn), value= 60.0, Comment: minute time unit
+* **`#minute`** (#minutes,#mn), value= 60.0, Comment: minute time unit: defined an exact duration of 60 seconds
 
 [//]: # (keyword|constant_#month)
-* **`#month`** (#months), value= 2592000.0, Comment: month time unit. Note that 1 month equals 30 days and 1 year 360 days in these units
+* **`#month`** (#months), value= 2592000.0, Comment: month time unit: does not define an exact duration. The duration will depend on the step/date at which this unit is computed.
 
 [//]: # (keyword|constant_#msec)
-* **`#msec`** (#millisecond,#milliseconds,#ms), value= 0.001, Comment: millisecond time unit
+* **`#msec`** (#millisecond,#milliseconds,#ms), value= 0.001, Comment: millisecond time unit: defines an exact duration of 0.001 second
 
 [//]: # (keyword|constant_#now)
-* **`#now`**, value= 1.0, Comment: This constant represents the current date
+* **`#now`**, value= 1.0, Comment: This value represents the current date
 
 [//]: # (keyword|constant_#sec)
-* **`#sec`** (#second,#seconds,#s), value= 1.0, Comment: second: the time basic unit
+* **`#sec`** (#second,#seconds,#s), value= 1.0, Comment: second: the time basic unit, with a fixed value of 1. All other durations are expressed with respect to it
+
+[//]: # (keyword|constant_#week)
+* **`#week`** (#weeks), value= 604800.0, Comment: week time unit: defines an exact duration of  7 days
 
 [//]: # (keyword|constant_#year)
-* **`#year`** (#years,#y), value= 3.1104E7, Comment: year time unit. Note that 1 month equals 30 days and 1 year 360 days in these units
+* **`#year`** (#years,#y), value= 3.1104E7, Comment: year time unit: does not define an exact duration. The duration will depend on the step/date at which this unit is computed.
 		
 ----
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Errors View
+title:  Errors View
 wikiPageName: ErrorsView
 wikiPagePath: wiki/ErrorsView.md
 ---

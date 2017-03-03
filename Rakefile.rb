@@ -4,7 +4,7 @@ require 'uri'
 # use Jekyll configuration file
 CONFIG = YAML.load_file("_config.yml")
 URL_LAYOUT_DEFAULT = "../_layouts/default.html"
-URL_MENU_FILE = "./WebsiteTreeStructure.txt"
+URL_MENU_FILE = "_Sidebar.md"
 task default: :build_dev
 
 # == Helpers ===========================================
@@ -68,6 +68,7 @@ def copy_wiki_pages
   copyResources()
   defineLayoutMenu()
   FileUtils.cp(File.join("#{g('wiki_dest')}","Home.md"),"index.md")
+  FileUtils.cp(File.join("#{g('wiki_source')}","_Sidebar.md"),"_includes/menu.md")
   rm_rf File.join("#{g('wiki_dest')}","Home.md")
 end
 def copyResources()
@@ -84,9 +85,7 @@ def findResources(folder)
   subdir_list.each do |subfolder|
     findResources(File.join(folder,subfolder))
   end
-  Dir.glob(File.join("#{g('wiki_source')}",folder,"[A-Za-z]*.*")) do |aResource|
-    FileUtils.cp(aResource,File.join("#{g('wiki_dest')}",folder,File.basename(aResource)))
-  end
+  FileUtils.cp_r File.join("#{g('wiki_source')}",folder,"."),File.join("#{g('wiki_dest')}",folder)
 end
 def findPages(folder)
   subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..' || entry =="resources") }
@@ -100,23 +99,27 @@ def findPages(folder)
       # remove extension
       wikiPageName    = wikiPageFileName.sub(/.[^.]+\z/,'')
       wikiPageTitle = File.basename(wikiPageName)
-      File.foreach(aFile) do |line|
-        if(line.include? "#")and(line[0]=="#")
-          wikiPageTitle = line.gsub("\#","")
-          wikiPageTitle = wikiPageTitle.gsub("\n","")
-          if(wikiPageTitle[0]!=" ")
-            wikiPageTitle=" "+wikiPageTitle
-          end
-          break
-        end
-      end 
+      if(wikiPageName!="Home")
+          puts wikiPageName
+	      File.foreach(aFile) do |line|
+	        if(line.include? "#")and(line[0]=="#")
+	          wikiPageTitle = line.gsub("\#","")
+	          wikiPageTitle = wikiPageTitle.gsub("\n","")
+	          if(wikiPageTitle[0]!=" ")
+	            wikiPageTitle=" "+wikiPageTitle
+	          end
+	          break
+	        end
+	      end 
+      end
+      
       fileContent      = File.read(aFile)
       folderString = File.join("#{g('wiki_dest')}",folder)
       # write the new file with yaml front matter
       open(wikiPagePath, 'w') do |newWikiPage|
         newWikiPage.puts "---"
         newWikiPage.puts "layout: default"
-        newWikiPage.puts "title:#{wikiPageTitle}"
+        newWikiPage.puts "title: #{wikiPageTitle}"
         # used to transform links
         newWikiPage.puts "wikiPageName: #{wikiPageName}"
         newWikiPage.puts "wikiPagePath: #{wikiPagePath}"
@@ -141,44 +144,47 @@ def defineLayoutMenu
     <!doctype html><html lang="en"><head><meta charset="utf-8"><title>{{ page.title }}</title></head>
     <body>
     {% include style.html %}
-      <div id="left">'
-    oldUnder=-1
+      <div id="left">
+      <ul>
+      <li><h3><a href="/">Home</a></h3></li>
+      <li><h3><a href="/discussions/">Discussions</a></h3></li>'
+      
+    nbSpaceLast = 0
     File.foreach(File.join("#{g('wiki_source')}",URL_MENU_FILE)) do |line|
-      currentUnder = count_em(line,"-")
-      #Fils du courant
-      if(currentUnder>oldUnder)
-        if(oldUnder==-1)
-          newLayout.puts '
-		<ul class="mcd-menu"><li><a href="/">Home</a></li><li><a href="/">Discussions</a></li>'
-        else
-          newLayout.puts "<ul class='sub'>"
-        end
-        oldUnder=currentUnder
-      else
-        #Père du courant
-        if(currentUnder<oldUnder)
-          loop do 
-            newLayout.puts "</ul>"
-            oldUnder = oldUnder -1
-            break if oldUnder==currentUnder
-          end
-        end
+      nbSpace = line[/\A */].size
+      if(line =~ /^[0-9].*/)
+      	nbSpace = [1,nbSpace].max
       end
-      fileWithName = File.join("#{g('wiki_dest')}","/"+line.gsub("-","")).gsub("\n","")
-      title=line
-      if(File.exists?(fileWithName+".md"))
-        File.foreach(fileWithName+".md") do |row|
-          if(row.include? "title:")
-            title = row
-            break
-          end
-        end 
-        newLayout.puts "<li><a href='/"+fileWithName+"'>"+title.gsub("title: ","")+"</a>"+"</li>"
-      else
-        newLayout.puts "<li>"+title.gsub("-","")+"</li>"
+      unless(line.include?"Home" or /\S/ !~ line)
+      	if(nbSpace>nbSpaceLast)
+      		newLayout.puts "<ul>"
+      		nbSpaceLast=nbSpace
+      	else
+      		if(nbSpace<nbSpaceLast)
+      			while(nbSpaceLast>nbSpace)
+	      			newLayout.puts "</ul>"
+	      			nbSpaceLast=nbSpaceLast-1
+      			end
+      		end
+      	end
+      	htmlLink = linkup(line,"/wiki/")
+      	if(htmlLink!="")
+      		newLayout.puts "<li>"
+      	  if(line.include?"##")
+	      	line.sub!("##","")
+      		newLayout.puts "<h3>"
+      		newLayout.puts linkup(line,"/wiki/")
+      		newLayout.puts "</h3>"
+	      else
+	      	newLayout.puts linkup(line,"/wiki/")
+	      end
+      	newLayout.puts "</li>"
+      	end
+      	
       end
+      
     end
-    newLayout.puts '</ul></ul></div><div id="right">
+    newLayout.puts '</div><div id="right">
 <h3>Facebook Activities</h3>
 <ul id="fbquotes">
 </ul>
@@ -192,9 +198,58 @@ def defineLayoutMenu
 <ul id="googleusersquotes">
 </ul>
 </div><div id="content">{{ content }}</div></body></html>'
-  end
+end
   
  
+end
+def linkup( str, opt )
+
+  link = ""
+  label = ""
+  countBracket = 0
+  countParenthesis = 0
+  startCut=-1
+  endCut=-1
+  find = false
+ 
+  puts str;
+  for i in 0..str.length-1
+  	if(str[i]=="[")
+  	   countBracket = countBracket +1
+  	   if(countBracket==1)and(find==false)
+  	      startCut = i+1
+  	   end
+  	else
+  	   if(str[i]=="]")
+  	      countBracket = countBracket -1
+  	      if(countBracket ==0)and(find==false)
+  	         endCut = i-1
+  	         find=true
+  		     label=str[startCut..endCut]
+  	      end
+  	   end
+  	end
+  	
+  	if(str[i]=="(")and(find==true)
+  		countParenthesis=countParenthesis+1
+  		if(countParenthesis==1)
+  			startCut = i+1
+  		end
+  	else
+  		if(str[i]==")")and(find==true)
+  			countParenthesis=countParenthesis-1
+  			if(countParenthesis==0)
+  				endCut = i-1
+  	            link = str[startCut..endCut]
+  			end
+  		end
+  	end
+  end
+  if(label=="")
+  	str=""
+  else
+  	str='<a href="'+opt+link+'">'+label+'</a>'
+  end
 end
 def build_jekyll
   system 'jekyll build'

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Simple SI Model
+title:  1. Simple SI Model
 wikiPageName: IncrementalModel_step1
 wikiPagePath: wiki/IncrementalModel_step1.md
 ---

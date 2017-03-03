@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Clustering of agents by K Means and DBScan
+title:   Clustering of agents by K Means and DBScan
 wikiPageName: Clustering-Clustering
 wikiPagePath: wiki/Clustering-Clustering.md
 ---

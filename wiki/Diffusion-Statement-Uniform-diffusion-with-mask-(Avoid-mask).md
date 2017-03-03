@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Uniform diffusion with mask (Avoid mask)
+title:  Uniform diffusion with mask (Avoid mask)
 wikiPageName: Diffusion-Statement-Uniform-diffusion-with-mask-(Avoid-mask)
 wikiPagePath: wiki/Diffusion-Statement-Uniform-diffusion-with-mask-(Avoid-mask).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Co-model Example
+title:  Co-model Example
 wikiPageName: Co-model-Example
 wikiPagePath: wiki/Co-model-Example.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Water-management tutorial
+title:  Water-management tutorial
 wikiPageName: Event__CP12Water
 wikiPagePath: wiki/Event__CP12Water.md
 ---

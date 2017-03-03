@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Traffic simulation and Physics constraints operators
+title:  Traffic simulation and Physics constraints operators
 wikiPageName: Event__CP12traffic
 wikiPagePath: wiki/Event__CP12traffic.md
 ---

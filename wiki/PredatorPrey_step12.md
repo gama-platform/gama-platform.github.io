@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 12. Image loading
+title:  12. Image loading
 wikiPageName: PredatorPrey_step12
 wikiPagePath: wiki/PredatorPrey_step12.md
 ---

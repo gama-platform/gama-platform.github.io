@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2. People Agents
+title:  2. People Agents
 wikiPageName: RoadTrafficModel_step2
 wikiPagePath: wiki/RoadTrafficModel_step2.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Comodel
+title:  Using Comodel
 wikiPageName: Comodel
 wikiPagePath: wiki/Comodel.md
 ---

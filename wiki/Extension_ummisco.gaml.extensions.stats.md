@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extension
+title:  Extension
 wikiPageName: Extension_ummisco.gaml.extensions.stats
 wikiPagePath: wiki/Extension_ummisco.gaml.extensions.stats.md
 ---
@@ -491,8 +491,8 @@ Returns the value, t, for which the area under the Student-t probability density
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 
 ----
 

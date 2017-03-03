@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining actions and behaviors
+title:  Defining actions and behaviors
 wikiPageName: DefiningActionsAndBehaviors
 wikiPagePath: wiki/DefiningActionsAndBehaviors.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installing the SVN version
+title:  Installing the SVN version
 wikiPageName: InstallingSvnOldVersions
 wikiPagePath: wiki/InstallingSvnOldVersions.md
 ---

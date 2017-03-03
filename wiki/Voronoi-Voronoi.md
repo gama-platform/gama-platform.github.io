@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Voronoi
+title:  Voronoi
 wikiPageName: Voronoi-Voronoi
 wikiPagePath: wiki/Voronoi-Voronoi.md
 ---

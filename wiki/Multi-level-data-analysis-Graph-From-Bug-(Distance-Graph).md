@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SpatialGraph
+title:  SpatialGraph
 wikiPageName: Multi-level-data-analysis-Graph-From-Bug-(Distance-Graph)
 wikiPagePath: wiki/Multi-level-data-analysis-Graph-From-Bug-(Distance-Graph).md
 ---

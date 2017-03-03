@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Coding Activities Summary
+title:  Coding Activities Summary
 wikiPageName: Event__CodingCamp2012
 wikiPagePath: wiki/Event__CodingCamp2012.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 8. Complex Behavior
+title:  8. Complex Behavior
 wikiPageName: PredatorPrey_step8
 wikiPagePath: wiki/PredatorPrey_step8.md
 ---

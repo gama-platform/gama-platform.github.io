@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Learning
+title:  Learning
 wikiPageName: Learning
 wikiPagePath: wiki/Learning.md
 ---

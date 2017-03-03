@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA Propose (2)
+title:  FIPA Propose (2)
 wikiPageName: FIPA-Skill-FIPA-Propose-(2)
 wikiPagePath: wiki/FIPA-Skill-FIPA-Propose-(2).md
 ---

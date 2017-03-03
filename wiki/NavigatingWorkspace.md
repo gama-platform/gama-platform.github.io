@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Navigating in the Workspace
+title:  Navigating in the Workspace
 wikiPageName: NavigatingWorkspace
 wikiPagePath: wiki/NavigatingWorkspace.md
 ---

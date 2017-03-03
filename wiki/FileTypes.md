@@ -1,6 +1,6 @@
 ---
 layout: default
-title: File Types
+title:  File Types
 wikiPageName: FileTypes
 wikiPagePath: wiki/FileTypes.md
 ---

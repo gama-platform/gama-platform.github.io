@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ville 4
+title:  Ville 4
 wikiPageName: Articles-ville_4
 wikiPagePath: wiki/Articles-ville_4.md
 ---

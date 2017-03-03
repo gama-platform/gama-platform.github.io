@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contribute
+title:  Contribute
 wikiPageName: Contribute
 wikiPagePath: wiki/Contribute.md
 ---

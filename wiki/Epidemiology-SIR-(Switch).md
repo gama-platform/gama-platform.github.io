@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SIR_switch
+title:  SIR_switch
 wikiPageName: Epidemiology-SIR-(Switch)
 wikiPagePath: wiki/Epidemiology-SIR-(Switch).md
 ---

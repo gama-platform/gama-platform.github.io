@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-level architecture
+title:  Multi-level architecture
 wikiPageName: MultiLevelArchitecture
 wikiPagePath: wiki/MultiLevelArchitecture.md
 ---

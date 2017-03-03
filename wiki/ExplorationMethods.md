@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exploration Methods
+title:  Exploration Methods
 wikiPageName: ExplorationMethods
 wikiPagePath: wiki/ExplorationMethods.md
 ---

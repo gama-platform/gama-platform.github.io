@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Validation of Models
+title:  Validation of Models
 wikiPageName: ValidationOfModels
 wikiPagePath: wiki/ValidationOfModels.md
 ---

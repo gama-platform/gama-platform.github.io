@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Evacuation
+title:  Evacuation
 wikiPageName: Evacuation
 wikiPagePath: wiki/Evacuation.md
 ---

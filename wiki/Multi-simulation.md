@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-simulation
+title:  Multi-simulation
 wikiPageName: Multi-simulation
 wikiPagePath: wiki/Multi-simulation.md
 ---

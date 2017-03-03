@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Graph Generation using Agents
+title:  Graph Generation using Agents
 wikiPageName: Graphs-Graph-Building-From-Agents
 wikiPagePath: wiki/Graphs-Graph-Building-From-Agents.md
 ---

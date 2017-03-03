@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SLD-based aspects
+title:  SLD-based aspects
 wikiPageName: Event__CP12SLD
 wikiPagePath: wiki/Event__CP12SLD.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Welcome to Gama Platform
+title: Home
 wikiPageName: Home
 wikiPagePath: wiki/Home.md
 ---

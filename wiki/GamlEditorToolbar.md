@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The GAML Editor Toolbar
+title:  The GAML Editor Toolbar
 wikiPageName: GamlEditorToolbar
 wikiPagePath: wiki/GamlEditorToolbar.md
 ---

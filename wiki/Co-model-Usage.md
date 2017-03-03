@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Co-model Usage
+title:  Co-model Usage
 wikiPageName: Co-model-Usage
 wikiPagePath: wiki/Co-model-Usage.md
 ---

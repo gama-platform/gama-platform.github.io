@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multicriteria
+title:  Multicriteria
 wikiPageName: Multicriteria-decision-Multicriteria
 wikiPagePath: wiki/Multicriteria-decision-Multicriteria.md
 ---

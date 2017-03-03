@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  CreateBuildingTableMySQL
+title:   CreateBuildingTableMySQL
 wikiPageName: Database-Usage-Create-Spatial-Table-in-MySQL
 wikiPagePath: wiki/Database-Usage-Create-Spatial-Table-in-MySQL.md
 ---

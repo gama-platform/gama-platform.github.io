@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mirror species
+title:  Mirror species
 wikiPageName: MirrorSpecies
 wikiPagePath: wiki/MirrorSpecies.md
 ---

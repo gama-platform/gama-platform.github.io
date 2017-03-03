@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Updating GAMA
+title:  Updating GAMA
 wikiPageName: Updating
 wikiPagePath: wiki/Updating.md
 ---

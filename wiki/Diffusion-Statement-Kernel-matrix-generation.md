@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Generate diffusion matrix with parameters
+title:  Generate diffusion matrix with parameters
 wikiPageName: Diffusion-Statement-Kernel-matrix-generation
 wikiPagePath: wiki/Diffusion-Statement-Kernel-matrix-generation.md
 ---

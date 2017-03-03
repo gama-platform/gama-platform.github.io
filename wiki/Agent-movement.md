@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Agent movement
+title:  Agent movement
 wikiPageName: Agent-movement
 wikiPagePath: wiki/Agent-movement.md
 ---

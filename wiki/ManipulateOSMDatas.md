@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Manipulate OSM Datas
+title:  Manipulate OSM Datas
 wikiPageName: ManipulateOSMDatas
 wikiPagePath: wiki/ManipulateOSMDatas.md
 ---

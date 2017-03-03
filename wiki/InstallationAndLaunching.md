@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installation and Launching
+title:  Installation and Launching
 wikiPageName: InstallationAndLaunching
 wikiPagePath: wiki/InstallationAndLaunching.md
 ---

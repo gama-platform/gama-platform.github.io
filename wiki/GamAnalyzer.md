@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using GAMAnalyzer
+title:  Using GAMAnalyzer
 wikiPageName: GamAnalyzer
 wikiPagePath: wiki/GamAnalyzer.md
 ---

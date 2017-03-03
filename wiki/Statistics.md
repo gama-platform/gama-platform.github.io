@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Statistics
+title:  Statistics
 wikiPageName: Statistics
 wikiPagePath: wiki/Statistics.md
 ---

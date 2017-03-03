@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SpatialGraph3d
+title:  SpatialGraph3d
 wikiPageName: Multi-level-data-analysis-Graph-From-Bug-(Mirror-Graph)
 wikiPagePath: wiki/Multi-level-data-analysis-Graph-From-Bug-(Mirror-Graph).md
 ---

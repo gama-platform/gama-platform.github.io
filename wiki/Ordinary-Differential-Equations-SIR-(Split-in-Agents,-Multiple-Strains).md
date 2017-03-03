@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SIR (Split in Agents, Multiple Strains)
+title:  SIR (Split in Agents, Multiple Strains)
 wikiPageName: Ordinary-Differential-Equations-SIR-(Split-in-Agents,-Multiple-Strains)
 wikiPagePath: wiki/Ordinary-Differential-Equations-SIR-(Split-in-Agents,-Multiple-Strains).md
 ---

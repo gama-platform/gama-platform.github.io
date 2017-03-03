@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Charts
+title:  Charts
 wikiPageName: Incremental-Model-Incremental-Model-2
 wikiPagePath: wiki/Incremental-Model-Incremental-Model-2.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Types
+title:  Types
 wikiPageName: DataTypes
 wikiPagePath: wiki/DataTypes.md
 ---

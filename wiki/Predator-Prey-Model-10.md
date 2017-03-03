@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Definition of charts
+title:  Definition of charts
 wikiPageName: Predator-Prey-Model-10
 wikiPagePath: wiki/Predator-Prey-Model-10.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 4. Movement on Graph
+title:  4. Movement on Graph
 wikiPageName: IncrementalModel_step4
 wikiPagePath: wiki/IncrementalModel_step4.md
 ---

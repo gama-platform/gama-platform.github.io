@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Graph Operators
+title:  Graph Operators
 wikiPageName: Graphs-Graph-Operators
 wikiPagePath: wiki/Graphs-Graph-Operators.md
 ---

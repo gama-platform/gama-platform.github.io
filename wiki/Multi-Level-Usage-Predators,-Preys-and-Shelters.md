@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-Level Architecture with Preys and Predators
+title:  Multi-Level Architecture with Preys and Predators
 wikiPageName: Multi-Level-Usage-Predators,-Preys-and-Shelters
 wikiPagePath: wiki/Multi-Level-Usage-Predators,-Preys-and-Shelters.md
 ---

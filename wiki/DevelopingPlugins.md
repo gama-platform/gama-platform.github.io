@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Developing Plugins
+title:  Developing Plugins
 wikiPageName: DevelopingPlugins
 wikiPagePath: wiki/DevelopingPlugins.md
 ---

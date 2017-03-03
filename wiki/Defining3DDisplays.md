@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining 3D Displays
+title:  Defining 3D Displays
 wikiPageName: Defining3DDisplays
 wikiPagePath: wiki/Defining3DDisplays.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Equations
+title:  Using Equations
 wikiPageName: Equations
 wikiPagePath: wiki/Equations.md
 ---

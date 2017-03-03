@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Tutorials
+title:  Tutorials
 wikiPageName: Tutorials
 wikiPagePath: wiki/Tutorials.md
 ---

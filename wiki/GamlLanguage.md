@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GAML
+title:  GAML
 wikiPageName: GamlLanguage
 wikiPagePath: wiki/GamlLanguage.md
 ---

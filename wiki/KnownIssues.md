@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Known issues
+title:  Known issues
 wikiPageName: KnownIssues
 wikiPagePath: wiki/KnownIssues.md
 ---

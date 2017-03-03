@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Platform
+title:  Platform
 wikiPageName: PlatformDocumentation
 wikiPagePath: wiki/PlatformDocumentation.md
 ---

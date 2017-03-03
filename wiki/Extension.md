@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extensions
+title:  Extensions
 wikiPageName: Extension
 wikiPagePath: wiki/Extension.md
 ---
@@ -15,8 +15,7 @@ wikiPagePath: wiki/Extension.md
 This page provides a link to each of the extension pages. Extensions are the additional GAMA plugins that exist in the GAMA GitHub repository but will not be packaged with the release. **These extensions are not maintained by GAMA core team but by their authors.**
 * [idees.gama.weka](PluginDocumentation/Extension_idees.gama.weka)
 * [ummisco.gaml.extensions.stats](PluginDocumentation/Extension_ummisco.gaml.extensions.stats)
+* [miat.gama.extension.ifcfile](PluginDocumentation/Extension_miat.gama.extension.ifcfile)
 * [ummisco.gaml.extensions.sound](PluginDocumentation/Extension_ummisco.gaml.extensions.sound)
-* [ummisco.gama.serialize](PluginDocumentation/Extension_ummisco.gama.serialize)
 * [simtools.graphanalysis.fr](PluginDocumentation/Extension_simtools.graphanalysis.fr)
-* [ummisco.gama.network](PluginDocumentation/Extension_ummisco.gama.network)
 * [ummisco.gaml.extensions.rjava](PluginDocumentation/Extension_ummisco.gaml.extensions.rjava)

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Anisotropic diffusion (Toroidal)
+title:  Anisotropic diffusion (Toroidal)
 wikiPageName: Diffusion-Statement-Anisotropic-Diffusion-(Toroidal)
 wikiPagePath: wiki/Diffusion-Statement-Anisotropic-Diffusion-(Toroidal).md
 ---

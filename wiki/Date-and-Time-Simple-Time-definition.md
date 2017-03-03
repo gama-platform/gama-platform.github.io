@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple definition of time property in a model
+title:  Simple definition of time property in a model
 wikiPageName: Date-and-Time-Simple-Time-definition
 wikiPagePath: wiki/Date-and-Time-Simple-Time-definition.md
 ---

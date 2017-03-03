@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SIR without ODE
+title:  SIR without ODE
 wikiPageName: Epidemiology-Susceptible-Infected-Recovered-(SIR)
 wikiPagePath: wiki/Epidemiology-Susceptible-Infected-Recovered-(SIR).md
 ---

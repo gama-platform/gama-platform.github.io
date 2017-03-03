@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Agents from Database in PostGIS
+title:   Agents from Database in PostGIS
 wikiPageName: Database-Usage-Agents-from-Database-in-PostGIS
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-PostGIS.md
 ---

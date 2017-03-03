@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Clock
+title:  Clock
 wikiPageName: Clock-Clock
 wikiPagePath: wiki/Clock-Clock.md
 ---

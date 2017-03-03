@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Integration of GIS Data
+title:  Integration of GIS Data
 wikiPageName: Incremental-Model-Incremental-Model-3
 wikiPagePath: wiki/Incremental-Model-Incremental-Model-3.md
 ---

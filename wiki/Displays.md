@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Displays
+title:  Displays
 wikiPageName: Displays
 wikiPagePath: wiki/Displays.md
 ---

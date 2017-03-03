@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction
+title:  Introduction
 wikiPageName: Event__PDI2012
 wikiPagePath: wiki/Event__PDI2012.md
 ---

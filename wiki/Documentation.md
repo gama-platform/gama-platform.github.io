@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Table of contents 
+title:  Table of contents 
 wikiPageName: Documentation
 wikiPagePath: wiki/Documentation.md
 ---

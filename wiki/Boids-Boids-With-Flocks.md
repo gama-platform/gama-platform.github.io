@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Boids With Flocks
+title:  Boids With Flocks
 wikiPageName: Boids-Boids-With-Flocks
 wikiPagePath: wiki/Boids-Boids-With-Flocks.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Headless operation
+title:  Headless operation
 wikiPageName: Event__CP12Headless
 wikiPagePath: wiki/Event__CP12Headless.md
 ---

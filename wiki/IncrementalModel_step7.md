@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 7. Differential Equations
+title:  7. Differential Equations
 wikiPageName: IncrementalModel_step7
 wikiPagePath: wiki/IncrementalModel_step7.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pseudo-variables
+title:  Pseudo-variables
 wikiPageName: PseudoVariables
 wikiPagePath: wiki/PseudoVariables.md
 ---

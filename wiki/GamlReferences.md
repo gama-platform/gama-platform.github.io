@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Gaml Reference
+title:  Gaml Reference
 wikiPageName: GamlReferences
 wikiPagePath: wiki/GamlReferences.md
 ---

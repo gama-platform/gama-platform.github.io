@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Road Traffic
+title:  Road Traffic
 wikiPageName: RoadTrafficModel
 wikiPagePath: wiki/RoadTrafficModel.md
 ---

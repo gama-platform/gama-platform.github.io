@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Vote
+title:  Vote
 wikiPageName: Vote
 wikiPagePath: wiki/Vote.md
 ---

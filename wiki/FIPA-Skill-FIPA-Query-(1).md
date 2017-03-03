@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA Query
+title:  FIPA Query
 wikiPageName: FIPA-Skill-FIPA-Query-(1)
 wikiPagePath: wiki/FIPA-Skill-FIPA-Query-(1).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: comodel_with_the_coupling
+title:  comodel_with_the_coupling
 wikiPageName: Co-model-Usage-comodel_mutate_population
 wikiPagePath: wiki/Co-model-Usage-comodel_mutate_population.md
 ---

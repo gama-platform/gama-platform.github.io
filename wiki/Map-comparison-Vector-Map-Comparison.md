@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Vector Map Comparison
+title:  Vector Map Comparison
 wikiPageName: Map-comparison-Vector-Map-Comparison
 wikiPagePath: wiki/Map-comparison-Vector-Map-Comparison.md
 ---

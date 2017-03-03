@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Graphical Editor
+title:  The Graphical Editor
 wikiPageName: GraphicalEditor
 wikiPagePath: wiki/GraphicalEditor.md
 ---

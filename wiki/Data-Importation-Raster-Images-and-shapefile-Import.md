@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Raster File and Shapefiles Import
+title:  Raster File and Shapefiles Import
 wikiPageName: Data-Importation-Raster-Images-and-shapefile-Import
 wikiPagePath: wiki/Data-Importation-Raster-Images-and-shapefile-Import.md
 ---

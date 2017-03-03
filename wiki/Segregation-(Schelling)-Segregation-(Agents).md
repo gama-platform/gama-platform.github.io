@@ -1,6 +1,6 @@
 ---
 layout: default
-title: segregationAgents
+title:  segregationAgents
 wikiPageName: Segregation-(Schelling)-Segregation-(Agents)
 wikiPagePath: wiki/Segregation-(Schelling)-Segregation-(Agents).md
 ---

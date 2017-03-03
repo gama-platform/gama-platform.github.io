@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Database Access
+title:  Using Database Access
 wikiPageName: UsingDatabase
 wikiPagePath: wiki/UsingDatabase.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lists
+title:  Lists
 wikiPageName: Syntax-models-Lists
 wikiPagePath: wiki/Syntax-models-Lists.md
 ---

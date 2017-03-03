@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Syntax in GAML
+title:  Syntax in GAML
 wikiPageName: SerializeAgents
 wikiPagePath: wiki/SerializeAgents.md
 ---

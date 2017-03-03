@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The global species
+title:  The global species
 wikiPageName: GlobalSpecies
 wikiPagePath: wiki/GlobalSpecies.md
 ---
@@ -33,7 +33,7 @@ global {
 [//]: # (keyword|concept_torus)
 `global` can use facets, such as the `torus` facet, to make the environment a torus or not (if it is a torus, all the agents going out of the environment will appear in the other side. If it's not, the agents won't be able to go out of the environment). By default, the environment is not a torus.
 
-![images/torus.png](/resources/images/manipulateBasicSpecies/torus.png) 
+![images/torus.png](resources/images/manipulateBasicSpecies/torus.png) 
 
 ```
 global torus:true {

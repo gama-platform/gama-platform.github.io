@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Raster Map Comparison
+title:  Raster Map Comparison
 wikiPageName: Map-comparison-Raster-Map-Comparison
 wikiPagePath: wiki/Map-comparison-Raster-Map-Comparison.md
 ---

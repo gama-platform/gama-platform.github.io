@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA Contract Net (2)
+title:  FIPA Contract Net (2)
 wikiPageName: FIPA-Skill-FIPA-CFP-(2)
 wikiPagePath: wiki/FIPA-Skill-FIPA-CFP-(2).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Download GAMA
+title:  Download GAMA
 wikiPageName: Download
 wikiPagePath: wiki/Download.md
 ---

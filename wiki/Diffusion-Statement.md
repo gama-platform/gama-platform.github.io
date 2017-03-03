@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Diffusion Statement
+title:  Diffusion Statement
 wikiPageName: Diffusion-Statement
 wikiPagePath: wiki/Diffusion-Statement.md
 ---

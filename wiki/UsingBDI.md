@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using BDI
+title:  Using BDI
 wikiPageName: UsingBDI
 wikiPagePath: wiki/UsingBDI.md
 ---

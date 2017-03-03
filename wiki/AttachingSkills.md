@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Attaching Skills
+title:  Attaching Skills
 wikiPageName: AttachingSkills
 wikiPagePath: wiki/AttachingSkills.md
 ---

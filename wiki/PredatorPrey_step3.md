@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3. Prey Agent Behavior
+title:  3. Prey Agent Behavior
 wikiPageName: PredatorPrey_step3
 wikiPagePath: wiki/PredatorPrey_step3.md
 ---

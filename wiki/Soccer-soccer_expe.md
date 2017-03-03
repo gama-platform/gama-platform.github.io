@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Soccer game (Various strategies)
+title:  Soccer game (Various strategies)
 wikiPageName: Soccer-soccer_expe
 wikiPagePath: wiki/Soccer-soccer_expe.md
 ---

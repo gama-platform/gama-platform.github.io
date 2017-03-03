@@ -1,6 +1,6 @@
 ---
 layout: default
-title: What's next ?
+title:  What's next ?
 wikiPageName: WhatsNext
 wikiPagePath: wiki/WhatsNext.md
 ---

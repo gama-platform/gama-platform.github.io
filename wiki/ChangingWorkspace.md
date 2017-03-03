@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Changing Workspace
+title:  Changing Workspace
 wikiPageName: ChangingWorkspace
 wikiPagePath: wiki/ChangingWorkspace.md
 ---

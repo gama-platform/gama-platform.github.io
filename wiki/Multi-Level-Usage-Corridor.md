@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Corridor Multi-Level Architecture
+title:  Corridor Multi-Level Architecture
 wikiPageName: Multi-Level-Usage-Corridor
 wikiPagePath: wiki/Multi-Level-Usage-Corridor.md
 ---

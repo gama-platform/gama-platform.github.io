@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA Skill
+title:  FIPA Skill
 wikiPageName: FIPA-Skill
 wikiPagePath: wiki/FIPA-Skill.md
 ---

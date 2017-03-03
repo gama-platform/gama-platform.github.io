@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Agents from Database in MySQL
+title:   Agents from Database in MySQL
 wikiPageName: Database-Usage-Agents-from-Database-in-MySQL
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-MySQL.md
 ---

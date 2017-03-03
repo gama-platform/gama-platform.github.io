@@ -1,6 +1,6 @@
 ---
 layout: default
-title: _soccerbase
+title:  _soccerbase
 wikiPageName: Soccer-soccer_base
 wikiPagePath: wiki/Soccer-soccer_base.md
 ---

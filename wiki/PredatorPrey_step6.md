@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 6. Breeding
+title:  6. Breeding
 wikiPageName: PredatorPrey_step6
 wikiPagePath: wiki/PredatorPrey_step6.md
 ---

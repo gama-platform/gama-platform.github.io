@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 7. Agent Aspect
+title:  7. Agent Aspect
 wikiPageName: PredatorPrey_step7
 wikiPagePath: wiki/PredatorPrey_step7.md
 ---

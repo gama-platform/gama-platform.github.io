@@ -1,6 +1,6 @@
 ---
 layout: default
-title: grid_move
+title:  grid_move
 wikiPageName: Evacuation-Move-on-Grid
 wikiPagePath: wiki/Evacuation-Move-on-Grid.md
 ---

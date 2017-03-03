@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Anisotropic diffusion (Simple)
+title:  Anisotropic diffusion (Simple)
 wikiPageName: Diffusion-Statement-Anisotropic-Diffusion-(Simple)
 wikiPagePath: wiki/Diffusion-Statement-Anisotropic-Diffusion-(Simple).md
 ---

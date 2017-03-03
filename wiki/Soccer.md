@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Soccer
+title:  Soccer
 wikiPageName: Soccer
 wikiPagePath: wiki/Soccer.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Circle
+title:  Circle
 wikiPageName: Circle-Circle
 wikiPagePath: wiki/Circle-Circle.md
 ---

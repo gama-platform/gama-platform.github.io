@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Charts
+title:  Charts
 wikiPageName: Charts
 wikiPagePath: wiki/Charts.md
 ---

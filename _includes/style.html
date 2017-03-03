@@ -1,9 +1,20 @@
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css">
+ <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="//connect.facebook.net/en_US/all.js"></script>
 <script src="/linkify.min.js"></script>
 <script src="/linkify-jquery.min.js"></script>
 <script>
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl  : 'index.json',           // url for the .json file containing search index data
+      results   : '#search-results',          // selector for containing search results element
+      template  : '#search-results-template', // selector for Mustache.js template
+      titleMsg  : '<h1>Search results<h1>',   // message attached in front of results (can be empty)
+      emptyMsg  : '<p>Nothing found.</p>'     // shown message if search returns no results
+    });
+  });
   $(document).ready(function(){
 	  		$.getJSON('https://graph.facebook.com/238065426321929/feed?access_token=229040647557399|MQKFlFYX7YW25XGj4GUYZ7B1lcY', function(data) {
 		var ahtml="";

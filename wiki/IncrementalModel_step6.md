@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 6. Multi-Level
+title:  6. Multi-Level
 wikiPageName: IncrementalModel_step6
 wikiPagePath: wiki/IncrementalModel_step6.md
 ---

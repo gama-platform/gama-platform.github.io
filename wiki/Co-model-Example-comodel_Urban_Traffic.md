@@ -1,6 +1,6 @@
 ---
 layout: default
-title: comodel Urban and Traffic model
+title:  comodel Urban and Traffic model
 wikiPageName: Co-model-Example-comodel_Urban_Traffic
 wikiPagePath: wiki/Co-model-Example-comodel_Urban_Traffic.md
 ---

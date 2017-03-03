@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Soccer Game
+title:  Soccer Game
 wikiPageName: Soccer-soccer
 wikiPagePath: wiki/Soccer-soccer.md
 ---

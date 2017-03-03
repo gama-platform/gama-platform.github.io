@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Follow Weighted Network
+title:   Follow Weighted Network
 wikiPageName: Agent-movement-Follow-Weighted-Network-(Agents)
 wikiPagePath: wiki/Agent-movement-Follow-Weighted-Network-(Agents).md
 ---

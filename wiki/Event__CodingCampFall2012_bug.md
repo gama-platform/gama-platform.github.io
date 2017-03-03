@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Eliminating bugs found in the 1.5 version
+title:  Eliminating bugs found in the 1.5 version
 wikiPageName: Event__CodingCampFall2012_bug
 wikiPagePath: wiki/Event__CodingCampFall2012_bug.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Graphs
+title:  Graphs
 wikiPageName: Graphs
 wikiPagePath: wiki/Graphs.md
 ---

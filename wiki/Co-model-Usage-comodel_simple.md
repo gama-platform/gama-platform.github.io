@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple syntax demonstration of Comodeling 
+title:  Simple syntax demonstration of Comodeling 
 wikiPageName: Co-model-Usage-comodel_simple
 wikiPagePath: wiki/Co-model-Usage-comodel_simple.md
 ---

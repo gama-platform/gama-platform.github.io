@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Definition of people agents
+title:  Definition of people agents
 wikiPageName: Road-Traffic-Model-02
 wikiPagePath: wiki/Road-Traffic-Model-02.md
 ---

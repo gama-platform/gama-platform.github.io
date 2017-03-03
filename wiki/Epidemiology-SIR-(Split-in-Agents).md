@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SIR_split_in_agents
+title:  SIR_split_in_agents
 wikiPageName: Epidemiology-SIR-(Split-in-Agents)
 wikiPagePath: wiki/Epidemiology-SIR-(Split-in-Agents).md
 ---

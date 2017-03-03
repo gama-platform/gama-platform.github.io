@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Simple SQL Command in SQLIte
+title:   Simple SQL Command in SQLIte
 wikiPageName: Database-Usage-Simple-SQL-Command-in-SQLite
 wikiPagePath: wiki/Database-Usage-Simple-SQL-Command-in-SQLite.md
 ---

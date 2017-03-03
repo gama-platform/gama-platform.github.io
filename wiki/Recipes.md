@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Recipes
+title:  Recipes
 wikiPageName: Recipes
 wikiPagePath: wiki/Recipes.md
 ---

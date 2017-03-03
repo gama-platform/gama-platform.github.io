@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5. Predator Agent
+title:  5. Predator Agent
 wikiPageName: PredatorPrey_step5
 wikiPagePath: wiki/PredatorPrey_step5.md
 ---

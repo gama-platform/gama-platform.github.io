@@ -1,6 +1,6 @@
 ---
 layout: default
-title: evacuationgoto
+title:  evacuationgoto
 wikiPageName: Evacuation-Goto-on-Grid
 wikiPagePath: wiki/Evacuation-Goto-on-Grid.md
 ---

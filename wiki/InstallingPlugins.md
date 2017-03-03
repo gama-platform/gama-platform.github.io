@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installing Plugins
+title:  Installing Plugins
 wikiPageName: InstallingPlugins
 wikiPagePath: wiki/InstallingPlugins.md
 ---

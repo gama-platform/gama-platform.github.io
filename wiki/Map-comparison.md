@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Map comparison
+title:  Map comparison
 wikiPageName: Map-comparison
 wikiPagePath: wiki/Map-comparison.md
 ---

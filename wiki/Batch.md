@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Batch
+title:  Batch
 wikiPageName: Batch
 wikiPagePath: wiki/Batch.md
 ---

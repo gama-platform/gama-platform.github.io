@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Balls without gravity
+title:  Balls without gravity
 wikiPageName: Physics-Engine-Perfect-Gas
 wikiPagePath: wiki/Physics-Engine-Perfect-Gas.md
 ---

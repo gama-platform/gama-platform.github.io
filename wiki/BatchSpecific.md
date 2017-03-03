@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Batch Specific UI
+title:  Batch Specific UI
 wikiPageName: BatchSpecific
 wikiPagePath: wiki/BatchSpecific.md
 ---

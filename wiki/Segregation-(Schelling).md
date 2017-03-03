@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Segregation (Schelling)
+title:  Segregation (Schelling)
 wikiPageName: Segregation-(Schelling)
 wikiPagePath: wiki/Segregation-(Schelling).md
 ---

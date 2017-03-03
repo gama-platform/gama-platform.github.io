@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Toy Models
+title:  Toy Models
 wikiPageName: Toy-Models
 wikiPagePath: wiki/Toy-Models.md
 ---

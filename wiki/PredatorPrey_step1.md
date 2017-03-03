@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Basic Model
+title:  1. Basic Model
 wikiPageName: PredatorPrey_step1
 wikiPagePath: wiki/PredatorPrey_step1.md
 ---

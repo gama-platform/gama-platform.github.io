@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multigraph
+title:  Multigraph
 wikiPageName: Graphs-Multigraph
 wikiPagePath: wiki/Graphs-Multigraph.md
 ---

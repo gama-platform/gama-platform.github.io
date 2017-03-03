@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  CreateBuildingTableMSSQL
+title:   CreateBuildingTableMSSQL
 wikiPageName: Database-Usage-Create-Spatial-Table-in-MSSQL
 wikiPagePath: wiki/Database-Usage-Create-Spatial-Table-in-MSSQL.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining GUI Experiment
+title:  Defining GUI Experiment
 wikiPageName: DefiningGUIExperiment
 wikiPagePath: wiki/DefiningGUIExperiment.md
 ---

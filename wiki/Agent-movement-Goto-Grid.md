@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Movement on a Grid of Cells
+title:   Movement on a Grid of Cells
 wikiPageName: Agent-movement-Goto-Grid
 wikiPagePath: wiki/Agent-movement-Goto-Grid.md
 ---

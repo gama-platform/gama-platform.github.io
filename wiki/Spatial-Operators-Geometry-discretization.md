@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Discretization of Topology
+title:  Discretization of Topology
 wikiPageName: Spatial-Operators-Geometry-discretization
 wikiPagePath: wiki/Spatial-Operators-Geometry-discretization.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3. Movement of People
+title:  3. Movement of People
 wikiPageName: RoadTrafficModel_step3
 wikiPagePath: wiki/RoadTrafficModel_step3.md
 ---

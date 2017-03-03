@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The GAML Editor - Generalities
+title:  The GAML Editor - Generalities
 wikiPageName: GamlEditorGeneralities
 wikiPagePath: wiki/GamlEditorGeneralities.md
 ---

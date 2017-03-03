@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ShortestPath
+title:  ShortestPath
 wikiPageName: Graphs-Shortest-paths
 wikiPagePath: wiki/Graphs-Shortest-paths.md
 ---

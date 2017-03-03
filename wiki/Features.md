@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Features
+title:  Features
 wikiPageName: Features
 wikiPagePath: wiki/Features.md
 ---

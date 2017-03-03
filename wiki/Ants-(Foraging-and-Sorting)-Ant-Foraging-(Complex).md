@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ant Foraging (Complex)
+title:  Ant Foraging (Complex)
 wikiPageName: Ants-(Foraging-and-Sorting)-Ant-Foraging-(Complex)
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting)-Ant-Foraging-(Complex).md
 ---

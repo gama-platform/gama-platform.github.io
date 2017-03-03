@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Regular species
+title:  Regular species
 wikiPageName: RegularSpecies
 wikiPagePath: wiki/RegularSpecies.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction
+title:  Introduction
 wikiPageName: Event__MIMSCOP2012
 wikiPagePath: wiki/Event__MIMSCOP2012.md
 ---

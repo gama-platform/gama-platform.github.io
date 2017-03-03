@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2. Moving Cells
+title:  2. Moving Cells
 wikiPageName: ThreeD_step2
 wikiPagePath: wiki/ThreeD_step2.md
 ---

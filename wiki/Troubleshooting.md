@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Troubleshooting
+title:  Troubleshooting
 wikiPageName: Troubleshooting
 wikiPagePath: wiki/Troubleshooting.md
 ---

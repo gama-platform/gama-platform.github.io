@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Grid Species
+title:  Grid Species
 wikiPageName: GridSpecies
 wikiPagePath: wiki/GridSpecies.md
 ---

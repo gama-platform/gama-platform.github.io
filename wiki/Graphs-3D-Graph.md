@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3D Graph
+title:  3D Graph
 wikiPageName: Graphs-3D-Graph
 wikiPagePath: wiki/Graphs-3D-Graph.md
 ---

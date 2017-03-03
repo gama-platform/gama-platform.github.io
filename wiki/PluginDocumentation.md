@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extensions
+title:  Extensions
 wikiPageName: PluginDocumentation
 wikiPagePath: wiki/PluginDocumentation.md
 ---

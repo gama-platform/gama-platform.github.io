@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ant Foraging (Charts examples)
+title:  Ant Foraging (Charts examples)
 wikiPageName: Charts-Ant-Foraging-(Charts-examples)
 wikiPagePath: wiki/Charts-Ant-Foraging-(Charts-examples).md
 ---

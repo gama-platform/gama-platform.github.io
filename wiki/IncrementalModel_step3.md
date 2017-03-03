@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3. Integration of GIS Data
+title:  3. Integration of GIS Data
 wikiPageName: IncrementalModel_step3
 wikiPagePath: wiki/IncrementalModel_step3.md
 ---

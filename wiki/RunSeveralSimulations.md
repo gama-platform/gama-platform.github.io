@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Run Several Simulations
+title:  Run Several Simulations
 wikiPageName: RunSeveralSimulations
 wikiPagePath: wiki/RunSeveralSimulations.md
 ---

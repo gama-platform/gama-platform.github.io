@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Movement on a Graph created by Polygons
+title:   Movement on a Graph created by Polygons
 wikiPageName: Agent-movement-Goto-Polygon
 wikiPagePath: wiki/Agent-movement-Goto-Polygon.md
 ---

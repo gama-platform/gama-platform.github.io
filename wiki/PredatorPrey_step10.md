@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 10. Charts
+title:  10. Charts
 wikiPageName: PredatorPrey_step10
 wikiPagePath: wiki/PredatorPrey_step10.md
 ---

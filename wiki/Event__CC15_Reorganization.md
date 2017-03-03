@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction
+title:  Introduction
 wikiPageName: Event__CC15_Reorganization
 wikiPagePath: wiki/Event__CC15_Reorganization.md
 ---

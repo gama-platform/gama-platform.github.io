@@ -1,6 +1,6 @@
 ---
 layout: default
-title: User Interaction
+title:  User Interaction
 wikiPageName: User-Interaction
 wikiPagePath: wiki/User-Interaction.md
 ---

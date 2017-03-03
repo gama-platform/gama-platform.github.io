@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Inspectors and monitors
+title:  Inspectors and monitors
 wikiPageName: InspectorsAndMonitors
 wikiPagePath: wiki/InspectorsAndMonitors.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Developing Types
+title:  Developing Types
 wikiPageName: DevelopingTypes
 wikiPagePath: wiki/DevelopingTypes.md
 ---

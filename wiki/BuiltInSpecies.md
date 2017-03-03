@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Built-in Species
+title:  Built-in Species
 wikiPageName: BuiltInSpecies
 wikiPagePath: wiki/BuiltInSpecies.md
 ---
@@ -132,7 +132,13 @@ create cluster_builder returns: clusterer;
 ## `experiment`	
 
 ### Actions
-	
+	  
+	 
+#### **`update_outputs`**
+Forces all outputs to refresh, optionally recomputing their values
+* returns: `unknown`
+ 			
+* → **`recompute`** (`boolean`): Whether or not to force the outputs to make a computation step
     	
 ----
 

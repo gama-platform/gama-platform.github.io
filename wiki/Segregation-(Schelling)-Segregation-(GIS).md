@@ -1,6 +1,6 @@
 ---
 layout: default
-title: segregationGIS
+title:  segregationGIS
 wikiPageName: Segregation-(Schelling)-Segregation-(GIS)
 wikiPagePath: wiki/Segregation-(Schelling)-Segregation-(GIS).md
 ---

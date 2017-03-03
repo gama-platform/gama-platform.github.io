@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction
+title:  Introduction
 wikiPageName: Introduction
 wikiPagePath: wiki/Introduction.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Prima 4
+title:  Prima 4
 wikiPageName: Articles-Prima_model4
 wikiPagePath: wiki/Articles-Prima_model4.md
 ---

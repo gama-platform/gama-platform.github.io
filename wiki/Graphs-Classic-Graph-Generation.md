@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Graph Generation
+title:  Graph Generation
 wikiPageName: Graphs-Classic-Graph-Generation
 wikiPagePath: wiki/Graphs-Classic-Graph-Generation.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Initiation to algorithms with Scratch
+title:  Initiation to algorithms with Scratch
 wikiPageName: PedagogicalMaterials
 wikiPagePath: wiki/PedagogicalMaterials.md
 ---

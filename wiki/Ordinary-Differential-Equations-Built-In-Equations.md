@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Predefined equestions
+title:  Predefined equestions
 wikiPageName: Ordinary-Differential-Equations-Built-In-Equations
 wikiPagePath: wiki/Ordinary-Differential-Equations-Built-In-Equations.md
 ---

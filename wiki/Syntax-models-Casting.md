@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Casting Syntax
+title:  Casting Syntax
 wikiPageName: Syntax-models-Casting
 wikiPagePath: wiki/Syntax-models-Casting.md
 ---

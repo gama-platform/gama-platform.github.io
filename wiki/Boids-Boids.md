@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Boids
+title:  Boids
 wikiPageName: Boids-Boids
 wikiPagePath: wiki/Boids-Boids.md
 ---

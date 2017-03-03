@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extension
+title:  Extension
 wikiPageName: Extension_idees.gama.weka
 wikiPagePath: wiki/Extension_idees.gama.weka.md
 ---

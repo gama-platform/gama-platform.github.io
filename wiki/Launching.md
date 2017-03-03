@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Launching GAMA
+title:  Launching GAMA
 wikiPageName: Launching
 wikiPagePath: wiki/Launching.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Writing files
+title:  Writing files
 wikiPageName: Predator-Prey-Model-11
 wikiPagePath: wiki/Predator-Prey-Model-11.md
 ---

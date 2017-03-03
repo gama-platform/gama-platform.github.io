@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Basic programming concepts in GAML
+title:  Basic programming concepts in GAML
 wikiPageName: BasicProgrammingConceptsInGAML
 wikiPagePath: wiki/BasicProgrammingConceptsInGAML.md
 ---

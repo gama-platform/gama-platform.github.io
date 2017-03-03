@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SIR (Simple)
+title:  SIR (Simple)
 wikiPageName: Ordinary-Differential-Equations-SIR-(Simple-with-charts)
 wikiPagePath: wiki/Ordinary-Differential-Equations-SIR-(Simple-with-charts).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exploring Models
+title:  Exploring Models
 wikiPageName: ExploringModels
 wikiPagePath: wiki/ExploringModels.md
 ---

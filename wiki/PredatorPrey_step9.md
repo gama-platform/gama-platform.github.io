@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 9. Stopping condition
+title:  9. Stopping condition
 wikiPageName: PredatorPrey_step9
 wikiPagePath: wiki/PredatorPrey_step9.md
 ---

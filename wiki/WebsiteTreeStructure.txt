@@ -30,7 +30,7 @@ Tutorials
 ---ExplorationMethods
 --OptimizingModels
 ---RuntimeConcepts
----OptimizingModels
+---OptimizingModelsSelection
 --MultiParadigmModeling
 ---ControlArchitecture
 ---Equations
@@ -46,6 +46,7 @@ Tutorials
 --ManipulateDates
 --ManipulateLight
 --Comodel
+--HeadlessModeForDummies
 -Tutorials
 --LuneraysFlu
 ---LuneraysFlu_step1
@@ -130,6 +131,3 @@ References
 ---VariablesAndAttributes
 ---Operators
 Community
--Contribute
--Projects
--TrainingSession

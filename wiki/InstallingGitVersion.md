@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installing the GIT version
+title:  Installing the GIT version
 wikiPageName: InstallingGitVersion
 wikiPagePath: wiki/InstallingGitVersion.md
 ---

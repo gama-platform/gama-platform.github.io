@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Complex Object Loading
+title:  Complex Object Loading
 wikiPageName: Data-Importation-OBJ-file-loading
 wikiPagePath: wiki/Data-Importation-OBJ-file-loading.md
 ---

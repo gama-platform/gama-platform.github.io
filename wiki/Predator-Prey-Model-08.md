@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Complex behaviors for the preys and predators
+title:  Complex behaviors for the preys and predators
 wikiPageName: Predator-Prey-Model-08
 wikiPagePath: wiki/Predator-Prey-Model-08.md
 ---

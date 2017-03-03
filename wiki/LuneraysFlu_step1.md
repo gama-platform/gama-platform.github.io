@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Creation of a first basic disease spreading model
+title:  1. Creation of a first basic disease spreading model
 wikiPageName: LuneraysFlu_step1
 wikiPagePath: wiki/LuneraysFlu_step1.md
 ---

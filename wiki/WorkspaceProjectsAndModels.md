@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Workspace, Projects and Models
+title:  Workspace, Projects and Models
 wikiPageName: WorkspaceProjectsAndModels
 wikiPagePath: wiki/WorkspaceProjectsAndModels.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5. Visualizing in 3D
+title:  5. Visualizing in 3D
 wikiPageName: IncrementalModel_step5
 wikiPagePath: wiki/IncrementalModel_step5.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Headless Mode
+title:  Headless Mode
 wikiPageName: Headless
 wikiPagePath: wiki/Headless.md
 ---

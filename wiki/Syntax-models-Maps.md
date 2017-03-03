@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Maps
+title:  Maps
 wikiPageName: Syntax-models-Maps
 wikiPagePath: wiki/Syntax-models-Maps.md
 ---

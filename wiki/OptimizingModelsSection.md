@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Optimizing Models
+title:  Optimizing Models
 wikiPageName: OptimizingModelsSection
 wikiPagePath: wiki/OptimizingModelsSection.md
 ---

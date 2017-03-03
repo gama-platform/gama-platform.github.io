@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3. Connections
+title:  3. Connections
 wikiPageName: ThreeD_step3
 wikiPagePath: wiki/ThreeD_step3.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Definition of a chart display
+title:  Definition of a chart display
 wikiPageName: Road-Traffic-Model-06
 wikiPagePath: wiki/Road-Traffic-Model-06.md
 ---

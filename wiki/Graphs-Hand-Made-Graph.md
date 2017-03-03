@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hand Made Graph
+title:  Hand Made Graph
 wikiPageName: Graphs-Hand-Made-Graph
 wikiPagePath: wiki/Graphs-Hand-Made-Graph.md
 ---

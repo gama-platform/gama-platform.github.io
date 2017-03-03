@@ -1,6 +1,6 @@
 ---
 layout: default
-title: References
+title:  References
 wikiPageName: References
 wikiPagePath: wiki/References.md
 ---

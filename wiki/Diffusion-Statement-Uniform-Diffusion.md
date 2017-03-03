@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Uniform diffusion
+title:  Uniform diffusion
 wikiPageName: Diffusion-Statement-Uniform-Diffusion
 wikiPagePath: wiki/Diffusion-Statement-Uniform-Diffusion.md
 ---

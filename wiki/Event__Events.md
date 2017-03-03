@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Coding Camps
+title:  Coding Camps
 wikiPageName: Event__Events
 wikiPagePath: wiki/Event__Events.md
 ---

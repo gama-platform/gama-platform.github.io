@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Built-in Skills
+title:  Built-in Skills
 wikiPageName: BuiltInSkills
 wikiPagePath: wiki/BuiltInSkills.md
 ---
@@ -59,7 +59,7 @@ if speed = 5 {
 ## Table of Contents
 <wiki:toc max_depth="3" />
 
-[advanced_driving](#advanced_driving), [driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [grid](#grid), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
+[advanced_driving](#advanced_driving), [driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [grid](#grid), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [network](#network), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
     	
 ----
 
@@ -85,7 +85,7 @@ if speed = 5 {
   * **`proba_respect_priorities`** (`float`): probability to respect priority (right or left) laws   
   * **`proba_respect_stops`** (`list`): probability to respect stop laws - one value for each type of stop   
   * **`proba_use_linked_road`** (`float`): probability to change lane to a linked road lane if necessary   
-  * **`real_speed`** (`float`): real speed of the agent (in meter/second)   
+  * **`real_speed`** (`float`): the actual speed of the agent (in meter/second)   
   * **`right_side_driving`** (`boolean`): are drivers driving on the right size of the road?   
   * **`security_distance_coeff`** (`float`): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance = 1#m + security_distance_coeff `*` real_speed )   
   * **`segment_index_on_road`** (`int`): current segment index of the agent on the current road   
@@ -119,6 +119,12 @@ action to compute a path to a target location according to a given graph
 action to drive toward the final target
 
 * returns: void  
+	 
+#### **`drive_random`**
+action to drive by chosen randomly the next road
+
+* returns: void 			
+* **`proba_roads`** (map): a map containing for each road (key), the probability to be selected as next road (value)  
 	 
 #### **`external_factor_impact`**
 action that allows to define how the remaining time is impacted by external factor
@@ -192,9 +198,9 @@ moves the agent along a given path passed in the arguments while considering the
 moves the agent towards the target passed in the arguments while considering the other agents in the network (only for graph topology)
 
 * returns: path 			
-* **`target`** (point,geometry,agent): the location or entity towards which to move. 			
+* **`target`** (geometry): the location or entity towards which to move. 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`on`** (list,agent,graph,geometry): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry) 			
+* **`on`** (any type): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry) 			
 * **`return_path`** (boolean): if true, return the path followed (by default: false) 			
 * **`move_weights`** (map): Weigths used for the moving. 			
 * **`living_space`** (float): min distance between the agent and an obstacle (replaces the current value of living_space) 			
@@ -458,9 +464,12 @@ The moving skill is intended to define the minimal set of behaviours required fo
  
 ### Variables
 	   
+  * **`current_edge`** (`geometry`): Represents the agent/geometry on which the agent is located (only used with a graph)   
+  * **`current_path`** (`path`): Represents the path on which the agent is moving on (goto action on a graph)   
   * **`destination`** (`point`): Represents the next location of the agent if it keeps its current speed and heading (read-only)   
   * **`heading`** (`int`): Represents the absolute heading of the agent in degrees.   
   * **`location`** (`point`): Represents the current position of the agent   
+  * **`real_speed`** (`float`): Represents the actual speed of the agent (in meter/second)   
   * **`speed`** (`float`): Represents the speed of the agent (in meter/second) 
  	
 ### Actions
@@ -479,9 +488,9 @@ moves the agent along a given path passed in the arguments.
 moves the agent towards the target passed in the arguments.
 
 * returns: path 			
-* **`target`** (agent,point,geometry): the location or entity towards which to move. 			
+* **`target`** (geometry): the location or entity towards which to move. 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`on`** (graph): graph that restrains this move 			
+* **`on`** (any type): graph, topology, list of geometries that restrain this move 			
 * **`recompute_path`** (boolean): if false, the path is not recompute even if the graph is modified (by default: true) 			
 * **`return_path`** (boolean): if true, return the path followed (by default: false) 			
 * **`move_weights`** (map): Weights used for the moving.  
@@ -492,7 +501,7 @@ moves the agent forward, the distance being computed with respect to its speed a
 * returns: path 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
 * **`heading`** (int): the angle (in degree) of the target direction. 			
-* **`bounds`** (geometry,agent): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry  
+* **`bounds`** (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry  
 	 
 #### **`wander`**
 Moves the agent towards a random location at the maximum distance (with respect to its speed). The heading of the agent is chosen randomly if no amplitude is specified. This action changes the value of heading.
@@ -500,7 +509,9 @@ Moves the agent towards a random location at the maximum distance (with respect 
 * returns: void 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
 * **`amplitude`** (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2) 			
-* **`bounds`** (agent,geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry
+* **`bounds`** (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry) 			
+* **`on`** (graph): the graph that restrains this move (the agent moves on the graph 			
+* **`proba_edges`** (map): When the agent moves on a graph, the probability to choose another edge. If not defined, each edge has the same probability to be chosen
     	
 ----
 
@@ -527,7 +538,55 @@ moves the agent forward, the distance being computed with respect to its speed a
 * **`heading`** (int): int, optional, the direction to take for this move (replaces the current value of heading) 			
 * **`pitch`** (int): int, optional, the direction to take for this move (replaces the current value of pitch) 			
 * **`heading`** (int): int, optional, the direction to take for this move (replaces the current value of roll) 			
-* **`bounds`** (geometry,agent): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry
+* **`bounds`** (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry
+    	
+----
+
+[//]: # (keyword|skill_network)
+## network
+
+ 
+### Variables
+	   
+  * **`network_groups`** (`list`): Net ID of the agent   
+  * **`network_name`** (`string`): Net ID of the agent   
+  * **`network_server`** (`list`): Net ID of the agent 
+ 	
+### Actions
+	  
+	 
+#### **`connect`**
+
+
+* returns: void 			
+* **`protocol`** (string): protocol type (udp, tcp, mqqt) 			
+* **`port`** (int): port number 			
+* **`with_name`** (string): server nameL 			
+* **`login`** (string): server nameL 			
+* **`password`** (string): server nameL 			
+* **`to`** (string): server URL  
+	 
+#### **`execute`**
+
+
+* returns: string 			
+* **`command`** (string): command to execute  
+	 
+#### **`fetch_message`**
+
+
+* returns: msi.gama.extensions.messaging.GamaMessage  
+	 
+#### **`has_more_message`**
+
+
+* returns: bool  
+	 
+#### **`leave_the_group`**
+leave a group of agent
+
+* returns: void 			
+* **`with_name`** (string): name of the group agent want to leave
     	
 ----
 

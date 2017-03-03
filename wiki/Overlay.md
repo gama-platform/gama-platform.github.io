@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Overlay
+title:  Overlay
 wikiPageName: Overlay
 wikiPagePath: wiki/Overlay.md
 ---

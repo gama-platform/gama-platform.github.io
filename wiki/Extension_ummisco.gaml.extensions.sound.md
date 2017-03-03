@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extension
+title:  Extension
 wikiPageName: Extension_ummisco.gaml.extensions.sound
 wikiPagePath: wiki/Extension_ummisco.gaml.extensions.sound.md
 ---

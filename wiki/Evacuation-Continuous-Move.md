@@ -1,6 +1,6 @@
 ---
 layout: default
-title: continuous_move
+title:  continuous_move
 wikiPageName: Evacuation-Continuous-Move
 wikiPagePath: wiki/Evacuation-Continuous-Move.md
 ---

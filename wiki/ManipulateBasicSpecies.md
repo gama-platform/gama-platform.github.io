@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Manipulate basic species
+title:  Manipulate basic species
 wikiPageName: ManipulateBasicSpecies
 wikiPagePath: wiki/ManipulateBasicSpecies.md
 ---

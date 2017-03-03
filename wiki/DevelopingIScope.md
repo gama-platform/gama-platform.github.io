@@ -1,6 +1,6 @@
 ---
 layout: default
-title: IScope interface
+title:  IScope interface
 wikiPageName: DevelopingIScope
 wikiPagePath: wiki/DevelopingIScope.md
 ---

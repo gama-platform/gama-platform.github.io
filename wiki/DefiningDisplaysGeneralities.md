@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining displays (Generalities)
+title:  Defining displays (Generalities)
 wikiPageName: DefiningDisplaysGeneralities
 wikiPagePath: wiki/DefiningDisplaysGeneralities.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining advanced species
+title:  Defining advanced species
 wikiPageName: DefiningAdvancedSpecies
 wikiPagePath: wiki/DefiningAdvancedSpecies.md
 ---

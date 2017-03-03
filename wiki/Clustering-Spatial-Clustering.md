@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Clustering of agents by their distance 
+title:   Clustering of agents by their distance 
 wikiPageName: Clustering-Spatial-Clustering
 wikiPagePath: wiki/Clustering-Spatial-Clustering.md
 ---

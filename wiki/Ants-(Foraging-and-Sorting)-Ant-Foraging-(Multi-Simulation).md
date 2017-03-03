@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ant Foraging (Multi-Simulation)
+title:  Ant Foraging (Multi-Simulation)
 wikiPageName: Ants-(Foraging-and-Sorting)-Ant-Foraging-(Multi-Simulation)
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting)-Ant-Foraging-(Multi-Simulation).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to write the Website Content
+title:  How to write the Website Content
 wikiPageName: WebsiteGeneration
 wikiPagePath: wiki/WebsiteGeneration.md
 ---
@@ -379,7 +379,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2016/07/21 08:58:31_
+______________ _last update : 2017/02/28 14:21:42_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -395,39 +395,39 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 
 | **Concept name** | **in Doc** | **in GAML Ref** | **in Model Lib** | **TOTAL** |
 |:----------------------------|:-------------|:-------------|:-------------|:-------------|
-| 3d | 2 | 19 | 39 | 60 |
-| action | 3 | 3 | _ | 7 |
+| 3d | 2 | 17 | 39 | 58 |
+| action | 3 | 5 | _ | 9 |
 | agent_location | 1 | 21 | 0 | 22 |
 | agent_movement | 0 | 2 | 23 | 25 |
 | algorithm | 1 | 8 | 2 | 11 |
-| architecture | 2 | 10 | 1 | 13 |
+| architecture | 2 | 11 | 1 | 14 |
 | arithmetic | 0 | 33 | 0 | 33 |
 | asc | 0 | 2 | 2 | 4 |
 | attribute | 2 | 6 | _ | 9 |
 | autosave | 2 | _ | _ | 2 |
 | background | 1 | _ | _ | 1 |
 | batch | 3 | 8 | 4 | 15 |
-| bdi | 1 | 32 | 0 | 33 |
+| bdi | 1 | 51 | 0 | 52 |
 | behavior | 3 | 7 | _ | 10 |
 | camera | 1 | 1 | 2 | 4 |
-| cast | 1 | 16 | 1 | 18 |
+| cast | 1 | 17 | 1 | 19 |
 | chart | 0 | 5 | 5 | 10 |
-| clustering | 0 | 4 | 3 | 7 |
+| clustering | 0 | 5 | 3 | 8 |
 | color | 1 | 17 | 4 | 22 |
 | communication | 0 | 3 | 0 | 3 |
 | comodel | 0 | 0 | 8 | 8 |
 | comparison | 0 | 6 | 2 | 8 |
 | condition | 1 | 7 | 0 | 8 |
 | constant | 0 | 13 | _ | 13 |
-| container | 1 | 58 | 1 | 60 |
+| container | 1 | 60 | 1 | 62 |
 | csv | 2 | 4 | 3 | 9 |
-| cycle | 2 | 1 | _ | 3 |
+| cycle | 2 | 2 | _ | 4 |
 | database | 1 | 3 | 17 | 21 |
-| date | 1 | 26 | 2 | 29 |
+| date | 1 | 48 | 2 | 51 |
 | dem | 0 | 0 | 1 | 1 |
 | dgs | 0 | 0 | 1 | 1 |
 | diffusion | 1 | 1 | 14 | 16 |
-| dimension | 2 | 33 | _ | 35 |
+| dimension | 2 | 35 | _ | 37 |
 | display | 2 | 25 | _ | 29 |
 | distribution | 1 | _ | _ | 1 |
 | dxf | 0 | 2 | 1 | 3 |
@@ -437,14 +437,14 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | equation | 2 | 7 | 15 | 24 |
 | experiment | 2 | 3 | _ | 5 |
 | facet | 1 | _ | _ | 1 |
-| file | 1 | 36 | _ | 39 |
+| file | 1 | 44 | _ | 47 |
 | filter | 1 | 12 | 0 | 13 |
 | fipa | 1 | 4 | 11 | 16 |
 | fsm | 1 | 0 | 0 | 1 |
-| geometry | 2 | 94 | 0 | 96 |
-| gis | 0 | 3 | 24 | 27 |
+| geometry | 2 | 96 | 0 | 98 |
+| gis | 0 | 5 | 24 | 29 |
 | global | 1 | _ | _ | 1 |
-| graph | 1 | 54 | 32 | 87 |
+| graph | 1 | 55 | 32 | 88 |
 | graph_weight | 1 | 3 | 0 | 4 |
 | graphic | 1 | 10 | 1 | 12 |
 | graphic_unit | 1 | 6 | _ | 7 |
@@ -453,7 +453,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | halt | 1 | _ | _ | 1 |
 | headless | 0 | 1 | 0 | 1 |
 | hydrology | 0 | 0 | 1 | 1 |
-| image | 0 | 2 | 0 | 2 |
+| image | 0 | 4 | 0 | 4 |
 | import | 1 | _ | _ | 1 |
 | inheritance | 1 | _ | 1 | 2 |
 | init | 3 | _ | _ | 3 |
@@ -465,7 +465,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | load_file | 4 | 1 | 18 | 23 |
 | logical | 1 | 7 | 0 | 8 |
 | loop | 1 | 2 | 2 | 5 |
-| map | 0 | 13 | 1 | 14 |
+| map | 0 | 15 | 1 | 16 |
 | math | 1 | 41 | 20 | 62 |
 | matrix | 2 | 22 | 8 | 32 |
 | mirror | 1 | 0 | 2 | 3 |
@@ -490,12 +490,12 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | pause | 1 | _ | _ | 1 |
 | permanent | 1 | _ | _ | 1 |
 | physics_engine | 0 | 0 | 4 | 4 |
-| point | 0 | 27 | _ | 27 |
+| point | 0 | 29 | _ | 29 |
 | probability | 1 | _ | _ | 1 |
 | pseudo_variable | 1 | _ | _ | 1 |
 | r | 1 | 2 | 0 | 3 |
-| random | 3 | 9 | _ | 12 |
-| random_operator | 0 | 1 | _ | 1 |
+| random | 3 | 10 | _ | 13 |
+| random_operator | 0 | 0 | _ | 0 |
 | raster | 0 | 0 | 4 | 4 |
 | reflex | 1 | _ | _ | 1 |
 | refresh | 2 | _ | _ | 2 |
@@ -508,29 +508,29 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | shortest_path | 1 | 6 | 4 | 11 |
 | skill | 2 | 17 | 42 | 61 |
 | sound | 0 | 4 | 0 | 4 |
-| spatial_computation | 0 | 71 | 7 | 78 |
-| spatial_relation | 0 | 30 | 0 | 30 |
+| spatial_computation | 0 | 73 | 7 | 80 |
+| spatial_relation | 0 | 32 | 0 | 32 |
 | spatial_transformation | 0 | 24 | 2 | 26 |
-| species | 1 | 18 | _ | 19 |
+| species | 1 | 20 | _ | 21 |
 | sport | 0 | _ | 2 | 2 |
-| statistic | 0 | 65 | 5 | 70 |
-| string | 0 | 30 | 0 | 30 |
+| statistic | 0 | 66 | 5 | 71 |
+| string | 0 | 27 | 0 | 27 |
 | surface_unit | 0 | 4 | _ | 4 |
 | svg | 0 | 2 | 0 | 2 |
 | system | 1 | 11 | 0 | 12 |
 | task_based | 1 | 4 | 0 | 5 |
 | ternary | 1 | 2 | 1 | 4 |
-| test | 0 | 3 | 2 | 5 |
+| test | 0 | 4 | 2 | 6 |
 | text | 2 | 10 | 0 | 12 |
 | texture | 0 | 1 | 3 | 4 |
 | tif | 0 | 2 | 1 | 3 |
-| time | 2 | 14 | _ | 16 |
-| time_unit | 0 | 7 | _ | 7 |
+| time | 2 | 20 | _ | 22 |
+| time_unit | 0 | 13 | _ | 13 |
 | topology | 3 | 9 | 4 | 16 |
 | torus | 1 | _ | _ | 1 |
 | transport | 1 | 5 | 6 | 12 |
 | txt | 0 | 0 | 1 | 1 |
-| type | 0 | 49 | _ | 49 |
+| type | 0 | 53 | _ | 53 |
 | update | 1 | _ | _ | 1 |
 | volume_unit | 0 | 5 | _ | 5 |
 | weight_unit | 0 | 8 | _ | 8 |

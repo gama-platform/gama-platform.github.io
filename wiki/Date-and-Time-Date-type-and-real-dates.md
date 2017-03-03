@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Use of the Date variables
+title:  Use of the Date variables
 wikiPageName: Date-and-Time-Date-type-and-real-dates
 wikiPagePath: wiki/Date-and-Time-Date-type-and-real-dates.md
 ---

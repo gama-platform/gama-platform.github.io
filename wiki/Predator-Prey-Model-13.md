@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exploration (batch)
+title:  Exploration (batch)
 wikiPageName: Predator-Prey-Model-13
 wikiPagePath: wiki/Predator-Prey-Model-13.md
 ---

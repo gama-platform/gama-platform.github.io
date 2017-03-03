@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2. Definition of monitors and chart outputs
+title:  2. Definition of monitors and chart outputs
 wikiPageName: LuneraysFlu_step2
 wikiPagePath: wiki/LuneraysFlu_step2.md
 ---

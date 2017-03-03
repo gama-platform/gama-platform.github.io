@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 7. Automatic Road Repair
+title:  7. Automatic Road Repair
 wikiPageName: RoadTrafficModel_step7
 wikiPagePath: wiki/RoadTrafficModel_step7.md
 ---

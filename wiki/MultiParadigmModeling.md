@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-Paradigm Modeling
+title:  Multi-Paradigm Modeling
 wikiPageName: MultiParadigmModeling
 wikiPagePath: wiki/MultiParadigmModeling.md
 ---

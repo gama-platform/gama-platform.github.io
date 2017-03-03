@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Life
+title:  Life
 wikiPageName: Life
 wikiPagePath: wiki/Life.md
 ---

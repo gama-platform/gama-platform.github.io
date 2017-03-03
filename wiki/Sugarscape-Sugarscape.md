@@ -1,6 +1,6 @@
 ---
 layout: default
-title: sugarscape
+title:  sugarscape
 wikiPageName: Sugarscape-Sugarscape
 wikiPagePath: wiki/Sugarscape-Sugarscape.md
 ---

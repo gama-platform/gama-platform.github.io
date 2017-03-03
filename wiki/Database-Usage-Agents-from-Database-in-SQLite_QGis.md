@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Agents from Database in SQLite QGIS
+title:   Agents from Database in SQLite QGIS
 wikiPageName: Database-Usage-Agents-from-Database-in-SQLite_QGis
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-SQLite_QGis.md
 ---

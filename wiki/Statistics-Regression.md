@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Regression
+title:  Regression
 wikiPageName: Statistics-Regression
 wikiPagePath: wiki/Statistics-Regression.md
 ---

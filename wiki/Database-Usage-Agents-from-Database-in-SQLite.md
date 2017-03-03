@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Agents from Database in SQLite 
+title:   Agents from Database in SQLite 
 wikiPageName: Database-Usage-Agents-from-Database-in-SQLite
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-SQLite.md
 ---

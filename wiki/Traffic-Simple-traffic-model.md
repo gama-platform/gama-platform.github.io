@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Traffic
+title:  Traffic
 wikiPageName: Traffic-Simple-traffic-model
 wikiPagePath: wiki/Traffic-Simple-traffic-model.md
 ---

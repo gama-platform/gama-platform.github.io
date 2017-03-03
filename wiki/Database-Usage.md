@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Database Usage
+title:  Database Usage
 wikiPageName: Database-Usage
 wikiPagePath: wiki/Database-Usage.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Spatial Operators
+title:  Spatial Operators
 wikiPageName: Spatial-Operators-Spatial-Operators-(Examples)
 wikiPagePath: wiki/Spatial-Operators-Spatial-Operators-(Examples).md
 ---

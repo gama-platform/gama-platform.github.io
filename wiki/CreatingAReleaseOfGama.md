@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Product a release of GAMA
+title:  Product a release of GAMA
 wikiPageName: CreatingAReleaseOfGama
 wikiPagePath: wiki/CreatingAReleaseOfGama.md
 ---

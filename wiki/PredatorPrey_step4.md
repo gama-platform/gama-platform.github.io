@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 4. Inspectors and Monitors
+title:  4. Inspectors and Monitors
 wikiPageName: PredatorPrey_step4
 wikiPagePath: wiki/PredatorPrey_step4.md
 ---

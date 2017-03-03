@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Control Architectures
+title:  Control Architectures
 wikiPageName: ControlArchitecture
 wikiPagePath: wiki/ControlArchitecture.md
 ---

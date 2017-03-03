@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3D River morphology display
+title:  3D River morphology display
 wikiPageName: Event__CodingCampFall2012_models
 wikiPagePath: wiki/Event__CodingCampFall2012_models.md
 ---

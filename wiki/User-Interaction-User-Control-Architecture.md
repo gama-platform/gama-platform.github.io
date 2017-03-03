@@ -1,6 +1,6 @@
 ---
 layout: default
-title: User Command
+title:  User Command
 wikiPageName: User-Interaction-User-Control-Architecture
 wikiPagePath: wiki/User-Interaction-User-Control-Architecture.md
 ---

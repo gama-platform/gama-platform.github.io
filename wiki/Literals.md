@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Literals
+title:  Literals
 wikiPageName: Literals
 wikiPagePath: wiki/Literals.md
 ---

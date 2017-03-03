@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Test Models & Language
+title:  Test Models & Language
 wikiPageName: Event__CP12Test
 wikiPagePath: wiki/Event__CP12Test.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Modavi
+title:  Modavi
 wikiPageName: Multi-level-data-analysis-MODAVI
 wikiPagePath: wiki/Multi-level-data-analysis-MODAVI.md
 ---

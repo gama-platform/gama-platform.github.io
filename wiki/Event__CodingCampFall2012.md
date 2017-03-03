@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction
+title:  Introduction
 wikiPageName: Event__CodingCampFall2012
 wikiPagePath: wiki/Event__CodingCampFall2012.md
 ---

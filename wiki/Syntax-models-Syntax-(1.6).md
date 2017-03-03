@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Syntax
+title:  Syntax
 wikiPageName: Syntax-models-Syntax-(1.6)
 wikiPagePath: wiki/Syntax-models-Syntax-(1.6).md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: _team1strategy
+title:  _team1strategy
 wikiPageName: Soccer-team1_strategy
 wikiPagePath: wiki/Soccer-team1_strategy.md
 ---

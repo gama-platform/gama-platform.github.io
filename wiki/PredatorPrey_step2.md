@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2. Vegetation Dynamic
+title:  2. Vegetation Dynamic
 wikiPageName: PredatorPrey_step2
 wikiPagePath: wiki/PredatorPrey_step2.md
 ---

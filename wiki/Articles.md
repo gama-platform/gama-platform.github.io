@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Articles
+title:  Articles
 wikiPageName: Articles
 wikiPagePath: wiki/Articles.md
 ---

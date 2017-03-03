@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Calling R
+title:  Calling R
 wikiPageName: CallingR
 wikiPagePath: wiki/CallingR.md
 ---

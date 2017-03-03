@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installation
+title:  Installation
 wikiPageName: Installation
 wikiPagePath: wiki/Installation.md
 ---
@@ -29,6 +29,8 @@ GAMA 1.7 requires that **Java 1.8** be installed on your machine, approximately 
 ### MacOS 
 
 In some rare cases, "Archive utility.app" in MacOS may damage the files when extracting them from the zip or tar.gz archive files. This problem manifests itself by a dialog opening and explaining that the application is damaged and cannot be launched (see [Issue 2082](https://github.com/gama-platform/gama/issues/2082#issuecomment-271812519) and also [this thread](https://bugs.eclipse.org/bugs/show_bug.cgi?id=398450#c17). In that case, to expand the files, consider using a different utility, like the free [Stuffit Expander](http://my.smithmicro.com/stuffit-expander-mac.html) or directly from the command line. 
+
+Another recent issue (with MacOS Sierra) has popped up for Mac users, which makes using the Models Library models impossible. See this [page](http://lapcatsoftware.com/articles/app-translocation.html) for background information. Basically, the only known fix to date is to copy and paste `Gama.app` in your Applications folder instead of trying to launch it from the Downloads folder.
 
 ## Installation of Java
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Java version
+title:  Java version
 wikiPageName: NewVersionChanges
 wikiPagePath: wiki/NewVersionChanges.md
 ---
@@ -77,6 +77,7 @@ gives examples
 
 * Preferences
  * For performances and bug fixes in displays
+ * OpenGL displays should be up to 3 times faster in rendering
 
 * Simulation displays
  * fullscreen mode for displays (ESC key)
@@ -89,6 +90,7 @@ gives examples
  * getting values when moving the mouse on charts
  * possibility to declare `permanent layout: ` + `#splitted`, `#horizontal`, `#vertical`, `#stacked` in the `output` section to automatically layout the display view.
  * Changing simulation names is reflected in their display titles (and it can be dynamic)
+ * OpenGL displays now handle rotations of 2D and 3D shapes, combinations of textures and colours, and keystoning
 
 * Error view
  * Much faster (up to 100x !) display of errors

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Clustering
+title:  Clustering
 wikiPageName: Clustering
 wikiPagePath: wiki/Clustering.md
 ---

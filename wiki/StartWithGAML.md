@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Start with GAML
+title:  Start with GAML
 wikiPageName: StartWithGAML
 wikiPagePath: wiki/StartWithGAML.md
 ---

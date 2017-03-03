@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Epidemiology
+title:  Epidemiology
 wikiPageName: Epidemiology
 wikiPagePath: wiki/Epidemiology.md
 ---

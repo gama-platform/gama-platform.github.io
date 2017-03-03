@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Comodel SIR Switch
+title:  Comodel SIR Switch
 wikiPageName: Co-model-Example-Comodel_SIR_Switch
 wikiPagePath: wiki/Co-model-Example-Comodel_SIR_Switch.md
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Learn GAML Step by Step
+title:  Learn GAML Step by Step
 wikiPageName: LearnGAMLStepByStep
 wikiPagePath: wiki/LearnGAMLStepByStep.md
 ---

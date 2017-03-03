@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA no protocol
+title:  FIPA no protocol
 wikiPageName: FIPA-Skill-FIPA-No-Protocol
 wikiPagePath: wiki/FIPA-Skill-FIPA-No-Protocol.md
 ---

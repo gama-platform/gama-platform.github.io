@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FIPA Request
+title:  FIPA Request
 wikiPageName: FIPA-Skill-FIPA-Request-(1)
 wikiPagePath: wiki/FIPA-Skill-FIPA-Request-(1).md
 ---

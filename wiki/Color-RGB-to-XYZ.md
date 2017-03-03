@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RGB color to XYZ position
+title:  RGB color to XYZ position
 wikiPageName: Color-RGB-to-XYZ
 wikiPagePath: wiki/Color-RGB-to-XYZ.md
 ---

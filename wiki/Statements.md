@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Statements
+title:  Statements
 wikiPageName: Statements
 wikiPagePath: wiki/Statements.md
 ---
@@ -15,7 +15,7 @@ wikiPagePath: wiki/Statements.md
 
 ## Table of Contents
 <wiki:toc max_depth="2" />
-[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [break](#break), [camera](#camera), [capture](#capture), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [export](#export), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [save](#save), [save_batch](#save_batch), [set](#set), [setup](#setup), [simulate](#simulate), [solve](#solve), [species](#species), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
+[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [export](#export), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [save](#save), [save_batch](#save_batch), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
 
 
 ## Statements by kinds
@@ -33,9 +33,9 @@ wikiPagePath: wiki/Statements.md
   * **Parameter**
     * [parameter](#parameter),  
   * **Sequence of statements or action**
-    * [action](#action),  [ask](#ask),  [capture](#capture),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [run](#run),  [setup](#setup),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [user_command](#user_command),  [using](#using),  
+    * [action](#action),  [ask](#ask),  [benchmark](#benchmark),  [capture](#capture),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [run](#run),  [setup](#setup),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [user_command](#user_command),  [using](#using),  
   * **Single statement**
-    * [=](#=),  [add](#add),  [assert](#assert),  [break](#break),  [conscious_contagion](#conscious_contagion),  [data](#data),  [datalist](#datalist),  [diffuse](#diffuse),  [do](#do),  [draw](#draw),  [emotional_contagion](#emotional_contagion),  [error](#error),  [export](#export),  [focus](#focus),  [focus_on](#focus_on),  [highlight](#highlight),  [let](#let),  [put](#put),  [remove](#remove),  [return](#return),  [rule](#rule),  [save](#save),  [set](#set),  [simulate](#simulate),  [solve](#solve),  [status](#status),  [unconscious_contagion](#unconscious_contagion),  [user_input](#user_input),  [warn](#warn),  [write](#write),  
+    * [=](#=),  [add](#add),  [assert](#assert),  [break](#break),  [conscious_contagion](#conscious_contagion),  [data](#data),  [datalist](#datalist),  [diffuse](#diffuse),  [do](#do),  [draw](#draw),  [emotional_contagion](#emotional_contagion),  [error](#error),  [export](#export),  [focus](#focus),  [focus_on](#focus_on),  [highlight](#highlight),  [let](#let),  [put](#put),  [remove](#remove),  [return](#return),  [rule](#rule),  [save](#save),  [set](#set),  [simulate](#simulate),  [socialize](#socialize),  [solve](#solve),  [status](#status),  [unconscious_contagion](#unconscious_contagion),  [user_input](#user_input),  [warn](#warn),  [write](#write),  
   * **Species**
     * [species](#species),  
   * **Variable (container)**
@@ -49,17 +49,17 @@ wikiPagePath: wiki/Statements.md
 ## Statements by embedment
 
   * **Behavior**
-    * [add](#add), [ask](#ask), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Environment**
     * [species](#species), 
   * **Experiment**
     * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [export](#export), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [save_batch](#save_batch), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Layer**
-    * [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [status](#status), [switch](#switch), [trace](#trace), [warn](#warn), [write](#write), 
+    * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [using](#using), [warn](#warn), [write](#write), 
   * **Model**
     * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [species](#species), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Sequence of statements or action**
-    * [add](#add), [ask](#ask), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Single statement**
     * [run](#run), 
   * **Species**
@@ -322,7 +322,7 @@ list var <- g.edges; 	// var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({
 
 #### Embedments
 * The `add` statement is of type: **Single statement**
-* The `add` statement can be embedded into: chart, Behavior, Sequence of statements or action, 
+* The `add` statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer, 
 * The `add` statement embeds statements: 
 
 ----
@@ -336,7 +336,7 @@ list var <- g.edges; 	// var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({
   * `aspect` (an identifier): the name of the aspect that should be used to display the species
   * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
   * `focus` (agent): the agent on which the camera will be focused (it is dynamically computed)
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greter than 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, useful in case of agents that do not move)
   * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
@@ -422,7 +422,8 @@ method annealing temp_init: 100  temp_end: 1 temp_decrease: 0.5 nb_iter_cst_temp
 #### Facets 
   
   * **`target`** (any type in [container, agent]), (omissible) : an expression that evaluates to an agent or a list of agents
-  * `as` (species): an expression that evaluates to a species 
+  * `as` (species): an expression that evaluates to a species
+  * `parallel` (any type in [boolean, int]): (experimental) setting this facet to 'true' will allow 'ask' to use concurrency when traversing the targets; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet is false by default. 
  	
 #### Definition
 
@@ -574,6 +575,27 @@ assert (3/z) raises: "error";
 
 ----
 
+[//]: # (keyword|statement_benchmark)
+### benchmark 
+#### Facets 
+
+  * `message` (any type), (omissible) : A message to display alongside the results. Should concisely describe the contents of the benchmark
+  * `repeat` (int): An int expression describing how many executions of the block must be handled. The output in this case will return the min, max and average durations 
+ 	
+#### Definition
+
+Displays in the console the duration in ms of the execution of the statements included in the block. It is possible to indicate, with the 'repeat' facet, how many times the sequence should be run
+
+#### Usages
+
+
+#### Embedments
+* The `benchmark` statement is of type: **Sequence of statements or action**
+* The `benchmark` statement can be embedded into: Behavior, Sequence of statements or action, Layer, 
+* The `benchmark` statement embeds statements: 
+
+----
+
 [//]: # (keyword|statement_break)
 ### break 
 #### Facets 
@@ -685,7 +707,8 @@ capture target: list (B) as: C;
   * `legend_font` (string): Legend font face
   * `legend_font_size` (int): Legend font size
   * `legend_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display legend
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greter than 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `memorize` (boolean): Whether or not to keep the values in memory (in order to produce a csv file, for instance). The default value, true, can also be changed in the preferences
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `reverse_axes` (boolean): reverse X and Y axis (for example to get horizental bar charts
   * `series_label_position` (an identifier), takes values in: {default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).
   * `size` (point): the layer resize factor: {1,1} refers to the original size whereas {0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that {1,1} is equivalent to {1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)
@@ -697,12 +720,12 @@ capture target: list (B) as: C;
   * `title_font_size` (int): Title font size
   * `title_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display titles
   * `type` (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.
-  * `x_label` (a label): the title for the X axis
+  * `x_label` (string): the title for the X axis
   * `x_range` (any type in [float, int, point, list]): range of the x-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
   * `x_serie` (any type in [list, float, int]): for series charts, change the default common x serie (simulation cycle) for an other value (list or numerical).
   * `x_serie_labels` (any type in [list, float, int, a label]): change the default common x series labels (replace x value or categories) for an other value (string or numerical).
   * `x_tick_unit` (float): the tick unit for the y-axis (distance between horyzontal lines and values on the left of the axis).
-  * `y_label` (a label): the title for the Y axis
+  * `y_label` (string): the title for the Y axis
   * `y_range` (any type in [float, int, point, list]): range of the y-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
   * `y_serie_labels` (any type in [list, float, int, a label]): for heatmaps/3d charts, change the default y serie for an other value (string or numerical in a list or cumulative).
   * `y_tick_unit` (float): the tick unit for the x-axis (distance between vertical lines and values bellow the axis). 
@@ -795,7 +818,7 @@ create species_of(self) number: 5 returns: list5Agents;
 * In GAML modelers can create agents of species `a_species  (with two attributes `type` and `nature` with types corresponding to the types of the shapefile attributes) from a shapefile `the_shapefile` while reading attributes 'TYPE_OCC' and 'NATURE' of the shapefile. One agent will be created by object contained in the shapefile:
 
 ```
-create a_species from: the_shapefile with: [type:: 'TYPE_OCC', nature::'NATURE'];
+create a_species from: the_shapefile with: [type:: read('TYPE_OCC'), nature::read('NATURE')];
 ```
 
 
@@ -874,8 +897,9 @@ create species: a_species number: an_int;
   * `line_visible` (boolean): Line visible or not
   * `marker` (boolean): marker visible or not
   * `marker_shape` (an identifier), takes values in: {marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker
-  * `marker_size` (list): Size of the marker. Can be a double (same size for every marker) or a list (different sizes for each marker.
+  * `marker_size` (float): Size in pixels of the marker
   * `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
+  * `thickness` (float): The thickness of the lines to draw
   * `x_err_values` (any type in [float, list]): the X Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
   * `y_err_values` (any type in [float, list]): the Y Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
   * `y_minmax_values` (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value)
@@ -1005,17 +1029,16 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
   * `draw_diffuse_light` (boolean): Allows to show/hide a representation of the lights. Default is false.
   * `draw_env` (boolean): Allows to enable/disable the drawing of the world shape and the ordinate axes. Default can be configured in Preferences
   * `focus` (geometry): the geometry (or agent) on which the display will (dynamically) focus
-  * `fullscreen` (boolean): Indicates whether or not the display should cover the whole screen (default is false
+  * `fullscreen` (any type in [boolean, int]): Indicates, when using a boolean value, whether or not the display should cover the whole screen (default is false). If an integer is passed, specifies also the screen to use: 0 for the primary monitor, 1 for the secondary one, and so on and so forth. If the monitor is not available, the first one is used
+  * `keystone` (container): Set the position of the 4 corners of your screen ([topLeft,topRight,botLeft,botRight]), in (x,y) coordinate ( the (0,0) position is the top left corner, while the (1,1) position is the bottom right corner). The default value is : [{0,0},{1,0},{0,1},{1,1}]
   * `light` (boolean): Allows to enable/disable the light. Default is true
   * `orthographic_projection` (boolean): Allows to enable/disable the orthographic projection. Default can be configured in Preferences
-  * `output3D` (any type in [boolean, point]): 
-  * `polygonmode` (boolean): 
   * `refresh` (boolean): Indicates the condition under which this output should be refreshed (default is true)
   * `refresh_every` (int): Allows to refresh the display every n time steps (default is 1)
+  * `rotate` (float): Set the angle for the rotation around the Z axis
   * `scale` (any type in [boolean, float]): Allows to display a scale bar in the overlay. Accepts true/false or an unit name
   * `show_fps` (boolean): Allows to enable/disable the drawing of the number of frames per second
-  * `tesselation` (boolean): 
-  * `trace` (any type in [boolean, int]): Allows to aggregate the visualization of agents at each timestep on the display. Default is false. If set to an int value, only the last n-th steps will be visualized. If set to true, no limit of timesteps is applied. This facet can also be applied to individual layers
+  * `synchronized` (boolean): Indicates whether the display should be directly synchronized with the simulation
   * `type` (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem
   * `use_shader` (boolean): Under construction...
   * `z_fighting` (boolean): Allows to alleviate a problem where agents at the same z would overlap each other in random ways 
@@ -1061,7 +1084,7 @@ display gridWithElevationTriangulated type: opengl ambient_light: 100 {
   * `elevation` (any type in [matrix, float, int, boolean]): Allows to specify the elevation of each cell, if any. Can be a matrix of float (provided it has the same size than the grid), an int or float variable of the grid species, or simply true (in which case, the variable called 'grid_value' is used to compute the elevation of each cell)
   * `grayscale` (boolean): if true, givse a grey value to each polygon depending on its elevation (false by default)
   * `lines` (rgb): the color to draw lines (borders of cells)
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1. The position can also be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
   * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
@@ -1110,7 +1133,7 @@ display my_display {
   * **`species`** (species), (omissible) : the species to be displayed
   * `aspect` (an identifier): the name of the aspect that should be used to display the species
   * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greter than 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
   * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
@@ -1250,7 +1273,7 @@ do name_of_action_or_primitive {
   * `begin_arrow` (any type in [int, float]): the size of the arrow, located at the beginning of the drawn geometry
   * `bitmap` (boolean): Whether to render the text in 3D or not
   * `border` (any type in [rgb, boolean]): if used with a color, represents the color of the geometry border. If set to false, expresses that no border should be drawn. If not set, the borders will be drawn using the color of the geometry.
-  * `color` (rgb): the color to use to display the object. In case of images, will try to colorize it
+  * `color` (any type in [rgb, container]): the color to use to display the object. In case of images, will try to colorize it. You can also pass a list of colors : in that case, each color will be matched to its corresponding vertex.
   * `depth` (float): (only if the display type is opengl) Add an artificial depth to the geometry previously defined (a line becomes a plan, a circle becomes a cylinder, a square becomes a cube, a polygon becomes a polyhedron with height equal to the depth value). Note: This only works if the geometry is not a point
   * `empty` (boolean): a condition specifying whether the geometry is empty or full
   * `end_arrow` (any type in [int, float]): the size of the arrow, located at the end of the drawn geometry
@@ -1260,7 +1283,8 @@ do name_of_action_or_primitive {
   * `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}
   * `rounded` (boolean): specify whether the geometry have to be rounded (e.g. for squares)
   * `size` (any type in [float, point]): size of the object to draw, expressed as a bounding box (width, height, depth). If expressed as a float, represents the size in the three directions.
-  * `texture` (any type in [string, list]): the texture(s) that should be applied to the geometry. Either a path to a file or a list of paths 
+  * `texture` (any type in [string, list, file]): the texture(s) that should be applied to the geometry. Either a path to a file or a list of paths
+  * `width` (float): The line width to use for drawing this object 
  	
 #### Definition
 
@@ -1474,12 +1498,12 @@ error 'This is an error raised by ' + self;
 #### Facets 
   
   * **`name`** (an identifier), (omissible) : the type of event captured: can be  "mouse_up", "mouse_down", "mouse_move", "mouse_exit", "mouse_enter" or a character  
-  * **`action`** (any type): Either a block of statements to execute in the context of the simulation or the identifier of the action to be executed. This action needs to be defined in 'global' and will receive two possible arguments: the location of the mouse in the environment and the agents under the mouse. For instance:`action myAction (point location, list selected_agents)`
+  * **`action`** (26): Either a block of statements to execute in the context of the simulation or the identifier of the action to be executed. This action needs to be defined in 'global' or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location
   * `unused` (an identifier), takes values in: {mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit}: an unused facet that serves only for the purpose of declaring the string values 
  	
 #### Definition
 
-`event` allows to interact with the simulation by capturing mouse or key events and doing an action. This action needs to be defined in 'global' and will receive two possible arguments: the location of the mouse in the environment and the agents under the mouse. The names of these arguments need not to be fixed: instead, the first argument of type 'point' will receive the location of the mouse, while the first argument whose type is compatible with 'container<agent>' will receive the list of agents selected.
+`event` allows to interact with the simulation by capturing mouse or key events and doing an action. This action needs to be defined in 'global' or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location
 
 #### Usages
 
@@ -1495,9 +1519,9 @@ event [event_type] action: myAction;
 ```
 global {
    // ... 
-   action myAction (point location, list<agent> selected_agents) {
-      // location: contains le location of the click in the environment
-      // selected_agents: contains agents clicked by the event
+   action myAction () {
+      point loc <- #user_location; // contains the location of the mouse in the world
+      list<agent> selected_agents <- agents inside (10#m around loc); // contains agents clicked by the event
       
       // code written by modelers
    }
@@ -1603,10 +1627,10 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * `frequency` (int): the execution frequence of the experiment (default value: 1). If frequency: 10, the experiment is executed only each 10 steps.
   * `keep_seed` (boolean): 
   * `keep_simulations` (boolean): In the case of a batch experiment, specifies whether or not the simulations should be kept in memory for further analysis or immediately discarded with only their fitness kept in memory
-  * `multicore` (boolean): Allows the experiment, when set to true, to use multiple threads to run its simulations
+  * `parallel` (any type in [boolean, int]): When set to true, use multiple threads to run its simulations. Setting it to n will set the numbers of threads to use
   * `parent` (an identifier): the parent experiment (in case of inheritance between experiments)
   * `repeat` (int): In the case of a batch experiment, expresses hom many times the simulations must be repeated
-  * `schedules` (container): an ordered list of agents giving the order of their execution
+  * `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
   * `skills` (list): 
   * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated
 
@@ -1637,8 +1661,11 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
 #### Facets 
 
   * `name` (an identifier), (omissible) : the identifier of the focus
+  * `agent_cause` (agent): the agentCause value of the created belief (can be nil
   * `expression` (any type): an expression that will be the value kept in the belief
+  * `lifetime` (int): the lifetime value of the created belief
   * `priority` (any type in [float, int]): The priority of the created predicate
+  * `truth` (boolean): the truth value of the created belief
   * `var` (any type in [any type, list, container]): the variable of the perceived agent you want to add to your beliefs
   * `when` (boolean): A boolean value to focus only with a certain condition 
  	
@@ -1736,7 +1763,7 @@ method genetic maximize: food_gathered pop_dim: 5 crossover_prob: 0.7 mutation_p
 
   * `name` (a label), (omissible) : the human readable title of the graphics
   * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greter than 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
   * `trace` (any type in [boolean, int]): Allows to aggregate the visualization at each timestep on the display. Default is false. If set to an int value, only the last n-th steps will be visualized. If set to true, no limit of timesteps is applied.
@@ -1911,11 +1938,11 @@ else {
 ### image 
 #### Facets 
 
-  * `name` (string), (omissible) : Human readable title of the image layer
+  * `name` (any type in [string, file]), (omissible) : Human readable title of the image layer
   * `color` (rgb): in the case of a shapefile, this the color used to fill in geometries of the shapefile
   * `file` (any type in [string, file]): the name/path of the image (in the case of a raster image)
   * `gis` (any type in [file, string]): the name/path of the shape file (to display a shapefile as background, without creating agents from it)
-  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greter than 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the image display is refreshed. (true by default, usefull in case of images that is not modified over the simulation)
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
   * `transparency` (float): the transparency rate of the agents (between 0 and 1, 1 means no transparency) 
@@ -2328,7 +2355,7 @@ experiment exp_name type: gui {
   * `center` (any type): an expression that will be evaluated and displayed in the center section of the bottom overlay
   * `color` (any type in [list, rgb]): the color(s) used to display the expressions given in the 'left', 'center' and 'right' facets
   * `left` (any type): an expression that will be evaluated and displayed in the left section of the bottom overlay
-  * `position` (point): position of the upper-left corner of the overlay. Note that if coordinates are in [0,1[, the position is relative to the size of the view (e.g. {0.5,0.5} refers to the middle of the view) whereas it is absolute when coordinates are greater than 1. When the position is a 3D point {0.5, 0.5, 0.5}, the last coordinate specifies the elevation of the layer.
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `right` (any type): an expression that will be evaluated and displayed in the right section of the bottom overlay
   * `rounded` (boolean): Whether or not the rectangular shape of the overlay should be rounded. True by default
   * `size` (point): extent of the layer in the view from its position. Coordinates in [0,1[ are treated as percentages of the total surface of the view, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Unlike  'position', no elevation can be provided with the z coordinate
@@ -2367,6 +2394,8 @@ overlay "Cycle: " + (cycle) center: "Duration: " + total_duration + "ms" right: 
   * `init` (any type): the init value
   * `max` (any type): the maximum value
   * `min` (any type): the minimum value
+  * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the parameter changes
+  * `slider` (boolean): Whether or not to display a slider for entering an int or float value. Default is true when max and min values are defined, false otherwise. If no max or min value is defined, setting this facet to true will have no effect
   * `step` (float): the increment step (mainly used in batch mode to express the variation step between simulation)
   * `type` (a datatype identifier): the variable type
   * `unit` (a label): the variable unit 
@@ -2409,6 +2438,7 @@ parameter 'Value of titi:' var: titi min: 1 max: 100 step: 2;
   * `as` (species): an expression that evaluates to a species
   * `emotion` (546706): The emotion needed to do the perception
   * `in` (any type in [float, geometry]): a float or a geometry. If it is a float, it's a radius of a detection area. If it is a geometry, it is the area of detection of others species.
+  * `parallel` (any type in [boolean, int]): setting this facet to 'true' will allow 'perceive' to use concurrency with a parallel_bdi architecture; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet is true by default.
   * `threshold` (float): Threshold linked to the emotion.
   * `when` (boolean): a boolean to tell when does the perceive is active 
  	
@@ -2546,7 +2576,7 @@ put -30 all: true in: putMap; 	// putMap equals ["x"::-30,"y"::-30, "z"::-30]
 
 #### Embedments
 * The `put` statement is of type: **Single statement**
-* The `put` statement can be embedded into: chart, Behavior, Sequence of statements or action, 
+* The `put` statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer, 
 * The `put` statement embeds statements: 
 
 ----
@@ -2604,7 +2634,7 @@ method reactive_tabu iter_max: 50 tabu_list_size_init: 5 tabu_list_size_min: 2 t
  	
 #### Definition
 
-A reflex is a sequence of statements that can be executed, at each time step, by the agent. If no facet when: is defined, it will be executed every time step. If there is a when: facet, it is executed only if the boolean expression evaluates to true.
+Reflexes are sequences of statements that can be executed by the agent. Reflexes prefixed by the 'reflex' keyword are executed continuously. Reflexes prefixed by 'init' are executed only immediately after the agent has been created. Reflexes prefixed by 'abort' just before the agent is killed. If a facet when: is defined, a reflex is executed only if the boolean expression evaluates to true.
 
 #### Usages
 
@@ -2629,7 +2659,7 @@ reflex my_reflex when: flip (0.5){ 		//Only executed when flip returns true
 ### release 
 #### Facets 
   
-  * **`target`** (any type in [agent, list]), (omissible) : an expression that is evaluated as an agent or a list of the agents to be released
+  * **`target`** (any type in [agent, list, 27]), (omissible) : an expression that is evaluated as an agent/a list of the agents to be released or an agent saved as a map
   * `as` (species): an expression that is evaluated as a species in which the micro-agent will be released
   * `in` (agent): an expression that is evaluated as an agent that will be the macro-agent in which micro-agent will be released, i.e. their new host
   * `returns` (a new identifier): a new variable containing a list of the newly released agent(s) 
@@ -2777,7 +2807,7 @@ species speciesRemove {
 
 #### Embedments
 * The `remove` statement is of type: **Single statement**
-* The `remove` statement can be embedded into: chart, Behavior, Sequence of statements or action, 
+* The `remove` statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer, 
 * The `remove` statement embeds statements: 
 
 ----
@@ -2839,14 +2869,23 @@ reflex writing {
   * `desire` (546704): The mandatory desire
   * `emotion` (546706): The mandatory emotion
   * `new_belief` (546704): The belief that will be added
+  * `new_beliefs` (list): The belief that will be added
   * `new_desire` (546704): The desire that will be added
+  * `new_desires` (list): The desire that will be added
   * `new_emotion` (546706): The emotion that will be added
+  * `new_emotions` (list): The emotion that will be added
+  * `new_uncertainties` (list): The uncertainty that will be added
   * `new_uncertainty` (546704): The uncertainty that will be added
+  * `parallel` (any type in [boolean, int]): setting this facet to 'true' will allow 'perceive' to use concurrency with a parallel_bdi architecture; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet is true by default.
   * `priority` (any type in [float, int]): The priority of the predicate added as a desire
   * `remove_belief` (546704): The belief that will be removed
+  * `remove_beliefs` (list): The belief that will be removed
   * `remove_desire` (546704): The desire that will be removed
+  * `remove_desires` (list): The desire that will be removed
   * `remove_emotion` (546706): The emotion that will be removed
+  * `remove_emotions` (list): The emotion that will be removed
   * `remove_intention` (546704): The intention that will be removed
+  * `remove_uncertainties` (list): The uncertainty that will be removed
   * `remove_uncertainty` (546704): The uncertainty that will be removed
   * `threshold` (float): Threshold linked to the emotion.
   * `uncertainty` (546704): The mandatory uncertainty
@@ -2893,14 +2932,15 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 [//]: # (keyword|statement_save)
 ### save 
 #### Facets 
-  
-  * **`to`** (string): an expression that evaluates to an string, the path to the file
+
   * `data` (any type), (omissible) : any expression, that will be saved in the file
+  * `attributes` (map): Allows to specify the attributes of a shape file (or other files that accept attributes). The keys of the map are the names of the attributes that will be present in the file, the values are whatever expression neeeded to define their value
   * `crs` (any type): the name of the projection, e.g. crs:"EPSG:4326" or its EPSG id, e.g. crs:4326. Here a list of the CRS codes (and EPSG id): http://spatialreference.org
   * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
-  * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it
+  * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it. Default is true
+  * `to` (string): an expression that evaluates to an string, the path to the file
   * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv")
-  * `with` (map): Not yet used 
+  * `with` (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file 
  	
 #### Definition
 
@@ -3004,7 +3044,7 @@ Allows to assign a value to the variable or attribute specified
 
 #### Embedments
 * The `set` statement is of type: **Single statement**
-* The `set` statement can be embedded into: chart, Behavior, Sequence of statements or action, 
+* The `set` statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer, 
 * The `set` statement embeds statements: 
 
 ----
@@ -3080,6 +3120,37 @@ ask receiver_agent(s) {
 
 ----
 
+[//]: # (keyword|statement_socialize)
+### socialize 
+#### Facets 
+
+  * `name` (an identifier), (omissible) : the identifier of the socialize statement
+  * `agent` (agent): the agent value of the created social link
+  * `dominance` (float): the dominance value of the created social link
+  * `familiarity` (float): the familiarity value of the created social link
+  * `liking` (float): the appreciation value of the created social link
+  * `solidarity` (float): the solidarity value of the created social link
+  * `when` (boolean): A boolean value to socialize only with a certain condition 
+ 	
+#### Definition
+
+enables to directly add a social link from a perceived agent.
+
+#### Usages
+
+* Other examples of use: 
+```
+socialize;
+``` 
+  
+
+#### Embedments
+* The `socialize` statement is of type: **Single statement**
+* The `socialize` statement can be embedded into: Behavior, Sequence of statements or action, 
+* The `socialize` statement embeds statements: 
+
+----
+
 [//]: # (keyword|statement_solve)
 ### solve 
 #### Facets 
@@ -3133,6 +3204,7 @@ solve SIR method: "rk4" step:0.001;
   * `mirrors` (any type in [list, species]): The species this species is mirroring. The population of this current species will be dependent of that of the species mirrored (i.e. agents creation and death are entirely taken in charge by GAMA with respect to the demographics of the species mirrored). In addition, this species is provided with an attribute called 'target', which allows each agent to know which agent of the mirrored species it is representing.
   * `neighbors` (int): (grid only), the chosen neighborhood (4, 6 or 8)
   * `neighbours` (int): (grid only), the chosen neighborhood (4, 6 or 8)
+  * `parallel` (any type in [boolean, int]): (experimental) setting this facet to 'true' will allow this species to use concurrency when scheduling its agents; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet has a default set in the preferences (Under Performances > Concurrency)
   * `parent` (species): the parent class (inheritance)
   * `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
   * `skills` (list): The list of skills that will be made available to the instances of this species. Each new skill provides attributes and actions that will be added to the ones defined in this species
@@ -3253,7 +3325,7 @@ The statement makes the agent output an arbitrary message in the status box.
 * Outputting a message
 
 ```
-status ('This is my status ' + self) color: °yellow;
+status ('This is my status ' + self) color: #yellow;
 ```
 
 
@@ -3499,7 +3571,7 @@ unconscious_contagion emotion:fearConfirmed charisma: 0.5 receptivity: 0.5;
 #### Facets 
   
   * **`name`** (a label), (omissible) : the identifier of the user_command
-  * `action` (an identifier): the identifier of the action to be executed. This action should be accessible in the context in which it is defined (an experiment, the global section or a species). A special case is allowed to maintain the compatibility with older versions of GAMA, when the user_command is declared in an experiment and the action is declared in 'global'. In that case, all the simulations managed by the experiment will run the action in response to the user executing the command
+  * `action` (26): the identifier of the action to be executed. This action should be accessible in the context in which the user_command is defined (an experiment, the global section or a species). A special case is allowed to maintain the compatibility with older versions of GAMA, when the user_command is declared in an experiment and the action is declared in 'global'. In that case, all the simulations managed by the experiment will run the action in response to the user executing the command
   * `color` (rgb): The color of the button to display
   * `continue` (boolean): Whether or not the button, when clicked, should dismiss the user panel it is defined in. Has no effect in other contexts (menu, parameters, inspectors)
   * `when` (boolean): the condition that should be fulfilled (in addition to the user clicking it) in order to execute this action
@@ -3531,8 +3603,8 @@ user_command kill_myself action: some_action with: [arg1::val1, arg2::val2, ...]
 ### user_init 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
-  * `initial` (boolean):  
+  * **`name`** (an identifier), (omissible) : The name of the panel
+  * `initial` (boolean): Whether or not this panel will be the initial one 
  	
 #### Definition
 
@@ -3559,6 +3631,7 @@ Used in the user control architecture, user_init is executed only once when the 
   * `init` (any type): the init value
   * `max` (float): the maximum value
   * `min` (float): the minimum value
+  * `slider` (boolean): Whether to display a slider or not when applicable
   * `type` (a datatype identifier): the variable type 
  	
 #### Definition
@@ -3588,8 +3661,8 @@ user_panel "Advanced Control" {
 ### user_panel 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
-  * `initial` (boolean):  
+  * **`name`** (an identifier), (omissible) : The name of the panel
+  * `initial` (boolean): Whether or not this panel will be the initial one 
  	
 #### Definition
 
@@ -3647,7 +3720,7 @@ using topology(grid_ant) {
 
 #### Embedments
 * The `using` statement is of type: **Sequence of statements or action**
-* The `using` statement can be embedded into: chart, Behavior, Sequence of statements or action, 
+* The `using` statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer, 
 * The `using` statement embeds statements: 
 
 ----
@@ -3664,6 +3737,7 @@ using topology(grid_ant) {
   * `index` (a datatype identifier): 
   * `init` (any type): The initial value of the attribute
   * `of` (a datatype identifier): 
+  * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the attribute changes
   * `parameter` (a label): Soon to be deprecated. Declare the parameter in an experiment instead
   * `size` (any type in [int, point]): 
   * `type` (a datatype identifier): 
@@ -3696,6 +3770,7 @@ Allows to declare an attribute of a species or an experiment
   * `init` (any type in [int, float]): The initial value of the attribute
   * `max` (any type in [int, float]): The maximum value this attribute can take.
   * `min` (any type in [int, float]): The minimum value this attribute can take
+  * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the attribute changes
   * `parameter` (a label): Soon to be deprecated. Declare the parameter in an experiment instead
   * `step` (int): 
   * `type` (a datatype identifier): The type of the attribute, either 'int' or 'float'
@@ -3728,6 +3803,7 @@ Allows to declare an attribute of a species or experiment
   * `index` (a datatype identifier): The type of the index used to retrieve elements if the type of the attribute is a container type
   * `init` (any type): The initial value of the attribute
   * `of` (a datatype identifier): The type of the elements contained in the type of this attribute if it is a container type
+  * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the attribute changes
   * `parameter` (a label): Soon to be deprecated. Declare the parameter in an experiment instead
   * `type` (a datatype identifier): The type of this attribute. Can be combined with facets 'of' and 'index' to describe container types
   * `update` (any type): An expression that will be evaluated each cycle to compute a new value for the attribute

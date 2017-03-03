@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Launching Experiments from the User Interface
+title:  Launching Experiments from the User Interface
 wikiPageName: LaunchingExperiments
 wikiPagePath: wiki/LaunchingExperiments.md
 ---

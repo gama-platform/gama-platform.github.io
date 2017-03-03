@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Agent Based Clustering
+title:  Agent Based Clustering
 wikiPageName: Learning-MAS_KMEANS
 wikiPagePath: wiki/Learning-MAS_KMEANS.md
 ---

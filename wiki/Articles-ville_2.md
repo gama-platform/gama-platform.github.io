@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ville 2
+title:  Ville 2
 wikiPageName: Articles-ville_2
 wikiPagePath: wiki/Articles-ville_2.md
 ---

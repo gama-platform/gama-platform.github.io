@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Preferences
+title:  Preferences
 wikiPageName: Preferences
 wikiPagePath: wiki/Preferences.md
 ---

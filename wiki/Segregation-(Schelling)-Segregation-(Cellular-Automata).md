@@ -1,6 +1,6 @@
 ---
 layout: default
-title: segregationGrid
+title:  segregationGrid
 wikiPageName: Segregation-(Schelling)-Segregation-(Cellular-Automata)
 wikiPagePath: wiki/Segregation-(Schelling)-Segregation-(Cellular-Automata).md
 ---
