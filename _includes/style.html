@@ -1,62 +1,8 @@
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/style.css">
- <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="//connect.facebook.net/en_US/all.js"></script>
-<script src="/linkify.min.js"></script>
-<script src="/linkify-jquery.min.js"></script>
-<script>
-  $(function() {
-    $('#search-query').lunrSearch({
-      indexUrl  : 'index.json',           // url for the .json file containing search index data
-      results   : '#search-results',          // selector for containing search results element
-      template  : '#search-results-template', // selector for Mustache.js template
-      titleMsg  : '<h1>Search results<h1>',   // message attached in front of results (can be empty)
-      emptyMsg  : '<p>Nothing found.</p>'     // shown message if search returns no results
-    });
-  });
-  $(document).ready(function(){
-	  		$.getJSON('https://graph.facebook.com/238065426321929/feed?access_token=229040647557399|MQKFlFYX7YW25XGj4GUYZ7B1lcY', function(data) {
-		var ahtml="";
-		for(var i = 0; i < 5; i++) {
-			ahtml=ahtml+"<li>"+data["data"][i]["message"]+"</li>";
-		}
-		ahtml=ahtml+"";
-		$("#fbquotes").html(ahtml);
-		$("#fbquotes").linkify();
-	});
-	 
-		$.getJSON('https://api.github.com/repos/gama-platform/gama/commits', function(data) {
-			var ahtml="";
-			for(var i = 0; i < 5; i++) {
-				ahtml=ahtml+"<li>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["html_url"]+"' target='_blank'> See more</a></li>";
-			}
-			ahtml=ahtml+"";
-			$("#commitquotes").html(ahtml);
-			$("#commitquotes").linkify();
-		});
-				
-				
-		$.getJSON('https://api.github.com/repos/gama-platform/gama/issues', function(data) {
-			var ahtml="";
-			for(var i = 0; i < 5; i++) {
-				ahtml=ahtml+"<li>"+data[i]["title"]+" by "+data[i]["user"]["login"]+" <a href='"+data[i]["html_url"]+"' target='_blank'> See more</a></li>";
-			}
-			ahtml=ahtml+"";
-			$("#issuequotes").html(ahtml);
-			$("#issuequotes").linkify();
-		});
-		
-		$.getJSON('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fgroups.google.com%2Fforum%2Ffeed%2Fgama-platform%2Ftopics%2Frss.xml%3Fnum%3D15', function(data) {
-			var ahtml="";
-			for(var i = 0; i < 5; i++) {
-				ahtml=ahtml+"<li>"+data["items"][i]["title"]+" by "+data["items"][i]["author"]+" <a href='"+data["items"][i]["link"]+"' target='_blank'> See more</a></li>";
-			}
-			ahtml=ahtml+"";
-			$("#googleusersquotes").html(ahtml);
-			$("#googleusersquotes").linkify();
-			
-		});
- });
-  
-</script>
+<script src="/js/linkify.min.js"></script>
+<script src="/js/linkify-jquery.min.js"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>

@@ -1,254 +1,22 @@
 require 'yaml'
 require 'uri'
-
+require 'json'
+require 'nokogiri'
+require 'kramdown'
 # use Jekyll configuration file
 CONFIG = YAML.load_file("_config.yml")
 URL_LAYOUT_DEFAULT = "../_layouts/default.html"
-URL_MENU_FILE = "_Sidebar.md"
+URL_LAYOUT_HOME = "../_layouts/home.html"
+URL_MENU_FILE = "./WebsiteTreeStructure.txt"
 task default: :build_dev
 
-# == Helpers ===========================================
+
+#-----------------------------------------
+#                TOOLS
+#-----------------------------------------
 def check_configuration
   if CONFIG['wikiToJekyll'].nil? or CONFIG['wikiToJekyll'].empty?
     raise "Please set your configuration in _config.yml. See the readme."
-  end
-end
-
-# shortener to get configuration parameter
-def g(key)
-  CONFIG['wikiToJekyll'][ key ]
-end
-
-def get_wiki_repository_url
-  
-  derived_url = ':https =>//github.com/' + g('user_name') + '/' + g('repository_name') + '.wiki.git'
-  
-  url = g('wiki_repository_url') || derived_url
-  
-end
-
-# IMPORTANT ++++++++++++++++
-# you submodule MUST be added with the :https =>// scheme
-# git add submoudle :https =>//github.com/userName/RepositoryName.wiki.git
-# otherwise you will have github errors
-def update_wiki_submodule
-  cd g('wiki_source') do
-    pullCommand = 'git pull origin master'
-    puts "Updating wiki submodule"
-    output = `#{pullCommand}`
-
-    if output.include? 'Already up-to-date'
-      abort("No update necessary") # exit
-    end
-  end
-end
-
-def clean_wiki_folders
-  if File.exist?(g('wiki_dest'))
-    removeFolder("")    
-  end
-  puts "create the dest dir for wiki pages"
-  FileUtils.mkdir(g('wiki_dest'))
-end
-
-def removeFolder(folder)
-  puts "removing "+File.join("#{g('wiki_dest')}",folder)
-  subdir_list=Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..') }
-  subdir_list.each do |subfolder| 
-    removeFolder(File.join(folder,subfolder))
-  end
-  Dir.glob(File.join("#{g('wiki_dest')}",folder,"/*.md")) do |wikiPage|
-    rm_rf wikiPage
-  end
-  FileUtils.rm_rf(File.join("#{g('wiki_dest')}",folder))
-end
-
-def copy_wiki_pages
-  findPages("")
-  copyResources()
-  defineLayoutMenu()
-  FileUtils.cp(File.join("#{g('wiki_dest')}","Home.md"),"index.md")
-  FileUtils.cp(File.join("#{g('wiki_source')}","_Sidebar.md"),"_includes/menu.md")
-  rm_rf File.join("#{g('wiki_dest')}","Home.md")
-end
-def copyResources()
-  folderResources = "resources"
-  FileUtils.mkdir(File.join("#{g('wiki_dest')}",folderResources))
-  subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folderResources)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folderResources,entry) and !(entry =='.'||entry =='.git' || entry == '..' || entry =="resources") }
-  subdir_list.each do |subfolder|
-    findResources(File.join(folderResources,subfolder))
-  end
-end
-def findResources(folder)
-  FileUtils.mkdir(File.join("#{g('wiki_dest')}",folder))
-  subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..') }
-  subdir_list.each do |subfolder|
-    findResources(File.join(folder,subfolder))
-  end
-  FileUtils.cp_r File.join("#{g('wiki_source')}",folder,"."),File.join("#{g('wiki_dest')}",folder)
-end
-def findPages(folder)
-  subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..' || entry =="resources") }
-  subdir_list.each do |subfolder|
-    findPages(File.join(folder,subfolder))
-  end
-  Dir.glob(File.join("#{g('wiki_source')}",folder,"[A-Za-z]*.*")) do |aFile|
-    wikiPageFileName = File.basename(aFile).gsub(" ","-")
-    wikiPagePath     = File.join("#{g('wiki_dest')}", wikiPageFileName)
-    if(File.extname(aFile)==".md")
-      # remove extension
-      wikiPageName    = wikiPageFileName.sub(/.[^.]+\z/,'')
-      wikiPageTitle = File.basename(wikiPageName)
-      if(wikiPageName!="Home")
-          puts wikiPageName
-	      File.foreach(aFile) do |line|
-	        if(line.include? "#")and(line[0]=="#")
-	          wikiPageTitle = line.gsub("\#","")
-	          wikiPageTitle = wikiPageTitle.gsub("\n","")
-	          if(wikiPageTitle[0]!=" ")
-	            wikiPageTitle=" "+wikiPageTitle
-	          end
-	          break
-	        end
-	      end 
-      end
-      
-      fileContent      = File.read(aFile)
-      folderString = File.join("#{g('wiki_dest')}",folder)
-      # write the new file with yaml front matter
-      open(wikiPagePath, 'w') do |newWikiPage|
-        newWikiPage.puts "---"
-        newWikiPage.puts "layout: default"
-        newWikiPage.puts "title: #{wikiPageTitle}"
-        # used to transform links
-        newWikiPage.puts "wikiPageName: #{wikiPageName}"
-        newWikiPage.puts "wikiPagePath: #{wikiPagePath}"
-        # used to generate a wiki specific menu. see readme
-        newWikiPage.puts "---"
-        newWikiPage.puts ""
-        newWikiPage.puts fileContent
-      end
-    else
-      FileUtils.cp(aFile,wikiPagePath)
-    end
-  end
-end
-def count_em(string, substring)
-  string.scan(/(?=#{substring})/).count
-end
-def defineLayoutMenu
-  
-  rm_rf File.join("#{g('wiki_source')}",URL_LAYOUT_DEFAULT)
-  open(File.join("#{g('wiki_source')}",URL_LAYOUT_DEFAULT), 'w') do |newLayout|
-    newLayout.puts '
-    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>{{ page.title }}</title></head>
-    <body>
-    {% include style.html %}
-      <div id="left">
-      <ul>
-      <li><h3><a href="/">Home</a></h3></li>
-      <li><h3><a href="/discussions/">Discussions</a></h3></li>'
-      
-    nbSpaceLast = 0
-    File.foreach(File.join("#{g('wiki_source')}",URL_MENU_FILE)) do |line|
-      nbSpace = line[/\A */].size
-      if(line =~ /^[0-9].*/)
-      	nbSpace = [1,nbSpace].max
-      end
-      unless(line.include?"Home" or /\S/ !~ line)
-      	if(nbSpace>nbSpaceLast)
-      		newLayout.puts "<ul>"
-      		nbSpaceLast=nbSpace
-      	else
-      		if(nbSpace<nbSpaceLast)
-      			while(nbSpaceLast>nbSpace)
-	      			newLayout.puts "</ul>"
-	      			nbSpaceLast=nbSpaceLast-1
-      			end
-      		end
-      	end
-      	htmlLink = linkup(line,"/wiki/")
-      	if(htmlLink!="")
-      		newLayout.puts "<li>"
-      	  if(line.include?"##")
-	      	line.sub!("##","")
-      		newLayout.puts "<h3>"
-      		newLayout.puts linkup(line,"/wiki/")
-      		newLayout.puts "</h3>"
-	      else
-	      	newLayout.puts linkup(line,"/wiki/")
-	      end
-      	newLayout.puts "</li>"
-      	end
-      	
-      end
-      
-    end
-    newLayout.puts '</div><div id="right">
-<h3>Facebook Activities</h3>
-<ul id="fbquotes">
-</ul>
-<h3>Commit Activities</h3>
-<ul id="commitquotes">
-</ul>
-<h3>Issue Activities</h3>
-<ul id="issuequotes">
-</ul>
-<h3>Gama Platform Users Activities</h3>
-<ul id="googleusersquotes">
-</ul>
-</div><div id="content">{{ content }}</div></body></html>'
-end
-  
- 
-end
-def linkup( str, opt )
-
-  link = ""
-  label = ""
-  countBracket = 0
-  countParenthesis = 0
-  startCut=-1
-  endCut=-1
-  find = false
- 
-  puts str;
-  for i in 0..str.length-1
-  	if(str[i]=="[")
-  	   countBracket = countBracket +1
-  	   if(countBracket==1)and(find==false)
-  	      startCut = i+1
-  	   end
-  	else
-  	   if(str[i]=="]")
-  	      countBracket = countBracket -1
-  	      if(countBracket ==0)and(find==false)
-  	         endCut = i-1
-  	         find=true
-  		     label=str[startCut..endCut]
-  	      end
-  	   end
-  	end
-  	
-  	if(str[i]=="(")and(find==true)
-  		countParenthesis=countParenthesis+1
-  		if(countParenthesis==1)
-  			startCut = i+1
-  		end
-  	else
-  		if(str[i]==")")and(find==true)
-  			countParenthesis=countParenthesis-1
-  			if(countParenthesis==0)
-  				endCut = i-1
-  	            link = str[startCut..endCut]
-  			end
-  		end
-  	end
-  end
-  if(label=="")
-  	str=""
-  else
-  	str='<a href="'+opt+link+'">'+label+'</a>'
   end
 end
 def build_jekyll
@@ -257,59 +25,399 @@ end
 
 def deploy
     puts "deploying"
+    open(".gitignore", 'w') do |gitPage|
+        gitPage.puts "vendor/*"
+    end
+    system 'git remote add origin https://hqnghi88:$HQN_KEY@github.com/dphilippon/dphilippon.github.io.git'
+    system 'git config user.name "Travis CI"'
+    system 'git config user.email "travis@travis-ci.org"'
     system "git add -A"
     message = "Site wiki update #{Time.now.utc}"
     puts "\n## :Committing => #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing website"
-    system "git push #{g('deploy_remote')} #{g('deploy_branch')}"
+    system "git push origin --quiet"
     puts "\n## Github Pages deploy complete"
 end
 
-# synch repository wiki pages with Jekyll
-# needs a public wiki
-task :wiki do |t|
-    check_configuration
-    update_wiki_submodule
-    :Rake ::Task[:wikibuild].execute
-    if g('commit_and_push') == true
-        deploy
-    end
-    puts "Wiki synchronisation success !"
+def count_em(string, substring)
+  string.scan(/(?=#{substring})/).count
 end
-
-# add wiki as a submodule
-task :wikisub do |t|
-
+def g(key)
+  CONFIG['wikiToJekyll'][ key ]
+end
+def wikisubfunction
   puts "adding wiki as submodule"
   check_configuration
   wiki_repository = get_wiki_repository_url
   command = 'git submodule add ' + wiki_repository + ' ' + g('wiki_source')
   command += ' && git submodule init'
   command += ' && git submodule update'
-  puts 'command : ' + command
 
   output = `#{command}`
-
+  puts output
   if output.include? 'failed'
     abort("submodule add failed : verify you configuration and that your wiki is public") # exit
   end
 
   puts "wiki submodule OK"
 end
+def get_wiki_repository_url
+  
+  #derived_url = ':https =>//github.com/' + g('user_name') + '/' + g('repository_name') + '.wiki.git'
+  
+  url = g('wiki_repository_url') #|| derived_url
+  
+end
 
+def update_wiki_submodule
+#  cd g('wiki_source') do
+    pullCommand = 'git submodule foreach git pull origin master'
+    puts "Updating wiki submodule"
+    output = `#{pullCommand}`
 
-task :wikibuild do |t|
-  puts ':rake =>wikibuild'
+    if output.include? 'Already up-to-date'
+      puts "No update necessary" # exit
+    end
+    puts output
+  end
+#end
+def wikibuildfunction
   clean_wiki_folders
   copy_wiki_pages
   build_jekyll
 end
 
-task :build_dev do |t|
-  puts "Building with dev parameters"
-  sh 'jekyll build --config _config.yml,_config_dev.yml --trace'
+#-----------------------------------------
+#     Clean the destination folder
+#-----------------------------------------
+def clean_wiki_folders
+  puts "Trying to clean the wiki"
+  if File.exist?(g('wiki_dest'))
+    #puts "Removing Folder "+g('wiki_dest')
+    removeFolder("")    
+  end
+  #puts "Creating Folder "+g('wiki_dest')
+  FileUtils.mkdir(g('wiki_dest'))
 end
+
+def removeFolder(folder)
+  puts "Inside "+folder
+  Dir.glob(File.join("#{g('wiki_dest')}",folder,"/*.md")) do |wikiPage|
+    #puts "Removing Page : "+wikiPage
+    FileUtils.rm_rf(wikiPage)
+  end
+  FileUtils.rm_rf(File.join("#{g('wiki_dest')}",folder))
+  #puts "Removing Folder : "+folder
+end
+
+
+#-----------------------------------------
+#    Copy the wiki pages and resources
+#-----------------------------------------
+def copy_wiki_pages
+  index = []
+  puts "--------------------FINDING PAGES--------------------"
+  findPages("",index)
+  puts "--------------------COPYING RESOURCES--------------------"
+  copyResources()
+  puts "--------------------GENERATING MENU--------------------"
+  defineLayoutMenu()
+  
+  File.open("lunr.json","w") do |f|
+    f.write(JSON.generate(index))
+  end
+end
+def copyResources()
+  folderResources = "resources"
+  findResources(folderResources)
+end
+def findResources(folder)
+  #puts "Looking for resources in "+folder
+  FileUtils.mkdir(File.join("#{g('wiki_dest')}",folder))
+  subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..') }
+  subdir_list.each do |subfolder|
+    findResources(File.join(folder,subfolder))
+  end
+  Dir.glob(File.join("#{g('wiki_source')}",folder,"[A-Za-z]*.*")) do |aResource|
+    #puts "Copying Resource : "+aResource+" to "+File.join("#{g('wiki_dest')}",folder,File.basename(aResource))
+    FileUtils.chmod(0777, aResource)
+    FileUtils.cp_r(aResource,File.join("#{g('wiki_dest')}",folder,File.basename(aResource)))
+  end
+end
+def findPages(folder,index)
+  #puts "Looking for pages in "+folder
+  subdir_list = Dir.entries(File.join("#{g('wiki_source')}",folder)).select {|entry| File.directory? File.join("#{g('wiki_source')}",folder,entry) and !(entry =='.'||entry =='.git' || entry == '..' || entry =="resources") }
+  subdir_list.each do |subfolder|
+    findPages(File.join(folder,subfolder),index)
+  end
+  Dir.glob(File.join("#{g('wiki_source')}",folder,"[A-Za-z]*.*")) do |aFile|
+    wikiPageFileName = File.basename(aFile).gsub(" ","-")
+    wikiPagePath     = File.join("#{g('wiki_dest')}", wikiPageFileName)
+    #puts "Copying Page :  "+aFile+" to "+wikiPagePath
+    if(File.extname(aFile)==".md")
+      # remove extension
+      wikiPageName    = wikiPageFileName.sub(/.[^.]+\z/,'')
+      wikiPageTitle = File.basename(wikiPageName)
+      File.foreach(aFile) do |line|
+        if(line.include? "#")and(line[0]=="#")
+          wikiPageTitle = line.gsub("\#","")
+          wikiPageTitle = wikiPageTitle.gsub("\n","")
+          if(wikiPageTitle[0]!=" ")
+            wikiPageTitle=" "+wikiPageTitle
+          end
+          break
+        end
+      end 
+      fileContent      = File.read(aFile)
+      fileHTML=Kramdown::Document.new(fileContent).to_html
+      doc = Nokogiri::HTML(fileHTML)
+      text = doc.xpath("//text()").text.to_s
+      text = text.encode('UTF-8', :invalid => :replace, :undef => :replace)
+      text = text.gsub("\\t"," ")
+      text = text.gsub("\"","")
+      text = text.gsub("\n"," ")
+      text = text.gsub("\r"," ")
+      text = text.gsub("\""," ")
+      text = text.gsub("\'"," ")
+      text = text.gsub("'"," ")
+      text = text.gsub("\\r"," ")
+      text = text.gsub("           "," ")
+      text = text.gsub("        "," ")
+      text = text.gsub("*.\s.*"," ")
+      text = text.gsub("\t"," ")
+      text = text.gsub("\“"," ")
+      text = text.gsub("\‘"," ")
+      text = text.gsub("\’"," ")
+      text = text.gsub("\”"," ")
+      text = text.gsub("\`"," ")
+      index<<{"id"=>wikiPagePath,"title"=>wikiPageTitle,"content"=>text,"url"=>wikiPagePath}
+      folderString = File.join("#{g('wiki_dest')}",folder)
+      # write the new file with yaml front matter
+      open(wikiPagePath, 'w') do |newWikiPage|
+        newWikiPage.puts "---"
+        newWikiPage.puts "layout: default"
+        newWikiPage.puts "title:#{wikiPageTitle}"
+        # used to transform links
+        newWikiPage.puts "wikiPageName: #{wikiPageName}"
+        newWikiPage.puts "wikiPagePath: #{wikiPagePath}"
+        # used to generate a wiki specific menu. see readme
+        newWikiPage.puts "---"
+        newWikiPage.puts fileContent
+      end
+      if(File.basename(aFile)=="Operators.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|operator\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"operator_")
+            tmp_index<<{"id"=>strOcc,"title"=>"operator : "+strOcc, "url"=>"/wiki/Operators#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.operators.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="BuiltInArchitectures.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|architecture\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"architecture_")
+            tmp_index<<{"id"=>strOcc,"title"=>"architecture : "+strOcc, "url"=>"/wiki/BuiltInArchitectures#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.architectures.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="BuiltInSkills.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|skill\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"skill_")
+            tmp_index<<{"id"=>strOcc,"title"=>"skill : "+strOcc, "url"=>"/wiki/BuiltInSkills#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.skills.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="BuiltInSpecies.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|species\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"species_")
+            tmp_index<<{"id"=>strOcc,"title"=>"species : "+strOcc, "url"=>"/wiki/BuiltInSpecies#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.species.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="DataTypes.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|type\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"type_")
+            tmp_index<<{"id"=>strOcc,"title"=>"type : "+strOcc, "url"=>"/wiki/DataTypes#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.types.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="Literals.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|concept\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"concept_")
+            tmp_index<<{"id"=>strOcc,"title"=>"concept : "+strOcc, "url"=>"/wiki/Literals#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.literals.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="Statements.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|statement\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"statement_")
+            tmp_index<<{"id"=>strOcc,"title"=>"statement : "+strOcc, "url"=>"/wiki/Statements#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.statements.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      if(File.basename(aFile)=="UnitsAndConstants.md")
+        tmp_index=[]
+        fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|constant\_.*\))/) do |anOccurence|
+            strOcc = clearFromCharacterForJson(anOccurence,"constant_")
+            tmp_index<<{"id"=>strOcc,"title"=>"constant : "+strOcc, "url"=>"/wiki/UnitsAndConstants#"+strOcc, "content"=>strOcc}
+        end
+        File.open("lunr.constants.json","w") do |f|
+            f.write(tmp_index.to_json)
+        end
+      end
+      
+    else
+      FileUtils.cp(aFile,wikiPagePath)
+    end
+  end
+end
+def clearFromCharacterForJson(anOccurence,removable)
+    strOcc = anOccurence.to_s
+    strOcc = strOcc.sub("\"","")
+    strOcc = strOcc.sub("\"","")
+    strOcc = strOcc.sub("\[","")
+    strOcc = strOcc.sub("\[","")
+    strOcc = strOcc.sub("\]","")
+    strOcc = strOcc.sub("\]","")
+    strOcc = strOcc.sub("\(","")
+    strOcc = strOcc.sub("\)","")
+    strOcc = strOcc.sub("\#","")
+    strOcc = strOcc.sub("\:","")
+    strOcc = strOcc.sub("\/","")
+    strOcc = strOcc.sub("\/","")
+    strOcc = strOcc.sub(" ","")
+    strOcc = strOcc.sub(" ","")
+    strOcc = strOcc.sub("keyword","")
+    strOcc = strOcc.sub(removable,"")
+    strOcc = strOcc.sub("|","")
+    return strOcc
+end
+#-----------------------------------------
+#      Creation of the Menu Layout
+#-----------------------------------------
+def defineLayoutMenu
+  #puts "Removing Old Menu and Home Layout"
+  rm_rf File.join("#{g('wiki_source')}",URL_LAYOUT_DEFAULT)
+  #puts "Generating New Menu"
+  open(File.join("#{g('wiki_source')}",URL_LAYOUT_DEFAULT), 'w') do |newLayout|
+    newLayout.puts '
+    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>{{ page.title }}</title></head>
+    <body>
+    {% include style.html %}
+    {% include menu.html %}
+    '
+    oldUnder=-1
+    File.foreach(File.join("#{g('wiki_source')}",URL_MENU_FILE)) do |line|
+      currentUnder = count_em(line,"-")
+      #Fils du courant
+      if(currentUnder>oldUnder)
+        if(oldUnder==-1)
+          newLayout.puts '
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div>
+             <div class="w3-quarter" style="width:260px">
+		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="z-index:3;margin-left:10px" id="mySidebar">
+                    <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div>'
+        else
+          newLayout.puts "      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>"
+        end
+        oldUnder=currentUnder
+      else
+        #Père du courant
+        if(currentUnder<oldUnder)
+          loop do 
+            newLayout.puts "    </div>"
+            oldUnder = oldUnder -1
+            break if oldUnder==currentUnder
+          end
+        end
+      end
+      fileWithName = File.join("#{g('wiki_dest')}","/"+line.gsub("-","")).gsub("\n","")
+      title=line
+      if(File.exists?(fileWithName+".md"))
+        File.foreach(fileWithName+".md") do |row|
+          if(row.include? "title:")
+            title = row
+            break
+          end
+        end 
+        newLayout.puts "<a href='/"+fileWithName+"'>"+title.gsub("title: ","")+"</a><br/>"
+      else
+        newLayout.puts ""+title.gsub("-","")+""
+      end
+    end
+    newLayout.puts '</div></div></nav></div>
+    <div class="w3-threequarter">
+        {{ content }}
+    </div>
+    </div>
+    </div>
+    </body></html>'
+  end
+  
+ 
+end
+
+#-----------------------------------------
+#               Tasks
+#-----------------------------------------
+#Function to synchronise the git
+task :wiki do |t|
+    puts "Checking Configuration"
+    check_configuration
+    puts "Adding Submodule"
+    wikisubfunction
+    puts "Updating Submodule"
+    update_wiki_submodule
+    puts "Executing Wikibuild"
+    wikibuildfunction
+    command = 'git rm -r --cached _wiki'
+    output = `#{command}` 
+    
+    #puts "Deploying"
+    #deploy
+    open(".gitignore", 'w') do |gitPage|
+        gitPage.puts "vendor/*"
+        gitPage.puts ".bundle/*"
+    end
+    puts "Wiki synchronisation success !"
+end
+#Function to add the git of the wiki to a folder
+task :wikisub do |t|
+  wikisubfunction
+end
+
+task :wikiupdate do |t|
+    update_wiki_submodule
+end
+
+#Function to build the wiki
+task :wikibuild do |t|
+  puts ':rake =>wikibuild'
+  wikibuildfunction
+end
+
+
 
 task :prod do |t|
   puts "Building with production parameters"

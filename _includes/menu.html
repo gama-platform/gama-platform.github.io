@@ -1,0 +1,251 @@
+<div class="w3-bar w3-white w3-hide-small w3-display-center">
+              <div class="w3-left-align">
+              <a href="/" class="w3-bar-item w3-button"><img src="/images/icon_gama_50.png"></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOCUMENTATION</b></a>
+              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>TUTORIALS</b></a>
+              <a href="/download" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOWNLOAD</b></a>
+              <a href="/news" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>NEWS</b></a>
+              <a href="/contribute" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>CONTRIBUTE</b></a>
+              <div class="w3-bar-item w3-right"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)">
+                    <i class="fa fa-search w3-text-blue" aria-hidden="true" onclick="search();"></i>
+                    <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right w3-quarter " style="display:none;right:0;opacity: 0.9;" id="rightMenu">
+                      <i onclick="closeRightMenu()" class="fa fa-times w3-bar-item w3-large"></i>
+                      <div id="search-results" ></div>
+                    </div>
+                    
+              </div>
+            
+            </div>
+</div>
+<script>
+function checkEntry(e){
+    if(e.keyCode==13)
+    {
+        search();
+    }
+};
+var json_architectures = (function () {
+      var json_architectures = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_architectures.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_architectures = data;
+         }
+     });
+     return json_architectures;
+ })(); 
+var json_constants = (function () {
+      var json_constants = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_constants.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_constants = data;
+         }
+     });
+     return json_constants;
+ })(); 
+var json_literals = (function () {
+      var json_literals = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_literals.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_literals = data;
+         }
+     });
+     return json_literals;
+ })(); 
+ var json_operator = (function () {
+      var json_operator = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_operator.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_operator = data;
+         }
+     });
+     return json_operator;
+ })(); 
+var json_skills = (function () {
+      var json_skills = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_skills.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_skills = data;
+         }
+     });
+     return json_skills;
+ })(); 
+var json_species = (function () {
+      var json_species = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_species.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_species = data;
+         }
+     });
+     return json_species;
+ })(); 
+var json_statements = (function () {
+      var json_statements = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_statements.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_statements = data;
+         }
+     });
+     return json_statements;
+ })(); 
+var json_types = (function () {
+      var json_types = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index_types.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_types = data;
+         }
+     });
+     return json_types;
+ })(); 
+var json_pages = (function () {
+      var json_pages = null;
+      $.ajax({
+         'async': false,
+         'global': false,
+         'url': "/index.json",
+         'dataType': "json",
+         'success': function (data) {
+             json_pages = data;
+         }
+     });
+     return json_pages;
+ })(); 
+ var store = {
+     {% for post in site.pages %}
+       "{{ post.url }}": {
+         "title": "{{ post.title | xml_escape }}",
+         "url": "{{ post.url | xml_escape }}"
+       }
+        {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    };
+var idx = lunr.Index.load(json_pages);
+var searchResults = document.getElementById('search-results');
+function displaySearchResults(results, store) {
+
+    if (results.length) { // Are there any results?
+      var appendString = '';
+
+      for (var i = 0; i < results.length; i++) {  // Iterate over the results
+        var item = store[results[i].ref];
+        if(!item)
+        {
+            var tmp_ref = "/"+results[i].ref.substr(0,results[i].ref.lastIndexOf('.'))+".html";
+            item = store[tmp_ref];
+        }
+        if(item)
+        {
+            appendString += '<li class="w3-margin-left"><a href="'+item.url+'" class="w3-text-blue" style="text-decoration: none;">' + item.title + '</a></li>';
+        }
+      }
+
+      searchResults.innerHTML = searchResults.innerHTML+appendString+"<br/>";
+    } 
+  }
+  function displaySearchResultsDocumentation(resultsSet,description,page) {
+
+    var appendString = '';
+
+    if (resultsSet.length) { // Are there any results?
+      for (var i = 0; i < resultsSet.length; i++) {  // Iterate over the results
+        appendString += '<li class="w3-margin-left"><a href="/wiki/'+page+'#'+resultsSet[i].ref+'" class="w3-text-blue" style="text-decoration: none;"> '+  resultsSet[i].ref + ' - <i class="w3-text-grey"> '+description+'</i></a></li>';
+      }
+    }
+    searchResults.innerHTML = searchResults.innerHTML+appendString;
+  }
+function search() {
+  var searchTerm = document.getElementById("search-box").value;
+  var searchResults = document.getElementById('search-results');
+  searchResults.innerHTML="";
+  if (searchTerm) {
+     // Initalize lunr with the fields it will be searching on. I've given title
+    // a boost of 10 to indicate matches on this field are more important.
+    var idx = lunr.Index.load(json_pages);
+    console.log("FINISHING INDEX");
+    var idx_architectures = lunr.Index.load(json_architectures)
+    console.log("FINISHING INDEX ARCHITECTURES");
+    var idx_constants = lunr.Index.load(json_constants)
+    console.log("FINISHING INDEX CONSTANTS");
+    var idx_literals = lunr.Index.load(json_literals)
+    console.log("FINISHING INDEX LITERALS");
+    var idx_operator = lunr.Index.load(json_operator)
+    console.log("FINISHING INDEX OPERATOR");
+    var idx_skills = lunr.Index.load(json_skills)
+    console.log("FINISHING INDEX SKILLS");
+    var idx_species = lunr.Index.load(json_species)
+    console.log("FINISHING INDEX SPECIES");
+    var idx_statements = lunr.Index.load(json_statements)
+    console.log("FINISHING INDEX STATEMENTS");
+    var idx_types = lunr.Index.load(json_types)
+    console.log("FINISHING INDEX TYPES");
+    var resultsArchitectures = idx_architectures.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH ARCHITECTURES");
+    var resultsConstants = idx_constants.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH CONSTANTS");
+    var resultsLiterals = idx_literals.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH LITERALS");
+    var resultsOperator = idx_operator.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH OPERATOR");
+    var resultsSkills = idx_skills.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH SKILLS");
+    var resultsSpecies = idx_species.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH SPECIES");
+    var resultsStatements = idx_statements.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH STATEMENTS");
+    var resultsTypes = idx_types.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH TYPES");
+    displaySearchResultsDocumentation(resultsArchitectures,"architecture","BuiltInArchitectures");
+    displaySearchResultsDocumentation(resultsConstants,"constant","UnitsAndConstants");
+    displaySearchResultsDocumentation(resultsLiterals,"literal","Literals");
+    displaySearchResultsDocumentation(resultsOperator,"operator","Operators");
+    displaySearchResultsDocumentation(resultsSkills,"skill","BuiltInSkills");
+    displaySearchResultsDocumentation(resultsSpecies,"species","BuiltInSpecies");
+    displaySearchResultsDocumentation(resultsStatements,"statement","Statements");
+    displaySearchResultsDocumentation(resultsTypes,"type","DataTypes");
+    var results = idx.search(searchTerm); // Get lunr to perform a search
+    console.log("FINISHING SEARCH IN PAGES");
+     displaySearchResults(results,store); // We'll write this in the next section
+     
+    openRightMenu();
+  }
+  
+  return false;
+}
+function openRightMenu() {
+    document.getElementById("rightMenu").style.display = "block";
+}
+function closeRightMenu() {
+    document.getElementById("rightMenu").style.display = "none";
+}
+</script>
