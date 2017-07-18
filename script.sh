@@ -6,7 +6,7 @@ setup_git() {
   git config --global user.name "Travis CI"
   git config --global push.default simple
   git remote rm origin
-  git remote add origin https://hqnghi88:$HQN_KEY@github.com/dphilippon/dphilippon.github.io.git
+  git remote add origin https://hqnghi88:$HQN_KEY@github.com/gama-platform/gama-platform.github.io.git
 }
 
 commit_website_files() {
