@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Simple Road Network 
+title: Simple Road Network 
 wikiPageName: Driving-Skill-Road-Traffic-simple-(City)
 wikiPagePath: wiki/Driving-Skill-Road-Traffic-simple-(City).md
 ---
-
 [//]: # (keyword|operator_as_map)
 [//]: # (keyword|operator_\:\:)
 [//]: # (keyword|operator_with_weights)

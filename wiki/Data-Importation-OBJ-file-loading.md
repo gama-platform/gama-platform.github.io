@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Complex Object Loading
+title: Complex Object Loading
 wikiPageName: Data-Importation-OBJ-file-loading
 wikiPagePath: wiki/Data-Importation-OBJ-file-loading.md
 ---
-
 [//]: # (keyword|concept_load_file)
 [//]: # (keyword|concept_3d)
 [//]: # (keyword|concept_skill)

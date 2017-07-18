@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Trafic Group (R2D2) MAPS7 - LWR Model
+title: Trafic Group (R2D2) MAPS7 - LWR Model
 wikiPageName: Traffic-LWR-Traffic-Flow-Model
 wikiPagePath: wiki/Traffic-LWR-Traffic-Flow-Model.md
 ---
-
 [//]: # (keyword|operator_ln)
 [//]: # (keyword|operator_last)
 [//]: # (keyword|operator_sum)

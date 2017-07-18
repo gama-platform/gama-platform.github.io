@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Built-in Species
+title: Built-in Species
 wikiPageName: BuiltInSpecies
 wikiPagePath: wiki/BuiltInSpecies.md
 ---
-
 # Built-in Species
  	
 ----

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Interaction between agents
+title: Interaction between agents
 wikiPageName: InteractionBetweenAgents
 wikiPagePath: wiki/InteractionBetweenAgents.md
 ---
-
 [//]: # (startConcept|interaction_between_agents)
 # Interaction between agents
 

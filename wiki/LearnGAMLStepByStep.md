@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Learn GAML Step by Step
+title: Learn GAML Step by Step
 wikiPageName: LearnGAMLStepByStep
 wikiPagePath: wiki/LearnGAMLStepByStep.md
 ---
-
 # Learn GAML Step by Step
 
 This large progressive tutorial has been designed to help you to learn **GAML** (**GA**ma **M**odeling **L**anguage).

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Adding of a stopping condition
+title: Adding of a stopping condition
 wikiPageName: Predator-Prey-Model-09
 wikiPagePath: wiki/Predator-Prey-Model-09.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

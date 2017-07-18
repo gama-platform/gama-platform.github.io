@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Blend color in a cuve
+title: Blend color in a cuve
 wikiPageName: Diffusion-Statement-Blend-color-in-a-cuve-(Multiple-Signals)
 wikiPagePath: wiki/Diffusion-Statement-Blend-color-in-a-cuve-(Multiple-Signals).md
 ---
-
 [//]: # (keyword|statement_diffuse)
 [//]: # (keyword|type_matrix)
 [//]: # (keyword|concept_diffusion)

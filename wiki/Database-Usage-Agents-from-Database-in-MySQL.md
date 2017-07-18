@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Agents from Database in MySQL
+title:  Agents from Database in MySQL
 wikiPageName: Database-Usage-Agents-from-Database-in-MySQL
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-MySQL.md
 ---
-
 [//]: # (keyword|skill_SQLSKILL)
 [//]: # (keyword|concept_database)
 #  Agents from Database in MySQL

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Cellular Automaton Based Urban Growth
+title: Cellular Automaton Based Urban Growth
 wikiPageName: Urban-Growth-raster-model
 wikiPagePath: wiki/Urban-Growth-raster-model.md
 ---
-
 [//]: # (keyword|operator_max_of)
 [//]: # (keyword|operator_closest_to)
 [//]: # (keyword|operator_using)

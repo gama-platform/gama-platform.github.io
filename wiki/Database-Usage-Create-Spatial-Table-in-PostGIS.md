@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   CreateBuildingTablePostGIS
+title:  CreateBuildingTablePostGIS
 wikiPageName: Database-Usage-Create-Spatial-Table-in-PostGIS
 wikiPagePath: wiki/Database-Usage-Create-Spatial-Table-in-PostGIS.md
 ---
-
 [//]: # (keyword|statement_remove)
 [//]: # (keyword|statement_put)
 [//]: # (keyword|skill_SQLSKILL)

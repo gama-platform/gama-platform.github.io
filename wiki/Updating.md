@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Updating GAMA
+title: Updating GAMA
 wikiPageName: Updating
 wikiPagePath: wiki/Updating.md
 ---
-
 # Updating GAMA
 
 Unless you are using the version of GAMA built from the sources available in the GIT repository of the project (see [here](InstallingGitVersion)), you are normally running a specific **release** of GAMA that sports a given **version number** (e.g. GAMA 1.6.1, GAMA 1.7, etc.). When new features were developed, or when serious issues were fixed, the release you had on your disk, prior to GAMA 1.6.1, could not benefit from them. Since this version, however, GAMA has been enhanced to support a _self\_update_ mechanism, which allows to import from the GAMA update site additional plugins (offering new features) or updated versions of the plugins that constitute the core of GAMA.

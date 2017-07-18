@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  MovingAgents
+title: MovingAgents
 wikiPageName: User-Interaction-Moving-Agents
 wikiPagePath: wiki/User-Interaction-Moving-Agents.md
 ---
-
 [//]: # (keyword|operator_at_location)
 [//]: # (keyword|operator_union)
 [//]: # (keyword|operator_inside)

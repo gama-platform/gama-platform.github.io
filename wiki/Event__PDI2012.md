@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Introduction
+title: Introduction
 wikiPageName: Event__PDI2012
 wikiPagePath: wiki/Event__PDI2012.md
 ---
-
 # Introduction
 
 During the [PDI2012](http://www.ummisco.ird.fr/pdi/) nearly 50 PhD students were working together on different topic related to complex system modeling.

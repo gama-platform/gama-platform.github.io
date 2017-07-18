@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  8. Complex Behavior
+title: 8. Complex Behavior
 wikiPageName: PredatorPrey_step8
 wikiPagePath: wiki/PredatorPrey_step8.md
 ---
-
 # 8. Complex Behavior
 This eighth step Illustrates how to define and call actions and how to use conditional statements.
 

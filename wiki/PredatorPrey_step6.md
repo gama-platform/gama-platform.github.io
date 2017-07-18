@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  6. Breeding
+title: 6. Breeding
 wikiPageName: PredatorPrey_step6
 wikiPagePath: wiki/PredatorPrey_step6.md
 ---
-
 # 6. Breeding
 So far we created agents only during the initialisation of the simulation. In this sixth step we Illustrate how to create new agents during a simulation of a dynamic species.
 

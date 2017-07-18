@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Predator Prey
+title: Predator Prey
 wikiPageName: PredatorPrey
 wikiPagePath: wiki/PredatorPrey.md
 ---
-
 # Predator Prey
 
 

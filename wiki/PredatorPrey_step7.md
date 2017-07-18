@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  7. Agent Aspect
+title: 7. Agent Aspect
 wikiPageName: PredatorPrey_step7
 wikiPagePath: wiki/PredatorPrey_step7.md
 ---
-
 # 7. Agent Aspect
 In this seventh step we will focus on the display and more specifically the aspects of the agents: how they are represented. It can be a simple shape (circle, square, etc.), an icon, a polygon (see later GIS support).
 

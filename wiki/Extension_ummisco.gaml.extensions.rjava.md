@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_ummisco.gaml.extensions.rjava
 wikiPagePath: wiki/Extension_ummisco.gaml.extensions.rjava.md
 ---
-
 # Extension
 
 ----

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ville 6
+title: Ville 6
 wikiPageName: Articles-ville_6
 wikiPagePath: wiki/Articles-ville_6.md
 ---
-
 [//]: # (keyword|operator_gauss)
 [//]: # (keyword|operator_distance_between)
 [//]: # (keyword|operator_select)

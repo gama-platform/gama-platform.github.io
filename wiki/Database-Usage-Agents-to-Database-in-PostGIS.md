@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Agents to Database in PostGIS
+title:  Agents to Database in PostGIS
 wikiPageName: Database-Usage-Agents-to-Database-in-PostGIS
 wikiPagePath: wiki/Database-Usage-Agents-to-Database-in-PostGIS.md
 ---
-
 [//]: # (keyword|skill_SQLSKILL)
 [//]: # (keyword|concept_database)
 #  Agents to Database in PostGIS

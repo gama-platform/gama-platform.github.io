@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Voronoi
+title: Voronoi
 wikiPageName: Voronoi-Voronoi
 wikiPagePath: wiki/Voronoi-Voronoi.md
 ---
-
 [//]: # (keyword|operator_using)
 [//]: # (keyword|operator_closest_to)
 [//]: # (keyword|type_topology)

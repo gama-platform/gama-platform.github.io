@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Balls, Groups and Clouds Multilevel Architecture
+title: Balls, Groups and Clouds Multilevel Architecture
 wikiPageName: Multi-Level-Usage-Balls,-Groups-and-Clouds
 wikiPagePath: wiki/Multi-Level-Usage-Balls,-Groups-and-Clouds.md
 ---
-
 [//]: # (keyword|operator_towards)
 [//]: # (keyword|operator_sin)
 [//]: # (keyword|operator_at_location)

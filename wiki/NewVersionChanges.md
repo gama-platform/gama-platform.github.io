@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Java version
+title: Java version
 wikiPageName: NewVersionChanges
 wikiPagePath: wiki/NewVersionChanges.md
 ---
-
 # Java version
 
 Due to changes in the libraries used by GAMA 1.7, this version now **requires JDK/JVM 1.8** to run.

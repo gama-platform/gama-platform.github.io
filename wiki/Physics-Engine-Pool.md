@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Pool using Physic Engine
+title: Pool using Physic Engine
 wikiPageName: Physics-Engine-Pool
 wikiPagePath: wiki/Physics-Engine-Pool.md
 ---
-
 [//]: # (keyword|skill_physics)
 [//]: # (keyword|concept_physics_engine)
 [//]: # (keyword|concept_skill)

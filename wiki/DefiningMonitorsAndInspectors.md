@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining monitors and inspectors
+title: Defining monitors and inspectors
 wikiPageName: DefiningMonitorsAndInspectors
 wikiPagePath: wiki/DefiningMonitorsAndInspectors.md
 ---
-
 [//]: # (startConcept|monitors_and_inspectors)
 # Defining monitors and inspectors
 

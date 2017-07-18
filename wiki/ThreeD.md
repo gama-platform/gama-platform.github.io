@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3D Tutorial
+title: 3D Tutorial
 wikiPageName: ThreeD
 wikiPagePath: wiki/ThreeD.md
 ---
-
 # 3D Tutorial
 
 

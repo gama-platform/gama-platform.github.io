@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  4. Movement on Graph
+title: 4. Movement on Graph
 wikiPageName: IncrementalModel_step4
 wikiPagePath: wiki/IncrementalModel_step4.md
 ---
-
 # 4. Movement on Graph
 This step illustrates how load a graph and use it for the displacement of our species.
 

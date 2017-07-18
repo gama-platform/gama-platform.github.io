@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<xmlFile>
+	<experiment id="Ant Foraging (Charts examples) ants AntOneDisp">
+		<display name="Ants" cycle_number="15"/>
+	</experiment>
+</xmlFile>

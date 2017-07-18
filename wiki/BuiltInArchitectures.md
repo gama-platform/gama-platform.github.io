@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Built-in Architectures
+title: Built-in Architectures
 wikiPageName: BuiltInArchitectures
 wikiPagePath: wiki/BuiltInArchitectures.md
 ---
-
 # Built-in Architectures
  	
 ----

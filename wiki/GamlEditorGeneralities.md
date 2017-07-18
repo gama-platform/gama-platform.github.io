@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  The GAML Editor - Generalities
+title: The GAML Editor - Generalities
 wikiPageName: GamlEditorGeneralities
 wikiPagePath: wiki/GamlEditorGeneralities.md
 ---
-
 # The GAML Editor - Generalities
 
 The GAML Editor is a text editor that proposes several services to support the modeler in writing correct models: an integrated live validation system, a ribbon header that gives access to [experiments](LaunchingExperiments), information, warning and error markers.

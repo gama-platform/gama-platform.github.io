@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  4. Weight for Road Network
+title: 4. Weight for Road Network
 wikiPageName: RoadTrafficModel_step4
 wikiPagePath: wiki/RoadTrafficModel_step4.md
 ---
-
 # 4. Weight for Road Network
 The present model will introduce how to design a road system, or graph, based on the road GIS data and provide each edge a `weight`representing the destruction level of the road.
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Save statement
+title: Save statement
 wikiPageName: Save-statement
 wikiPagePath: wiki/Save-statement.md
 ---
-
 # Save statement
 
 This sub-section is composed of the following models :

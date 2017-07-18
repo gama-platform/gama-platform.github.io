@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ville 1
+title: Ville 1
 wikiPageName: Articles-ville_1
 wikiPagePath: wiki/Articles-ville_1.md
 ---
-
 [//]: # (keyword|operator_gauss)
 [//]: # (keyword|concept_gui)
 # Ville 1

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Balls without gravity
+title: Balls without gravity
 wikiPageName: Physics-Engine-Perfect-Gas
 wikiPagePath: wiki/Physics-Engine-Perfect-Gas.md
 ---
-
 [//]: # (keyword|skill_physics)
 [//]: # (keyword|concept_physics_engine)
 [//]: # (keyword|concept_skill)

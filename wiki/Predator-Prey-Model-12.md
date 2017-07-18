@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Image loading (raster data)
+title: Image loading (raster data)
 wikiPageName: Predator-Prey-Model-12
 wikiPagePath: wiki/Predator-Prey-Model-12.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

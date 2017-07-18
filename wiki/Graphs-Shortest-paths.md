@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  ShortestPath
+title: ShortestPath
 wikiPageName: Graphs-Shortest-paths
 wikiPagePath: wiki/Graphs-Shortest-paths.md
 ---
-
 [//]: # (keyword|operator_load_shortest_paths)
 [//]: # (keyword|operator_all_pairs_shortest_path)
 [//]: # (keyword|operator_path_between)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  comodel_with_the_coupling
+title: comodel_with_the_coupling
 wikiPageName: Co-model-Usage-comodel_with_the_coupling
 wikiPagePath: wiki/Co-model-Usage-comodel_with_the_coupling.md
 ---
-
 [//]: # (keyword|statement_agents)
 [//]: # (keyword|concept_comodel)
 # comodel_with_the_coupling

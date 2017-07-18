@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Developing Operators
+title: Developing Operators
 wikiPageName: DevelopingOperators
 wikiPagePath: wiki/DevelopingOperators.md
 ---
-
 # Developing Operators
 
 

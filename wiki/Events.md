@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  References
+title: References
 wikiPageName: Events
 wikiPagePath: wiki/Events.md
 ---
-
 # References
 
 

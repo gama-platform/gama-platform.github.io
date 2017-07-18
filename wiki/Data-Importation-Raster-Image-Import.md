@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Raster File in a Grid of cells
+title: Raster File in a Grid of cells
 wikiPageName: Data-Importation-Raster-Image-Import
 wikiPagePath: wiki/Data-Importation-Raster-Image-Import.md
 ---
-
 [//]: # (keyword|operator_inside)
 [//]: # (keyword|concept_load_file)
 [//]: # (keyword|concept_gis)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ordinary Differential Equations
+title: Ordinary Differential Equations
 wikiPageName: Ordinary-Differential-Equations
 wikiPagePath: wiki/Ordinary-Differential-Equations.md
 ---
-
 # Ordinary Differential Equations
 
 This sub-section is composed of the following models :

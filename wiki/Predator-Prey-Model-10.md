@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Definition of charts
+title: Definition of charts
 wikiPageName: Predator-Prey-Model-10
 wikiPagePath: wiki/Predator-Prey-Model-10.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

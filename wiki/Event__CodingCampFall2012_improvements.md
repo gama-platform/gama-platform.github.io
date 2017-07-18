@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Possibility to directly create agents from a CSV file
+title: Possibility to directly create agents from a CSV file
 wikiPageName: Event__CodingCampFall2012_improvements
 wikiPagePath: wiki/Event__CodingCampFall2012_improvements.md
 ---
-
 Improvements and Enhancements
 
 

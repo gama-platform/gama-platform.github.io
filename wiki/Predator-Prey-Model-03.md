@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Behavior of the prey agent
+title: Behavior of the prey agent
 wikiPageName: Predator-Prey-Model-03
 wikiPagePath: wiki/Predator-Prey-Model-03.md
 ---
-
 # Behavior of the prey agent
 
 

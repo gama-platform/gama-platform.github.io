@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Developing Extensions
+title: Developing Extensions
 wikiPageName: DevelopingExtensions
 wikiPagePath: wiki/DevelopingExtensions.md
 ---
-
 # Developing Extensions
 
 

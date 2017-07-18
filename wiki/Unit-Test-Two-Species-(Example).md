@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Example of Unit Test
+title: Example of Unit Test
 wikiPageName: Unit-Test-Two-Species-(Example)
 wikiPagePath: wiki/Unit-Test-Two-Species-(Example).md
 ---
-
 [//]: # (keyword|statement_test)
 [//]: # (keyword|statement_assert)
 [//]: # (keyword|concept_test)

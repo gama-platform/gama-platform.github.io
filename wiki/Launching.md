@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Launching GAMA
+title: Launching GAMA
 wikiPageName: Launching
 wikiPagePath: wiki/Launching.md
 ---
-
 # Launching GAMA
 
 Running GAMA for the first time requires that you launch the application (`Gama.app` on MacOS X, `Gama.exe` on Windows, `Gama` on Linux, located in the folder called `Gama` once you have unzipped the archive). Other folders and files are present here, but you don't have to care about them for the moment. In case you are unable to launch the application, of if error messages appear, please refer to the [installation](Installation) or [troubleshooting](Troubleshooting) instructions.

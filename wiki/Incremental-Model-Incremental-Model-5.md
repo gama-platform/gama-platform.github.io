@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3D visualization
+title: 3D visualization
 wikiPageName: Incremental-Model-Incremental-Model-5
 wikiPagePath: wiki/Incremental-Model-Incremental-Model-5.md
 ---
-
 [//]: # (keyword|operator_^)
 [//]: # (keyword|operator_abs)
 [//]: # (keyword|operator_among)

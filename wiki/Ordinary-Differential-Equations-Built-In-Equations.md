@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Predefined equestions
+title: Predefined equestions
 wikiPageName: Ordinary-Differential-Equations-Built-In-Equations
 wikiPagePath: wiki/Ordinary-Differential-Equations-Built-In-Equations.md
 ---
-
 [//]: # (keyword|operator_diff)
 [//]: # (keyword|statement_equation)
 [//]: # (keyword|statement_solve)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  DXF to Agents Model
+title: DXF to Agents Model
 wikiPageName: Data-Importation-DXF-Agents
 wikiPagePath: wiki/Data-Importation-DXF-Agents.md
 ---
-
 [//]: # (keyword|operator_get)
 [//]: # (keyword|operator_group_by)
 [//]: # (keyword|operator_rnd_color)

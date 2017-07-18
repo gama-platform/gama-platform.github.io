@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Creating color and sort cubes by color
+title: Creating color and sort cubes by color
 wikiPageName: Color-Bubble-Sort-3D
 wikiPagePath: wiki/Color-Bubble-Sort-3D.md
 ---
-
 [//]: # (keyword|operator_cube)
 [//]: # (keyword|operator_copy)
 [//]: # (keyword|constant_#magenta)

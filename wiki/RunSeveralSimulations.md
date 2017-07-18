@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Run Several Simulations
+title: Run Several Simulations
 wikiPageName: RunSeveralSimulations
 wikiPagePath: wiki/RunSeveralSimulations.md
 ---
-
 [//]: # (startConcept|run_simulations_as_agents)
 # Run Several Simulations
 

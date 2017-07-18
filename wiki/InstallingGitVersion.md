@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Installing the GIT version
+title: Installing the GIT version
 wikiPageName: InstallingGitVersion
 wikiPagePath: wiki/InstallingGitVersion.md
 ---
-
 # Installing the GIT version
 
 Tested on MacOS X (10.9 to 10.11), Windows (8 to 10) and Ubuntu 15.04 (Vivid)
@@ -36,6 +35,18 @@ The source is to be downloaded from GitHub in two steps: by creating a local clo
   * In **Branch Selection** windows, 
     * check the master branch 
     * Next
+    * Note: If you are using Ubuntu 16 and you did not find any branch in this windows, may be your eclipse has a bug related with the OS. The workaround should be: 
+        * Close eclipse
+        * Open eclipse.ini
+        * Add these 2 lines before **--launcher.appendVmargs**:
+
+        --launcher.GTK_version   
+        2
+        * Change required version of java from : -Dosgi.requiredJavaVersion=1.7 into -Dosgi.requiredJavaVersion=1.8
+        * Remove this line: -XX:MaxPermSize=256m
+        * Save and close eclipse.ini
+        * Start eclipse and redo from step 1
+
 ![Git branch selection](resources/images/developpingExtension/GIT_branch_selection.png)
   * In **Local Destination** windows,
     * Choose a Directory (where the source files will be downloaded).

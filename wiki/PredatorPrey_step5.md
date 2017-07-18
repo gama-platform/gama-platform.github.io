@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  5. Predator Agent
+title: 5. Predator Agent
 wikiPageName: PredatorPrey_step5
 wikiPagePath: wiki/PredatorPrey_step5.md
 ---
-
 # 5. Predator Agent
 This fifth step Illustrates how to use parent species. Indeed,prey and predators share a few common features thus we will define a generic species that will regroup all the common elements (variables, behaviors and aspects) between the prey and the predator species.
 

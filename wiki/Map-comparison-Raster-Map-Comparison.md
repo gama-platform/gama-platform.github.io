@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Raster Map Comparison
+title: Raster Map Comparison
 wikiPageName: Map-comparison-Raster-Map-Comparison
 wikiPagePath: wiki/Map-comparison-Raster-Map-Comparison.md
 ---
-
 [//]: # (keyword|operator_in)
 [//]: # (keyword|operator_as_matrix)
 [//]: # (keyword|operator_kappa)

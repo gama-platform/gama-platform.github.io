@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Clustering of agents by their distance 
+title:  Clustering of agents by their distance 
 wikiPageName: Clustering-Spatial-Clustering
 wikiPagePath: wiki/Clustering-Spatial-Clustering.md
 ---
-
 [//]: # (keyword|operator_is)
 [//]: # (keyword|operator_polyline)
 [//]: # (keyword|operator_simple_clustering_by_distance)

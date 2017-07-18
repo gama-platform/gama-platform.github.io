@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Basic model (prey agents)
+title: Basic model (prey agents)
 wikiPageName: Predator-Prey-Model-01
 wikiPagePath: wiki/Predator-Prey-Model-01.md
 ---
-
 # Basic model (prey agents)
 
 

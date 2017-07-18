@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Boids 3D Motion
+title: Boids 3D Motion
 wikiPageName: Boids-Boids-3D-Motion
 wikiPagePath: wiki/Boids-Boids-3D-Motion.md
 ---
-
 [//]: # (keyword|operator_cube)
 [//]: # (keyword|skill_moving3D)
 [//]: # (keyword|concept_gui)

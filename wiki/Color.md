@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Color
+title: Color
 wikiPageName: Color
 wikiPagePath: wiki/Color.md
 ---
-
 # Color
 
 This sub-section is composed of the following models :

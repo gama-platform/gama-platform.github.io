@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Developing Plugins
+title: Developing Plugins
 wikiPageName: DevelopingPlugins
 wikiPagePath: wiki/DevelopingPlugins.md
 ---
-
 # Developing Plugins
 
 
@@ -113,8 +112,91 @@ In the product, e.g. `gama.product` in the `ummisco.gama.product` project:
 
 
 
+## How to make a plug-in available at GAMA update site for the GAMA release 
 
-## How to make a plug-in available as an extension for the GAMA release
+Considering a working GAMA plugin named institution.gama.pluginsName
+
+### Configure plugin to be available for Maven
+
+a/ Add pom.xml for plugin institution.gama.pluginsName :
+* Right click -> Configure -> Convert to maven project to add pom.xml:
+* Set:
+  * Group id: institution.gama.pluginsName
+  * Artifact id: institution.gama.pluginsName
+  * Version: 1.0.0-SNAPSHOT // must have -SNAPSHOT if the plugin version is x.x.x.qualifier
+  * Packaging: eclipse-plugin
+* Finish
+
+b/ Configure pom.xml to recognize the parent pom.xml for Maven builds
+* Open pom.xml in institution.gama.pluginsName
+* Tab overview, Parent section, type in:
+  * Group id: msi.gama
+  * Artifact id: msi.gama.experimental.parent
+  * Version: 1.7.0-SNAPSHOT
+  * Relative path: ../msi.gama.experimental.parent
+* Save
+
+c/ Update maven cache in eclipse (optional)
+It will fix this compilation error "Project configuration is not up-to-date with pom.xml. Select: Maven->Update Project... from the project context menu or use Quick Fix."
+* Right click -> Maven -> Update project
+
+
+### Create a feature for the plugin
+
+a/ Create new feature
+* New -> Project -> type in : feature -> Select "Feature Project"
+* Set:
+  * Project name: institution.gama.feature.pluginsName
+  * Uncheck use default location, type in: {current git repository}\aaa.bbb.feature.ccc 
+  * Feature Version: 1.0.0.qualifier
+  * Update Site URL: http://updates.gama-platform.org/experimental
+  * Update Site Name: GAMA 1.7.x Experimental Plugins Update Site
+* Click Next
+  * Initialize from the plugin list -> check all plugins needed:
+    institution.gama.pluginsName (1.0.0.qualifier)
+* Finish
+
+b/  Add pom.xml for feature institution.gama.feature.pluginsName :
+
+* Right click -> Configure -> Convert to maven project (to add pom.xml)
+* Set:
+  * Group id: institution.gama.feature.pluginsName
+  * Artifact id: institution.gama.feature.pluginsName
+  * Version: 1.0.0-SNAPSHOT 
+  * Packaging: eclipse-feature
+* Finish
+
+c/ Configure pom.xml to recognize the parent pom.xml for Maven builds
+* Open pom.xml in institution.gama.pluginsName
+* Tab overview, Parent section, type in:
+  * Group id: msi.gama
+  * Artifact id: msi.gama.experimental.parent
+  * Version: 1.7.0-SNAPSHOT
+  * Relative path: ../msi.gama.experimental.parent
+* Save
+
+d/ Update maven cache in eclipse (optional)
+It will fix this compilation error "Project configuration is not up-to-date with pom.xml. Select: Maven->Update Project... from the project context menu or use Quick Fix."
+* Right click -> Maven -> Update project
+
+
+### Update p2updatesite category.xml (this step will be done automatically by travis, soon)
+Open msi.gama.experimental.p2updatesite
+* Tab Managing the Categories -> Add feature -> institution.gama.feature.pluginsName
+
+
+
+
+
+
+
+
+
+
+
+
+
+## How to make a plug-in available as an extension for the GAMA release (obsolete)
 
 Once the plug-in has been tested in the GAMA SVN version, it can be made available for GAMA release users.
 

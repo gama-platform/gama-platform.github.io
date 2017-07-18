@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  _team2strategy
+title: _team2strategy
 wikiPageName: Soccer-team2_strategy
 wikiPagePath: wiki/Soccer-team2_strategy.md
 ---
-
 [//]: # (keyword|operator_intersects)
 [//]: # (keyword|operator_closest_points_with)
 [//]: # (keyword|operator_norm)

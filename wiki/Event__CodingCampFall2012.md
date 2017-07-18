@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Introduction
+title: Introduction
 wikiPageName: Event__CodingCampFall2012
 wikiPagePath: wiki/Event__CodingCampFall2012.md
 ---
-
 # Introduction
 
 The Fall GAMA Coding Camp 2012 will take place from the 17th to the 19th of November in the hotel called "Hon Trem Resort & Spa ". You can find more information about it here : http://www.hontremresort-spa.com.

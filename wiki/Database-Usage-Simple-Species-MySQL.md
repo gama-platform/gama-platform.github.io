@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Simple Species MySql
+title:  Simple Species MySql
 wikiPageName: Database-Usage-Simple-Species-MySQL
 wikiPagePath: wiki/Database-Usage-Simple-Species-MySQL.md
 ---
-
 [//]: # (keyword|concept_database)
 #  Simple Species MySql
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  OBJ File to Geometry
+title: OBJ File to Geometry
 wikiPageName: Data-Importation-OBJ-file-drawing
 wikiPagePath: wiki/Data-Importation-OBJ-file-drawing.md
 ---
-
 [//]: # (keyword|operator_\:\:)
 [//]: # (keyword|concept_load_file)
 [//]: # (keyword|concept_3d)

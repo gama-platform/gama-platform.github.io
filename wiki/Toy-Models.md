@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Toy Models
+title: Toy Models
 wikiPageName: Toy-Models
 wikiPagePath: wiki/Toy-Models.md
 ---
-
 # Toy Models
 
 This section is composed of the following sub-section :

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Optimizing Models
+title: Optimizing Models
 wikiPageName: OptimizingModels
 wikiPagePath: wiki/OptimizingModels.md
 ---
-
 [//]: # (startConcept|optimizing_tips)
 [//]: # (keyword|concept_optimization)
 # Optimizing Models

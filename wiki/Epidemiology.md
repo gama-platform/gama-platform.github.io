@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Epidemiology
+title: Epidemiology
 wikiPageName: Epidemiology
 wikiPagePath: wiki/Epidemiology.md
 ---
-
 # Epidemiology
 
 This sub-section is composed of the following models :

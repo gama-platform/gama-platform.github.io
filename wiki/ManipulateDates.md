@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Manipulate Dates
+title: Manipulate Dates
 wikiPageName: ManipulateDates
 wikiPagePath: wiki/ManipulateDates.md
 ---
-
 [//]: # (keyword|concept_date)
 # Manipulate Dates
 

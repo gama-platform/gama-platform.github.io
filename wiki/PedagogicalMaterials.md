@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Initiation to algorithms with Scratch
+title: Initiation to algorithms with Scratch
 wikiPageName: PedagogicalMaterials
 wikiPagePath: wiki/PedagogicalMaterials.md
 ---
-
 # Initiation to algorithms with Scratch
 A set of exercices for your first step to algorithms using the graphical tool Scratch: [PDF](https://sites.google.com/site/benoitgaudou/teaching/gama-exercices/InitiationtoAlgorithmicswithScratch.pdf?attredirects=0&d=1).
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Graphs
+title: Graphs
 wikiPageName: Graphs
 wikiPagePath: wiki/Graphs.md
 ---
-
 # Graphs
 
 This sub-section is composed of the following models :

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Spatial Operators
+title: Spatial Operators
 wikiPageName: Spatial-Operators-Spatial-Operators-(Examples)
 wikiPagePath: wiki/Spatial-Operators-Spatial-Operators-(Examples).md
 ---
-
 [//]: # (keyword|operator_scaled_by)
 [//]: # (keyword|operator_rotated_by)
 [//]: # (keyword|operator_intersects)

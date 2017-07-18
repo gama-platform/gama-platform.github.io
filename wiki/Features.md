@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Features
+title: Features
 wikiPageName: Features
 wikiPagePath: wiki/Features.md
 ---
-
 # Features
 
 This section is composed of the following sub-section :

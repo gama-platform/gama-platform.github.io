@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  FIPA Request (4)
+title: FIPA Request (4)
 wikiPageName: FIPA-Skill-FIPA-Request-(4)
 wikiPagePath: wiki/FIPA-Skill-FIPA-Request-(4).md
 ---
-
 [//]: # (keyword|skill_fipa)
 [//]: # (keyword|type_message)
 [//]: # (keyword|concept_fipa)

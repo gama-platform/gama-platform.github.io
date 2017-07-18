@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  How to write the Website Content
+title: How to write the Website Content
 wikiPageName: WebsiteGeneration
 wikiPagePath: wiki/WebsiteGeneration.md
 ---
-
 # How to write the Website Content
 
 In this page, we will explain all about the convention we use to write and generate the website content and the wiki content.

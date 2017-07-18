@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ants (Foraging and Sorting)
+title: Ants (Foraging and Sorting)
 wikiPageName: Ants-(Foraging-and-Sorting)
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting).md
 ---
-
 # Ants (Foraging and Sorting)
 
 This sub-section is composed of the following models :

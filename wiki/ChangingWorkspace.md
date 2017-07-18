@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Changing Workspace
+title: Changing Workspace
 wikiPageName: ChangingWorkspace
 wikiPagePath: wiki/ChangingWorkspace.md
 ---
-
 # Changing Workspace
 
 It is possible, and actually common, to store different projects/models in different workspaces and to tell GAMA to switch between these workspaces. Doing so involves being able to create one or several new workspace locations (even if GAMA has been told to [remember](Launching#Choosing_a_Workspace) the current one) and being able to easily switch between them.

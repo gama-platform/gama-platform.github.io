@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Multi-level architecture
+title: Multi-level architecture
 wikiPageName: MultiLevelArchitecture
 wikiPagePath: wiki/MultiLevelArchitecture.md
 ---
-
 [//]: # (startConcept|multi_level)
 [//]: # (keyword|concept_multi_level)
 # Multi-level architecture

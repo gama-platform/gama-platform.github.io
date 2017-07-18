@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Manipulate basic species
+title: Manipulate basic species
 wikiPageName: ManipulateBasicSpecies
 wikiPagePath: wiki/ManipulateBasicSpecies.md
 ---
-
 # Manipulate basic species
 
 In this chapter, we will learn how to manipulate some basic species. As you already know, a species can be seen as the definition of a type of **agent** (we call agent the instance of a species). In OOP (Object-Oriented Programming), a **species** can be seen as the class. Each species is then defined by some **attributes** ("member" in OOP), **actions** ("method" in OOP) and **behavior** ("method" in OOP).

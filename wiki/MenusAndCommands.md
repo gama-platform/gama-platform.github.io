@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Menus and Commands
+title: Menus and Commands
 wikiPageName: MenusAndCommands
 wikiPagePath: wiki/MenusAndCommands.md
 ---
-
 # Menus and Commands
 
 

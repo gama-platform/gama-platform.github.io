@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Importing Models
+title: Importing Models
 wikiPageName: ImportingModels
 wikiPagePath: wiki/ImportingModels.md
 ---
-
 # Importing Models
 
 

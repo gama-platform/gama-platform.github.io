@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Regression
+title: Regression
 wikiPageName: Statistics-Regression
 wikiPagePath: wiki/Statistics-Regression.md
 ---
-
 [//]: # (keyword|operator_as_matrix)
 [//]: # (keyword|operator_build)
 [//]: # (keyword|operator_predict)

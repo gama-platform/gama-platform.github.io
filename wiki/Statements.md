@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Statements
+title: Statements
 wikiPageName: Statements
 wikiPagePath: wiki/Statements.md
 ---
-
 # Statements
 
 ----

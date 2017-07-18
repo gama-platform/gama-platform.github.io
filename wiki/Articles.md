@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Articles
+title: Articles
 wikiPageName: Articles
 wikiPagePath: wiki/Articles.md
 ---
-
 # Articles
 
 This sub-section is composed of the following models :

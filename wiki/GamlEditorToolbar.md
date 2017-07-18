@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  The GAML Editor Toolbar
+title: The GAML Editor Toolbar
 wikiPageName: GamlEditorToolbar
 wikiPagePath: wiki/GamlEditorToolbar.md
 ---
-
 # The GAML Editor Toolbar
 
 The GAML Editor provide some tools to make the editing easier, covering a lot of functionalities, such as tools for changes of visualization, tools for navigation through your model, tools to format your code, or also tools to help you finding the correct keywords to use in a given context.

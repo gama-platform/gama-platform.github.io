@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Calling R
+title: Calling R
 wikiPageName: CallingR
 wikiPagePath: wiki/CallingR.md
 ---
-
 [//]: # (startConcept|call_r)
 [//]: # (keyword|concept_r)
 # Calling R

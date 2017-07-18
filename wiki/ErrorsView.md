@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Errors View
+title: Errors View
 wikiPageName: ErrorsView
 wikiPagePath: wiki/ErrorsView.md
 ---
-
 # Errors View
 
 Whenever a runtime error, or a warning, is issued by the currently running experiment, a view called "Errors" is opened automatically. This view provides, together with the error/warning itself, some contextual information about who raised the error (i.e. which agent(s)) and where (i.e. in which portion of the model code). As with other "status" in GAMA, errors will appear in red color and warnings in orange.

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Road Traffic
+title: Road Traffic
 wikiPageName: Road-Traffic
 wikiPagePath: wiki/Road-Traffic.md
 ---
-
 # Road Traffic
 
 This sub-section is composed of the following models :

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  5. Dynamic weights
+title: 5. Dynamic weights
 wikiPageName: RoadTrafficModel_step5
 wikiPagePath: wiki/RoadTrafficModel_step5.md
 ---
-
 # 5. Dynamic weights
 This 5th step illustrates how to obtain a shortest path from a point to another and to update the weights of an existing graph.
 

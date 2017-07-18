@@ -1,15 +1,14 @@
 ---
 layout: default
-title:  Developing architecture
+title: Developing architecture
 wikiPageName: DevelopingControlArchitectures
 wikiPagePath: wiki/DevelopingControlArchitectures.md
 ---
-
 # Developing architecture
 
 
 
-In addition to existing [control architectures](G__BuiltInControlArchitectures), developers can add new ones.
+In addition to existing [control architectures](BuiltInArchitectures), developers can add new ones.
 
 Defining a new control architecture needs to [create new statements of type behavior](DevelopingStatements) and included in species statements and to define how to manage their execution.
 

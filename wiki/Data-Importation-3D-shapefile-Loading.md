@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3D shapefile loading
+title: 3D shapefile loading
 wikiPageName: Data-Importation-3D-shapefile-Loading
 wikiPagePath: wiki/Data-Importation-3D-shapefile-Loading.md
 ---
-
 [//]: # (keyword|operator_shape_file)
 [//]: # (keyword|concept_3d)
 [//]: # (keyword|concept_shapefile)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining Batch Experiments
+title: Defining Batch Experiments
 wikiPageName: BatchExperiments
 wikiPagePath: wiki/BatchExperiments.md
 ---
-
 [//]: # (keyword|concept_batch)
 # Defining Batch Experiments
 

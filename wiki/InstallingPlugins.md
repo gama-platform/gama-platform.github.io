@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Installing Plugins
+title: Installing Plugins
 wikiPageName: InstallingPlugins
 wikiPagePath: wiki/InstallingPlugins.md
 ---
-
 # Installing Plugins
 
 Besides the plugins delivered by the developers of the GAMA platform, which can be installed and updated as explained [here](Updating), there are a number of additional plugins that can be installed to add new functionalities to GAMA or enhance the existing ones. GAMA being based on Eclipse, a number of plugins developed for Eclipse are then available (a complete listing of Eclipse plugins can be found in the so-called [Eclipse MarketPlace](http://marketplace.eclipse.org)).

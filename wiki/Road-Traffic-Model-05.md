@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Dynamic update of the road network
+title: Dynamic update of the road network
 wikiPageName: Road-Traffic-Model-05
 wikiPagePath: wiki/Road-Traffic-Model-05.md
 ---
-
 [//]: # (keyword|operator_agent_from_geometry)
 [//]: # (keyword|operator_as_map)
 [//]: # (keyword|operator_\:\:)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ville 4
+title: Ville 4
 wikiPageName: Articles-ville_4
 wikiPagePath: wiki/Articles-ville_4.md
 ---
-
 [//]: # (keyword|operator_gauss)
 [//]: # (keyword|operator_distance_between)
 [//]: # (keyword|statement_put)

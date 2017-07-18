@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Example of Unit Test
+title: Example of Unit Test
 wikiPageName: Unit-Test-Basic-Example
 wikiPagePath: wiki/Unit-Test-Basic-Example.md
 ---
-
 [//]: # (keyword|operator_any)
 [//]: # (keyword|operator_is)
 [//]: # (keyword|statement_setup)

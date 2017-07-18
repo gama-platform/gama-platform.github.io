@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Comodel of Boids and Voronoi
+title: Comodel of Boids and Voronoi
 wikiPageName: Co-model-Example-comodelBoidsVoronoi
 wikiPagePath: wiki/Co-model-Example-comodelBoidsVoronoi.md
 ---
-
 [//]: # (keyword|operator_copy)
 [//]: # (keyword|operator_triangle)
 [//]: # (keyword|operator_using)

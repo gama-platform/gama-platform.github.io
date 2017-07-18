@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Introduction
+title: Introduction
 wikiPageName: Event__MIMSCOP2012
 wikiPagePath: wiki/Event__MIMSCOP2012.md
 ---
-
 # Introduction
 
 The MIMSCOP Summer school 2012 (Modélisation Informatique et Mathématique des Systèmes Complexes de Pêcherie took place from the 16th to the 21th of July in the AIMS-IRD Campus at Mbour (Senegal).

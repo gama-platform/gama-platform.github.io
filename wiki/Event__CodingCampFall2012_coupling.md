@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Coupling GAMA with hydrodynamics simulators
+title: Coupling GAMA with hydrodynamics simulators
 wikiPageName: Event__CodingCampFall2012_coupling
 wikiPagePath: wiki/Event__CodingCampFall2012_coupling.md
 ---
-
 
 
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Complex behaviors for the preys and predators
+title: Complex behaviors for the preys and predators
 wikiPageName: Predator-Prey-Model-08
 wikiPagePath: wiki/Predator-Prey-Model-08.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

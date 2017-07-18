@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Displays
+title: Displays
 wikiPageName: Displays
 wikiPagePath: wiki/Displays.md
 ---
-
 # Displays
 
 GAMA allows modelers to [define several and several kinds of displays](DefiningDisplaysGeneralities) in a [GUI experiment](DefiningGUIExperiment):

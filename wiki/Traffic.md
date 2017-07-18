@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Traffic
+title: Traffic
 wikiPageName: Traffic
 wikiPagePath: wiki/Traffic.md
 ---
-
 # Traffic
 
 This sub-section is composed of the following models :

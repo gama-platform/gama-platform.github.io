@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Statistics
+title: Statistics
 wikiPageName: Statistics
 wikiPagePath: wiki/Statistics.md
 ---
-
 # Statistics
 
 This sub-section is composed of the following models :

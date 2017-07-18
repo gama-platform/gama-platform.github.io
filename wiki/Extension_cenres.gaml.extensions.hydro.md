@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_cenres.gaml.extensions.hydro
 wikiPagePath: wiki/Extension_cenres.gaml.extensions.hydro.md
 ---
-
 # Extension
 
 ----

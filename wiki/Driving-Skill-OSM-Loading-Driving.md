@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  OSM Loading Driving
+title: OSM Loading Driving
 wikiPageName: Driving-Skill-OSM-Loading-Driving
 wikiPagePath: wiki/Driving-Skill-OSM-Loading-Driving.md
 ---
-
 [//]: # (keyword|operator_osm_file)
 [//]: # (keyword|operator_covers)
 [//]: # (keyword|operator_get)

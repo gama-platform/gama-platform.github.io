@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Agent display (aspect)
+title: Agent display (aspect)
 wikiPageName: Predator-Prey-Model-07
 wikiPagePath: wiki/Predator-Prey-Model-07.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_inside)
 [//]: # (keyword|type_species)

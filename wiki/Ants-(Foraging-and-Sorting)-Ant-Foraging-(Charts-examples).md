@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ant Foraging (Charts examples)
+title: Ant Foraging (Charts examples)
 wikiPageName: Ants-(Foraging-and-Sorting)-Ant-Foraging-(Charts-examples)
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting)-Ant-Foraging-(Charts-examples).md
 ---
-
 [//]: # (keyword|architecture_fsm)
 [//]: # (keyword|operator_min_of)
 [//]: # (keyword|operator_sort)

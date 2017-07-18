@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  What's next ?
+title: What's next ?
 wikiPageName: WhatsNext
 wikiPagePath: wiki/WhatsNext.md
 ---
-
 # What's next ?
 
 Now you have a runnable GAMA on your computer, and you know a bit more about how to use the platform, you are ready to navigate through the website. Use the new powerful functionnalities of the website :

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Installation and Launching
+title: Installation and Launching
 wikiPageName: InstallationAndLaunching
 wikiPagePath: wiki/InstallationAndLaunching.md
 ---
-
 # Installation and Launching
 
 The GAMA platform can be easily installed in your machine, either if you are using Windows, Mac OS or Ubuntu. GAMA can then be extended by using a number of additional plugins.

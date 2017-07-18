@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Loading of GIS data (buildings and roads)
+title: Loading of GIS data (buildings and roads)
 wikiPageName: Road-Traffic-Model-01
 wikiPagePath: wiki/Road-Traffic-Model-01.md
 ---
-
 [//]: # (keyword|constant_#minute)
 [//]: # (keyword|concept_gis)
 # Loading of GIS data (buildings and roads)

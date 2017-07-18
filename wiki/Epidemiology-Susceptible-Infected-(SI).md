@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  SI without ODE
+title: SI without ODE
 wikiPageName: Epidemiology-Susceptible-Infected-(SI)
 wikiPagePath: wiki/Epidemiology-Susceptible-Infected-(SI).md
 ---
-
 [//]: # (keyword|operator_accumulate)
 [//]: # (keyword|constant_#lightgray)
 [//]: # (keyword|type_species)

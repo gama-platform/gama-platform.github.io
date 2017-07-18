@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3D Graph
+title: 3D Graph
 wikiPageName: Graphs-3D-Graph
 wikiPagePath: wiki/Graphs-3D-Graph.md
 ---
-
 [//]: # (keyword|operator_cube)
 [//]: # (keyword|operator_as_distance_graph)
 [//]: # (keyword|operator_degree_of)

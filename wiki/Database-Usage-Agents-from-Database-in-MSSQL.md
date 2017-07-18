@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Agents from Database in MSSQL
+title:  Agents from Database in MSSQL
 wikiPageName: Database-Usage-Agents-from-Database-in-MSSQL
 wikiPagePath: wiki/Database-Usage-Agents-from-Database-in-MSSQL.md
 ---
-
 [//]: # (keyword|skill_SQLSKILL)
 [//]: # (keyword|concept_database)
 #  Agents from Database in MSSQL

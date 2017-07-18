@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  7. Automatic Road Repair
+title: 7. Automatic Road Repair
 wikiPageName: RoadTrafficModel_step7
 wikiPagePath: wiki/RoadTrafficModel_step7.md
 ---
-
 # 7. Automatic Road Repair
 This 7th step illustrates how how to select in a list an element that optimize a given function.
 

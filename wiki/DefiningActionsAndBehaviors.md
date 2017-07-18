@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining actions and behaviors
+title: Defining actions and behaviors
 wikiPageName: DefiningActionsAndBehaviors
 wikiPagePath: wiki/DefiningActionsAndBehaviors.md
 ---
-
 [//]: # (startConcept|actions_and_behaviors)
 [//]: # (keyword|concept_action)
 [//]: # (keyword|concept_reflex)

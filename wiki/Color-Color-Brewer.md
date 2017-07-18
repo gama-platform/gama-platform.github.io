@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Color defined by choosing a Color Brewer
+title: Color defined by choosing a Color Brewer
 wikiPageName: Color-Color-Brewer
 wikiPagePath: wiki/Color-Color-Brewer.md
 ---
-
 [//]: # (keyword|operator_brewer_palettes)
 [//]: # (keyword|operator_brewer_colors)
 [//]: # (keyword|concept_color)

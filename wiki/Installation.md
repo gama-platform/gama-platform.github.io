@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Installation
+title: Installation
 wikiPageName: Installation
 wikiPagePath: wiki/Installation.md
 ---
-
 # Installation
 
 GAMA 1.7 comes in 5 different versions (32 & 64 bits for Windows & Linux, and 64 bits for MacOS X). You first need to determine which version to use (it depends on your computer, which may, or not, support 64 bits instructions, but also on the version of Java already installed, as the number of bits of the two versions must match).
@@ -28,13 +27,24 @@ GAMA 1.7 requires that **Java 1.8** be installed on your machine, approximately 
 
 ### MacOS 
 
-In some rare cases, "Archive utility.app" in MacOS may damage the files when extracting them from the zip or tar.gz archive files. This problem manifests itself by a dialog opening and explaining that the application is damaged and cannot be launched (see [Issue 2082](https://github.com/gama-platform/gama/issues/2082#issuecomment-271812519) and also [this thread](https://bugs.eclipse.org/bugs/show_bug.cgi?id=398450#c17). In that case, to expand the files, consider using a different utility, like the free [Stuffit Expander](http://my.smithmicro.com/stuffit-expander-mac.html) or directly from the command line. 
+In some cases, "Archive utility.app" in MacOS may damage the files when extracting them from the zip or tar.gz archive files. This problem manifests itself by a dialog opening and explaining that the application is damaged and cannot be launched (see [Issue 2082](https://github.com/gama-platform/gama/issues/2082#issuecomment-271812519) and also [this thread](https://bugs.eclipse.org/bugs/show_bug.cgi?id=398450#c17). In that case, to expand the files, consider using a different utility, like the free [Stuffit Expander](http://my.smithmicro.com/stuffit-expander-mac.html) or directly from the command line. 
 
-Another recent issue (with MacOS Sierra) has popped up for Mac users, which makes using the Models Library models impossible. See this [page](http://lapcatsoftware.com/articles/app-translocation.html) for background information. Basically, the only known fix to date is to copy and paste `Gama.app` in your Applications folder instead of trying to launch it from the Downloads folder.
+MacOS Sierra has introduced a series of issues linked to the so-called "quarantine" mode (where applications downloaded from Internet prevent to use and update their internal components, such as the models of the library or the self-updating of the application). See this [page](http://lapcatsoftware.com/articles/app-translocation.html) for background information. To be certain that Gama will work, and until we find an easier solution, the installation should follow these steps:
+
+1. Download the GAMA zip file
+2. Unzip it (possibly with another archive utility, see above)
+3. Copy and paste `Gama` in the `Applications` folder
+4. Launch `Terminal.app`
+5. Type `cd /Applications` and hit return.
+6. Type `xattr -d -r com.apple.quarantine Gama.app/` and hit return to remove the quarantine attribute
+
+From now on, Gama should be fully functional.
 
 ## Installation of Java
 
-On all environments, the recommended Java Virtual Machine under which GAMA has been tested is the one distributed by Oracle ([http://www.java.com/en/download/manual.jsp](http://www.java.com/en/download/manual.jsp)). It may work with others — or not. For better performances, you may also want to install the JDK version of the JVM (and not the standard JRE), although is it not mandatory  (GAMA should run fine, but slower, under a JRE).
+On all environments, the recommended Java Virtual Machine under which GAMA has been tested is the one distributed by Oracle ([http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk)). 
+**Please make sure to install the JDK (Java Development Kit) and not the JRE (Java Runtime Environment)**.
+GAMA may work with the standard JRE, although it will be slower and may even crash (esp. under MacOS X).
 
 ### On MacOS 
 The latest version of GAMA requires a JVM (or JDK or JRE) compatible with Java 1.8 to run. 

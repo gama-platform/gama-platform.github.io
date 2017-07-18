@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Projects
+title: Projects
 wikiPageName: Projects
 wikiPagePath: wiki/Projects.md
 ---
-
 ## Projects
 
 ___________________________________________________________

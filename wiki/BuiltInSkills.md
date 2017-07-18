@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Built-in Skills
+title: Built-in Skills
 wikiPageName: BuiltInSkills
 wikiPagePath: wiki/BuiltInSkills.md
 ---
-
 # Built-in Skills
 
 ----

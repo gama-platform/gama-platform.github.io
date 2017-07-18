@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  <font color='blue'>Context</font>
+title: <font color='blue'>Context</font>
 wikiPageName: Event__TrainingSessionHanoi2009
 wikiPagePath: wiki/Event__TrainingSessionHanoi2009.md
 ---
-
 
 
 # <font color='blue'>Context</font>

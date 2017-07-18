@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  6. Charts
+title: 6. Charts
 wikiPageName: RoadTrafficModel_step6
 wikiPagePath: wiki/RoadTrafficModel_step6.md
 ---
-
 # 6. Charts
 This 6th step illustrates how to display charts.
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Index of annotations
+title: Index of annotations
 wikiPageName: DevelopingIndexAnnotations
 wikiPagePath: wiki/DevelopingIndexAnnotations.md
 ---
-
 # Index of annotations
 
 

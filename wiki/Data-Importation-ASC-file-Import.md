@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  ESRI ASCII to grid model
+title: ESRI ASCII to grid model
 wikiPageName: Data-Importation-ASC-file-Import
 wikiPagePath: wiki/Data-Importation-ASC-file-Import.md
 ---
-
 [//]: # (keyword|concept_grid)
 [//]: # (keyword|concept_load_file)
 [//]: # (keyword|concept_asc)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Preferences
+title: Preferences
 wikiPageName: Preferences
 wikiPagePath: wiki/Preferences.md
 ---
-
 # Preferences
 
 Various preferences are accessible in GAMA to allow users and modelers to personalize their working environment. This section review the different preference tabs available in the current version of GAMA, as well as how to access the preferences and settings inherited by GAMA from Eclipse.

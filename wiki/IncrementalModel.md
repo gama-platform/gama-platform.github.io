@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Incremental Model
+title: Incremental Model
 wikiPageName: IncrementalModel
 wikiPagePath: wiki/IncrementalModel.md
 ---
-
 # Incremental Model
 
 

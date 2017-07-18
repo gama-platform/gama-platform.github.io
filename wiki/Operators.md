@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Operators 
+title: Operators 
 wikiPageName: Operators
 wikiPagePath: wiki/Operators.md
 ---
-
 # Operators 
  	
 ----

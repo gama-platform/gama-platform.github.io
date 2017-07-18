@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  evacuationgoto
+title: evacuationgoto
 wikiPageName: Evacuation-grid_goto
 wikiPagePath: wiki/Evacuation-grid_goto.md
 ---
-
 [//]: # (keyword|operator_rnd_color)
 [//]: # (keyword|operator_not)
 [//]: # (keyword|operator_pyramid)

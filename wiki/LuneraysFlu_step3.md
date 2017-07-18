@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3. Importation of GIS data
+title: 3. Importation of GIS data
 wikiPageName: LuneraysFlu_step3
 wikiPagePath: wiki/LuneraysFlu_step3.md
 ---
-
 # 3. Importation of GIS data
 This third step illustrates how load GIS data and to agentify them.
 

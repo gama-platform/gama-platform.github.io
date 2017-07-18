@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  SIR (Influence of Integration Step).gaml
+title: SIR (Influence of Integration Step).gaml
 wikiPageName: Ordinary-Differential-Equations-SIR-(Influence-of-Integration-Step)
 wikiPagePath: wiki/Ordinary-Differential-Equations-SIR-(Influence-of-Integration-Step).md
 ---
-
 [//]: # (keyword|operator_diff)
 [//]: # (keyword|statement_equation)
 [//]: # (keyword|statement_\=)

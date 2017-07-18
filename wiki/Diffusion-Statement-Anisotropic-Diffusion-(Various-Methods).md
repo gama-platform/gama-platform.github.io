@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Anisotropic diffusion with several computation method
+title: Anisotropic diffusion with several computation method
 wikiPageName: Diffusion-Statement-Anisotropic-Diffusion-(Various-Methods)
 wikiPagePath: wiki/Diffusion-Statement-Anisotropic-Diffusion-(Various-Methods).md
 ---
-
 [//]: # (keyword|operator_hsb)
 [//]: # (keyword|statement_diffuse)
 [//]: # (keyword|type_matrix)

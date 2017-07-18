@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3. Prey Agent Behavior
+title: 3. Prey Agent Behavior
 wikiPageName: PredatorPrey_step3
 wikiPagePath: wiki/PredatorPrey_step3.md
 ---
-
 # 3. Prey Agent Behavior
 This third step Illustrates how to define the behaviors of prey agents and the concept of spatial topology.
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  1. Loading of GIS Data
+title: 1. Loading of GIS Data
 wikiPageName: RoadTrafficModel_step1
 wikiPagePath: wiki/RoadTrafficModel_step1.md
 ---
-
 # 1. Loading of GIS Data
 This first step Illustrates how to load GIS data (shapefiles) and to read attributes from GIS data.
 

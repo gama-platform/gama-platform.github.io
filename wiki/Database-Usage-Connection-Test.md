@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  SQLConnection
+title: SQLConnection
 wikiPageName: Database-Usage-Connection-Test
 wikiPagePath: wiki/Database-Usage-Connection-Test.md
 ---
-
 [//]: # (keyword|skill_SQLSKILL)
 [//]: # (keyword|concept_database)
 # SQLConnection

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Diffusion in a cuve (Cycle length)
+title: Diffusion in a cuve (Cycle length)
 wikiPageName: Diffusion-Statement-Diffusion-in-a-cuve-(Cycle-length)
 wikiPagePath: wiki/Diffusion-Statement-Diffusion-in-a-cuve-(Cycle-length).md
 ---
-
 [//]: # (keyword|operator_hsb)
 [//]: # (keyword|statement_diffuse)
 [//]: # (keyword|type_matrix)

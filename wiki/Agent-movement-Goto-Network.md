@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Shortest Path Computation on a Graph
+title:  Shortest Path Computation on a Graph
 wikiPageName: Agent-movement-Goto-Network
 wikiPagePath: wiki/Agent-movement-Goto-Network.md
 ---
-
 [//]: # (keyword|operator_with_optimizer_type)
 [//]: # (keyword|operator_use_cache)
 [//]: # (keyword|operator_load_shortest_paths)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Running Experiments
+title: Running Experiments
 wikiPageName: RunningExperiments
 wikiPagePath: wiki/RunningExperiments.md
 ---
-
 # Running Experiments
 
 

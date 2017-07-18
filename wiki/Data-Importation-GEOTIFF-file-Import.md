@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  GeoTIFF file to Grid of Cells 
+title: GeoTIFF file to Grid of Cells 
 wikiPageName: Data-Importation-GEOTIFF-file-Import
 wikiPagePath: wiki/Data-Importation-GEOTIFF-file-Import.md
 ---
-
 [//]: # (keyword|operator_max_of)
 [//]: # (keyword|operator_min_of)
 [//]: # (keyword|concept_load_file)

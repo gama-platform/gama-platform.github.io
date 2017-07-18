@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_simtools.graphanalysis.fr
 wikiPagePath: wiki/Extension_simtools.graphanalysis.fr.md
 ---
-
 # Extension
 
 ----

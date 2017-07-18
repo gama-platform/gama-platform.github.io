@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Variables and Attributes
+title: Variables and Attributes
 wikiPageName: VariablesAndAttributes
 wikiPagePath: wiki/VariablesAndAttributes.md
 ---
-
 
 # Variables and Attributes
 

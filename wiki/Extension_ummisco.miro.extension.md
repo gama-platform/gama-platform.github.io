@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_ummisco.miro.extension
 wikiPagePath: wiki/Extension_ummisco.miro.extension.md
 ---
-
 # Extension
 
 ----

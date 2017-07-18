@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  OpenGL Display
+title: OpenGL Display
 wikiPageName: Event__CP12OpenGL
 wikiPagePath: wiki/Event__CP12OpenGL.md
 ---
-
 # OpenGL Display
 
 Integrate OpenGL (jogl) view in Gama.

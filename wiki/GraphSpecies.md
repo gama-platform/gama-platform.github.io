@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Graph Species
+title: Graph Species
 wikiPageName: GraphSpecies
 wikiPagePath: wiki/GraphSpecies.md
 ---
-
 [//]: # (startConcept|graph)
 [//]: # (keyword|concept_graph)
 [//]: # (keyword|concept_node)

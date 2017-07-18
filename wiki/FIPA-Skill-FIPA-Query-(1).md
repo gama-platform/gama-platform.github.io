@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  FIPA Query
+title: FIPA Query
 wikiPageName: FIPA-Skill-FIPA-Query-(1)
 wikiPagePath: wiki/FIPA-Skill-FIPA-Query-(1).md
 ---
-
 [//]: # (keyword|skill_fipa)
 [//]: # (keyword|type_message)
 [//]: # (keyword|concept_fipa)

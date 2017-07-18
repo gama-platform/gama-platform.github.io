@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Life
+title: Life
 wikiPageName: Life
 wikiPagePath: wiki/Life.md
 ---
-
 # Life
 
 This sub-section is composed of the following models :

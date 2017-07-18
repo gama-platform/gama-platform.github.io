@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Writing files
+title: Writing files
 wikiPageName: Predator-Prey-Model-11
 wikiPagePath: wiki/Predator-Prey-Model-11.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining 3D Displays
+title: Defining 3D Displays
 wikiPageName: Defining3DDisplays
 wikiPagePath: wiki/Defining3DDisplays.md
 ---
-
 [//]: # (startConcept|3d_displays)
 [//]: # (keyword|concept_3d)
 # Defining 3D Displays

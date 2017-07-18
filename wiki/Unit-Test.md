@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Unit Test
+title: Unit Test
 wikiPageName: Unit-Test
 wikiPagePath: wiki/Unit-Test.md
 ---
-
 # Unit Test
 
 This sub-section is composed of the following models :

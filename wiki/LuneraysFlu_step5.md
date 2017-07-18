@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  5. Definition of 3D displays
+title: 5. Definition of 3D displays
 wikiPageName: LuneraysFlu_step5
 wikiPagePath: wiki/LuneraysFlu_step5.md
 ---
-
 # 5. Definition of 3D displays
 This fifth step illustrates how to define 3D displays
 

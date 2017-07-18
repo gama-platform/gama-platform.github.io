@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Database Usage
+title: Database Usage
 wikiPageName: Database-Usage
 wikiPagePath: wiki/Database-Usage.md
 ---
-
 # Database Usage
 
 This sub-section is composed of the following models :

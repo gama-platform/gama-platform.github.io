@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Directed Graph Model
+title:  Directed Graph Model
 wikiPageName: Agent-movement-Goto-Directed-Graph
 wikiPagePath: wiki/Agent-movement-Goto-Directed-Graph.md
 ---
-
 [//]: # (keyword|operator_polyline)
 [//]: # (keyword|operator_reverse)
 [//]: # (keyword|operator_directed)

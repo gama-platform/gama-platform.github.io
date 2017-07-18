@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_msi.gaml.extensions.humanmoving
 wikiPagePath: wiki/Extension_msi.gaml.extensions.humanmoving.md
 ---
-
 # Extension
 
 ----

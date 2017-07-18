@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Writing Models
+title: Writing Models
 wikiPageName: WritingModels
 wikiPagePath: wiki/WritingModels.md
 ---
-
 # Writing Models
 
 

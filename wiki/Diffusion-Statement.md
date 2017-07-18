@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Diffusion Statement
+title: Diffusion Statement
 wikiPageName: Diffusion-Statement
 wikiPagePath: wiki/Diffusion-Statement.md
 ---
-
 # Diffusion Statement
 
 This sub-section is composed of the following models :

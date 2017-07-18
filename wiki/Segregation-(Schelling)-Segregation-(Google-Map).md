@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  segregationGoogleMap
+title: segregationGoogleMap
 wikiPageName: Segregation-(Schelling)-Segregation-(Google-Map)
 wikiPagePath: wiki/Segregation-(Schelling)-Segregation-(Google-Map).md
 ---
-
 [//]: # (keyword|operator_sum)
 [//]: # (keyword|operator_as_matrix)
 [//]: # (keyword|operator_in)

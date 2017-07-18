@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  11. Writing Files
+title: 11. Writing Files
 wikiPageName: PredatorPrey_step11
 wikiPagePath: wiki/PredatorPrey_step11.md
 ---
-
 # 11. Writing Files
 This 11th step Illustrates how to save data in a text file.
 

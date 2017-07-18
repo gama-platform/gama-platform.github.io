@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Dynamic of the vegetation (grid)
+title: Dynamic of the vegetation (grid)
 wikiPageName: Predator-Prey-Model-02
 wikiPagePath: wiki/Predator-Prey-Model-02.md
 ---
-
 [//]: # (keyword|concept_grid)
 # Dynamic of the vegetation (grid)
 

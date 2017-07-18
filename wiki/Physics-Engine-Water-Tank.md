@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Water Tank
+title: Water Tank
 wikiPageName: Physics-Engine-Water-Tank
 wikiPagePath: wiki/Physics-Engine-Water-Tank.md
 ---
-
 [//]: # (keyword|skill_physics)
 [//]: # (keyword|concept_physics_engine)
 [//]: # (keyword|concept_skill)

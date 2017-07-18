@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Co-model Example
+title: Co-model Example
 wikiPageName: Co-model-Example
 wikiPagePath: wiki/Co-model-Example.md
 ---
-
 # Co-model Example
 
 This sub-section is composed of the following models :

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Units and constants
+title: Units and constants
 wikiPageName: UnitsAndConstants
 wikiPagePath: wiki/UnitsAndConstants.md
 ---
-
 # Units and constants
  	
 ----

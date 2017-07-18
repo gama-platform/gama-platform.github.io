@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  The global species
+title: The global species
 wikiPageName: GlobalSpecies
 wikiPagePath: wiki/GlobalSpecies.md
 ---
-
 [//]: # (startConcept|global_species)
 # The global species
 [//]: # (keyword|concept_global)

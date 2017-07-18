@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_idees.gama.mapcomparison
 wikiPagePath: wiki/Extension_idees.gama.mapcomparison.md
 ---
-
 # Extension
 
 ----

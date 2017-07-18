@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Multicriteria
+title: Multicriteria
 wikiPageName: Multicriteria-decision-Multicriteria
 wikiPagePath: wiki/Multicriteria-decision-Multicriteria.md
 ---
-
 [//]: # (keyword|operator_^)
 [//]: # (keyword|operator_weighted_means_DM)
 [//]: # (keyword|operator_promethee_DM)

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  1. Basic Model
+title: 1. Basic Model
 wikiPageName: PredatorPrey_step1
 wikiPagePath: wiki/PredatorPrey_step1.md
 ---
-
 # 1. Basic Model
 This first step Illustrates how to write a model in GAMA. In particular, it describes how to structure a model and how to define species - that are the key components of GAMA models.
 ## Content

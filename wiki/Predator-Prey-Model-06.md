@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Breeding of prey and predator agents
+title: Breeding of prey and predator agents
 wikiPageName: Predator-Prey-Model-06
 wikiPagePath: wiki/Predator-Prey-Model-06.md
 ---
-
 [//]: # (keyword|operator_inside)
 [//]: # (keyword|type_species)
 # Breeding of prey and predator agents

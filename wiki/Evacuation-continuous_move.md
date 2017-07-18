@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  continuous_move
+title: continuous_move
 wikiPageName: Evacuation-continuous_move
 wikiPagePath: wiki/Evacuation-continuous_move.md
 ---
-
 [//]: # (keyword|operator_copy)
 [//]: # (keyword|operator_not)
 [//]: # (keyword|operator_closest_points_with)

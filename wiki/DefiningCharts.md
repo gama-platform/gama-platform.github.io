@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining Charts
+title: Defining Charts
 wikiPageName: DefiningCharts
 wikiPagePath: wiki/DefiningCharts.md
 ---
-
 [//]: # (startConcept|defining_charts)
 # Defining Charts
 

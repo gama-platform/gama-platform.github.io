@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining export files
+title: Defining export files
 wikiPageName: DefiningExportFiles
 wikiPagePath: wiki/DefiningExportFiles.md
 ---
-
 [//]: # (startConcept|export_files)
 [//]: # (keyword|concept_file)
 [//]: # (keyword|concept_load_file)

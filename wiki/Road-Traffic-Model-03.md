@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Movement of the people agents
+title: Movement of the people agents
 wikiPageName: Road-Traffic-Model-03
 wikiPagePath: wiki/Road-Traffic-Model-03.md
 ---
-
 [//]: # (keyword|constant_#minute)
 [//]: # (keyword|constant_#km)
 [//]: # (keyword|concept_agent_movement)

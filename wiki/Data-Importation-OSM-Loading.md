@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  OSM file to Agents
+title: OSM file to Agents
 wikiPageName: Data-Importation-OSM-Loading
 wikiPagePath: wiki/Data-Importation-OSM-Loading.md
 ---
-
 [//]: # (keyword|operator_osm_file)
 [//]: # (keyword|operator_rnd_color)
 [//]: # (keyword|concept_load_file)

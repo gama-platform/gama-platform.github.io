@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  2. Definition of monitors and chart outputs
+title: 2. Definition of monitors and chart outputs
 wikiPageName: LuneraysFlu_step2
 wikiPagePath: wiki/LuneraysFlu_step2.md
 ---
-
 # 2. Definition of monitors and chart outputs
 This second step illustrates how to create monitors and charts to follows the evolution of variables and to add an ending condition to the simulation.
 

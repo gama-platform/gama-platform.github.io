@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_msi.gaml.extensions.traffic2d
 wikiPagePath: wiki/Extension_msi.gaml.extensions.traffic2d.md
 ---
-
 # Extension
 
 ----

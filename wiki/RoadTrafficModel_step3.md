@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  3. Movement of People
+title: 3. Movement of People
 wikiPageName: RoadTrafficModel_step3
 wikiPagePath: wiki/RoadTrafficModel_step3.md
 ---
-
 # 3. Movement of People
 
 This third step presents how to create a road system from GIS data. More precisely, it shows how to build a graph from a list of polylines and to constrain the movement of an agent according to this graph.

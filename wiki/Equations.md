@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Using Equations
+title: Using Equations
 wikiPageName: Equations
 wikiPagePath: wiki/Equations.md
 ---
-
 [//]: # (startConcept|equation)
 [//]: # (keyword|concept_equation)
 # Using Equations

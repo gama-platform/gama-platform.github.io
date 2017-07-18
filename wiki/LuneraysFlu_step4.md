@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  4. Use of a graph to constraint the movements of people]
+title: 4. Use of a graph to constraint the movements of people]
 wikiPageName: LuneraysFlu_step4
 wikiPagePath: wiki/LuneraysFlu_step4.md
 ---
-
 # 4. Use of a graph to constraint the movements of people]
 This fourth step illustrates how to use a graph to constraint the movements of agents
 

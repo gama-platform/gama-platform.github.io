@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Falling Balls
+title: Falling Balls
 wikiPageName: Physics-Engine-Hello-World
 wikiPagePath: wiki/Physics-Engine-Hello-World.md
 ---
-
 [//]: # (keyword|skill_physics)
 [//]: # (keyword|concept_physics_engine)
 [//]: # (keyword|concept_skill)

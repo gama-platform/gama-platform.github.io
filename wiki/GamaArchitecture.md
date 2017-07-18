@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Architecture of GAMA
+title: Architecture of GAMA
 wikiPageName: GamaArchitecture
 wikiPagePath: wiki/GamaArchitecture.md
 ---
-
 # Architecture of GAMA
 
 

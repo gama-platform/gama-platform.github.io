@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Maps
+title: Maps
 wikiPageName: Syntax-models-Maps
 wikiPagePath: wiki/Syntax-models-Maps.md
 ---
-
 [//]: # (keyword|operator_sample)
 [//]: # (keyword|operator_any)
 [//]: # (keyword|operator_as_map)

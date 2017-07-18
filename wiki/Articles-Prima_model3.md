@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Prima 3
+title: Prima 3
 wikiPageName: Articles-Prima_model3
 wikiPagePath: wiki/Articles-Prima_model3.md
 ---
-
 [//]: # (keyword|concept_skill)
 [//]: # (keyword|concept_shapefile)
 [//]: # (keyword|concept_graph)

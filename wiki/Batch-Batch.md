@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Model using Batch mode
+title:  Model using Batch mode
 wikiPageName: Batch-Batch
 wikiPagePath: wiki/Batch-Batch.md
 ---
-
 [//]: # (keyword|operator_among)
 [//]: # (keyword|statement_save)
 [//]: # (keyword|statement_exhaustive)

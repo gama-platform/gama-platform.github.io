@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Developing Statements
+title: Developing Statements
 wikiPageName: DevelopingStatements
 wikiPagePath: wiki/DevelopingStatements.md
 ---
-
 # Developing Statements
 
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Luneray's flu
+title: Luneray's flu
 wikiPageName: LuneraysFlu
 wikiPagePath: wiki/LuneraysFlu.md
 ---
-
 # Luneray's flu
 
 

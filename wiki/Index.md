@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Exhaustive list of GAMA Keywords
+title: Exhaustive list of GAMA Keywords
 wikiPageName: Index
 wikiPagePath: wiki/Index.md
 ---
-
 
 # Exhaustive list of GAMA Keywords
 

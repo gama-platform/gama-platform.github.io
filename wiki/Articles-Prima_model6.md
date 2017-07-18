@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Prima 5
+title: Prima 5
 wikiPageName: Articles-Prima_model6
 wikiPagePath: wiki/Articles-Prima_model6.md
 ---
-
 [//]: # (keyword|operator_inside)
 [//]: # (keyword|operator_diff)
 [//]: # (keyword|statement_capture)

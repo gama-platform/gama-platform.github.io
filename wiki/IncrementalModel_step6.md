@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  6. Multi-Level
+title: 6. Multi-Level
 wikiPageName: IncrementalModel_step6
 wikiPagePath: wiki/IncrementalModel_step6.md
 ---
-
 # 6. Multi-Level
 This step Illustrates how to define a multi-level model
 

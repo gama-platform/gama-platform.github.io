@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Soccer Game
+title: Soccer Game
 wikiPageName: Soccer-soccer
 wikiPagePath: wiki/Soccer-soccer.md
 ---
-
 [//]: # (keyword|operator_norm)
 [//]: # (keyword|operator_sqrt)
 [//]: # (keyword|operator_abs)

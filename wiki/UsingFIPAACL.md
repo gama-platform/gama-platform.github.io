@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Using FIPA ACL
+title: Using FIPA ACL
 wikiPageName: UsingFIPAACL
 wikiPagePath: wiki/UsingFIPAACL.md
 ---
-
 [//]: # (keyword|concept_fipa)
 [//]: # (startConcept|fipa_acl)
 # Using FIPA ACL

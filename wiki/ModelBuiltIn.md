@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  The 'model' built-in species (Under Construction)
+title: The 'model' built-in species (Under Construction)
 wikiPageName: ModelBuiltIn
 wikiPagePath: wiki/ModelBuiltIn.md
 ---
-
 # The 'model' built-in species (Under Construction)
 
 

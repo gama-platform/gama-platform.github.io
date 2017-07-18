@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Extension
+title: Extension
 wikiPageName: Extension_ummisco.gama.communicator
 wikiPagePath: wiki/Extension_ummisco.gama.communicator.md
 ---
-
 # Extension
 
 ----

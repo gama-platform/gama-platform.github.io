@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Graph from DGS File and Layout Changed
+title: Graph from DGS File and Layout Changed
 wikiPageName: Graphs-Graph-Loading-Layout
 wikiPagePath: wiki/Graphs-Graph-Loading-Layout.md
 ---
-
 [//]: # (keyword|operator_load_graph_from_file)
 [//]: # (keyword|operator_layout)
 [//]: # (keyword|concept_graph)

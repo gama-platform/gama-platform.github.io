@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  ODE_LotkaVolterra
+title: ODE_LotkaVolterra
 wikiPageName: Predator-Prey-Lotka-Volterra-(Simple)
 wikiPagePath: wiki/Predator-Prey-Lotka-Volterra-(Simple).md
 ---
-
 [//]: # (keyword|operator_diff)
 [//]: # (keyword|statement_equation)
 [//]: # (keyword|statement_\=)

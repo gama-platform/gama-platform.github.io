@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ant Sorting
+title: Ant Sorting
 wikiPageName: Ants-(Foraging-and-Sorting)-Ant-Sorting
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting)-Ant-Sorting.md
 ---
-
 [//]: # (keyword|architecture_fsm)
 [//]: # (keyword|statement_state)
 [//]: # (keyword|statement_transition)

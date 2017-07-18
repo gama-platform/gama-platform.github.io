@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Defining Parameters
+title: Defining Parameters
 wikiPageName: DefiningParameters
 wikiPagePath: wiki/DefiningParameters.md
 ---
-
 [//]: # (startConcept|define_parameters)
 [//]: # (keyword|concept_parameter)
 # Defining Parameters

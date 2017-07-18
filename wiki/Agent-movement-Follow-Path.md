@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   Movement of an agent on different paths
+title:  Movement of an agent on different paths
 wikiPageName: Agent-movement-Follow-Path
 wikiPagePath: wiki/Agent-movement-Follow-Path.md
 ---
-
 [//]: # (keyword|operator_as_path)
 [//]: # (keyword|operator_as_map)
 [//]: # (keyword|operator_\:\:)

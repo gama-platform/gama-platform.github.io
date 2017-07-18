@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Exploration (batch)
+title: Exploration (batch)
 wikiPageName: Predator-Prey-Model-13
 wikiPagePath: wiki/Predator-Prey-Model-13.md
 ---
-
 [//]: # (keyword|operator_with_precision)
 [//]: # (keyword|operator_with_max_of)
 [//]: # (keyword|operator_inside)

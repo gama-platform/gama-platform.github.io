@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Voronoi
+title: Voronoi
 wikiPageName: Voronoi
 wikiPagePath: wiki/Voronoi.md
 ---
-
 # Voronoi
 
 This sub-section is composed of the following models :

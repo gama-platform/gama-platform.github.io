@@ -1,10 +1,9 @@
 ---
 layout: default
-title:   create_agents_Insert_result_MySQL
+title:  create_agents_Insert_result_MySQL
 wikiPageName: Database-Usage-Create-Agents-and-Insert-in-MySQL
 wikiPagePath: wiki/Database-Usage-Create-Agents-and-Insert-in-MySQL.md
 ---
-
 [//]: # (keyword|skill_SQLSKILL)
 [//]: # (keyword|concept_database)
 #  create_agents_Insert_result_MySQL

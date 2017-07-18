@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  2. Vegetation Dynamic
+title: 2. Vegetation Dynamic
 wikiPageName: PredatorPrey_step2
 wikiPagePath: wiki/PredatorPrey_step2.md
 ---
-
 `[IN PROGRESS]`
 # 2. Vegetation Dynamic
 This second steps present the idea of environment or topological space. Defining a "vegetation" environment allows to define the movement of the preys through dynamic variables (use of the _update_ facet). We will also discover more about displays.

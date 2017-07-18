@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Ant Foraging (Classic)
+title: Ant Foraging (Classic)
 wikiPageName: Ants-(Foraging-and-Sorting)-Ant-Foraging-(Classic)
 wikiPagePath: wiki/Ants-(Foraging-and-Sorting)-Ant-Foraging-(Classic).md
 ---
-
 [//]: # (keyword|architecture_fsm)
 [//]: # (keyword|operator_min_of)
 [//]: # (keyword|operator_sort)

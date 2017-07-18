@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Casting Syntax
+title: Casting Syntax
 wikiPageName: Syntax-models-Casting
 wikiPagePath: wiki/Syntax-models-Casting.md
 ---
-
 [//]: # (keyword|operator_sample)
 [//]: # (keyword|operator_\:\:)
 [//]: # (keyword|statement_user_command)

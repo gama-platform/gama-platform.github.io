@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Convertion of CSV data to Matrix
+title: Convertion of CSV data to Matrix
 wikiPageName: Data-Importation-CSV-File-Loading
 wikiPagePath: wiki/Data-Importation-CSV-File-Loading.md
 ---
-
 [//]: # (keyword|operator_csv_file)
 [//]: # (keyword|type_matrix)
 [//]: # (keyword|concept_csv)

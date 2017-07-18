@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Operators (A to C)
+title: Operators (A to C)
 wikiPageName: OperatorsAC
 wikiPagePath: wiki/OperatorsAC.md
 ---
-
 #Operators (A to C)
  	
 ----

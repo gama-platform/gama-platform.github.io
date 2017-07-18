@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Developing Species
+title: Developing Species
 wikiPageName: DevelopingSpecies
 wikiPagePath: wiki/DevelopingSpecies.md
 ---
-
 # Developing Species
 
 

@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Graph Operators
+title: Graph Operators
 wikiPageName: Graphs-Graph-Operators
 wikiPagePath: wiki/Graphs-Graph-Operators.md
 ---
-
 [//]: # (keyword|operator_as_distance_graph)
 [//]: # (keyword|operator_betweenness_centrality)
 [//]: # (keyword|operator_degree_of)

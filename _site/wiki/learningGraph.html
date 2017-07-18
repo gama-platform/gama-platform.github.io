@@ -1,0 +1,588 @@
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <script type="text/javascript" src="vis/vis.js"></script> 
+    <link href="vis/vis.css" rel="stylesheet" type="text/css" />
+
+    <script src="nodesDatabase.js"></script>
+
+    <style type="text/css">
+        #mynetwork {
+            width: 650px;
+            height: 650px;
+            background-image: url("bgdLearningGraph.png");
+            background-position: 40% 0%;
+            background-size: 750px,100px;
+        }
+        #general {
+            width: 650px;
+            height: 700px;
+            background: rgb(13, 13, 13);
+        }
+        #canvasArea {
+            width: 650px;
+            height: 50px;
+            background: rgb(13, 13, 13);
+        }
+
+    </style>
+</head>
+<body>
+<div id="general">
+    <div id="canvasArea">
+        <canvas id="myCanvas" width="650" height="50"></canvas>
+    </div>
+    <div id="mynetwork"></div>
+</div>
+<pre id="eventSpan"></pre>
+
+<script type="text/javascript">
+
+// nodes
+var sizeOfLearningConceptNodes = 8;
+var sizeOfLearningConceptNodesWithLabel = 0.1;
+var sizeOfLearningConceptNodesHallow = 16;
+var sizeOfTopicNodes = 8;
+var sizeOfTopicNodesHallow = 16;
+// labels
+var sizeOfLearningConceptLabel = 12;
+var sizeOfTopicLabel = 15;
+// color
+var colorLearningConcept = 'rgba(248,179,50,1)';
+var colorLearningConceptHallow = 'rgba(248,179,50,0.5)';
+var colorLearningConceptSelected = 'rgba(226,95,43,1)';
+var colorLearningConceptSelectedHallow = 'rgba(226,95,43,0.5)';
+
+var selectedLearningConcept = null;
+var selectedTopic = null;
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var temporaryEdgesList = [];
+
+var network;
+var allNodes;
+
+// load the data from the file nodesDatabase
+var nodesDataset = new vis.DataSet(nodes);
+var edgesDataset = new vis.DataSet(edges);
+
+var trX = -30;
+
+function canvasAppears() {
+    //Clear Canvas
+    trX=trX+10;
+    var withImageBool = false;
+
+    if (trX>300) {
+        trX = 300;
+        withImageBool = true;
+    }
+    if (trX>=250) {
+        withImageBool = true;
+    }
+
+    drawTheShape(650-trX,withImageBool);
+
+    if (trX<300) {
+        window.requestAnimationFrame(canvasAppears);
+    }
+}
+
+function canvasDisappears() {
+    //Clear Canvas
+    trX=trX-10;
+
+    if (trX<-30) {
+        trX = -30;
+    }
+    
+    drawTheShape(650-trX);
+
+    if (trX>-30) {
+        window.requestAnimationFrame(canvasDisappears);
+    }
+}
+
+function drawTheShape(xpos,withImage) {
+    ctx.clearRect(xpos-50,0,xpos+330,50);
+    //document.getElementById('eventSpan').innerHTML += 'xpos : '+xpos+'\n';
+
+    // draw the rectangle
+    ctx.beginPath();
+    ctx.rect(xpos, 0, 320, 50);
+    ctx.fillStyle = 'rgba(22,114,164,1)';
+    ctx.fill();
+    // draw the circle
+    ctx.beginPath();
+    ctx.arc(xpos, 25, 25, 0, 2 * Math.PI, false);
+    ctx.fillStyle = 'rgba(22,114,164,1)';
+    ctx.fill();
+    // draw image
+    drawRoundedImage(xpos,withImage);
+    // draw the text
+    ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.font="15px Lato";
+    ctx.fillText(allNodes[selectedLearningConcept+100].label,xpos+30,20);
+    ctx.fillStyle = 'rgba(200,200,200,1)';
+    ctx.font="12px Lato";
+    var descriptionText = allNodes[selectedLearningConcept+100].description;
+    if (descriptionText != null) {
+        if( descriptionText.indexOf("\\n") >= 0){
+            var lines = descriptionText.split("\\n");
+            for (var i = 0 ; i < lines.length ; i++) {
+                ctx.fillText(lines[i],xpos+30,33+i*12);
+            }
+        }
+        else {
+            ctx.fillText(allNodes[selectedLearningConcept+100].description,xpos+30,37);
+        }
+    }
+}
+
+function drawRoundedImage (xpos,withImage) {
+    if (withImage) {
+        ctx.save();
+        var imgPath = allNodes[selectedLearningConcept+100].imagePath+".jpg";
+        if (!ImageExist(imgPath)) {
+            imgPath = allNodes[selectedLearningConcept+100].imagePath+".png";
+            if (!ImageExist(imgPath)) {
+                withImage = false;
+            }
+        }
+        if (withImage) {
+            var img=new Image();
+            img.src = imgPath;
+
+            ctx.beginPath();
+            ctx.arc(xpos, 25, 21, 0, 2 * Math.PI, false);
+            ctx.closePath();
+
+            ctx.clip();
+            ctx.drawImage(img,xpos-21,4,42,42);
+            ctx.restore();
+        }
+    }
+    if (!withImage) {
+        // draw the small circle
+        ctx.beginPath();
+        ctx.arc(xpos, 25, 21, 0, 2 * Math.PI, false);
+        ctx.fillStyle = 'rgba(200,200,200,1)';
+        ctx.fill();
+    }
+
+    var arrowImg=new Image();
+    arrowImg.src = "resources/images/miniaturesLearningGraph/arrow.png";
+    ctx.drawImage(arrowImg,xpos-20,6,38,50);
+}
+
+function ImageExist(url) 
+{
+   var img = new Image();
+   img.src = url;
+   return img.height != 0;
+}
+
+    function redrawAll() {
+
+        var container = document.getElementById('mynetwork');
+
+        var data = {
+            nodes: nodesDataset,
+            edges: edgesDataset
+        };
+
+        var options = {
+            nodes: {
+                fixed: {
+                    x:true,
+                    y:true
+                },
+                shape: 'dot'
+            },
+            interaction: {
+                hover:true,
+                selectable: true,
+                dragView:false,
+                zoomView:false
+            },
+            edges: {
+                hidden: true,
+                hoverWidth: 0,
+                selectionWidth: 0,
+                width: 2
+            },
+            physics: {
+                enabled: false,
+            }
+        };
+
+        network = new vis.Network(container, data, options);
+
+        allNodes = nodesDataset.get({returnType:"Object"});
+        allEdges = edgesDataset.get({returnType:"Object"});
+
+        network.on("hoverNode",hoverOnNode);
+        network.on("hoverEdge",hoverOnEdge);
+        network.on("blurNode",quitHover);
+        network.on("blurEdge",quitHoverOnEdge);
+        network.on("click",clickOnNode);
+
+        initAspects();
+    }
+
+    function initAspects() {
+        if (selectedLearningConcept != null) {
+            window.requestAnimationFrame(canvasAppears);
+        }
+        else {
+            window.requestAnimationFrame(canvasDisappears);
+        }
+        // set all nodes to their default aspect
+        for (var nodeId in allNodes) {
+            if (allNodes[nodeId].category == "") {
+                //allNodes[nodeId].hidden = true;
+            }
+            if (allNodes[nodeId].category == "topic") {
+                allNodes[nodeId].font = sizeOfTopicLabel+'px lato white';
+                allNodes[nodeId].size = sizeOfTopicNodes;
+            }
+            else if (allNodes[nodeId].category == "learningConcept"){
+                allNodes[nodeId].color = colorLearningConcept;
+                allNodes[nodeId].size = sizeOfLearningConceptNodes;
+                allNodes[nodeId].hidden = true;
+            }
+            else if (allNodes[nodeId].category == "learningConceptWithLabel"){
+                allNodes[nodeId].color = 'rgba(248,179,50,0)';
+                allNodes[nodeId].font = sizeOfLearningConceptLabel+'px lato white';
+                allNodes[nodeId].hidden = true;
+                allNodes[nodeId].size = sizeOfLearningConceptNodesWithLabel;
+            }
+            else if (allNodes[nodeId].category == "highlightTopic"){
+                allNodes[nodeId].hidden = true;
+                allNodes[nodeId].size = sizeOfTopicNodesHallow;
+            } 
+            else if (allNodes[nodeId].category == "highlightLearningConcept"){
+                allNodes[nodeId].color = colorLearningConceptHallow;
+                allNodes[nodeId].hidden = true;
+                allNodes[nodeId].size = sizeOfLearningConceptNodesHallow;
+            }
+            else if (allNodes[nodeId].category == "topicBigHallow"){
+                allNodes[nodeId].hidden = true;
+            }           
+        } 
+        for (var edgeId in allEdges) {
+            allEdges[edgeId].hidden = true;
+        }
+
+        // change the aspect of the selected nodes
+        // if it is a topic
+        if (selectedTopic != null) {
+            allNodes[selectedTopic-200].hidden = false;
+            var listOfConnectedEdges = network.getConnectedEdges(selectedTopic);
+            var listOfConnectedNodes = network.getConnectedNodes(selectedTopic);
+            for (var i = 0; i < listOfConnectedEdges.length; i++) {
+                allEdges[listOfConnectedEdges[i]].arrows = {to:{scaleFactor:0.5}};
+                allEdges[listOfConnectedEdges[i]].color = 'white';
+                allEdges[listOfConnectedEdges[i]].hidden = false;
+            }
+            for (var i = 0; i < listOfConnectedNodes.length; i++) {
+                if (allNodes[listOfConnectedNodes[i]+100].category == 'learningConceptWithLabel') {
+                    allNodes[listOfConnectedNodes[i]].hidden = false;
+                    allNodes[listOfConnectedNodes[i]+100].hidden = false;
+                }
+            }
+        }
+        // if it is a learning graph
+        if (selectedLearningConcept != null) {
+            updatePathAspect(selectedLearningConcept,true);
+        }
+
+        // transform the object into an array
+        var updateNodesArray = [];
+        for (nodeId in allNodes) {
+          if (allNodes.hasOwnProperty(nodeId)) {
+            updateNodesArray.push(allNodes[nodeId]);
+          }
+        }
+        nodesDataset.update(updateNodesArray);
+        var updateEdgesArray = [];
+        for (edgeId in allEdges) {
+          if (allEdges.hasOwnProperty(edgeId)) {
+            updateEdgesArray.push(allEdges[edgeId]);
+          }
+        }
+        edgesDataset.update(updateEdgesArray);
+    }
+
+    function hoverOnEdge(params) {
+        // do nothing
+    }
+
+    function quitHoverOnEdge(params) {
+        // do nothing
+    }
+
+    function quitHover(params) {
+        // init all nodes as normal
+        initAspects();
+    }
+
+    function hoverOnNode(params) {
+        var i;
+
+        var removeAllTempEdgesBool = false;
+        if (allNodes[params.node].category == 'learningConcept') {
+            removeAllTempEdgesBool = true;
+        }
+
+        // init all nodes as normal
+        initAspects();    
+
+        // change the aspect of the hovered node
+        if (allNodes[params.node].category == 'learningConcept') {
+            allNodes[params.node].color = colorLearningConcept;
+            allNodes[params.node+100].font = sizeOfLearningConceptLabel+'px verdana white';
+            var idOfHallow = params.node-100;
+            allNodes[idOfHallow].hidden = false;
+            allNodes[idOfHallow].color = colorLearningConceptHallow;
+            if (params.node == selectedLearningConcept) {
+                allNodes[idOfHallow].color = colorLearningConceptSelectedHallow;
+            }
+            allNodes[idOfHallow].size = sizeOfLearningConceptNodesHallow;
+        }
+        else if (allNodes[params.node].category == 'topic') {
+            if (params.node != selectedTopic) {
+                allNodes[params.node-100].hidden = false;
+                allNodes[params.node-100].size = sizeOfTopicNodesHallow;
+            }
+        }
+        // change the aspect of all the other nodes linked to the hovered one
+        var listOfConnectedNodes = network.getConnectedNodes(params.node);
+        var listOfConnectedEdges = network.getConnectedEdges(params.node);
+        if (allNodes[params.node].category == 'learningConcept') {
+            // the node highlighted is a learning concept
+            updatePathAspect(params.node,false);
+        }
+        else if (allNodes[params.node].category == 'topic') {
+            // the node highlighted is a topic
+            // if the topic is the selected one, do nothing
+            if (params.node != selectedTopic) {
+                for (i = 0; i < listOfConnectedNodes.length; i++) {
+                    if (allNodes[listOfConnectedNodes[i]].category == 'learningConcept') {
+                        allNodes[listOfConnectedNodes[i]+100].hidden = false;
+                        allNodes[listOfConnectedNodes[i]].hidden = false;
+                    }
+                }
+                for (i = 0; i < listOfConnectedEdges.length; i++) {
+                    allEdges[listOfConnectedEdges[i]].arrows = {to:{scaleFactor:0.5}};
+                    allEdges[listOfConnectedEdges[i]].color = 'white';
+                    allEdges[listOfConnectedEdges[i]].hidden = false;
+                }
+            }
+        }
+
+        // transform the object into an array
+        var updateNodesArray = [];
+        for (nodeId in allNodes) {
+          if (allNodes.hasOwnProperty(nodeId)) {
+            updateNodesArray.push(allNodes[nodeId]);
+          }
+        }
+        nodesDataset.update(updateNodesArray);
+        var updateEdgesArray = [];
+        for (edgeId in allEdges) {
+          if (allEdges.hasOwnProperty(edgeId)) {
+            updateEdgesArray.push(allEdges[edgeId]);
+          }
+        }
+        edgesDataset.update(updateEdgesArray);
+    }
+
+    function clickOnNode(params) {
+        //var selectionDone = false;
+        selectedLearningConcept = null;
+        selectedTopic = null;
+        if (params.nodes.length > 0) {
+            for (var i = 0; i <= params.nodes.length; i++) {
+                var selectedNode = params.nodes[i];
+                if (allNodes[selectedNode].category == 'learningConcept') {
+                    selectedLearningConcept = selectedNode;
+                }
+                else if (allNodes[selectedNode].category == 'topic') {
+                    selectedTopic = selectedNode;
+                    selectedLearningConcept = null;
+                }
+            }
+        }
+        initAspects();
+    }
+
+    function hasPredecesor(nodeId) {
+        var hasPredecesor=false;
+        var listOfConnectedEdges = network.getConnectedEdges(nodeId);
+        for (var i=0; i<listOfConnectedEdges.length; i++) {
+            if ((allEdges[listOfConnectedEdges[i]].to == nodeId) && (allNodes[allEdges[listOfConnectedEdges[i]].from].category == 'learningConcept')) {
+                hasPredecesor = true;
+            }
+        }
+        return hasPredecesor;
+    }
+
+    function getPredecesorList(nodeId) {
+        var predecesorList = [];
+        var listOfConnectedEdges = network.getConnectedEdges(nodeId);
+        for (var i=0; i<listOfConnectedEdges.length; i++) {
+            if ((allEdges[listOfConnectedEdges[i]].to == nodeId) && (allNodes[allEdges[listOfConnectedEdges[i]].from].category == 'learningConcept')) {
+                if (!isATempEdge(allEdges[listOfConnectedEdges[i]])) {
+                    predecesorList.push(allNodes[allEdges[listOfConnectedEdges[i]].from].id);
+                }
+            }
+        }
+        return predecesorList;
+    }
+
+    function getMaximumOf(list) {
+        var retValue = list[0];
+        for (var i = 0; i<list.length; i++) {
+            if (list[i]>retValue) {
+                retValue = list[i];
+            }
+        }
+        return retValue;
+    }
+
+    function updatePathAspect(inspectedNodeId,isSelected) {
+        var lastPrerequisiteInOtherBranch = [];
+        var j=0;
+
+        var newColor;
+        if (inspectedNodeId == selectedLearningConcept) {
+            isSelected = true;
+        }
+        if (isSelected) {
+            newColor = colorLearningConceptSelected;
+        } else {
+            newColor = colorLearningConcept;
+        }
+        allNodes[inspectedNodeId].color = newColor;
+        allNodes[inspectedNodeId].hidden = false;
+        allNodes[inspectedNodeId+100].hidden = false;
+        while (hasPredecesor(inspectedNodeId)) {
+            var predecesorList = getPredecesorList(inspectedNodeId);
+            var predecesorToInspect = getMaximumOf(predecesorList);
+            for (var i=0; i<predecesorList.length; i++) {
+                if (predecesorList[i] != predecesorToInspect) {
+                    lastPrerequisiteInOtherBranch.push(predecesorList[i]);
+                }
+            }
+            var drawEdgeBool = true;
+            for (var i=0; i<lastPrerequisiteInOtherBranch.length; i++) {
+                if (isInLearningPath(predecesorToInspect,lastPrerequisiteInOtherBranch[i])) {
+                    drawEdgeBool = false;
+                }
+            }
+            if (drawEdgeBool) {
+                drawEdge(predecesorToInspect,inspectedNodeId,newColor);
+                inspectedNodeId = predecesorToInspect;
+            }
+            else {
+                drawEdge(lastPrerequisiteInOtherBranch[0],inspectedNodeId,newColor);
+                inspectedNodeId = lastPrerequisiteInOtherBranch[0];
+                // remove the first element of the list of predecesorList.
+                lastPrerequisiteInOtherBranch.splice(0, 1);
+            }
+        }
+    }
+
+    function drawEdge(originNodeId,destinationNodeId,newColor) {
+        // if "isSelected" is false, that means that it is only a hover
+        var i;
+
+        // change the aspect of the 2 nodes
+        allNodes[originNodeId].color = newColor;
+        allNodes[originNodeId].hidden = false;
+        allNodes[originNodeId+100].hidden = false;
+
+        allNodes[destinationNodeId].color = newColor;
+        allNodes[destinationNodeId].hidden = false;
+        allNodes[destinationNodeId+100].hidden = false;
+
+        // draw the edge between the 2 nodes
+        var edgeExists = false;
+        // search if the edge already exists
+        var listOfConnectedEdges = network.getConnectedEdges(destinationNodeId);
+        for (i=0; i<listOfConnectedEdges.length; i++) {
+            if ((allEdges[listOfConnectedEdges[i]].from == originNodeId) && (allEdges[listOfConnectedEdges[i]].to == destinationNodeId)) {
+                edgeExists = true;
+                allEdges[listOfConnectedEdges[i]].hidden = false;
+                allEdges[listOfConnectedEdges[i]].arrows = {to:{scaleFactor:0.5}};
+                allEdges[listOfConnectedEdges[i]].color = newColor;
+            }
+        }
+        if (!edgeExists) { 
+            // if the edge does not exist, we build a new one
+            var updateEdgesArray = [];
+            for (edgeId in allEdges) {
+                if (allEdges.hasOwnProperty(edgeId)) {
+                    updateEdgesArray.push(allEdges[edgeId]);
+                }
+            }
+
+            if (originNodeId == destinationNodeId)
+            {
+                return;
+            }
+            updateEdgesArray.push({from:originNodeId, to:destinationNodeId});
+            edgesDataset.update(updateEdgesArray);
+
+            allEdges = edgesDataset.get({returnType:"Object"});
+
+            var listOfConnectedEdges = network.getConnectedEdges(destinationNodeId);
+            for (i=0; i<listOfConnectedEdges.length; i++) {
+                if ((allEdges[listOfConnectedEdges[i]].from == originNodeId) && (allEdges[listOfConnectedEdges[i]].to == destinationNodeId)) {
+                    allEdges[listOfConnectedEdges[i]].hidden = false;
+                    allEdges[listOfConnectedEdges[i]].arrows = {to:{scaleFactor:0.5}};
+                    allEdges[listOfConnectedEdges[i]].color = newColor;
+                }
+            }
+        }
+    }
+
+    function isATempEdge(edgeId) {
+        var edgeIdIterator;
+        var retValue = true;
+        for (var i=0; i<edges.length; i++) {
+            if ((edgeId.from == edges[i].from) && (edgeId.to == edges[i].to)) {
+                retValue = false;
+            }
+        }
+        return retValue;
+    }
+
+    function isInLearningPath(thisLearningConceptId,isOnTheLearningPathOfThisOne) {
+        if (!hasPredecesor(isOnTheLearningPathOfThisOne)) {
+            return false;
+        }
+        if (thisLearningConceptId == isOnTheLearningPathOfThisOne) {
+            return true;
+        }
+        var predecesorList = getPredecesorList(isOnTheLearningPathOfThisOne);
+        for (var i=0; i<predecesorList.length; i++) {
+            if (thisLearningConceptId == predecesorList[i]) {
+                return true;
+            }
+            else {
+                if (isInLearningPath(thisLearningConceptId,predecesorList[i])==true) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    redrawAll();
+
+</script>
+</body>
+</html>

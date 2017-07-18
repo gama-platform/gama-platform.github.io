@@ -1,10 +1,9 @@
 ---
 layout: default
-title:  Versions of GAMA
+title: Versions of GAMA
 wikiPageName: OlderVersions
 wikiPagePath: wiki/OlderVersions.md
 ---
-
 # Versions of GAMA
 
 
