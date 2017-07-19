@@ -1,5 +1,5 @@
 
-    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Product your own release of GAMA</title></head>
+    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Product a release of GAMA</title></head>
     <body>
     <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/w3.css">
@@ -40,7 +40,7 @@ var json_architectures = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_architectures.json",
+         'url': "/indexes/index_architectures.json",
          'dataType': "json",
          'success': function (data) {
              json_architectures = data;
@@ -53,7 +53,7 @@ var json_constants = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_constants.json",
+         'url': "/indexes/index_constants.json",
          'dataType': "json",
          'success': function (data) {
              json_constants = data;
@@ -66,7 +66,7 @@ var json_literals = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_literals.json",
+         'url': "/indexes/index_literals.json",
          'dataType': "json",
          'success': function (data) {
              json_literals = data;
@@ -79,7 +79,7 @@ var json_literals = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_operator.json",
+         'url': "/indexes/index_operator.json",
          'dataType': "json",
          'success': function (data) {
              json_operator = data;
@@ -92,7 +92,7 @@ var json_skills = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_skills.json",
+         'url': "/indexes/index_skills.json",
          'dataType': "json",
          'success': function (data) {
              json_skills = data;
@@ -105,7 +105,7 @@ var json_species = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_species.json",
+         'url': "/indexes/index_species.json",
          'dataType': "json",
          'success': function (data) {
              json_species = data;
@@ -118,7 +118,7 @@ var json_statements = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_statements.json",
+         'url': "/indexes/index_statements.json",
          'dataType': "json",
          'success': function (data) {
              json_statements = data;
@@ -131,7 +131,7 @@ var json_types = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index_types.json",
+         'url': "/indexes/index_types.json",
          'dataType': "json",
          'success': function (data) {
              json_types = data;
@@ -144,7 +144,7 @@ var json_pages = (function () {
       $.ajax({
          'async': false,
          'global': false,
-         'url': "/index.json",
+         'url': "/indexes/index.json",
          'dataType': "json",
          'success': function (data) {
              json_pages = data;
@@ -593,7 +593,7 @@ var json_pages = (function () {
         ,
       
        "/wiki/CreatingAReleaseOfGama.html": {
-         "title": "Product your own release of GAMA",
+         "title": "Product a release of GAMA",
          "url": "/wiki/CreatingAReleaseOfGama.html"
        }
         ,
@@ -3538,20 +3538,82 @@ OptimizingModelsSelection
 Community
 </div></div></nav></div>
     <div class="w3-threequarter">
-        <h1 id="product-your-own-release-of-gama">Product your own release of GAMA</h1>
+        <h1 id="product-a-release-of-gama">Product a release of GAMA</h1>
+<h2 id="from-the-product">From the product</h2>
+<p>Locate the file named <code class="highlighter-rouge">gama.product</code> (in plugin <code class="highlighter-rouge">ummisco.gama.product</code>) and open it.
+On the first page, select the link <code class="highlighter-rouge">Eclipse Product export wizard</code> and follow the instructions in it. You can specify a root directory (under which the plugins will be copied) and an export directory on your hard drive where to export the whole application. Then click <code class="highlighter-rouge">Finish</code> and wait for a few minutes while Eclipse exports and packages your application. Once it is done, you can safely delete the <code class="highlighter-rouge">Repository</code> folder and the <code class="highlighter-rouge">logs.zip</code> file.</p>
+<h2 id="specific-to-macos-x">Specific to MacOS X</h2>
+<p>Use <code class="highlighter-rouge">Gama.app</code> as the name of the root directory. Failing to do so will leave you with a non-working application.</p>
 
-<h2 id="install-maven-if-not-already-installed">Install Maven if not already installed</h2>
-<p>Download the latest version of Maven here: <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>. Proceed to install it as explained on this page: <a href="https://maven.apache.org/install.html">https://maven.apache.org/install.html</a></p>
+<p>[[/resources/images/Export_Mac.png]]</p>
 
-<h2 id="locate-the-buildsh-shell-script">Locate the <code class="highlighter-rouge">build.sh</code> shell script</h2>
-<p>It is located at the root of the <code class="highlighter-rouge">gama</code> Git repository on your computer. The easiest way to proceed is to select one of the GAMA projects in the Eclipse explorer and choose, in the contextual menu, <code class="highlighter-rouge">Show in &gt; System Explorer</code>. Then open a shell with this path and <code class="highlighter-rouge">cd ..</code>. Alternatively, you can open a shell and <code class="highlighter-rouge">cd</code> to your Git repository and then inside <code class="highlighter-rouge">gama</code>.</p>
+<p>This should result in a self-contained <code class="highlighter-rouge">Gama.app</code> application. However, the enclosed <code class="highlighter-rouge">Info.plist</code> lacks several key definitions. Open it (in a text editor) and paste the following items under the first <dict> (replace existing double entries if necessary):</dict></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	&lt;key&gt;NSHighResolutionCapable&lt;/key&gt;
+	&lt;string&gt;True&lt;/string&gt;
+	&lt;key&gt;CFBundleExecutable&lt;/key&gt;
+	&lt;string&gt;Gama&lt;/string&gt;
+	&lt;key&gt;CFBundleGetInfoString&lt;/key&gt;
+	&lt;string&gt;Gama 1.7.0b, Copyright UMMISCO IRD/UPMC and partners 2006-2016 http://gama-platform.org&lt;/string&gt;
+	&lt;key&gt;CFBundleShortVersionString&lt;/key&gt;
+	&lt;string&gt;1.7.0b&lt;/string&gt;
+	&lt;key&gt;CFBundleSignature&lt;/key&gt;
+	&lt;string&gt;GAMA&lt;/string&gt;
+	&lt;key&gt;CFBundleVersion&lt;/key&gt;
+	&lt;string&gt;1.7.0b&lt;/string&gt;
 
-<h2 id="launch-the-script">Launch the script</h2>
-<p>Simply type <code class="highlighter-rouge">../build.sh</code> in your terminal and the build should begin and log its activity.</p>
+</code></pre>
+</div>
 
-<h2 id="locate-the-applications-built-by-the-script">Locate the applications built by the script</h2>
-<p>They are in <code class="highlighter-rouge">ummisco.gama.product/target/products/ummisco.gama.application.product</code> in their binary form or alternatively in <code class="highlighter-rouge">ummisco.gama.product/target/products</code> in their zipped form.</p>
+<p>If you also want the <code class="highlighter-rouge">.gaml</code> documents to be decorated with an icon and recognized when double-clicking on them, you can add:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	&lt;key&gt;CFBundleDocumentTypes&lt;/key&gt;
+	&lt;array&gt;
+		&lt;dict&gt;
+			&lt;key&gt;CFBundleTypeExtensions&lt;/key&gt;
+			&lt;array&gt;
+				&lt;string&gt;gaml&lt;/string&gt;
+			&lt;/array&gt;
+			&lt;key&gt;CFBundleTypeIconFile&lt;/key&gt;
+			&lt;string&gt;Model.icns&lt;/string&gt;
+			&lt;key&gt;CFBundleTypeName&lt;/key&gt;
+			&lt;string&gt;Gama Model&lt;/string&gt;
+			&lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+			&lt;string&gt;Editor&lt;/string&gt;
+			&lt;key&gt;CFBundleTypeOSTypes&lt;/key&gt;
+			&lt;array&gt;
+				&lt;string&gt;TEXT&lt;/string&gt;
+			&lt;/array&gt;
+		&lt;/dict&gt;
+	&lt;/array&gt;
+</code></pre>
+</div>
 
+<p>You can additionally create an icon (<code class="highlighter-rouge">Model.icns</code>) for these files, which needs to reside in <code class="highlighter-rouge">Gama.app/Contents/Resources</code> next to <code class="highlighter-rouge">icon.icns</code>. An example of icon is available in the plugin <code class="highlighter-rouge">msi.gama.application/macosx</code>.</p>
+
+<h2 id="on-windows-os">On Windows OS</h2>
+<p>No specific step to do. After select the link <code class="highlighter-rouge">Eclipse Product export wizard</code>, choose the directory for the export by click on Browse button, in Destination section. Then, click on Finish.</p>
+
+<h2 id="configure-your-ide-in-order-to-allow-multi-platform-builds">Configure your IDE in order to allow multi-platform builds</h2>
+
+<ul>
+  <li>Open Eclipse Preferences</li>
+  <li>Navigate to Plugin Development Environment/Target Platform</li>
+  <li>Select your (active) target platform</li>
+  <li>Click Edit</li>
+  <li>Click Add</li>
+  <li>Select “Software Site”</li>
+  <li>Click Next</li>
+  <li>In “Work With” type: http://download.eclipse.org/eclipse/updates/4.5 (replace 4.5 with your current version)</li>
+  <li>Check “Eclipse RCP Target Components”</li>
+  <li>Check “Equinox Target Components”</li>
+  <li><strong>Uncheck</strong> “Include required software” (<strong>IMPORTANT</strong>)</li>
+  <li><strong>Check</strong> “Include all environments” (<strong>IMPORTANT</strong>)</li>
+  <li>Press Finish</li>
+  <li>Wait for the plugins to be downloaded and provisioned</li>
+  <li>Press Finish</li>
+  <li>Press OK</li>
+</ul>
+
+<p>Open your product file and select the “Export” option. You will see that the “Export for multiple platforms” checkbox is available. The next page allows you to choose for which platform you’d like to export GAMA.</p>
 
     </div>
     </div>
