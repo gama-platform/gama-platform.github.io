@@ -30,7 +30,7 @@ The documentation of GAMA is available online on the wiki of the project. It is 
 
 The documentation can be accessed from the side bar of this page. A good starting point for new users is [the installation page](Installation).
 
-A standalone version of the documentation, in PDF format, can be directly downloaded from [here](https://github.com/gama-platform/gama/wiki/Content/ressources/pdf/GAMA 1.6.1 Documentation.pdf)
+A standalone version of the documentation, in PDF format, can be directly downloaded [here](https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf)
 
 
 ## Source Code
