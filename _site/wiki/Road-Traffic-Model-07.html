@@ -12,7 +12,7 @@
     <div class="w3-bar w3-white w3-hide-small w3-display-center" style="overflow: visible">
               <div class="w3-left-align">
               <a href="/" class="w3-bar-item w3-button"><img src="/images/icon_gama_50.png"></a>
-              <a href="/wiki/Operators" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOCUMENTATION</b></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOCUMENTATION</b></a>
               <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>TUTORIALS</b></a>
               <a href="/download" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOWNLOAD</b></a>
               <a href="/news" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>NEWS</b></a>
@@ -154,6 +154,78 @@ var json_pages = (function () {
  })(); 
  var store = {
      
+       "/wiki/3D-Model-01.html": {
+         "title": "Basic model",
+         "url": "/wiki/3D-Model-01.html"
+       }
+        ,
+      
+       "/wiki/3D-Model-02.html": {
+         "title": "Moving cells",
+         "url": "/wiki/3D-Model-02.html"
+       }
+        ,
+      
+       "/wiki/3D-Model-03.html": {
+         "title": "Moving cells with neighbors",
+         "url": "/wiki/3D-Model-03.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-3D-camera-and-trajectories.html": {
+         "title": "3D Camera and Camera Positionning with Boids model",
+         "url": "/wiki/3D-Visualization-3D-camera-and-trajectories.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-Boids.html": {
+         "title": "",
+         "url": "/wiki/3D-Visualization-Boids.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-Building-Elevation.html": {
+         "title": "3D Display model and Height of Building using shapefiles",
+         "url": "/wiki/3D-Visualization-Building-Elevation.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-Built-In-Shapes-With-Light.html": {
+         "title": "Light definition",
+         "url": "/wiki/3D-Visualization-Built-In-Shapes-With-Light.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-Built-In-Shapes.html": {
+         "title": "Visualisation of the primitive shapes",
+         "url": "/wiki/3D-Visualization-Built-In-Shapes.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-GIS-Visualization.html": {
+         "title": "Visualization of GIS data",
+         "url": "/wiki/3D-Visualization-GIS-Visualization.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization-Procedural-City.html": {
+         "title": "Procedural City",
+         "url": "/wiki/3D-Visualization-Procedural-City.html"
+       }
+        ,
+      
+       "/wiki/3D-Visualization.html": {
+         "title": "3D Visualization",
+         "url": "/wiki/3D-Visualization.html"
+       }
+        ,
+      
+       "/wiki/3D.html": {
+         "title": "3D",
+         "url": "/wiki/3D.html"
+       }
+        ,
+      
        "/404.html": {
          "title": "Error 404",
          "url": "/404.html"
@@ -3219,323 +3291,161 @@ function closeRightMenu() {
         <div>
              <div class="w3-quarter" style="width:260px">
 		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="z-index:3;margin-left:10px" id="mySidebar">
-                    <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div>
-<a href='/wiki/Tutorials'>Tutorials
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/LearnGAMLStepByStep'>Learn GAML Step by Step
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/Introduction'>Introduction
-</a><br/>
-<a href='/wiki/StartWithGAML'>Start with GAML
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/ModelOrganization'>Organization of a model
-</a><br/>
-<a href='/wiki/BasicProgrammingConceptsInGAML'>Basic programming concepts in GAML
-</a><br/>
-    </div>
-<a href='/wiki/ManipulateBasicSpecies'>Manipulate basic species
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/GlobalSpecies'>The global species
-</a><br/>
-<a href='/wiki/RegularSpecies'>Regular species
-</a><br/>
-<a href='/wiki/DefiningActionsAndBehaviors'>Defining actions and behaviors
-</a><br/>
-<a href='/wiki/InteractionBetweenAgents'>Interaction between agents
-</a><br/>
-<a href='/wiki/AttachingSkills'>Attaching Skills
-</a><br/>
-<a href='/wiki/Inheritance'>Inheritance
-</a><br/>
-    </div>
-<a href='/wiki/DefiningAdvancedSpecies'>Defining advanced species
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/GridSpecies'>Grid Species
-</a><br/>
-<a href='/wiki/GraphSpecies'>Graph Species
-</a><br/>
-<a href='/wiki/MirrorSpecies'>Mirror species
-</a><br/>
-<a href='/wiki/MultiLevelArchitecture'>Multi-level architecture
-</a><br/>
-    </div>
-<a href='/wiki/DefiningGUIExperiment'>Defining GUI Experiment
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/DefiningParameters'>Defining Parameters
-</a><br/>
-<a href='/wiki/DefiningDisplaysGeneralities'>Defining displays (Generalities)
-</a><br/>
-<a href='/wiki/DefiningCharts'>Defining Charts
-</a><br/>
-<a href='/wiki/Defining3DDisplays'>Defining 3D Displays
-</a><br/>
-<a href='/wiki/DefiningMonitorsAndInspectors'>Defining monitors and inspectors
-</a><br/>
-<a href='/wiki/DefiningExportFiles'>Defining export files
-</a><br/>
-<a href='/wiki/DefiningUserInteraction'>Defining user interaction
-</a><br/>
-    </div>
-<a href='/wiki/ExploringModels'>Exploring Models
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/RunSeveralSimulations'>Run Several Simulations
-</a><br/>
-<a href='/wiki/BatchExperiments'>Defining Batch Experiments
-</a><br/>
-<a href='/wiki/ExplorationMethods'>Exploration Methods
-</a><br/>
-    </div>
-<a href='/wiki/OptimizingModels'>Optimizing Models
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/RuntimeConcepts'>Runtime Concepts
-</a><br/>
-OptimizingModelsSelection
-    </div>
-<a href='/wiki/MultiParadigmModeling'>Multi-Paradigm Modeling
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/ControlArchitecture'>Control Architectures
-</a><br/>
-<a href='/wiki/Equations'>Using Equations
-</a><br/>
-    </div>
-    </div>
-<a href='/wiki/Recipes'>Recipes
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/ManipulateOSMDatas'>Manipulate OSM Datas
-</a><br/>
-<a href='/wiki/Diffusion'>Implementing diffusion
-</a><br/>
-<a href='/wiki/UsingDatabase'>Using Database Access
-</a><br/>
-<a href='/wiki/CallingR'>Calling R
-</a><br/>
-<a href='/wiki/UsingFIPAACL'>Using FIPA ACL
-</a><br/>
-<a href='/wiki/GamAnalyzer'>Using GAMAnalyzer
-</a><br/>
-<a href='/wiki/UsingBDI'>Using BDI
-</a><br/>
-<a href='/wiki/UsingDrivingSkill'>Advanced Driving Skill
-</a><br/>
-<a href='/wiki/ManipulateDates'>Manipulate Dates
-</a><br/>
-<a href='/wiki/ManipulateLight'>Implementing light
-</a><br/>
-<a href='/wiki/Comodel'>Using Comodel
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-—Headlessmodefordummies
-    </div>
-    </div>
-    </div>
-<a href='/wiki/Tutorials'>Tutorials
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/LuneraysFlu'>Luneray's flu
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/LuneraysFlu_step1'>1. Creation of a first basic disease spreading model
-</a><br/>
-<a href='/wiki/LuneraysFlu_step2'>2. Definition of monitors and chart outputs
-</a><br/>
-<a href='/wiki/LuneraysFlu_step3'>3. Importation of GIS data
-</a><br/>
-<a href='/wiki/LuneraysFlu_step4'>4. Use of a graph to constraint the movements of people]
-</a><br/>
-<a href='/wiki/LuneraysFlu_step5'>5. Definition of 3D displays
-</a><br/>
-    </div>
-<a href='/wiki/IncrementalModel'>Incremental Model
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/IncrementalModel_step1'>1. Simple SI Model
-</a><br/>
-<a href='/wiki/IncrementalModel_step2'>2. Charts
-</a><br/>
-<a href='/wiki/IncrementalModel_step3'>3. Integration of GIS Data
-</a><br/>
-<a href='/wiki/IncrementalModel_step4'>4. Movement on Graph
-</a><br/>
-<a href='/wiki/IncrementalModel_step5'>5. Visualizing in 3D
-</a><br/>
-<a href='/wiki/IncrementalModel_step6'>6. Multi-Level
-</a><br/>
-<a href='/wiki/IncrementalModel_step7'>7. Differential Equations
-</a><br/>
-    </div>
-<a href='/wiki/PredatorPrey'>Predator Prey
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/PredatorPrey_step1'>1. Basic Model
-</a><br/>
-<a href='/wiki/PredatorPrey_step2'>2. Vegetation Dynamic
-</a><br/>
-<a href='/wiki/PredatorPrey_step3'>3. Prey Agent Behavior
-</a><br/>
-<a href='/wiki/PredatorPrey_step4'>4. Inspectors and Monitors
-</a><br/>
-<a href='/wiki/PredatorPrey_step5'>5. Predator Agent
-</a><br/>
-<a href='/wiki/PredatorPrey_step6'>6. Breeding
-</a><br/>
-<a href='/wiki/PredatorPrey_step7'>7. Agent Aspect
-</a><br/>
-<a href='/wiki/PredatorPrey_step8'>8. Complex Behavior
-</a><br/>
-<a href='/wiki/PredatorPrey_step9'>9. Stopping condition
-</a><br/>
-<a href='/wiki/PredatorPrey_step10'>10. Charts
-</a><br/>
-<a href='/wiki/PredatorPrey_step11'>11. Writing Files
-</a><br/>
-<a href='/wiki/PredatorPrey_step12'>12. Image loading
-</a><br/>
-    </div>
-<a href='/wiki/RoadTrafficModel'>Road Traffic
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/RoadTrafficModel_step1'>1. Loading of GIS Data
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step2'>2. People Agents
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step3'>3. Movement of People
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step4'>4. Weight for Road Network
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step5'>5. Dynamic weights
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step6'>6. Charts
-</a><br/>
-<a href='/wiki/RoadTrafficModel_step7'>7. Automatic Road Repair
-</a><br/>
-    </div>
-<a href='/wiki/ThreeD'>3D Tutorial
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/ThreeD_step1'>1. Basic Model
-</a><br/>
-<a href='/wiki/ThreeD_step2'>2. Moving Cells
-</a><br/>
-<a href='/wiki/ThreeD_step3'>3. Connections
-</a><br/>
-    </div>
-    </div>
-    </div>
-<a href='/wiki/References'>References
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/PlatformDocumentation'>Platform
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/InstallationAndLaunching'>Installation and Launching
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/Installation'>Installation
-</a><br/>
-<a href='/wiki/Launching'>Launching GAMA
-</a><br/>
-<a href='/wiki/Headless'>Headless Mode
-</a><br/>
-<a href='/wiki/Updating'>Updating GAMA
-</a><br/>
-<a href='/wiki/InstallingPlugins'>Installing Plugins
-</a><br/>
-<a href='/wiki/Troubleshooting'>Troubleshooting
-</a><br/>
-    </div>
-<a href='/wiki/WorkspaceProjectsAndModels'>Workspace, Projects and Models
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/NavigatingWorkspace'>Navigating in the Workspace
-</a><br/>
-<a href='/wiki/ChangingWorkspace'>Changing Workspace
-</a><br/>
-<a href='/wiki/ImportingModels'>Importing Models
-</a><br/>
-    </div>
-<a href='/wiki/EditingModels'>Editing models
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/GamlEditorGeneralities'>The GAML Editor - Generalities
-</a><br/>
-<a href='/wiki/GamlEditorToolbar'>The GAML Editor Toolbar
-</a><br/>
-<a href='/wiki/ValidationOfModels'>Validation of Models
-</a><br/>
-    </div>
-<a href='/wiki/RunningExperiments'>Running Experiments
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/LaunchingExperiments'>Launching Experiments from the User Interface
-</a><br/>
-<a href='/wiki/ExperimentsUserInterface'>Experiments User Interface
-</a><br/>
-<a href='/wiki/MenusAndCommands'>Menus and Commands
-</a><br/>
-<a href='/wiki/ParametersView'>Parameters View
-</a><br/>
-<a href='/wiki/InspectorsAndMonitors'>Inspectors and monitors
-</a><br/>
-<a href='/wiki/Displays'>Displays
-</a><br/>
-<a href='/wiki/BatchSpecific'>Batch Specific UI
-</a><br/>
-<a href='/wiki/ErrorsView'>Errors View
-</a><br/>
-    </div>
-<a href='/wiki/Preferences'>Preferences
-</a><br/>
-    </div>
-<a href='/wiki/GamlReferences'>Gaml Reference
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/BuiltInSpecies'>Built-in Species
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/AgentBuiltIn'>The 'agent' built-in species (Under Construction)
-</a><br/>
-<a href='/wiki/ModelBuiltIn'>The 'model' built-in species (Under Construction)
-</a><br/>
-<a href='/wiki/ExperimentBuiltIn'>The 'experiment' built-in species (Under Construction)
-</a><br/>
-    </div>
-<a href='/wiki/BuiltInSkills'>Built-in Skills
-</a><br/>
-<a href='/wiki/BuiltInArchitectures'>Built-in Architectures
-</a><br/>
-<a href='/wiki/Statements'>Statements
-</a><br/>
-<a href='/wiki/DataTypes'>Types
-</a><br/>
-<a href='/wiki/FileTypes'>File Types
-</a><br/>
-<a href='/wiki/Expressions'>Expressions
-</a><br/>
-      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<a href='/wiki/Literals'>Literals
-</a><br/>
-<a href='/wiki/UnitsAndConstants'>Units and constants
-</a><br/>
-<a href='/wiki/PseudoVariables'>Pseudo-variables
-</a><br/>
-<a href='/wiki/VariablesAndAttributes'>Variables and Attributes
-</a><br/>
-<a href='/wiki/Operators'>Operators 
-</a><br/>
-    </div>
-    </div>
-    </div>
-Community
+                    <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">
+<h3><a href="/wiki/Home">Home</a></h3><br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/Overview">Introduction</a></h3><br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/NewVersionChanges">Changes from 1.6.1 to 1.7</a></h3><br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/PlatformDocumentation">Platform</a></h3><br/>
+ <a href="/wiki/InstallationAndLaunching">Installation and Launching</a><br/>
+-- <a href="/wiki/Installation">Installation</a><br/>
+-- <a href="/wiki/Launching">Launching GAMA</a><br/>
+-- <a href="/wiki/Headless">Headless Mode</a><br/>
+-- <a href="/wiki/Updating">Updating GAMA</a><br/>
+-- <a href="/wiki/InstallingPlugins">Installing Plugins</a><br/>
+-- <a href="/wiki/Troubleshooting">Troubleshooting</a><br/>
+ <a href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a><br/>
+-- <a href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a><br/>
+-- <a href="/wiki/ChangingWorkspace">Changing Workspace</a><br/>
+-- <a href="/wiki/ImportingModels">Importing Models</a><br/>
+ <a href="/wiki/EditingModels">Editing Models</a><br/>
+-- <a href="/wiki/GamlEditorGeneralities">GAML Editor (Generalities)</a><br/>
+-- <a href="/wiki/GamlEditorToolbar">GAML Editor Toolbar</a><br/>
+-- <a href="/wiki/ValidationOfModels">Validation of Models</a><br/>
+ <a href="/wiki/RunningExperiments">Running Experiments</a><br/>
+-- <a href="/wiki/LaunchingExperiments">Launching Experiments</a><br/>
+-- <a href="/wiki/ExperimentsUserInterface">Experiments User interface</a><br/>
+-- <a href="/wiki/MenusAndCommands">Menus and commands</a><br/>
+-- <a href="/wiki/ParametersView">Parameters view</a><br/>
+-- <a href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a><br/>
+-- <a href="/wiki/Displays">Displays</a><br/>
+-- <a href="/wiki/BatchSpecific">Batch Specific UI</a><br/>
+-- <a href="/wiki/ErrorsView">Errors View</a><br/>
+ <a href="/wiki/Preferences">Preferences</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/LearnGAMLStepByStep">Learn GAML step by step</a></h3><br/>
+ <a href="/wiki/Introduction">Introduction</a><br/>
+ <a href="/wiki/StartWithGAML">Start with GAML</a><br/>
+-- <a href="/wiki/ModelOrganization">Organization of a Model</a><br/>
+-- <a href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a><br/>
+ <a href="/wiki/ManipulateBasicSpecies">Manipulate basic Species</a><br/>
+-- <a href="/wiki/GlobalSpecies">Global Species</a><br/>
+-- <a href="/wiki/RegularSpecies">Regular Species</a><br/>
+-- <a href="/wiki/DefiningActionsAndBehaviors">Defining Actions and Behaviors</a><br/>
+-- <a href="/wiki/InteractionBetweenAgents">Interaction between Agents</a><br/>
+-- <a href="/wiki/AttachingSkills">Attaching Skills</a><br/>
+-- <a href="/wiki/Inheritance">Inheritance</a><br/>
+ <a href="/wiki/DefiningAdvancedSpecies">Defining Advanced Species</a><br/>
+-- <a href="/wiki/GridSpecies">Grid Species</a><br/>
+-- <a href="/wiki/GraphSpecies">Graph Species</a><br/>
+-- <a href="/wiki/MirrorSpecies">Mirror Species</a><br/>
+-- <a href="/wiki/MultiLevelArchitecture">Multi-Level Architecture</a><br/>
+ <a href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a><br/>
+-- <a href="/wiki/DefiningParameters">Defining Parameters</a><br/>
+-- <a href="/wiki/DefiningDisplaysGeneralities">Defining Displays Generalities</a><br/>
+-- <a href="/wiki/DefiningCharts">Defining Charts</a><br/>
+-- <a href="/wiki/Defining3DDisplays">Defining 3D Displays</a><br/>
+-- <a href="/wiki/DefiningMonitorsAndInspectors">Defining Monitors and Inspectors</a><br/>
+-- <a href="/wiki/DefiningExportFiles">Defining Export files</a><br/>
+-- <a href="/wiki/DefiningUserInteraction">Defining User Interaction</a><br/>
+ <a href="/wiki/ExploringModels">Exploring Models</a><br/>
+-- <a href="/wiki/RunSeveralSimulations">Run Several Simulations</a><br/>
+-- <a href="/wiki/BatchExperiments">Batch Experiments</a><br/>
+-- <a href="/wiki/ExplorationMethods">Exploration Methods</a><br/>
+ <a href="/wiki/OptimizingModelsSection">Optimizing Model Section</a><br/>
+-- <a href="/wiki/RuntimeConcepts">Runtime Concepts</a><br/>
+-- <a href="/wiki/OptimizingModels">Optimizing Models</a><br/>
+ <a href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a><br/>
+-- <a href="/wiki/ControlArchitecture">Control Architecture</a><br/>
+-- <a href="/wiki/Equations">Defining Equations</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/Recipes">Recipes</a></h3><br/>
+ <a href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a><br/>
+ <a href="/wiki/Diffusion">Diffusion</a><br/>
+ <a href="/wiki/UsingDatabase">Using Database</a><br/>
+ <a href="/wiki/CallingR">Calling R</a><br/>
+ <a href="/wiki/UsingFIPAACL">Using FIPA ACL</a><br/>
+ <a href="/wiki/GamAnalyzer">Using GamAnalyzer</a><br/>
+ <a href="/wiki/UsingBDI">Using BDI</a><br/>
+ <a href="/wiki/UsingDrivingSkill">Using Driving Skill</a><br/>
+ <a href="/wiki/ManipulateDates">Manipulate dates</a><br/>
+ <a href="/wiki/ManipulateLight">Manipulate lights</a><br/>
+ <a href="/wiki/Comodel">Using comodel</a><br/>
+ <a href="/wiki/Headless-mode-for-dummies">Headless mode</a><br/>
+ <a href="/wiki/FAQ">FAQ</a><br/>
+ <a href="/wiki/KnownIssues">Known Issues</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/GamlReference">GAML References</a></h3><br/>
+ <a href="/wiki/BuiltInSpecies">Built-in Species</a><br/>
+-- <a href="/wiki/AgentBuiltIn">Agent Built-in</a><br/>
+-- <a href="/wiki/ModelBuiltIn">Model Built-in</a><br/>
+-- <a href="/wiki/ExperimentBuiltIn">Experiment Built-in</a><br/>
+ <a href="/wiki/BuiltInSkills">Built-in Skills</a><br/>
+ <a href="/wiki/BuiltInArchitectures">Built-in Architecture</a><br/>
+ <a href="/wiki/Statements">Statements</a><br/>
+ <a href="/wiki/DataTypes">Data Type</a><br/>
+ <a href="/wiki/FileTypes">File Type</a><br/>
+ <a href="/wiki/Expressions">Expressions</a><br/>
+-- <a href="/wiki/Literals">Literals</a><br/>
+-- <a href="/wiki/UnitsAndConstants">Units and Constants</a><br/>
+-- <a href="/wiki/PseudoVariables">Pseudo Variables</a><br/>
+-- <a href="/wiki/VariablesAndAttributes">Variables And Attributes</a><br/>
+-- <a href="/wiki/OperatorsAC">Operators [A-C]</a><br/>
+-- <a href="/wiki/OperatorsDM">Operators [D-M]</a><br/>
+-- <a href="/wiki/OperatorsNZ">Operators [N-Z]</a><br/>
+ <a href="/wiki/Index">Index</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/Tutorials">Tutorials</a></h3><br/>
+ <a href="/wiki/PredatorPrey">Predator Prey</a><br/>
+ <a href="/wiki/RoadTrafficModel">Road Traffic</a><br/>
+ <a href="/wiki/ThreeD">3D Tutorial</a><br/>
+ <a href="/wiki/IncrementalModel">Incremental Model</a><br/>
+ <a href="/wiki/LuneraysFlu">Luneray's flu</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/PedagogicalMaterials">Pedagogical materials</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/DevelopingExtensions">Developing Extensions</a></h3><br/>
+ <a href="/wiki/InstallingGitVersion">Installing the GIT version</a><br/>
+ <a href="/wiki/GamaArchitecture">Architecture of GAMA</a><br/>
+ <a href="/wiki/DevelopingPlugins">Developing a Plugin</a><br/>
+ <a href="/wiki/DevelopingSkills">Developing a Skill</a><br/>
+ <a href="/wiki/DevelopingStatements">Developing a Statement</a><br/>
+ <a href="/wiki/DevelopingOperators">Developing an Operator</a><br/>
+ <a href="/wiki/DevelopingTypes">Developing a Type</a><br/>
+ <a href="/wiki/DevelopingSpecies">Developing a Species</a><br/>
+ <a href="/wiki/DevelopingControlArchitectures">Developing a Control Architecture</a><br/>
+ <a href="/wiki/DevelopingIndexAnnotations">Index of annotations</a><br/>
+ <a href="/wiki/DevelopingIScope">IScope</a><br/>
+ <a href="/wiki/CreatingAReleaseOfGama">Creating a release of GAMA</a><br/>
+ <a href="/wiki/Documentation">Documentation generation</a><br/>
+ <a href="/wiki/WebsiteGeneration">Website generation</a><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/References">Scientific References</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/Projects">Projects using GAMA</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/TrainingSession">Training Session</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/Events">Events</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3><a href="/wiki/OlderVersions">Older versions</a></h3><br/>
+ <br/>
+</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
+<h3> Coding Camp</h3><br/>
+ <a href="/wiki/Event__CC15_Reorganization">Reorganization</a><br/>
 </div></div></nav></div>
     <div class="w3-threequarter">
         <h1 id="automatic-repair-of-roads">Automatic repair of roads</h1>
