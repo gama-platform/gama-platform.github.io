@@ -340,12 +340,12 @@ def defineLayoutMenu
                     <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">'
           
           title=line.gsub("#","")
-          newLayout.puts "<h3>"+linkup(title)+"</h3><br/>"
+          newLayout.puts "<h4>"+linkup(title)+"</h4><br/>"
           oldUnder=1
         else
           newLayout.puts "</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>"
           title=line.gsub("#","")
-          newLayout.puts "<h3>"+linkup(title)+"</h3><br/>"
+          newLayout.puts "<h4>"+linkup(title)+"</h4><br/>"
         end
       else
           title=line.gsub("#","")

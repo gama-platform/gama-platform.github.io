@@ -3286,43 +3286,51 @@ function closeRightMenu() {
 }
 </script>
 
-                <div class="w3-row-padding w3-container w3-twothird w3-content w3-center">
+                <div class="w3-quarter w3-round-large w3-white w3-border w3-border-grey w3-margin-left">
+        
+                <div class="w3-row" id="tabMenuNews">
+                    <div class="w3-col l3 m3 s3 w3-blue w3-center  w3-white">
+                        <i id="facebook" class="fa fa-2x fa-facebook-official w3-text-blue" aria-hidden="true" onclick="facebook();"></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
+                        <i id="commits" class="fa fa-2x fa-git w3-text-white" aria-hidden="true" onclick="commits();"></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
+                        <i id="issues" class="fa fa-2x fa-github w3-text-white" aria-hidden="true" onclick="issues();"></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
+                        <i id="google" class="fa fa-2x fa-google w3-text-white" aria-hidden="true" onclick="google();"></i>
+                    </div>
+               </div>
+               <div id="quotes" class="w3-white w3-small w3-margin">
+               </div>
+ </div>
+<div class="w3-row-padding w3-container w3-threequarter w3-content">
+    <h2> News </h2>
     <div>
     	
             
-            
-        <div class="w3-quarter  w3-margin-left w3-margin-bottom w3-round-large w3-text-white w3-blue w3-border w3-border-blue">
+        <div class="w3-margin-left w3-margin-bottom">
+          <table>
+            <tr>
+              <td>
           <img src="/images/3D_noise.png" alt="Gama Post" style="width:100px; height:100px" />
-          <h3><a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">3D Noise Generator</a></h3>
-          <p><small><strong>July  3, 2017 - Damien Philippon</strong> -  Gama New Feature Experimental  <a href="http://dphilippon.github.io/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html"></a></small></p>			
-          <div class="span10 w3-text-black w3-white">
-                <p>3D Noise Generator Noise generation is now being added to GAMA Platform as a feature to generate in a procedural...
+            </td><td><a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">3D Noise Generator</a><small>   <strong><span class="w3-border w3-border-light-gray w3-text-deep-purple w3-light-gray w3-round-small">July  3, 2017 -  Damien Philippon</span></strong> </small>			
+          </td>
+            </tr>
+        </table><div class=" w3-margin span10 w3-text-black w3-white w3-round-large w3-border w3-border-blue">
+                <p class="w3-margin"><small>3D Noise Generator Noise generation is now being added to GAMA Platform as a feature to generate in a procedural way textures, mountains, ground. It consists in using gradient noises, reducing heterogeineity caused by randomness. The most famous example might be Perlin Noise developed by Ken Perlin to fight against the machine-like look of the computer graphics. It can be used to simulate clouds, fire, and also different types of textures. In GAMA Platform, we decided to add a possibility... <a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">See more</a></small>
                 </p>
           </div>
         </div>	
         	
     </div>
 </div>
-<div class="w3-third w3-round-large w3-white w3-border w3-border-grey">
-        
-                <div class="w3-row">
-                	   <div class="w3-col l3 m3 s3 w3-blue w3-center">
-                        <i class="fa fa-2x fa-facebook-official w3-text-white" aria-hidden="true" onclick="facebook();"></i>
-                    </div>
-                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
-                        <i class="fa fa-2x fa-git w3-text-white" aria-hidden="true" onclick="commits();"></i>
-                    </div>
-                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
-                        <i class="fa fa-2x fa-github w3-text-white" aria-hidden="true" onclick="issues();"></i>
-                    </div>
-                    <div class="w3-col l3 m3 s3 w3-blue w3-center">
-                        <i class="fa fa-2x fa-google w3-text-white" aria-hidden="true" onclick="google();"></i>
-                    </div>
-               </div>
-               <div id="quotes" class="w3-white">
-               </div>
- </div>
 <script>
+   function truncate(str, no_words) 
+   {
+        return str.split(" ").splice(0,no_words).join(" ");
+   }
   $( document ).ready(function() 
   {
     facebook();
@@ -3339,17 +3347,19 @@ function closeRightMenu() {
 			ahtml=ahtml+"<div class=''>";
 			if("message" in data["data"][i])
 			{
-				ahtml=ahtml+"<i class='fa  fa-2x fa-facebook-official w3-text-red' aria-hidden='true'></i><small><strong> - "+d.toUTCString() + "</strong></small><p>"+data["data"][i]["message"]+" ";
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["message"] ,20)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
 			}
 			else
 			{
-				ahtml=ahtml+"<i class='fa  fa-2x fa-facebook-official w3-text-red' aria-hidden='true'></i><small><strong> - "+d.toUTCString() + "</strong></small><p>"+data["data"][i]["story"]+" ";
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] ,20)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
 			}
 			ahtml=ahtml+"</p></div>";
 		}
 		ahtml=ahtml+"";
 		$("#quotes").html(ahtml);
 		$("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-blue\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center  w3-blue\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
 	});
   }
   
@@ -3362,12 +3372,14 @@ function closeRightMenu() {
                 for(var i = 0; i < 5; i++) {
                         ahtml=ahtml+"<div class=''>";
                         var d = new Date(data[i]["created_at"]);
-                        ahtml=ahtml+"<i class='fa  fa-2x fa-github w3-text-red' aria-hidden='true'></i><small><strong> - "+d.toUTCString() + "</strong></small><p>"+data[i]["title"]+" by "+data[i]["user"]["login"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data[i]["title"]+" by "+data[i]["user"]["login"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
                         ahtml=ahtml+"</p></div>";
                 }
                 ahtml=ahtml+"";
                 $("#quotes").html(ahtml);
                 $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-blue\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center  w3-blue\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
         });
   }
   function commits()
@@ -3380,12 +3392,14 @@ function closeRightMenu() {
                 {
                         ahtml=ahtml+"<div class=''>";
                         var d = new Date(data[i]["commit"]["author"]["date"]);
-                        ahtml=ahtml+"<i class='fa  fa-2x fa-git w3-text-red' aria-hidden='true'></i><small><strong> - "+d.toUTCString() + "</strong></small><p>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
                         ahtml=ahtml+"</p></div>";
                 }
                 ahtml=ahtml+"";
                 $("#quotes").html(ahtml);
                 $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-blue\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center  w3-blue\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
         });
   }
   
@@ -3398,13 +3412,14 @@ function closeRightMenu() {
                 for(var i = 0; i < 5; i++) {
                         ahtml=ahtml+"<div class=''>";
                         var d = new Date(data["items"][i]["pubDate"]);
-                        ahtml=ahtml+"<i class='fa  fa-2x fa-google w3-text-red' aria-hidden='true'></i><small><strong> - "+d.toUTCString() + "</strong></small><p>"+data["items"][i]["title"]+" by "+data["items"][i]["author"]+" <a href='"+data["items"][i]["link"]+"'> See more</a>";
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data["items"][i]["title"]+" by "+data["items"][i]["author"]+" <a href='"+data["items"][i]["link"]+"'> See more</a>";
                         ahtml=ahtml+"</p></div>";
 
                 }
                 ahtml=ahtml+"";
                 $("#quotes").html(ahtml);
                 $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-blue w3-center  w3-white\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-blue\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
         });
   }
   
