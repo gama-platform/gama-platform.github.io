@@ -3,10 +3,10 @@ layout: other
 title: News
 ---
 
-<div  class="w3-quarter w3-round-large w3-white w3-border w3-border-grey w3-margin-left">
-        
+<div  class="w3-quarter w3-round-large w3-margin-left w3-padding-16">
+        <div class="w3-white w3-border w3-border-grey w3-margin-left w3-twothird">
                 <div class="w3-row" id="tabMenuNews">
-                    <div class="w3-col l3 m3 s3 w3-blue w3-center  w3-white">
+                    <div class="w3-col l3 m3 s3 w3-center  w3-white">
                         <i id="facebook" class='fa fa-2x fa-facebook-official w3-text-blue' aria-hidden='true' onclick='facebook();'></i>
                     </div>
                     <div class="w3-col l3 m3 s3 w3-blue w3-center">
@@ -21,6 +21,21 @@ title: News
                </div>
                <div id="quotes" class="w3-white w3-small w3-margin">
                </div>
+        </div>
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+            <span class="w3-center  w3-margin"><h3>Mailing list</h3></span>
+                <p class="w3-small">Users - gama-platform@googlegroups.com<br/>
+                Developers - gama-dev@googlegroups.com</p>
+        </div>
+    
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+            <span class="w3-center"><h3>Follow Us</h3></span>
+                <p class="w3-small w3-margin">Facebook - gama-platform@googlegroups.com<br/>
+                    Youtube - gama-dev@googlegroups.com <br/>
+                    LinkedIn - <br/>
+                    Twitter <br/>
+                </p>
+        </div>
  </div>
 <div class="w3-row-padding w3-container w3-threequarter w3-content">
     <h2> News </h2>
@@ -44,6 +59,7 @@ title: News
     </div>
 </div>
 <script>
+   var nbWords = 20
    function truncate(str, no_words) 
    {
         return str.split(" ").splice(0,no_words).join(" ");
@@ -64,11 +80,11 @@ title: News
 			ahtml=ahtml+"<div class=''>";
 			if("message" in data["data"][i])
 			{
-				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["message"] ,20)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["message"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
 			}
 			else
 			{
-				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] ,20)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
 			}
 			ahtml=ahtml+"</p></div>";
 		}
