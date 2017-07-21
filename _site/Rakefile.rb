@@ -333,9 +333,10 @@ def defineLayoutMenu
       if(currentUnder>0)
         if(oldUnder==-1)
           newLayout.puts '
-    <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-row-padding w3-container">
         <div>
-             <div class="w3-quarter" style="width:260px">
+             <div class="w3-quarter">
+                <div class="w3-twothird">
 		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="z-index:3;margin-left:10px" id="mySidebar">
                     <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">'
           
@@ -359,9 +360,11 @@ def defineLayoutMenu
       end
       
     end
-    newLayout.puts '</div></div></nav></div>
+    newLayout.puts '</div></div></div></nav></div>
+    <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         {{ content }}
+    </div>
     </div>
     </div>
     </div>
