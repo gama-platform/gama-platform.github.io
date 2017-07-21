@@ -28,7 +28,7 @@ def deploy
     open(".gitignore", 'w') do |gitPage|
         gitPage.puts "vendor/*"
     end
-    system 'git remote add origin https://hqnghi88:$HQN_KEY@github.com/dphilippon/dphilippon.github.io.git'
+    system 'git remote add origin https://hqnghi88:$HQN_KEY@github.com/gama-platform/gama-platform.github.io.git'
     system 'git config user.name "Travis CI"'
     system 'git config user.email "travis@travis-ci.org"'
     system "git add -A"

@@ -3462,6 +3462,7 @@ function closeRightMenu() {
       <li><a href="#self">self</a></li>
       <li><a href="#myself">myself</a></li>
       <li><a href="#each">each</a></li>
+      <li><a href="#super">super</a></li>
     </ul>
   </li>
 </ul>
@@ -3477,6 +3478,28 @@ function closeRightMenu() {
 if potential_friend != nil {
     potential_friend.friend &lt;- self;
     friend &lt;- potential_friend;
+}
+</code></pre>
+</div>
+
+<h2 id="super">super</h2>
+<p>The pseudo-variable <code class="highlighter-rouge">super</code> behaves exactly in the same way as <code class="highlighter-rouge">self</code> except when calling an action, in which case it represents an indirection to the parent species. It is mainly used for allowing to call inherited actions within redefined ones. For instance:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>species parent {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+}
+
+species child parent: parent {
+
+    int add(int a, int b) {
+        // Calls the action defined in 'parent' with modified arguments
+        return super.add(a + 20, b + 20);
+    }
+
 }
 </code></pre>
 </div>
