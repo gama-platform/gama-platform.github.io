@@ -3484,20 +3484,23 @@ gives examples</li>
 
 <h1 id="enhancements-in-17">Enhancements in 1.7</h1>
 
+<h2 id="simulations">Simulations</h2>
 <ul>
-  <li>Simulations</li>
   <li>simulations can now be run in parallel withing an experiment (with their outputs, displays, etc.)</li>
   <li>batch experiments inherit from this possibility and can now run their repetitions in parallel too.</li>
-  <li>
-    <p>concurrency between agents is now possible and can be controlled on a species/grid/ask basis (from multi-threaded concurrency to complete parallelism within a species/grid or between the targets of an <code class="highlighter-rouge">ask</code> statement)</p>
-  </li>
-  <li>Language</li>
+  <li>concurrency between agents is now possible and can be controlled on a species/grid/ask basis (from multi-threaded concurrency to complete parallelism within a species/grid or between the targets of an <code class="highlighter-rouge">ask</code> statement)</li>
+</ul>
+
+<h2 id="language">Language</h2>
+<ul>
   <li><code class="highlighter-rouge">gama</code> : a new immutable agent that can be invoked to change preferences or access to platform-only properties (like <code class="highlighter-rouge">machine-time</code>)</li>
+  <li><code class="highlighter-rouge">try</code> and <code class="highlighter-rouge">catch</code> statements now provide a robust way to catch errors happening in the simulations.</li>
+  <li><code class="highlighter-rouge">super</code> (instead of <code class="highlighter-rouge">self</code>) and <code class="highlighter-rouge">invoke</code> (instead of <code class="highlighter-rouge">do</code>) can now be used to call an action defined in a parent species.</li>
   <li><code class="highlighter-rouge">date</code> : new data type that offers the possibility to use a real calendar, to define a <code class="highlighter-rouge">starting_date</code> and to query a <code class="highlighter-rouge">current_date</code> from a simulation, to parse dates from date files or to output them in custom formats. Dates can be added, subtracted, compared. Various new operators (<code class="highlighter-rouge">minus_months</code>, etc.) allow for a fine manipulation of their data. Time units (<code class="highlighter-rouge">#sec</code>, <code class="highlighter-rouge">#s</code>, <code class="highlighter-rouge">#mn</code>, <code class="highlighter-rouge">#minute</code>, <code class="highlighter-rouge">#h</code>, <code class="highlighter-rouge">#hour</code>, <code class="highlighter-rouge">#day</code>, etc.) can be used in conjunction with them. Interval of dates (date1 to date2) can be created and used as a basis for loops, etc. Various simple operators allow for defining conditions based on the current_date (after(date1), before(date2), since(date1), etc.).</li>
-  <li>font in draw</li>
+  <li><code class="highlighter-rouge">font</code> type allows to define fonts more precisely in <code class="highlighter-rouge">draw</code> statements</li>
   <li>BDI control architecture for agents</li>
   <li>file management, new operators, new statements, new skills(?), new built-in variables, files can now download their contents from the web by using standard http: https: addresses instead of file paths.</li>
-  <li>The <code class="highlighter-rouge">save</code> can now directly manipulate files and … save them. So something like <code class="highlighter-rouge">save shape_file("bb.shp", my_agents collect each.shape);</code> is possible.</li>
+  <li>The <code class="highlighter-rouge">save</code> can now directly manipulate files and … save them. So something like <code class="highlighter-rouge">save shape_file("bb.shp", my_agents collect each.shape);</code> is possible. In addition, a new facet <code class="highlighter-rouge">attributes</code> allows to define complex attributes to be saved.</li>
   <li><code class="highlighter-rouge">status</code> statement (to manipulate the status line from GAML)</li>
   <li>new operators (<code class="highlighter-rouge">sum_of</code>, <code class="highlighter-rouge">product_of</code>, etc.)</li>
   <li>casting of files works</li>
@@ -3507,32 +3510,39 @@ gives examples</li>
   <li>Terminal commands can now be issued from within GAMA using the <code class="highlighter-rouge">console</code> operator</li>
   <li>New <code class="highlighter-rouge">status</code> statement allows to change the text of the status.</li>
   <li>light statement in 3D display provides the possibility to custom your lights (point lights, direction lights, spot lights)</li>
-  <li>
-    <p><code class="highlighter-rouge">on_change:</code> facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes.</p>
-  </li>
-  <li>Data importation</li>
+  <li>Displays can now inherit from other displays (facets <code class="highlighter-rouge">parent</code> and <code class="highlighter-rouge">virtual</code> to describe abstract displays)</li>
+  <li><code class="highlighter-rouge">on_change:</code> facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes.</li>
+</ul>
+
+<h2 id="data-importation">Data importation</h2>
+<ul>
   <li>draw of complex shapes through obj file</li>
   <li>new types fo files are taken into account: geotiff and dxf</li>
   <li>viewers for common files</li>
-  <li>
-    <p>navigator: better overview of model files and their support files, addition of plugin models</p>
-  </li>
-  <li>Editor</li>
+  <li>navigator: better overview of model files and their support files, addition of plugin models</li>
+</ul>
+
+<h2 id="editor">Editor</h2>
+<ul>
   <li>doc on built-in elements, templates, shortcuts to common tasks, hyperlinks to files used</li>
   <li>improvement in time, gathering of infos/todos</li>
-  <li>
-    <p>warnings can be removed from model files</p>
-  </li>
-  <li>Models library:</li>
-  <li>
-    <p>New models (make a list)</p>
-  </li>
-  <li>Preferences</li>
+  <li>warnings can be removed from model files</li>
+</ul>
+
+<h2 id="models-library">Models library:</h2>
+<ul>
+  <li>New models (make a list)</li>
+</ul>
+
+<h2 id="preferences">Preferences</h2>
+<ul>
   <li>For performances and bug fixes in displays</li>
-  <li>
-    <p>OpenGL displays should be up to 3 times faster in rendering</p>
-  </li>
-  <li>Simulation displays</li>
+  <li>For charts defaults</li>
+</ul>
+
+<h2 id="simulation-displays">Simulation displays</h2>
+<ul>
+  <li>OpenGL displays should be up to 3 times faster in rendering</li>
   <li>fullscreen mode for displays (ESC key)</li>
   <li>CTRL+O for overlay and CTRL+L for layers side controls</li>
   <li>cleaner OpenGL displays (less garbage, better drawing of lines, rotation helper, sticky ROI, etc.)</li>
@@ -3542,41 +3552,48 @@ gives examples</li>
   <li>a whole new set of charts</li>
   <li>getting values when moving the mouse on charts</li>
   <li>possibility to declare <code class="highlighter-rouge">permanent layout: </code> + <code class="highlighter-rouge">#splitted</code>, <code class="highlighter-rouge">#horizontal</code>, <code class="highlighter-rouge">#vertical</code>, <code class="highlighter-rouge">#stacked</code> in the <code class="highlighter-rouge">output</code> section to automatically layout the display view.</li>
+  <li>Outputs can now be managed from the “Views” menu. Closed outputs can be reopened.</li>
   <li>Changing simulation names is reflected in their display titles (and it can be dynamic)</li>
-  <li>
-    <p>OpenGL displays now handle rotations of 2D and 3D shapes, combinations of textures and colours, and keystoning</p>
-  </li>
-  <li>Error view</li>
+  <li>OpenGL displays now handle rotations of 2D and 3D shapes, combinations of textures and colours, and keystoning</li>
+</ul>
+
+<h2 id="error-view">Error view</h2>
+<ul>
   <li>Much faster (up to 100x !) display of errors</li>
-  <li>
-    <p>Contextual menu to copy the text of errors to clipboard or open the editor on it</p>
-  </li>
-  <li>Validation</li>
+  <li>Contextual menu to copy the text of errors to clipboard or open the editor on it</li>
+</ul>
+
+<h2 id="validation">Validation</h2>
+<ul>
   <li>Faster validation of multi-file models (x2 approx.)</li>
   <li>Much less memory used compared to 1.6.1 (/10 approx.)</li>
-  <li>
-    <p>No more “false positive” errors</p>
-  </li>
-  <li>Console</li>
-  <li>Interactive console allows to directly interact with agents (experiments, simulations and any agent) and get a direct feedback on the impact of code execution using a new interpreter integrated with the console. Available in the modeling perspective (to interact with the new <code class="highlighter-rouge">gama</code> agent) as well as the simulation perspective (to interact with the current <code class="highlighter-rouge">experiment</code> agent).</li>
-  <li>
-    <p>Console now accepts colored text output</p>
-  </li>
-  <li>Monitor view</li>
-  <li>
-    <p>monitors can have colors</p>
-  </li>
-  <li>GAMA-wide online help on the language</li>
-  <li>
-    <p>A global search engine is now available in the top-right corner of the GAMA window to look for GAML idioms</p>
-  </li>
-  <li>Serialization</li>
-  <li>Serialize simulations and replay them (to come)</li>
-  <li>
-    <p>Serialization and deserialization of agents between simulations (to come)</p>
-  </li>
-  <li>Allow TCP, UDP and MQQT communications between agents in different simulations (to come)</li>
+  <li>No more “false positive” errors</li>
 </ul>
+
+<h2 id="console">Console</h2>
+<ul>
+  <li>Interactive console allows to directly interact with agents (experiments, simulations and any agent) and get a direct feedback on the impact of code execution using a new interpreter integrated with the console. Available in the modeling perspective (to interact with the new <code class="highlighter-rouge">gama</code> agent) as well as the simulation perspective (to interact with the current <code class="highlighter-rouge">experiment</code> agent).</li>
+  <li>Console now accepts colored text output</li>
+</ul>
+
+<h2 id="monitor-view">Monitor view</h2>
+<ul>
+  <li>monitors can have colors</li>
+  <li>monitors now have contextual menus depending on the value displayed (save as CSV, inspect, browse…)</li>
+</ul>
+
+<h2 id="gama-wide-online-help-on-the-language">GAMA-wide online help on the language</h2>
+<ul>
+  <li>A global search engine is now available in the top-right corner of the GAMA window to look for GAML idioms</li>
+</ul>
+
+<h2 id="serialization">Serialization</h2>
+<ul>
+  <li>Serialize simulations and replay them (to come)</li>
+  <li>Serialization and deserialization of agents between simulations (to come)</li>
+</ul>
+
+<h2 id="allow-tcp-udp-and-mqqt-communications-between-agents-in-different-simulations-to-come">Allow TCP, UDP and MQQT communications between agents in different simulations (to come)</h2>
 
     </div>
     </div>
