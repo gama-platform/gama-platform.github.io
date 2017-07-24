@@ -3503,7 +3503,7 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of Contents</h2>
 <wiki:toc max_depth="3" />
 
-<p><a href="#advanced_driving">advanced_driving</a>, <a href="#driving">driving</a>, <a href="#fipa">fipa</a>, <a href="#gamasql">GAMASQL</a>, <a href="#grid">grid</a>, <a href="#mdxskill">MDXSKILL</a>, <a href="#messaging">messaging</a>, <a href="#moving">moving</a>, <a href="#moving3d">moving3D</a>, <a href="#network">network</a>, <a href="#physics">physics</a>, <a href="#skill_road">skill_road</a>, <a href="#skill_road_node">skill_road_node</a>, <a href="#sqlskill">SQLSKILL</a>,</p>
+<p><a href="#advanced_driving">advanced_driving</a>, <a href="#driving">driving</a>, <a href="#fipa">fipa</a>, <a href="#gamasql">GAMASQL</a>, <a href="#mdxskill">MDXSKILL</a>, <a href="#messaging">messaging</a>, <a href="#moving">moving</a>, <a href="#moving3d">moving3D</a>, <a href="#network">network</a>, <a href="#physics">physics</a>, <a href="#skill_road">skill_road</a>, <a href="#skill_road_node">skill_road_node</a>, <a href="#sqlskill">SQLSKILL</a>,</p>
 
 <hr />
 
@@ -3521,6 +3521,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">final_target</code></strong> (<code class="highlighter-rouge">point</code>): the final target of the agent</li>
   <li><strong><code class="highlighter-rouge">max_acceleration</code></strong> (<code class="highlighter-rouge">float</code>): maximum acceleration of the car for a cycle</li>
   <li><strong><code class="highlighter-rouge">max_speed</code></strong> (<code class="highlighter-rouge">float</code>): maximal speed of the vehicle</li>
+  <li><strong><code class="highlighter-rouge">min_security_distance</code></strong> (<code class="highlighter-rouge">float</code>): the minimal distance to another driver</li>
   <li><strong><code class="highlighter-rouge">on_linked_road</code></strong> (<code class="highlighter-rouge">boolean</code>): is the agent on the linked road?</li>
   <li><strong><code class="highlighter-rouge">proba_block_node</code></strong> (<code class="highlighter-rouge">float</code>): probability to block a node (do not let other driver cross the crossroad)</li>
   <li><strong><code class="highlighter-rouge">proba_lane_change_down</code></strong> (<code class="highlighter-rouge">float</code>): probability to change lane to a lower lane (right lane if right side driving) if necessary</li>
@@ -3530,7 +3531,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">proba_use_linked_road</code></strong> (<code class="highlighter-rouge">float</code>): probability to change lane to a linked road lane if necessary</li>
   <li><strong><code class="highlighter-rouge">real_speed</code></strong> (<code class="highlighter-rouge">float</code>): the actual speed of the agent (in meter/second)</li>
   <li><strong><code class="highlighter-rouge">right_side_driving</code></strong> (<code class="highlighter-rouge">boolean</code>): are drivers driving on the right size of the road?</li>
-  <li><strong><code class="highlighter-rouge">security_distance_coeff</code></strong> (<code class="highlighter-rouge">float</code>): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance = 1#m + security_distance_coeff <code class="highlighter-rouge">*</code> real_speed )</li>
+  <li><strong><code class="highlighter-rouge">security_distance_coeff</code></strong> (<code class="highlighter-rouge">float</code>): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance =max(min_security_distance, security_distance_coeff <code class="highlighter-rouge">*</code> min(self.real_speed, other.real_speed) )</li>
   <li><strong><code class="highlighter-rouge">segment_index_on_road</code></strong> (<code class="highlighter-rouge">int</code>): current segment index of the agent on the current road</li>
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): the speed of the agent (in meter/second)</li>
   <li><strong><code class="highlighter-rouge">speed_coeff</code></strong> (<code class="highlighter-rouge">float</code>): speed coefficient for the speed that the driver want to reach (according to the max speed of the road)</li>
@@ -3883,28 +3884,11 @@ function closeRightMenu() {
 
 <hr />
 
-<h2 id="grid">grid</h2>
+<h2 id="mdxskill">MDXSKILL</h2>
 
 <h3 id="variables-4">Variables</h3>
 
-<ul>
-  <li><strong><code class="highlighter-rouge">bands</code></strong> (<code class="highlighter-rouge">list</code>): Represents the values of the different bands of the cell (list of floating point value automatically set when the grid is initialized from a grid file)</li>
-  <li><strong><code class="highlighter-rouge">color</code></strong> (<code class="highlighter-rouge">rgb</code>): Represents the color of the cell, used by default to represent the grid on displays</li>
-  <li><strong><code class="highlighter-rouge">grid_value</code></strong> (<code class="highlighter-rouge">float</code>): Represents a floating point value (automatically set when the grid is initialized from a grid file, and used by default to represent the elevation of the cell when displaying it on a display)</li>
-  <li><strong><code class="highlighter-rouge">grid_x</code></strong> (<code class="highlighter-rouge">int</code>): Returns the 0-based index of the column of the cell in the grid</li>
-  <li><strong><code class="highlighter-rouge">grid_y</code></strong> (<code class="highlighter-rouge">int</code>): Returns the 0-based index of the row of the cell in the grid</li>
-  <li><strong><code class="highlighter-rouge">neighbors</code></strong> (<code class="highlighter-rouge">list</code>): Represents the neighbor at distance 1 of the cell</li>
-</ul>
-
 <h3 id="actions-4">Actions</h3>
-
-<hr />
-
-<h2 id="mdxskill">MDXSKILL</h2>
-
-<h3 id="variables-5">Variables</h3>
-
-<h3 id="actions-5">Actions</h3>
 
 <h4 id="select"><strong><code class="highlighter-rouge">select</code></strong></h4>
 
@@ -3936,13 +3920,13 @@ function closeRightMenu() {
 <h2 id="messaging">messaging</h2>
 <p>A simple skill that provides agents with a mailbox than can be filled with messages</p>
 
-<h3 id="variables-6">Variables</h3>
+<h3 id="variables-5">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">mailbox</code></strong> (<code class="highlighter-rouge">list</code>): The list of messages that can be consulted by the agent</li>
 </ul>
 
-<h3 id="actions-6">Actions</h3>
+<h3 id="actions-5">Actions</h3>
 
 <h4 id="send-1"><strong><code class="highlighter-rouge">send</code></strong></h4>
 
@@ -3957,7 +3941,7 @@ function closeRightMenu() {
 <h2 id="moving">moving</h2>
 <p>The moving skill is intended to define the minimal set of behaviours required for agents that are able to move on different topologies</p>
 
-<h3 id="variables-7">Variables</h3>
+<h3 id="variables-6">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">current_edge</code></strong> (<code class="highlighter-rouge">geometry</code>): Represents the agent/geometry on which the agent is located (only used with a graph)</li>
@@ -3969,7 +3953,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): Represents the speed of the agent (in meter/second)</li>
 </ul>
 
-<h3 id="actions-7">Actions</h3>
+<h3 id="actions-6">Actions</h3>
 
 <h4 id="follow"><strong><code class="highlighter-rouge">follow</code></strong></h4>
 <p>moves the agent along a given path passed in the arguments.</p>
@@ -3989,7 +3973,7 @@ function closeRightMenu() {
   <li>returns: path</li>
   <li><strong><code class="highlighter-rouge">target</code></strong> (geometry): the location or entity towards which to move.</li>
   <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">on</code></strong> (any type): graph, topology, list of geometries that restrain this move</li>
+  <li><strong><code class="highlighter-rouge">on</code></strong> (any type): graph, topology, list of geometries or map of geometries that restrain this move</li>
   <li><strong><code class="highlighter-rouge">recompute_path</code></strong> (boolean): if false, the path is not recompute even if the graph is modified (by default: true)</li>
   <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
   <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weights used for the moving.</li>
@@ -4022,7 +4006,7 @@ function closeRightMenu() {
 <h2 id="moving3d">moving3D</h2>
 <p>The moving skill 3D is intended to define the minimal set of behaviours required for agents that are able to move on different topologies</p>
 
-<h3 id="variables-8">Variables</h3>
+<h3 id="variables-7">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">destination</code></strong> (<code class="highlighter-rouge">point</code>): continuously updated destination of the agent with respect to its speed and heading (read-only)</li>
@@ -4032,7 +4016,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): the speed of the agent (in meter/second)</li>
 </ul>
 
-<h3 id="actions-8">Actions</h3>
+<h3 id="actions-7">Actions</h3>
 
 <h4 id="move-1"><strong><code class="highlighter-rouge">move</code></strong></h4>
 <p>moves the agent forward, the distance being computed with respect to its speed and heading. The value of the corresponding variables are used unless arguments are passed.</p>
@@ -4050,7 +4034,7 @@ function closeRightMenu() {
 
 <h2 id="network">network</h2>
 
-<h3 id="variables-9">Variables</h3>
+<h3 id="variables-8">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">network_groups</code></strong> (<code class="highlighter-rouge">list</code>): Net ID of the agent</li>
@@ -4058,7 +4042,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">network_server</code></strong> (<code class="highlighter-rouge">list</code>): Net ID of the agent</li>
 </ul>
 
-<h3 id="actions-9">Actions</h3>
+<h3 id="actions-8">Actions</h3>
 
 <h4 id="connect"><strong><code class="highlighter-rouge">connect</code></strong></h4>
 
@@ -4103,7 +4087,7 @@ function closeRightMenu() {
 
 <h2 id="physics">physics</h2>
 
-<h3 id="variables-10">Variables</h3>
+<h3 id="variables-9">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">collisionBound</code></strong> (<code class="highlighter-rouge">map</code>):</li>
@@ -4114,13 +4098,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">velocity</code></strong> (<code class="highlighter-rouge">list</code>):</li>
 </ul>
 
-<h3 id="actions-10">Actions</h3>
+<h3 id="actions-9">Actions</h3>
 
 <hr />
 
 <h2 id="skill_road">skill_road</h2>
 
-<h3 id="variables-11">Variables</h3>
+<h3 id="variables-10">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">agents_on</code></strong> (<code class="highlighter-rouge">list</code>): for each lane of the road, the list of agents for each segment</li>
@@ -4132,7 +4116,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">target_node</code></strong> (<code class="highlighter-rouge">agent</code>): the target node of the road</li>
 </ul>
 
-<h3 id="actions-11">Actions</h3>
+<h3 id="actions-10">Actions</h3>
 
 <h4 id="register"><strong><code class="highlighter-rouge">register</code></strong></h4>
 <p>register the agent on the road at the given lane</p>
@@ -4155,7 +4139,7 @@ function closeRightMenu() {
 
 <h2 id="skill_road_node">skill_road_node</h2>
 
-<h3 id="variables-12">Variables</h3>
+<h3 id="variables-11">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">block</code></strong> (<code class="highlighter-rouge">map</code>): define the list of agents blocking the node, and for each agent, the list of concerned roads</li>
@@ -4165,15 +4149,15 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">stop</code></strong> (<code class="highlighter-rouge">list</code>): define for each type of stop, the list of concerned roads</li>
 </ul>
 
-<h3 id="actions-12">Actions</h3>
+<h3 id="actions-11">Actions</h3>
 
 <hr />
 
 <h2 id="sqlskill">SQLSKILL</h2>
 
-<h3 id="variables-13">Variables</h3>
+<h3 id="variables-12">Variables</h3>
 
-<h3 id="actions-13">Actions</h3>
+<h3 id="actions-12">Actions</h3>
 
 <h4 id="executeupdate"><strong><code class="highlighter-rouge">executeUpdate</code></strong></h4>
 

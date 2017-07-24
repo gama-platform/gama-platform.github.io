@@ -48,6 +48,13 @@ wikiPagePath: wiki/Extension_ummisco.gaml.extensions.sound.md
 [//]: # (keyword|statement_pause_sound)
 ### pause_sound 
 #### Facets 
+ 
+ 	
+#### Definition
+
+Allows to pause the sound output
+
+#### Usages
 
 
 #### Embedments
@@ -60,6 +67,13 @@ wikiPagePath: wiki/Extension_ummisco.gaml.extensions.sound.md
 [//]: # (keyword|statement_resume_sound)
 ### resume_sound 
 #### Facets 
+ 
+ 	
+#### Definition
+
+Allows to resume the sound output
+
+#### Usages
 
 
 #### Embedments
@@ -75,7 +89,14 @@ wikiPagePath: wiki/Extension_ummisco.gaml.extensions.sound.md
   
   * **`source`** (string): The path to music file. This path is relative to the path of the model.
   * `mode` (an identifier), takes values in: {overwrite, ignore}: Mode of 
-  * `repeat` (boolean): 
+  * `repeat` (boolean):  
+ 	
+#### Definition
+
+Allows to start the sound output
+
+#### Usages
+
 
 #### Embedments
 * The `start_sound` statement is of type: **Sequence of statements or action**
@@ -87,6 +108,13 @@ wikiPagePath: wiki/Extension_ummisco.gaml.extensions.sound.md
 [//]: # (keyword|statement_stop_sound)
 ### stop_sound 
 #### Facets 
+ 
+ 	
+#### Definition
+
+Allows to stop the sound output
+
+#### Usages
 
 
 #### Embedments

@@ -3473,7 +3473,7 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of Contents</h2>
 <wiki:toc max_depth="3" />
 
-<p><a href="#agent">agent</a>, <a href="#agentdb">AgentDB</a>, <a href="#base_edge">base_edge</a>, <a href="#experiment">experiment</a>, <a href="#graph_edge">graph_edge</a>, <a href="#graph_node">graph_node</a>, <a href="#model">model</a>, <a href="#physical_world">physical_world</a>,</p>
+<p><a href="#agent">agent</a>, <a href="#agentdb">AgentDB</a>, <a href="#base_edge">base_edge</a>, <a href="#experiment">experiment</a>, <a href="#graph_edge">graph_edge</a>, <a href="#graph_node">graph_node</a>, <a href="#physical_world">physical_world</a>,</p>
 
 <hr />
 
@@ -3623,39 +3623,21 @@ function closeRightMenu() {
 <h3 id="actions-5">Actions</h3>
 
 <h4 id="related_to"><strong><code class="highlighter-rouge">related_to</code></strong></h4>
-
+<p>This operator should never be called</p>
 <ul>
   <li>
     <p>returns: <code class="highlighter-rouge">bool</code></p>
   </li>
   <li>
-    <p>→ <strong><code class="highlighter-rouge">other</code></strong> (<code class="highlighter-rouge">agent</code>):</p>
+    <p>→ <strong><code class="highlighter-rouge">other</code></strong> (<code class="highlighter-rouge">agent</code>): The other agent</p>
   </li>
-</ul>
-
-<hr />
-
-<h2 id="model"><code class="highlighter-rouge">model</code></h2>
-
-<h3 id="actions-6">Actions</h3>
-
-<h4 id="halt"><strong><code class="highlighter-rouge">halt</code></strong></h4>
-<p>Allows to stop the current simulation so that cannot be continued after. All the behaviors and updates are stopped.</p>
-<ul>
-  <li>returns: <code class="highlighter-rouge">unknown</code></li>
-</ul>
-
-<h4 id="pause"><strong><code class="highlighter-rouge">pause</code></strong></h4>
-<p>Allows to pause the current simulation <strong>ACTUALLY EXPERIMENT FOR THE MOMENT</strong>. It can be set to continue with the manual intervention of the user.</p>
-<ul>
-  <li>returns: <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <hr />
 
 <h2 id="physical_world"><code class="highlighter-rouge">physical_world</code></h2>
 
-<h3 id="actions-7">Actions</h3>
+<h3 id="actions-6">Actions</h3>
 
 <h4 id="compute_forces"><strong><code class="highlighter-rouge">compute_forces</code></strong></h4>
 

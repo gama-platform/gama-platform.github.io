@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2017/02/28 14:21:42_
+______________ _last update : 2017/07/24 05:01:00_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -395,7 +395,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | **Concept name** | **in Doc** | **in GAML Ref** | **in Model Lib** | **TOTAL** |
 |:----------------------------|:-------------|:-------------|:-------------|:-------------|
 | 3d | 2 | 17 | 39 | 58 |
-| action | 3 | 5 | _ | 9 |
+| action | 3 | 8 | _ | 12 |
 | agent_location | 1 | 21 | 0 | 22 |
 | agent_movement | 0 | 2 | 23 | 25 |
 | algorithm | 1 | 8 | 2 | 11 |
@@ -405,8 +405,8 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | attribute | 2 | 6 | _ | 9 |
 | autosave | 2 | _ | _ | 2 |
 | background | 1 | _ | _ | 1 |
-| batch | 3 | 8 | 4 | 15 |
-| bdi | 1 | 51 | 0 | 52 |
+| batch | 3 | 7 | 4 | 14 |
+| bdi | 1 | 62 | 0 | 63 |
 | behavior | 3 | 7 | _ | 10 |
 | camera | 1 | 1 | 2 | 4 |
 | cast | 1 | 17 | 1 | 19 |
@@ -418,7 +418,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | comparison | 0 | 6 | 2 | 8 |
 | condition | 1 | 7 | 0 | 8 |
 | constant | 0 | 13 | _ | 13 |
-| container | 1 | 60 | 1 | 62 |
+| container | 1 | 61 | 1 | 63 |
 | csv | 2 | 4 | 3 | 9 |
 | cycle | 2 | 2 | _ | 4 |
 | database | 1 | 3 | 17 | 21 |
@@ -430,27 +430,27 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | display | 2 | 25 | _ | 29 |
 | distribution | 1 | _ | _ | 1 |
 | dxf | 0 | 2 | 1 | 3 |
-| edge | 1 | 15 | 1 | 17 |
+| edge | 1 | 16 | 1 | 18 |
 | elevation | 0 | 0 | 7 | 7 |
 | enumeration | 1 | _ | _ | 1 |
 | equation | 2 | 7 | 15 | 24 |
-| experiment | 2 | 3 | _ | 5 |
+| experiment | 2 | 2 | _ | 4 |
 | facet | 1 | _ | _ | 1 |
-| file | 1 | 44 | _ | 47 |
+| file | 1 | 42 | _ | 45 |
 | filter | 1 | 12 | 0 | 13 |
 | fipa | 1 | 4 | 11 | 16 |
 | fsm | 1 | 0 | 0 | 1 |
-| geometry | 2 | 96 | 0 | 98 |
+| geometry | 2 | 97 | 0 | 99 |
 | gis | 0 | 5 | 24 | 29 |
 | global | 1 | _ | _ | 1 |
-| graph | 1 | 55 | 32 | 88 |
+| graph | 1 | 56 | 32 | 89 |
 | graph_weight | 1 | 3 | 0 | 4 |
 | graphic | 1 | 10 | 1 | 12 |
 | graphic_unit | 1 | 6 | _ | 7 |
-| grid | 4 | 10 | 33 | 47 |
+| grid | 4 | 9 | 33 | 46 |
 | gui | 3 | 9 | 24 | 36 |
 | halt | 1 | _ | _ | 1 |
-| headless | 0 | 1 | 0 | 1 |
+| headless | 0 | 5 | 0 | 5 |
 | hydrology | 0 | 0 | 1 | 1 |
 | image | 0 | 4 | 0 | 4 |
 | import | 1 | _ | _ | 1 |
@@ -464,19 +464,19 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | load_file | 4 | 1 | 18 | 23 |
 | logical | 1 | 7 | 0 | 8 |
 | loop | 1 | 2 | 2 | 5 |
-| map | 0 | 15 | 1 | 16 |
+| map | 0 | 16 | 1 | 17 |
 | math | 1 | 41 | 20 | 62 |
 | matrix | 2 | 22 | 8 | 32 |
 | mirror | 1 | 0 | 2 | 3 |
 | model | 1 | _ | _ | 1 |
 | monitor | 1 | 1 | 1 | 3 |
-| multi_criteria | 0 | 4 | 1 | 5 |
+| multi_criteria | 0 | 5 | 1 | 6 |
 | multi_level | 1 | 3 | 9 | 13 |
 | multi_simulation | 1 | 0 | 2 | 3 |
 | neighbors | 1 | 5 | 1 | 7 |
 | network | 0 | 1 | 0 | 1 |
 | nil | 1 | 0 | 0 | 1 |
-| node | 1 | 20 | 1 | 22 |
+| node | 1 | 21 | 1 | 23 |
 | obj | 0 | 0 | 2 | 2 |
 | obstacle | 0 | 1 | 3 | 4 |
 | opengl | 3 | _ | _ | 3 |
@@ -505,14 +505,14 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | shape | 3 | 21 | 1 | 25 |
 | shapefile | 2 | 2 | 34 | 38 |
 | shortest_path | 1 | 6 | 4 | 11 |
-| skill | 2 | 17 | 42 | 61 |
+| skill | 2 | 15 | 42 | 59 |
 | sound | 0 | 4 | 0 | 4 |
-| spatial_computation | 0 | 73 | 7 | 80 |
+| spatial_computation | 0 | 74 | 7 | 81 |
 | spatial_relation | 0 | 32 | 0 | 32 |
-| spatial_transformation | 0 | 24 | 2 | 26 |
+| spatial_transformation | 0 | 25 | 2 | 27 |
 | species | 1 | 20 | _ | 21 |
 | sport | 0 | _ | 2 | 2 |
-| statistic | 0 | 66 | 5 | 71 |
+| statistic | 0 | 59 | 5 | 64 |
 | string | 0 | 27 | 0 | 27 |
 | surface_unit | 0 | 4 | _ | 4 |
 | svg | 0 | 2 | 0 | 2 |
@@ -529,7 +529,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | torus | 1 | _ | _ | 1 |
 | transport | 1 | 5 | 6 | 12 |
 | txt | 0 | 0 | 1 | 1 |
-| type | 0 | 53 | _ | 53 |
+| type | 0 | 55 | _ | 55 |
 | update | 1 | _ | _ | 1 |
 | volume_unit | 0 | 5 | _ | 5 |
 | weight_unit | 0 | 8 | _ | 8 |

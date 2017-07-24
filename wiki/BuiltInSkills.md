@@ -58,7 +58,7 @@ if speed = 5 {
 ## Table of Contents
 <wiki:toc max_depth="3" />
 
-[advanced_driving](#advanced_driving), [driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [grid](#grid), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [network](#network), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
+[advanced_driving](#advanced_driving), [driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [network](#network), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
     	
 ----
 
@@ -77,6 +77,7 @@ if speed = 5 {
   * **`final_target`** (`point`): the final target of the agent   
   * **`max_acceleration`** (`float`): maximum acceleration of the car for a cycle   
   * **`max_speed`** (`float`): maximal speed of the vehicle   
+  * **`min_security_distance`** (`float`): the minimal distance to another driver   
   * **`on_linked_road`** (`boolean`): is the agent on the linked road?   
   * **`proba_block_node`** (`float`): probability to block a node (do not let other driver cross the crossroad)   
   * **`proba_lane_change_down`** (`float`): probability to change lane to a lower lane (right lane if right side driving) if necessary   
@@ -86,7 +87,7 @@ if speed = 5 {
   * **`proba_use_linked_road`** (`float`): probability to change lane to a linked road lane if necessary   
   * **`real_speed`** (`float`): the actual speed of the agent (in meter/second)   
   * **`right_side_driving`** (`boolean`): are drivers driving on the right size of the road?   
-  * **`security_distance_coeff`** (`float`): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance = 1#m + security_distance_coeff `*` real_speed )   
+  * **`security_distance_coeff`** (`float`): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance =max(min_security_distance, security_distance_coeff `*` min(self.real_speed, other.real_speed) )   
   * **`segment_index_on_road`** (`int`): current segment index of the agent on the current road   
   * **`speed`** (`float`): the speed of the agent (in meter/second)   
   * **`speed_coeff`** (`float`): speed coefficient for the speed that the driver want to reach (according to the max speed of the road)   
@@ -385,24 +386,6 @@ Replies a message with a 'subscribe' performative message.
     	
 ----
 
-[//]: # (keyword|skill_grid)
-## grid
-
- 
-### Variables
-	   
-  * **`bands`** (`list`): Represents the values of the different bands of the cell (list of floating point value automatically set when the grid is initialized from a grid file)   
-  * **`color`** (`rgb`): Represents the color of the cell, used by default to represent the grid on displays   
-  * **`grid_value`** (`float`): Represents a floating point value (automatically set when the grid is initialized from a grid file, and used by default to represent the elevation of the cell when displaying it on a display)   
-  * **`grid_x`** (`int`): Returns the 0-based index of the column of the cell in the grid   
-  * **`grid_y`** (`int`): Returns the 0-based index of the row of the cell in the grid   
-  * **`neighbors`** (`list`): Represents the neighbor at distance 1 of the cell 
- 	
-### Actions
-	
-    	
-----
-
 [//]: # (keyword|skill_MDXSKILL)
 ## MDXSKILL
 
@@ -489,7 +472,7 @@ moves the agent towards the target passed in the arguments.
 * returns: path 			
 * **`target`** (geometry): the location or entity towards which to move. 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`on`** (any type): graph, topology, list of geometries that restrain this move 			
+* **`on`** (any type): graph, topology, list of geometries or map of geometries that restrain this move 			
 * **`recompute_path`** (boolean): if false, the path is not recompute even if the graph is modified (by default: true) 			
 * **`return_path`** (boolean): if true, return the path followed (by default: false) 			
 * **`move_weights`** (map): Weights used for the moving.  

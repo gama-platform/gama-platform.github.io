@@ -3458,7 +3458,7 @@ function closeRightMenu() {
 
 <h2 id="table-of-contents">Table of Contents</h2>
 <h3 id="operators">Operators</h3>
-<p><a href="#clustering_cobweb">clustering_cobweb</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_xmeans">clustering_xmeans</a>,</p>
+<p><a href="#classifier">classifier</a>, <a href="#classify">classify</a>, <a href="#clustering_cobweb">clustering_cobweb</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#train_bn">train_bn</a>, <a href="#train_chaid">train_chaid</a>, <a href="#train_gauss">train_gauss</a>, <a href="#train_j48">train_j48</a>, <a href="#train_jrip">train_jrip</a>, <a href="#train_mlp">train_mlp</a>, <a href="#train_rbf">train_rbf</a>, <a href="#train_reptree">train_reptree</a>, <a href="#train_rf">train_rf</a>, <a href="#train_smo">train_smo</a>, <a href="#train_smo_reg">train_smo_reg</a>,</p>
 
 <h3 id="statements">Statements</h3>
 
@@ -3474,38 +3474,55 @@ function closeRightMenu() {
 
 <hr />
 
-<h3 id="clustering_cobweb"><code class="highlighter-rouge">clustering_cobweb</code></h3>
+<h3 id="classifier"><code class="highlighter-rouge">classifier</code></h3>
 
 <h4 id="possible-use">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">clustering_cobweb</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">classifier</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">classifier</code></li>
 </ul>
 
 <h4 id="result">Result:</h4>
-<p>A list of agent groups clusteredby CobWeb Algorithm based on the given attributes. Some paremeters can be defined: acuity: minimum standard deviation for numeric attributes; cutoff: category utility threshold by which to prune nodes seed</p>
+<p>Casts the operand into the type classifier</p>
+
+<hr />
+
+<h3 id="classify"><code class="highlighter-rouge">classify</code></h3>
+
+<h4 id="possible-use-1">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">idees.gama.types.GamaClassifier</code> <strong><code class="highlighter-rouge">classify</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">classify</code></strong> (<code class="highlighter-rouge">idees.gama.types.GamaClassifier</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><code class="highlighter-rouge">idees.gama.types.GamaClassifier</code> <strong><code class="highlighter-rouge">classify</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">classify</code></strong> (<code class="highlighter-rouge">idees.gama.types.GamaClassifier</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+</ul>
+
+<h4 id="result-1">Result:</h4>
+<p>use a classifier to classify an instance; use: classify(classifier, an agent)
+use a classifier to classify an instance; use: train_j48(classifier, map of attribute values)</p>
 
 <h4 id="examples">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_cobweb([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["acuity"::3.0, "cutoff"::0.5); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
+<div class="highlighter-rouge"><pre class="highlight"><code>my_classifier classify self
+my_classifier classify ["weight"::65,"size"::175]
 </code></pre>
 </div>
 
 <h4 id="see-also">See also:</h4>
-<p><a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
+<p><a href="#train_chaid">train_chaid</a>, <a href="#train_j48">train_j48</a>,</p>
 
 <hr />
 
-<h3 id="clustering_dbscan"><code class="highlighter-rouge">clustering_DBScan</code></h3>
+<h3 id="clustering_cobweb"><code class="highlighter-rouge">clustering_cobweb</code></h3>
 
-<h4 id="possible-use-1">Possible use:</h4>
+<h4 id="possible-use-2">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">clustering_DBScan</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">clustering_cobweb</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
 </ul>
 
-<h4 id="result-1">Result:</h4>
-<p>A list of agent groups clustered by DBScan Algorithm based on the given attributes. Some paremeters can be defined: distance_f: The distance function to use for instances comparison (euclidean or manhattan); min_points: minimun number of DataObjects required in an epsilon-range-queryepsilon: epsilon – radius of the epsilon-range-queries</p>
+<h4 id="result-2">Result:</h4>
+<p>A list of agent groups clusteredby CobWeb Algorithm based on the given attributes. Some paremeters can be defined: acuity: minimum standard deviation for numeric attributes; cutoff: category utility threshold by which to prune nodes seed</p>
 
 <h4 id="examples-1">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_DBScan([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["distance_f"::"manhattan"]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_cobweb([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["acuity"::3.0, "cutoff"::0.5); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
 </code></pre>
 </div>
 
@@ -3514,83 +3531,323 @@ function closeRightMenu() {
 
 <hr />
 
-<h3 id="clustering_em"><code class="highlighter-rouge">clustering_em</code></h3>
+<h3 id="clustering_dbscan"><code class="highlighter-rouge">clustering_DBScan</code></h3>
 
-<h4 id="possible-use-2">Possible use:</h4>
+<h4 id="possible-use-3">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">clustering_em</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">clustering_DBScan</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
 </ul>
 
-<h4 id="result-2">Result:</h4>
-<p>A list of agent groups clustered by EM Algorithm based on the given attributes. Some paremeters can be defined: max_iterations: the maximum number of iterations to perform;num_clusters: the number of clusters; minStdDev: minimum allowable standard deviation</p>
+<h4 id="result-3">Result:</h4>
+<p>A list of agent groups clustered by DBScan Algorithm based on the given attributes. Some paremeters can be defined: distance_f: The distance function to use for instances comparison (euclidean or manhattan); min_points: minimun number of DataObjects required in an epsilon-range-queryepsilon: epsilon – radius of the epsilon-range-queries</p>
 
 <h4 id="examples-2">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_em([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["max_iterations"::10, "num_clusters"::3]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_DBScan([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["distance_f"::"manhattan"]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
 </code></pre>
 </div>
 
 <h4 id="see-also-2">See also:</h4>
+<p><a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
+
+<hr />
+
+<h3 id="clustering_em"><code class="highlighter-rouge">clustering_em</code></h3>
+
+<h4 id="possible-use-4">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">clustering_em</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
+</ul>
+
+<h4 id="result-4">Result:</h4>
+<p>A list of agent groups clustered by EM Algorithm based on the given attributes. Some paremeters can be defined: max_iterations: the maximum number of iterations to perform;num_clusters: the number of clusters; minStdDev: minimum allowable standard deviation</p>
+
+<h4 id="examples-3">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_em([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["max_iterations"::10, "num_clusters"::3]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
+</code></pre>
+</div>
+
+<h4 id="see-also-3">See also:</h4>
 <p><a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
 
 <hr />
 
 <h3 id="clustering_farthestfirst"><code class="highlighter-rouge">clustering_farthestFirst</code></h3>
 
-<h4 id="possible-use-3">Possible use:</h4>
+<h4 id="possible-use-5">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">clustering_farthestFirst</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
 </ul>
 
-<h4 id="result-3">Result:</h4>
+<h4 id="result-5">Result:</h4>
 <p>A list of agent groups clustered by Farthest First Algorithm based on the given attributes. Some paremeters can be defined: num_clusters: the number of clusters</p>
 
-<h4 id="examples-3">Examples:</h4>
+<h4 id="examples-4">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_farthestFirst([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["num_clusters"::3]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
 </code></pre>
 </div>
 
-<h4 id="see-also-3">See also:</h4>
+<h4 id="see-also-4">See also:</h4>
 <p><a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
 
 <hr />
 
 <h3 id="clustering_simple_kmeans"><code class="highlighter-rouge">clustering_simple_kmeans</code></h3>
 
-<h4 id="possible-use-4">Possible use:</h4>
+<h4 id="possible-use-6">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">clustering_simple_kmeans</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
 </ul>
 
-<h4 id="result-4">Result:</h4>
+<h4 id="result-6">Result:</h4>
 <p>A list of agent groups clustered by K-Means Algorithm based on the given attributes. Some paremeters can be defined: distance_f: The distance function to use. 4 possible distance functions: euclidean (by default) ; ‘chebyshev’, ‘manhattan’ or ‘levenshtein’; dont_replace_missing_values: if false, replace missing values globally with mean/mode; max_iterations: the maximum number of iterations to perform;num_clusters: the number of clusters</p>
 
-<h4 id="examples-4">Examples:</h4>
+<h4 id="examples-5">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_simple_kmeans([ag1, ag2, ag3, ag4, ag5],["size","age", "weight"],["distance_f"::"manhattan", "num_clusters"::3]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
 </code></pre>
 </div>
 
-<h4 id="see-also-4">See also:</h4>
+<h4 id="see-also-5">See also:</h4>
 <p><a href="#clustering_xmeans">clustering_xmeans</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
 
 <hr />
 
 <h3 id="clustering_xmeans"><code class="highlighter-rouge">clustering_xmeans</code></h3>
 
-<h4 id="possible-use-5">Possible use:</h4>
+<h4 id="possible-use-7">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">clustering_xmeans</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&lt;agent&gt;&gt;</code></li>
 </ul>
 
-<h4 id="result-5">Result:</h4>
+<h4 id="result-7">Result:</h4>
 <p>A list of agent groups clustered by X-Means Algorithm based on the given attributes. Some paremeters can be defined: bin_value: value given for true value of boolean attributes; cut_off_factor: the cut-off factor to use;distance_f: The distance function to use. 4 possible distance functions: euclidean (by default) ; ‘chebyshev’, ‘manhattan’ or ‘levenshtein’; max_iterations: the maximum number of iterations to perform; max_kmeans: the maximum number of iterations to perform in KMeans; max_kmeans_for_children: the maximum number of iterations KMeans that is performed on the child centers;max_num_clusters: the maximum number of clusters; min_num_clusters: the minimal number of clusters</p>
 
-<h4 id="examples-5">Examples:</h4>
+<h4 id="examples-6">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&lt;agent&gt;&gt; var0 &lt;- clustering_xmeans([ag1, ag2, ag3, ag4, ag5],["size","age", "weight", "is_male"],["bin_value"::1.0, "distance_f"::"manhattan", "max_num_clusters"::10, "min_num_clusters"::2]); 	// var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]
 </code></pre>
 </div>
 
-<h4 id="see-also-5">See also:</h4>
+<h4 id="see-also-6">See also:</h4>
 <p><a href="#clustering_simple_kmeans">clustering_simple_kmeans</a>, <a href="#clustering_em">clustering_em</a>, <a href="#clustering_farthestfirst">clustering_farthestFirst</a>, <a href="#clustering_dbscan">clustering_DBScan</a>, <a href="#clustering_cobweb">clustering_cobweb</a>,</p>
+
+<hr />
+
+<h3 id="train_bn"><code class="highlighter-rouge">train_bn</code></h3>
+
+<h4 id="possible-use-8">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_bn</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-8">Result:</h4>
+<p>Build and train a Bayesian Network classifier; use: train_bn(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-7">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_bn(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]]);
+</code></pre>
+</div>
+
+<h4 id="see-also-7">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_chaid"><code class="highlighter-rouge">train_chaid</code></h3>
+
+<h4 id="possible-use-9">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_chaid</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-9">Result:</h4>
+<p>Build and train a CHAID classifier; use: train_j48(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values, the parameters);two parameters can be defined: binary_split: Binary splits on nominal attributes? (default: false); split_point: split point value (default: 0.05)</p>
+
+<h4 id="examples-8">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_j48(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]],map(["binary_split"::true, "split_point"::0.03]));
+</code></pre>
+</div>
+
+<h4 id="see-also-8">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_gauss"><code class="highlighter-rouge">train_gauss</code></h3>
+
+<h4 id="possible-use-10">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_gauss</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-10">Result:</h4>
+<p>Build and train a GAUSSIAN Process Regression classifier; use: train_gauss(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-9">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_gauss(data,[ "weight", "size"],"Age");
+</code></pre>
+</div>
+
+<h4 id="see-also-9">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_j48"><code class="highlighter-rouge">train_j48</code></h3>
+
+<h4 id="possible-use-11">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_j48</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-11">Result:</h4>
+<p>Build and train a J48 classifier; use: train_j48(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values, the parameters);Eight parameters can be defined: binary_split: Binary splits on nominal attributes? (default: false); unpruned: Unpruned tree? (default: false); reduced_error_pruning: Use reduced error pruning? (default: false); sub_tree_raising: Subtree raising to be performed? (default: false); laplace: Determines whether probabilities are smoothed using Laplace correction when predictions are generated (default: false); min_nb_obj: Minimum number of instances (default: 2); numFolds: Number of folds for reduced error pruning (default: 3); confidence_factor: Confidence level (default: 0.25)</p>
+
+<h4 id="examples-10">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_j48(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]],map(["unpruned"::true]));
+</code></pre>
+</div>
+
+<h4 id="see-also-10">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_chaid">train_chaid</a>,</p>
+
+<hr />
+
+<h3 id="train_jrip"><code class="highlighter-rouge">train_jrip</code></h3>
+
+<h4 id="possible-use-12">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_jrip</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-12">Result:</h4>
+<p>Build and train a JRip classifier; use: train_jrip(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values, the parameters);four parameters can be defined: nb_run:Nb of Runs of optimizations  (default: 2); min_nb_obj: The minimal number of instance weights within a split (default: 2.0); prunning: Whether use pruning, i.e. the data is clean or not (default: true); num_folds: The number of folds to split data into Grow and Prune for IREP (default: 3)</p>
+
+<h4 id="examples-11">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_jrip(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]],map(["prunning"::true]));
+</code></pre>
+</div>
+
+<h4 id="see-also-11">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_mlp"><code class="highlighter-rouge">train_mlp</code></h3>
+
+<h4 id="possible-use-13">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_mlp</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-13">Result:</h4>
+<p>Build and train a Multi-layer perceptron classifier; use: train_mlp(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values, the parameters);</p>
+
+<h4 id="examples-12">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_mlp(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]],map([]));
+</code></pre>
+</div>
+
+<h4 id="see-also-12">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_rbf"><code class="highlighter-rouge">train_rbf</code></h3>
+
+<h4 id="possible-use-14">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_rbf</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-14">Result:</h4>
+<p>Build and train a normalized Gaussian radial basisbasis function network Regression classifier; use: train_gauss(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-13">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_gauss(data, [ "weight", "size"],"Age");
+</code></pre>
+</div>
+
+<h4 id="see-also-13">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_reptree"><code class="highlighter-rouge">train_reptree</code></h3>
+
+<h4 id="possible-use-15">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_reptree</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-15">Result:</h4>
+<p>Build and train a REP Decision/Regression classifier; use: train_reptree(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-14">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_reptree(data,[ "weight", "size"],"Age");
+</code></pre>
+</div>
+
+<h4 id="see-also-14">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_rf"><code class="highlighter-rouge">train_rf</code></h3>
+
+<h4 id="possible-use-16">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_rf</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-16">Result:</h4>
+<p>Build and train a Random Forest classifier; use: train_rf(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-15">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_rf(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]]);
+</code></pre>
+</div>
+
+<h4 id="see-also-15">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_smo"><code class="highlighter-rouge">train_smo</code></h3>
+
+<h4 id="possible-use-17">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_smo</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>, <code class="highlighter-rouge">map&lt;string,unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-17">Result:</h4>
+<p>Build and train a Support vector classifier; use: train_smo(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values, the parameters);</p>
+
+<h4 id="examples-16">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_smo(data, [ "weight", "size"],"sexe",["sexe"::["M", "F"]],map([]));
+</code></pre>
+</div>
+
+<h4 id="see-also-16">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
+
+<hr />
+
+<h3 id="train_smo_reg"><code class="highlighter-rouge">train_smo_reg</code></h3>
+
+<h4 id="possible-use-18">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">train_smo_reg</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">java.util.Map&lt;java.lang.String,msi.gama.util.IList&lt;java.lang.String&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">idees.gama.types.GamaClassifier</code></li>
+</ul>
+
+<h4 id="result-18">Result:</h4>
+<p>Build and train a Support Vector Regression classifier; use: train_smo_reg(data, list of attributes, name of the class, for each nominal attribute and the class, their possible values);</p>
+
+<h4 id="examples-17">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>train_smo_reg(data, [ "weight", "size"],"Age");
+</code></pre>
+</div>
+
+<h4 id="see-also-17">See also:</h4>
+<p><a href="#classify">classify</a>, <a href="#train_j48">train_j48</a>,</p>
 
 <hr />
 

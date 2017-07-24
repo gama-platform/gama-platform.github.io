@@ -14,13 +14,13 @@ wikiPagePath: wiki/Statements.md
 
 ## Table of Contents
 <wiki:toc max_depth="2" />
-[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [export](#export), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [save](#save), [save_batch](#save_batch), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
+[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [catch](#catch), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [save](#save), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [start_simulation](#start_simulation), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
 
 
 ## Statements by kinds
 
   * **Batch method**
-    * [annealing](#annealing),  [exhaustive](#exhaustive),  [genetic](#genetic),  [hill_climbing](#hill_climbing),  [reactive_tabu](#reactive_tabu),  [save_batch](#save_batch),  [tabu](#tabu),  
+    * [annealing](#annealing),  [exhaustive](#exhaustive),  [genetic](#genetic),  [hill_climbing](#hill_climbing),  [reactive_tabu](#reactive_tabu),  [tabu](#tabu),  
   * **Behavior**
     * [aspect](#aspect),  [plan](#plan),  [reflex](#reflex),  [state](#state),  [task](#task),  [test](#test),  [user_init](#user_init),  [user_panel](#user_panel),  
   * **Experiment**
@@ -32,9 +32,9 @@ wikiPagePath: wiki/Statements.md
   * **Parameter**
     * [parameter](#parameter),  
   * **Sequence of statements or action**
-    * [action](#action),  [ask](#ask),  [benchmark](#benchmark),  [capture](#capture),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [run](#run),  [setup](#setup),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [user_command](#user_command),  [using](#using),  
+    * [action](#action),  [ask](#ask),  [benchmark](#benchmark),  [capture](#capture),  [catch](#catch),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [run](#run),  [setup](#setup),  [start_simulation](#start_simulation),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [try](#try),  [user_command](#user_command),  [using](#using),  
   * **Single statement**
-    * [=](#=),  [add](#add),  [assert](#assert),  [break](#break),  [conscious_contagion](#conscious_contagion),  [data](#data),  [datalist](#datalist),  [diffuse](#diffuse),  [do](#do),  [draw](#draw),  [emotional_contagion](#emotional_contagion),  [error](#error),  [export](#export),  [focus](#focus),  [focus_on](#focus_on),  [highlight](#highlight),  [let](#let),  [put](#put),  [remove](#remove),  [return](#return),  [rule](#rule),  [save](#save),  [set](#set),  [simulate](#simulate),  [socialize](#socialize),  [solve](#solve),  [status](#status),  [unconscious_contagion](#unconscious_contagion),  [user_input](#user_input),  [warn](#warn),  [write](#write),  
+    * [=](#=),  [add](#add),  [assert](#assert),  [break](#break),  [conscious_contagion](#conscious_contagion),  [data](#data),  [datalist](#datalist),  [diffuse](#diffuse),  [do](#do),  [draw](#draw),  [emotional_contagion](#emotional_contagion),  [error](#error),  [focus](#focus),  [focus_on](#focus_on),  [highlight](#highlight),  [let](#let),  [put](#put),  [remove](#remove),  [return](#return),  [rule](#rule),  [save](#save),  [set](#set),  [simulate](#simulate),  [socialize](#socialize),  [solve](#solve),  [status](#status),  [unconscious_contagion](#unconscious_contagion),  [user_input](#user_input),  [warn](#warn),  [write](#write),  
   * **Species**
     * [species](#species),  
   * **Variable (container)**
@@ -48,21 +48,21 @@ wikiPagePath: wiki/Statements.md
 ## Statements by embedment
 
   * **Behavior**
-    * [add](#add), [ask](#ask), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [start_simulation](#start_simulation), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Environment**
     * [species](#species), 
   * **Experiment**
-    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [export](#export), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [save_batch](#save_batch), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Layer**
-    * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [try](#try), [using](#using), [warn](#warn), [write](#write), 
   * **Model**
-    * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [species](#species), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Sequence of statements or action**
-    * [add](#add), [ask](#ask), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Single statement**
-    * [run](#run), 
+    * [run](#run), [start_simulation](#start_simulation), 
   * **Species**
-    * [action](#action), [aspect](#aspect), [equation](#equation), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [simulate](#simulate), [species](#species), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [aspect](#aspect), [equation](#equation), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [simulate](#simulate), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **action**
     * [return](#return), 
   * **aspect**
@@ -93,6 +93,8 @@ wikiPagePath: wiki/Statements.md
     * [default](#default), [match](#match), 
   * **test**
     * [assert](#assert), 
+  * **try**
+    * [catch](#catch), 
   * **user_command**
     * [user_input](#user_input), 
   * **user_first**
@@ -245,7 +247,7 @@ species children parent: parent_species {
   * `edge` (any type): a pair that will be added to a graph as an edge (if nodes do not exist, they are also added)
   * `node` (any type): an expression that will be added to a graph as a node.
   * `vertex` (any type): 
-  * `weight` (float):  
+  * `weight` (float): An optional float value representing the weight to attach to this element in case the container is a graph 
  	
 #### Definition
 
@@ -379,7 +381,7 @@ display Segregation {
 ### annealing 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
+  * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
   * `aggregation` (a label), takes values in: {min, max}: the agregation method
   * `maximize` (float): the value the algorithm tries to maximize
   * `minimize` (float): the value the algorithm tries to minimize
@@ -691,6 +693,26 @@ capture target: list (B) as: C;
 
 ----
 
+[//]: # (keyword|statement_catch)
+### catch 
+#### Facets 
+ 
+ 	
+#### Definition
+
+This statement cannot be used alone
+
+#### Usages
+    
+* See also: [try](#try), 
+
+#### Embedments
+* The `catch` statement is of type: **Sequence of statements or action**
+* The `catch` statement can be embedded into: try, 
+* The `catch` statement embeds statements: 
+
+----
+
 [//]: # (keyword|statement_chart)
 ### chart 
 #### Facets 
@@ -888,12 +910,12 @@ create species: a_species number: an_int;
 ### data 
 #### Facets 
   
-  * **`legend`** (string), (omissible) :   
-  * **`value`** (any type in [float, point, list]): 
+  * **`legend`** (string), (omissible) : The legend of the chart  
+  * **`value`** (any type in [float, point, list]): The value to output on the chart
   * `accumulate_values` (boolean): Force to replace values at each step (false) or accumulate with previous steps (true)
   * `color` (any type in [rgb, list]): color of the serie, for heatmap can be a list to specify [minColor,maxColor] or [minColor,medColor,maxColor]
   * `fill` (boolean): Marker filled (true) or not (false)
-  * `line_visible` (boolean): Line visible or not
+  * `line_visible` (boolean): Whether lines are visible or not
   * `marker` (boolean): marker visible or not
   * `marker_shape` (an identifier), takes values in: {marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker
   * `marker_size` (float): Size in pixels of the marker
@@ -901,7 +923,14 @@ create species: a_species number: an_int;
   * `thickness` (float): The thickness of the lines to draw
   * `x_err_values` (any type in [float, list]): the X Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
   * `y_err_values` (any type in [float, list]): the Y Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
-  * `y_minmax_values` (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value)
+  * `y_minmax_values` (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value) 
+ 	
+#### Definition
+
+This statement allows to describe the values that will be displayed on the chart.
+
+#### Usages
+
 
 #### Embedments
 * The `data` statement is of type: **Single statement**
@@ -926,7 +955,14 @@ create species: a_species number: an_int;
   * `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
   * `x_err_values` (list): the X Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
   * `y_err_values` (list): the Y Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
-  * `y_minmax_values` (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value)
+  * `y_minmax_values` (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value) 
+ 	
+#### Definition
+
+add a list of series to a chart. The number of series can be dynamic (the size of the list changes each step). See Ant Foraging (Charts) model in ChartTest for examples.
+
+#### Usages
+
 
 #### Embedments
 * The `datalist` statement is of type: **Single statement**
@@ -939,7 +975,7 @@ create species: a_species number: an_int;
 ### default 
 #### Facets 
 
-  * `value` (any type), (omissible) :  
+  * `value` (any type), (omissible) : The value or values this statement tries to match 
  	
 #### Definition
 
@@ -1032,6 +1068,7 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
   * `keystone` (container): Set the position of the 4 corners of your screen ([topLeft,topRight,botLeft,botRight]), in (x,y) coordinate ( the (0,0) position is the top left corner, while the (1,1) position is the bottom right corner). The default value is : [{0,0},{1,0},{0,1},{1,1}]
   * `light` (boolean): Allows to enable/disable the light. Default is true
   * `orthographic_projection` (boolean): Allows to enable/disable the orthographic projection. Default can be configured in Preferences
+  * `parent` (an identifier): Declares that this display inherits its layers and attributes from the parent display named as the argument. Expects the identifier of the parent display or a string if the name of the parent contains spaces
   * `refresh` (boolean): Indicates the condition under which this output should be refreshed (default is true)
   * `refresh_every` (int): Allows to refresh the display every n time steps (default is 1)
   * `rotate` (float): Set the angle for the rotation around the Z axis
@@ -1040,6 +1077,7 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
   * `synchronized` (boolean): Indicates whether the display should be directly synchronized with the simulation
   * `type` (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem
   * `use_shader` (boolean): Under construction...
+  * `virtual` (boolean): Declaring a display as virtual makes it invisible on screen, and only usable for display inheritance
   * `z_fighting` (boolean): Allows to alleviate a problem where agents at the same z would overlap each other in random ways 
  	
 #### Definition
@@ -1547,8 +1585,8 @@ experiment Simple type:gui {
 ### exhaustive 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
-  * `aggregation` (a label), takes values in: {min, max}: the agregation method
+  * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
+  * `aggregation` (a label), takes values in: {min, max}: The aggregation method to use (either min or max)
   * `maximize` (float): the value the algorithm tries to maximize
   * `minimize` (float): the value the algorithm tries to minimize 
  	
@@ -1631,27 +1669,19 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * `repeat` (int): In the case of a batch experiment, expresses hom many times the simulations must be repeated
   * `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
   * `skills` (list): 
-  * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated
+  * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated 
+ 	
+#### Definition
+
+Declaration of a particular type of agent that can manage simulations
+
+#### Usages
+
 
 #### Embedments
 * The `experiment` statement is of type: **Experiment**
 * The `experiment` statement can be embedded into: Model, 
 * The `experiment` statement embeds statements: 
-
-----
-
-[//]: # (keyword|statement_export)
-### export 
-#### Facets 
-  
-  * **`var`** (an identifier), (omissible) : 
-  * `framerate` (int): 
-  * `name` (string): 
-
-#### Embedments
-* The `export` statement is of type: **Single statement**
-* The `export` statement can be embedded into: Experiment, 
-* The `export` statement embeds statements: 
 
 ----
 
@@ -1663,7 +1693,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * `agent_cause` (agent): the agentCause value of the created belief (can be nil
   * `expression` (any type): an expression that will be the value kept in the belief
   * `lifetime` (int): the lifetime value of the created belief
-  * `priority` (any type in [float, int]): The priority of the created predicate
+  * `strength` (any type in [float, int]): The priority of the created predicate
   * `truth` (boolean): the truth value of the created belief
   * `var` (any type in [any type, list, container]): the variable of the perceived agent you want to add to your beliefs
   * `when` (boolean): A boolean value to focus only with a certain condition 
@@ -1718,15 +1748,17 @@ focus_on my_species(0);
 ### genetic 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
+  * **`name`** (an identifier), (omissible) : The name of this method. For internal use only
   * `aggregation` (a label), takes values in: {min, max}: the agregation method
   * `crossover_prob` (float): crossover probability between two individual solutions
+  * `improve_sol` (boolean): if true, use a hill climbing algorithm to improve the solutions at each generation
   * `max_gen` (int): number of generations
   * `maximize` (float): the value the algorithm tries to maximize
   * `minimize` (float): the value the algorithm tries to minimize
   * `mutation_prob` (float): mutation probability for an individual solution
   * `nb_prelim_gen` (int): number of random populations used to build the initial population
-  * `pop_dim` (int): size of the population (number of individual solutions) 
+  * `pop_dim` (int): size of the population (number of individual solutions)
+  * `stochastic_sel` (boolean): if true, use a stochastic selection algorithm (roulette) rather a determistic one (keep the best solutions) 
  	
 #### Definition
 
@@ -1827,7 +1859,7 @@ highlight my_species(0) color: #blue;
 ### hill_climbing 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
+  * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
   * `aggregation` (a label), takes values in: {min, max}: the agregation method
   * `iter_max` (int): number of iterations
   * `maximize` (float): the value the algorithm tries to maximize
@@ -1938,11 +1970,11 @@ else {
 #### Facets 
 
   * `name` (any type in [string, file]), (omissible) : Human readable title of the image layer
-  * `color` (rgb): in the case of a shapefile, this the color used to fill in geometries of the shapefile
+  * `color` (rgb): in the case of a shapefile, this the color used to fill in geometries of the shapefile. In the case of an image, it is used to tint the image
   * `file` (any type in [string, file]): the name/path of the image (in the case of a raster image)
   * `gis` (any type in [file, string]): the name/path of the shape file (to display a shapefile as background, without creating agents from it)
   * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
-  * `refresh` (boolean): (openGL only) specify whether the image display is refreshed. (true by default, usefull in case of images that is not modified over the simulation)
+  * `refresh` (boolean): (openGL only) specify whether the image display is refreshed or not. (false by default, true should be used in cases of images that are modified over the simulation)
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
   * `transparency` (float): the transparency rate of the agents (between 0 and 1, 1 means no transparency) 
  	
@@ -2035,11 +2067,18 @@ inspect "my_inspector" value: ant attributes: ["name", "location"];
 ### let 
 #### Facets 
   
-  * **`name`** (a new identifier), (omissible) : 
-  * `index` (a datatype identifier): 
-  * `of` (a datatype identifier): 
-  * `type` (a datatype identifier): 
-  * `value` (any type): 
+  * **`name`** (a new identifier), (omissible) : The name of the variable declared
+  * `index` (a datatype identifier): The type of the index if this declaration concerns a container
+  * `of` (a datatype identifier): The type of the contents if this declaration concerns a container
+  * `type` (a datatype identifier): The type of the variable
+  * `value` (any type): The value assigned to this variable 
+ 	
+#### Definition
+
+Allows to declare a temporary variable of the specified type and to initialize it with a value
+
+#### Usages
+
 
 #### Embedments
 * The `let` statement is of type: **Single statement**
@@ -2185,7 +2224,7 @@ loop i from: 0 to: length (the_list) - 1 {
 ### match 
 #### Facets 
 
-  * `value` (any type), (omissible) :  
+  * `value` (any type), (omissible) : The value or values this statement tries to match 
  	
 #### Definition
 
@@ -2336,7 +2375,14 @@ experiment exp_name type: gui {
   * `refresh` (boolean): Indicates the condition under which this file should be saved (default is true)
   * `refresh_every` (int): Allows to save the file every n time steps (default is 1)
   * `rewrite` (boolean): Rewrite or not the existing file
-  * `type` (an identifier), takes values in: {csv, text, xml}: The type of your output data
+  * `type` (an identifier), takes values in: {csv, text, xml}: The type of your output data 
+ 	
+#### Definition
+
+Represents an output that writes the result of expressions into a file
+
+#### Usages
+
 
 #### Embedments
 * The `output_file` statement is of type: **Output**
@@ -2865,8 +2911,12 @@ reflex writing {
 
   * `name` (an identifier), (omissible) : The name of the rule
   * `belief` (546704): The mandatory belief
+  * `beliefs` (list): The mandatory beliefs
   * `desire` (546704): The mandatory desire
+  * `desires` (list): The mandatory desires
   * `emotion` (546706): The mandatory emotion
+  * `emotions` (list): The mandatory emotions
+  * `lifetime` (int): the lifetime value of the mental state created
   * `new_belief` (546704): The belief that will be added
   * `new_beliefs` (list): The belief that will be added
   * `new_desire` (546704): The desire that will be added
@@ -2876,7 +2926,6 @@ reflex writing {
   * `new_uncertainties` (list): The uncertainty that will be added
   * `new_uncertainty` (546704): The uncertainty that will be added
   * `parallel` (any type in [boolean, int]): setting this facet to 'true' will allow 'perceive' to use concurrency with a parallel_bdi architecture; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet is true by default.
-  * `priority` (any type in [float, int]): The priority of the predicate added as a desire
   * `remove_belief` (546704): The belief that will be removed
   * `remove_beliefs` (list): The belief that will be removed
   * `remove_desire` (546704): The desire that will be removed
@@ -2886,7 +2935,9 @@ reflex writing {
   * `remove_intention` (546704): The intention that will be removed
   * `remove_uncertainties` (list): The uncertainty that will be removed
   * `remove_uncertainty` (546704): The uncertainty that will be removed
+  * `strength` (any type in [float, int]): The stregth of the mental state created
   * `threshold` (float): Threshold linked to the emotion.
+  * `uncertainties` (list): The mandatory uncertainties
   * `uncertainty` (546704): The mandatory uncertainty
   * `when` (boolean):  
  	
@@ -2933,11 +2984,11 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 #### Facets 
 
   * `data` (any type), (omissible) : any expression, that will be saved in the file
-  * `attributes` (map): Allows to specify the attributes of a shape file (or other files that accept attributes). The keys of the map are the names of the attributes that will be present in the file, the values are whatever expression neeeded to define their value
+  * `attributes` (map): Allows to specify the attributes of a shape file where agents are saved. The keys of the map are the names of the attributes that will be present in the file, the values are whatever expressions neeeded to define their value
   * `crs` (any type): the name of the projection, e.g. crs:"EPSG:4326" or its EPSG id, e.g. crs:4326. Here a list of the CRS codes (and EPSG id): http://spatialreference.org
   * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
   * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it. Default is true
-  * `to` (string): an expression that evaluates to an string, the path to the file
+  * `to` (string): an expression that evaluates to an string, the path to the file, or directly to a file
   * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv")
   * `with` (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file 
  	
@@ -3009,21 +3060,6 @@ save grid to: "save_grid.png" type: "image";
 * The `save` statement is of type: **Single statement**
 * The `save` statement can be embedded into: Behavior, Sequence of statements or action, 
 * The `save` statement embeds statements: 
-
-----
-
-[//]: # (keyword|statement_save_batch)
-### save_batch 
-#### Facets 
-  
-  * **`to`** (a label): 
-  * `data` (any type), (omissible) : 
-  * `rewrite` (boolean): 
-
-#### Embedments
-* The `save_batch` statement is of type: **Batch method**
-* The `save_batch` statement can be embedded into: Experiment, 
-* The `save_batch` statement embeds statements: 
 
 ----
 
@@ -3203,6 +3239,7 @@ solve SIR method: "rk4" step:0.001;
   * `mirrors` (any type in [list, species]): The species this species is mirroring. The population of this current species will be dependent of that of the species mirrored (i.e. agents creation and death are entirely taken in charge by GAMA with respect to the demographics of the species mirrored). In addition, this species is provided with an attribute called 'target', which allows each agent to know which agent of the mirrored species it is representing.
   * `neighbors` (int): (grid only), the chosen neighborhood (4, 6 or 8)
   * `neighbours` (int): (grid only), the chosen neighborhood (4, 6 or 8)
+  * `optimizer` (string): (grid only),("A*" by default). Allows to specify the algorithm for the shortest path computation ("BF", "Dijkstra", "A*" or "JPS*"
   * `parallel` (any type in [boolean, int]): (experimental) setting this facet to 'true' will allow this species to use concurrency when scheduling its agents; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet has a default set in the preferences (Under Performances > Concurrency)
   * `parent` (species): the parent class (inheritance)
   * `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
@@ -3253,6 +3290,22 @@ grid ant_grid file: grid_file neighbors: 8 use_regular_agents: false {
 * The `species` statement is of type: **Species**
 * The `species` statement can be embedded into: Model, Environment, Species, 
 * The `species` statement embeds statements: 
+
+----
+
+[//]: # (keyword|statement_start_simulation)
+### start_simulation 
+#### Facets 
+  
+  * **`name`** (string), (omissible) :   
+  * **`of`** (string): 
+  * `seed` (int): 
+  * `with_param` (map): 
+
+#### Embedments
+* The `start_simulation` statement is of type: **Sequence of statements or action**
+* The `start_simulation` statement can be embedded into: Behavior, Single statement, Species, Model, 
+* The `start_simulation` statement embeds statements: 
 
 ----
 
@@ -3313,7 +3366,7 @@ A state, like a reflex, can contains several statements that can be executed at 
 #### Facets 
   
   * **`message`** (any type), (omissible) : Allows to display a necessarily short message in the status box in the upper left corner. No formatting characters (carriage returns, tabs, or Unicode characters) should be used, but a background color can be specified. The message will remain in place until it is replaced by another one or by nil, in which case the standard status (number of cycles) will be displayed again
-  * `color` (rgb):  
+  * `color` (rgb): The color used for displaying the background of the status message 
  	
 #### Definition
 
@@ -3387,7 +3440,7 @@ switch 3 {
 ### tabu 
 #### Facets 
   
-  * **`name`** (an identifier), (omissible) : 
+  * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
   * `aggregation` (a label), takes values in: {min, max}: the agregation method
   * `iter_max` (int): number of iterations
   * `maximize` (float): the value the algorithm tries to maximize
@@ -3531,6 +3584,46 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
 * The `transition` statement is of type: **Sequence of statements or action**
 * The `transition` statement can be embedded into: Sequence of statements or action, Behavior, 
 * The `transition` statement embeds statements: 
+
+----
+
+[//]: # (keyword|statement_try)
+### try 
+#### Facets 
+ 
+ 	
+#### Definition
+
+Allows the agent to execute a sequence of statements and to catch any runtime error that might happen in a subsequent `catch` block, either to ignore it (not a good idea, usually) or to safely stop the model
+
+#### Usages
+
+* The generic syntax is:
+
+```
+try {
+    [statements]
+}
+```
+
+
+* Optionally, the statements to execute when a runtime error happens in the block can be defined in a following statement 'catch'. The syntax then becomes:
+
+```
+try {
+    [statements]
+}
+catch {
+    [statements]
+}
+```
+
+
+
+#### Embedments
+* The `try` statement is of type: **Sequence of statements or action**
+* The `try` statement can be embedded into: Behavior, Sequence of statements or action, Layer, 
+* The `try` statement embeds statements: [catch](#catch),  
 
 ----
 
@@ -3733,13 +3826,13 @@ using topology(grid_ant) {
   * `const` (boolean): Indicates whether this attribute can be subsequently modified or not
   * `fill_with` (any type): 
   * `function` (any type): Used to specify an expression that will be evaluated each time the attribute is accessed. This facet is incompatible with both 'init:' and 'update:'
-  * `index` (a datatype identifier): 
+  * `index` (a datatype identifier): The type of the key used to retrieve the contents of this attribute
   * `init` (any type): The initial value of the attribute
-  * `of` (a datatype identifier): 
+  * `of` (a datatype identifier): The type of the contents of this container attribute
   * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the attribute changes
   * `parameter` (a label): Soon to be deprecated. Declare the parameter in an experiment instead
   * `size` (any type in [int, point]): 
-  * `type` (a datatype identifier): 
+  * `type` (a datatype identifier): The type of the attribute
   * `update` (any type): An expression that will be evaluated each cycle to compute a new value for the attribute
   * `value` (any type):  
  	
@@ -3771,7 +3864,7 @@ Allows to declare an attribute of a species or an experiment
   * `min` (any type in [int, float]): The minimum value this attribute can take
   * `on_change` (any type): Provides a block of statements that will be executed whenever the value of the attribute changes
   * `parameter` (a label): Soon to be deprecated. Declare the parameter in an experiment instead
-  * `step` (int): 
+  * `step` (int): A discrete step (used in conjunction with min and max) that constrains the values this variable can take
   * `type` (a datatype identifier): The type of the attribute, either 'int' or 'float'
   * `update` (any type in [int, float]): An expression that will be evaluated each cycle to compute a new value for the attribute
   * `value` (any type in [int, float]):  

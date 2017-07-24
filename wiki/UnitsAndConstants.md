@@ -56,6 +56,9 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 
 ## Constants
 
+[//]: # (keyword|constant_#current_error)
+* **`#current_error`**, value= , Comment: The text of the last error thrown during the current execution
+
 [//]: # (keyword|constant_#e)
 * **`#e`**, value= 2.718281828459045, Comment: The e constant
 

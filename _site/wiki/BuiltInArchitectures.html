@@ -3533,6 +3533,8 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as a belief</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
 
 <h4 id="add_desire"><strong><code class="highlighter-rouge">add_desire</code></strong></h4>
@@ -3540,6 +3542,8 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
   <li><strong><code class="highlighter-rouge">todo</code></strong> (546704): add the desire as a subintention of this parameter</li>
 </ul>
 
@@ -3554,7 +3558,9 @@ function closeRightMenu() {
 <p>check if the predicates is in the desire base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (map): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
 
 <h4 id="add_social_link"><strong><code class="highlighter-rouge">add_social_link</code></strong></h4>
@@ -3578,6 +3584,8 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
 
 <h4 id="clear_beliefs"><strong><code class="highlighter-rouge">clear_beliefs</code></strong></h4>
@@ -3626,28 +3634,28 @@ function closeRightMenu() {
 <h4 id="get_belief"><strong><code class="highlighter-rouge">get_belief</code></strong></h4>
 <p>get the predicate in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to get</li>
 </ul>
 
 <h4 id="get_belief_with_name"><strong><code class="highlighter-rouge">get_belief_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
 <h4 id="get_beliefs"><strong><code class="highlighter-rouge">get_beliefs</code></strong></h4>
 <p>get the list of predicates is in the belief base</p>
 <ul>
-  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
 </ul>
 
 <h4 id="get_beliefs_with_name"><strong><code class="highlighter-rouge">get_beliefs_with_name</code></strong></h4>
 <p>get the list of predicates is in the belief base with the given name.</p>
 <ul>
-  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicates to check</li>
 </ul>
 
@@ -3657,31 +3665,37 @@ function closeRightMenu() {
   <li>returns: predicate</li>
 </ul>
 
+<h4 id="get_current_plan"><strong><code class="highlighter-rouge">get_current_plan</code></strong></h4>
+<p>get the current plan.</p>
+<ul>
+  <li>returns: BDIPlan</li>
+</ul>
+
 <h4 id="get_desire"><strong><code class="highlighter-rouge">get_desire</code></strong></h4>
 <p>get the predicates is in the desire base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
 <h4 id="get_desire_with_name"><strong><code class="highlighter-rouge">get_desire_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
 <h4 id="get_desires"><strong><code class="highlighter-rouge">get_desires</code></strong></h4>
 <p>get the list of predicates is in the belief base</p>
 <ul>
-  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
 </ul>
 
 <h4 id="get_desires_with_name"><strong><code class="highlighter-rouge">get_desires_with_name</code></strong></h4>
 <p>get the list of predicates is in the belief base with the given name.</p>
 <ul>
-  <li>returns: java.util.List<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicates to check</li>
 </ul>
 
@@ -3695,29 +3709,36 @@ function closeRightMenu() {
 <h4 id="get_intention"><strong><code class="highlighter-rouge">get_intention</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
 <h4 id="get_intention_with_name"><strong><code class="highlighter-rouge">get_intention_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
 <h4 id="get_intentions"><strong><code class="highlighter-rouge">get_intentions</code></strong></h4>
 <p>get the list of predicates is in the belief base</p>
 <ul>
-  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
 </ul>
 
 <h4 id="get_intentions_with_name"><strong><code class="highlighter-rouge">get_intentions_with_name</code></strong></h4>
 <p>get the list of predicates is in the belief base with the given name.</p>
 <ul>
-  <li>returns: java.util.List<msi.gaml.architecture.simplebdi.Predicate></msi.gaml.architecture.simplebdi.Predicate></li>
+  <li>returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicates to check</li>
+</ul>
+
+<h4 id="get_plan"><strong><code class="highlighter-rouge">get_plan</code></strong></h4>
+<p>get the first plan with the given name</p>
+<ul>
+  <li>returns: BDIPlan</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): the name of the planto get</li>
 </ul>
 
 <h4 id="get_plans"><strong><code class="highlighter-rouge">get_plans</code></strong></h4>
@@ -3736,7 +3757,7 @@ function closeRightMenu() {
 <h4 id="get_uncertainty"><strong><code class="highlighter-rouge">get_uncertainty</code></strong></h4>
 <p>get the predicates is in the uncertainty base (if several, returns the first one).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
@@ -3782,6 +3803,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
+<h4 id="is_current_plan"><strong><code class="highlighter-rouge">is_current_plan</code></strong></h4>
+<p>tell if the current plan has the same name as tested</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): the name of the plan to test</li>
+</ul>
+
 <h4 id="remove_all_beliefs"><strong><code class="highlighter-rouge">remove_all_beliefs</code></strong></h4>
 <p>removes the predicates from the belief base.</p>
 <ul>
@@ -3800,7 +3828,7 @@ function closeRightMenu() {
 <p>removes the predicates from the desire base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove from desire base</li>
 </ul>
 
 <h4 id="remove_emotion"><strong><code class="highlighter-rouge">remove_emotion</code></strong></h4>
@@ -3814,7 +3842,7 @@ function closeRightMenu() {
 <p>removes the predicates from the desire base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): intention’s predicate to remove</li>
   <li><strong><code class="highlighter-rouge">desire_also</code></strong> (boolean): removes also desire</li>
 </ul>
 
