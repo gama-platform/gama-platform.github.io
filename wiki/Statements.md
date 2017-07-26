@@ -1075,6 +1075,7 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
   * `scale` (any type in [boolean, float]): Allows to display a scale bar in the overlay. Accepts true/false or an unit name
   * `show_fps` (boolean): Allows to enable/disable the drawing of the number of frames per second
   * `synchronized` (boolean): Indicates whether the display should be directly synchronized with the simulation
+  * `toolbar` (boolean): Indicates whether the top toolbar of the display view should be initially visible or not
   * `type` (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem
   * `use_shader` (boolean): Under construction...
   * `virtual` (boolean): Declaring a display as virtual makes it invisible on screen, and only usable for display inheritance
