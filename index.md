@@ -11,7 +11,21 @@ title: Home
                 </header>
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-    <div class="w3-twothird">
+    <div class="" markdown="1">
+GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations. 
+
+* [**Multiple application domains :**](#multiple-application-domains) Use GAMA for whatever application domain you want.
+* [**High-level and Intuitive Agent-based language :**](#high-level-and-intuitive-agent-based-language) Write your models easily using GAML, a high-level and intuitive agent-based language.
+* [**GIS and Data-Driven models :**](#gis-and-data-driven-models) Instantiate agents from any dataset, including GIS data, and execute large-scale simulations (up to millions of agents).
+* [**Declarative user interface :**](#declarative-user-interface) Declare interfaces supporting deep inspections on agents, user-controlled action panels, multi-layer 2D/3D displays & agent aspects.
+
+Its latest version, **1.7**, can be freely [downloaded](Download) or [built from source](https://github.com/gama-platform/gama/), and comes pre-loaded with several models, [tutorials](Tutorials) and a complete [on-line documentation](Overview).
+
+  </div>
+</div>
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird" id="multiple-application-domains">
       <h1 class="w3-text-blue">Multiple application domains</h1>
       <h5 class="w3-padding-32">
        GAMA has been developed with a very general approach, and can be used for many applications domains. Some additional plugins had been developed to fit with particular needs.
@@ -37,7 +51,7 @@ title: Home
       <img src="/images/button_high_level_language.png" width="300">
     </div>
 
-    <div class="w3-twothird">
+    <div class="w3-twothird" id="high-level-and-intuitive-agent-based-language">
       <h1 class="w3-text-blue">High level and intuitive language</h1>
       <h5 class="w3-padding-32">Thanks to its high-level and intuitive language, GAMA has been developed to be used by non-computer scientists. You can declare your species, giving them some special behaviors, create them in your world, and display them in less than 10 minutes.
         GAML is the language used in GAMA, coded in Java. It is an agent-based language, that provides you the possibility to build your model with several paradigms of modeling. 
@@ -49,7 +63,7 @@ title: Home
 </div>
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-    <div class="w3-twothird">
+    <div class="w3-twothird" id="gis-and-data-driven-models">
       <h1 class="w3-text-blue">GIS and Data-Driven models</h1>
       <h5 class="w3-padding-32">
             GAMA (GIS Agent-based Modeling Architecture) provides you, since its creation, the possibility to load easily GIS (Geographic Information System).
@@ -72,7 +86,7 @@ title: Home
       <img src="/images/button_declarative_UI.png" width="300">
     </div>
 
-    <div class="w3-twothird">
+    <div class="w3-twothird" id="declarative-user-interface">
       <h1 class="w3-text-blue">Declarative user interface</h1>
       <h5 class="w3-padding-32">GAMA provides you the possibility to have multiple displays for the same model. You can add as much visual representations as you want for the same model, in order to highlight a certain aspect of your simulation. Add easily new visual aspects to your agents.
         Advanced 3D displays are provided : you can control lights, cameras, and also adding textures to your 3D objects. In an other hand, dedicated statements allows you to define easily charts, such as series, histogram, or pies.

@@ -1,0 +1,137 @@
+<div  class="w3-quarter w3-round-large w3-margin-left w3-padding-16">
+        <div class="w3-white w3-border w3-border-grey w3-margin-left w3-twothird">
+                <div class="w3-row" id="tabMenuNews">
+                    <div class="w3-col l3 m3 s3 w3-center  w3-white">
+                        <i id="facebook" class='fa fa-2x fa-facebook-official w3-text-black' aria-hidden='true' onclick='facebook();'></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-black w3-center">
+                        <i id="commits" class='fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white' aria-hidden='true' onclick='commits();'></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-black w3-center">
+                        <i id="issues" class='fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white' aria-hidden='true' onclick='issues();'></i>
+                    </div>
+                    <div class="w3-col l3 m3 s3 w3-black w3-center">
+                        <i id="google" class='fa fa-2x fa-google w3-text-grey w3-hover-none  w3-hover-text-white' aria-hidden='true' onclick='google();'></i>
+                    </div>
+               </div>
+               <div id="quotes" class="w3-white w3-small w3-margin">
+               </div>
+        </div>
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+            <span class="w3-center"><h3><b>Mailing list</b></h3></span>
+                <p class="w3-margin"><i class="fa fa-envelope" aria-hidden="true"></i>  For Users<br/>
+                    <span class="w3-small"><a href="https://groups.google.com/forum/#!forum/gama-platform">gama-platform@googlegroups.com</a></span><br/>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>  For Developers<br/>
+                    <span class="w3-small"><a href="https://groups.google.com/forum/#!forum/gama-dev">gama-dev@googlegroups.com</a></span>
+                </p>
+        </div>
+    
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+            <span class="w3-center"><h3><b>Networks</b></h3></span>
+                <p class=" w3-margin">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>  <a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ">Youtube</a><br/>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>  <a href="https://www.linkedin.com/company/gama-platform">LinkedIn </a><br/>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>  <a href="https://twitter.com/gamaplatform">Twitter</a><br/>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>  <a href="https://www.facebook.com/GamaPlatform/">Facebook</a>
+                </p>
+        </div>
+ </div>
+ <script>
+   var nbWords = 20
+   function truncate(str, no_words) 
+   {
+        return str.split(" ").splice(0,no_words).join(" ");
+   }
+  $( document ).ready(function() 
+  {
+    facebook();
+  });
+  function facebook()
+  {
+        $.getJSON('https://graph.facebook.com/238065426321929/feed?access_token=229040647557399|MQKFlFYX7YW25XGj4GUYZ7B1lcY', function(data) 
+        {
+		var ahtml="";
+		for(var i = 0; i < 5; i++) 
+                {
+		
+			var d = new Date(data["data"][i]["created_time"]);
+			ahtml=ahtml+"<div class=''>";
+			if("message" in data["data"][i])
+			{
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["message"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+			}
+			else
+			{
+				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+			}
+			ahtml=ahtml+"</p></div>";
+		}
+		ahtml=ahtml+"";
+		$("#quotes").html(ahtml);
+		$("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-black\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center  w3-black\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
+	});
+  }
+  
+  function issues()
+  {
+       		
+        $.getJSON('https://api.github.com/repos/gama-platform/gama/issues', function(data) 
+        {
+                var ahtml="";
+                for(var i = 0; i < 5; i++) {
+                        ahtml=ahtml+"<div class=''>";
+                        var d = new Date(data[i]["created_at"]);
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data[i]["title"]+" by "+data[i]["user"]["login"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
+                        ahtml=ahtml+"</p></div>";
+                }
+                ahtml=ahtml+"";
+                $("#quotes").html(ahtml);
+                $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-black\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center  w3-black\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
+        });
+  }
+  function commits()
+  {
+       		
+        $.getJSON('https://api.github.com/repos/gama-platform/gama/commits', function(data) 
+        {
+                var ahtml="";
+                for(var i = 0; i < 5; i++) 
+                {
+                        ahtml=ahtml+"<div class=''>";
+                        var d = new Date(data[i]["commit"]["author"]["date"]);
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data[i]["commit"]["message"]+" by "+data[i]["commit"]["author"]["name"]+" <a href='"+data[i]["html_url"]+"'> See more</a>";
+                        ahtml=ahtml+"</p></div>";
+                }
+                ahtml=ahtml+"";
+                $("#quotes").html(ahtml);
+                $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-white w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-black\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center  w3-black\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        
+        });
+  }
+  
+  function google()
+  {
+       		
+        $.getJSON('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fgroups.google.com%2Fforum%2Ffeed%2Fgama-platform%2Ftopics%2Frss.xml%3Fnum%3D15', function(data) 
+        {
+                var ahtml="";
+                for(var i = 0; i < 5; i++) {
+                        ahtml=ahtml+"<div class=''>";
+                        var d = new Date(data["items"][i]["pubDate"]);
+                        ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+data["items"][i]["title"]+" by "+data["items"][i]["author"]+" <a href='"+data["items"][i]["link"]+"'> See more</a>";
+                        ahtml=ahtml+"</p></div>";
+
+                }
+                ahtml=ahtml+"";
+                $("#quotes").html(ahtml);
+                $("#quotes").linkify();
+                $("#tabMenuNews").html("<div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"facebook\" class=\"fa fa-2x fa-facebook-official w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"facebook();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"commits\" class=\"fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"commits();\"></i></div><div class=\"w3-col l3 m3 s3 w3-black w3-center\"><i id=\"issues\" class=\"fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white\" aria-hidden=\"true\" onclick=\"issues();\"></i></div><div class=\"w3-col l3 m3 s3 w3-center w3-white\"><i id=\"google\" class=\"fa fa-2x fa-google w3-text-black\" aria-hidden=\"true\" onclick=\"google();\"></i></div>");
+        });
+  }
+  
+</script>
