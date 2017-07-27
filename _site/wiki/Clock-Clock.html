@@ -9,16 +9,16 @@
 <script src="/js/linkify.min.js"></script>
 <script src="/js/linkify-jquery.min.js"></script>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <div class="w3-bar w3-white w3-hide-small w3-display-center" style="overflow: visible">
+    <div class="w3-bar w3-black w3-hide-small w3-display-center w3-top" style="overflow: visible">
               <div class="w3-left-align">
-              <a href="/" class="w3-bar-item w3-button"><img src="/images/icon_gama_50.png"></a>
-              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOCUMENTATION</b></a>
-              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>TUTORIALS</b></a>
-              <a href="/download" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>DOWNLOAD</b></a>
-              <a href="/news" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>NEWS</b></a>
-              <a href="/news" class="w3-bar-item w3-button w3-text-blue w3-hover-blue w3-hover-text-white"><b>CONTRIBUTE</b></a>
-              <div class="w3-bar-item w3-right"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)">
-                    <i class="fa fa-search w3-text-blue" aria-hidden="true" onclick="search();"></i>
+              <a href="/" class="w3-bar-item w3-button w3-hover-none"><img src="/images/icon_gama_50.png" style="width:33%"></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Documentation</a>
+              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Tutorials</a>
+              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Download</a>
+              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">News</a>
+              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Contribute</a>
+              <div class="w3-bar-item w3-right w3-text-grey"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)" placeholder="Search..">
+                    <i class="fa fa-search w3-text-grey w3-hover-text-white" aria-hidden="true" onclick="search();"></i>
                     <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right w3-quarter " style="display:none;right:0;opacity: 0.9;" id="rightMenu">
                       <i onclick="closeRightMenu()" class="fa fa-times w3-bar-item w3-large"></i>
                       <div id="search-results" ></div>
@@ -28,6 +28,9 @@
             
             </div>
 </div>
+<br/>
+<br/>
+<br/>
 <script>
 function checkEntry(e){
     if(e.keyCode==13)
@@ -3149,7 +3152,7 @@ var json_pages = (function () {
         ,
       
        "/contribute.html": {
-         "title": "Search",
+         "title": "Contribute",
          "url": "/contribute.html"
        }
         ,
@@ -3205,7 +3208,7 @@ function displaySearchResults(results, store) {
         }
       }
 
-      searchResults.innerHTML = searchResults.innerHTML+appendString+"<br/>";
+      searchResults.innerHTML = searchResults.innerHTML+appendString+"<br/><br/><br/>";
     } 
   }
   function displaySearchResultsDocumentation(resultsSet,description,page) {
