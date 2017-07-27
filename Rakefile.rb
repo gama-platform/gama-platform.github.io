@@ -337,7 +337,7 @@ def defineLayoutMenu
         <div>
              <div class="w3-quarter">
                 <div class="w3-twothird">
-		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="z-index:3;margin-left:10px" id="mySidebar">
+		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="margin-left:10px" id="mySidebar">
                     <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">'
           
           title=line.gsub("#","")
