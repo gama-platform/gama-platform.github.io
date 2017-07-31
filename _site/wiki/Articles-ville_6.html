@@ -11,12 +11,12 @@
 <script src="https://unpkg.com/lunr/lunr.js"></script>
     <div class="w3-bar w3-black w3-hide-small w3-display-center w3-top" style="overflow: visible">
               <div class="w3-left-align">
-              <a href="/" class="w3-bar-item w3-button w3-hover-none"><img src="/images/icon_gama_50.png" style="width:33%"></a>
-              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Documentation</a>
-              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Tutorials</a>
-              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Download</a>
-              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">News</a>
-              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Contribute</a>
+              <a href="/" class="w3-bar-item w3-button w3-hover-none menu"><img src="/images/icon_gama_50.png" style="width:33%"></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Documentation</a>
+              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Tutorials</a>
+              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Download</a>
+              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">News</a>
+              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Contribute</a>
               <div class="w3-bar-item w3-right w3-text-grey"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)" placeholder="Search..">
                     <i class="fa fa-search w3-text-grey w3-hover-text-white" aria-hidden="true" onclick="search();"></i>
                     <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right w3-quarter " style="display:none;right:0;opacity: 0.9;" id="rightMenu">
@@ -3293,163 +3293,163 @@ function closeRightMenu() {
     <div class="w3-row-padding w3-container">
         <div>
              <div class="w3-quarter">
-                <div class="w3-twothird">
-		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="margin-left:10px" id="mySidebar">
-                    <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">
-<h4><a href="/wiki/Home">Home</a></h4><br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/Overview">Introduction</a></h4><br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/NewVersionChanges">Changes from 1.6.1 to 1.7</a></h4><br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/PlatformDocumentation">Platform</a></h4><br/>
- <a href="/wiki/InstallationAndLaunching">Installation and Launching</a><br/>
--- <a href="/wiki/Installation">Installation</a><br/>
--- <a href="/wiki/Launching">Launching GAMA</a><br/>
--- <a href="/wiki/Headless">Headless Mode</a><br/>
--- <a href="/wiki/Updating">Updating GAMA</a><br/>
--- <a href="/wiki/InstallingPlugins">Installing Plugins</a><br/>
--- <a href="/wiki/Troubleshooting">Troubleshooting</a><br/>
- <a href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a><br/>
--- <a href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a><br/>
--- <a href="/wiki/ChangingWorkspace">Changing Workspace</a><br/>
--- <a href="/wiki/ImportingModels">Importing Models</a><br/>
- <a href="/wiki/EditingModels">Editing Models</a><br/>
--- <a href="/wiki/GamlEditorGeneralities">GAML Editor (Generalities)</a><br/>
--- <a href="/wiki/GamlEditorToolbar">GAML Editor Toolbar</a><br/>
--- <a href="/wiki/ValidationOfModels">Validation of Models</a><br/>
- <a href="/wiki/RunningExperiments">Running Experiments</a><br/>
--- <a href="/wiki/LaunchingExperiments">Launching Experiments</a><br/>
--- <a href="/wiki/ExperimentsUserInterface">Experiments User interface</a><br/>
--- <a href="/wiki/MenusAndCommands">Menus and commands</a><br/>
--- <a href="/wiki/ParametersView">Parameters view</a><br/>
--- <a href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a><br/>
--- <a href="/wiki/Displays">Displays</a><br/>
--- <a href="/wiki/BatchSpecific">Batch Specific UI</a><br/>
--- <a href="/wiki/ErrorsView">Errors View</a><br/>
- <a href="/wiki/Preferences">Preferences</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/LearnGAMLStepByStep">Learn GAML step by step</a></h4><br/>
- <a href="/wiki/Introduction">Introduction</a><br/>
- <a href="/wiki/StartWithGAML">Start with GAML</a><br/>
--- <a href="/wiki/ModelOrganization">Organization of a Model</a><br/>
--- <a href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a><br/>
- <a href="/wiki/ManipulateBasicSpecies">Manipulate basic Species</a><br/>
--- <a href="/wiki/GlobalSpecies">Global Species</a><br/>
--- <a href="/wiki/RegularSpecies">Regular Species</a><br/>
--- <a href="/wiki/DefiningActionsAndBehaviors">Defining Actions and Behaviors</a><br/>
--- <a href="/wiki/InteractionBetweenAgents">Interaction between Agents</a><br/>
--- <a href="/wiki/AttachingSkills">Attaching Skills</a><br/>
--- <a href="/wiki/Inheritance">Inheritance</a><br/>
- <a href="/wiki/DefiningAdvancedSpecies">Defining Advanced Species</a><br/>
--- <a href="/wiki/GridSpecies">Grid Species</a><br/>
--- <a href="/wiki/GraphSpecies">Graph Species</a><br/>
--- <a href="/wiki/MirrorSpecies">Mirror Species</a><br/>
--- <a href="/wiki/MultiLevelArchitecture">Multi-Level Architecture</a><br/>
- <a href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a><br/>
--- <a href="/wiki/DefiningParameters">Defining Parameters</a><br/>
--- <a href="/wiki/DefiningDisplaysGeneralities">Defining Displays Generalities</a><br/>
--- <a href="/wiki/DefiningCharts">Defining Charts</a><br/>
--- <a href="/wiki/Defining3DDisplays">Defining 3D Displays</a><br/>
--- <a href="/wiki/DefiningMonitorsAndInspectors">Defining Monitors and Inspectors</a><br/>
--- <a href="/wiki/DefiningExportFiles">Defining Export files</a><br/>
--- <a href="/wiki/DefiningUserInteraction">Defining User Interaction</a><br/>
- <a href="/wiki/ExploringModels">Exploring Models</a><br/>
--- <a href="/wiki/RunSeveralSimulations">Run Several Simulations</a><br/>
--- <a href="/wiki/BatchExperiments">Batch Experiments</a><br/>
--- <a href="/wiki/ExplorationMethods">Exploration Methods</a><br/>
- <a href="/wiki/OptimizingModelsSection">Optimizing Model Section</a><br/>
--- <a href="/wiki/RuntimeConcepts">Runtime Concepts</a><br/>
--- <a href="/wiki/OptimizingModels">Optimizing Models</a><br/>
- <a href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a><br/>
--- <a href="/wiki/ControlArchitecture">Control Architecture</a><br/>
--- <a href="/wiki/Equations">Defining Equations</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/Recipes">Recipes</a></h4><br/>
- <a href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a><br/>
- <a href="/wiki/Diffusion">Diffusion</a><br/>
- <a href="/wiki/UsingDatabase">Using Database</a><br/>
- <a href="/wiki/CallingR">Calling R</a><br/>
- <a href="/wiki/UsingFIPAACL">Using FIPA ACL</a><br/>
- <a href="/wiki/GamAnalyzer">Using GamAnalyzer</a><br/>
- <a href="/wiki/UsingBDI">Using BDI</a><br/>
- <a href="/wiki/UsingDrivingSkill">Using Driving Skill</a><br/>
- <a href="/wiki/ManipulateDates">Manipulate dates</a><br/>
- <a href="/wiki/ManipulateLight">Manipulate lights</a><br/>
- <a href="/wiki/Comodel">Using comodel</a><br/>
- <a href="/wiki/Headless-mode-for-dummies">Headless mode</a><br/>
- <a href="/wiki/FAQ">FAQ</a><br/>
- <a href="/wiki/KnownIssues">Known Issues</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/GamlReference">GAML References</a></h4><br/>
- <a href="/wiki/BuiltInSpecies">Built-in Species</a><br/>
--- <a href="/wiki/AgentBuiltIn">Agent Built-in</a><br/>
--- <a href="/wiki/ModelBuiltIn">Model Built-in</a><br/>
--- <a href="/wiki/ExperimentBuiltIn">Experiment Built-in</a><br/>
- <a href="/wiki/BuiltInSkills">Built-in Skills</a><br/>
- <a href="/wiki/BuiltInArchitectures">Built-in Architecture</a><br/>
- <a href="/wiki/Statements">Statements</a><br/>
- <a href="/wiki/DataTypes">Data Type</a><br/>
- <a href="/wiki/FileTypes">File Type</a><br/>
- <a href="/wiki/Expressions">Expressions</a><br/>
--- <a href="/wiki/Literals">Literals</a><br/>
--- <a href="/wiki/UnitsAndConstants">Units and Constants</a><br/>
--- <a href="/wiki/PseudoVariables">Pseudo Variables</a><br/>
--- <a href="/wiki/VariablesAndAttributes">Variables And Attributes</a><br/>
--- <a href="/wiki/OperatorsAC">Operators [A-C]</a><br/>
--- <a href="/wiki/OperatorsDM">Operators [D-M]</a><br/>
--- <a href="/wiki/OperatorsNZ">Operators [N-Z]</a><br/>
- <a href="/wiki/Index">Index</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/Tutorials">Tutorials</a></h4><br/>
- <a href="/wiki/PredatorPrey">Predator Prey</a><br/>
- <a href="/wiki/RoadTrafficModel">Road Traffic</a><br/>
- <a href="/wiki/ThreeD">3D Tutorial</a><br/>
- <a href="/wiki/IncrementalModel">Incremental Model</a><br/>
- <a href="/wiki/LuneraysFlu">Luneray's flu</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/PedagogicalMaterials">Pedagogical materials</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/DevelopingExtensions">Developing Extensions</a></h4><br/>
- <a href="/wiki/InstallingGitVersion">Installing the GIT version</a><br/>
- <a href="/wiki/GamaArchitecture">Architecture of GAMA</a><br/>
- <a href="/wiki/DevelopingPlugins">Developing a Plugin</a><br/>
- <a href="/wiki/DevelopingSkills">Developing a Skill</a><br/>
- <a href="/wiki/DevelopingStatements">Developing a Statement</a><br/>
- <a href="/wiki/DevelopingOperators">Developing an Operator</a><br/>
- <a href="/wiki/DevelopingTypes">Developing a Type</a><br/>
- <a href="/wiki/DevelopingSpecies">Developing a Species</a><br/>
- <a href="/wiki/DevelopingControlArchitectures">Developing a Control Architecture</a><br/>
- <a href="/wiki/DevelopingIndexAnnotations">Index of annotations</a><br/>
- <a href="/wiki/DevelopingIScope">IScope</a><br/>
- <a href="/wiki/CreatingAReleaseOfGama">Creating a release of GAMA</a><br/>
- <a href="/wiki/Documentation">Documentation generation</a><br/>
- <a href="/wiki/WebsiteGeneration">Website generation</a><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/References">Scientific References</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/Projects">Projects using GAMA</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/TrainingSession">Training Session</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/Events">Events</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4><a href="/wiki/OlderVersions">Older versions</a></h4><br/>
- <br/>
-</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>
-<h4> Coding Camp</h4><br/>
- <a href="/wiki/Event__CC15_Reorganization">Reorganization</a><br/>
+                <div class="w3-margin-right">
+		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-light-gray w3-border w3-border-black"  style="margin-left:10px" id="mySidebar">
+                    <div class="w3-medium w3-text-black w3-margin-left" style=""><div id="sub" class="w3-bar-block w3-small">
+<b><a href="/wiki/Home" class="wiki_menu" >Home</a></b><br/>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/Overview" class="wiki_menu" >Introduction</a></b><br/>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/NewVersionChanges" class="wiki_menu" >Changes from 1.6.1 to 1.7</a></b><br/>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/PlatformDocumentation" class="wiki_menu" >Platform</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/InstallationAndLaunching" class="wiki_menu" >Installation and Launching</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Installation" class="wiki_menu" >Installation</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Launching" class="wiki_menu" >Launching GAMA</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Headless" class="wiki_menu" >Headless Mode</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Updating" class="wiki_menu" >Updating GAMA</a></div>
+   <div style='padding-left:3em'><a href="/wiki/InstallingPlugins" class="wiki_menu" >Installing Plugins</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Troubleshooting" class="wiki_menu" >Troubleshooting</a></div>
+ <div style='padding-left:1em'><a href="/wiki/WorkspaceProjectsAndModels" class="wiki_menu" >Workspace, Projects and Models</a></div>
+   <div style='padding-left:3em'><a href="/wiki/NavigatingWorkspace" class="wiki_menu" >Navigating in the Workspace</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ChangingWorkspace" class="wiki_menu" >Changing Workspace</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ImportingModels" class="wiki_menu" >Importing Models</a></div>
+ <div style='padding-left:1em'><a href="/wiki/EditingModels" class="wiki_menu" >Editing Models</a></div>
+   <div style='padding-left:3em'><a href="/wiki/GamlEditorGeneralities" class="wiki_menu" >GAML Editor (Generalities)</a></div>
+   <div style='padding-left:3em'><a href="/wiki/GamlEditorToolbar" class="wiki_menu" >GAML Editor Toolbar</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ValidationOfModels" class="wiki_menu" >Validation of Models</a></div>
+ <div style='padding-left:1em'><a href="/wiki/RunningExperiments" class="wiki_menu" >Running Experiments</a></div>
+   <div style='padding-left:3em'><a href="/wiki/LaunchingExperiments" class="wiki_menu" >Launching Experiments</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ExperimentsUserInterface" class="wiki_menu" >Experiments User interface</a></div>
+   <div style='padding-left:3em'><a href="/wiki/MenusAndCommands" class="wiki_menu" >Menus and commands</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ParametersView" class="wiki_menu" >Parameters view</a></div>
+   <div style='padding-left:3em'><a href="/wiki/InspectorsAndMonitors" class="wiki_menu" >Inspectors and monitors</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Displays" class="wiki_menu" >Displays</a></div>
+   <div style='padding-left:3em'><a href="/wiki/BatchSpecific" class="wiki_menu" >Batch Specific UI</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ErrorsView" class="wiki_menu" >Errors View</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Preferences" class="wiki_menu" >Preferences</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/LearnGAMLStepByStep" class="wiki_menu" >Learn GAML step by step</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/Introduction" class="wiki_menu" >Introduction</a></div>
+ <div style='padding-left:1em'><a href="/wiki/StartWithGAML" class="wiki_menu" >Start with GAML</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ModelOrganization" class="wiki_menu" >Organization of a Model</a></div>
+   <div style='padding-left:3em'><a href="/wiki/BasicProgrammingConceptsInGAML" class="wiki_menu" >Basic programming concepts in GAML</a></div>
+ <div style='padding-left:1em'><a href="/wiki/ManipulateBasicSpecies" class="wiki_menu" >Manipulate basic Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/GlobalSpecies" class="wiki_menu" >Global Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/RegularSpecies" class="wiki_menu" >Regular Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningActionsAndBehaviors" class="wiki_menu" >Defining Actions and Behaviors</a></div>
+   <div style='padding-left:3em'><a href="/wiki/InteractionBetweenAgents" class="wiki_menu" >Interaction between Agents</a></div>
+   <div style='padding-left:3em'><a href="/wiki/AttachingSkills" class="wiki_menu" >Attaching Skills</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Inheritance" class="wiki_menu" >Inheritance</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DefiningAdvancedSpecies" class="wiki_menu" >Defining Advanced Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/GridSpecies" class="wiki_menu" >Grid Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/GraphSpecies" class="wiki_menu" >Graph Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/MirrorSpecies" class="wiki_menu" >Mirror Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/MultiLevelArchitecture" class="wiki_menu" >Multi-Level Architecture</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DefiningGUIExperiment" class="wiki_menu" >Defining GUI Experiment</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningParameters" class="wiki_menu" >Defining Parameters</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningDisplaysGeneralities" class="wiki_menu" >Defining Displays Generalities</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningCharts" class="wiki_menu" >Defining Charts</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Defining3DDisplays" class="wiki_menu" >Defining 3D Displays</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningMonitorsAndInspectors" class="wiki_menu" >Defining Monitors and Inspectors</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningExportFiles" class="wiki_menu" >Defining Export files</a></div>
+   <div style='padding-left:3em'><a href="/wiki/DefiningUserInteraction" class="wiki_menu" >Defining User Interaction</a></div>
+ <div style='padding-left:1em'><a href="/wiki/ExploringModels" class="wiki_menu" >Exploring Models</a></div>
+   <div style='padding-left:3em'><a href="/wiki/RunSeveralSimulations" class="wiki_menu" >Run Several Simulations</a></div>
+   <div style='padding-left:3em'><a href="/wiki/BatchExperiments" class="wiki_menu" >Batch Experiments</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ExplorationMethods" class="wiki_menu" >Exploration Methods</a></div>
+ <div style='padding-left:1em'><a href="/wiki/OptimizingModelsSection" class="wiki_menu" >Optimizing Model Section</a></div>
+   <div style='padding-left:3em'><a href="/wiki/RuntimeConcepts" class="wiki_menu" >Runtime Concepts</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OptimizingModels" class="wiki_menu" >Optimizing Models</a></div>
+ <div style='padding-left:1em'><a href="/wiki/MultiParadigmModeling" class="wiki_menu" >Multi-Paradigm Modeling</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ControlArchitecture" class="wiki_menu" >Control Architecture</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Equations" class="wiki_menu" >Defining Equations</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/Recipes" class="wiki_menu" >Recipes</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/ManipulateOSMDatas" class="wiki_menu" >Manipulate OSM Datas</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Diffusion" class="wiki_menu" >Diffusion</a></div>
+ <div style='padding-left:1em'><a href="/wiki/UsingDatabase" class="wiki_menu" >Using Database</a></div>
+ <div style='padding-left:1em'><a href="/wiki/CallingR" class="wiki_menu" >Calling R</a></div>
+ <div style='padding-left:1em'><a href="/wiki/UsingFIPAACL" class="wiki_menu" >Using FIPA ACL</a></div>
+ <div style='padding-left:1em'><a href="/wiki/GamAnalyzer" class="wiki_menu" >Using GamAnalyzer</a></div>
+ <div style='padding-left:1em'><a href="/wiki/UsingBDI" class="wiki_menu" >Using BDI</a></div>
+ <div style='padding-left:1em'><a href="/wiki/UsingDrivingSkill" class="wiki_menu" >Using Driving Skill</a></div>
+ <div style='padding-left:1em'><a href="/wiki/ManipulateDates" class="wiki_menu" >Manipulate dates</a></div>
+ <div style='padding-left:1em'><a href="/wiki/ManipulateLight" class="wiki_menu" >Manipulate lights</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Comodel" class="wiki_menu" >Using comodel</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
+ <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/GamlReference" class="wiki_menu" >GAML References</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/BuiltInSpecies" class="wiki_menu" >Built-in Species</a></div>
+   <div style='padding-left:3em'><a href="/wiki/AgentBuiltIn" class="wiki_menu" >Agent Built-in</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ModelBuiltIn" class="wiki_menu" >Model Built-in</a></div>
+   <div style='padding-left:3em'><a href="/wiki/ExperimentBuiltIn" class="wiki_menu" >Experiment Built-in</a></div>
+ <div style='padding-left:1em'><a href="/wiki/BuiltInSkills" class="wiki_menu" >Built-in Skills</a></div>
+ <div style='padding-left:1em'><a href="/wiki/BuiltInArchitectures" class="wiki_menu" >Built-in Architecture</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Statements" class="wiki_menu" >Statements</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DataTypes" class="wiki_menu" >Data Type</a></div>
+ <div style='padding-left:1em'><a href="/wiki/FileTypes" class="wiki_menu" >File Type</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Expressions" class="wiki_menu" >Expressions</a></div>
+   <div style='padding-left:3em'><a href="/wiki/Literals" class="wiki_menu" >Literals</a></div>
+   <div style='padding-left:3em'><a href="/wiki/UnitsAndConstants" class="wiki_menu" >Units and Constants</a></div>
+   <div style='padding-left:3em'><a href="/wiki/PseudoVariables" class="wiki_menu" >Pseudo Variables</a></div>
+   <div style='padding-left:3em'><a href="/wiki/VariablesAndAttributes" class="wiki_menu" >Variables And Attributes</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsAC" class="wiki_menu" >Operators [A-C]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsDM" class="wiki_menu" >Operators [D-M]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsNZ" class="wiki_menu" >Operators [N-Z]</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Index" class="wiki_menu" >Index</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/Tutorials" class="wiki_menu" >Tutorials</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/PredatorPrey" class="wiki_menu" >Predator Prey</a></div>
+ <div style='padding-left:1em'><a href="/wiki/RoadTrafficModel" class="wiki_menu" >Road Traffic</a></div>
+ <div style='padding-left:1em'><a href="/wiki/ThreeD" class="wiki_menu" >3D Tutorial</a></div>
+ <div style='padding-left:1em'><a href="/wiki/IncrementalModel" class="wiki_menu" >Incremental Model</a></div>
+ <div style='padding-left:1em'><a href="/wiki/LuneraysFlu" class="wiki_menu" >Luneray's flu</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/PedagogicalMaterials" class="wiki_menu" >Pedagogical materials</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/DevelopingExtensions" class="wiki_menu" >Developing Extensions</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/InstallingGitVersion" class="wiki_menu" >Installing the GIT version</a></div>
+ <div style='padding-left:1em'><a href="/wiki/GamaArchitecture" class="wiki_menu" >Architecture of GAMA</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingPlugins" class="wiki_menu" >Developing a Plugin</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingSkills" class="wiki_menu" >Developing a Skill</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingStatements" class="wiki_menu" >Developing a Statement</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingOperators" class="wiki_menu" >Developing an Operator</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingTypes" class="wiki_menu" >Developing a Type</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingSpecies" class="wiki_menu" >Developing a Species</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingControlArchitectures" class="wiki_menu" >Developing a Control Architecture</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingIndexAnnotations" class="wiki_menu" >Index of annotations</a></div>
+ <div style='padding-left:1em'><a href="/wiki/DevelopingIScope" class="wiki_menu" >IScope</a></div>
+ <div style='padding-left:1em'><a href="/wiki/CreatingAReleaseOfGama" class="wiki_menu" >Creating a release of GAMA</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Documentation" class="wiki_menu" >Documentation generation</a></div>
+ <div style='padding-left:1em'><a href="/wiki/WebsiteGeneration" class="wiki_menu" >Website generation</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/References" class="wiki_menu" >Scientific References</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/Projects" class="wiki_menu" >Projects using GAMA</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/TrainingSession" class="wiki_menu" >Training Session</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/Events" class="wiki_menu" >Events</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/OlderVersions" class="wiki_menu" >Older versions</a></b><br/>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b> Coding Camp</b><br/>
+ <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
 </div></div></div></nav></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">

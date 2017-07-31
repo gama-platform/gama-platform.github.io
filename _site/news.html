@@ -12,12 +12,12 @@
 <script src="https://unpkg.com/lunr/lunr.js"></script>
             <div class="w3-bar w3-black w3-hide-small w3-display-center w3-top" style="overflow: visible">
               <div class="w3-left-align">
-              <a href="/" class="w3-bar-item w3-button w3-hover-none"><img src="/images/icon_gama_50.png" style="width:33%"></a>
-              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Documentation</a>
-              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Tutorials</a>
-              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Download</a>
-              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">News</a>
-              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Contribute</a>
+              <a href="/" class="w3-bar-item w3-button w3-hover-none menu"><img src="/images/icon_gama_50.png" style="width:33%"></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Documentation</a>
+              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Tutorials</a>
+              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Download</a>
+              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">News</a>
+              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Contribute</a>
               <div class="w3-bar-item w3-right w3-text-grey"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)" placeholder="Search..">
                     <i class="fa fa-search w3-text-grey w3-hover-text-white" aria-hidden="true" onclick="search();"></i>
                     <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right w3-quarter " style="display:none;right:0;opacity: 0.9;" id="rightMenu">
@@ -3289,45 +3289,45 @@ function closeRightMenu() {
 }
 </script>
 
-                <div class="w3-quarter w3-round-large w3-margin-left w3-padding-16">
-        <div class="w3-white w3-border w3-border-grey w3-margin-left w3-twothird">
+            <div  class="w3-quarter w3-round-large w3-margin-left w3-padding-16">
+        <div class="w3-white w3-border w3-border-grey w3-margin-left w3-margin-right">
                 <div class="w3-row" id="tabMenuNews">
                     <div class="w3-col l3 m3 s3 w3-center  w3-white">
-                        <i id="facebook" class="fa fa-2x fa-facebook-official w3-text-black" aria-hidden="true" onclick="facebook();"></i>
+                        <i id="facebook" class='fa fa-2x fa-facebook-official w3-text-black' aria-hidden='true' onclick='facebook();'></i>
                     </div>
                     <div class="w3-col l3 m3 s3 w3-black w3-center">
-                        <i id="commits" class="fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white" aria-hidden="true" onclick="commits();"></i>
+                        <i id="commits" class='fa fa-2x fa-git w3-text-grey w3-hover-none w3-hover-text-white' aria-hidden='true' onclick='commits();'></i>
                     </div>
                     <div class="w3-col l3 m3 s3 w3-black w3-center">
-                        <i id="issues" class="fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white" aria-hidden="true" onclick="issues();"></i>
+                        <i id="issues" class='fa fa-2x fa-github w3-text-grey w3-hover-none w3-hover-text-white' aria-hidden='true' onclick='issues();'></i>
                     </div>
                     <div class="w3-col l3 m3 s3 w3-black w3-center">
-                        <i id="google" class="fa fa-2x fa-google w3-text-grey w3-hover-none  w3-hover-text-white" aria-hidden="true" onclick="google();"></i>
+                        <i id="google" class='fa fa-2x fa-google w3-text-grey w3-hover-none  w3-hover-text-white' aria-hidden='true' onclick='google();'></i>
                     </div>
                </div>
                <div id="quotes" class="w3-white w3-small w3-margin">
                </div>
         </div>
-        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-margin-right w3-padding-16">
             <span class="w3-center"><h3><b>Mailing list</b></h3></span>
-                <p class="w3-margin"><i class="fa fa-envelope" aria-hidden="true"></i>  For Users<br />
-                    <span class="w3-small"><a href="https://groups.google.com/forum/#!forum/gama-platform">gama-platform@googlegroups.com</a></span><br />
-                    <i class="fa fa-envelope" aria-hidden="true"></i>  For Developers<br />
+                <p class="w3-margin"><i class="fa fa-envelope" aria-hidden="true"></i>  For Users<br/>
+                    <span class="w3-small"><a href="https://groups.google.com/forum/#!forum/gama-platform">gama-platform@googlegroups.com</a></span><br/>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>  For Developers<br/>
                     <span class="w3-small"><a href="https://groups.google.com/forum/#!forum/gama-dev">gama-dev@googlegroups.com</a></span>
                 </p>
         </div>
     
-        <div class="w3-white w3-border w3-border-grey w3-margin w3-twothird w3-padding-16">
+        <div class="w3-white w3-border w3-border-grey w3-margin w3-margin-right w3-padding-16">
             <span class="w3-center"><h3><b>Networks</b></h3></span>
                 <p class=" w3-margin">
-                    <i class="fa fa-youtube" aria-hidden="true"></i>  <a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ">Youtube</a><br />
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>  <a href="https://www.linkedin.com/company/gama-platform">LinkedIn </a><br />
-                    <i class="fa fa-twitter" aria-hidden="true"></i>  <a href="https://twitter.com/gamaplatform">Twitter</a><br />
+                    <i class="fa fa-youtube" aria-hidden="true"></i>  <a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ">Youtube</a><br/>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>  <a href="https://www.linkedin.com/company/gama-platform">LinkedIn </a><br/>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>  <a href="https://twitter.com/gamaplatform">Twitter</a><br/>
                     <i class="fa fa-facebook" aria-hidden="true"></i>  <a href="https://www.facebook.com/GamaPlatform/">Facebook</a>
                 </p>
         </div>
  </div>
-<script>
+ <script>
    var nbWords = 20
    function truncate(str, no_words) 
    {
@@ -3426,28 +3426,27 @@ function closeRightMenu() {
   }
   
 </script>
-
-<div class="w3-row-padding w3-container w3-threequarter w3-content">
-    <h2> News </h2>
-    <div>
+            <div class="w3-row-padding w3-container w3-threequarter w3-content" markdown="1">
+                <h2> News </h2>
+<div>
+    
+        
+    <div class="w3-margin-left w3-margin-bottom">
+      <table>
+        <tr>
+          <td>
+      <img src="/images/3D_noise.png" alt="Gama Post" style="width:100px; height:100px" />
+        </td><td><a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">3D Noise Generator</a><small>   <strong><span class="w3-border w3-border-light-gray w3-text-deep-purple w3-light-gray w3-round-small">July  3, 2017 -  Damien Philippon</span></strong> </small>			
+      </td>
+        </tr>
+    </table><div class=" w3-margin span10 w3-text-black w3-white w3-round-large w3-border w3-border-blue">
+            <p class="w3-margin"><small>3D Noise Generator Noise generation is now being added to GAMA Platform as a feature to generate in a procedural way textures, mountains, ground. It consists in using gradient noises, reducing heterogeineity caused by randomness. The most famous example might be Perlin Noise developed by Ken Perlin to fight against the machine-like look of the computer graphics. It can be used to simulate clouds, fire, and also different types of textures. In GAMA Platform, we decided to add a possibility... <a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">See more</a></small>
+            </p>
+      </div>
+    </div>	
     	
-            
-        <div class="w3-margin-left w3-margin-bottom">
-          <table>
-            <tr>
-              <td>
-          <img src="/images/3D_noise.png" alt="Gama Post" style="width:100px; height:100px" />
-            </td><td><a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">3D Noise Generator</a><small>   <strong><span class="w3-border w3-border-light-gray w3-text-deep-purple w3-light-gray w3-round-small">July  3, 2017 -  Damien Philippon</span></strong> </small>			
-          </td>
-            </tr>
-        </table><div class=" w3-margin span10 w3-text-black w3-white w3-round-large w3-border w3-border-blue">
-                <p class="w3-margin"><small>3D Noise Generator Noise generation is now being added to GAMA Platform as a feature to generate in a procedural way textures, mountains, ground. It consists in using gradient noises, reducing heterogeineity caused by randomness. The most famous example might be Perlin Noise developed by Ken Perlin to fight against the machine-like look of the computer graphics. It can be used to simulate clouds, fire, and also different types of textures. In GAMA Platform, we decided to add a possibility... <a href="/gama%20new%20feature/experimental/2017/07/03/3D-Noise-Generator.html">See more</a></small>
-                </p>
-          </div>
-        </div>	
-        	
-    </div>
 </div>
 
+            </div>
         </body>
     </html>

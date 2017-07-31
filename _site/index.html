@@ -12,12 +12,12 @@
 <script src="https://unpkg.com/lunr/lunr.js"></script>
             <div class="w3-bar w3-black w3-hide-small w3-display-center w3-top" style="overflow: visible">
               <div class="w3-left-align">
-              <a href="/" class="w3-bar-item w3-button w3-hover-none"><img src="/images/icon_gama_50.png" style="width:33%"></a>
-              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Documentation</a>
-              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Tutorials</a>
-              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Download</a>
-              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">News</a>
-              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white">Contribute</a>
+              <a href="/" class="w3-bar-item w3-button w3-hover-none menu"><img src="/images/icon_gama_50.png" style="width:33%"></a>
+              <a href="/wiki/Home" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Documentation</a>
+              <a href="/wiki/Tutorials" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Tutorials</a>
+              <a href="/download" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Download</a>
+              <a href="/news" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">News</a>
+              <a href="/contribute" class="w3-bar-item w3-button w3-text-grey w3-hover-none w3-hover-text-white menu">Contribute</a>
               <div class="w3-bar-item w3-right w3-text-grey"><input type="text" id="search-box" name="search-box" onkeypress="return checkEntry(event)" placeholder="Search..">
                     <i class="fa fa-search w3-text-grey w3-hover-text-white" aria-hidden="true" onclick="search();"></i>
                     <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right w3-quarter " style="display:none;right:0;opacity: 0.9;" id="rightMenu">
@@ -3290,7 +3290,7 @@ function closeRightMenu() {
 </script>
 
             
-            <div class="w3-content">
+            <div class="w3-content" markdown="1">
                 <header class="w3-display-container w3-wide" id="home">
                     <img class="w3-image" src="/images/GamaPlatform.png" alt="Gama Platform" width="1600" height="1060" />
                     <div class="w3-display-right w3-padding-large">
@@ -3310,7 +3310,7 @@ function closeRightMenu() {
         <li><a href="#declarative-user-interface"><strong>Declarative user interface :</strong></a> Declare interfaces supporting deep inspections on agents, user-controlled action panels, multi-layer 2D/3D displays &amp; agent aspects.</li>
       </ul>
 
-      <p>Its latest version, <strong>1.7</strong>, can be freely <a href="Download">downloaded</a> or <a href="https://github.com/gama-platform/gama/">built from source</a>, and comes pre-loaded with several models, <a href="Tutorials">tutorials</a> and a complete <a href="Overview">on-line documentation</a>.</p>
+      <p>Its latest version, <strong>1.7</strong>, can be freely <a href="Download">downloaded</a> or <a href="https://github.com/gama-platform/gama/">built from source</a>, and comes pre-loaded with several models, <a href="/wiki/Tutorials">tutorials</a> and a complete <a href="/wiki/Overview">on-line documentation</a>.</p>
 
     </div>
 </div>
@@ -3386,20 +3386,21 @@ function closeRightMenu() {
     </div>
   </div>
 </div>
-______________________________________
+<!-- Second Grid -->
+<div class="w3-row-padding w3-white w3-padding-64 w3-container">
+  <div class="w3-content">
+      <p>GAMA is developed by several teams under the umbrella of the IRD/UPMC international research unit <a href="http://www.ummisco.ird.fr/">UMMISCO</a>:</p>
 
-
-GAMA is developed by several teams under the umbrella of the IRD/UPMC international research unit [UMMISCO](http://www.ummisco.ird.fr/):
-
-* [MSI Research Team](http://www.ifi.auf.org/site/content/view/35/46/lang,french/), Vietnam National University, Hanoi, Vietnam (2007 - 2015)
-* [UMR 6228 IDEES](http://www.umr-idees.fr), CNRS/University of Rouen, France (2010 - 2015)
-* [UMR 5505 IRIT](http://www.irit.fr), CNRS/University of Toulouse 1, France (2010 - 2015)
-* [DREAM Research Team](http://www.cit.ctu.edu.vn), University of Can Tho, Vietnam (2011 - 2015)
-* [UMR 8623 LRI](http://www.lri.fr), CNRS/University Paris-Sud, France (2011 - 2015)
-
----
-
-</div>
+      <ul>
+        <li><a href="http://www.ifi.auf.org/site/content/view/35/46/lang,french/">MSI Research Team</a>, Vietnam National University, Hanoi, Vietnam (2007 - 2015)</li>
+        <li><a href="http://www.umr-idees.fr">UMR 6228 IDEES</a>, CNRS/University of Rouen, France (2010 - 2015)</li>
+        <li><a href="http://www.irit.fr">UMR 5505 IRIT</a>, CNRS/University of Toulouse 1, France (2010 - 2015)</li>
+        <li><a href="http://www.cit.ctu.edu.vn">DREAM Research Team</a>, University of Can Tho, Vietnam (2011 - 2015)</li>
+        <li><a href="http://www.lri.fr">UMR 8623 LRI</a>, CNRS/University Paris-Sud, France (2011 - 2015)
+&lt;/div&gt;</li>
+      </ul>
+    </div>
+</div></div>
 
             </div>
             

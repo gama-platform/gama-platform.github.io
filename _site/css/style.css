@@ -25,3 +25,29 @@ pre code {
     padding: 2px;
     font:12px Monaco,Consolas,"Andale  Mono","DejaVu Sans Mono",monospace
 }
+a:not(.wiki_menu):not(.menu):link
+{
+    text-decoration: none;
+    color: #1674a2;
+}
+a:not(.wiki_menu):not(.menu):visited
+{
+    text-decoration:none;
+    color: #1674a2;
+}
+a:not(.wiki_menu):not(.menu):hover
+{
+    text-decoration: underline;
+    color: #1674a2;
+}
+.wiki_menu
+{
+    text-decoration: none;
+    color: #black;
+}
+.wiki_menu:hover
+{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #1674a2;
+}
