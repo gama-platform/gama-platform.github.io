@@ -336,27 +336,27 @@ def defineLayoutMenu
     <div class="w3-row-padding w3-container">
         <div>
              <div class="w3-quarter">
-                <div class="w3-twothird">
-		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-blue"  style="margin-left:10px" id="mySidebar">
-                    <div class="w3-medium w3-text-white w3-margin-left" style="font-weight:bold"><div id="sub" class="w3-padding-small w3-bar-block w3-small">'
+                <div class="w3-margin-right">
+		<nav class="w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left w3-small w3-round w3-light-gray w3-border w3-border-black"  style="margin-left:10px" id="mySidebar">
+                    <div class="w3-medium w3-text-black w3-margin-left" style=""><div id="sub" class="w3-bar-block w3-small">'
           
           title=line.gsub("#","")
-          newLayout.puts "<h4>"+linkup(title)+"</h4><br/>"
+          newLayout.puts "<b>"+linkup(title)+"</b><br/>"
           oldUnder=1
         else
-          newLayout.puts "</div>      <div id='sub' class=' w3-padding-small w3-bar-block w3-small'>"
+          newLayout.puts "</div>      <div id='sub' class='w3-bar-block w3-small'>"
           title=line.gsub("#","")
-          newLayout.puts "<h4>"+linkup(title)+"</h4><br/>"
+          newLayout.puts "<b>"+linkup(title)+"</b><br/>"
         end
       else
-          title=line.gsub("#","")
+          title=line.gsub("#"," ")
           ind = 0
           strSpace =""
           while ind < getNbWSpacesBeforeCharacter(title)  do
             ind=ind+1
-            strSpace=strSpace+"-"
+            strSpace=strSpace+" "
           end
-          newLayout.puts strSpace+" "+linkup(title)+"<br/>"
+          newLayout.puts strSpace+"<div style='padding-left:"+ind.to_s+"em'>"+linkup(title)+"</div>"
       end
       
     end
@@ -379,7 +379,9 @@ def getNbWSpacesBeforeCharacter(str)
         if(i==" ")
             nbSpace=nbSpace+1
         else
-            break
+            if(i=="[")
+                break
+            end
         end
     end
     return nbSpace
@@ -430,7 +432,7 @@ def linkup( str )
     if(posStarting==-1)
         str=label
     else
-        str='<a href="/wiki/'+link+'">'+label+'</a>'
+        str='<a href="/wiki/'+link+'" class="wiki_menu" >'+label+'</a>'
     end
 end
 #-----------------------------------------
@@ -471,7 +473,11 @@ task :wikibuild do |t|
   puts ':rake =>wikibuild'
   wikibuildfunction
 end
-
+#Function to define the menu
+task :wikimenu do |t|
+  puts ':rake =>wikimenu'
+  defineLayoutMenu()
+end
 
 
 task :prod do |t|

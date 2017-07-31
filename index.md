@@ -19,7 +19,7 @@ GAMA is a modeling and simulation development environment for building spatially
 * [**GIS and Data-Driven models :**](#gis-and-data-driven-models) Instantiate agents from any dataset, including GIS data, and execute large-scale simulations (up to millions of agents).
 * [**Declarative user interface :**](#declarative-user-interface) Declare interfaces supporting deep inspections on agents, user-controlled action panels, multi-layer 2D/3D displays & agent aspects.
 
-Its latest version, **1.7**, can be freely [downloaded](Download) or [built from source](https://github.com/gama-platform/gama/), and comes pre-loaded with several models, [tutorials](Tutorials) and a complete [on-line documentation](Overview).
+Its latest version, **1.7**, can be freely [downloaded](Download) or [built from source](https://github.com/gama-platform/gama/), and comes pre-loaded with several models, [tutorials](/wiki/Tutorials) and a complete [on-line documentation](/wiki/Overview).
 
   </div>
 </div>
@@ -95,9 +95,9 @@ Its latest version, **1.7**, can be freely [downloaded](Download) or [built from
     </div>
   </div>
 </div>
-______________________________________
-
-
+<!-- Second Grid -->
+<div class="w3-row-padding w3-white w3-padding-64 w3-container">
+  <div class="w3-content" markdown="1">
 GAMA is developed by several teams under the umbrella of the IRD/UPMC international research unit [UMMISCO](http://www.ummisco.ird.fr/):
 
 * [MSI Research Team](http://www.ifi.auf.org/site/content/view/35/46/lang,french/), Vietnam National University, Hanoi, Vietnam (2007 - 2015)
@@ -105,6 +105,5 @@ GAMA is developed by several teams under the umbrella of the IRD/UPMC internatio
 * [UMR 5505 IRIT](http://www.irit.fr), CNRS/University of Toulouse 1, France (2010 - 2015)
 * [DREAM Research Team](http://www.cit.ctu.edu.vn), University of Can Tho, Vietnam (2011 - 2015)
 * [UMR 8623 LRI](http://www.lri.fr), CNRS/University Paris-Sud, France (2011 - 2015)
-
----
-
+  </div>
+</div>

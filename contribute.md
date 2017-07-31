@@ -1,37 +1,28 @@
 ---
-layout: other
+layout: with_news
 title: Contribute
 ---
-
-{% include news_side.html %}
-
-<div class="w3-row-padding w3-container w3-threequarter w3-content" markdown="1">
 
 # Contribute
 
 Since GAMA is a free opensource software, we are proud to share the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extand through the use of additionnal plugins.
 
-## Source Code
-
+## <i class="fa fa-git w3-text-black" aria-hidden="true"></i>  Source Code
 GAMA can be downloaded as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
-The source code is available from this GITHub repository:
-
-```
-https://github.com/gama-platform/gama
-```
+The source code is available from this [GITHub repository](https://github.com/gama-platform/gama)
 
 Which you can also browse from the web [here](https://github.com/gama-platform/gama).
 It is, in any case, recommended to follow the instructions on [this page](https://github.com/gama-platform/gama/wiki/InstallingGitVersion) in order to build GAMA from source.
 
-## Reporting an Issue
+## <i class="fa fa-github w3-text-black" aria-hidden="true"></i>  Reporting an Issue
 
 If you want to report a bug, request an enhancement, it is possible via [Gama Platform Github Page](https://github.com/gama-platform/gama/issues).
 
-## GAMA Dev mailing list
+## <i class="fa fa-envelope w3-text-black" aria-hidden="true"></i>  GAMA Dev mailing list
 
 If you want to contribute to the platform, you can send a request to the developping team to be in the [gama-dev@googlegroups.com mailing list](http://groups.google.com/group/gama-dev).
 
-## Developers
+## <i class="fa fa-users w3-text-black" aria-hidden="true"></i>  Developers
 
 GAMA is being designed, developed and maintained by an active group of researchers coming from different institutions in France and Vietnam. Please find below a short introduction to each of them and a summary of their contributions to the platform:
 
@@ -45,7 +36,7 @@ GAMA is being designed, developed and maintained by an active group of researche
 * **[Philippe Caillou](https://www.lri.fr/~caillou)**, Associate professor at the [University Paris Sud 11](http://www.u-psud.fr), member of the [LRI](http://www.lri.fr) and [INRIA](http://www.inria.fr) project-team [TAO](https://tao.lri.fr/tiki-index.php). Contributes since 2012 and actually working on charts, simulation analysis and BDI agents.
 * **[Vo Duc An](https://www.researchgate.net/profile/Duc-An_Vo)**, Post-doctoral Researcher, working on synthetic population generation in agent-based modelling, at the [UMMISCO](http://www.ummisco.ird.fr) International Research Unit of the [IRD](http://www.ird.fr). Has contributed to bringing the platform to the Eclipse RCP environment and to the development of several features (e.g., the FIPA-compliant agent communication capability, the multi-level architecture).
 * **[Truong Xuan Viet](https://www.researchgate.net/profile/Viet_Truong_Xuan)**, software engineering lecturer at [CTU](http://www.ctu.edu.vn) and PhD fellow ([PDI-MSC](http://www.ummisco.ird.fr/pdi/)) at [UPMC](http://www.upmc.fr/). Contributes since 2011 to the development of new features related to R caller, online GIS (OPENGIS: Web Map Service - WMS, Web Feature Services - WMS, Google map, etc).
-  * Samuel Thiriot
+* **[Samuel Thiriot](https://www.researchgate.net/profile/Samuel_Thiriot/publications)**
 
 
 ## Citing GAMA
@@ -57,5 +48,4 @@ or you can choose to cite the website instead:
 
 > GAMA Platform website, http://gama-platform.org
 
-A complete list of references (papers and PhD theses on or using GAMA) is available on the [references](References) page.
-</div>
+A complete list of references (papers and PhD theses on or using GAMA) is available on the [references](/wiki/References) page.

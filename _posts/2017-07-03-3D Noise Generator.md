@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: with_news
 title: 3D Noise Generator
 categories: ['Gama New Feature','Experimental']
 date: 03-07-2017
