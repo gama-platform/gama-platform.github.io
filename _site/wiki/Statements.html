@@ -7170,7 +7170,8 @@ reflex writing {
   <li><code class="highlighter-rouge">compile</code> (boolean):</li>
   <li><code class="highlighter-rouge">control</code> (22): defines the architecture of the species (e.g. fsm…)</li>
   <li><code class="highlighter-rouge">edge_species</code> (species): In the case of a species defining a graph topology for its instances (nodes of the graph), specifies the species to use for representing the edges</li>
-  <li><code class="highlighter-rouge">file</code> (file): (grid only), a bitmap file that will be loaded at runtime so that the value of each pixel  can be assigned to the attribute ‘grid_value’</li>
+  <li><code class="highlighter-rouge">file</code> (file): (grid only), a bitmap file that will be loaded at runtime so that the value of each pixel can be assigned to the attribute ‘grid_value’</li>
+  <li><code class="highlighter-rouge">files</code> (list): (grid only), a list of bitmap file that will be loaded at runtime so that the value of each pixel of each file can be assigned to the attribute ‘bands’</li>
   <li><code class="highlighter-rouge">frequency</code> (int): The execution frequency of the species (default value: 1). For instance, if frequency is set to 10, the population of agents will be executed only every 10 cycles.</li>
   <li><code class="highlighter-rouge">height</code> (int): (grid only),  the height of the grid (in terms of agent number)</li>
   <li><code class="highlighter-rouge">mirrors</code> (any type in [list, species]): The species this species is mirroring. The population of this current species will be dependent of that of the species mirrored (i.e. agents creation and death are entirely taken in charge by GAMA with respect to the demographics of the species mirrored). In addition, this species is provided with an attribute called ‘target’, which allows each agent to know which agent of the mirrored species it is representing.</li>
