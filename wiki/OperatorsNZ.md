@@ -411,46 +411,46 @@ container var3 <- graphFromMap neighbors_of node({12,45}); 	// var3 equals [{1.0
   *  **`new_emotion`** (`string`) --->  `emotion`
   * `string` **`new_emotion`** `float` --->  `emotion`
   *  **`new_emotion`** (`string` , `float`) --->  `emotion`
-  * `string` **`new_emotion`** `predicate` --->  `emotion`
-  *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
   * `string` **`new_emotion`** `agent` --->  `emotion`
   *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
+  * `string` **`new_emotion`** `predicate` --->  `emotion`
+  *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
   *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
 #### Result: 
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
+a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name, intensity)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,about)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 
 #### Examples: 
 ```
 emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3,4)
+emotion("joy",12.3,eatFood)
+emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3)
 emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3,eatFood,4)
 emotion("joy")
-emotion("joy",12.3,eatFood)
+emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3,eatFood,4)
 emotion("joy",eatFood)
-emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3,eatFood,4)
 ```
   
@@ -487,78 +487,78 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `int` --->  `predicate`
-  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
-  * `string` **`new_predicate`** `agent` --->  `predicate`
-  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
-  * `string` **`new_predicate`** `map` --->  `predicate`
-  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
   * `string` **`new_predicate`** `bool` --->  `predicate`
   *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
   * `string` **`new_predicate`** `float` --->  `predicate`
   *  **`new_predicate`** (`string` , `float`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  * `string` **`new_predicate`** `agent` --->  `predicate`
+  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
+  * `string` **`new_predicate`** `map` --->  `predicate`
+  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
+  * `string` **`new_predicate`** `int` --->  `predicate`
+  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`, `agent`) --->  `predicate` 
 
 #### Result: 
-a new predicate with the given properties (name, values, priority, lifetime, agentCause)
-a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name, values, priority, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, priority, agentCause)
-a new predicate with the given properties (name, values, priority,lifetime)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, priority)
-a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, priority, lifetime, is_true)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, 	agentCause)
-a new predicate with the given properties (name, values, priority, is_true)
 a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, priority, lifetime, is_true)
+a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, priority, lifetime, agentCause)
+a new predicate with the given properties (name, values, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime, is_true)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, priority,lifetime)
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, priority, is_true, agentCause)
+a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
 a new predicate with the given is_true (name, priority)
+a new predicate with the given properties (name, values, priority, is_true)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values, priority)
+a new predicate with the given properties (name, values, priority, agentCause)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values)
+a new predicate with the given is_true (name, lifetime)
 
 #### Examples: 
 ```
-predicate("people to meet", ["time"::10], 2.0,10,agentA)
-predicate("people to meet", ["time"::10], 10, agentA)
-predicate("people to meet", ["time"::10], 2.0, true, agentA)
-predicate("people to meet", ["time"::10], 10, true, agentA)
-predicate("people to meet", ["time"::10], 2.0,agentA)
-predicate("people to meet", ["time"::10], 2.0,10)
-predicate("people to meet", ["time"::10], true)
-predicate("people to meet", ["time"::10], true)
-predicate("hasWater", 10 
-predicate("people to meet", people1, ["time"::10])
-predicate("people to meet", ["time"::10],2.0,10, true, agentA)
-predicate("people to meet", ["time"::10],2.0,10, true)
-predicate("people to meet", ["time"::10], true)
-predicate("people to meet", ["time"::10], true, agentA)
-predicate("people to meet")
-predicate("people to meet", people1 )
-predicate("people to meet", ["time"::10], agentA)
-predicate("people to meet", ["time"::10],2.0, true)
 predicate("hasWater", true)
+predicate("people to meet", ["time"::10], true)
+predicate("people to meet", ["time"::10], 10, true, agentA)
+predicate("people to meet", ["time"::10],2.0,10, true)
+predicate("people to meet", ["time"::10], agentA)
+predicate("people to meet", ["time"::10], 2.0,10,agentA)
+predicate("people to meet", ["time"::10], true, agentA)
 predicate("people to meet", ["time"::10], 10,true)
+predicate("people to meet", ["time"::10], 10, agentA)
+predicate("people to meet", ["time"::10], 2.0,10)
+predicate("people to meet")
+predicate("people to meet", ["time"::10], 2.0, true, agentA)
+predicate("people to meet", ["time"::10],2.0,10, true, agentA)
 predicate("hasWater", 2.0 )
+predicate("people to meet", ["time"::10],2.0, true)
+predicate("people to meet", ["time"::10], true)
+predicate("people to meet", people1, ["time"::10])
+predicate("people to meet", ["time"::10], 2.0,agentA)
+predicate("people to meet", ["time"::10], true)
+predicate("people to meet", people1 )
+predicate("hasWater", 10 
 ```
   
     	
@@ -825,8 +825,8 @@ predicate1 or predicate2
   *  **`osm_file`** (`string`, `map<string,list>`, `int`) --->  `file` 
 
 #### Result: 
-opens a file that a is a kind of OSM file with some filtering.
-opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.  
+opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.
+opens a file that a is a kind of OSM file with some filtering.  
 
 #### Comment: 
 The file should have a OSM file extension, cf. file type definition for supported file extensions.The file should have a OSM file extension, cf. file type definition for supported file extensions.
@@ -837,8 +837,8 @@ The file should have a OSM file extension, cf. file type definition for supporte
 
 #### Examples: 
 ```
-file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]);
 file myOSMfile2 <- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0);
+file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]);
 ```
       
 
@@ -1007,31 +1007,31 @@ Casts the operand into the type path
 #### Possible use: 
   * `topology` **`path_between`** `container<geometry>` --->  `path`
   *  **`path_between`** (`topology` , `container<geometry>`) --->  `path`
-  * `list<agent>` **`path_between`** `container<geometry>` --->  `path`
-  *  **`path_between`** (`list<agent>` , `container<geometry>`) --->  `path`
   * `java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>` **`path_between`** `container<geometry>` --->  `path`
   *  **`path_between`** (`java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>` , `container<geometry>`) --->  `path`
-  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path`
+  * `list<agent>` **`path_between`** `container<geometry>` --->  `path`
+  *  **`path_between`** (`list<agent>` , `container<geometry>`) --->  `path`
   *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path` 
+  *  **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path` 
 
 #### Result: 
-The shortest path between two objects according to set of cells
 The shortest path between a list of two objects in a graph
 The shortest path between two objects according to set of cells with corresponding weights
-The shortest path between several objects according to set of cells
 The shortest path between several objects according to set of cells with corresponding weights
+The shortest path between two objects according to set of cells
+The shortest path between several objects according to set of cells
 
 #### Examples: 
 ```
-path var0 <- my_topology path_between [ag1, ag2]; 	// var0 equals A path between ag1 and ag2
-path var1 <- path_between (cell_grid where each.is_free, ag1, ag2); 	// var1 equals A path between ag1 and ag2 passing through the given cell_grid agents
-path var2 <- path_between (my_graph, ag1, ag2); 	// var2 equals A path between ag1 and ag2
-path var3 <- my_topology path_between (ag1, ag2); 	// var3 equals A path between ag1 and ag2
-path var4 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); 	// var4 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost
-path var5 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); 	// var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents
-path var6 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); 	// var6 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost
+path var0 <- my_topology path_between (ag1, ag2); 	// var0 equals A path between ag1 and ag2
+path var1 <- path_between (my_graph, ag1, ag2); 	// var1 equals A path between ag1 and ag2
+path var2 <- my_topology path_between [ag1, ag2]; 	// var2 equals A path between ag1 and ag2
+path var3 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); 	// var3 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost
+path var4 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); 	// var4 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost
+path var5 <- path_between (cell_grid where each.is_free, ag1, ag2); 	// var5 equals A path between ag1 and ag2 passing through the given cell_grid agents
+path var6 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); 	// var6 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents
 ```
       
 
@@ -1300,33 +1300,33 @@ Same signification as [normal_area](OperatorsNZ#normal_area)
 ### `point`
 
 #### Possible use: 
-  * `int` **`point`** `int` --->  `point`
-  *  **`point`** (`int` , `int`) --->  `point`
   * `float` **`point`** `int` --->  `point`
   *  **`point`** (`float` , `int`) --->  `point`
+  * `int` **`point`** `int` --->  `point`
+  *  **`point`** (`int` , `int`) --->  `point`
   * `int` **`point`** `float` --->  `point`
   *  **`point`** (`int` , `float`) --->  `point`
   * `float` **`point`** `float` --->  `point`
   *  **`point`** (`float` , `float`) --->  `point`
+  *  **`point`** (`int`, `int`, `int`) --->  `point`
+  *  **`point`** (`int`, `float`, `float`) --->  `point`
   *  **`point`** (`float`, `float`, `int`) --->  `point`
   *  **`point`** (`int`, `int`, `float`) --->  `point`
   *  **`point`** (`float`, `int`, `int`) --->  `point`
   *  **`point`** (`float`, `float`, `float`) --->  `point`
-  *  **`point`** (`float`, `int`, `float`) --->  `point`
-  *  **`point`** (`int`, `int`, `int`) --->  `point`
-  *  **`point`** (`int`, `float`, `float`) --->  `point` 
+  *  **`point`** (`float`, `int`, `float`) --->  `point` 
 
 #### Result: 
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
     	
 ----
@@ -1747,9 +1747,9 @@ the center of the rectangle is by default the location of the current agent in w
 
 #### Examples: 
 ```
-geometry var0 <- rectangle(10, 5); 	// var0 equals a geometry as a rectangle with width = 10 and height = 5.
-geometry var1 <- rectangle({2.0,6.0}, {6.0,20.0}); 	// var1 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
-geometry var2 <- rectangle({10, 5}); 	// var2 equals a geometry as a rectangle with width = 10 and height = 5.
+geometry var0 <- rectangle({10, 5}); 	// var0 equals a geometry as a rectangle with width = 10 and height = 5.
+geometry var1 <- rectangle(10, 5); 	// var1 equals a geometry as a rectangle with width = 10 and height = 5.
+geometry var2 <- rectangle({2.0,6.0}, {6.0,20.0}); 	// var2 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
 ```
       
 
@@ -1919,12 +1919,12 @@ graph var1 <- graphEpidemio rewire_n 10; 	// var1 equals the graph with 3 edges 
 ### `rgb`
 
 #### Possible use: 
-  * `rgb` **`rgb`** `float` --->  `rgb`
-  *  **`rgb`** (`rgb` , `float`) --->  `rgb`
   * `string` **`rgb`** `int` --->  `rgb`
   *  **`rgb`** (`string` , `int`) --->  `rgb`
   * `rgb` **`rgb`** `int` --->  `rgb`
   *  **`rgb`** (`rgb` , `int`) --->  `rgb`
+  * `rgb` **`rgb`** `float` --->  `rgb`
+  *  **`rgb`** (`rgb` , `float`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `int`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `float`) --->  `rgb` 
@@ -1933,21 +1933,21 @@ graph var1 <- graphEpidemio rewire_n 10; 	// var1 equals the graph with 3 edges 
 Returns a color defined by red, green, blue components and an alpha blending value.
 
 #### Special cases:     
-  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
   * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)    
-  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)    
-  * It can be used with a color and an alpha between 0 and 1    
+  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
   * It can be used with a name of color and alpha (between 0 and 255)    
-  * It can be used with a color and an alpha between 0 and 255
+  * It can be used with a color and an alpha between 0 and 255    
+  * It can be used with a color and an alpha between 0 and 1    
+  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)
 
 #### Examples: 
 ```
-rgb var0 <- rgb (255,0,0); 	// var0 equals #red
-rgb var1 <- rgb (255,0,0,125); 	// var1 equals a light red color
-rgb var3 <- rgb (255,0,0,0.5); 	// var3 equals a light red color
-rgb var4 <- rgb(rgb(255,0,0),0.5); 	// var4 equals a light red color
-rgb var5 <- rgb ("red"); 	// var5 equals rgb(255,0,0)
-rgb var6 <- rgb(rgb(255,0,0),125); 	// var6 equals a light red color
+rgb var0 <- rgb (255,0,0,125); 	// var0 equals a light red color
+rgb var2 <- rgb (255,0,0); 	// var2 equals #red
+rgb var3 <- rgb ("red"); 	// var3 equals rgb(255,0,0)
+rgb var4 <- rgb(rgb(255,0,0),125); 	// var4 equals a light red color
+rgb var5 <- rgb(rgb(255,0,0),0.5); 	// var5 equals a light red color
+rgb var6 <- rgb (255,0,0,0.5); 	// var6 equals a light red color
 ```
       
 
@@ -1989,18 +1989,18 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 ### `rnd`
 
 #### Possible use: 
-  *  **`rnd`** (`int`) --->  `int`
   *  **`rnd`** (`point`) --->  `point`
   *  **`rnd`** (`float`) --->  `float`
-  * `float` **`rnd`** `float` --->  `float`
-  *  **`rnd`** (`float` , `float`) --->  `float`
-  * `int` **`rnd`** `int` --->  `int`
-  *  **`rnd`** (`int` , `int`) --->  `int`
+  *  **`rnd`** (`int`) --->  `int`
   * `point` **`rnd`** `point` --->  `point`
   *  **`rnd`** (`point` , `point`) --->  `point`
+  * `int` **`rnd`** `int` --->  `int`
+  *  **`rnd`** (`int` , `int`) --->  `int`
+  * `float` **`rnd`** `float` --->  `float`
+  *  **`rnd`** (`float` , `float`) --->  `float`
+  *  **`rnd`** (`float`, `float`, `float`) --->  `float`
   *  **`rnd`** (`int`, `int`, `int`) --->  `int`
-  *  **`rnd`** (`point`, `point`, `float`) --->  `point`
-  *  **`rnd`** (`float`, `float`, `float`) --->  `float` 
+  *  **`rnd`** (`point`, `point`, `float`) --->  `point` 
 
 #### Result: 
 a random integer in the interval [0, operand]  
@@ -2014,16 +2014,16 @@ to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n
 
 #### Examples: 
 ```
-int var0 <- rnd (2, 12, 4); 	// var0 equals 2, 6 or 10
-int var1 <- rnd (2); 	// var1 equals 0, 1 or 2
-float var2 <- rnd (1000) / 1000; 	// var2 equals a float between 0 and 1 with a precision of 0.001
-float var3 <- rnd (2.0, 4.0); 	// var3 equals a float number between 2.0 and 4.0
-int var4 <- rnd (2, 4); 	// var4 equals 2, 3 or 4
-point var5 <- rnd ({2.5,3, 0.0}); 	// var5 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0
-point var6 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); 	// var6 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
-float var7 <- rnd (2.0, 4.0, 0.5); 	// var7 equals a float number between 2.0 and 4.0 every 0.5
-float var8 <- rnd(3.4); 	// var8 equals a random float between 0.0 and 3.4
-point var9 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); 	// var9 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
+point var0 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); 	// var0 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
+point var1 <- rnd ({2.5,3, 0.0}); 	// var1 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0
+float var2 <- rnd(3.4); 	// var2 equals a random float between 0.0 and 3.4
+int var3 <- rnd (2); 	// var3 equals 0, 1 or 2
+float var4 <- rnd (1000) / 1000; 	// var4 equals a float between 0 and 1 with a precision of 0.001
+float var5 <- rnd (2.0, 4.0, 0.5); 	// var5 equals a float number between 2.0 and 4.0 every 0.5
+int var6 <- rnd (2, 12, 4); 	// var6 equals 2, 6 or 10
+int var7 <- rnd (2, 4); 	// var7 equals 2, 3 or 4
+float var8 <- rnd (2.0, 4.0); 	// var8 equals a float number between 2.0 and 4.0
+point var9 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); 	// var9 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
 ```
       
 
@@ -2086,16 +2086,16 @@ rgb var0 <- rnd_color(255); 	// var0 equals a random color, equivalent to rgb(rn
   *  **`rotated_by`** (`geometry`, `float`, `point`) --->  `geometry` 
 
 #### Result: 
-A geometry resulting from the application of a rotation by the right-hand operand angles (degree) along the three axis (x,y,z) to the left-hand operand (geometry, agent, point)
-A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)  
+A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)
+A geometry resulting from the application of a rotation by the right-hand operand angles (degree) along the three axis (x,y,z) to the left-hand operand (geometry, agent, point)  
 
 #### Comment: 
 the right-hand operand can be a float or a int
 
 #### Examples: 
 ```
-geometry var0 <- rotated_by(pyramid(10),45, {1,0,0}); 	// var0 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.
-geometry var1 <- self rotated_by 45; 	// var1 equals the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator.
+geometry var0 <- self rotated_by 45; 	// var0 equals the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator.
+geometry var1 <- rotated_by(pyramid(10),45, {1,0,0}); 	// var1 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.
 ```
       
 
@@ -2109,8 +2109,8 @@ geometry var1 <- self rotated_by 45; 	// var1 equals the geometry resulting from
 
 #### Possible use: 
   *  **`round`** (`point`) --->  `point`
-  *  **`round`** (`int`) --->  `int`
-  *  **`round`** (`float`) --->  `int` 
+  *  **`round`** (`float`) --->  `int`
+  *  **`round`** (`int`) --->  `int` 
 
 #### Result: 
 Returns the rounded value of the operand.
@@ -2495,8 +2495,8 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-shape <- triangle(3) set_z [5,10,14];
 loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);}
+shape <- triangle(3) set_z [5,10,14];
 ```
   
     	
@@ -2517,9 +2517,9 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
+  *  **`shuffle`** (`matrix`) --->  `matrix`
   *  **`shuffle`** (`string`) --->  `string`
-  *  **`shuffle`** (`container`) --->  `container`
-  *  **`shuffle`** (`matrix`) --->  `matrix` 
+  *  **`shuffle`** (`container`) --->  `container` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -2529,9 +2529,9 @@ The elements of the operand in random order.
 
 #### Examples: 
 ```
-string var0 <- shuffle ('abc'); 	// var0 equals 'bac' (for example)
-container var1 <- shuffle ([12, 13, 14]); 	// var1 equals [14,12,13] (for example)
-matrix var2 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); 	// var2 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)
+matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); 	// var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)
+string var1 <- shuffle ('abc'); 	// var1 equals 'bac' (for example)
+container var2 <- shuffle ([12, 13, 14]); 	// var2 equals [14,12,13] (for example)
 ```
       
 
@@ -2952,22 +2952,22 @@ list<geometry> var0 <- polyline([{1,2},{4,6}]) split_at {7,6}; 	// var0 equals [
 ### `split_geometry`
 
 #### Possible use: 
-  * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
-  *  **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
   * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
   *  **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
+  * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
+  *  **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
   *  **`split_geometry`** (`geometry`, `int`, `int`) --->  `list<geometry>` 
 
 #### Result: 
 A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
-A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
+A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 
 #### Examples: 
 ```
 list<geometry> var0 <- to_rectangles(self, 10,20); 	// var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
-list<geometry> var1 <- to_squares(self, 10.0); 	// var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
-list<geometry> var2 <- to_rectangles(self, {10.0, 15.0}); 	// var2 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}); 	// var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0
+list<geometry> var2 <- to_squares(self, 10.0); 	// var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
 ```
   
     	
@@ -3474,7 +3474,7 @@ Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
 
 [//]: # (keyword|operator_to)
 ### `to`
-Same signification as [range](OperatorsNZ#range)
+Same signification as [until](OperatorsNZ#until)
 
 #### Possible use: 
   * `date` **`to`** `date` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
@@ -3556,7 +3556,6 @@ string var11 <- to_gaml(node1); 	// var11 equals  1 as node
 
 [//]: # (keyword|operator_to_rectangles)
 ### `to_rectangles`
-Same signification as [split_geometry](OperatorsNZ#split_geometry)
 
 #### Possible use: 
   *  **`to_rectangles`** (`geometry`, `point`, `bool`) --->  `list<geometry>`
@@ -3585,14 +3584,14 @@ list<geometry> var1 <- to_rectangles(self, 5, 20, true); 	// var1 equals the lis
 
 #### Result: 
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 
 #### Examples: 
 ```
 list<geometry> var0 <- to_squares(self, 10.0, true); 	// var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
-list<geometry> var1 <- to_squares(self, 10, true, 0.99); 	// var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
-list<geometry> var2 <- to_squares(self, 10, true); 	// var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var1 <- to_squares(self, 10, true); 	// var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var2 <- to_squares(self, 10, true, 0.99); 	// var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 ```
   
     	
@@ -3810,8 +3809,8 @@ geometry var0 <- triangle(5); 	// var0 equals a geometry as a triangle with side
 ### `triangulate`
 
 #### Possible use: 
-  *  **`triangulate`** (`geometry`) --->  `list<geometry>`
-  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>` 
+  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
+  *  **`triangulate`** (`geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
@@ -3882,6 +3881,7 @@ the operator alters the operand graph, it does not create a new one.
 
 [//]: # (keyword|operator_union)
 ### `union`
+Same signification as [+](OperatorsAC#+)
 
 #### Possible use: 
   *  **`union`** (`container<geometry>`) --->  `geometry`
@@ -3993,10 +3993,10 @@ This operator takes a map [string::value] as argument, displays a dialog asking 
 
 #### Examples: 
 ```
-map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]);
-create bug number: int(values at "Number") with: [location:: (point(values at "Location"))];
 map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]);
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))];
+map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]);
+create bug number: int(values at "Number") with: [location:: (point(values at "Location"))];
 ```
   
     	
@@ -4054,8 +4054,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); 	// var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
     	
 ----
 
@@ -4086,13 +4086,13 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
   *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries corresponding to the Voronoi diagram built from the list of points
 A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points
 
 #### Examples: 
 ```
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); 	// var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); 	// var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); 	// var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); 	// var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 ```
   
     	
@@ -4310,24 +4310,24 @@ predicate set_truth false
 ### `with_precision`
 
 #### Possible use: 
-  * `float` **`with_precision`** `int` --->  `float`
-  *  **`with_precision`** (`float` , `int`) --->  `float`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `geometry` **`with_precision`** `int` --->  `geometry`
   *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
-  * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point` 
+  * `float` **`with_precision`** `int` --->  `float`
+  *  **`with_precision`** (`float` , `int`) --->  `float` 
 
 #### Result: 
-Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 
 #### Examples: 
 ```
-float var0 <- 12345.78943 with_precision 2; 	// var0 equals 12345.79
-float var1 <- 123 with_precision 2; 	// var1 equals 123.00
-geometry var2 <- self with_precision 2; 	// var2 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
-point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; 	// var3 equals {12345.79, 12345.79, 12345.79}
+point var0 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; 	// var0 equals {12345.79, 12345.79, 12345.79}
+geometry var1 <- self with_precision 2; 	// var1 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+float var2 <- 12345.78943 with_precision 2; 	// var2 equals 12345.79
+float var3 <- 123 with_precision 2; 	// var3 equals 123.00
 ```
       
 
@@ -4376,10 +4376,10 @@ predicate with_values ["time"::10]
 ### `with_weights`
 
 #### Possible use: 
-  * `graph` **`with_weights`** `map` --->  `graph`
-  *  **`with_weights`** (`graph` , `map`) --->  `graph`
   * `graph` **`with_weights`** `container` --->  `graph`
-  *  **`with_weights`** (`graph` , `container`) --->  `graph` 
+  *  **`with_weights`** (`graph` , `container`) --->  `graph`
+  * `graph` **`with_weights`** `map` --->  `graph`
+  *  **`with_weights`** (`graph` , `map`) --->  `graph` 
 
 #### Result: 
 returns the graph (left-hand operand) with weight given in the map (right-hand operand).  
