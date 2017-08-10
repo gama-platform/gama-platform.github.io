@@ -6,6 +6,7 @@ rvm:
 - 2.4.0
 bundler_args: --without deployment
 before_script:
+- rm -f ./Gemfile.lock
 - chmod +x ./_scripts/script.sh
 - chmod +x ./_scripts/indexing.sh
 - chmod +x ./_scripts/install_for_indexing.sh
