@@ -415,9 +415,9 @@ A polygon that is equivalent to the surface of the texture
 
 #### Examples: 
 ```
-geometry var0 <- dem(dem,texture,z_factor); 	// var0 equals a geometry as a rectangle of width and height equal to the texture.
-geometry var1 <- dem(dem); 	// var1 equals returns a geometry as a rectangle of width and height equal to the texture.
-geometry var2 <- dem(dem,z_factor); 	// var2 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var0 <- dem(dem,z_factor); 	// var0 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var1 <- dem(dem,texture,z_factor); 	// var1 equals a geometry as a rectangle of width and height equal to the texture.
+geometry var2 <- dem(dem); 	// var2 equals returns a geometry as a rectangle of width and height equal to the texture.
 geometry var3 <- dem(dem,texture); 	// var3 equals a geometry as a rectangle of weight and height equal to the texture.
 ```
   
@@ -632,8 +632,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 
 #### Examples: 
 ```
-map var0 <- distribution_of([1,1,2,12.5]); 	// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
-map var1 <- distribution_of([1,1,2,12.5],10); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var0 <- distribution_of([1,1,2,12.5],10); 	// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution_of([1,1,2,12.5]); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 map var2 <- distribution_of([1,1,2,12.5]); 	// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 ```
       
@@ -658,8 +658,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
 map var0 <- distribution_of([1,1,2,12.5],10); 	// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
-map var1 <- distribution_of([1,1,2,12.5],10); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
-map var2 <- distribution2d_of([1,1,2,12.5]); 	// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution2d_of([1,1,2,12.5]); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var2 <- distribution_of([1,1,2,12.5],10); 	// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 ```
       
 
@@ -672,14 +672,14 @@ map var2 <- distribution2d_of([1,1,2,12.5]); 	// var2 equals map(['values'::[2,1
 ### `div`
 
 #### Possible use: 
-  * `float` **`div`** `float` --->  `int`
-  *  **`div`** (`float` , `float`) --->  `int`
   * `float` **`div`** `int` --->  `int`
   *  **`div`** (`float` , `int`) --->  `int`
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
   * `int` **`div`** `int` --->  `int`
   *  **`div`** (`int` , `int`) --->  `int`
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int` 
+  * `float` **`div`** `float` --->  `int`
+  *  **`div`** (`float` , `float`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -691,10 +691,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 
 #### Examples: 
 ```
-int var0 <- 40.1 div 4.5; 	// var0 equals 8
-int var1 <- 40.5 div 3; 	// var1 equals 13
+int var0 <- 40.5 div 3; 	// var0 equals 13
+int var1 <- 40 div 4.1; 	// var1 equals 9
 int var2 <- 40 div 3; 	// var2 equals 13
-int var3 <- 40 div 4.1; 	// var3 equals 9
+int var3 <- 40.1 div 4.5; 	// var3 equals 8
 ```
       
 
@@ -737,12 +737,12 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 #### Possible use: 
   *  **`edge`** (`unknown`) --->  `unknown`
   *  **`edge`** (`pair`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
-  * `pair` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`pair` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
+  * `pair` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`pair` , `float`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
@@ -1008,16 +1008,16 @@ bool var1 <- even(-12); 	// var1 equals true
 #### Possible use: 
   *  **`every`** (`int`) --->  `bool`
   *  **`every`** (`any expression`) --->  `bool`
-  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
   * `container` **`every`** `int` --->  `container`
-  *  **`every`** (`container` , `int`) --->  `container` 
+  *  **`every`** (`container` , `int`) --->  `container`
+  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
 true every operand * cycle, false otherwise
 expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-applies a step to an interval of dates defined by 'date1 to date2'
-Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero  
+Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
+applies a step to an interval of dates defined by 'date1 to date2'  
 
 #### Comment: 
 the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
@@ -1055,8 +1055,8 @@ Same signification as [every](OperatorsDM#every)
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
 
 #### Special cases:     
-  * returns -1 is the list of candidates is nil or empty    
-  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true
+  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true    
+  * returns -1 is the list of candidates is nil or empty
 
 #### Examples: 
 ```
@@ -1073,8 +1073,8 @@ int var0 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"uti
 ### `exp`
 
 #### Possible use: 
-  *  **`exp`** (`float`) --->  `float`
-  *  **`exp`** (`int`) --->  `float` 
+  *  **`exp`** (`int`) --->  `float`
+  *  **`exp`** (`float`) --->  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -1169,11 +1169,11 @@ geometry var0 <- [ag1, ag2, ag3] closest_to(self); 	// var0 equals return the fa
   *  **`file`** (`string` , `container`) --->  `file` 
 
 #### Result: 
-opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
-Creates a file in read/write mode, setting its contents to the container passed in parameter  
+Creates a file in read/write mode, setting its contents to the container passed in parameter
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.  
 
 #### Comment: 
-The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
+The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.
 
 #### Special cases:     
   * If the specified string does not refer to an existing file, an exception is risen when the variable is used.
@@ -1468,13 +1468,13 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
   *  **`fuzzy_kappa_sim`** (`list<agent>`, `list`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 #### Examples: 
 ```
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
 fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
 ```
   
     	
@@ -1586,15 +1586,15 @@ A value from a normally distributed random variable with expected value (mean) a
 
 #### Examples: 
 ```
-float var0 <- gauss(0,0.3); 	// var0 equals 0.22354
-float var1 <- gauss(0,0.3); 	// var1 equals -0.1357
-float var2 <- gauss({0,0.3}); 	// var2 equals 0.22354
-float var3 <- gauss({0,0.3}); 	// var3 equals -0.1357
+float var0 <- gauss({0,0.3}); 	// var0 equals 0.22354
+float var1 <- gauss({0,0.3}); 	// var1 equals -0.1357
+float var2 <- gauss(0,0.3); 	// var2 equals 0.22354
+float var3 <- gauss(0,0.3); 	// var3 equals -0.1357
 ```
       
 
 #### See also: 
-[skew_gauss](OperatorsNZ#skew_gauss), [truncated_gauss](OperatorsNZ#truncated_gauss), [poisson](OperatorsNZ#poisson), 
+[truncated_gauss](OperatorsNZ#truncated_gauss), [poisson](OperatorsNZ#poisson), [skew_gauss](OperatorsNZ#skew_gauss), 
     	
 ----
 
@@ -1613,12 +1613,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -1627,13 +1627,13 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 #### Examples: 
 ```
 graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
-		yourListOfNodes,
+		yourNodeSpecy,
 		yourEdgeSpecy,
 		3,
 		5,
 		true);
 graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
-		yourNodeSpecy,
+		yourListOfNodes,
 		yourEdgeSpecy,
 		3,
 		5,
@@ -1651,8 +1651,8 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
 
 #### Possible use: 
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1673,13 +1673,13 @@ Arguments should include following elements:Arguments should include following e
   * "size": the graph will contain size nodes.    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
-  * "edges_species": the species of edges    
-  * "size": the graph will contain size nodes.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "vertices_specy": the species of vertices    
+  * "edges_species": the species of edges    
+  * "size": the graph will contain size nodes.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
@@ -1694,14 +1694,14 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
 			10, 25,
 		true);
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
-			myVertexSpecy,
-			myEdgeSpecy,
-			10,
-		true);
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
 			myListOfNodes,
 			myEdgeSpecy,
 			25,
+		true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
+			myVertexSpecy,
+			myEdgeSpecy,
+			10,
 		true);
 ```
       
@@ -1901,8 +1901,8 @@ get_agent(social_link1)
 ### `get_agent_cause`
 
 #### Possible use: 
-  *  **`get_agent_cause`** (`predicate`) --->  `agent`
-  *  **`get_agent_cause`** (`emotion`) --->  `agent` 
+  *  **`get_agent_cause`** (`emotion`) --->  `agent`
+  *  **`get_agent_cause`** (`predicate`) --->  `agent` 
 
 #### Result: 
 get the agent cause value of the given emotion
@@ -1987,8 +1987,8 @@ emotion set_intensity 12
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`predicate`) --->  `int`
-  *  **`get_lifetime`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `int` 
+  *  **`get_lifetime`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `int`
+  *  **`get_lifetime`** (`predicate`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -2307,8 +2307,8 @@ float var0 <- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); 	// var0 equals 4.8041594454
 ### `hexagon`
 
 #### Possible use: 
-  *  **`hexagon`** (`float`) --->  `geometry`
-  *  **`hexagon`** (`point`) --->  `geometry` 
+  *  **`hexagon`** (`point`) --->  `geometry`
+  *  **`hexagon`** (`float`) --->  `geometry` 
 
 #### Result: 
 A hexagon geometry which the given with and height  
@@ -2322,8 +2322,8 @@ the center of the hexagon is by default the location of the current agent in whi
 
 #### Examples: 
 ```
-geometry var0 <- hexagon(10); 	// var0 equals a geometry as a hexagon of width of 10 and height of 10.
-geometry var1 <- hexagon({10,5}); 	// var1 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var0 <- hexagon({10,5}); 	// var0 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var1 <- hexagon(10); 	// var1 equals a geometry as a hexagon of width of 10 and height of 10.
 ```
       
 
@@ -2372,8 +2372,8 @@ h,s and b components should be floating-point values between 0.0 and 1.0 and whe
 
 #### Examples: 
 ```
-rgb var0 <- hsb (0.0,1.0,1.0); 	// var0 equals rgb("red")
-rgb var1 <- hsb (0.5,1.0,1.0,0.0); 	// var1 equals rgb("cyan",0)
+rgb var0 <- hsb (0.5,1.0,1.0,0.0); 	// var0 equals rgb("cyan",0)
+rgb var1 <- hsb (0.0,1.0,1.0); 	// var1 equals rgb("red")
 ```
       
 
@@ -2434,10 +2434,10 @@ float var0 <- improved_generator(2,3,4,253); 	// var0 equals 10.2
 ### `in`
 
 #### Possible use: 
-  * `string` **`in`** `string` --->  `bool`
-  *  **`in`** (`string` , `string`) --->  `bool`
   * `unknown` **`in`** `container` --->  `bool`
-  *  **`in`** (`unknown` , `container`) --->  `bool` 
+  *  **`in`** (`unknown` , `container`) --->  `bool`
+  * `string` **`in`** `string` --->  `bool`
+  *  **`in`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true if the right operand contains the left operand, false otherwise  
@@ -2446,16 +2446,16 @@ true if the right operand contains the left operand, false otherwise
 the definition of in depends on the container
 
 #### Special cases:     
-  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;    
-  * if the right operand is nil or empty, in returns false
+  * if the right operand is nil or empty, in returns false    
+  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
 
 #### Examples: 
 ```
-bool var0 <-  'bc' in 'abcded'; 	// var0 equals true
-bool var1 <- 2 in [1,2,3,4,5,6]; 	// var1 equals true
-bool var2 <- 7 in [1,2,3,4,5,6]; 	// var2 equals false
-bool var3 <- 3 in [1::2, 3::4, 5::6]; 	// var3 equals false
-bool var4 <- 6 in [1::2, 3::4, 5::6]; 	// var4 equals true
+bool var0 <- 2 in [1,2,3,4,5,6]; 	// var0 equals true
+bool var1 <- 7 in [1,2,3,4,5,6]; 	// var1 equals false
+bool var2 <- 3 in [1::2, 3::4, 5::6]; 	// var2 equals false
+bool var3 <- 6 in [1::2, 3::4, 5::6]; 	// var3 equals true
+bool var4 <-  'bc' in 'abcded'; 	// var4 equals true
 ```
       
 
@@ -2578,16 +2578,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); 	// var0 equals [0::1, 1::2, 
 ### `index_of`
 
 #### Possible use: 
-  * `container` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`container` , `unknown`) --->  `int`
+  * `map` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
   * `string` **`index_of`** `string` --->  `int`
   *  **`index_of`** (`string` , `string`) --->  `int`
+  * `container` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`container` , `unknown`) --->  `int`
   * `species` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`species` , `unknown`) --->  `int`
   * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
-  * `map` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map` , `unknown`) --->  `unknown` 
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -2597,21 +2597,21 @@ the index of the first occurence of the right operand in the left operand contai
 The definition of index_of and the type of the index depend on the container
 
 #### Special cases:     
-  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
-  * if the left operand is a list, index_of returns the index as an integer 
+  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
+  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
   
 ```
-int var0 <- [1,2,3,4,5,6] index_of 4; 	// var0 equals 3
-int var1 <- [4,2,3,4,5,4] index_of 4; 	// var1 equals 0
+int var1 <-  "abcabcabc" index_of "ca"; 	// var1 equals 2
 
 ``` 
 
     
-  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
+  * if the left operand is a list, index_of returns the index as an integer 
   
 ```
-int var2 <-  "abcabcabc" index_of "ca"; 	// var2 equals 2
+int var2 <- [1,2,3,4,5,6] index_of 4; 	// var2 equals 3
+int var3 <- [4,2,3,4,5,4] index_of 4; 	// var3 equals 0
 
 ``` 
 
@@ -2619,7 +2619,7 @@ int var2 <-  "abcabcabc" index_of "ca"; 	// var2 equals 2
   * if the left operand is a matrix, index_of returns the index as a point 
   
 ```
-point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; 	// var3 equals {1.0,0.0}
+point var4 <- matrix([[1,2,3],[4,5,6]]) index_of 4; 	// var4 equals {1.0,0.0}
 
 ``` 
 
@@ -2627,7 +2627,7 @@ point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; 	// var3 equals {1.0,0.0}
 
 #### Examples: 
 ```
-unknown var4 <- [1::2, 3::4, 5::6] index_of 4; 	// var4 equals 3
+unknown var0 <- [1::2, 3::4, 5::6] index_of 4; 	// var0 equals 3
 ```
       
 
@@ -2673,26 +2673,26 @@ Casts the operand into the type int
 ### `inter`
 
 #### Possible use: 
-  * `container` **`inter`** `container` --->  `container`
-  *  **`inter`** (`container` , `container`) --->  `container`
   * `geometry` **`inter`** `geometry` --->  `geometry`
-  *  **`inter`** (`geometry` , `geometry`) --->  `geometry` 
+  *  **`inter`** (`geometry` , `geometry`) --->  `geometry`
+  * `container` **`inter`** `container` --->  `container`
+  *  **`inter`** (`container` , `container`) --->  `container` 
 
 #### Result: 
-the intersection of the two operands
-A geometry resulting from the intersection between the two geometries  
+A geometry resulting from the intersection between the two geometries
+the intersection of the two operands  
 
 #### Comment: 
 both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
 #### Special cases:     
-  * if an operand is a graph, it will be transformed into the set of its nodes    
   * returns nil if one of the operands is nil    
+  * if an operand is a graph, it will be transformed into the set of its nodes    
   * if an operand is a map, it will be transformed into the set of its values 
   
 ```
-container var0 <- [1::2, 3::4, 5::6] inter [2,4]; 	// var0 equals [2,4]
-container var1 <- [1::2, 3::4, 5::6] inter [1,3]; 	// var1 equals []
+container var3 <- [1::2, 3::4, 5::6] inter [2,4]; 	// var3 equals [2,4]
+container var4 <- [1::2, 3::4, 5::6] inter [1,3]; 	// var4 equals []
 
 ``` 
 
@@ -2700,7 +2700,7 @@ container var1 <- [1::2, 3::4, 5::6] inter [1,3]; 	// var1 equals []
   * if an operand is a matrix, it will be transformed into the set of the lines 
   
 ```
-container var2 <- matrix([[1,2,3],[4,5,4]]) inter [3,4]; 	// var2 equals [3,4]
+container var5 <- matrix([[1,2,3],[4,5,4]]) inter [3,4]; 	// var5 equals [3,4]
 
 ``` 
 
@@ -2708,14 +2708,14 @@ container var2 <- matrix([[1,2,3],[4,5,4]]) inter [3,4]; 	// var2 equals [3,4]
 
 #### Examples: 
 ```
-container var3 <- [1,2,3,4,5,6] inter [2,4]; 	// var3 equals [2,4]
-container var4 <- [1,2,3,4,5,6] inter [0,8]; 	// var4 equals []
-geometry var5 <- square(10) inter circle(5); 	// var5 equals circle(5)
+geometry var0 <- square(10) inter circle(5); 	// var0 equals circle(5)
+container var1 <- [1,2,3,4,5,6] inter [2,4]; 	// var1 equals [2,4]
+container var2 <- [1,2,3,4,5,6] inter [0,8]; 	// var2 equals []
 ```
       
 
 #### See also: 
-[remove_duplicates](OperatorsNZ#remove_duplicates), [union](OperatorsNZ#union), [+](OperatorsAC#+), [-](OperatorsAC#-), 
+[union](OperatorsNZ#union), [+](OperatorsAC#+), [-](OperatorsAC#-), [remove_duplicates](OperatorsNZ#remove_duplicates), 
     	
 ----
 
@@ -2744,16 +2744,16 @@ container var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e3
 ### `internal_at`
 
 #### Possible use: 
-  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
-  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType`
   * `geometry` **`internal_at`** `container` --->  `unknown`
   *  **`internal_at`** (`geometry` , `container`) --->  `unknown`
+  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
+  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType`
   * `agent` **`internal_at`** `container` --->  `unknown`
   *  **`internal_at`** (`agent` , `container`) --->  `unknown` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
 #### See also: 
@@ -2967,26 +2967,26 @@ Tests whether the operand is a json file.
 ### `is_number`
 
 #### Possible use: 
-  *  **`is_number`** (`string`) --->  `bool`
-  *  **`is_number`** (`float`) --->  `bool` 
+  *  **`is_number`** (`float`) --->  `bool`
+  *  **`is_number`** (`string`) --->  `bool` 
 
 #### Result: 
-tests whether the operand represents a numerical value
-Returns whether the argument is a real number or not  
+Returns whether the argument is a real number or not
+tests whether the operand represents a numerical value  
 
 #### Comment: 
 Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
 
 #### Examples: 
 ```
-bool var0 <- is_number("test"); 	// var0 equals false
-bool var1 <- is_number("123.56"); 	// var1 equals true
-bool var2 <- is_number("-1.2e5"); 	// var2 equals true
-bool var3 <- is_number("1,2"); 	// var3 equals false
-bool var4 <- is_number("#12FA"); 	// var4 equals true
-bool var5 <- is_number(4.66); 	// var5 equals true
-bool var6 <- is_number(#infinity); 	// var6 equals true
-bool var7 <- is_number(#nan); 	// var7 equals false
+bool var0 <- is_number(4.66); 	// var0 equals true
+bool var1 <- is_number(#infinity); 	// var1 equals true
+bool var2 <- is_number(#nan); 	// var2 equals false
+bool var3 <- is_number("test"); 	// var3 equals false
+bool var4 <- is_number("123.56"); 	// var4 equals true
+bool var5 <- is_number("-1.2e5"); 	// var5 equals true
+bool var6 <- is_number("1,2"); 	// var6 equals false
+bool var7 <- is_number("#12FA"); 	// var7 equals true
 ```
   
     	
@@ -3150,15 +3150,15 @@ Constructs a file of type json. Allowed extensions are limited to json
   *  **`kappa`** (`list`, `list`, `list`, `list`) --->  `float` 
 
 #### Result: 
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
 kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
 #### Examples: 
 ```
-kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0])
 kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])
-float var2 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); 	// var2 equals the similarity between 0 and 1
-float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); 	// var3 equals 1.0
+float var1 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); 	// var1 equals the similarity between 0 and 1
+float var2 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); 	// var2 equals 1.0
+kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0])
 ```
   
     	
@@ -3292,10 +3292,10 @@ int var1 <- last ([1, 2, 3]); 	// var1 equals 3
 ### `last_index_of`
 
 #### Possible use: 
-  * `map` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
+  * `map` **`last_index_of`** `unknown` --->  `unknown`
+  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
   * `container` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`container` , `unknown`) --->  `int`
   * `matrix` **`last_index_of`** `unknown` --->  `point`
@@ -3311,18 +3311,18 @@ The definition of last_index_of and the type of the index depend on the containe
 
 #### Special cases:     
   * if the left operand is a species, the last index of an agent is the same as its index    
-  * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
+  * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
   
 ```
-unknown var0 <- [1::2, 3::4, 5::4] last_index_of 4; 	// var0 equals 5
+int var0 <- "abcabcabc" last_index_of "ca"; 	// var0 equals 5
 
 ``` 
 
     
-  * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
+  * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
   
 ```
-int var1 <- "abcabcabc" last_index_of "ca"; 	// var1 equals 5
+unknown var1 <- [1::2, 3::4, 5::4] last_index_of 4; 	// var1 equals 5
 
 ``` 
 
@@ -3468,8 +3468,8 @@ Same signification as [log_gamma](OperatorsDM#log_gamma)
   *  **`line`** (`container<geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
-A polyline geometry from the given list of points represented as a cylinder of radius r.
 A polyline geometry from the given list of points.
+A polyline geometry from the given list of points represented as a cylinder of radius r.
 
 #### Special cases:     
   * if the operand is nil, returns the point geometry {0,0}    
@@ -3479,7 +3479,7 @@ A polyline geometry from the given list of points.
   * if a radius is added, the given list of points represented as a cylinder of radius r 
   
 ```
-geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); 	// var0 equals a polyline geometry composed of the 4 points.
+geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); 	// var1 equals a polyline geometry composed of the 4 points.
 
 ``` 
 
@@ -3487,7 +3487,7 @@ geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); 	// var0 equals
 
 #### Examples: 
 ```
-geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); 	// var1 equals a polyline geometry composed of the 4 points.
+geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); 	// var0 equals a polyline geometry composed of the 4 points.
 ```
       
 
@@ -3587,13 +3587,13 @@ float var1 <- ln(exp(1)); 	// var1 equals 1.0
   * `string` **`load_graph_from_file`** `file` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
-loads a graph from a file
-returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA  
+returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
+loads a graph from a file  
 
 #### Comment: 
 Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
@@ -3607,14 +3607,12 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
-			"example_of_Pajek_file",
-			myVertexSpecy,
-			myEdgeSpecy );
+			"example_of_Pajek_file");
 
 ``` 
 
@@ -3631,7 +3629,7 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 ``` 
 
     
-  * "format": the format of the file, "filename": the filename of the file containing the network 
+  * "format": the format of the file, "file": the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
@@ -3641,12 +3639,14 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 ``` 
 
     
-  * "format": the format of the file, "file": the file containing the network 
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
-			"example_of_Pajek_file");
+			"example_of_Pajek_file",
+			myVertexSpecy,
+			myEdgeSpecy );
 
 ``` 
 
@@ -3668,12 +3668,12 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"./example_of_Pajek_file",
 			myVertexSpecy,
-			myEdgeSpecy);
+			myEdgeSpecy , true);
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"./example_of_Pajek_file",
 			myVertexSpecy,
-			myEdgeSpecy , true);
+			myEdgeSpecy);
 ```
   
     	
@@ -3716,8 +3716,8 @@ loaded submodel
 ### `log`
 
 #### Possible use: 
-  *  **`log`** (`int`) --->  `float`
-  *  **`log`** (`float`) --->  `float` 
+  *  **`log`** (`float`) --->  `float`
+  *  **`log`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the logarithm (base 10) of the operand.
@@ -3727,8 +3727,8 @@ Returns the logarithm (base 10) of the operand.
 
 #### Examples: 
 ```
-float var0 <- log(1); 	// var0 equals 0.0
-float var1 <- log(10); 	// var1 equals 1.0
+float var0 <- log(10); 	// var0 equals 1.0
+float var1 <- log(1); 	// var1 equals 0.0
 ```
       
 
