@@ -3851,10 +3851,10 @@ function closeRightMenu() {
 <h4 id="possible-use-4">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
@@ -3862,10 +3862,10 @@ function closeRightMenu() {
 <p>A polygon that is equivalent to the surface of the texture</p>
 
 <h4 id="examples-4">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- dem(dem,texture,z_factor); 	// var0 equals a geometry as a rectangle of width and height equal to the texture.
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- dem(dem,z_factor); 	// var0 equals a geometry as a rectangle of weight and height equal to the texture.
 geometry var1 &lt;- dem(dem,texture); 	// var1 equals a geometry as a rectangle of weight and height equal to the texture.
-geometry var2 &lt;- dem(dem,z_factor); 	// var2 equals a geometry as a rectangle of weight and height equal to the texture.
-geometry var3 &lt;- dem(dem); 	// var3 equals returns a geometry as a rectangle of width and height equal to the texture.
+geometry var2 &lt;- dem(dem); 	// var2 equals returns a geometry as a rectangle of width and height equal to the texture.
+geometry var3 &lt;- dem(dem,texture,z_factor); 	// var3 equals a geometry as a rectangle of width and height equal to the texture.
 </code></pre>
 </div>
 
@@ -4019,10 +4019,10 @@ bool var4 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon
 
 <h4 id="possible-use-12">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-12">Result:</h4>
@@ -4108,8 +4108,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); 	// var2 equals map(['values'::
 
 <h4 id="examples-12">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code>map var0 &lt;- distribution_of([1,1,2,12.5],10); 	// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
-map var1 &lt;- distribution_of([1,1,2,12.5],10); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
-map var2 &lt;- distribution2d_of([1,1,2,12.5]); 	// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 &lt;- distribution2d_of([1,1,2,12.5]); 	// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var2 &lt;- distribution_of([1,1,2,12.5],10); 	// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 </code></pre>
 </div>
 
@@ -4122,12 +4122,12 @@ map var2 &lt;- distribution2d_of([1,1,2,12.5]); 	// var2 equals map(['values'::[
 
 <h4 id="possible-use-16">Possible use:</h4>
 <ul>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
@@ -4143,9 +4143,9 @@ map var2 &lt;- distribution2d_of([1,1,2,12.5]); 	// var2 equals map(['values'::[
 </ul>
 
 <h4 id="examples-13">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- 40 div 3; 	// var0 equals 13
-int var1 &lt;- 40 div 4.1; 	// var1 equals 9
-int var2 &lt;- 40.1 div 4.5; 	// var2 equals 8
+<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- 40.1 div 4.5; 	// var0 equals 8
+int var1 &lt;- 40 div 3; 	// var1 equals 13
+int var2 &lt;- 40 div 4.1; 	// var2 equals 9
 int var3 &lt;- 40.5 div 3; 	// var3 equals 13
 </code></pre>
 </div>
@@ -4197,8 +4197,8 @@ int var3 &lt;- 40.5 div 3; 	// var3 equals 13
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
@@ -4471,8 +4471,8 @@ bool var1 &lt;- even(-12); 	// var1 equals true
 
 <h4 id="possible-use-33">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">msi.gama.util.GamaDateInterval</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">msi.gama.util.GamaDateInterval</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">container</code></li>
@@ -4480,25 +4480,25 @@ bool var1 &lt;- even(-12); 	// var1 equals true
 </ul>
 
 <h4 id="result-31">Result:</h4>
-<p>expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+<p>true every operand * cycle, false otherwise
 applies a step to an interval of dates defined by ‘date1 to date2’
-true every operand * cycle, false otherwise
-Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero</p>
+Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency</p>
 
 <h4 id="comment-4">Comment:</h4>
-<p>Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.</p>
+<p>the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point</p>
 
 <h4 id="examples-22">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>reflex when: every(2#days) since date('2000-01-01') { .. }
-state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
-if every(2) {write "the cycle number is even";}
+<div class="highlighter-rouge"><pre class="highlight"><code>if every(2) {write "the cycle number is even";}
 	     else {write "the cycle number is odd";}
+(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
+reflex when: every(2#days) since date('2000-01-01') { .. }
+state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time
 </code></pre>
 </div>
 
 <h4 id="see-also-12">See also:</h4>
-<p><a href="OperatorsNZ#since">since</a>, <a href="OperatorsAC#after">after</a>, <a href="OperatorsNZ#to">to</a>,</p>
+<p><a href="OperatorsNZ#to">to</a>, <a href="OperatorsNZ#since">since</a>, <a href="OperatorsAC#after">after</a>,</p>
 
 <hr />
 
@@ -4521,8 +4521,8 @@ if every(2) {write "the cycle number is even";}
 
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
-  <li>returns -1 is the list of candidates is nil or empty</li>
   <li>if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true</li>
+  <li>returns -1 is the list of candidates is nil or empty</li>
 </ul>
 
 <h4 id="examples-23">Examples:</h4>
@@ -4539,8 +4539,8 @@ if every(2) {write "the cycle number is even";}
 
 <h4 id="possible-use-35">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-33">Result:</h4>
@@ -4640,11 +4640,11 @@ if every(2) {write "the cycle number is even";}
 </ul>
 
 <h4 id="result-37">Result:</h4>
-<p>opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
-Creates a file in read/write mode, setting its contents to the container passed in parameter</p>
+<p>Creates a file in read/write mode, setting its contents to the container passed in parameter
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.</p>
 
 <h4 id="comment-6">Comment:</h4>
-<p>The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file(‘image_copy.png’, file(‘image.png’)); will copy image.png to image_copy.png</p>
+<p>The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file(‘image_copy.png’, file(‘image.png’)); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.</p>
 
 <h4 id="special-cases-11">Special cases:</h4>
 <ul>
@@ -4929,12 +4929,12 @@ file dirT &lt;- folder("../includes/");
 </ul>
 
 <h4 id="result-48">Result:</h4>
-<p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
+<p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
 
 <h4 id="examples-36">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
+<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
 </code></pre>
 </div>
 
@@ -4949,12 +4949,12 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
 </ul>
 
 <h4 id="result-49">Result:</h4>
-<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
 <h4 id="examples-37">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
+<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
 </code></pre>
 </div>
 
@@ -5072,15 +5072,15 @@ A value from a normally distributed random variable with expected value (mean) a
 </ul>
 
 <h4 id="examples-40">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- gauss(0,0.3); 	// var0 equals 0.22354
-float var1 &lt;- gauss(0,0.3); 	// var1 equals -0.1357
-float var2 &lt;- gauss({0,0.3}); 	// var2 equals 0.22354
-float var3 &lt;- gauss({0,0.3}); 	// var3 equals -0.1357
+<div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- gauss({0,0.3}); 	// var0 equals 0.22354
+float var1 &lt;- gauss({0,0.3}); 	// var1 equals -0.1357
+float var2 &lt;- gauss(0,0.3); 	// var2 equals 0.22354
+float var3 &lt;- gauss(0,0.3); 	// var3 equals -0.1357
 </code></pre>
 </div>
 
 <h4 id="see-also-26">See also:</h4>
-<p><a href="OperatorsNZ#skew_gauss">skew_gauss</a>, <a href="OperatorsNZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNZ#poisson">poisson</a>,</p>
+<p><a href="OperatorsNZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNZ#poisson">poisson</a>, <a href="OperatorsNZ#skew_gauss">skew_gauss</a>,</p>
 
 <hr />
 
@@ -5162,13 +5162,13 @@ returns a fully connected graph.</p>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
-  <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
+  <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
   <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
@@ -5184,14 +5184,14 @@ graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph(
 			10,
 		true);
 graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph(
-			myListOfNodes,
-			myEdgeSpecy,
-			25,
-		true);
-graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph(
 			myVertexSpecy,
 			myEdgeSpecy,
 			10, 25,
+		true);
+graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph(
+			myListOfNodes,
+			myEdgeSpecy,
+			25,
 		true);
 </code></pre>
 </div>
@@ -5327,35 +5327,34 @@ graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz(
 <hr />
 
 <h3 id="get"><code class="highlighter-rouge">get</code></h3>
-<p>Same signification as <a href="OperatorsNZ#read">read</a></p>
 
 <h4 id="possible-use-66">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-64">Result:</h4>
-<p>Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
-Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.</p>
+<p>Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.</p>
 
 <h4 id="special-cases-22">Special cases:</h4>
-<ul>
-  <li>Reading the attribute of another agent</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>string agent_name &lt;- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable
-
-</code></pre>
-</div>
-
 <ul>
   <li>Reading the attribute of a geometry</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>string geom_area &lt;- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable
+
+</code></pre>
+</div>
+
+<ul>
+  <li>Reading the attribute of another agent</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>string agent_name &lt;- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable
 
 </code></pre>
 </div>
@@ -5400,8 +5399,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 
 <h4 id="possible-use-69">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
   <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
+  <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
 <h4 id="result-67">Result:</h4>
@@ -5818,8 +5817,8 @@ map var3 &lt;- [1::2, 3::4, 5::6] group_by (each &gt; 4); 	// var3 equals [false
 
 <h4 id="possible-use-94">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
 <h4 id="result-87">Result:</h4>
@@ -5835,8 +5834,8 @@ map var3 &lt;- [1::2, 3::4, 5::6] group_by (each &gt; 4); 	// var3 equals [false
 </ul>
 
 <h4 id="examples-65">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- hexagon({10,5}); 	// var0 equals a geometry as a hexagon of width of 10 and height of 5.
-geometry var1 &lt;- hexagon(10); 	// var1 equals a geometry as a hexagon of width of 10 and height of 10.
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- hexagon(10); 	// var0 equals a geometry as a hexagon of width of 10 and height of 10.
+geometry var1 &lt;- hexagon({10,5}); 	// var1 equals a geometry as a hexagon of width of 10 and height of 5.
 </code></pre>
 </div>
 
@@ -5885,8 +5884,8 @@ geometry var1 &lt;- hexagon(10); 	// var1 equals a geometry as a hexagon of widt
 <p>h,s and b components should be floating-point values between 0.0 and 1.0 and when used alpha should be an integer (between 0 and 255) or a float (between 0 and 1) . Examples: Red=(0.0,1.0,1.0), Yellow=(0.16,1.0,1.0), Green=(0.33,1.0,1.0), Cyan=(0.5,1.0,1.0), Blue=(0.66,1.0,1.0), Magenta=(0.83,1.0,1.0)</p>
 
 <h4 id="examples-67">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>rgb var0 &lt;- hsb (0.5,1.0,1.0,0.0); 	// var0 equals rgb("cyan",0)
-rgb var1 &lt;- hsb (0.0,1.0,1.0); 	// var1 equals rgb("red")
+<div class="highlighter-rouge"><pre class="highlight"><code>rgb var0 &lt;- hsb (0.0,1.0,1.0); 	// var0 equals rgb("red")
+rgb var1 &lt;- hsb (0.5,1.0,1.0,0.0); 	// var1 equals rgb("cyan",0)
 </code></pre>
 </div>
 
@@ -6102,16 +6101,16 @@ bool var4 &lt;- 6 in [1::2, 3::4, 5::6]; 	// var4 equals true
 
 <h4 id="possible-use-108">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-101">Result:</h4>
@@ -6123,12 +6122,22 @@ the index of the first occurence of the right operand in the left operand contai
 
 <h4 id="special-cases-30">Special cases:</h4>
 <ul>
-  <li>if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead</li>
   <li>if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped</li>
+  <li>if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead</li>
+  <li>if the left operand is a list, index_of returns the index as an integer</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- [1,2,3,4,5,6] index_of 4; 	// var1 equals 3
+int var2 &lt;- [4,2,3,4,5,4] index_of 4; 	// var2 equals 0
+
+</code></pre>
+</div>
+
+<ul>
   <li>if the left operand is a matrix, index_of returns the index as a point</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>point var0 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; 	// var0 equals {1.0,0.0}
+<div class="highlighter-rouge"><pre class="highlight"><code>point var3 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; 	// var3 equals {1.0,0.0}
 
 </code></pre>
 </div>
@@ -6137,23 +6146,13 @@ the index of the first occurence of the right operand in the left operand contai
   <li>if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;-  "abcabcabc" index_of "ca"; 	// var1 equals 2
-
-</code></pre>
-</div>
-
-<ul>
-  <li>if the left operand is a list, index_of returns the index as an integer</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>int var2 &lt;- [1,2,3,4,5,6] index_of 4; 	// var2 equals 3
-int var3 &lt;- [4,2,3,4,5,4] index_of 4; 	// var3 equals 0
+<div class="highlighter-rouge"><pre class="highlight"><code>int var4 &lt;-  "abcabcabc" index_of "ca"; 	// var4 equals 2
 
 </code></pre>
 </div>
 
 <h4 id="examples-74">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>unknown var4 &lt;- [1::2, 3::4, 5::6] index_of 4; 	// var4 equals 3
+<div class="highlighter-rouge"><pre class="highlight"><code>unknown var0 &lt;- [1::2, 3::4, 5::6] index_of 4; 	// var0 equals 3
 </code></pre>
 </div>
 
@@ -6272,18 +6271,18 @@ container var1 &lt;- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31',
 
 <h4 id="possible-use-113">Possible use:</h4>
 <ul>
+  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list&lt;KeyType&gt;</code> —&gt;  <code class="highlighter-rouge">ValueType</code></li>
   <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> , <code class="highlighter-rouge">list&lt;KeyType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
-  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-106">Result:</h4>
-<p>For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
-For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]</p>
+<p>For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation of the access to containers with [index]</p>
 
 <h4 id="see-also-44">See also:</h4>
 <p><a href="OperatorsAC#at">at</a>,</p>
@@ -6506,26 +6505,26 @@ bool var1 &lt;- is_finite(#infinity); 	// var1 equals false
 
 <h4 id="possible-use-128">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-121">Result:</h4>
-<p>Returns whether the argument is a real number or not
-tests whether the operand represents a numerical value</p>
+<p>tests whether the operand represents a numerical value
+Returns whether the argument is a real number or not</p>
 
 <h4 id="comment-25">Comment:</h4>
 <p>Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.</p>
 
 <h4 id="examples-82">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- is_number(4.66); 	// var0 equals true
-bool var1 &lt;- is_number(#infinity); 	// var1 equals true
-bool var2 &lt;- is_number(#nan); 	// var2 equals false
-bool var3 &lt;- is_number("test"); 	// var3 equals false
-bool var4 &lt;- is_number("123.56"); 	// var4 equals true
-bool var5 &lt;- is_number("-1.2e5"); 	// var5 equals true
-bool var6 &lt;- is_number("1,2"); 	// var6 equals false
-bool var7 &lt;- is_number("#12FA"); 	// var7 equals true
+<div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- is_number("test"); 	// var0 equals false
+bool var1 &lt;- is_number("123.56"); 	// var1 equals true
+bool var2 &lt;- is_number("-1.2e5"); 	// var2 equals true
+bool var3 &lt;- is_number("1,2"); 	// var3 equals false
+bool var4 &lt;- is_number("#12FA"); 	// var4 equals true
+bool var5 &lt;- is_number(4.66); 	// var5 equals true
+bool var6 &lt;- is_number(#infinity); 	// var6 equals true
+bool var7 &lt;- is_number(#nan); 	// var7 equals false
 </code></pre>
 </div>
 
@@ -6724,12 +6723,12 @@ float var3 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); 	// var3 equals 1.0
 </ul>
 
 <h4 id="result-136">Result:</h4>
-<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)</p>
+<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).</p>
 
 <h4 id="examples-85">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3])
-kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0])
+<div class="highlighter-rouge"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0])
+kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3])
 </code></pre>
 </div>
 
@@ -6803,8 +6802,8 @@ Returns the kurtosis (aka excess) of a data sequence</p>
 
 <h4 id="possible-use-147">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">last</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
   <li><strong><code class="highlighter-rouge">last</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
+  <li><strong><code class="highlighter-rouge">last</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">last</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">container</code></li>
   <li><strong><code class="highlighter-rouge">last</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
 </ul>
@@ -6824,19 +6823,19 @@ Returns the kurtosis (aka excess) of a data sequence</p>
   <li>if it is a matrix, last returns the element at {length-1,length-1} in the matrix</li>
   <li>for a matrix of int or float, it will return 0 if the matrix is empty</li>
   <li>for a matrix of object or geometry, it will return nil if the matrix is empty</li>
-  <li>if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty</li>
+  <li>if it is a list, last returns the last element of the list, or nil if the list is empty</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>string var0 &lt;- last ('abce'); 	// var0 equals 'e'
+<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- last ([1, 2, 3]); 	// var0 equals 3
 
 </code></pre>
 </div>
 
 <ul>
-  <li>if it is a list, last returns the last element of the list, or nil if the list is empty</li>
+  <li>if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- last ([1, 2, 3]); 	// var1 equals 3
+<div class="highlighter-rouge"><pre class="highlight"><code>string var1 &lt;- last ('abce'); 	// var1 equals 'e'
 
 </code></pre>
 </div>
@@ -6852,14 +6851,14 @@ Returns the kurtosis (aka excess) of a data sequence</p>
 <ul>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-141">Result:</h4>
@@ -6880,10 +6879,20 @@ Returns the kurtosis (aka excess) of a data sequence</p>
 </div>
 
 <ul>
+  <li>if the left operand is a list, last_index_of returns the index as an integer</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- [1,2,3,4,5,6] last_index_of 4; 	// var1 equals 3
+int var2 &lt;- [4,2,3,4,5,4] last_index_of 4; 	// var2 equals 5
+
+</code></pre>
+</div>
+
+<ul>
   <li>if the left operand is a map, last_index_of returns the index as an int (the key of the pair)</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>unknown var1 &lt;- [1::2, 3::4, 5::4] last_index_of 4; 	// var1 equals 5
+<div class="highlighter-rouge"><pre class="highlight"><code>unknown var3 &lt;- [1::2, 3::4, 5::4] last_index_of 4; 	// var3 equals 5
 
 </code></pre>
 </div>
@@ -6892,23 +6901,13 @@ Returns the kurtosis (aka excess) of a data sequence</p>
   <li>if the left operand is a matrix, last_index_of returns the index as a point</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>point var2 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; 	// var2 equals {1.0,2.0}
-
-</code></pre>
-</div>
-
-<ul>
-  <li>if the left operand is a list, last_index_of returns the index as an integer</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>int var3 &lt;- [1,2,3,4,5,6] last_index_of 4; 	// var3 equals 3
-int var4 &lt;- [4,2,3,4,5,4] last_index_of 4; 	// var4 equals 5
+<div class="highlighter-rouge"><pre class="highlight"><code>point var4 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; 	// var4 equals {1.0,2.0}
 
 </code></pre>
 </div>
 
 <h4 id="see-also-47">See also:</h4>
-<p><a href="OperatorsAC#at">at</a>, <a href="OperatorsDM#index_of">index_of</a>, <a href="OperatorsDM#last_index_of">last_index_of</a>,</p>
+<p><a href="OperatorsAC#at">at</a>, <a href="OperatorsDM#last_index_of">last_index_of</a>, <a href="OperatorsDM#index_of">index_of</a>,</p>
 
 <hr />
 
@@ -6975,8 +6974,8 @@ unknown var3 &lt;- (list(node) last_with (round(node(each).location.x) &gt; 32);
 
 <h4 id="possible-use-151">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-144">Result:</h4>
@@ -6989,20 +6988,11 @@ unknown var3 &lt;- (list(node) last_with (round(node(each).location.x) &gt; 32);
 <ul>
   <li>if it is a population, length returns number of agents of the population</li>
   <li>if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)</li>
-  <li>if it is a string, length returns the number of characters</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- length ('I am an agent'); 	// var0 equals 13
-
-</code></pre>
-</div>
-
-<ul>
   <li>if it is a list or a map, length returns the number of elements in the list or map</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- length([12,13]); 	// var1 equals 2
-int var2 &lt;- length([]); 	// var2 equals 0
+<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- length([12,13]); 	// var0 equals 2
+int var1 &lt;- length([]); 	// var1 equals 0
 
 </code></pre>
 </div>
@@ -7011,7 +7001,16 @@ int var2 &lt;- length([]); 	// var2 equals 0
   <li>if it is a matrix, length returns the number of cells</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int var3 &lt;- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); 	// var3 equals 6
+<div class="highlighter-rouge"><pre class="highlight"><code>int var2 &lt;- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); 	// var2 equals 6
+
+</code></pre>
+</div>
+
+<ul>
+  <li>if it is a string, length returns the number of characters</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int var3 &lt;- length ('I am an agent'); 	// var3 equals 13
 
 </code></pre>
 </div>
@@ -7157,8 +7156,8 @@ float var1 &lt;- ln(exp(1)); 	// var1 equals 1.0
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">load_graph_from_file</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
@@ -7179,7 +7178,7 @@ returns a graph loaded from a given file encoded into a given format. The last b
   <li>“filename”: the filename of the file containing the network</li>
   <li>“edges_species”: the species of edges</li>
   <li>“vertices_specy”: the species of vertices</li>
-  <li>“format”: the format of the file, “filename”: the filename of the file containing the network</li>
+  <li>“file”: the file containing the network</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file(
@@ -7190,7 +7189,7 @@ returns a graph loaded from a given file encoded into a given format. The last b
 </div>
 
 <ul>
-  <li>“format”: the format of the file, “file”: the file containing the network</li>
+  <li>“format”: the format of the file, “filename”: the filename of the file containing the network</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file(
@@ -7227,7 +7226,7 @@ returns a graph loaded from a given file encoded into a given format. The last b
 </div>
 
 <ul>
-  <li>“file”: the file containing the network</li>
+  <li>“format”: the format of the file, “file”: the file containing the network</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file(
@@ -7242,12 +7241,12 @@ returns a graph loaded from a given file encoded into a given format. The last b
 			"pajek",
 			"./example_of_Pajek_file",
 			myVertexSpecy,
-			myEdgeSpecy);
+			myEdgeSpecy , true);
 graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file(
 			"pajek",
 			"./example_of_Pajek_file",
 			myVertexSpecy,
-			myEdgeSpecy , true);
+			myEdgeSpecy);
 </code></pre>
 </div>
 
