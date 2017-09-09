@@ -3516,6 +3516,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">current_plan</code></strong> (any type):</li>
   <li><strong><code class="highlighter-rouge">desire_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">emotion_base</code></strong> (list):</li>
+  <li><strong><code class="highlighter-rouge">ideal_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">intention_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">intention_persistence</code></strong> (float): intention persistence</li>
   <li><strong><code class="highlighter-rouge">plan_base</code></strong> (list):</li>
@@ -3540,11 +3541,30 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
 
+<h4 id="add_belief_mental_state"><strong><code class="highlighter-rouge">add_belief_mental_state</code></strong></h4>
+<p>add the predicate in the belief base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): predicate to add as a belief</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
+</ul>
+
 <h4 id="add_desire"><strong><code class="highlighter-rouge">add_desire</code></strong></h4>
 <p>adds the predicates is in the desire base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as a desire</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
+  <li><strong><code class="highlighter-rouge">todo</code></strong> (546704): add the desire as a subintention of this parameter</li>
+</ul>
+
+<h4 id="add_desire_mental_state"><strong><code class="highlighter-rouge">add_desire_mental_state</code></strong></h4>
+<p>adds the predicates is in the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental_state to add as a desire</li>
   <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
   <li><strong><code class="highlighter-rouge">todo</code></strong> (546704): add the desire as a subintention of this parameter</li>
@@ -3557,11 +3577,38 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to add to the base</li>
 </ul>
 
+<h4 id="add_ideal"><strong><code class="highlighter-rouge">add_ideal</code></strong></h4>
+<p>add a predicate in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthyness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
+</ul>
+
+<h4 id="add_ideal_mental_state"><strong><code class="highlighter-rouge">add_ideal_mental_state</code></strong></h4>
+<p>add a predicate in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to add as an ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthyness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
+</ul>
+
 <h4 id="add_intention"><strong><code class="highlighter-rouge">add_intention</code></strong></h4>
 <p>check if the predicates is in the desire base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
+</ul>
+
+<h4 id="add_intention_mental_state"><strong><code class="highlighter-rouge">add_intention_mental_state</code></strong></h4>
+<p>check if the predicates is in the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): predicate to add as an intention</li>
   <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
@@ -3586,7 +3633,16 @@ function closeRightMenu() {
 <p>add a predicate in the uncertainty base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
+</ul>
+
+<h4 id="add_uncertainty_mental_state"><strong><code class="highlighter-rouge">add_uncertainty_mental_state</code></strong></h4>
+<p>add a predicate in the uncertainty base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to add as an uncertainty</li>
   <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
@@ -3761,7 +3817,7 @@ function closeRightMenu() {
 <p>get the predicates is in the uncertainty base (if several, returns the first one).</p>
 <ul>
   <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
 </ul>
 
 <h4 id="has_belief"><strong><code class="highlighter-rouge">has_belief</code></strong></h4>
@@ -3860,7 +3916,7 @@ function closeRightMenu() {
 <p>removes the predicates from the desire base.</p>
 <ul>
   <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
 </ul>
 
 <h4 id="replace_belief"><strong><code class="highlighter-rouge">replace_belief</code></strong></h4>

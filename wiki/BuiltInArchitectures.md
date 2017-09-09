@@ -74,6 +74,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
+* **`ideal_base`** (list):    
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
 * **`plan_base`** (list):    
@@ -96,10 +97,25 @@ add the predicate in the belief base.
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
+#### **`add_belief_mental_state`**
+add the predicate in the belief base.
+* returns: bool 			
+* **`mental_state`** (546708): predicate to add as a belief 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
 #### **`add_desire`**
 adds the predicates is in the desire base.
 * returns: bool 			
-* **`predicate`** (546704): predicate to add 			
+* **`predicate`** (546704): predicate to add as a desire 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief 			
+* **`todo`** (546704): add the desire as a subintention of this parameter  
+	 
+#### **`add_desire_mental_state`**
+adds the predicates is in the desire base.
+* returns: bool 			
+* **`mental_state`** (546708): mental_state to add as a desire 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief 			
 * **`todo`** (546704): add the desire as a subintention of this parameter  
@@ -109,10 +125,31 @@ add the emotion to the emotion base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to add to the base  
 	 
+#### **`add_ideal`**
+add a predicate in the ideal base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to add as an ideal 			
+* **`praiseworthyness`** (float): the praiseworthyness value of the ideal 			
+* **`lifetime`** (int): the lifetime of the ideal  
+	 
+#### **`add_ideal_mental_state`**
+add a predicate in the ideal base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to add as an ideal 			
+* **`praiseworthyness`** (float): the praiseworthyness value of the ideal 			
+* **`lifetime`** (int): the lifetime of the ideal  
+	 
 #### **`add_intention`**
 check if the predicates is in the desire base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_intention_mental_state`**
+check if the predicates is in the desire base.
+* returns: bool 			
+* **`mental_state`** (546708): predicate to add as an intention 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
@@ -131,7 +168,14 @@ adds the predicates is in the desire base.
 #### **`add_uncertainty`**
 add a predicate in the uncertainty base.
 * returns: bool 			
-* **`predicate`** (546704): predicate to check 			
+* **`predicate`** (546704): predicate to add 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_uncertainty_mental_state`**
+add a predicate in the uncertainty base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to add as an uncertainty 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
@@ -254,7 +298,7 @@ get the social linke (if several, returns the first one).
 #### **`get_uncertainty`**
 get the predicates is in the uncertainty base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
-* **`predicate`** (546704): predicate to check  
+* **`predicate`** (546704): predicate to return  
 	 
 #### **`has_belief`**
 check if the predicates is in the belief base.
@@ -325,7 +369,7 @@ removes the social link from the social relation base.
 #### **`remove_uncertainty`**
 removes the predicates from the desire base.
 * returns: bool 			
-* **`predicate`** (546704): predicate to add  
+* **`predicate`** (546704): predicate to remove  
 	 
 #### **`replace_belief`**
 replace the old predicate by the new one.
