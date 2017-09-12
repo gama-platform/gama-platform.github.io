@@ -3582,7 +3582,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthyness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3591,7 +3591,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthyness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3661,6 +3661,12 @@ function closeRightMenu() {
 
 <h4 id="clear_emotions"><strong><code class="highlighter-rouge">clear_emotions</code></strong></h4>
 <p>clear the emotion base</p>
+<ul>
+  <li>returns: bool</li>
+</ul>
+
+<h4 id="clear_ideals"><strong><code class="highlighter-rouge">clear_ideals</code></strong></h4>
+<p>clear the ideal base</p>
 <ul>
   <li>returns: bool</li>
 </ul>
@@ -3765,6 +3771,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to get</li>
 </ul>
 
+<h4 id="get_ideal"><strong><code class="highlighter-rouge">get_ideal</code></strong></h4>
+<p>get the predicates in the ideal base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
+</ul>
+
 <h4 id="get_intention"><strong><code class="highlighter-rouge">get_intention</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
@@ -3841,6 +3854,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to check</li>
 </ul>
 
+<h4 id="has_ideal"><strong><code class="highlighter-rouge">has_ideal</code></strong></h4>
+<p>check if the predicates is in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
 <h4 id="has_social_link"><strong><code class="highlighter-rouge">has_social_link</code></strong></h4>
 <p>check if the social link base.</p>
 <ul>
@@ -3895,6 +3915,13 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to remove</li>
+</ul>
+
+<h4 id="remove_ideal"><strong><code class="highlighter-rouge">remove_ideal</code></strong></h4>
+<p>removes the predicates from the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
 </ul>
 
 <h4 id="remove_intention"><strong><code class="highlighter-rouge">remove_intention</code></strong></h4>

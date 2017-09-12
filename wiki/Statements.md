@@ -1670,7 +1670,8 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * `repeat` (int): In the case of a batch experiment, expresses hom many times the simulations must be repeated
   * `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
   * `skills` (list): 
-  * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated 
+  * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated
+  * `virtual` (boolean): whether the experiment is virtual (cannot be instantiated, but only used as a parent, false by default) 
  	
 #### Definition
 
@@ -3251,6 +3252,7 @@ solve SIR method: "rk4" step:0.001;
   * `use_individual_shapes` (boolean): (grid only),(true by default). Allows to specify whether or not the agents of the grid will have distinct geometries. If set to false, they will all have simpler proxy geometries
   * `use_neighbors_cache` (boolean): (grid only),(true by default). Allows to turn on or off the use of the neighbors cache used for grids. Note that if a diffusion of variable occurs, GAMA will emit a warning and automatically switch to a caching version
   * `use_regular_agents` (boolean): (grid only),(true by default). Allows to specify if the agents of the grid are regular agents (like those of any other species) or minimal ones (which can't have sub-populations, can't inherit from a regular species, etc.)
+  * `virtual` (boolean): whether the species is virtual (cannot be instantiated, but only used as a parent) (false by default)
   * `width` (int): (grid only), the width of the grid (in terms of agent number) 
  	
 #### Definition

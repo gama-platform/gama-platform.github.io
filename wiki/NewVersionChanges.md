@@ -61,6 +61,7 @@ gives examples
  * light statement in 3D display provides the possibility to custom your lights (point lights, direction lights, spot lights)
  * Displays can now inherit from other displays (facets `parent` and `virtual` to describe abstract displays)
  * `on_change:` facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes. 
+ * `species` and `experiment` now support the `virtual` boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).
 
 ## Data importation
  * draw of complex shapes through obj file

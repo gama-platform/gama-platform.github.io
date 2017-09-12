@@ -5428,6 +5428,7 @@ experiment Simple type:gui {
   <li><code class="highlighter-rouge">schedules</code> (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, ‘species a schedules: (10 among a)’ will result in a population that schedules only 10 of its own agents every cycle. ‘species b schedules: []’ will prevent the agents of ‘b’ to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining ‘global schedules: [] {…} species b schedules: []; species c schedules: b + world; ‘ allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.</li>
   <li><code class="highlighter-rouge">skills</code> (list):</li>
   <li><code class="highlighter-rouge">until</code> (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated</li>
+  <li><code class="highlighter-rouge">virtual</code> (boolean): whether the experiment is virtual (cannot be instantiated, but only used as a parent, false by default)</li>
 </ul>
 
 <h4 id="definition-33">Definition</h4>
@@ -7187,6 +7188,7 @@ reflex writing {
   <li><code class="highlighter-rouge">use_individual_shapes</code> (boolean): (grid only),(true by default). Allows to specify whether or not the agents of the grid will have distinct geometries. If set to false, they will all have simpler proxy geometries</li>
   <li><code class="highlighter-rouge">use_neighbors_cache</code> (boolean): (grid only),(true by default). Allows to turn on or off the use of the neighbors cache used for grids. Note that if a diffusion of variable occurs, GAMA will emit a warning and automatically switch to a caching version</li>
   <li><code class="highlighter-rouge">use_regular_agents</code> (boolean): (grid only),(true by default). Allows to specify if the agents of the grid are regular agents (like those of any other species) or minimal ones (which can’t have sub-populations, can’t inherit from a regular species, etc.)</li>
+  <li><code class="highlighter-rouge">virtual</code> (boolean): whether the species is virtual (cannot be instantiated, but only used as a parent) (false by default)</li>
   <li><code class="highlighter-rouge">width</code> (int): (grid only), the width of the grid (in terms of agent number)</li>
 </ul>
 

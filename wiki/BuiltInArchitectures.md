@@ -129,14 +129,14 @@ add the emotion to the emotion base.
 add a predicate in the ideal base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthyness value of the ideal 			
+* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_ideal_mental_state`**
 add a predicate in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthyness value of the ideal 			
+* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_intention`**
@@ -189,6 +189,10 @@ clear the desire base
 	 
 #### **`clear_emotions`**
 clear the emotion base
+* returns: bool  
+	 
+#### **`clear_ideals`**
+clear the ideal base
 * returns: bool  
 	 
 #### **`clear_intentions`**
@@ -261,6 +265,11 @@ get the emotion in the emotion base (if several, returns the first one).
 * returns: emotion 			
 * **`emotion`** (546706): emotion to get  
 	 
+#### **`get_ideal`**
+get the predicates in the ideal base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`predicate`** (546704): predicate to return  
+	 
 #### **`get_intention`**
 get the predicates is in the belief base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
@@ -315,6 +324,11 @@ check if the emotion is in the belief base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to check  
 	 
+#### **`has_ideal`**
+check if the predicates is in the ideal base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to check  
+	 
 #### **`has_social_link`**
 check if the social link base.
 * returns: bool 			
@@ -354,6 +368,11 @@ removes the predicates from the desire base.
 removes the emotion from the emotion base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to remove  
+	 
+#### **`remove_ideal`**
+removes the predicates from the ideal base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to remove  
 	 
 #### **`remove_intention`**
 removes the predicates from the desire base.
