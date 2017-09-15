@@ -192,6 +192,10 @@ def findPages(folder,index)
           text = text.gsub("\’"," ")
           text = text.gsub("\”"," ")
           text = text.gsub("\`"," ")
+          text = text.gsub("\[","")
+          text = text.gsub("\[","")
+          text = text.gsub("\]","")
+          text = text.gsub("\]","")
           index<<{"id"=>wikiPagePath,"title"=>wikiPageTitle,"content"=>text,"url"=>wikiPagePath}
           folderString = File.join("#{g('wiki_dest')}",folder)
           # write the new file with yaml front matter
