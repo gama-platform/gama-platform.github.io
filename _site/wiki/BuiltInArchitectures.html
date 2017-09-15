@@ -3697,10 +3697,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="get_belief"><strong><code class="highlighter-rouge">get_belief</code></strong></h4>
-<p>get the predicate in the belief base (if several, returns the first one).</p>
+<p>return the belief about the predicate in the belief base (if several, returns the first one).</p>
 <ul>
   <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to get</li>
+</ul>
+
+<h4 id="get_belief_mental_state"><strong><code class="highlighter-rouge">get_belief_mental_state</code></strong></h4>
+<p>return the belief about the mental state in the belief base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to get</li>
 </ul>
 
 <h4 id="get_belief_with_name"><strong><code class="highlighter-rouge">get_belief_with_name</code></strong></h4>
@@ -3711,10 +3718,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="get_beliefs"><strong><code class="highlighter-rouge">get_beliefs</code></strong></h4>
-<p>get the list of predicates is in the belief base</p>
+<p>get the list of predicates in the belief base</p>
 <ul>
   <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
+<h4 id="get_beliefs_metal_state"><strong><code class="highlighter-rouge">get_beliefs_metal_state</code></strong></h4>
+<p>get the list of bliefs in the belief base containing the mental state</p>
+<ul>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="get_beliefs_with_name"><strong><code class="highlighter-rouge">get_beliefs_with_name</code></strong></h4>
@@ -3727,7 +3741,7 @@ function closeRightMenu() {
 <h4 id="get_current_intention"><strong><code class="highlighter-rouge">get_current_intention</code></strong></h4>
 <p>returns the current intention (last entry of intention base).</p>
 <ul>
-  <li>returns: predicate</li>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
 </ul>
 
 <h4 id="get_current_plan"><strong><code class="highlighter-rouge">get_current_plan</code></strong></h4>
@@ -3743,6 +3757,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
+<h4 id="get_desire_mental_state"><strong><code class="highlighter-rouge">get_desire_mental_state</code></strong></h4>
+<p>get the mental state is in the desire base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
 <h4 id="get_desire_with_name"><strong><code class="highlighter-rouge">get_desire_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
@@ -3751,10 +3772,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="get_desires"><strong><code class="highlighter-rouge">get_desires</code></strong></h4>
-<p>get the list of predicates is in the belief base</p>
+<p>get the list of predicates is in the desire base</p>
 <ul>
   <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
+</ul>
+
+<h4 id="get_desires_mental_state"><strong><code class="highlighter-rouge">get_desires_mental_state</code></strong></h4>
+<p>get the list of mental states is in the desire base</p>
+<ul>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): name of the mental states to check</li>
 </ul>
 
 <h4 id="get_desires_with_name"><strong><code class="highlighter-rouge">get_desires_with_name</code></strong></h4>
@@ -3778,11 +3806,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
 </ul>
 
+<h4 id="get_ideal_mental_state"><strong><code class="highlighter-rouge">get_ideal_mental_state</code></strong></h4>
+<p>get the mental state in the ideal base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to return</li>
+</ul>
+
 <h4 id="get_intention"><strong><code class="highlighter-rouge">get_intention</code></strong></h4>
-<p>get the predicates is in the belief base (if several, returns the first one).</p>
+<p>get the predicates in the intention base (if several, returns the first one).</p>
 <ul>
   <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
+<h4 id="get_intention_mental_state"><strong><code class="highlighter-rouge">get_intention_mental_state</code></strong></h4>
+<p>get the mental state is in the intention base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="get_intention_with_name"><strong><code class="highlighter-rouge">get_intention_with_name</code></strong></h4>
@@ -3793,10 +3835,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="get_intentions"><strong><code class="highlighter-rouge">get_intentions</code></strong></h4>
-<p>get the list of predicates is in the belief base</p>
+<p>get the list of predicates is in the intention base</p>
 <ul>
   <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): name of the predicates to check</li>
+</ul>
+
+<h4 id="get_intentions_mental_state"><strong><code class="highlighter-rouge">get_intentions_mental_state</code></strong></h4>
+<p>get the list of mental state is in the intention base</p>
+<ul>
+  <li>returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState></msi.gaml.architecture.simplebdi.MentalState></li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="get_intentions_with_name"><strong><code class="highlighter-rouge">get_intentions_with_name</code></strong></h4>
@@ -3833,6 +3882,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
 </ul>
 
+<h4 id="get_uncertainty_mental_state"><strong><code class="highlighter-rouge">get_uncertainty_mental_state</code></strong></h4>
+<p>get the mental state is in the uncertainty base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to return</li>
+</ul>
+
 <h4 id="has_belief"><strong><code class="highlighter-rouge">has_belief</code></strong></h4>
 <p>check if the predicates is in the belief base.</p>
 <ul>
@@ -3840,11 +3896,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
+<h4 id="has_belief_mental_state"><strong><code class="highlighter-rouge">has_belief_mental_state</code></strong></h4>
+<p>check if the mental state is in the belief base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
 <h4 id="has_desire"><strong><code class="highlighter-rouge">has_desire</code></strong></h4>
 <p>check if the predicates is in the desire base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
+<h4 id="has_desire_mental_state"><strong><code class="highlighter-rouge">has_desire_mental_state</code></strong></h4>
+<p>check if the mental state is in the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="has_emotion"><strong><code class="highlighter-rouge">has_emotion</code></strong></h4>
@@ -3861,6 +3931,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
+<h4 id="has_ideal_mental_state"><strong><code class="highlighter-rouge">has_ideal_mental_state</code></strong></h4>
+<p>check if the mental state is in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
 <h4 id="has_social_link"><strong><code class="highlighter-rouge">has_social_link</code></strong></h4>
 <p>check if the social link base.</p>
 <ul>
@@ -3875,11 +3952,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
+<h4 id="has_uncertainty_mental_state"><strong><code class="highlighter-rouge">has_uncertainty_mental_state</code></strong></h4>
+<p>check if the mental state is in the uncertainty base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
 <h4 id="is_current_intention"><strong><code class="highlighter-rouge">is_current_intention</code></strong></h4>
 <p>check if the predicates is the current intention (last entry of intention base).</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
+<h4 id="is_current_intention_mental_state"><strong><code class="highlighter-rouge">is_current_intention_mental_state</code></strong></h4>
+<p>check if the mental state is the current intention (last entry of intention base).</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="is_current_plan"><strong><code class="highlighter-rouge">is_current_plan</code></strong></h4>
@@ -3903,11 +3994,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
 </ul>
 
+<h4 id="remove_belief_mental_state"><strong><code class="highlighter-rouge">remove_belief_mental_state</code></strong></h4>
+<p>removes the mental state from the belief base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to remove</li>
+</ul>
+
 <h4 id="remove_desire"><strong><code class="highlighter-rouge">remove_desire</code></strong></h4>
 <p>removes the predicates from the desire base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove from desire base</li>
+</ul>
+
+<h4 id="remove_desire_mental_state"><strong><code class="highlighter-rouge">remove_desire_mental_state</code></strong></h4>
+<p>removes the mental state from the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to remove from desire base</li>
 </ul>
 
 <h4 id="remove_emotion"><strong><code class="highlighter-rouge">remove_emotion</code></strong></h4>
@@ -3924,11 +4029,26 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
 </ul>
 
+<h4 id="remove_ideal_mental_state"><strong><code class="highlighter-rouge">remove_ideal_mental_state</code></strong></h4>
+<p>removes the mental state from the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): metal state to remove</li>
+</ul>
+
 <h4 id="remove_intention"><strong><code class="highlighter-rouge">remove_intention</code></strong></h4>
-<p>removes the predicates from the desire base.</p>
+<p>removes the predicates from the intention base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): intention’s predicate to remove</li>
+  <li><strong><code class="highlighter-rouge">desire_also</code></strong> (boolean): removes also desire</li>
+</ul>
+
+<h4 id="remove_intention_mental_state"><strong><code class="highlighter-rouge">remove_intention_mental_state</code></strong></h4>
+<p>removes the mental state from the intention base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): intention’s mental state to remove</li>
   <li><strong><code class="highlighter-rouge">desire_also</code></strong> (boolean): removes also desire</li>
 </ul>
 
@@ -3940,10 +4060,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="remove_uncertainty"><strong><code class="highlighter-rouge">remove_uncertainty</code></strong></h4>
-<p>removes the predicates from the desire base.</p>
+<p>removes the predicates from the uncertainty base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
+</ul>
+
+<h4 id="remove_uncertainty_mental_state"><strong><code class="highlighter-rouge">remove_uncertainty_mental_state</code></strong></h4>
+<p>removes the mental state from the uncertainty base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to remove</li>
 </ul>
 
 <h4 id="replace_belief"><strong><code class="highlighter-rouge">replace_belief</code></strong></h4>

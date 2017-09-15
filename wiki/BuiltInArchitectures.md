@@ -213,9 +213,14 @@ puts the current intention on hold until the specified condition is reached or a
 * **`until`** (any type): the current intention is put on hold (fited plan are not considered) until specific condition is reached. Can be an expression (which will be tested), a list (of subintentions), or nil (by default the condition will be the current list of subintentions of the intention)  
 	 
 #### **`get_belief`**
-get the predicate in the belief base (if several, returns the first one).
+return the belief about the predicate in the belief base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to get  
+	 
+#### **`get_belief_mental_state`**
+return the belief about the mental state in the belief base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`mental_state`** (546708): mental state to get  
 	 
 #### **`get_belief_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
@@ -223,9 +228,14 @@ get the predicates is in the belief base (if several, returns the first one).
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_beliefs`**
-get the list of predicates is in the belief base
+get the list of predicates in the belief base
 * returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
-* **`predicate`** (546704): name of the predicates to check  
+* **`predicate`** (546704): predicate to check  
+	 
+#### **`get_beliefs_metal_state`**
+get the list of bliefs in the belief base containing the mental state
+* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_beliefs_with_name`**
 get the list of predicates is in the belief base with the given name.
@@ -234,7 +244,7 @@ get the list of predicates is in the belief base with the given name.
 	 
 #### **`get_current_intention`**
 returns the current intention (last entry of intention base).
-* returns: predicate  
+* returns: msi.gaml.architecture.simplebdi.MentalState  
 	 
 #### **`get_current_plan`**
 get the current plan.
@@ -245,15 +255,25 @@ get the predicates is in the desire base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to check  
 	 
+#### **`get_desire_mental_state`**
+get the mental state is in the desire base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`mental_state`** (546708): mental state to check  
+	 
 #### **`get_desire_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_desires`**
-get the list of predicates is in the belief base
+get the list of predicates is in the desire base
 * returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
 * **`predicate`** (546704): name of the predicates to check  
+	 
+#### **`get_desires_mental_state`**
+get the list of mental states is in the desire base
+* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* **`mental_state`** (546708): name of the mental states to check  
 	 
 #### **`get_desires_with_name`**
 get the list of predicates is in the belief base with the given name.
@@ -270,10 +290,20 @@ get the predicates in the ideal base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to return  
 	 
+#### **`get_ideal_mental_state`**
+get the mental state in the ideal base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`mental_state`** (546708): mental state to return  
+	 
 #### **`get_intention`**
-get the predicates is in the belief base (if several, returns the first one).
+get the predicates in the intention base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to check  
+	 
+#### **`get_intention_mental_state`**
+get the mental state is in the intention base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_intention_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
@@ -281,9 +311,14 @@ get the predicates is in the belief base (if several, returns the first one).
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_intentions`**
-get the list of predicates is in the belief base
+get the list of predicates is in the intention base
 * returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
 * **`predicate`** (546704): name of the predicates to check  
+	 
+#### **`get_intentions_mental_state`**
+get the list of mental state is in the intention base
+* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_intentions_with_name`**
 get the list of predicates is in the belief base with the given name.
@@ -309,15 +344,30 @@ get the predicates is in the uncertainty base (if several, returns the first one
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to return  
 	 
+#### **`get_uncertainty_mental_state`**
+get the mental state is in the uncertainty base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`mental_state`** (546708): mental state to return  
+	 
 #### **`has_belief`**
 check if the predicates is in the belief base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check  
 	 
+#### **`has_belief_mental_state`**
+check if the mental state is in the belief base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to check  
+	 
 #### **`has_desire`**
 check if the predicates is in the desire base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check  
+	 
+#### **`has_desire_mental_state`**
+check if the mental state is in the desire base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to check  
 	 
 #### **`has_emotion`**
 check if the emotion is in the belief base.
@@ -329,6 +379,11 @@ check if the predicates is in the ideal base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check  
 	 
+#### **`has_ideal_mental_state`**
+check if the mental state is in the ideal base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to check  
+	 
 #### **`has_social_link`**
 check if the social link base.
 * returns: bool 			
@@ -339,10 +394,20 @@ check if the predicates is in the uncertainty base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check  
 	 
+#### **`has_uncertainty_mental_state`**
+check if the mental state is in the uncertainty base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to check  
+	 
 #### **`is_current_intention`**
 check if the predicates is the current intention (last entry of intention base).
 * returns: bool 			
 * **`predicate`** (546704): predicate to check  
+	 
+#### **`is_current_intention_mental_state`**
+check if the mental state is the current intention (last entry of intention base).
+* returns: bool 			
+* **`mental_state`** (546708): mental state to check  
 	 
 #### **`is_current_plan`**
 tell if the current plan has the same name as tested
@@ -359,10 +424,20 @@ removes the predicate from the belief base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to remove  
 	 
+#### **`remove_belief_mental_state`**
+removes the mental state from the belief base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to remove  
+	 
 #### **`remove_desire`**
 removes the predicates from the desire base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to remove from desire base  
+	 
+#### **`remove_desire_mental_state`**
+removes the mental state from the desire base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to remove from desire base  
 	 
 #### **`remove_emotion`**
 removes the emotion from the emotion base.
@@ -374,10 +449,21 @@ removes the predicates from the ideal base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to remove  
 	 
+#### **`remove_ideal_mental_state`**
+removes the mental state from the ideal base.
+* returns: bool 			
+* **`mental_state`** (546708): metal state to remove  
+	 
 #### **`remove_intention`**
-removes the predicates from the desire base.
+removes the predicates from the intention base.
 * returns: bool 			
 * **`predicate`** (546704): intention's predicate to remove 			
+* **`desire_also`** (boolean): removes also desire  
+	 
+#### **`remove_intention_mental_state`**
+removes the mental state from the intention base.
+* returns: bool 			
+* **`mental_state`** (546708): intention's mental state to remove 			
 * **`desire_also`** (boolean): removes also desire  
 	 
 #### **`remove_social_link`**
@@ -386,9 +472,14 @@ removes the social link from the social relation base.
 * **`social_link`** (546707): social link to remove  
 	 
 #### **`remove_uncertainty`**
-removes the predicates from the desire base.
+removes the predicates from the uncertainty base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to remove  
+	 
+#### **`remove_uncertainty_mental_state`**
+removes the mental state from the uncertainty base.
+* returns: bool 			
+* **`mental_state`** (546708): mental state to remove  
 	 
 #### **`replace_belief`**
 replace the old predicate by the new one.
