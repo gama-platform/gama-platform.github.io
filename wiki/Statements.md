@@ -3239,7 +3239,7 @@ solve SIR method: "rk4" step:0.001;
   * `files` (list): (grid only), a list of bitmap file that will be loaded at runtime so that the value of each pixel of each file can be assigned to the attribute 'bands'
   * `frequency` (int): The execution frequency of the species (default value: 1). For instance, if frequency is set to 10, the population of agents will be executed only every 10 cycles.
   * `height` (int): (grid only),  the height of the grid (in terms of agent number)
-  * `horizontal_orientation` (boolean): (hexagonal grid only),(false by default). Allows use a hexagonal grid with a horizontal orientation.
+  * `horizontal_orientation` (boolean): (hexagonal grid only),(true by default). Allows use a hexagonal grid with a horizontal or vertical orientation.
   * `mirrors` (any type in [list, species]): The species this species is mirroring. The population of this current species will be dependent of that of the species mirrored (i.e. agents creation and death are entirely taken in charge by GAMA with respect to the demographics of the species mirrored). In addition, this species is provided with an attribute called 'target', which allows each agent to know which agent of the mirrored species it is representing.
   * `neighbors` (int): (grid only), the chosen neighborhood (4, 6 or 8)
   * `neighbours` (int): (grid only), the chosen neighborhood (4, 6 or 8)
