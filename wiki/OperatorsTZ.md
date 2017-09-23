@@ -334,7 +334,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				(
 				
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -348,7 +348,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				(
 				
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -802,14 +802,14 @@ Same signification as [until](OperatorsTZ
 				#### Special cases:
 			
 					*
-					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one
+					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS
 
 					```
 					geometry
 								var
 								0
 								<-
-								to_GAMA_CRS({121,14})
+								to_GAMA_CRS({121,14}, "EPSG:4326")
 								; // var
 								0
 								equals
@@ -819,14 +819,14 @@ Same signification as [until](OperatorsTZ
 
 				
 					*
-					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS
+					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one
 
 					```
 					geometry
 								var
 								1
 								<-
-								to_GAMA_CRS({121,14}, "EPSG:4326")
+								to_GAMA_CRS({121,14})
 								; // var
 								1
 								equals
@@ -1159,8 +1159,8 @@ list<geometry>
 
 				#### Result:
 				A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 
 				#### Examples:
 				```
@@ -1177,20 +1177,20 @@ list<geometry>
 								var
 								1
 								<-
-								to_squares(self, 10, true, 0.99)
+								to_squares(self, 10.0, true)
 								; // var
 								1
 								equals
-								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+								the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 list<geometry>
 								var
 								2
 								<-
-								to_squares(self, 10.0, true)
+								to_squares(self, 10, true, 0.99)
 								; // var
 								2
 								equals
-								the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 				```
 			
@@ -1783,17 +1783,17 @@ Same signification as [at_location](OperatorsAB
 				*
 				 **`triangulate`** 
 				(
-				
-				`
-				geometry
-				`
-			
+				`list<geometry>`
 				) --->
 				`list<geometry>`
 				*
 				 **`triangulate`** 
 				(
-				`list<geometry>`
+				
+				`
+				geometry
+				`
+			
 				) --->
 				`list<geometry>`
 
@@ -2017,48 +2017,48 @@ float
 				#### Special cases:
 			
 					*
-					if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
-					*
 					if the left or right operand is nil, union throws an error
+					*
+					if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
 
 				#### Examples:
 				```
-				geometry
+				container
 								var
 								0
-								<-
-								union([geom1, geom2, geom3])
-								; // var
-								0
-								equals
-								a geometry corresponding to union between geom1, geom2 and geom3
-container
-								var
-								1
 								<-
 								[1,2,3,4,5,6] union [2,4,9]
 								; // var
-								1
+								0
 								equals
 								[1,2,3,4,5,6,9]
 container
 								var
-								2
+								1
 								<-
 								[1,2,3,4,5,6] union [0,8]
 								; // var
-								2
+								1
 								equals
 								[1,2,3,4,5,6,0,8]
 container
 								var
-								3
+								2
 								<-
 								[1,3,2,4,5,6,8,5,6] union [0,8]
 								; // var
-								3
+								2
 								equals
 								[1,3,2,4,5,6,8,0]
+geometry
+								var
+								3
+								<-
+								union([geom1, geom2, geom3])
+								; // var
+								3
+								equals
+								a geometry corresponding to union between geom1, geom2 and geom3
 
 				```
 			
@@ -2481,8 +2481,8 @@ create bug number: int(values2 at "Number") with: [location:: (point(values2 at 
 			
 
 				#### Result:
-				Returns the variance from a standard deviation.
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+				Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+Returns the variance from a standard deviation.
 
 			----
 			

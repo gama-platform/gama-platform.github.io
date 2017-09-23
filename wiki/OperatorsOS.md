@@ -1386,6 +1386,32 @@ bool
 				*
 				
 				`
+				topology
+				`
+			 **`path_between`** `container<geometry>`
+				--->
+				
+				`
+				path
+				`
+			
+				*
+				 **`path_between`** 
+				(
+				
+				`
+				topology
+				`
+			 , `container<geometry>`
+				) --->
+				
+				`
+				path
+				`
+			
+				*
+				
+				`
 				java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>
 				`
 			 **`path_between`** `container<geometry>`
@@ -1428,11 +1454,27 @@ bool
 				`
 			
 				*
+				 **`path_between`** 
+				(
 				
 				`
 				topology
 				`
-			 **`path_between`** `container<geometry>`
+			
+							,
+						
+				`
+				geometry
+				`
+			
+							,
+						
+				`
+				geometry
+				`
+			
+							)
+						
 				--->
 				
 				`
@@ -1444,21 +1486,7 @@ bool
 				(
 				
 				`
-				topology
-				`
-			 , `container<geometry>`
-				) --->
-				
-				`
-				path
-				`
-			
-				*
-				 **`path_between`** 
-				(
-				
-				`
-				graph
+				java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>
 				`
 			
 							,
@@ -1510,35 +1538,7 @@ bool
 				(
 				
 				`
-				java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>
-				`
-			
-							,
-						
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				geometry
-				`
-			
-							)
-						
-				--->
-				
-				`
-				path
-				`
-			
-				*
-				 **`path_between`** 
-				(
-				
-				`
-				topology
+				graph
 				`
 			
 							,
@@ -1563,10 +1563,10 @@ bool
 			
 
 				#### Result:
-				The shortest path between a list of two objects in a graph
+				The shortest path between two objects according to set of cells with corresponding weights
 The shortest path between two objects according to set of cells
-The shortest path between two objects according to set of cells with corresponding weights
 The shortest path between several objects according to set of cells with corresponding weights
+The shortest path between a list of two objects in a graph
 The shortest path between several objects according to set of cells
 
 				#### Examples:
@@ -1575,7 +1575,7 @@ The shortest path between several objects according to set of cells
 								var
 								0
 								<-
-								path_between (my_graph, ag1, ag2)
+								my_topology path_between (ag1, ag2)
 								; // var
 								0
 								equals
@@ -1584,56 +1584,56 @@ path
 								var
 								1
 								<-
-								path_between (cell_grid where each.is_free, ag1, ag2)
-								; // var
-								1
-								equals
-								A path between ag1 and ag2 passing through the given cell_grid agents
-path
-								var
-								2
-								<-
 								path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2)
 								; // var
-								2
+								1
 								equals
 								A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost
 path
 								var
+								2
+								<-
+								my_topology path_between [ag1, ag2]
+								; // var
+								2
+								equals
+								A path between ag1 and ag2
+path
+								var
 								3
+								<-
+								path_between (cell_grid where each.is_free, ag1, ag2)
+								; // var
+								3
+								equals
+								A path between ag1 and ag2 passing through the given cell_grid agents
+path
+								var
+								4
 								<-
 								path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3])
 								; // var
-								3
+								4
 								equals
 								A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost
 path
 								var
-								4
+								5
+								<-
+								path_between (my_graph, ag1, ag2)
+								; // var
+								5
+								equals
+								A path between ag1 and ag2
+path
+								var
+								6
 								<-
 								path_between (cell_grid where each.is_free, [ag1, ag2, ag3])
 								; // var
-								4
+								6
 								equals
 								A path between ag1 and ag2 and ag3 passing through the given cell_grid agents
-path
-								var
-								5
-								<-
-								my_topology path_between (ag1, ag2)
-								; // var
-								5
-								equals
-								A path between ag1 and ag2
-path
-								var
-								6
-								<-
-								my_topology path_between [ag1, ag2]
-								; // var
-								6
-								equals
-								A path between ag1 and ag2
 
 				```
 			
@@ -1652,11 +1652,11 @@ path
 				*
 				
 				`
-				point
+				geometry
 				`
 			 **`path_to`** 
 				`
-				point
+				geometry
 				`
 			
 				--->
@@ -1670,11 +1670,11 @@ path
 				(
 				
 				`
-				point
+				geometry
 				`
 			 , 
 				`
-				point
+				geometry
 				`
 			
 				) --->
@@ -1686,11 +1686,11 @@ path
 				*
 				
 				`
-				geometry
+				point
 				`
 			 **`path_to`** 
 				`
-				geometry
+				point
 				`
 			
 				--->
@@ -1704,11 +1704,11 @@ path
 				(
 				
 				`
-				geometry
+				point
 				`
 			 , 
 				`
-				geometry
+				point
 				`
 			
 				) --->
@@ -2356,7 +2356,7 @@ Same signification as [normal_area](OperatorsIN
 				`
 			 **`point`** 
 				`
-				float
+				int
 				`
 			
 				--->
@@ -2374,7 +2374,7 @@ Same signification as [normal_area](OperatorsIN
 				`
 			 , 
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -2409,40 +2409,6 @@ Same signification as [normal_area](OperatorsIN
 			 , 
 				`
 				float
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`point`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`point`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
 				`
 			
 				) --->
@@ -2486,27 +2452,15 @@ Same signification as [normal_area](OperatorsIN
 				`
 			
 				*
-				 **`point`** 
-				(
 				
 				`
-				float
+				int
 				`
-			
-							,
-						
+			 **`point`** 
 				`
 				float
 				`
 			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
 				--->
 				
 				`
@@ -2518,24 +2472,14 @@ Same signification as [normal_area](OperatorsIN
 				(
 				
 				`
-				float
-				`
-			
-							,
-						
-				`
 				int
 				`
-			
-							,
-						
+			 , 
 				`
 				float
 				`
 			
-							)
-						
-				--->
+				) --->
 				
 				`
 				point
@@ -2559,34 +2503,6 @@ Same signification as [normal_area](OperatorsIN
 						
 				`
 				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`point`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				int
 				`
 			
 							)
@@ -2642,7 +2558,7 @@ Same signification as [normal_area](OperatorsIN
 							,
 						
 				`
-				int
+				float
 				`
 			
 							)
@@ -2671,6 +2587,90 @@ Same signification as [normal_area](OperatorsIN
 						
 				`
 				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`point`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`point`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`point`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
 				`
 			
 							)
@@ -2683,15 +2683,15 @@ Same signification as [normal_area](OperatorsIN
 			
 
 				#### Result:
-				internal use only. Use the standard construction {x,y} instead.
+				internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 
@@ -3693,9 +3693,9 @@ Same signification as [mul](OperatorsIN
 			
 
 				#### Result:
-				Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
-Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
+				Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
 Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end > start with a negative step) will similarly not be accepted and yield an exception
+Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
 
 			----
 			
@@ -3809,11 +3809,11 @@ Allows to build a list of int representing all contiguous values from the first 
 				*
 				
 				`
-				point
+				float
 				`
 			 **`rectangle`** 
 				`
-				point
+				float
 				`
 			
 				--->
@@ -3827,11 +3827,11 @@ Allows to build a list of int representing all contiguous values from the first 
 				(
 				
 				`
-				point
+				float
 				`
 			 , 
 				`
-				point
+				float
 				`
 			
 				) --->
@@ -3843,11 +3843,11 @@ Allows to build a list of int representing all contiguous values from the first 
 				*
 				
 				`
-				float
+				point
 				`
 			 **`rectangle`** 
 				`
-				float
+				point
 				`
 			
 				--->
@@ -3861,11 +3861,11 @@ Allows to build a list of int representing all contiguous values from the first 
 				(
 				
 				`
-				float
+				point
 				`
 			 , 
 				`
-				float
+				point
 				`
 			
 				) --->
@@ -3896,7 +3896,7 @@ Allows to build a list of int representing all contiguous values from the first 
 								var
 								0
 								<-
-								rectangle({10, 5})
+								rectangle(10, 5)
 								; // var
 								0
 								equals
@@ -3905,20 +3905,20 @@ geometry
 								var
 								1
 								<-
-								rectangle({2.0,6.0}, {6.0,20.0})
+								rectangle({10, 5})
 								; // var
 								1
 								equals
-								a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
+								a geometry as a rectangle with width = 10 and height = 5.
 geometry
 								var
 								2
 								<-
-								rectangle(10, 5)
+								rectangle({2.0,6.0}, {6.0,20.0})
 								; // var
 								2
 								equals
-								a geometry as a rectangle with width = 10 and height = 5.
+								a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
 
 				```
 			
@@ -4161,25 +4161,25 @@ Same signification as [distinct](OperatorsCH
 				*
 				 **`reverse`** 
 				(
-				`container<KeyType,ValueType>`
+				
+				`
+				string
+				`
+			
 				) --->
 				
 				`
-				msi.gama.util.IContainer<?,?>
+				string
 				`
 			
 				*
 				 **`reverse`** 
 				(
-				
-				`
-				string
-				`
-			
+				`container<KeyType,ValueType>`
 				) --->
 				
 				`
-				string
+				msi.gama.util.IContainer<?,?>
 				`
 			
 
@@ -4198,16 +4198,33 @@ Same signification as [distinct](OperatorsCH
 					*
 					if it is a graph, reverse returns a copy of the graph (with all edges and vertexes), with all of the edges reversed
 					*
+					if it is a string, reverse returns a new string with characters in the reversed order
+
+					```
+					string
+								var
+								0
+								<-
+								reverse ('abcd')
+								; // var
+								0
+								equals
+								'dcba'
+
+					```
+
+				
+					*
 					if it is a list, reverse returns a copy of the operand list with elements in the reversed order
 
 					```
 					msi.gama.util.IContainer<?,?>
 								var
-								0
+								1
 								<-
 								reverse ([10,12,14])
 								; // var
-								0
+								1
 								equals
 								[14, 12, 10]
 
@@ -4220,11 +4237,11 @@ Same signification as [distinct](OperatorsCH
 					```
 					msi.gama.util.IContainer<?,?>
 								var
-								1
+								2
 								<-
 								reverse (['k1'::44, 'k2'::32, 'k3'::12])
 								; // var
-								1
+								2
 								equals
 								[12::'k3',  32::'k2', 44::'k1']
 
@@ -4237,30 +4254,13 @@ Same signification as [distinct](OperatorsCH
 					```
 					msi.gama.util.IContainer<?,?>
 								var
-								2
+								3
 								<-
 								reverse(matrix([["c11","c12","c13"],["c21","c22","c23"]]))
 								; // var
-								2
+								3
 								equals
 								matrix([["c11","c21"],["c12","c22"],["c13","c23"]])
-
-					```
-
-				
-					*
-					if it is a string, reverse returns a new string with characters in the reversed order
-
-					```
-					string
-								var
-								3
-								<-
-								reverse ('abcd')
-								; // var
-								3
-								equals
-								'dcba'
 
 					```
 
@@ -4379,7 +4379,7 @@ Same signification as [distinct](OperatorsCH
 				`
 			 **`rgb`** 
 				`
-				int
+				float
 				`
 			
 				--->
@@ -4397,7 +4397,7 @@ Same signification as [distinct](OperatorsCH
 				`
 			 , 
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -4413,7 +4413,7 @@ Same signification as [distinct](OperatorsCH
 				`
 			 **`rgb`** 
 				`
-				float
+				int
 				`
 			
 				--->
@@ -4431,7 +4431,7 @@ Same signification as [distinct](OperatorsCH
 				`
 			 , 
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -4543,17 +4543,17 @@ Same signification as [distinct](OperatorsCH
 				#### Special cases:
 			
 					*
-					It can be used with a name of color and alpha (between 0 and 255)
+					It can be used with r=red, g=green, b=blue, each between 0 and 255
 					*
-					It can be used with a color and an alpha between 0 and 255
+					It can be used with a name of color and alpha (between 0 and 255)
 					*
 					It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)
 					*
-					It can be used with r=red, g=green, b=blue, each between 0 and 255
+					It can be used with a color and an alpha between 0 and 1
+					*
+					It can be used with a color and an alpha between 0 and 255
 					*
 					It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)
-					*
-					It can be used with a color and an alpha between 0 and 1
 
 				#### Examples:
 				```
@@ -4561,20 +4561,20 @@ Same signification as [distinct](OperatorsCH
 								var
 								0
 								<-
-								rgb ("red")
+								rgb (255,0,0)
 								; // var
 								0
 								equals
-								rgb(255,0,0)
+								#red
 rgb
 								var
 								1
 								<-
-								rgb(rgb(255,0,0),125)
+								rgb ("red")
 								; // var
 								1
 								equals
-								a light red color
+								rgb(255,0,0)
 rgb
 								var
 								2
@@ -4588,16 +4588,16 @@ rgb
 								var
 								4
 								<-
-								rgb (255,0,0)
+								rgb(rgb(255,0,0),0.5)
 								; // var
 								4
 								equals
-								#red
+								a light red color
 rgb
 								var
 								5
 								<-
-								rgb (255,0,0,0.5)
+								rgb(rgb(255,0,0),125)
 								; // var
 								5
 								equals
@@ -4606,7 +4606,7 @@ rgb
 								var
 								6
 								<-
-								rgb(rgb(255,0,0),0.5)
+								rgb (255,0,0,0.5)
 								; // var
 								6
 								equals
@@ -4714,13 +4714,13 @@ rgb
 				(
 				
 				`
-				int
+				point
 				`
 			
 				) --->
 				
 				`
-				int
+				point
 				`
 			
 				*
@@ -4742,13 +4742,47 @@ rgb
 				(
 				
 				`
-				point
+				int
 				`
 			
 				) --->
 				
 				`
-				point
+				int
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`rnd`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`rnd`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				int
 				`
 			
 				*
@@ -4820,68 +4854,6 @@ rgb
 				`
 			
 				*
-				
-				`
-				int
-				`
-			 **`rnd`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`rnd`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				 **`rnd`** 
-				(
-				
-				`
-				point
-				`
-			
-							,
-						
-				`
-				point
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				point
-				`
-			
-				*
 				 **`rnd`** 
 				(
 				
@@ -4935,6 +4907,34 @@ rgb
 				
 				`
 				int
+				`
+			
+				*
+				 **`rnd`** 
+				(
+				
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				point
 				`
 			
 
@@ -4947,102 +4947,102 @@ rgb
 				#### Special cases:
 			
 					*
-					if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
-					*
 					if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]
+					*
+					if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
 
 				#### Examples:
 				```
-				float
+				point
 								var
 								0
 								<-
-								rnd (2.0, 4.0)
+								rnd ({2.5,3, 0.0})
 								; // var
 								0
 								equals
-								a float number between 2.0 and 4.0
-point
+								{x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0
+float
 								var
 								1
 								<-
-								rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1)
+								rnd(3.4)
 								; // var
 								1
 								equals
-								a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
-int
+								a random float between 0.0 and 3.4
+float
 								var
 								2
+								<-
+								rnd (2.0, 4.0, 0.5)
+								; // var
+								2
+								equals
+								a float number between 2.0 and 4.0 every 0.5
+int
+								var
+								3
 								<-
 								rnd (2)
 								; // var
-								2
+								3
 								equals
 								0, 1 or 2
 float
 								var
-								3
+								4
 								<-
 								rnd (1000) / 1000
 								; // var
-								3
+								4
 								equals
 								a float between 0 and 1 with a precision of 0.001
-float
-								var
-								4
-								<-
-								rnd (2.0, 4.0, 0.5)
-								; // var
-								4
-								equals
-								a float number between 2.0 and 4.0 every 0.5
-point
-								var
-								5
-								<-
-								rnd ({2.0, 4.0}, {2.0, 5.0, 10.0})
-								; // var
-								5
-								equals
-								a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
-float
-								var
-								6
-								<-
-								rnd(3.4)
-								; // var
-								6
-								equals
-								a random float between 0.0 and 3.4
-point
-								var
-								7
-								<-
-								rnd ({2.5,3, 0.0})
-								; // var
-								7
-								equals
-								{x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0
 int
 								var
-								8
-								<-
-								rnd (2, 4)
-								; // var
-								8
-								equals
-								2, 3 or 4
-int
-								var
-								9
+								5
 								<-
 								rnd (2, 12, 4)
 								; // var
-								9
+								5
 								equals
 								2, 6 or 10
+int
+								var
+								6
+								<-
+								rnd (2, 4)
+								; // var
+								6
+								equals
+								2, 3 or 4
+float
+								var
+								7
+								<-
+								rnd (2.0, 4.0)
+								; // var
+								7
+								equals
+								a float number between 2.0 and 4.0
+point
+								var
+								8
+								<-
+								rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1)
+								; // var
+								8
+								equals
+								a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
+point
+								var
+								9
+								<-
+								rnd ({2.0, 4.0}, {2.0, 5.0, 10.0})
+								; // var
+								9
+								equals
+								a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
 
 				```
 			
@@ -5156,7 +5156,7 @@ int
 				`
 			 **`rotated_by`** 
 				`
-				float
+				int
 				`
 			
 				--->
@@ -5174,7 +5174,7 @@ int
 				`
 			 , 
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -5190,7 +5190,7 @@ int
 				`
 			 **`rotated_by`** 
 				`
-				int
+				float
 				`
 			
 				--->
@@ -5208,7 +5208,7 @@ int
 				`
 			 , 
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -5247,8 +5247,8 @@ int
 			
 
 				#### Result:
-				A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)
-A geometry resulting from the application of a rotation by the right-hand operand angles (degree) along the three axis (x,y,z) to the left-hand operand (geometry, agent, point)
+				A geometry resulting from the application of a rotation by the right-hand operand angles (degree) along the three axis (x,y,z) to the left-hand operand (geometry, agent, point)
+A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)
 
 				#### Comment:
 				the right-hand operand can be a float or a int
@@ -5259,20 +5259,20 @@ A geometry resulting from the application of a rotation by the right-hand operan
 								var
 								0
 								<-
-								self rotated_by 45
+								rotated_by(pyramid(10),45, {1,0,0})
 								; // var
 								0
 								equals
-								the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator.
+								the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.
 geometry
 								var
 								1
 								<-
-								rotated_by(pyramid(10),45, {1,0,0})
+								self rotated_by 45
 								; // var
 								1
 								equals
-								the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.
+								the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator.
 
 				```
 			
@@ -5293,13 +5293,13 @@ geometry
 				(
 				
 				`
-				point
+				int
 				`
 			
 				) --->
 				
 				`
-				point
+				int
 				`
 			
 				*
@@ -5307,13 +5307,13 @@ geometry
 				(
 				
 				`
-				int
+				point
 				`
 			
 				) --->
 				
 				`
-				int
+				point
 				`
 			
 				*
@@ -5831,40 +5831,6 @@ Same signification as [where](OperatorsTZ
 				*
 				
 				`
-				predicate
-				`
-			 **`set_agent_cause`** 
-				`
-				agent
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`set_agent_cause`** 
-				(
-				
-				`
-				predicate
-				`
-			 , 
-				`
-				agent
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
 				emotion
 				`
 			 **`set_agent_cause`** 
@@ -5894,17 +5860,51 @@ Same signification as [where](OperatorsTZ
 				
 				`
 				emotion
+				`
+			
+				*
+				
+				`
+				predicate
+				`
+			 **`set_agent_cause`** 
+				`
+				agent
+				`
+			
+				--->
+				
+				`
+				predicate
+				`
+			
+				*
+				 **`set_agent_cause`** 
+				(
+				
+				`
+				predicate
+				`
+			 , 
+				`
+				agent
+				`
+			
+				) --->
+				
+				`
+				predicate
 				`
 			
 
 				#### Result:
-				change the agentCause value of the given predicate
-change the agentCause value of the given emotion
+				change the agentCause value of the given emotion
+change the agentCause value of the given predicate
 
 				#### Examples:
 				```
-				predicate set_agent_cause agentA
-emotion set_agent_cause agentA
+				emotion set_agent_cause agentA
+predicate set_agent_cause agentA
 
 				```
 			
@@ -6605,6 +6605,20 @@ loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);
 				(
 				
 				`
+				container
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+				*
+				 **`shuffle`** 
+				(
+				
+				`
 				string
 				`
 			
@@ -6626,20 +6640,6 @@ loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);
 				
 				`
 				matrix
-				`
-			
-				*
-				 **`shuffle`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
 				`
 			
 
@@ -6653,33 +6653,33 @@ loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);
 
 				#### Examples:
 				```
-				string
+				container
 								var
 								0
 								<-
-								shuffle ('abc')
+								shuffle ([12, 13, 14])
 								; // var
 								0
+								equals
+								[14,12,13] (for example)
+string
+								var
+								1
+								<-
+								shuffle ('abc')
+								; // var
+								1
 								equals
 								'bac' (for example)
 matrix
 								var
-								1
+								2
 								<-
 								shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]]))
 								; // var
-								1
+								2
 								equals
 								matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)
-container
-								var
-								2
-								<-
-								shuffle ([12, 13, 14])
-								; // var
-								2
-								equals
-								[14,12,13] (for example)
 
 				```
 			
@@ -6935,7 +6935,7 @@ Same signification as [simple_clustering_by_distance](OperatorsOS
 				(
 				
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -6949,7 +6949,7 @@ Same signification as [simple_clustering_by_distance](OperatorsOS
 				(
 				
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -6973,7 +6973,7 @@ Same signification as [simple_clustering_by_distance](OperatorsOS
 								var
 								0
 								<-
-								sin (0)
+								sin(360)
 								; // var
 								0
 								equals
@@ -6982,7 +6982,7 @@ float
 								var
 								1
 								<-
-								sin(360)
+								sin (0)
 								; // var
 								1
 								equals
@@ -7206,8 +7206,8 @@ every(2#days) since (starting_date + 1#day) // the computation will return true 
 			
 
 				#### Result:
-				Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
-Returns the skew of a data sequence.
+				Returns the skew of a data sequence.
+Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
 
 			----
 			
@@ -7934,9 +7934,9 @@ Same signification as [species](OperatorsOS
 				`list<geometry>`
 
 				#### Result:
-				A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
-A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
+				A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
+A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
 
 				#### Examples:
 				```
@@ -7944,29 +7944,29 @@ A list of geometries that result from the decomposition of the geometry by squar
 								var
 								0
 								<-
-								to_rectangles(self, 10,20)
-								; // var
-								0
-								equals
-								the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
-list<geometry>
-								var
-								1
-								<-
 								to_rectangles(self, {10.0, 15.0})
 								; // var
-								1
+								0
 								equals
 								the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0
 list<geometry>
 								var
-								2
+								1
 								<-
 								to_squares(self, 10.0)
 								; // var
-								2
+								1
 								equals
 								the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
+list<geometry>
+								var
+								2
+								<-
+								to_rectangles(self, 10,20)
+								; // var
+								2
+								equals
+								the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
 
 				```
 			

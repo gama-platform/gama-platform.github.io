@@ -374,7 +374,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				*
 				
 				`
-				float
+				int
 				`
 			 **`-`** 
 				`
@@ -391,364 +391,24 @@ Note that due to the fact that actions are written by modelers, the general func
 				 **`-`** 
 				(
 				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`-`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				map
-				`
-			 **`-`** 
-				`
-				map
-				`
-			
-				--->
-				
-				`
-				map
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				map
-				`
-			 , 
-				`
-				map
-				`
-			
-				) --->
-				
-				`
-				map
-				`
-			
-				*
-				
-				`
-				map
-				`
-			 **`-`** 
-				`
-				pair
-				`
-			
-				--->
-				
-				`
-				map
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				map
-				`
-			 , 
-				`
-				pair
-				`
-			
-				) --->
-				
-				`
-				map
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`-`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`-`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				rgb
-				`
-			 **`-`** 
-				`
-				rgb
-				`
-			
-				--->
-				
-				`
-				rgb
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				rgb
-				`
-			 , 
-				`
-				rgb
-				`
-			
-				) --->
-				
-				`
-				rgb
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`-`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`-`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`-`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`-`** 
 				`
 				int
 				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				point
-				`
 			 , 
 				`
-				int
+				float
 				`
 			
 				) --->
 				
 				`
-				point
+				float
 				`
 			
 				*
 				
 				`
-				matrix
+				point
 				`
 			 **`-`** 
 				`
@@ -758,7 +418,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				--->
 				
 				`
-				matrix
+				point
 				`
 			
 				*
@@ -766,7 +426,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				(
 				
 				`
-				matrix
+				point
 				`
 			 , 
 				`
@@ -776,7 +436,41 @@ Note that due to the fact that actions are written by modelers, the general func
 				) --->
 				
 				`
-				matrix
+				point
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`-`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
 				`
 			
 				*
@@ -816,11 +510,45 @@ Note that due to the fact that actions are written by modelers, the general func
 				*
 				
 				`
+				container
+				`
+			 **`-`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+				*
+				
+				`
 				matrix
 				`
 			 **`-`** 
 				`
-				int
+				float
 				`
 			
 				--->
@@ -838,7 +566,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 , 
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -854,13 +582,13 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 **`-`** 
 				`
-				int
+				matrix
 				`
 			
 				--->
 				
 				`
-				int
+				matrix
 				`
 			
 				*
@@ -872,29 +600,29 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 , 
 				`
-				int
+				matrix
 				`
 			
 				) --->
 				
 				`
-				int
+				matrix
 				`
 			
 				*
 				
 				`
-				point
+				map
 				`
 			 **`-`** 
 				`
-				point
+				map
 				`
 			
 				--->
 				
 				`
-				point
+				map
 				`
 			
 				*
@@ -902,187 +630,17 @@ Note that due to the fact that actions are written by modelers, the general func
 				(
 				
 				`
-				point
+				map
 				`
 			 , 
 				`
-				point
+				map
 				`
 			
 				) --->
 				
 				`
-				point
-				`
-			
-				*
-				
-				`
-				rgb
-				`
-			 **`-`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				rgb
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				rgb
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				rgb
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`-`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`-`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`-`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
-				*
-				
-				`
-				container
-				`
-			 **`-`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`-`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
+				map
 				`
 			
 				*
@@ -1114,11 +672,181 @@ Note that due to the fact that actions are written by modelers, the general func
 				*
 				
 				`
+				map
+				`
+			 **`-`** 
+				`
+				pair
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				map
+				`
+			 , 
+				`
+				pair
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+				*
+				
+				`
+				geometry
+				`
+			 **`-`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`-`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`-`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				rgb
+				`
+			 **`-`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				rgb
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				rgb
+				`
+			
+				*
+				
+				`
 				container
 				`
 			 **`-`** 
 				`
-				unknown
+				container
 				`
 			
 				--->
@@ -1136,7 +864,7 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 , 
 				`
-				unknown
+				container
 				`
 			
 				) --->
@@ -1148,17 +876,17 @@ Note that due to the fact that actions are written by modelers, the general func
 				*
 				
 				`
-				geometry
+				date
 				`
 			 **`-`** 
 				`
-				geometry
+				float
 				`
 			
 				--->
 				
 				`
-				geometry
+				date
 				`
 			
 				*
@@ -1166,17 +894,51 @@ Note that due to the fact that actions are written by modelers, the general func
 				(
 				
 				`
-				geometry
+				date
 				`
 			 , 
 				`
-				geometry
+				float
 				`
 			
 				) --->
 				
 				`
-				geometry
+				date
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`-`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
 				`
 			
 				*
@@ -1186,13 +948,13 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 **`-`** 
 				`
-				matrix
+				int
 				`
 			
 				--->
 				
 				`
-				matrix
+				int
 				`
 			
 				*
@@ -1204,13 +966,251 @@ Note that due to the fact that actions are written by modelers, the general func
 				`
 			 , 
 				`
-				matrix
+				int
 				`
 			
 				) --->
 				
 				`
-				matrix
+				int
+				`
+			
+				*
+				
+				`
+				rgb
+				`
+			 **`-`** 
+				`
+				rgb
+				`
+			
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				rgb
+				`
+			 , 
+				`
+				rgb
+				`
+			
+				) --->
+				
+				`
+				rgb
+				`
+			
+				*
+				
+				`
+				geometry
+				`
+			 **`-`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`-`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`-`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+				*
+				
+				`
+				date
+				`
+			 **`-`** 
+				`
+				date
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				date
+				`
+			 , 
+				`
+				date
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				date
+				`
+			 **`-`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				date
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				date
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				date
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`-`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`-`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
 				`
 			
 
@@ -1254,18 +1254,165 @@ point
 
 				
 					*
-					if both operands are dates, returns the duration in seconds between  date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2)
+					if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object
 
 					```
-					float
+					list<int>
 								var
 								9
 								<-
-								date1 - date2
+								[1,2,3,4,5,6] - 2
 								; // var
 								9
 								equals
-								598
+								[1,3,4,5,6]
+list<int>
+								var
+								10
+								<-
+								[1,2,3,4,5,6] - 0
+								; // var
+								10
+								equals
+								[1,2,3,4,5,6]
+
+					```
+
+				
+					*
+					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.
+
+					```
+					matrix
+								var
+								11
+								<-
+								3.5 - matrix([[2,5],[3,4]])
+								; // var
+								11
+								equals
+								matrix([[1.5,-1.5],[0.5,-0.5]])
+
+					```
+
+				
+					*
+					if the right-operand is a list of points, geometries or agents, returns the geometry resulting from the difference between the left-geometry and all of the right-geometries
+
+					```
+					geometry
+								var
+								12
+								<-
+								rectangle(10,10) - [circle(2), square(2)]
+								; // var
+								12
+								equals
+								rectangle(10,10) - (circle(2) + square(2))
+
+					```
+
+				
+					*
+					if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries
+
+					```
+					geometry
+								var
+								13
+								<-
+								geom1 - geom2
+								; // var
+								13
+								equals
+								a geometry corresponding to difference between geom1 and geom2
+
+					```
+
+				
+					*
+					if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand
+
+					```
+					rgb
+								var
+								14
+								<-
+								rgb([255, 128, 32]) - 3
+								; // var
+								14
+								equals
+								rgb([252,125,29])
+
+					```
+
+				
+					*
+					if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one
+
+					```
+					list<int>
+								var
+								15
+								<-
+								[1,2,3,4,5,6] - [2,4,9]
+								; // var
+								15
+								equals
+								[1,3,5,6]
+list<int>
+								var
+								16
+								<-
+								[1,2,3,4,5,6] - [0,8]
+								; // var
+								16
+								equals
+								[1,2,3,4,5,6]
+
+					```
+
+				
+					*
+					if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.
+
+					```
+					int
+								var
+								17
+								<-
+								1 - 1
+								; // var
+								17
+								equals
+								0
+int
+								var
+								18
+								<-
+								1.0 - 1
+								; // var
+								18
+								equals
+								0.0
+int
+								var
+								19
+								<-
+								3.7 - 1.2
+								; // var
+								19
+								equals
+								2.5
+int
+								var
+								20
+								<-
+								3 - 1.2
+								; // var
+								20
+								equals
+								1.8
 
 					```
 
@@ -1276,11 +1423,11 @@ point
 					```
 					rgb
 								var
-								10
+								21
 								<-
 								rgb([255, 128, 32]) - rgb('red')
 								; // var
-								10
+								21
 								equals
 								rgb([0,128,32])
 
@@ -1293,57 +1440,13 @@ point
 					```
 					geometry
 								var
-								11
+								22
 								<-
 								shape - 5
 								; // var
-								11
+								22
 								equals
 								a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
-
-					```
-
-				
-					*
-					if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.
-
-					```
-					int
-								var
-								12
-								<-
-								1 - 1
-								; // var
-								12
-								equals
-								0
-int
-								var
-								13
-								<-
-								1.0 - 1
-								; // var
-								13
-								equals
-								0.0
-int
-								var
-								14
-								<-
-								3.7 - 1.2
-								; // var
-								14
-								equals
-								2.5
-int
-								var
-								15
-								<-
-								3 - 1.2
-								; // var
-								15
-								equals
-								1.8
 
 					```
 
@@ -1354,11 +1457,11 @@ int
 					```
 					point
 								var
-								16
+								23
 								<-
 								{1, 2} - {4, 5}
 								; // var
-								16
+								23
 								equals
 								{-3.0, -3.0}
 
@@ -1366,18 +1469,18 @@ int
 
 				
 					*
-					if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand
+					if both operands are dates, returns the duration in seconds between  date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2)
 
 					```
-					rgb
+					float
 								var
-								17
+								24
 								<-
-								rgb([255, 128, 32]) - 3
+								date1 - date2
 								; // var
-								17
+								24
 								equals
-								rgb([252,125,29])
+								598
 
 					```
 
@@ -1391,148 +1494,45 @@ int
 					```
 
 				
-					*
-					if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one
-
-					```
-					list<int>
-								var
-								19
-								<-
-								[1,2,3,4,5,6] - [2,4,9]
-								; // var
-								19
-								equals
-								[1,3,5,6]
-list<int>
-								var
-								20
-								<-
-								[1,2,3,4,5,6] - [0,8]
-								; // var
-								20
-								equals
-								[1,2,3,4,5,6]
-
-					```
-
-				
-					*
-					if the right-operand is a list of points, geometries or agents, returns the geometry resulting from the difference between the left-geometry and all of the right-geometries
-
-					```
-					geometry
-								var
-								21
-								<-
-								rectangle(10,10) - [circle(2), square(2)]
-								; // var
-								21
-								equals
-								rectangle(10,10) - (circle(2) + square(2))
-
-					```
-
-				
-					*
-					if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object
-
-					```
-					list<int>
-								var
-								22
-								<-
-								[1,2,3,4,5,6] - 2
-								; // var
-								22
-								equals
-								[1,3,4,5,6]
-list<int>
-								var
-								23
-								<-
-								[1,2,3,4,5,6] - 0
-								; // var
-								23
-								equals
-								[1,2,3,4,5,6]
-
-					```
-
-				
-					*
-					if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries
-
-					```
-					geometry
-								var
-								24
-								<-
-								geom1 - geom2
-								; // var
-								24
-								equals
-								a geometry corresponding to difference between geom1 and geom2
-
-					```
-
-				
-					*
-					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.
-
-					```
-					matrix
-								var
-								25
-								<-
-								3.5 - matrix([[2,5],[3,4]])
-								; // var
-								25
-								equals
-								matrix([[1.5,-1.5],[0.5,-0.5]])
-
-					```
-
-				
 
 				#### Examples:
 				```
-				point
+				map
 								var
 								0
 								<-
-								-{3.0,5.0}
+								['a'::1,'b'::2] - ['b'::2]
 								; // var
 								0
+								equals
+								['a'::1]
+map
+								var
+								1
+								<-
+								['a'::1,'b'::2] - ['b'::2,'c'::3]
+								; // var
+								1
+								equals
+								['a'::1]
+point
+								var
+								2
+								<-
+								-{3.0,5.0}
+								; // var
+								2
 								equals
 								{-3.0,-5.0}
 point
 								var
-								1
+								3
 								<-
 								-{1.0,6.0,7.0}
 								; // var
-								1
+								3
 								equals
 								{-1.0,-6.0,-7.0}
-map
-								var
-								2
-								<-
-								['a'::1,'b'::2] - ['b'::2]
-								; // var
-								2
-								equals
-								['a'::1]
-map
-								var
-								3
-								<-
-								['a'::1,'b'::2] - ['b'::2,'c'::3]
-								; // var
-								3
-								equals
-								['a'::1]
 map
 								var
 								4
@@ -1565,7 +1565,7 @@ int
 			
 
 				#### See also:
-				[-](OperatorsAB#-), [milliseconds_between](OperatorsIN#milliseconds_between), [+](OperatorsAB#+), [*](OperatorsAB#*), [/](OperatorsAB#/), 
+				[-](OperatorsAB#-), [+](OperatorsAB#+), [*](OperatorsAB#*), [/](OperatorsAB#/), [milliseconds_between](OperatorsIN#milliseconds_between), 
 
 			----
 			
@@ -1724,40 +1724,6 @@ int
 				*
 				
 				`
-				date
-				`
-			 **`!=`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`!=`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
 				float
 				`
 			 **`!=`** 
@@ -1792,6 +1758,74 @@ int
 				*
 				
 				`
+				date
+				`
+			 **`!=`** 
+				`
+				date
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`!=`** 
+				(
+				
+				`
+				date
+				`
+			 , 
+				`
+				date
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				unknown
+				`
+			 **`!=`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`!=`** 
+				(
+				
+				`
+				unknown
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
 				float
 				`
 			 **`!=`** 
@@ -1849,40 +1883,6 @@ int
 			 , 
 				`
 				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				unknown
-				`
-			 **`!=`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`!=`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				unknown
 				`
 			
 				) --->
@@ -1897,30 +1897,30 @@ int
 
 				#### Examples:
 				```
-				#now != #now minus_hours 1 :- true
-bool
+				bool
 								var
-								1
+								0
 								<-
 								3.0 != 3
 								; // var
-								1
+								0
 								equals
 								false
 bool
 								var
-								2
+								1
 								<-
 								4.7 != 4
 								; // var
-								2
+								1
 								equals
 								true
+#now != #now minus_hours 1 :- true
 bool
 								var
 								3
 								<-
-								3.0 != 3.0
+								[2,3] != [2,3]
 								; // var
 								3
 								equals
@@ -1929,7 +1929,7 @@ bool
 								var
 								4
 								<-
-								4.0 != 4.7
+								[2,4] != [2,3]
 								; // var
 								4
 								equals
@@ -1938,7 +1938,7 @@ bool
 								var
 								5
 								<-
-								3 != 3.0
+								3.0 != 3.0
 								; // var
 								5
 								equals
@@ -1947,7 +1947,7 @@ bool
 								var
 								6
 								<-
-								4 != 4.7
+								4.0 != 4.7
 								; // var
 								6
 								equals
@@ -1956,7 +1956,7 @@ bool
 								var
 								7
 								<-
-								[2,3] != [2,3]
+								3 != 3.0
 								; // var
 								7
 								equals
@@ -1965,7 +1965,7 @@ bool
 								var
 								8
 								<-
-								[2,4] != [2,3]
+								4 != 4.7
 								; // var
 								8
 								equals
@@ -2090,142 +2090,6 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				*
 				
 				`
-				float
-				`
-			 **`/`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`/`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`/`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`/`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`/`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`/`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`/`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`/`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
 				point
 				`
 			 **`/`** 
@@ -2260,7 +2124,41 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				*
 				
 				`
-				rgb
+				matrix
+				`
+			 **`/`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`/`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				int
 				`
 			 **`/`** 
 				`
@@ -2270,7 +2168,7 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				--->
 				
 				`
-				rgb
+				float
 				`
 			
 				*
@@ -2278,7 +2176,7 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				(
 				
 				`
-				rgb
+				int
 				`
 			 , 
 				`
@@ -2288,7 +2186,7 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				) --->
 				
 				`
-				rgb
+				float
 				`
 			
 				*
@@ -2323,6 +2221,40 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				
 				`
 				float
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`/`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`/`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				matrix
 				`
 			
 				*
@@ -2362,11 +2294,45 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				*
 				
 				`
-				matrix
+				float
 				`
 			 **`/`** 
 				`
 				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`/`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`/`** 
+				`
+				matrix
 				`
 			
 				--->
@@ -2384,7 +2350,7 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				`
 			 , 
 				`
-				int
+				matrix
 				`
 			
 				) --->
@@ -2396,17 +2362,17 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				*
 				
 				`
-				matrix
+				int
 				`
 			 **`/`** 
 				`
-				matrix
+				int
 				`
 			
 				--->
 				
 				`
-				matrix
+				float
 				`
 			
 				*
@@ -2414,17 +2380,51 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 				(
 				
 				`
-				matrix
+				int
 				`
 			 , 
 				`
-				matrix
+				int
 				`
 			
 				) --->
 				
 				`
-				matrix
+				float
+				`
+			
+				*
+				
+				`
+				rgb
+				`
+			 **`/`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`/`** 
+				(
+				
+				`
+				rgb
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				rgb
 				`
 			
 
@@ -2436,61 +2436,27 @@ rgb color <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 					*
 					if the right-hand operand is equal to zero, raises a "Division by zero" exception
 					*
-					if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.
-
-					```
-					float
-								var
-								0
-								<-
-								3 / 5.0
-								; // var
-								0
-								equals
-								0.6
-
-					```
-
-				
-					*
 					if the left operand is a point, returns a new point with coordinates divided by the right operand
 
 					```
 					point
 								var
-								1
+								0
 								<-
 								{5, 7.5} / 2.5
 								; // var
-								1
+								0
 								equals
 								{2, 3}
 point
 								var
-								2
+								1
 								<-
 								{2,5} / 4
 								; // var
-								2
+								1
 								equals
 								{0.5,1.25}
-
-					```
-
-				
-					*
-					if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated.
-
-					```
-					rgb
-								var
-								3
-								<-
-								rgb([255, 128, 32]) / 2.5
-								; // var
-								3
-								equals
-								rgb([102,51,13])
 
 					```
 
@@ -2501,13 +2467,47 @@ point
 					```
 					rgb
 								var
-								4
+								2
 								<-
 								rgb([255, 128, 32]) / 2
 								; // var
-								4
+								2
 								equals
 								rgb([127,64,16])
+
+					```
+
+				
+					*
+					if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.
+
+					```
+					float
+								var
+								3
+								<-
+								3 / 5.0
+								; // var
+								3
+								equals
+								0.6
+
+					```
+
+				
+					*
+					if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated.
+
+					```
+					rgb
+								var
+								4
+								<-
+								rgb([255, 128, 32]) / 2.5
+								; // var
+								4
+								equals
+								rgb([102,51,13])
 
 					```
 
@@ -2527,40 +2527,6 @@ point
 				*
 				
 				`
-				agent
-				`
-			 **`.`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`.`** 
-				(
-				
-				`
-				agent
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
-				*
-				
-				`
 				matrix
 				`
 			 **`.`** 
@@ -2590,6 +2556,40 @@ point
 				
 				`
 				matrix
+				`
+			
+				*
+				
+				`
+				agent
+				`
+			 **`.`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`.`** 
+				(
+				
+				`
+				agent
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				unknown
 				`
 			
 
@@ -2601,36 +2601,36 @@ point
 					*
 					if the agent is nil or dead, throws an exception
 					*
-					if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent
-
-					```
-					unknown
-								var
-								0
-								<-
-								agent1.location
-								; // var
-								0
-								equals
-								the location of the agent agent1
-map(nil).keys
-
-					```
-
-				
-					*
 					if both operands are matrix, returns the dot product of them
 
 					```
 					matrix
 								var
-								2
+								0
 								<-
 								matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]])
 								; // var
-								2
+								0
 								equals
 								matrix([[2,3],[3,5]])
+
+					```
+
+				
+					*
+					if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent
+
+					```
+					unknown
+								var
+								1
+								<-
+								agent1.location
+								; // var
+								1
+								equals
+								the location of the agent agent1
+map(nil).keys
 
 					```
 
@@ -2647,74 +2647,6 @@ map(nil).keys
 				*
 				
 				`
-				float
-				`
-			 **`^`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`^`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`^`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`^`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
 				int
 				`
 			 **`^`** 
@@ -2772,6 +2704,74 @@ map(nil).keys
 			 , 
 				`
 				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`^`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`^`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`^`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`^`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
 				`
 			
 				) --->
@@ -2796,11 +2796,11 @@ map(nil).keys
 					```
 					float
 								var
-								0
+								1
 								<-
 								2 ^ 3
 								; // var
-								0
+								1
 								equals
 								8.0
 
@@ -2812,11 +2812,11 @@ map(nil).keys
 				```
 				float
 								var
-								12
+								0
 								<-
 								4.84 ^ 0.5
 								; // var
-								12
+								0
 								equals
 								2.2
 
@@ -2846,17 +2846,17 @@ Same signification as [at](OperatorsAB
 				*
 				
 				`
-				point
+				matrix
 				`
 			 **`*`** 
 				`
-				point
+				int
 				`
 			
 				--->
 				
 				`
-				float
+				matrix
 				`
 			
 				*
@@ -2864,17 +2864,17 @@ Same signification as [at](OperatorsAB
 				(
 				
 				`
-				point
+				matrix
 				`
 			 , 
 				`
-				point
+				int
 				`
 			
 				) --->
 				
 				`
-				float
+				matrix
 				`
 			
 				*
@@ -2914,210 +2914,6 @@ Same signification as [at](OperatorsAB
 				*
 				
 				`
-				float
-				`
-			 **`*`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`*`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`*`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`*`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`*`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`*`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
 				geometry
 				`
 			 **`*`** 
@@ -3152,7 +2948,41 @@ Same signification as [at](OperatorsAB
 				*
 				
 				`
-				matrix
+				point
+				`
+			 **`*`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				point
 				`
 			 **`*`** 
 				`
@@ -3162,7 +2992,7 @@ Same signification as [at](OperatorsAB
 				--->
 				
 				`
-				matrix
+				point
 				`
 			
 				*
@@ -3170,7 +3000,7 @@ Same signification as [at](OperatorsAB
 				(
 				
 				`
-				matrix
+				point
 				`
 			 , 
 				`
@@ -3180,7 +3010,41 @@ Same signification as [at](OperatorsAB
 				) --->
 				
 				`
-				matrix
+				point
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`*`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
 				`
 			
 				*
@@ -3215,6 +3079,244 @@ Same signification as [at](OperatorsAB
 				
 				`
 				matrix
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`*`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`*`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`*`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`*`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`*`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`*`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`*`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`*`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
 				`
 			
 				*
@@ -3249,108 +3351,6 @@ Same signification as [at](OperatorsAB
 				
 				`
 				geometry
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`*`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`*`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`*`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`*`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
 				`
 			
 
@@ -3360,78 +3360,18 @@ Same signification as [at](OperatorsAB
 				#### Special cases:
 			
 					*
-					if both operands are points, returns their scalar product
-
-					```
-					float
-								var
-								1
-								<-
-								{2,5} * {4.5, 5}
-								; // var
-								1
-								equals
-								34.0
-
-					```
-
-				
-					*
 					if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)
 
 					```
 					rgb
 								var
-								2
+								1
 								<-
 								rgb([255, 128, 32]) * 2
 								; // var
-								2
+								1
 								equals
 								rgb([255,255,64])
-
-					```
-
-				
-					*
-					if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number
-
-					```
-					point
-								var
-								3
-								<-
-								{2,5} * 4
-								; // var
-								3
-								equals
-								{8.0, 20.0}
-point
-								var
-								4
-								<-
-								{2, 4} * 2.5
-								; // var
-								4
-								equals
-								{5.0, 10.0}
-
-					```
-
-				
-					*
-					if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.
-
-					```
-					int
-								var
-								5
-								<-
-								1 * 1
-								; // var
-								5
-								equals
-								1
 
 					```
 
@@ -3442,13 +3382,82 @@ point
 					```
 					geometry
 								var
-								6
+								2
 								<-
 								circle(10) * 2
 								; // var
-								6
+								2
 								equals
 								circle(20)
+
+					```
+
+				
+					*
+					if both operands are points, returns their scalar product
+
+					```
+					float
+								var
+								3
+								<-
+								{2,5} * {4.5, 5}
+								; // var
+								3
+								equals
+								34.0
+
+					```
+
+				
+					*
+					if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number
+
+					```
+					point
+								var
+								4
+								<-
+								{2,5} * 4
+								; // var
+								4
+								equals
+								{8.0, 20.0}
+point
+								var
+								5
+								<-
+								{2, 4} * 2.5
+								; // var
+								5
+								equals
+								{5.0, 10.0}
+
+					```
+
+				
+					*
+					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.
+
+					```
+					matrix<float> m <- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],[10.5,14]])
+
+					```
+
+				
+					*
+					if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.
+
+					```
+					int
+								var
+								7
+								<-
+								1 * 1
+								; // var
+								7
+								equals
+								1
 
 					```
 
@@ -3459,22 +3468,13 @@ point
 					```
 					geometry
 								var
-								7
+								8
 								<-
 								shape * {0.5,0.5,2}
 								; // var
-								7
+								8
 								equals
 								a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
-
-					```
-
-				
-					*
-					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.
-
-					```
-					matrix<float> m <- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],[10.5,14]])
 
 					```
 
@@ -3509,7 +3509,415 @@ point
 				*
 				
 				`
+				float
+				`
+			 **`+`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`+`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				date
+				`
+			 **`+`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				date
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				date
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				date
+				`
+			
+				*
+				
+				`
+				geometry
+				`
+			 **`+`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
 				string
+				`
+			 **`+`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				string
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+				*
+				
+				`
+				date
+				`
+			 **`+`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				string
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				date
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`+`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`+`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`+`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`+`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				geometry
+				`
+			 **`+`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				matrix
+				`
+			 **`+`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				container
 				`
 			 **`+`** 
 				`
@@ -3519,312 +3927,6 @@ point
 				--->
 				
 				`
-				string
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`+`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				string
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`+`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				container
-				`
-			 **`+`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
-				*
-				
-				`
-				rgb
-				`
-			 **`+`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				rgb
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				rgb
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				rgb
-				`
-			
-				*
-				
-				`
-				map
-				`
-			 **`+`** 
-				`
-				map
-				`
-			
-				--->
-				
-				`
-				map
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				map
-				`
-			 , 
-				`
-				map
-				`
-			
-				) --->
-				
-				`
-				map
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`+`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
-				*
-				
-				`
-				date
-				`
-			 **`+`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`+`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				
-				`
-				container
-				`
-			 **`+`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
 				container
 				`
 			
@@ -3849,11 +3951,79 @@ point
 				*
 				
 				`
+				matrix
+				`
+			 **`+`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				container
+				`
+			 **`+`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+				*
+				
+				`
 				rgb
 				`
 			 **`+`** 
 				`
-				rgb
+				int
 				`
 			
 				--->
@@ -3871,7 +4041,7 @@ point
 				`
 			 , 
 				`
-				rgb
+				int
 				`
 			
 				) --->
@@ -3883,17 +4053,17 @@ point
 				*
 				
 				`
-				geometry
+				map
 				`
 			 **`+`** 
 				`
-				geometry
+				map
 				`
 			
 				--->
 				
 				`
-				geometry
+				map
 				`
 			
 				*
@@ -3901,33 +4071,67 @@ point
 				(
 				
 				`
-				geometry
+				map
 				`
 			 , 
 				`
-				geometry
+				map
 				`
 			
 				) --->
 				
 				`
-				geometry
+				map
 				`
 			
 				*
 				
+				`
+				int
+				`
+			 **`+`** 
+				`
+				matrix
+				`
+			
+				--->
+				
+				`
+				matrix
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				matrix
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`+`** 
 				`
 				float
 				`
-			 **`+`** 
-				`
-				matrix
-				`
 			
 				--->
 				
 				`
-				matrix
+				point
 				`
 			
 				*
@@ -3935,17 +4139,51 @@ point
 				(
 				
 				`
-				float
+				point
 				`
 			 , 
 				`
-				matrix
+				float
 				`
 			
 				) --->
 				
 				`
-				matrix
+				point
+				`
+			
+				*
+				
+				`
+				rgb
+				`
+			 **`+`** 
+				`
+				rgb
+				`
+			
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`+`** 
+				(
+				
+				`
+				rgb
+				`
+			 , 
+				`
+				rgb
+				`
+			
+				) --->
+				
+				`
+				rgb
 				`
 			
 				*
@@ -3985,17 +4223,17 @@ point
 				*
 				
 				`
-				matrix
+				point
 				`
 			 **`+`** 
 				`
-				matrix
+				int
 				`
 			
 				--->
 				
 				`
-				matrix
+				point
 				`
 			
 				*
@@ -4003,51 +4241,17 @@ point
 				(
 				
 				`
-				matrix
+				point
 				`
 			 , 
 				`
-				matrix
+				int
 				`
 			
 				) --->
 				
 				`
-				matrix
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`+`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				matrix
+				point
 				`
 			
 				*
@@ -4091,7 +4295,7 @@ point
 				`
 			 **`+`** 
 				`
-				string
+				unknown
 				`
 			
 				--->
@@ -4109,7 +4313,7 @@ point
 				`
 			 , 
 				`
-				string
+				unknown
 				`
 			
 				) --->
@@ -4121,75 +4325,7 @@ point
 				*
 				
 				`
-				float
-				`
-			 **`+`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`+`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				float
+				date
 				`
 			 **`+`** 
 				`
@@ -4199,7 +4335,7 @@ point
 				--->
 				
 				`
-				float
+				date
 				`
 			
 				*
@@ -4207,7 +4343,7 @@ point
 				(
 				
 				`
-				float
+				date
 				`
 			 , 
 				`
@@ -4217,143 +4353,7 @@ point
 				) --->
 				
 				`
-				float
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`+`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`+`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`+`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`+`** 
-				`
-				point
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`+`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				point
+				date
 				`
 			
 				*
@@ -4429,104 +4429,10 @@ point
 					*
 					if both operands are species, returns a special type of list called meta-population
 					*
-					if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)
-
-					```
-					string
-								var
-								4
-								<-
-								"hello " + 12
-								; // var
-								4
-								equals
-								"hello 12"
-
-					```
-
-				
-					*
-					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.
-
-					```
-					matrix
-								var
-								5
-								<-
-								3.5 + matrix([[2,5],[3,4]])
-								; // var
-								5
-								equals
-								matrix([[5.5,8.5],[6.5,7.5]])
-
-					```
-
-				
-					*
-					if both operands are list, +returns the concatenation of both lists.
-
-					```
-					list<int>
-								var
-								6
-								<-
-								[1,2,3,4,5,6] + [2,4,9]
-								; // var
-								6
-								equals
-								[1,2,3,4,5,6,2,4,9]
-list<int>
-								var
-								7
-								<-
-								[1,2,3,4,5,6] + [0,8]
-								; // var
-								7
-								equals
-								[1,2,3,4,5,6,0,8]
-
-					```
-
-				
-					*
-					if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand
-
-					```
-					rgb
-								var
-								8
-								<-
-								rgb([255, 128, 32]) + 3
-								; // var
-								8
-								equals
-								rgb([255,131,35])
-
-					```
-
-				
-					*
 					if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds)
 
 					```
 					date1 + 200
-
-					```
-
-				
-					*
-					if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand
-
-					```
-					geometry
-								var
-								10
-								<-
-								circle(5) + (5,32)
-								; // var
-								10
-								equals
-								circle(10)
 
 					```
 
@@ -4537,149 +4443,11 @@ list<int>
 					```
 					geometry
 								var
-								11
+								5
 								<-
 								circle(5) + 5
 								; // var
-								11
-								equals
-								circle(10)
-
-					```
-
-				
-					*
-					if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added
-
-					```
-					list<int>
-								var
-								12
-								<-
-								[1,2,3,4,5,6] + 2
-								; // var
-								12
-								equals
-								[1,2,3,4,5,6,2]
-list<int>
-								var
-								13
-								<-
-								[1,2,3,4,5,6] + 0
-								; // var
-								13
-								equals
-								[1,2,3,4,5,6,0]
-
-					```
-
-				
-					*
-					if both operands are colors, returns a new color resulting from the sum of the two operands, component by component
-
-					```
-					rgb
-								var
-								14
-								<-
-								rgb([255, 128, 32]) + rgb('red')
-								; // var
-								14
-								equals
-								rgb([255,128,32])
-
-					```
-
-				
-					*
-					if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries
-
-					```
-					geometry
-								var
-								15
-								<-
-								geom1 + geom2
-								; // var
-								15
-								equals
-								a geometry corresponding to union between geom1 and geom2
-
-					```
-
-				
-					*
-					if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.
-
-					```
-					int
-								var
-								16
-								<-
-								1 + 1
-								; // var
-								16
-								equals
-								2
-int
-								var
-								17
-								<-
-								1.0 + 1
-								; // var
-								17
-								equals
-								2.0
-int
-								var
-								18
-								<-
-								1.0 + 2.5
-								; // var
-								18
-								equals
-								3.5
-
-					```
-
-				
-					*
-					if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.
-
-					```
-					point
-								var
-								19
-								<-
-								{1, 2} + 4
-								; // var
-								19
-								equals
-								{5.0, 6.0,4.0}
-point
-								var
-								20
-								<-
-								{1, 2} + 4.5
-								; // var
-								20
-								equals
-								{5.5, 6.5,4.5}
-
-					```
-
-				
-					*
-					if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style
-
-					```
-					geometry
-								var
-								21
-								<-
-								circle(5) + (5,32,#round)
-								; // var
-								21
+								5
 								equals
 								circle(10)
 
@@ -4692,13 +4460,245 @@ point
 					```
 					point
 								var
-								22
+								6
 								<-
 								{1, 2} + {4, 5}
 								; // var
-								22
+								6
 								equals
 								{5.0, 7.0}
+
+					```
+
+				
+					*
+					if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries
+
+					```
+					geometry
+								var
+								7
+								<-
+								geom1 + geom2
+								; // var
+								7
+								equals
+								a geometry corresponding to union between geom1 and geom2
+
+					```
+
+				
+					*
+					if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added
+
+					```
+					list<int>
+								var
+								8
+								<-
+								[1,2,3,4,5,6] + 2
+								; // var
+								8
+								equals
+								[1,2,3,4,5,6,2]
+list<int>
+								var
+								9
+								<-
+								[1,2,3,4,5,6] + 0
+								; // var
+								9
+								equals
+								[1,2,3,4,5,6,0]
+
+					```
+
+				
+					*
+					if both operands are list, +returns the concatenation of both lists.
+
+					```
+					list<int>
+								var
+								10
+								<-
+								[1,2,3,4,5,6] + [2,4,9]
+								; // var
+								10
+								equals
+								[1,2,3,4,5,6,2,4,9]
+list<int>
+								var
+								11
+								<-
+								[1,2,3,4,5,6] + [0,8]
+								; // var
+								11
+								equals
+								[1,2,3,4,5,6,0,8]
+
+					```
+
+				
+					*
+					if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand
+
+					```
+					rgb
+								var
+								12
+								<-
+								rgb([255, 128, 32]) + 3
+								; // var
+								12
+								equals
+								rgb([255,131,35])
+
+					```
+
+				
+					*
+					if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.
+
+					```
+					matrix
+								var
+								13
+								<-
+								3.5 + matrix([[2,5],[3,4]])
+								; // var
+								13
+								equals
+								matrix([[5.5,8.5],[6.5,7.5]])
+
+					```
+
+				
+					*
+					if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand
+
+					```
+					geometry
+								var
+								14
+								<-
+								circle(5) + (5,32)
+								; // var
+								14
+								equals
+								circle(10)
+
+					```
+
+				
+					*
+					if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.
+
+					```
+					point
+								var
+								15
+								<-
+								{1, 2} + 4
+								; // var
+								15
+								equals
+								{5.0, 6.0,4.0}
+point
+								var
+								16
+								<-
+								{1, 2} + 4.5
+								; // var
+								16
+								equals
+								{5.5, 6.5,4.5}
+
+					```
+
+				
+					*
+					if both operands are colors, returns a new color resulting from the sum of the two operands, component by component
+
+					```
+					rgb
+								var
+								17
+								<-
+								rgb([255, 128, 32]) + rgb('red')
+								; // var
+								17
+								equals
+								rgb([255,128,32])
+
+					```
+
+				
+					*
+					if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style
+
+					```
+					geometry
+								var
+								18
+								<-
+								circle(5) + (5,32,#round)
+								; // var
+								18
+								equals
+								circle(10)
+
+					```
+
+				
+					*
+					if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.
+
+					```
+					int
+								var
+								19
+								<-
+								1 + 1
+								; // var
+								19
+								equals
+								2
+int
+								var
+								20
+								<-
+								1.0 + 1
+								; // var
+								20
+								equals
+								2.0
+int
+								var
+								21
+								<-
+								1.0 + 2.5
+								; // var
+								21
+								equals
+								3.5
+
+					```
+
+				
+					*
+					if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)
+
+					```
+					string
+								var
+								22
+								<-
+								"hello " + 12
+								; // var
+								22
+								equals
+								"hello 12"
 
 					```
 
@@ -4747,7 +4747,7 @@ map
 			
 
 				#### See also:
-				[-](OperatorsAB#-), [/](OperatorsAB#/), [*](OperatorsAB#*), 
+				[/](OperatorsAB#/), [-](OperatorsAB#-), [*](OperatorsAB#*), 
 
 			----
 			
@@ -4760,108 +4760,6 @@ map
 				*
 				
 				`
-				int
-				`
-			 **`<`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`<`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`<`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
 				float
 				`
 			 **`<`** 
@@ -4919,6 +4817,108 @@ map
 			 , 
 				`
 				point
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`<`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`<`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				string
+				`
+			 **`<`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				string
 				`
 			
 				) --->
@@ -5004,44 +5004,44 @@ map
 					*
 					if one of the operands is nil, returns false
 					*
-					if both operands are String, uses a lexicographic comparison of two strings
-
-					```
-					bool
-								var
-								0
-								<-
-								'abc' < 'aeb'
-								; // var
-								0
-								equals
-								true
-
-					```
-
-				
-					*
 					if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.
 
 					```
 					bool
 								var
-								1
+								0
 								<-
 								{5,7} < {4,6}
 								; // var
-								1
+								0
 								equals
 								false
 bool
 								var
-								2
+								1
 								<-
 								{5,7} < {4,8}
 								; // var
-								2
+								1
 								equals
 								false
+
+					```
+
+				
+					*
+					if both operands are String, uses a lexicographic comparison of two strings
+
+					```
+					bool
+								var
+								2
+								<-
+								'abc' < 'aeb'
+								; // var
+								2
+								equals
+								true
 
 					```
 
@@ -5053,7 +5053,7 @@ bool
 								var
 								3
 								<-
-								3 < 7
+								3.5 < 7
 								; // var
 								3
 								equals
@@ -5071,7 +5071,7 @@ bool
 								var
 								5
 								<-
-								3.5 < 7
+								3 < 7
 								; // var
 								5
 								equals
@@ -5104,108 +5104,6 @@ bool
 				*
 				
 				`
-				float
-				`
-			 **`<=`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<=`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`<=`** 
-				`
-				point
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<=`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`<=`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`<=`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
 				int
 				`
 			 **`<=`** 
@@ -5274,6 +5172,40 @@ bool
 				*
 				
 				`
+				float
+				`
+			 **`<=`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<=`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
 				string
 				`
 			 **`<=`** 
@@ -5297,6 +5229,74 @@ bool
 			 , 
 				`
 				string
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`<=`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<=`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`<=`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`<=`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
 				`
 			
 				) --->
@@ -5348,44 +5348,44 @@ bool
 					*
 					if one of the operands is nil, returns false
 					*
-					if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.
-
-					```
-					bool
-								var
-								0
-								<-
-								{5,7} <= {4,6}
-								; // var
-								0
-								equals
-								false
-bool
-								var
-								1
-								<-
-								{5,7} <= {4,8}
-								; // var
-								1
-								equals
-								false
-
-					```
-
-				
-					*
 					if both operands are String, uses a lexicographic comparison of two strings
 
 					```
 					bool
 								var
-								2
+								0
 								<-
 								'abc' <= 'aeb'
 								; // var
-								2
+								0
 								equals
 								true
+
+					```
+
+				
+					*
+					if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.
+
+					```
+					bool
+								var
+								1
+								<-
+								{5,7} <= {4,6}
+								; // var
+								1
+								equals
+								false
+bool
+								var
+								2
+								<-
+								{5,7} <= {4,8}
+								; // var
+								2
+								equals
+								false
 
 					```
 
@@ -5397,30 +5397,30 @@ bool
 								var
 								3
 								<-
-								3.5 <= 3.5
+								3 <= 2.5
 								; // var
 								3
 								equals
+								false
+#now <= #now minus_hours 1 :- false
+bool
+								var
+								5
+								<-
+								3.5 <= 3.5
+								; // var
+								5
+								equals
 								true
 bool
 								var
-								4
+								6
 								<-
 								3 <= 7
 								; // var
-								4
+								6
 								equals
 								true
-bool
-								var
-								5
-								<-
-								3 <= 2.5
-								; // var
-								5
-								equals
-								false
-#now <= #now minus_hours 1 :- false
 bool
 								var
 								7
@@ -5461,40 +5461,6 @@ Same signification as [!=](OperatorsAB
 				`
 			 **`=`** 
 				`
-				int
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`=`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`=`** 
-				`
 				float
 				`
 			
@@ -5510,74 +5476,6 @@ Same signification as [!=](OperatorsAB
 				
 				`
 				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				unknown
-				`
-			 **`=`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`=`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`=`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`=`** 
-				(
-				
-				`
-				int
 				`
 			 , 
 				`
@@ -5631,6 +5529,40 @@ Same signification as [!=](OperatorsAB
 				`
 			 **`=`** 
 				`
+				float
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`=`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`=`** 
+				`
 				int
 				`
 			
@@ -5650,6 +5582,74 @@ Same signification as [!=](OperatorsAB
 			 , 
 				`
 				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`=`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`=`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				unknown
+				`
+			 **`=`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`=`** 
+				(
+				
+				`
+				unknown
+				`
+			 , 
+				`
+				unknown
 				`
 			
 				) --->
@@ -5671,11 +5671,11 @@ returns true if both operands are equal, false otherwise
 					```
 					bool
 								var
-								0
+								6
 								<-
 								[2,3] = [2,3]
 								; // var
-								0
+								6
 								equals
 								true
 
@@ -5687,48 +5687,48 @@ returns true if both operands are equal, false otherwise
 				```
 				bool
 								var
-								1
-								<-
-								4.7 = 4
-								; // var
-								1
-								equals
-								false
-bool
-								var
-								2
+								0
 								<-
 								4.5 = 4.7
 								; // var
-								2
-								equals
-								false
-bool
-								var
-								3
-								<-
-								3 = 3.0
-								; // var
-								3
-								equals
-								true
-bool
-								var
-								4
-								<-
-								4 = 4.7
-								; // var
-								4
+								0
 								equals
 								false
 #now = #now minus_hours 1 :- false
 bool
 								var
-								6
+								2
+								<-
+								3 = 3.0
+								; // var
+								2
+								equals
+								true
+bool
+								var
+								3
+								<-
+								4 = 4.7
+								; // var
+								3
+								equals
+								false
+bool
+								var
+								4
 								<-
 								4 = 5
 								; // var
-								6
+								4
+								equals
+								false
+bool
+								var
+								5
+								<-
+								4.7 = 4
+								; // var
+								5
 								equals
 								false
 
@@ -5736,7 +5736,7 @@ bool
 			
 
 				#### See also:
-				[!=](OperatorsAB#!=), [>](OperatorsAB#>), [<](OperatorsAB#<), [>=](OperatorsAB#>=), [<=](OperatorsAB#<=), 
+				[>](OperatorsAB#>), [<](OperatorsAB#<), [>=](OperatorsAB#>=), [<=](OperatorsAB#<=), [!=](OperatorsAB#!=), 
 
 			----
 			
@@ -5749,11 +5749,11 @@ bool
 				*
 				
 				`
-				float
+				string
 				`
 			 **`>`** 
 				`
-				int
+				string
 				`
 			
 				--->
@@ -5767,11 +5767,11 @@ bool
 				(
 				
 				`
-				float
+				string
 				`
 			 , 
 				`
-				int
+				string
 				`
 			
 				) --->
@@ -5806,40 +5806,6 @@ bool
 			 , 
 				`
 				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`>`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`>`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
 				`
 			
 				) --->
@@ -5885,11 +5851,11 @@ bool
 				*
 				
 				`
-				int
+				date
 				`
 			 **`>`** 
 				`
-				int
+				date
 				`
 			
 				--->
@@ -5903,11 +5869,11 @@ bool
 				(
 				
 				`
-				int
+				date
 				`
 			 , 
 				`
-				int
+				date
 				`
 			
 				) --->
@@ -5953,11 +5919,11 @@ bool
 				*
 				
 				`
-				date
+				float
 				`
 			 **`>`** 
 				`
-				date
+				int
 				`
 			
 				--->
@@ -5971,11 +5937,45 @@ bool
 				(
 				
 				`
-				date
+				float
 				`
 			 , 
 				`
-				date
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`>`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`>`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
 				`
 			
 				) --->
@@ -6042,7 +6042,7 @@ bool
 								var
 								3
 								<-
-								3.5 > 7
+								3.5 > 7.6
 								; // var
 								3
 								equals
@@ -6051,30 +6051,30 @@ bool
 								var
 								4
 								<-
-								3.5 > 7.6
+								3 > 2.5
 								; // var
 								4
 								equals
-								false
-bool
-								var
-								5
-								<-
-								3 > 2.5
-								; // var
-								5
-								equals
 								true
+#now > #now minus_hours 1 :- true
 bool
 								var
 								6
+								<-
+								3.5 > 7
+								; // var
+								6
+								equals
+								false
+bool
+								var
+								7
 								<-
 								3 > 7
 								; // var
-								6
+								7
 								equals
 								false
-#now > #now minus_hours 1 :- true
 
 				```
 			
@@ -6093,40 +6093,6 @@ bool
 				*
 				
 				`
-				int
-				`
-			 **`>=`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`>=`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
 				string
 				`
 			 **`>=`** 
@@ -6165,7 +6131,7 @@ bool
 				`
 			 **`>=`** 
 				`
-				int
+				float
 				`
 			
 				--->
@@ -6183,7 +6149,7 @@ bool
 				`
 			 , 
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -6229,6 +6195,40 @@ bool
 				*
 				
 				`
+				float
+				`
+			 **`>=`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`>=`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
 				date
 				`
 			 **`>=`** 
@@ -6263,7 +6263,7 @@ bool
 				*
 				
 				`
-				float
+				int
 				`
 			 **`>=`** 
 				`
@@ -6281,7 +6281,7 @@ bool
 				(
 				
 				`
-				float
+				int
 				`
 			 , 
 				`
@@ -6301,7 +6301,7 @@ bool
 				`
 			 **`>=`** 
 				`
-				float
+				int
 				`
 			
 				--->
@@ -6319,7 +6319,7 @@ bool
 				`
 			 , 
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -6395,11 +6395,11 @@ bool
 								var
 								4
 								<-
-								3 >= 7
+								3.5 >= 3.5
 								; // var
 								4
 								equals
-								false
+								true
 bool
 								var
 								5
@@ -6414,7 +6414,7 @@ bool
 								var
 								7
 								<-
-								3.5 >= 3.5
+								3 >= 2.5
 								; // var
 								7
 								equals
@@ -6423,11 +6423,11 @@ bool
 								var
 								8
 								<-
-								3 >= 2.5
+								3 >= 7
 								; // var
 								8
 								equals
-								true
+								false
 
 				```
 			
@@ -8247,7 +8247,7 @@ geometry
 				`
 			 **`as_distance_graph`** 
 				`
-				map
+				float
 				`
 			
 				--->
@@ -8265,7 +8265,7 @@ geometry
 				`
 			 , 
 				`
-				map
+				float
 				`
 			
 				) --->
@@ -8281,7 +8281,7 @@ geometry
 				`
 			 **`as_distance_graph`** 
 				`
-				float
+				map
 				`
 			
 				--->
@@ -8299,7 +8299,7 @@ geometry
 				`
 			 , 
 				`
-				float
+				map
 				`
 			
 				) --->
@@ -9027,7 +9027,7 @@ map<int,int>
 				(
 				
 				`
-				int
+				float
 				`
 			
 				) --->
@@ -9041,7 +9041,7 @@ map<int,int>
 				(
 				
 				`
-				float
+				int
 				`
 			
 				) --->
@@ -9065,20 +9065,20 @@ map<int,int>
 								var
 								0
 								<-
-								asin (90)
+								asin (0)
 								; // var
 								0
 								equals
-								#nan
+								0.0
 float
 								var
 								1
 								<-
-								asin (0)
+								asin (90)
 								; // var
 								1
 								equals
-								0.0
+								#nan
 
 				```
 			
@@ -9755,90 +9755,6 @@ float
 				(
 				
 				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`between`** 
-				(
-				
-				`
-				date
-				`
-			
-							,
-						
-				`
-				date
-				`
-			
-							,
-						
-				`
-				date
-				`
-			
-							)
-						
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`between`** 
-				(
-				
-				`
-				int
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`between`** 
-				(
-				
-				`
 				any expression
 				`
 			
@@ -9862,11 +9778,93 @@ float
 				bool
 				`
 			
+				*
+				 **`between`** 
+				(
+				
+				`
+				date
+				`
+			
+							,
+						
+				`
+				date
+				`
+			
+							,
+						
+				`
+				date
+				`
+			
+							)
+						
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`between`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`between`** 
+				(
+				
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				bool
+				`
+			
 
 				#### Result:
 				returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
-
-
 returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 
 				#### Special cases:
@@ -10274,11 +10272,11 @@ list<list>
 					```
 					rgb
 								var
-								1
+								3
 								<-
 								blend(#red, #blue)
 								; // var
-								1
+								3
 								equals
 								to a color very close to the purple
 
@@ -10290,11 +10288,11 @@ list<list>
 				```
 				rgb
 								var
-								3
+								1
 								<-
 								blend(#red, #blue, 0.3)
 								; // var
-								3
+								1
 								equals
 								to a color between the purple and the blue
 
