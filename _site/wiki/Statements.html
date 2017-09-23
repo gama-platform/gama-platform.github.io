@@ -3887,7 +3887,11 @@ Allows to add, i.e. to insert, a new element in a container (a list, matrix, map
 
 </code></pre>
 </div>
-<p>graph g &lt;- as_edge_graph([{1,5}::{12,45}]); add edge: {1,5}::{2,3} to: g; list var &lt;- g.vertices; // var equals [{1,5},{12,45},{2,3}]list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]add node: {5,5} to: g; list var &lt;- g.vertices; // var equals [{1.0,5.0},{12.0,45.0},{2.0,3.0},{5.0,5.0}]list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]```</p>
+<p>graph g &lt;- as_edge_graph([{1,5}::{12,45}]); add edge: {1,5}::{2,3} to: g;<br />
+list var &lt;- g.vertices; // var equals [{1,5},{12,45},{2,3}] 
+list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]add node: {5,5} to: g;<br />
+list var &lt;- g.vertices; // var equals [{1.0,5.0},{12.0,45.0},{2.0,3.0},{5.0,5.0}] 
+list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]```</p>
 
 <ul>
   <li>Case of a matrix: this statement can not be used on matrix. Please refer to the statement put.</li>
@@ -5974,20 +5978,23 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
 
 </code></pre>
 </div>
-<p>list<int> putList &lt;- [1,2,3,4,5]; //putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]```</int></p>
+<p>list<int> 
+putList &lt;- [1,2,3,4,5]; //putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]```</int></p>
 
 <ul>
   <li>In the case of a matrix, the position should be a point in the bound of the matrix. The facet all: is used to replace all the elements of the matrix by the given value.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;int&gt; putMatrix &lt;- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])```
+<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;int&gt; 
+putMatrix &lt;- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])```
 
 
 * In the case of a map, the position should be one of the key values of the map. Notice that if the given key value does not exist in the map, the given pair key::value will be added to the map. The facet all is used to replace the value of all the pairs of the map.
 
 </code></pre>
 </div>
-<p>map&lt;string,int&gt; putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put -10 key: “y” in: putMap;//putMap equals [“x”::4,”y”::-10]put -20 key: “z” in: putMap;//putMap equals [“x”::4,”y”::-10, “z”::-20]put -30 all: true in: putMap;//putMap equals [“x”::-30,”y”::-30, “z”::-30]```</p>
+<p>map&lt;string,int&gt; 
+putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put -10 key: “y” in: putMap;//putMap equals [“x”::4,”y”::-10]put -20 key: “z” in: putMap;//putMap equals [“x”::4,”y”::-10, “z”::-20]put -30 all: true in: putMap;//putMap equals [“x”::-30,”y”::-30, “z”::-30]```</p>
 
 <h4 id="embedments-29">Embedments</h4>
 <ul>
@@ -6169,7 +6176,11 @@ Allows an agent to release its micro-agent(s). The preliminary for an agent to r
   <li>In the case of a graph, both edges and nodes can be removes using node: and edge facets. If a node is removed, all edges to and from this node are also removed.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>graph removeGraph &lt;- as_edge_graph([{1,2}::{3,4},{3,4}::{5,6}]); remove node: {1,2} from: removeGraph; remove node(1,2) from: removeGraph; list var &lt;- removeGraph.vertices; // var equals [{3,4},{5,6}]list var &lt;- removeGraph.edges; // var equals [polyline({3,4}::{5,6})]remove edge: {3,4}::{5,6} from: removeGraph; remove edge({3,4},{5,6}) from: removeGraph; list var &lt;- removeGraph.vertices; // var equals [{3,4},{5,6}]list var &lt;- removeGraph.edges; // var equals []```
+<div class="highlighter-rouge"><pre class="highlight"><code>graph removeGraph &lt;- as_edge_graph([{1,2}::{3,4},{3,4}::{5,6}]); remove node: {1,2} from: removeGraph; remove node(1,2) from: removeGraph;  
+list var &lt;- removeGraph.vertices; // var equals [{3,4},{5,6}] 
+list var &lt;- removeGraph.edges; // var equals [polyline({3,4}::{5,6})]remove edge: {3,4}::{5,6} from: removeGraph; remove edge({3,4},{5,6}) from: removeGraph;  
+list var &lt;- removeGraph.vertices; // var equals [{3,4},{5,6}] 
+list var &lt;- removeGraph.edges; // var equals []```
 
 
 * In the case of an agent or a shape, `remove` allows to remove an attribute from the attributes map of the receiver. However, for agents, it will only remove attributes that have been added dynamically, not the ones defined in the species or in its built-in parent.

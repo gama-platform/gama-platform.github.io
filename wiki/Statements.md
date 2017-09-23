@@ -268,7 +268,11 @@ add ["val4","val5"] all: true at: "x" to: workingMap;//workingMap equals ["x"::"
 * In case of a graph, we can use the facets `node`, `edge` and `weight` to add a node, an edge or weights to the graph. However, these facets are now considered as deprecated, and it is advised to use the various edge(), node(), edges(), nodes() operators, which can build the correct objects to add to the graph 
 
 ```
-graph g <- as_edge_graph([{1,5}::{12,45}]); add edge: {1,5}::{2,3} to: g; list var <- g.vertices; // var equals [{1,5},{12,45},{2,3}]list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]add node: {5,5} to: g; list var <- g.vertices; // var equals [{1.0,5.0},{12.0,45.0},{2.0,3.0},{5.0,5.0}]list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]```
+graph g <- as_edge_graph([{1,5}::{12,45}]); add edge: {1,5}::{2,3} to: g;  
+list var <- g.vertices; // var equals [{1,5},{12,45},{2,3}] 
+list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]add node: {5,5} to: g;  
+list var <- g.vertices; // var equals [{1.0,5.0},{12.0,45.0},{2.0,3.0},{5.0,5.0}] 
+list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]```
 
 
 * Case of a matrix: this statement can not be used on matrix. Please refer to the statement put.    
@@ -2220,19 +2224,22 @@ put expr at: expr in: expr_container; put all: expr in: expr_container; ```
 * In the case of a list, the position should an integer in the bound of the list. The facet all: is used to replace all the elements of the list by the given value.
 
 ```
-list<int> putList <- [1,2,3,4,5]; //putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]```
+list<int> 
+putList <- [1,2,3,4,5]; //putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]```
 
 
 * In the case of a matrix, the position should be a point in the bound of the matrix. The facet all: is used to replace all the elements of the matrix by the given value.
 
 ```
-matrix<int> putMatrix <- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])```
+matrix<int> 
+putMatrix <- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])```
 
 
 * In the case of a map, the position should be one of the key values of the map. Notice that if the given key value does not exist in the map, the given pair key::value will be added to the map. The facet all is used to replace the value of all the pairs of the map.
 
 ```
-map<string,int> putMap <- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in: putMap;//putMap equals ["x"::4,"y"::-10]put -20 key: "z" in: putMap;//putMap equals ["x"::4,"y"::-10, "z"::-20]put -30 all: true in: putMap;//putMap equals ["x"::-30,"y"::-30, "z"::-30]```
+map<string,int> 
+putMap <- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in: putMap;//putMap equals ["x"::4,"y"::-10]put -20 key: "z" in: putMap;//putMap equals ["x"::4,"y"::-10, "z"::-20]put -30 all: true in: putMap;//putMap equals ["x"::-30,"y"::-30, "z"::-30]```
 
 
 
@@ -2400,7 +2407,11 @@ map<string,int> removeMapList <- ["x"::5, "y"::7, "z"::7, "t"::5]; remove 7 from
 * In the case of a graph, both edges and nodes can be removes using node: and edge facets. If a node is removed, all edges to and from this node are also removed.
 
 ```
-graph removeGraph <- as_edge_graph([{1,2}::{3,4},{3,4}::{5,6}]); remove node: {1,2} from: removeGraph; remove node(1,2) from: removeGraph; list var <- removeGraph.vertices; // var equals [{3,4},{5,6}]list var <- removeGraph.edges; // var equals [polyline({3,4}::{5,6})]remove edge: {3,4}::{5,6} from: removeGraph; remove edge({3,4},{5,6}) from: removeGraph; list var <- removeGraph.vertices; // var equals [{3,4},{5,6}]list var <- removeGraph.edges; // var equals []```
+graph removeGraph <- as_edge_graph([{1,2}::{3,4},{3,4}::{5,6}]); remove node: {1,2} from: removeGraph; remove node(1,2) from: removeGraph;  
+list var <- removeGraph.vertices; // var equals [{3,4},{5,6}] 
+list var <- removeGraph.edges; // var equals [polyline({3,4}::{5,6})]remove edge: {3,4}::{5,6} from: removeGraph; remove edge({3,4},{5,6}) from: removeGraph;  
+list var <- removeGraph.vertices; // var equals [{3,4},{5,6}] 
+list var <- removeGraph.edges; // var equals []```
 
 
 * In the case of an agent or a shape, `remove` allows to remove an attribute from the attributes map of the receiver. However, for agents, it will only remove attributes that have been added dynamically, not the ones defined in the species or in its built-in parent.
