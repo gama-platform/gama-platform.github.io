@@ -82,54 +82,54 @@ Note that due to the fact that actions are written by modelers, the general func
 
 	
 
-----
+		----
 
-## Table of Contents
+		## Table of Contents
 
-----
+		----
 
-## Operators by categories
-	
+		## Operators by categories
+		
 
 ----
 
 ### 3D
-[box](OperatorsTZ#box), [cone3D](OperatorsTZ#cone3d), [cube](OperatorsTZ#cube), [cylinder](OperatorsTZ#cylinder), [dem](OperatorsTZ#dem), [hexagon](OperatorsTZ#hexagon), [pyramid](OperatorsTZ#pyramid), [rgb_to_xyz](OperatorsTZ#rgb_to_xyz), [set_z](OperatorsTZ#set_z), [sphere](OperatorsTZ#sphere), [teapot](OperatorsTZ#teapot), 
+[box](OperatorsAB#box), [cone3D](OperatorsCH#cone3d), [cube](OperatorsCH#cube), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [hexagon](OperatorsCH#hexagon), [pyramid](OperatorsOS#pyramid), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [set_z](OperatorsOS#set_z), [sphere](OperatorsOS#sphere), [teapot](OperatorsTZ#teapot), 
 
 ----
 
 ### Arithmetic operators
-[-](OperatorsTZ#-), [/](OperatorsTZ#/), [^](OperatorsTZ#^), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [abs](OperatorsTZ#abs), [acos](OperatorsTZ#acos), [asin](OperatorsTZ#asin), [atan](OperatorsTZ#atan), [atan2](OperatorsTZ#atan2), [ceil](OperatorsTZ#ceil), [cos](OperatorsTZ#cos), [cos_rad](OperatorsTZ#cos_rad), [div](OperatorsTZ#div), [even](OperatorsTZ#even), [exp](OperatorsTZ#exp), [fact](OperatorsTZ#fact), [floor](OperatorsTZ#floor), [hypot](OperatorsTZ#hypot), [is_finite](OperatorsTZ#is_finite), [is_number](OperatorsTZ#is_number), [ln](OperatorsTZ#ln), [log](OperatorsTZ#log), [mod](OperatorsTZ#mod), [round](OperatorsTZ#round), [signum](OperatorsTZ#signum), [sin](OperatorsTZ#sin), [sin_rad](OperatorsTZ#sin_rad), [sqrt](OperatorsTZ#sqrt), [tan](OperatorsTZ#tan), [tan_rad](OperatorsTZ#tan_rad), [tanh](OperatorsTZ#tanh), [with_precision](OperatorsTZ#with_precision), 
+[-](OperatorsAB#-), [/](OperatorsAB#/), [^](OperatorsAB#^), [*](OperatorsAB#*), [+](OperatorsAB#+), [abs](OperatorsAB#abs), [acos](OperatorsAB#acos), [asin](OperatorsAB#asin), [atan](OperatorsAB#atan), [atan2](OperatorsAB#atan2), [ceil](OperatorsCH#ceil), [cos](OperatorsCH#cos), [cos_rad](OperatorsCH#cos_rad), [div](OperatorsCH#div), [even](OperatorsCH#even), [exp](OperatorsCH#exp), [fact](OperatorsCH#fact), [floor](OperatorsCH#floor), [hypot](OperatorsCH#hypot), [is_finite](OperatorsIN#is_finite), [is_number](OperatorsIN#is_number), [ln](OperatorsIN#ln), [log](OperatorsIN#log), [mod](OperatorsIN#mod), [round](OperatorsOS#round), [signum](OperatorsOS#signum), [sin](OperatorsOS#sin), [sin_rad](OperatorsOS#sin_rad), [sqrt](OperatorsOS#sqrt), [tan](OperatorsTZ#tan), [tan_rad](OperatorsTZ#tan_rad), [tanh](OperatorsTZ#tanh), [with_precision](OperatorsTZ#with_precision), 
 
 ----
 
 ### BDI
-[and](OperatorsTZ#and), [eval_when](OperatorsTZ#eval_when), [get_about](OperatorsTZ#get_about), [get_agent](OperatorsTZ#get_agent), [get_agent_cause](OperatorsTZ#get_agent_cause), [get_decay](OperatorsTZ#get_decay), [get_dominance](OperatorsTZ#get_dominance), [get_familiarity](OperatorsTZ#get_familiarity), [get_intensity](OperatorsTZ#get_intensity), [get_lifetime](OperatorsTZ#get_lifetime), [get_liking](OperatorsTZ#get_liking), [get_modality](OperatorsTZ#get_modality), [get_plan_name](OperatorsTZ#get_plan_name), [get_predicate](OperatorsTZ#get_predicate), [get_priority](OperatorsTZ#get_priority), [get_solidarity](OperatorsTZ#get_solidarity), [get_strength](OperatorsTZ#get_strength), [get_super_intention](OperatorsTZ#get_super_intention), [get_truth](OperatorsTZ#get_truth), [new_emotion](OperatorsTZ#new_emotion), [new_mental_state](OperatorsTZ#new_mental_state), [new_predicate](OperatorsTZ#new_predicate), [new_social_link](OperatorsTZ#new_social_link), [or](OperatorsTZ#or), [set_about](OperatorsTZ#set_about), [set_agent](OperatorsTZ#set_agent), [set_agent_cause](OperatorsTZ#set_agent_cause), [set_decay](OperatorsTZ#set_decay), [set_dominance](OperatorsTZ#set_dominance), [set_familiarity](OperatorsTZ#set_familiarity), [set_intensity](OperatorsTZ#set_intensity), [set_lifetime](OperatorsTZ#set_lifetime), [set_liking](OperatorsTZ#set_liking), [set_modality](OperatorsTZ#set_modality), [set_predicate](OperatorsTZ#set_predicate), [set_solidarity](OperatorsTZ#set_solidarity), [set_strength](OperatorsTZ#set_strength), [set_truth](OperatorsTZ#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_priority](OperatorsTZ#with_priority), [with_values](OperatorsTZ#with_values), 
+[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_decay](OperatorsCH#get_decay), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_intensity](OperatorsCH#get_intensity), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_priority](OperatorsCH#get_priority), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_truth](OperatorsCH#get_truth), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_priority](OperatorsTZ#with_priority), [with_values](OperatorsTZ#with_values), 
 
 ----
 
 ### Casting operators
-[as](OperatorsTZ#as), [as_int](OperatorsTZ#as_int), [as_matrix](OperatorsTZ#as_matrix), [font](OperatorsTZ#font), [is](OperatorsTZ#is), [is_skill](OperatorsTZ#is_skill), [list_with](OperatorsTZ#list_with), [matrix_with](OperatorsTZ#matrix_with), [species](OperatorsTZ#species), [to_gaml](OperatorsTZ#to_gaml), [topology](OperatorsTZ#topology), 
+[as](OperatorsAB#as), [as_int](OperatorsAB#as_int), [as_matrix](OperatorsAB#as_matrix), [font](OperatorsCH#font), [is](OperatorsIN#is), [is_skill](OperatorsIN#is_skill), [list_with](OperatorsIN#list_with), [matrix_with](OperatorsIN#matrix_with), [species](OperatorsOS#species), [to_gaml](OperatorsTZ#to_gaml), [topology](OperatorsTZ#topology), 
 
 ----
 
 ### Color-related operators
-[-](OperatorsTZ#-), [/](OperatorsTZ#/), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [blend](OperatorsTZ#blend), [brewer_colors](OperatorsTZ#brewer_colors), [brewer_palettes](OperatorsTZ#brewer_palettes), [grayscale](OperatorsTZ#grayscale), [hsb](OperatorsTZ#hsb), [mean](OperatorsTZ#mean), [median](OperatorsTZ#median), [rgb](OperatorsTZ#rgb), [rnd_color](OperatorsTZ#rnd_color), [sum](OperatorsTZ#sum), 
+[-](OperatorsAB#-), [/](OperatorsAB#/), [*](OperatorsAB#*), [+](OperatorsAB#+), [blend](OperatorsAB#blend), [brewer_colors](OperatorsAB#brewer_colors), [brewer_palettes](OperatorsAB#brewer_palettes), [grayscale](OperatorsCH#grayscale), [hsb](OperatorsCH#hsb), [mean](OperatorsIN#mean), [median](OperatorsIN#median), [rgb](OperatorsOS#rgb), [rnd_color](OperatorsOS#rnd_color), [sum](OperatorsOS#sum), 
 
 ----
 
 ### Comparison operators
-[!=](OperatorsTZ#!=), [<](OperatorsTZ#<), [<=](OperatorsTZ#<=), [=](OperatorsTZ#=), [>](OperatorsTZ#>), [>=](OperatorsTZ#>=), [between](OperatorsTZ#between), 
+[!=](OperatorsAB#!=), [<](OperatorsAB#<), [<=](OperatorsAB#<=), [=](OperatorsAB#=), [>](OperatorsAB#>), [>=](OperatorsAB#>=), [between](OperatorsAB#between), 
 
 ----
 
 ### Containers-related operators
-[-](OperatorsTZ#-), [::](OperatorsTZ#::), [+](OperatorsTZ#+), [accumulate](OperatorsTZ#accumulate), [among](OperatorsTZ#among), [at](OperatorsTZ#at), [collect](OperatorsTZ#collect), [contains](OperatorsTZ#contains), [contains_all](OperatorsTZ#contains_all), [contains_any](OperatorsTZ#contains_any), [count](OperatorsTZ#count), [distinct](OperatorsTZ#distinct), [empty](OperatorsTZ#empty), [every](OperatorsTZ#every), [first](OperatorsTZ#first), [first_with](OperatorsTZ#first_with), [get](OperatorsTZ#get), [group_by](OperatorsTZ#group_by), [in](OperatorsTZ#in), [index_by](OperatorsTZ#index_by), [inter](OperatorsTZ#inter), [interleave](OperatorsTZ#interleave), [internal_at](OperatorsTZ#internal_at), [internal_integrated_value](OperatorsTZ#internal_integrated_value), [last](OperatorsTZ#last), [last_with](OperatorsTZ#last_with), [length](OperatorsTZ#length), [max](OperatorsTZ#max), [max_of](OperatorsTZ#max_of), [mean](OperatorsTZ#mean), [mean_of](OperatorsTZ#mean_of), [median](OperatorsTZ#median), [min](OperatorsTZ#min), [min_of](OperatorsTZ#min_of), [mul](OperatorsTZ#mul), [one_of](OperatorsTZ#one_of), [product_of](OperatorsTZ#product_of), [range](OperatorsTZ#range), [reverse](OperatorsTZ#reverse), [shuffle](OperatorsTZ#shuffle), [sort_by](OperatorsTZ#sort_by), [sum](OperatorsTZ#sum), [sum_of](OperatorsTZ#sum_of), [union](OperatorsTZ#union), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[-](OperatorsAB#-), [::](OperatorsAB#::), [+](OperatorsAB#+), [accumulate](OperatorsAB#accumulate), [among](OperatorsAB#among), [at](OperatorsAB#at), [collect](OperatorsCH#collect), [contains](OperatorsCH#contains), [contains_all](OperatorsCH#contains_all), [contains_any](OperatorsCH#contains_any), [count](OperatorsCH#count), [distinct](OperatorsCH#distinct), [empty](OperatorsCH#empty), [every](OperatorsCH#every), [first](OperatorsCH#first), [first_with](OperatorsCH#first_with), [get](OperatorsCH#get), [group_by](OperatorsCH#group_by), [in](OperatorsIN#in), [index_by](OperatorsIN#index_by), [inter](OperatorsIN#inter), [interleave](OperatorsIN#interleave), [internal_at](OperatorsIN#internal_at), [internal_integrated_value](OperatorsIN#internal_integrated_value), [last](OperatorsIN#last), [last_with](OperatorsIN#last_with), [length](OperatorsIN#length), [max](OperatorsIN#max), [max_of](OperatorsIN#max_of), [mean](OperatorsIN#mean), [mean_of](OperatorsIN#mean_of), [median](OperatorsIN#median), [min](OperatorsIN#min), [min_of](OperatorsIN#min_of), [mul](OperatorsIN#mul), [one_of](OperatorsOS#one_of), [product_of](OperatorsOS#product_of), [range](OperatorsOS#range), [reverse](OperatorsOS#reverse), [shuffle](OperatorsOS#shuffle), [sort_by](OperatorsOS#sort_by), [sum](OperatorsOS#sum), [sum_of](OperatorsOS#sum_of), [union](OperatorsTZ#union), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Date-related operators
-[-](OperatorsTZ#-), [!=](OperatorsTZ#!=), [+](OperatorsTZ#+), [<](OperatorsTZ#<), [<=](OperatorsTZ#<=), [=](OperatorsTZ#=), [>](OperatorsTZ#>), [>=](OperatorsTZ#>=), [after](OperatorsTZ#after), [before](OperatorsTZ#before), [between](OperatorsTZ#between), [every](OperatorsTZ#every), [milliseconds_between](OperatorsTZ#milliseconds_between), [minus_days](OperatorsTZ#minus_days), [minus_hours](OperatorsTZ#minus_hours), [minus_minutes](OperatorsTZ#minus_minutes), [minus_months](OperatorsTZ#minus_months), [minus_ms](OperatorsTZ#minus_ms), [minus_weeks](OperatorsTZ#minus_weeks), [minus_years](OperatorsTZ#minus_years), [months_between](OperatorsTZ#months_between), [plus_days](OperatorsTZ#plus_days), [plus_hours](OperatorsTZ#plus_hours), [plus_minutes](OperatorsTZ#plus_minutes), [plus_months](OperatorsTZ#plus_months), [plus_ms](OperatorsTZ#plus_ms), [plus_weeks](OperatorsTZ#plus_weeks), [plus_years](OperatorsTZ#plus_years), [since](OperatorsTZ#since), [to](OperatorsTZ#to), [until](OperatorsTZ#until), [years_between](OperatorsTZ#years_between), 
+[-](OperatorsAB#-), [!=](OperatorsAB#!=), [+](OperatorsAB#+), [<](OperatorsAB#<), [<=](OperatorsAB#<=), [=](OperatorsAB#=), [>](OperatorsAB#>), [>=](OperatorsAB#>=), [after](OperatorsAB#after), [before](OperatorsAB#before), [between](OperatorsAB#between), [every](OperatorsCH#every), [milliseconds_between](OperatorsIN#milliseconds_between), [minus_days](OperatorsIN#minus_days), [minus_hours](OperatorsIN#minus_hours), [minus_minutes](OperatorsIN#minus_minutes), [minus_months](OperatorsIN#minus_months), [minus_ms](OperatorsIN#minus_ms), [minus_weeks](OperatorsIN#minus_weeks), [minus_years](OperatorsIN#minus_years), [months_between](OperatorsIN#months_between), [plus_days](OperatorsOS#plus_days), [plus_hours](OperatorsOS#plus_hours), [plus_minutes](OperatorsOS#plus_minutes), [plus_months](OperatorsOS#plus_months), [plus_ms](OperatorsOS#plus_ms), [plus_weeks](OperatorsOS#plus_weeks), [plus_years](OperatorsOS#plus_years), [since](OperatorsOS#since), [to](OperatorsTZ#to), [until](OperatorsTZ#until), [years_between](OperatorsTZ#years_between), 
 
 ----
 
@@ -139,107 +139,107 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### DescriptiveStatistics
-[auto_correlation](OperatorsTZ#auto_correlation), [correlation](OperatorsTZ#correlation), [covariance](OperatorsTZ#covariance), [durbin_watson](OperatorsTZ#durbin_watson), [kurtosis](OperatorsTZ#kurtosis), [moment](OperatorsTZ#moment), [quantile](OperatorsTZ#quantile), [quantile_inverse](OperatorsTZ#quantile_inverse), [rank_interpolated](OperatorsTZ#rank_interpolated), [rms](OperatorsTZ#rms), [skew](OperatorsTZ#skew), [variance](OperatorsTZ#variance), 
+[auto_correlation](OperatorsAB#auto_correlation), [correlation](OperatorsCH#correlation), [covariance](OperatorsCH#covariance), [durbin_watson](OperatorsCH#durbin_watson), [kurtosis](OperatorsIN#kurtosis), [moment](OperatorsIN#moment), [quantile](OperatorsOS#quantile), [quantile_inverse](OperatorsOS#quantile_inverse), [rank_interpolated](OperatorsOS#rank_interpolated), [rms](OperatorsOS#rms), [skew](OperatorsOS#skew), [variance](OperatorsTZ#variance), 
 
 ----
 
 ### Distributions
-[binomial_coeff](OperatorsTZ#binomial_coeff), [binomial_complemented](OperatorsTZ#binomial_complemented), [binomial_sum](OperatorsTZ#binomial_sum), [chi_square](OperatorsTZ#chi_square), [chi_square_complemented](OperatorsTZ#chi_square_complemented), [gamma_distribution](OperatorsTZ#gamma_distribution), [gamma_distribution_complemented](OperatorsTZ#gamma_distribution_complemented), [normal_area](OperatorsTZ#normal_area), [normal_density](OperatorsTZ#normal_density), [normal_inverse](OperatorsTZ#normal_inverse), [pValue_for_fStat](OperatorsTZ#pvalue_for_fstat), [pValue_for_tStat](OperatorsTZ#pvalue_for_tstat), [student_area](OperatorsTZ#student_area), [student_t_inverse](OperatorsTZ#student_t_inverse), 
+[binomial_coeff](OperatorsAB#binomial_coeff), [binomial_complemented](OperatorsAB#binomial_complemented), [binomial_sum](OperatorsAB#binomial_sum), [chi_square](OperatorsCH#chi_square), [chi_square_complemented](OperatorsCH#chi_square_complemented), [gamma_distribution](OperatorsCH#gamma_distribution), [gamma_distribution_complemented](OperatorsCH#gamma_distribution_complemented), [normal_area](OperatorsIN#normal_area), [normal_density](OperatorsIN#normal_density), [normal_inverse](OperatorsIN#normal_inverse), [pValue_for_fStat](OperatorsOS#pvalue_for_fstat), [pValue_for_tStat](OperatorsOS#pvalue_for_tstat), [student_area](OperatorsOS#student_area), [student_t_inverse](OperatorsOS#student_t_inverse), 
 
 ----
 
 ### Driving operators
-[as_driving_graph](OperatorsTZ#as_driving_graph), 
+[as_driving_graph](OperatorsAB#as_driving_graph), 
 
 ----
 
 ### edge
-[edge_between](OperatorsTZ#edge_between), [strahler](OperatorsTZ#strahler), 
+[edge_between](OperatorsCH#edge_between), [strahler](OperatorsOS#strahler), 
 
 ----
 
 ### EDP-related operators
-[diff](OperatorsTZ#diff), [diff2](OperatorsTZ#diff2), [internal_zero_order_equation](OperatorsTZ#internal_zero_order_equation), 
+[diff](OperatorsCH#diff), [diff2](OperatorsCH#diff2), [internal_zero_order_equation](OperatorsIN#internal_zero_order_equation), 
 
 ----
 
 ### Files-related operators
-[crs](OperatorsTZ#crs), [evaluate_sub_model](OperatorsTZ#evaluate_sub_model), [file](OperatorsTZ#file), [file_exists](OperatorsTZ#file_exists), [folder](OperatorsTZ#folder), [get](OperatorsTZ#get), [load_sub_model](OperatorsTZ#load_sub_model), [new_folder](OperatorsTZ#new_folder), [osm_file](OperatorsTZ#osm_file), [read](OperatorsTZ#read), [step_sub_model](OperatorsTZ#step_sub_model), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
 
 ----
 
 ### FIPA-related operators
-[conversation](OperatorsTZ#conversation), [message](OperatorsTZ#message), 
+[conversation](OperatorsCH#conversation), [message](OperatorsIN#message), 
 
 ----
 
 ### GammaFunction
-[beta](OperatorsTZ#beta), [gamma](OperatorsTZ#gamma), [incomplete_beta](OperatorsTZ#incomplete_beta), [incomplete_gamma](OperatorsTZ#incomplete_gamma), [incomplete_gamma_complement](OperatorsTZ#incomplete_gamma_complement), [log_gamma](OperatorsTZ#log_gamma), 
+[beta](OperatorsAB#beta), [gamma](OperatorsCH#gamma), [incomplete_beta](OperatorsIN#incomplete_beta), [incomplete_gamma](OperatorsIN#incomplete_gamma), [incomplete_gamma_complement](OperatorsIN#incomplete_gamma_complement), [log_gamma](OperatorsIN#log_gamma), 
 
 ----
 
 ### Graphs-related operators
-[add_edge](OperatorsTZ#add_edge), [add_node](OperatorsTZ#add_node), [adjacency](OperatorsTZ#adjacency), [agent_from_geometry](OperatorsTZ#agent_from_geometry), [all_pairs_shortest_path](OperatorsTZ#all_pairs_shortest_path), [alpha_index](OperatorsTZ#alpha_index), [as_distance_graph](OperatorsTZ#as_distance_graph), [as_edge_graph](OperatorsTZ#as_edge_graph), [as_intersection_graph](OperatorsTZ#as_intersection_graph), [as_path](OperatorsTZ#as_path), [beta_index](OperatorsTZ#beta_index), [betweenness_centrality](OperatorsTZ#betweenness_centrality), [biggest_cliques_of](OperatorsTZ#biggest_cliques_of), [connected_components_of](OperatorsTZ#connected_components_of), [connectivity_index](OperatorsTZ#connectivity_index), [contains_edge](OperatorsTZ#contains_edge), [contains_vertex](OperatorsTZ#contains_vertex), [degree_of](OperatorsTZ#degree_of), [directed](OperatorsTZ#directed), [edge](OperatorsTZ#edge), [edge_between](OperatorsTZ#edge_between), [edge_betweenness](OperatorsTZ#edge_betweenness), [edges](OperatorsTZ#edges), [gamma_index](OperatorsTZ#gamma_index), [generate_barabasi_albert](OperatorsTZ#generate_barabasi_albert), [generate_complete_graph](OperatorsTZ#generate_complete_graph), [generate_watts_strogatz](OperatorsTZ#generate_watts_strogatz), [grid_cells_to_graph](OperatorsTZ#grid_cells_to_graph), [in_degree_of](OperatorsTZ#in_degree_of), [in_edges_of](OperatorsTZ#in_edges_of), [layout](OperatorsTZ#layout), [load_graph_from_file](OperatorsTZ#load_graph_from_file), [load_shortest_paths](OperatorsTZ#load_shortest_paths), [main_connected_component](OperatorsTZ#main_connected_component), [maximal_cliques_of](OperatorsTZ#maximal_cliques_of), [nb_cycles](OperatorsTZ#nb_cycles), [neighbors_of](OperatorsTZ#neighbors_of), [node](OperatorsTZ#node), [nodes](OperatorsTZ#nodes), [out_degree_of](OperatorsTZ#out_degree_of), [out_edges_of](OperatorsTZ#out_edges_of), [path_between](OperatorsTZ#path_between), [paths_between](OperatorsTZ#paths_between), [predecessors_of](OperatorsTZ#predecessors_of), [remove_node_from](OperatorsTZ#remove_node_from), [rewire_n](OperatorsTZ#rewire_n), [source_of](OperatorsTZ#source_of), [spatial_graph](OperatorsTZ#spatial_graph), [strahler](OperatorsTZ#strahler), [successors_of](OperatorsTZ#successors_of), [sum](OperatorsTZ#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
+[add_edge](OperatorsAB#add_edge), [add_node](OperatorsAB#add_node), [adjacency](OperatorsAB#adjacency), [agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [alpha_index](OperatorsAB#alpha_index), [as_distance_graph](OperatorsAB#as_distance_graph), [as_edge_graph](OperatorsAB#as_edge_graph), [as_intersection_graph](OperatorsAB#as_intersection_graph), [as_path](OperatorsAB#as_path), [beta_index](OperatorsAB#beta_index), [betweenness_centrality](OperatorsAB#betweenness_centrality), [biggest_cliques_of](OperatorsAB#biggest_cliques_of), [connected_components_of](OperatorsCH#connected_components_of), [connectivity_index](OperatorsCH#connectivity_index), [contains_edge](OperatorsCH#contains_edge), [contains_vertex](OperatorsCH#contains_vertex), [degree_of](OperatorsCH#degree_of), [directed](OperatorsCH#directed), [edge](OperatorsCH#edge), [edge_between](OperatorsCH#edge_between), [edge_betweenness](OperatorsCH#edge_betweenness), [edges](OperatorsCH#edges), [gamma_index](OperatorsCH#gamma_index), [generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_complete_graph](OperatorsCH#generate_complete_graph), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsCH#grid_cells_to_graph), [in_degree_of](OperatorsIN#in_degree_of), [in_edges_of](OperatorsIN#in_edges_of), [layout](OperatorsIN#layout), [load_graph_from_file](OperatorsIN#load_graph_from_file), [load_shortest_paths](OperatorsIN#load_shortest_paths), [main_connected_component](OperatorsIN#main_connected_component), [maximal_cliques_of](OperatorsIN#maximal_cliques_of), [nb_cycles](OperatorsIN#nb_cycles), [neighbors_of](OperatorsIN#neighbors_of), [node](OperatorsIN#node), [nodes](OperatorsIN#nodes), [out_degree_of](OperatorsOS#out_degree_of), [out_edges_of](OperatorsOS#out_edges_of), [path_between](OperatorsOS#path_between), [paths_between](OperatorsOS#paths_between), [predecessors_of](OperatorsOS#predecessors_of), [remove_node_from](OperatorsOS#remove_node_from), [rewire_n](OperatorsOS#rewire_n), [source_of](OperatorsOS#source_of), [spatial_graph](OperatorsOS#spatial_graph), [strahler](OperatorsOS#strahler), [successors_of](OperatorsOS#successors_of), [sum](OperatorsOS#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
 
 ----
 
 ### Grid-related operators
-[as_4_grid](OperatorsTZ#as_4_grid), [as_grid](OperatorsTZ#as_grid), [as_hexagonal_grid](OperatorsTZ#as_hexagonal_grid), [grid_at](OperatorsTZ#grid_at), [path_between](OperatorsTZ#path_between), 
+[as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [grid_at](OperatorsCH#grid_at), [path_between](OperatorsOS#path_between), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsTZ#accumulate), [as_map](OperatorsTZ#as_map), [collect](OperatorsTZ#collect), [count](OperatorsTZ#count), [create_map](OperatorsTZ#create_map), [distribution_of](OperatorsTZ#distribution_of), [distribution_of](OperatorsTZ#distribution_of), [distribution_of](OperatorsTZ#distribution_of), [distribution2d_of](OperatorsTZ#distribution2d_of), [distribution2d_of](OperatorsTZ#distribution2d_of), [distribution2d_of](OperatorsTZ#distribution2d_of), [first_with](OperatorsTZ#first_with), [frequency_of](OperatorsTZ#frequency_of), [group_by](OperatorsTZ#group_by), [index_by](OperatorsTZ#index_by), [last_with](OperatorsTZ#last_with), [max_of](OperatorsTZ#max_of), [mean_of](OperatorsTZ#mean_of), [min_of](OperatorsTZ#min_of), [product_of](OperatorsTZ#product_of), [sort_by](OperatorsTZ#sort_by), [sum_of](OperatorsTZ#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### List-related operators
-[copy_between](OperatorsTZ#copy_between), [index_of](OperatorsTZ#index_of), [last_index_of](OperatorsTZ#last_index_of), 
+[copy_between](OperatorsCH#copy_between), [index_of](OperatorsIN#index_of), [last_index_of](OperatorsIN#last_index_of), 
 
 ----
 
 ### Logical operators
-[:](OperatorsTZ#:), [!](OperatorsTZ#!), [?](OperatorsTZ#?), [and](OperatorsTZ#and), [or](OperatorsTZ#or), 
+[:](OperatorsAB#:), [!](OperatorsAB#!), [?](OperatorsAB#?), [and](OperatorsAB#and), [or](OperatorsOS#or), 
 
 ----
 
 ### Map comparaison operators
-[fuzzy_kappa](OperatorsTZ#fuzzy_kappa), [fuzzy_kappa_sim](OperatorsTZ#fuzzy_kappa_sim), [kappa](OperatorsTZ#kappa), [kappa_sim](OperatorsTZ#kappa_sim), [percent_absolute_deviation](OperatorsTZ#percent_absolute_deviation), 
+[fuzzy_kappa](OperatorsCH#fuzzy_kappa), [fuzzy_kappa_sim](OperatorsCH#fuzzy_kappa_sim), [kappa](OperatorsIN#kappa), [kappa_sim](OperatorsIN#kappa_sim), [percent_absolute_deviation](OperatorsOS#percent_absolute_deviation), 
 
 ----
 
 ### Map-related operators
-[as_map](OperatorsTZ#as_map), [create_map](OperatorsTZ#create_map), [index_of](OperatorsTZ#index_of), [last_index_of](OperatorsTZ#last_index_of), 
+[as_map](OperatorsAB#as_map), [create_map](OperatorsCH#create_map), [index_of](OperatorsIN#index_of), [last_index_of](OperatorsIN#last_index_of), 
 
 ----
 
 ### Material
-[material](OperatorsTZ#material), 
+[material](OperatorsIN#material), 
 
 ----
 
 ### Matrix-related operators
-[-](OperatorsTZ#-), [/](OperatorsTZ#/), [.](OperatorsTZ#.), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [append_horizontally](OperatorsTZ#append_horizontally), [append_vertically](OperatorsTZ#append_vertically), [column_at](OperatorsTZ#column_at), [columns_list](OperatorsTZ#columns_list), [determinant](OperatorsTZ#determinant), [eigenvalues](OperatorsTZ#eigenvalues), [index_of](OperatorsTZ#index_of), [inverse](OperatorsTZ#inverse), [last_index_of](OperatorsTZ#last_index_of), [row_at](OperatorsTZ#row_at), [rows_list](OperatorsTZ#rows_list), [shuffle](OperatorsTZ#shuffle), [trace](OperatorsTZ#trace), [transpose](OperatorsTZ#transpose), 
+[-](OperatorsAB#-), [/](OperatorsAB#/), [.](OperatorsAB#.), [*](OperatorsAB#*), [+](OperatorsAB#+), [append_horizontally](OperatorsAB#append_horizontally), [append_vertically](OperatorsAB#append_vertically), [column_at](OperatorsCH#column_at), [columns_list](OperatorsCH#columns_list), [determinant](OperatorsCH#determinant), [eigenvalues](OperatorsCH#eigenvalues), [index_of](OperatorsIN#index_of), [inverse](OperatorsIN#inverse), [last_index_of](OperatorsIN#last_index_of), [row_at](OperatorsOS#row_at), [rows_list](OperatorsOS#rows_list), [shuffle](OperatorsOS#shuffle), [trace](OperatorsTZ#trace), [transpose](OperatorsTZ#transpose), 
 
 ----
 
 ### multicriteria operators
-[electre_DM](OperatorsTZ#electre_dm), [evidence_theory_DM](OperatorsTZ#evidence_theory_dm), [fuzzy_choquet_DM](OperatorsTZ#fuzzy_choquet_dm), [promethee_DM](OperatorsTZ#promethee_dm), [weighted_means_DM](OperatorsTZ#weighted_means_dm), 
+[electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), [fuzzy_choquet_DM](OperatorsCH#fuzzy_choquet_dm), [promethee_DM](OperatorsOS#promethee_dm), [weighted_means_DM](OperatorsTZ#weighted_means_dm), 
 
 ----
 
 ### Path-related operators
-[agent_from_geometry](OperatorsTZ#agent_from_geometry), [all_pairs_shortest_path](OperatorsTZ#all_pairs_shortest_path), [as_path](OperatorsTZ#as_path), [load_shortest_paths](OperatorsTZ#load_shortest_paths), [path_between](OperatorsTZ#path_between), [path_to](OperatorsTZ#path_to), [paths_between](OperatorsTZ#paths_between), [use_cache](OperatorsTZ#use_cache), 
+[agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [as_path](OperatorsAB#as_path), [load_shortest_paths](OperatorsIN#load_shortest_paths), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [paths_between](OperatorsOS#paths_between), [use_cache](OperatorsTZ#use_cache), 
 
 ----
 
 ### Points-related operators
-[-](OperatorsTZ#-), [/](OperatorsTZ#/), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [<](OperatorsTZ#<), [<=](OperatorsTZ#<=), [>](OperatorsTZ#>), [>=](OperatorsTZ#>=), [add_point](OperatorsTZ#add_point), [angle_between](OperatorsTZ#angle_between), [any_location_in](OperatorsTZ#any_location_in), [centroid](OperatorsTZ#centroid), [closest_points_with](OperatorsTZ#closest_points_with), [farthest_point_to](OperatorsTZ#farthest_point_to), [grid_at](OperatorsTZ#grid_at), [norm](OperatorsTZ#norm), [point](OperatorsTZ#point), [points_along](OperatorsTZ#points_along), [points_at](OperatorsTZ#points_at), [points_on](OperatorsTZ#points_on), 
+[-](OperatorsAB#-), [/](OperatorsAB#/), [*](OperatorsAB#*), [+](OperatorsAB#+), [<](OperatorsAB#<), [<=](OperatorsAB#<=), [>](OperatorsAB#>), [>=](OperatorsAB#>=), [add_point](OperatorsAB#add_point), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [centroid](OperatorsCH#centroid), [closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [grid_at](OperatorsCH#grid_at), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), 
 
 ----
 
 ### Random operators
-[binomial](OperatorsTZ#binomial), [flip](OperatorsTZ#flip), [gauss](OperatorsTZ#gauss), [improved_generator](OperatorsTZ#improved_generator), [open_simplex_generator](OperatorsTZ#open_simplex_generator), [poisson](OperatorsTZ#poisson), [rnd](OperatorsTZ#rnd), [rnd_choice](OperatorsTZ#rnd_choice), [sample](OperatorsTZ#sample), [shuffle](OperatorsTZ#shuffle), [simplex_generator](OperatorsTZ#simplex_generator), [skew_gauss](OperatorsTZ#skew_gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), 
+[binomial](OperatorsAB#binomial), [flip](OperatorsCH#flip), [gauss](OperatorsCH#gauss), [improved_generator](OperatorsIN#improved_generator), [open_simplex_generator](OperatorsOS#open_simplex_generator), [poisson](OperatorsOS#poisson), [rnd](OperatorsOS#rnd), [rnd_choice](OperatorsOS#rnd_choice), [sample](OperatorsOS#sample), [shuffle](OperatorsOS#shuffle), [simplex_generator](OperatorsOS#simplex_generator), [skew_gauss](OperatorsOS#skew_gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), 
 
 ----
 
@@ -249,62 +249,62 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Shape
-[arc](OperatorsTZ#arc), [box](OperatorsTZ#box), [circle](OperatorsTZ#circle), [cone](OperatorsTZ#cone), [cone3D](OperatorsTZ#cone3d), [cross](OperatorsTZ#cross), [cube](OperatorsTZ#cube), [curve](OperatorsTZ#curve), [cylinder](OperatorsTZ#cylinder), [ellipse](OperatorsTZ#ellipse), [envelope](OperatorsTZ#envelope), [geometry_collection](OperatorsTZ#geometry_collection), [hexagon](OperatorsTZ#hexagon), [line](OperatorsTZ#line), [link](OperatorsTZ#link), [plan](OperatorsTZ#plan), [polygon](OperatorsTZ#polygon), [polyhedron](OperatorsTZ#polyhedron), [pyramid](OperatorsTZ#pyramid), [rectangle](OperatorsTZ#rectangle), [sphere](OperatorsTZ#sphere), [square](OperatorsTZ#square), [squircle](OperatorsTZ#squircle), [teapot](OperatorsTZ#teapot), [triangle](OperatorsTZ#triangle), 
+[arc](OperatorsAB#arc), [box](OperatorsAB#box), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [cross](OperatorsCH#cross), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [geometry_collection](OperatorsCH#geometry_collection), [hexagon](OperatorsCH#hexagon), [line](OperatorsIN#line), [link](OperatorsIN#link), [plan](OperatorsOS#plan), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [sphere](OperatorsOS#sphere), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [triangle](OperatorsTZ#triangle), 
 
 ----
 
 ### Spatial operators
-[-](OperatorsTZ#-), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [add_point](OperatorsTZ#add_point), [agent_closest_to](OperatorsTZ#agent_closest_to), [agent_farthest_to](OperatorsTZ#agent_farthest_to), [agents_at_distance](OperatorsTZ#agents_at_distance), [agents_inside](OperatorsTZ#agents_inside), [agents_overlapping](OperatorsTZ#agents_overlapping), [angle_between](OperatorsTZ#angle_between), [any_location_in](OperatorsTZ#any_location_in), [arc](OperatorsTZ#arc), [around](OperatorsTZ#around), [as_4_grid](OperatorsTZ#as_4_grid), [as_grid](OperatorsTZ#as_grid), [as_hexagonal_grid](OperatorsTZ#as_hexagonal_grid), [at_distance](OperatorsTZ#at_distance), [at_location](OperatorsTZ#at_location), [box](OperatorsTZ#box), [centroid](OperatorsTZ#centroid), [circle](OperatorsTZ#circle), [clean](OperatorsTZ#clean), [closest_points_with](OperatorsTZ#closest_points_with), [closest_to](OperatorsTZ#closest_to), [cone](OperatorsTZ#cone), [cone3D](OperatorsTZ#cone3d), [convex_hull](OperatorsTZ#convex_hull), [covers](OperatorsTZ#covers), [cross](OperatorsTZ#cross), [crosses](OperatorsTZ#crosses), [crs](OperatorsTZ#crs), [CRS_transform](OperatorsTZ#crs_transform), [cube](OperatorsTZ#cube), [curve](OperatorsTZ#curve), [cylinder](OperatorsTZ#cylinder), [dem](OperatorsTZ#dem), [direction_between](OperatorsTZ#direction_between), [disjoint_from](OperatorsTZ#disjoint_from), [distance_between](OperatorsTZ#distance_between), [distance_to](OperatorsTZ#distance_to), [ellipse](OperatorsTZ#ellipse), [envelope](OperatorsTZ#envelope), [farthest_point_to](OperatorsTZ#farthest_point_to), [farthest_to](OperatorsTZ#farthest_to), [geometry_collection](OperatorsTZ#geometry_collection), [gini](OperatorsTZ#gini), [hexagon](OperatorsTZ#hexagon), [hierarchical_clustering](OperatorsTZ#hierarchical_clustering), [IDW](OperatorsTZ#idw), [inside](OperatorsTZ#inside), [inter](OperatorsTZ#inter), [intersects](OperatorsTZ#intersects), [line](OperatorsTZ#line), [link](OperatorsTZ#link), [masked_by](OperatorsTZ#masked_by), [moran](OperatorsTZ#moran), [neighbors_at](OperatorsTZ#neighbors_at), [neighbors_of](OperatorsTZ#neighbors_of), [overlapping](OperatorsTZ#overlapping), [overlaps](OperatorsTZ#overlaps), [partially_overlaps](OperatorsTZ#partially_overlaps), [path_between](OperatorsTZ#path_between), [path_to](OperatorsTZ#path_to), [plan](OperatorsTZ#plan), [points_along](OperatorsTZ#points_along), [points_at](OperatorsTZ#points_at), [points_on](OperatorsTZ#points_on), [polygon](OperatorsTZ#polygon), [polyhedron](OperatorsTZ#polyhedron), [pyramid](OperatorsTZ#pyramid), [rectangle](OperatorsTZ#rectangle), [rgb_to_xyz](OperatorsTZ#rgb_to_xyz), [rotated_by](OperatorsTZ#rotated_by), [round](OperatorsTZ#round), [scaled_to](OperatorsTZ#scaled_to), [set_z](OperatorsTZ#set_z), [simple_clustering_by_distance](OperatorsTZ#simple_clustering_by_distance), [simplification](OperatorsTZ#simplification), [skeletonize](OperatorsTZ#skeletonize), [smooth](OperatorsTZ#smooth), [sphere](OperatorsTZ#sphere), [split_at](OperatorsTZ#split_at), [split_geometry](OperatorsTZ#split_geometry), [split_lines](OperatorsTZ#split_lines), [square](OperatorsTZ#square), [squircle](OperatorsTZ#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [add_point](OperatorsAB#add_point), [agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [arc](OperatorsAB#arc), [around](OperatorsAB#around), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_distance](OperatorsAB#at_distance), [at_location](OperatorsAB#at_location), [box](OperatorsAB#box), [centroid](OperatorsCH#centroid), [circle](OperatorsCH#circle), [clean](OperatorsCH#clean), [closest_points_with](OperatorsCH#closest_points_with), [closest_to](OperatorsCH#closest_to), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [convex_hull](OperatorsCH#convex_hull), [covers](OperatorsCH#covers), [cross](OperatorsCH#cross), [crosses](OperatorsCH#crosses), [crs](OperatorsCH#crs), [CRS_transform](OperatorsAB#crs_transform), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [direction_between](OperatorsCH#direction_between), [disjoint_from](OperatorsCH#disjoint_from), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [farthest_point_to](OperatorsCH#farthest_point_to), [farthest_to](OperatorsCH#farthest_to), [geometry_collection](OperatorsCH#geometry_collection), [gini](OperatorsCH#gini), [hexagon](OperatorsCH#hexagon), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [IDW](OperatorsAB#idw), [inside](OperatorsIN#inside), [inter](OperatorsIN#inter), [intersects](OperatorsIN#intersects), [line](OperatorsIN#line), [link](OperatorsIN#link), [masked_by](OperatorsIN#masked_by), [moran](OperatorsIN#moran), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [plan](OperatorsOS#plan), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [rotated_by](OperatorsOS#rotated_by), [round](OperatorsOS#round), [scaled_to](OperatorsOS#scaled_to), [set_z](OperatorsOS#set_z), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [sphere](OperatorsOS#sphere), [split_at](OperatorsOS#split_at), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
 ### Spatial properties operators
-[covers](OperatorsTZ#covers), [crosses](OperatorsTZ#crosses), [intersects](OperatorsTZ#intersects), [partially_overlaps](OperatorsTZ#partially_overlaps), [touches](OperatorsTZ#touches), 
+[covers](OperatorsCH#covers), [crosses](OperatorsCH#crosses), [intersects](OperatorsIN#intersects), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
 
 ----
 
 ### Spatial queries operators
-[agent_closest_to](OperatorsTZ#agent_closest_to), [agent_farthest_to](OperatorsTZ#agent_farthest_to), [agents_at_distance](OperatorsTZ#agents_at_distance), [agents_inside](OperatorsTZ#agents_inside), [agents_overlapping](OperatorsTZ#agents_overlapping), [at_distance](OperatorsTZ#at_distance), [closest_to](OperatorsTZ#closest_to), [farthest_to](OperatorsTZ#farthest_to), [inside](OperatorsTZ#inside), [neighbors_at](OperatorsTZ#neighbors_at), [neighbors_of](OperatorsTZ#neighbors_of), [overlapping](OperatorsTZ#overlapping), 
+[agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [at_distance](OperatorsAB#at_distance), [closest_to](OperatorsCH#closest_to), [farthest_to](OperatorsCH#farthest_to), [inside](OperatorsIN#inside), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), 
 
 ----
 
 ### Spatial relations operators
-[direction_between](OperatorsTZ#direction_between), [distance_between](OperatorsTZ#distance_between), [distance_to](OperatorsTZ#distance_to), [path_between](OperatorsTZ#path_between), [path_to](OperatorsTZ#path_to), [towards](OperatorsTZ#towards), 
+[direction_between](OperatorsCH#direction_between), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [towards](OperatorsTZ#towards), 
 
 ----
 
 ### Spatial statistical operators
-[hierarchical_clustering](OperatorsTZ#hierarchical_clustering), [simple_clustering_by_distance](OperatorsTZ#simple_clustering_by_distance), 
+[hierarchical_clustering](OperatorsCH#hierarchical_clustering), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), 
 
 ----
 
 ### Spatial transformations operators
-[-](OperatorsTZ#-), [*](OperatorsTZ#*), [+](OperatorsTZ#+), [as_4_grid](OperatorsTZ#as_4_grid), [as_grid](OperatorsTZ#as_grid), [as_hexagonal_grid](OperatorsTZ#as_hexagonal_grid), [at_location](OperatorsTZ#at_location), [clean](OperatorsTZ#clean), [convex_hull](OperatorsTZ#convex_hull), [CRS_transform](OperatorsTZ#crs_transform), [rotated_by](OperatorsTZ#rotated_by), [scaled_to](OperatorsTZ#scaled_to), [simplification](OperatorsTZ#simplification), [skeletonize](OperatorsTZ#skeletonize), [smooth](OperatorsTZ#smooth), [split_geometry](OperatorsTZ#split_geometry), [split_lines](OperatorsTZ#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_location](OperatorsAB#at_location), [clean](OperatorsCH#clean), [convex_hull](OperatorsCH#convex_hull), [CRS_transform](OperatorsAB#crs_transform), [rotated_by](OperatorsOS#rotated_by), [scaled_to](OperatorsOS#scaled_to), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
 ### Species-related operators
-[index_of](OperatorsTZ#index_of), [last_index_of](OperatorsTZ#last_index_of), [of_generic_species](OperatorsTZ#of_generic_species), [of_species](OperatorsTZ#of_species), 
+[index_of](OperatorsIN#index_of), [last_index_of](OperatorsIN#last_index_of), [of_generic_species](OperatorsOS#of_generic_species), [of_species](OperatorsOS#of_species), 
 
 ----
 
 ### Statistical operators
-[build](OperatorsTZ#build), [corR](OperatorsTZ#corr), [dbscan](OperatorsTZ#dbscan), [distribution_of](OperatorsTZ#distribution_of), [distribution2d_of](OperatorsTZ#distribution2d_of), [frequency_of](OperatorsTZ#frequency_of), [gamma_rnd](OperatorsTZ#gamma_rnd), [geometric_mean](OperatorsTZ#geometric_mean), [gini](OperatorsTZ#gini), [harmonic_mean](OperatorsTZ#harmonic_mean), [hierarchical_clustering](OperatorsTZ#hierarchical_clustering), [kmeans](OperatorsTZ#kmeans), [kurtosis](OperatorsTZ#kurtosis), [max](OperatorsTZ#max), [mean](OperatorsTZ#mean), [mean_deviation](OperatorsTZ#mean_deviation), [meanR](OperatorsTZ#meanr), [median](OperatorsTZ#median), [min](OperatorsTZ#min), [moran](OperatorsTZ#moran), [mul](OperatorsTZ#mul), [predict](OperatorsTZ#predict), [simple_clustering_by_distance](OperatorsTZ#simple_clustering_by_distance), [skewness](OperatorsTZ#skewness), [standard_deviation](OperatorsTZ#standard_deviation), [sum](OperatorsTZ#sum), [variance](OperatorsTZ#variance), 
+[build](OperatorsAB#build), [corR](OperatorsCH#corr), [dbscan](OperatorsCH#dbscan), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [frequency_of](OperatorsCH#frequency_of), [gamma_rnd](OperatorsCH#gamma_rnd), [geometric_mean](OperatorsCH#geometric_mean), [gini](OperatorsCH#gini), [harmonic_mean](OperatorsCH#harmonic_mean), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [kmeans](OperatorsIN#kmeans), [kurtosis](OperatorsIN#kurtosis), [max](OperatorsIN#max), [mean](OperatorsIN#mean), [mean_deviation](OperatorsIN#mean_deviation), [meanR](OperatorsIN#meanr), [median](OperatorsIN#median), [min](OperatorsIN#min), [moran](OperatorsIN#moran), [mul](OperatorsIN#mul), [predict](OperatorsOS#predict), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [skewness](OperatorsOS#skewness), [standard_deviation](OperatorsOS#standard_deviation), [sum](OperatorsOS#sum), [variance](OperatorsTZ#variance), 
 
 ----
 
 ### Strings-related operators
-[+](OperatorsTZ#+), [<](OperatorsTZ#<), [<=](OperatorsTZ#<=), [>](OperatorsTZ#>), [>=](OperatorsTZ#>=), [at](OperatorsTZ#at), [char](OperatorsTZ#char), [contains](OperatorsTZ#contains), [contains_all](OperatorsTZ#contains_all), [contains_any](OperatorsTZ#contains_any), [copy_between](OperatorsTZ#copy_between), [date](OperatorsTZ#date), [empty](OperatorsTZ#empty), [first](OperatorsTZ#first), [in](OperatorsTZ#in), [indented_by](OperatorsTZ#indented_by), [index_of](OperatorsTZ#index_of), [is_number](OperatorsTZ#is_number), [last](OperatorsTZ#last), [last_index_of](OperatorsTZ#last_index_of), [length](OperatorsTZ#length), [lower_case](OperatorsTZ#lower_case), [replace](OperatorsTZ#replace), [replace_regex](OperatorsTZ#replace_regex), [reverse](OperatorsTZ#reverse), [sample](OperatorsTZ#sample), [shuffle](OperatorsTZ#shuffle), [split_with](OperatorsTZ#split_with), [string](OperatorsTZ#string), [upper_case](OperatorsTZ#upper_case), 
+[+](OperatorsAB#+), [<](OperatorsAB#<), [<=](OperatorsAB#<=), [>](OperatorsAB#>), [>=](OperatorsAB#>=), [at](OperatorsAB#at), [char](OperatorsCH#char), [contains](OperatorsCH#contains), [contains_all](OperatorsCH#contains_all), [contains_any](OperatorsCH#contains_any), [copy_between](OperatorsCH#copy_between), [date](OperatorsCH#date), [empty](OperatorsCH#empty), [first](OperatorsCH#first), [in](OperatorsIN#in), [indented_by](OperatorsIN#indented_by), [index_of](OperatorsIN#index_of), [is_number](OperatorsIN#is_number), [last](OperatorsIN#last), [last_index_of](OperatorsIN#last_index_of), [length](OperatorsIN#length), [lower_case](OperatorsIN#lower_case), [replace](OperatorsOS#replace), [replace_regex](OperatorsOS#replace_regex), [reverse](OperatorsOS#reverse), [sample](OperatorsOS#sample), [shuffle](OperatorsOS#shuffle), [split_with](OperatorsOS#split_with), [string](OperatorsOS#string), [upper_case](OperatorsTZ#upper_case), 
 
 ----
 
 ### System
-[.](OperatorsTZ#.), [command](OperatorsTZ#command), [copy](OperatorsTZ#copy), [dead](OperatorsTZ#dead), [eval_gaml](OperatorsTZ#eval_gaml), [every](OperatorsTZ#every), [user_input](OperatorsTZ#user_input), 
+[.](OperatorsAB#.), [command](OperatorsCH#command), [copy](OperatorsCH#copy), [dead](OperatorsCH#dead), [eval_gaml](OperatorsCH#eval_gaml), [every](OperatorsCH#every), [user_input](OperatorsTZ#user_input), 
 
 ----
 
 ### Time-related operators
-[date](OperatorsTZ#date), [string](OperatorsTZ#string), 
+[date](OperatorsCH#date), [string](OperatorsOS#string), 
 
 ----
 
@@ -315,8 +315,9265 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### User control operators
 [user_input](OperatorsTZ#user_input), 
-	
-----
 
-## Operators
-	
+		----
+
+		## Operators
+		
+
+			----
+			
+[//]: # (keyword|operator_ceil)
+			###
+			`ceil`
+
+		#### Possible use:
+		
+				*
+				 **`ceil`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Maps the operand to the smallest following integer, i.e. the smallest integer not less than x.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								ceil(3)
+								; // var
+								0
+								equals
+								3.0
+float
+								var
+								1
+								<-
+								ceil(3.5)
+								; // var
+								1
+								equals
+								4.0
+float
+								var
+								2
+								<-
+								ceil(-4.7)
+								; // var
+								2
+								equals
+								-4.0
+
+				```
+			
+
+				#### See also:
+				[floor](OperatorsCH#floor), [round](OperatorsOS#round), 
+
+			----
+			
+[//]: # (keyword|operator_centroid)
+			###
+			`centroid`
+
+		#### Possible use:
+		
+				*
+				 **`centroid`** 
+				(
+				
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+
+				#### Result:
+				Centroid (weighted sum of the centroids of a decomposition of the area into triangles) of the operand-geometry. Can be different to the location of the geometry
+
+				#### Examples:
+				```
+				point
+								var
+								0
+								<-
+								centroid(world)
+								; // var
+								0
+								equals
+								the centroid of the square, for example : {50.0,50.0}.
+
+				```
+			
+
+				#### See also:
+				[any_location_in](OperatorsAB#any_location_in), [closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
+
+			----
+			
+[//]: # (keyword|operator_char)
+			###
+			`char`
+
+		#### Possible use:
+		
+				*
+				 **`char`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+
+				#### Special cases:
+			
+					*
+					converts ACSII integer value to character
+
+					```
+					string
+								var
+								0
+								<-
+								char (34)
+								; // var
+								0
+								equals
+								'"'
+
+					```
+
+				
+
+			----
+			
+[//]: # (keyword|operator_chi_square)
+			###
+			`chi_square`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`chi_square`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`chi_square`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the area under the left hand tail (from 0 to x) of the Chi square probability density function with df degrees of freedom.
+
+			----
+			
+[//]: # (keyword|operator_chi_square_complemented)
+			###
+			`chi_square_complemented`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`chi_square_complemented`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`chi_square_complemented`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the area under the right hand tail (from x to infinity) of the Chi square probability density function with df degrees of freedom.
+
+			----
+			
+[//]: # (keyword|operator_circle)
+			###
+			`circle`
+
+		#### Possible use:
+		
+				*
+				 **`circle`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`circle`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`circle`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
+A circle geometry which radius is equal to the operand.
+
+				#### Comment:
+				the center of the circle is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns a point if the operand is lower or equal to 0.
+					*
+					returns a point if the operand is lower or equal to 0.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								circle(10,{80,30})
+								; // var
+								0
+								equals
+								a geometry as a circle of radius 10, the center will be in the location {80,30}.
+geometry
+								var
+								1
+								<-
+								circle(10)
+								; // var
+								1
+								equals
+								a geometry as a circle of radius 10.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_clean)
+			###
+			`clean`
+
+		#### Possible use:
+		
+				*
+				 **`clean`** 
+				(
+				
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A geometry corresponding to the cleaning of the operand (geometry, agent, point)
+
+				#### Comment:
+				The cleaning corresponds to a buffer with a distance of 0.0
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								clean(self)
+								; // var
+								0
+								equals
+								returns the geometry resulting from the cleaning of the geometry of the agent applying the operator.
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_closest_points_with)
+			###
+			`closest_points_with`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`closest_points_with`** 
+				`
+				geometry
+				`
+			
+				--->
+				`list<point>`
+				*
+				 **`closest_points_with`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				`list<point>`
+
+				#### Result:
+				A list of two closest points between the two geometries.
+
+				#### Examples:
+				```
+				list<point>
+								var
+								0
+								<-
+								geom1 closest_points_with(geom2)
+								; // var
+								0
+								equals
+								[pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
+
+				```
+			
+
+				#### See also:
+				[any_location_in](OperatorsAB#any_location_in), [any_point_in](OperatorsAB#any_point_in), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
+
+			----
+			
+[//]: # (keyword|operator_closest_to)
+			###
+			`closest_to`
+
+		#### Possible use:
+		
+				*
+				`container<agent>` **`closest_to`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`closest_to`** 
+				(
+				`container<agent>` , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).
+
+				#### Comment:
+				the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								[ag1, ag2, ag3] closest_to(self)
+								; // var
+								0
+								equals
+								return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.
+(species1 + species2) closest_to self
+
+				```
+			
+
+				#### See also:
+				[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [inside](OperatorsIN#inside), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
+
+			----
+			
+[//]: # (keyword|operator_collect)
+			###
+			`collect`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`collect`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`collect`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+				#### Result:
+				returns a new list, in which each element is the evaluation of the right-hand operand.
+
+				#### Comment:
+				collect is similar to accumulate except that accumulate always produces flat lists if the right-hand operand returns a list.In addition, collect can be applied to any container.
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, collect throws an error
+
+				#### Examples:
+				```
+				container
+								var
+								0
+								<-
+								[1,2,4] collect (each *2)
+								; // var
+								0
+								equals
+								[2,4,8]
+container
+								var
+								1
+								<-
+								[1,2,4] collect ([2,4])
+								; // var
+								1
+								equals
+								[[2,4],[2,4],[2,4]]
+container
+								var
+								2
+								<-
+								[1::2, 3::4, 5::6] collect (each + 2)
+								; // var
+								2
+								equals
+								[4,6,8]
+container
+								var
+								3
+								<-
+								(list(node) collect (node(each).location.x * 2)
+								; // var
+								3
+								equals
+								the list of nodes with their x multiplied by 2
+
+				```
+			
+
+				#### See also:
+				[accumulate](OperatorsAB#accumulate), 
+
+			----
+			
+[//]: # (keyword|operator_column_at)
+			###
+			`column_at`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				matrix
+				`
+			 **`column_at`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				list
+				`
+			
+				*
+				 **`column_at`** 
+				(
+				
+				`
+				matrix
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				list
+				`
+			
+
+				#### Result:
+				returns the column at a num_col (right-hand operand)
+
+				#### Examples:
+				```
+				list
+								var
+								0
+								<-
+								matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2
+								; // var
+								0
+								equals
+								["el31","el32","el33"]
+
+				```
+			
+
+				#### See also:
+				[row_at](OperatorsOS#row_at), [rows_list](OperatorsOS#rows_list), 
+
+			----
+			
+[//]: # (keyword|operator_columns_list)
+			###
+			`columns_list`
+
+		#### Possible use:
+		
+				*
+				 **`columns_list`** 
+				(
+				
+				`
+				matrix
+				`
+			
+				) --->
+				`list<list>`
+
+				#### Result:
+				returns a list of the columns of the matrix, with each column as a list of elements
+
+				#### Examples:
+				```
+				list<list>
+								var
+								0
+								<-
+								columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]))
+								; // var
+								0
+								equals
+								[["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
+
+				```
+			
+
+				#### See also:
+				[rows_list](OperatorsOS#rows_list), 
+
+			----
+			
+[//]: # (keyword|operator_command)
+			###
+			`command`
+
+		#### Possible use:
+		
+				*
+				 **`command`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+				*
+				
+				`
+				string
+				`
+			 **`command`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				string
+				`
+			
+				*
+				 **`command`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+				*
+				 **`command`** 
+				(
+				
+				`
+				string
+				`
+			
+							,
+						
+				`
+				string
+				`
+			
+							,
+						
+				`
+				msi.gama.util.GamaMap<java.lang.String,java.lang.String>
+				`
+			
+							)
+						
+				--->
+				
+				`
+				string
+				`
+			
+
+				#### Result:
+				command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string
+
+			----
+			
+[//]: # (keyword|operator_cone)
+			###
+			`cone`
+
+		#### Possible use:
+		
+				*
+				 **`cone`** 
+				(
+				
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`cone`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`cone`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A cone geometry which min and max angles are given by the operands.
+A cone geometry which min and max angles are given by the operands.
+
+				#### Comment:
+				the center of the cone is by default the location of the current agent in which has been called this operator.the center of the cone is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns nil if the operand is nil.
+					*
+					returns nil if the operand is nil.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								cone({0, 45})
+								; // var
+								0
+								equals
+								a geometry as a cone with min angle is 0 and max angle is 45.
+geometry
+								var
+								1
+								<-
+								cone(0, 45)
+								; // var
+								1
+								equals
+								a geometry as a cone with min angle is 0 and max angle is 45.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_cone3D)
+			###
+			`cone3D`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`cone3D`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`cone3D`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A cone geometry which base radius size is equal to the first operand, and which the height is equal to the second operand.
+
+				#### Comment:
+				the center of the cone is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns a point if the operand is lower or equal to 0.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								cone3D(10.0,5.0)
+								; // var
+								0
+								equals
+								a geometry as a cone with a base circle of radius 10 and a height of 5.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_connected_components_of)
+			###
+			`connected_components_of`
+
+		#### Possible use:
+		
+				*
+				 **`connected_components_of`** 
+				(
+				
+				`
+				graph
+				`
+			
+				) --->
+				`list<list>`
+				*
+				
+				`
+				graph
+				`
+			 **`connected_components_of`** 
+				`
+				bool
+				`
+			
+				--->
+				`list<list>`
+				*
+				 **`connected_components_of`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				bool
+				`
+			
+				) --->
+				`list<list>`
+
+				#### Result:
+				returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
+
+				#### Examples:
+				```
+				graph my_graph <- graph([]);
+list<list>
+								var
+								1
+								<-
+								connected_components_of (my_graph)
+								; // var
+								1
+								equals
+								the list of all the components as list
+graph my_graph <- graph([]);
+list<list>
+								var
+								3
+								<-
+								connected_components_of (my_graph, true)
+								; // var
+								3
+								equals
+								the list of all the components as list
+
+				```
+			
+
+				#### See also:
+				[alpha_index](OperatorsAB#alpha_index), [connectivity_index](OperatorsCH#connectivity_index), [nb_cycles](OperatorsIN#nb_cycles), 
+
+			----
+			
+[//]: # (keyword|operator_connectivity_index)
+			###
+			`connectivity_index`
+
+		#### Possible use:
+		
+				*
+				 **`connectivity_index`** 
+				(
+				
+				`
+				graph
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				returns a simple connectivity index. This number is estimated through the number of nodes (v) and of sub-graphs (p) : IC = (v - p) /(v - 1).
+
+				#### Examples:
+				```
+				graph graphEpidemio <- graph([]);
+float
+								var
+								1
+								<-
+								connectivity_index(graphEpidemio)
+								; // var
+								1
+								equals
+								the connectivity index of the graph
+
+				```
+			
+
+				#### See also:
+				[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [gamma_index](OperatorsCH#gamma_index), [nb_cycles](OperatorsIN#nb_cycles), 
+
+			----
+			
+[//]: # (keyword|operator_container)
+			###
+			`container`
+
+		#### Possible use:
+		
+				*
+				 **`container`** 
+				(
+				
+				`
+				any
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+				#### Result:
+				Casts the operand into the type container
+
+			----
+			
+[//]: # (keyword|operator_contains)
+			###
+			`contains`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				string
+				`
+			 **`contains`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				`container<KeyType,ValueType>` **`contains`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains`** 
+				(
+				`container<KeyType,ValueType>` , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true, if the container contains the right operand, false otherwise
+
+				#### Comment:
+				the contains operator behavior depends on the nature of the operand
+
+				#### Special cases:
+			
+					*
+					if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;
+					*
+					if it is a map, contains returns true if the operand is a key of the map
+					*
+					if it is a file, contains returns true it the operand is contained in the file content
+					*
+					if it is a population, contains returns true if the operand is an agent of the population, false otherwise
+					*
+					if it is a graph, contains returns true if the operand is a node or an edge of the graph, false otherwise
+					*
+					if it is a list or a matrix, contains returns true if the list or matrix contains the right operand
+
+					```
+					bool
+								var
+								1
+								<-
+								[1, 2, 3] contains 2
+								; // var
+								1
+								equals
+								true
+bool
+								var
+								2
+								<-
+								[{1,2}, {3,4}, {5,6}] contains {3,4}
+								; // var
+								2
+								equals
+								true
+
+					```
+
+				
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								'abcded' contains 'bc'
+								; // var
+								0
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[contains_all](OperatorsCH#contains_all), [contains_any](OperatorsCH#contains_any), 
+
+			----
+			
+[//]: # (keyword|operator_contains_all)
+			###
+			`contains_all`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`contains_all`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_all`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				string
+				`
+			 **`contains_all`** 
+				`
+				list
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_all`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				list
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true if the left operand contains all the elements of the right operand, false otherwise
+
+				#### Comment:
+				the definition of contains depends on the container
+
+				#### Special cases:
+			
+					*
+					if the right operand is nil or empty, contains_all returns true
+					*
+					if the left-operand is a string, test whether the string contains all the element of the list;
+
+					```
+					bool
+								var
+								4
+								<-
+								"abcabcabc" contains_all ["ca","xy"]
+								; // var
+								4
+								equals
+								false
+
+					```
+
+				
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								[1,2,3,4,5,6] contains_all [2,4]
+								; // var
+								0
+								equals
+								true 
+bool
+								var
+								1
+								<-
+								[1,2,3,4,5,6] contains_all [2,8]
+								; // var
+								1
+								equals
+								false
+bool
+								var
+								2
+								<-
+								[1::2, 3::4, 5::6] contains_all [1,3]
+								; // var
+								2
+								equals
+								false 
+bool
+								var
+								3
+								<-
+								[1::2, 3::4, 5::6] contains_all [2,4]
+								; // var
+								3
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[contains](OperatorsCH#contains), [contains_any](OperatorsCH#contains_any), 
+
+			----
+			
+[//]: # (keyword|operator_contains_any)
+			###
+			`contains_any`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				string
+				`
+			 **`contains_any`** 
+				`
+				list
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_any`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				list
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				container
+				`
+			 **`contains_any`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_any`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true if the left operand contains one of the elements of the right operand, false otherwise
+
+				#### Comment:
+				the definition of contains depends on the container
+
+				#### Special cases:
+			
+					*
+					if the right operand is nil or empty, contains_any returns false
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								"abcabcabc" contains_any ["ca","xy"]
+								; // var
+								0
+								equals
+								true
+bool
+								var
+								1
+								<-
+								[1,2,3,4,5,6] contains_any [2,4]
+								; // var
+								1
+								equals
+								true 
+bool
+								var
+								2
+								<-
+								[1,2,3,4,5,6] contains_any [2,8]
+								; // var
+								2
+								equals
+								true
+bool
+								var
+								3
+								<-
+								[1::2, 3::4, 5::6] contains_any [1,3]
+								; // var
+								3
+								equals
+								false
+bool
+								var
+								4
+								<-
+								[1::2, 3::4, 5::6] contains_any [2,4]
+								; // var
+								4
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[contains](OperatorsCH#contains), [contains_all](OperatorsCH#contains_all), 
+
+			----
+			
+[//]: # (keyword|operator_contains_edge)
+			###
+			`contains_edge`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				graph
+				`
+			 **`contains_edge`** 
+				`
+				pair
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_edge`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				pair
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				graph
+				`
+			 **`contains_edge`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_edge`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				returns true if the graph(left-hand operand) contains the given edge (righ-hand operand), false otherwise
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, returns false
+					*
+					if the right-hand operand is a pair, returns true if it exists an edge between the two elements of the pair in the graph
+
+					```
+					bool
+								var
+								0
+								<-
+								graphEpidemio contains_edge (node(0)::node(3))
+								; // var
+								0
+								equals
+								true
+
+					```
+
+				
+
+				#### Examples:
+				```
+				graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
+bool
+								var
+								2
+								<-
+								graphFromMap contains_edge link({1,5}::{12,45})
+								; // var
+								2
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[contains_vertex](OperatorsCH#contains_vertex), 
+
+			----
+			
+[//]: # (keyword|operator_contains_vertex)
+			###
+			`contains_vertex`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				graph
+				`
+			 **`contains_vertex`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`contains_vertex`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				returns true if the graph(left-hand operand) contains the given vertex (righ-hand operand), false otherwise
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, returns false
+
+				#### Examples:
+				```
+				graph graphFromMap<-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
+bool
+								var
+								1
+								<-
+								graphFromMap contains_vertex {1,5}
+								; // var
+								1
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[contains_edge](OperatorsCH#contains_edge), 
+
+			----
+			
+[//]: # (keyword|operator_conversation)
+			###
+			`conversation`
+
+		#### Possible use:
+		
+				*
+				 **`conversation`** 
+				(
+				
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				conversation
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_convex_hull)
+			###
+			`convex_hull`
+
+		#### Possible use:
+		
+				*
+				 **`convex_hull`** 
+				(
+				
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A geometry corresponding to the convex hull of the operand.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								convex_hull(self)
+								; // var
+								0
+								equals
+								the convex hull of the geometry of the agent applying the operator
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_copy)
+			###
+			`copy`
+
+		#### Possible use:
+		
+				*
+				 **`copy`** 
+				(
+				
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				returns a copy of the operand.
+
+			----
+			
+[//]: # (keyword|operator_copy_between)
+			###
+			`copy_between`
+
+		#### Possible use:
+		
+				*
+				 **`copy_between`** 
+				(
+				
+				`
+				container
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`copy_between`** 
+				(
+				
+				`
+				string
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				string
+				`
+			
+
+				#### Result:
+				Returns a copy of the first operand between the indexes determined by the second (inclusive) and third operands (exclusive)
+
+				#### Special cases:
+			
+					*
+					If the first operand is empty, returns an empty object of the same type
+					*
+					If the second operand is greater than or equal to the third operand, return an empty object of the same type
+					*
+					If the first operand is nil, raises an error
+
+				#### Examples:
+				```
+				container
+								var
+								0
+								<-
+								 copy_between ([4, 1, 6, 9 ,7], 1, 3)
+								; // var
+								0
+								equals
+								[1, 6]
+string
+								var
+								1
+								<-
+								copy_between("abcabcabc", 2,6)
+								; // var
+								1
+								equals
+								"cabc"
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_corR)
+			###
+			`corR`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`corR`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`corR`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				returns the Pearson correlation coefficient of two given vectors (right-hand operands) in given variable  (left-hand operand).
+
+				#### Special cases:
+			
+					*
+					if the lengths of two vectors in the right-hand aren't equal, returns 0
+
+				#### Examples:
+				```
+				list X <- [1, 2, 3];
+list Y <- [1, 2, 4];
+unknown
+								var
+								2
+								<-
+								corR(X, Y)
+								; // var
+								2
+								equals
+								0.981980506061966
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_correlation)
+			###
+			`correlation`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`correlation`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`correlation`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the correlation of two data sequences
+
+			----
+			
+[//]: # (keyword|operator_cos)
+			###
+			`cos`
+
+		#### Possible use:
+		
+				*
+				 **`cos`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				 **`cos`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
+
+				#### Special cases:
+			
+					*
+					Operand values out of the range [0-359] are normalized.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								cos (0)
+								; // var
+								0
+								equals
+								1.0
+float
+								var
+								1
+								<-
+								cos(360)
+								; // var
+								1
+								equals
+								1.0
+float
+								var
+								2
+								<-
+								cos(-720)
+								; // var
+								2
+								equals
+								1.0
+
+				```
+			
+
+				#### See also:
+				[sin](OperatorsOS#sin), [tan](OperatorsTZ#tan), 
+
+			----
+			
+[//]: # (keyword|operator_cos_rad)
+			###
+			`cos_rad`
+
+		#### Possible use:
+		
+				*
+				 **`cos_rad`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
+
+				#### Special cases:
+			
+					*
+					Operand values out of the range [0-359] are normalized.
+
+				#### See also:
+				[sin](OperatorsOS#sin), [tan](OperatorsTZ#tan), 
+
+			----
+			
+[//]: # (keyword|operator_count)
+			###
+			`count`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`count`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`count`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				returns an int, equal to the number of elements of the left-hand operand that make the right-hand operand evaluate to true.
+
+				#### Comment:
+				in the right-hand operand, the keyword each can be used to represent, in turn, each of the elements.
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, count throws an error
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								[1,2,3,4,5,6,7,8] count (each > 3)
+								; // var
+								0
+								equals
+								5
+// Number of nodes of graph g2 without any out edge
+graph g2 <- graph([]);
+int
+								var
+								3
+								<-
+								g2 count (length(g2 out_edges_of each) = 0  ) 
+								; // var
+								3
+								equals
+								the total number of out edges
+// Number of agents node with x > 32
+int n <- (list(node) count (round(node(each).location.x) > 32);
+int
+								var
+								6
+								<-
+								[1::2, 3::4, 5::6] count (each > 4)
+								; // var
+								6
+								equals
+								1
+
+				```
+			
+
+				#### See also:
+				[group_by](OperatorsCH#group_by), 
+
+			----
+			
+[//]: # (keyword|operator_covariance)
+			###
+			`covariance`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`covariance`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`covariance`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the covariance of two data sequences
+
+			----
+			
+[//]: # (keyword|operator_covers)
+			###
+			`covers`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`covers`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`covers`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				A boolean, equal to true if the left-geometry (or agent/point) covers the right-geometry (or agent/point).
+
+				#### Special cases:
+			
+					*
+					if one of the operand is null, returns false.
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								square(5) covers square(2)
+								; // var
+								0
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+
+			----
+			
+[//]: # (keyword|operator_create_map)
+			###
+			`create_map`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`create_map`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`create_map`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				returns a new map using the left operand as keys for the right operand
+
+				#### Special cases:
+			
+					*
+					if the left operand contains duplicates, create_map throws an error.
+					*
+					if both operands have different lengths, choose the minimum length between the two operandsfor the size of the map
+
+				#### Examples:
+				```
+				map<int,string>
+								var
+								0
+								<-
+								create_map([0,1,2],['a','b','c'])
+								; // var
+								0
+								equals
+								[0::'a',1::'b',2;;'c']
+map<int,float>
+								var
+								1
+								<-
+								create_map([0,1],[0.1,0.2,0.3])
+								; // var
+								1
+								equals
+								[0::0.1,1::0.2]
+map<string,float>
+								var
+								2
+								<-
+								create_map(['a','b','c','d'],[1.0,2.0,3.0])
+								; // var
+								2
+								equals
+								['a'::1.0,'b'::2.0,'c'::3.0]
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_cross)
+			###
+			`cross`
+
+		#### Possible use:
+		
+				*
+				 **`cross`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`cross`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`cross`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A cross, which radius is equal to the first operand and the width of the lines for the second
+A cross, which radius is equal to the first operand
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								cross(10,2)
+								; // var
+								0
+								equals
+								a geometry as a cross of radius 10, and with a width of 2 for the lines 
+geometry
+								var
+								1
+								<-
+								cross(10)
+								; // var
+								1
+								equals
+								a geometry as a cross of radius 10
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [super_ellipse](OperatorsTZ#super_ellipse), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [circle](OperatorsCH#circle), [ellipse](OperatorsCH#ellipse), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_crosses)
+			###
+			`crosses`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`crosses`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`crosses`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				A boolean, equal to true if the left-geometry (or agent/point) crosses the right-geometry (or agent/point).
+
+				#### Special cases:
+			
+					*
+					if one of the operand is null, returns false.
+					*
+					if one operand is a point, returns false.
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								polyline([{10,10},{20,20}]) crosses polyline([{10,20},{20,10}])
+								; // var
+								0
+								equals
+								true
+bool
+								var
+								1
+								<-
+								polyline([{10,10},{20,20}]) crosses {15,15}
+								; // var
+								1
+								equals
+								true
+bool
+								var
+								2
+								<-
+								polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,20},{20,10}])
+								; // var
+								2
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[disjoint_from](OperatorsCH#disjoint_from), [intersects](OperatorsIN#intersects), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+
+			----
+			
+[//]: # (keyword|operator_crs)
+			###
+			`crs`
+
+		#### Possible use:
+		
+				*
+				 **`crs`** 
+				(
+				
+				`
+				file
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+
+				#### Result:
+				the Coordinate Reference System (CRS) of the GIS file
+
+				#### Examples:
+				```
+				string
+								var
+								0
+								<-
+								crs(my_shapefile)
+								; // var
+								0
+								equals
+								the crs of the shapefile
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_csv_file)
+			###
+			`csv_file`
+
+		#### Possible use:
+		
+				*
+				 **`csv_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type csv. Allowed extensions are limited to csv, tsv
+
+			----
+			
+[//]: # (keyword|operator_cube)
+			###
+			`cube`
+
+		#### Possible use:
+		
+				*
+				 **`cube`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A cube geometry which side size is equal to the operand.
+
+				#### Comment:
+				the center of the cube is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns nil if the operand is nil.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								cube(10)
+								; // var
+								0
+								equals
+								a geometry as a square of side size 10.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_curve)
+			###
+			`curve`
+
+		#### Possible use:
+		
+				*
+				 **`curve`** 
+				(
+				
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							)
+						
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`curve`** 
+				(
+				
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`curve`** 
+				(
+				
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							)
+						
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`curve`** 
+				(
+				
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				point
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+
+				#### Special cases:
+			
+					*
+					if the operand is nil, returns nil
+					*
+					if the last operand (number of points) is inferior to 2, returns nil
+					*
+					if the operand is nil, returns nil
+					*
+					if the operand is nil, returns nil
+					*
+					if the operand is nil, returns nil
+					*
+					if the last operand (number of points) is inferior to 2, returns nil
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								curve({0,0}, {0,10}, {10,10}, 20)
+								; // var
+								0
+								equals
+								a quadratic Bezier curve geometry composed of 20 points from p0 to p2.
+geometry
+								var
+								1
+								<-
+								curve({0,0}, {0,10}, {10,10})
+								; // var
+								1
+								equals
+								a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
+geometry
+								var
+								2
+								<-
+								curve({0,0}, {0,10}, {10,10})
+								; // var
+								2
+								equals
+								a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+geometry
+								var
+								3
+								<-
+								curve({0,0}, {0,10}, {10,10})
+								; // var
+								3
+								equals
+								a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), [line](OperatorsIN#line), 
+
+			----
+			
+[//]: # (keyword|operator_cylinder)
+			###
+			`cylinder`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`cylinder`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`cylinder`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A cylinder geometry which radius is equal to the operand.
+
+				#### Comment:
+				the center of the cylinder is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns a point if the operand is lower or equal to 0.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								cylinder(10,10)
+								; // var
+								0
+								equals
+								a geometry as a circle of radius 10.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_date)
+			###
+			`date`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				string
+				`
+			 **`date`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				date
+				`
+			
+				*
+				 **`date`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				date
+				`
+			
+
+				#### Result:
+				converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+
+				#### Examples:
+				```
+				date("1999-12-30", 'yyyy-MM-dd')
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_dbscan)
+			###
+			`dbscan`
+
+		#### Possible use:
+		
+				*
+				 **`dbscan`** 
+				(
+				
+				`
+				list
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				`list<list>`
+
+				#### Result:
+				returns the list of clusters (list of instance indices) computed with the dbscan (density-based spatial clustering of applications with noise) algorithm from the first operand data according to the maximum radius of the neighborhood to be considered (eps) and the minimum number of points needed for a cluster (minPts). Usage: dbscan(data,eps,minPoints)
+
+				#### Special cases:
+			
+					*
+					if the lengths of two vectors in the right-hand aren't equal, returns 0
+
+				#### Examples:
+				```
+				dbscan ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],10,2)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_dead)
+			###
+			`dead`
+
+		#### Possible use:
+		
+				*
+				 **`dead`** 
+				(
+				
+				`
+				agent
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true if the agent is dead (or null), false otherwise.
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								dead(agent_A)
+								; // var
+								0
+								equals
+								true or false
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_degree_of)
+			###
+			`degree_of`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				graph
+				`
+			 **`degree_of`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`degree_of`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				returns the degree (in+out) of a vertex (right-hand operand) in the graph given as left-hand operand.
+
+				#### Examples:
+				```
+				int
+								var
+								1
+								<-
+								graphFromMap degree_of (node(3))
+								; // var
+								1
+								equals
+								3
+
+				```
+			
+
+				#### See also:
+				[in_degree_of](OperatorsIN#in_degree_of), [out_degree_of](OperatorsOS#out_degree_of), 
+
+			----
+			
+[//]: # (keyword|operator_dem)
+			###
+			`dem`
+
+		#### Possible use:
+		
+				*
+				 **`dem`** 
+				(
+				
+				`
+				file
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				file
+				`
+			 **`dem`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`dem`** 
+				(
+				
+				`
+				file
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				file
+				`
+			 **`dem`** 
+				`
+				file
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`dem`** 
+				(
+				
+				`
+				file
+				`
+			 , 
+				`
+				file
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`dem`** 
+				(
+				
+				`
+				file
+				`
+			
+							,
+						
+				`
+				file
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A polygon that is equivalent to the surface of the texture
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								dem(dem,z_factor)
+								; // var
+								0
+								equals
+								a geometry as a rectangle of weight and height equal to the texture.
+geometry
+								var
+								1
+								<-
+								dem(dem,texture)
+								; // var
+								1
+								equals
+								a geometry as a rectangle of weight and height equal to the texture.
+geometry
+								var
+								2
+								<-
+								dem(dem)
+								; // var
+								2
+								equals
+								returns a geometry as a rectangle of width and height equal to the texture.
+geometry
+								var
+								3
+								<-
+								dem(dem,texture,z_factor)
+								; // var
+								3
+								equals
+								a geometry as a rectangle of width and height equal to the texture.
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_det)
+			###
+			`det`
+Same signification as [determinant](OperatorsCH
+				#
+				determinant)
+
+			----
+			
+[//]: # (keyword|operator_determinant)
+			###
+			`determinant`
+
+		#### Possible use:
+		
+				*
+				 **`determinant`** 
+				(
+				
+				`
+				matrix
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				The determinant of the given matrix
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								determinant(matrix([[1,2],[3,4]]))
+								; // var
+								0
+								equals
+								-2
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_diff)
+			###
+			`diff`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`diff`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`diff`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				A placeholder function for expressing equations
+
+			----
+			
+[//]: # (keyword|operator_diff2)
+			###
+			`diff2`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`diff2`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`diff2`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				A placeholder function for expressing equations
+
+			----
+			
+[//]: # (keyword|operator_directed)
+			###
+			`directed`
+
+		#### Possible use:
+		
+				*
+				 **`directed`** 
+				(
+				
+				`
+				graph
+				`
+			
+				) --->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				the operand graph becomes a directed graph.
+
+				#### Comment:
+				the operator alters the operand graph, it does not create a new one.
+
+				#### See also:
+				[undirected](OperatorsTZ#undirected), 
+
+			----
+			
+[//]: # (keyword|operator_direction_between)
+			###
+			`direction_between`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				topology
+				`
+			 **`direction_between`** `container<geometry>`
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`direction_between`** 
+				(
+				
+				`
+				topology
+				`
+			 , `container<geometry>`
+				) --->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				A direction (in degree) between a list of two geometries (geometries, agents, points) considering a topology.
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								my_topology direction_between [ag1, ag2]
+								; // var
+								0
+								equals
+								the direction between ag1 and ag2 considering the topology my_topology
+
+				```
+			
+
+				#### See also:
+				[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_to](OperatorsCH#distance_to), [distance_between](OperatorsCH#distance_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+
+			----
+			
+[//]: # (keyword|operator_direction_to)
+			###
+			`direction_to`
+Same signification as [towards](OperatorsTZ
+				#
+				towards)
+
+			----
+			
+[//]: # (keyword|operator_disjoint_from)
+			###
+			`disjoint_from`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`disjoint_from`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`disjoint_from`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				A boolean, equal to true if the left-geometry (or agent/point) is disjoints from the right-geometry (or agent/point).
+
+				#### Special cases:
+			
+					*
+					if one of the operand is null, returns true.
+					*
+					if one operand is a point, returns false if the point is included in the geometry.
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								polyline([{10,10},{20,20}]) disjoint_from polyline([{15,15},{25,25}])
+								; // var
+								0
+								equals
+								false
+bool
+								var
+								1
+								<-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{15,15},{15,25},{25,25},{25,15}])
+								; // var
+								1
+								equals
+								false
+bool
+								var
+								2
+								<-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from {15,15}
+								; // var
+								2
+								equals
+								false
+bool
+								var
+								3
+								<-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from {25,25}
+								; // var
+								3
+								equals
+								true
+bool
+								var
+								4
+								<-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{35,35},{35,45},{45,45},{45,35}])
+								; // var
+								4
+								equals
+								true
+
+				```
+			
+
+				#### See also:
+				[intersects](OperatorsIN#intersects), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+
+			----
+			
+[//]: # (keyword|operator_distance_between)
+			###
+			`distance_between`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				topology
+				`
+			 **`distance_between`** `container<geometry>`
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`distance_between`** 
+				(
+				
+				`
+				topology
+				`
+			 , `container<geometry>`
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				A distance between a list of geometries (geometries, agents, points) considering a topology.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								my_topology distance_between [ag1, ag2, ag3]
+								; // var
+								0
+								equals
+								the distance between ag1, ag2 and ag3 considering the topology my_topology
+
+				```
+			
+
+				#### See also:
+				[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_to](OperatorsCH#distance_to), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+
+			----
+			
+[//]: # (keyword|operator_distance_to)
+			###
+			`distance_to`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`distance_to`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`distance_to`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				point
+				`
+			 **`distance_to`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`distance_to`** 
+				(
+				
+				`
+				point
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								ag1 distance_to ag2
+								; // var
+								0
+								equals
+								the distance between ag1 and ag2 considering the topology of the agent applying the operator
+
+				```
+			
+
+				#### See also:
+				[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_between](OperatorsCH#distance_between), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+
+			----
+			
+[//]: # (keyword|operator_distinct)
+			###
+			`distinct`
+
+		#### Possible use:
+		
+				*
+				 **`distinct`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+				#### Result:
+				produces a set from the elements of the operand (i.e. a list without duplicated elements)
+
+				#### Special cases:
+			
+					*
+					if the operand is nil, remove_duplicates returns nil
+					*
+					if the operand is a graph, remove_duplicates returns the set of nodes
+					*
+					if the operand is a matrix, remove_duplicates returns a matrix without duplicated row
+					*
+					if the operand is a map, remove_duplicates returns the set of values without duplicate
+
+					```
+					container
+								var
+								1
+								<-
+								remove_duplicates([1::3,2::4,3::3,5::7])
+								; // var
+								1
+								equals
+								[3,4,7]
+
+					```
+
+				
+
+				#### Examples:
+				```
+				container
+								var
+								0
+								<-
+								remove_duplicates([3,2,5,1,2,3,5,5,5])
+								; // var
+								0
+								equals
+								[3,2,5,1]
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_distribution_of)
+			###
+			`distribution_of`
+
+		#### Possible use:
+		
+				*
+				 **`distribution_of`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+				*
+				
+				`
+				container
+				`
+			 **`distribution_of`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`distribution_of`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+				*
+				 **`distribution_of`** 
+				(
+				
+				`
+				container
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				Discretize a list of values into n bins (computes the bins from a numerical variable into n (default 10) bins. Returns a distribution map with the values (values key), the interval legends (legend key), the distribution parameters (params keys, for cumulative charts). Parameters can be (list), (list, nbbins) or (list,nbbins,valmin,valmax)
+
+				#### Examples:
+				```
+				map
+								var
+								0
+								<-
+								distribution_of([1,1,2,12.5],10)
+								; // var
+								0
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map
+								var
+								1
+								<-
+								distribution_of([1,1,2,12.5])
+								; // var
+								1
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map
+								var
+								2
+								<-
+								distribution_of([1,1,2,12.5])
+								; // var
+								2
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+
+				```
+			
+
+				#### See also:
+				[as_map](OperatorsAB#as_map), 
+
+			----
+			
+[//]: # (keyword|operator_distribution2d_of)
+			###
+			`distribution2d_of`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`distribution2d_of`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`distribution2d_of`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+				*
+				 **`distribution2d_of`** 
+				(
+				
+				`
+				container
+				`
+			
+							,
+						
+				`
+				container
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`distribution2d_of`** 
+				(
+				
+				`
+				container
+				`
+			
+							,
+						
+				`
+				container
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				Discretize two lists of values into n bins (computes the bins from a numerical variable into n (default 10) bins. Returns a distribution map with the values (values key), the interval legends (legend key), the distribution parameters (params keys, for cumulative charts). Parameters can be (list), (list, nbbins) or (list,nbbins,valmin,valmax)
+
+				#### Examples:
+				```
+				map
+								var
+								0
+								<-
+								distribution_of([1,1,2,12.5],10)
+								; // var
+								0
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map
+								var
+								1
+								<-
+								distribution2d_of([1,1,2,12.5])
+								; // var
+								1
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map
+								var
+								2
+								<-
+								distribution_of([1,1,2,12.5],10)
+								; // var
+								2
+								equals
+								map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+
+				```
+			
+
+				#### See also:
+				[as_map](OperatorsAB#as_map), 
+
+			----
+			
+[//]: # (keyword|operator_div)
+			###
+			`div`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				int
+				`
+			 **`div`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`div`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`div`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`div`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`div`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`div`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`div`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`div`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				Returns the truncation of the division of the left-hand operand by the right-hand operand.
+
+				#### Special cases:
+			
+					*
+					if the right-hand operand is equal to zero, raises an exception.
+					*
+					if the right-hand operand is equal to zero, raises an exception.
+					*
+					if the right-hand operand is equal to zero, raises an exception.
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								40 div 4.1
+								; // var
+								0
+								equals
+								9
+int
+								var
+								1
+								<-
+								40.5 div 3
+								; // var
+								1
+								equals
+								13
+int
+								var
+								2
+								<-
+								40.1 div 4.5
+								; // var
+								2
+								equals
+								8
+int
+								var
+								3
+								<-
+								40 div 3
+								; // var
+								3
+								equals
+								13
+
+				```
+			
+
+				#### See also:
+				[mod](OperatorsIN#mod), 
+
+			----
+			
+[//]: # (keyword|operator_dnorm)
+			###
+			`dnorm`
+Same signification as [normal_density](OperatorsIN
+				#
+				normal_density)
+
+			----
+			
+[//]: # (keyword|operator_durbin_watson)
+			###
+			`durbin_watson`
+
+		#### Possible use:
+		
+				*
+				 **`durbin_watson`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Durbin-Watson computation
+
+			----
+			
+[//]: # (keyword|operator_dxf_file)
+			###
+			`dxf_file`
+
+		#### Possible use:
+		
+				*
+				 **`dxf_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type dxf. Allowed extensions are limited to dxf
+
+			----
+			
+[//]: # (keyword|operator_edge)
+			###
+			`edge`
+
+		#### Possible use:
+		
+				*
+				 **`edge`** 
+				(
+				
+				`
+				pair
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				
+				`
+				pair
+				`
+			 **`edge`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				pair
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				
+				`
+				unknown
+				`
+			 **`edge`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				
+				`
+				unknown
+				`
+			 **`edge`** 
+				`
+				unknown
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			 , 
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				pair
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							)
+						
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge`** 
+				(
+				
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				unknown
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				unknown
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_edge_between)
+			###
+			`edge_between`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				graph
+				`
+			 **`edge_between`** 
+				`
+				pair
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`edge_between`** 
+				(
+				
+				`
+				graph
+				`
+			 , 
+				`
+				pair
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				returns the edge linking two nodes
+
+				#### Examples:
+				```
+				unknown
+								var
+								0
+								<-
+								graphFromMap edge_between node1::node2
+								; // var
+								0
+								equals
+								edge1
+
+				```
+			
+
+				#### See also:
+				[out_edges_of](OperatorsOS#out_edges_of), [in_edges_of](OperatorsIN#in_edges_of), 
+
+			----
+			
+[//]: # (keyword|operator_edge_betweenness)
+			###
+			`edge_betweenness`
+
+		#### Possible use:
+		
+				*
+				 **`edge_betweenness`** 
+				(
+				
+				`
+				graph
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				returns a map containing for each edge (key), its betweenness centrality (value): number of shortest paths passing through each edge
+
+				#### Examples:
+				```
+				graph graphEpidemio <- graph([]);
+map
+								var
+								1
+								<-
+								edge_betweenness(graphEpidemio)
+								; // var
+								1
+								equals
+								the edge betweenness index of the graph
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_edges)
+			###
+			`edges`
+
+		#### Possible use:
+		
+				*
+				 **`edges`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_eigenvalues)
+			###
+			`eigenvalues`
+
+		#### Possible use:
+		
+				*
+				 **`eigenvalues`** 
+				(
+				
+				`
+				matrix
+				`
+			
+				) --->
+				`list<float>`
+
+				#### Result:
+				The eigen values (matrix) of the given matrix
+
+				#### Examples:
+				```
+				list<float>
+								var
+								0
+								<-
+								eigenvalues(matrix([[5,-3],[6,-4]]))
+								; // var
+								0
+								equals
+								[2.0000000000000004,-0.9999999999999998]
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_electre_DM)
+			###
+			`electre_DM`
+
+		#### Possible use:
+		
+				*
+				 **`electre_DM`** 
+				(
+				`list<list>`
+							,
+						
+				`
+				list<map<string,object>>
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				The index of the best candidate according to a method based on the ELECTRE methods. The principle of the ELECTRE methods is to compare the possible candidates by pair. These methods analyses the possible outranking relation existing between two candidates. An candidate outranks another if this one is at least as good as the other one. The ELECTRE methods are based on two concepts: the concordance and the discordance. The concordance characterizes the fact that, for an outranking relation to be validated, a sufficient majority of criteria should be in favor of this assertion. The discordance characterizes the fact that, for an outranking relation to be validated, none of the criteria in the minority should oppose too strongly this assertion. These two conditions must be true for validating the outranking assertion. More information about the ELECTRE methods can be found in [http://www.springerlink.com/content/g367r44322876223/	Figueira,  J., Mousseau, V., Roy, B.: ELECTRE Methods. In: Figueira, J., Greco, S., and Ehrgott, M., (Eds.), Multiple Criteria Decision Analysis: State of the Art Surveys, Springer, New York, 133--162 (2005)]. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains fives elements: a name, a weight, a preference value (p), an indifference value (q) and a veto value (v). The preference value represents the threshold from which the difference between two criterion values allows to prefer one vector of values over another. The indifference value represents the threshold from which the difference between two criterion values is considered significant. The veto value represents the threshold from which the difference between two criterion values disqualifies the candidate that obtained the smaller value; the last operand is the fuzzy cut.
+
+				#### Special cases:
+			
+					*
+					returns -1 is the list of candidates is nil or empty
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								electre_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "weight" :: 2.0,"p"::0.5, "q"::0.0, "s"::1.0, "maximize" :: true],["name"::"price", "weight" :: 1.0,"p"::0.5, "q"::0.0, "s"::1.0, "maximize" :: false]])
+								; // var
+								0
+								equals
+								0
+
+				```
+			
+
+				#### See also:
+				[weighted_means_DM](OperatorsTZ#weighted_means_dm), [promethee_DM](OperatorsOS#promethee_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
+
+			----
+			
+[//]: # (keyword|operator_ellipse)
+			###
+			`ellipse`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`ellipse`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`ellipse`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				An ellipse geometry which x-radius is equal to the first operand and y-radius is equal to the second operand
+
+				#### Comment:
+				the center of the ellipse is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns a point if both operands are lower or equal to 0, a line if only one is.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								ellipse(10, 10)
+								; // var
+								0
+								equals
+								a geometry as an ellipse of width 10 and height 10.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [circle](OperatorsCH#circle), [squircle](OperatorsOS#squircle), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_emotion)
+			###
+			`emotion`
+
+		#### Possible use:
+		
+				*
+				 **`emotion`** 
+				(
+				
+				`
+				any
+				`
+			
+				) --->
+				
+				`
+				emotion
+				`
+			
+
+				#### Result:
+				Casts the operand into the type emotion
+
+			----
+			
+[//]: # (keyword|operator_empty)
+			###
+			`empty`
+
+		#### Possible use:
+		
+				*
+				 **`empty`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`empty`** 
+				(
+				`container<KeyType,ValueType>`
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true if the operand is empty, false otherwise.
+
+				#### Comment:
+				the empty operator behavior depends on the nature of the operand
+
+				#### Special cases:
+			
+					*
+					if it is a map, empty returns true if the map contains no key-value mappings, and false otherwise
+					*
+					if it is a file, empty returns true if the content of the file (that is also a container) is empty, and false otherwise
+					*
+					if it is a population, empty returns true if there is no agent in the population, and false otherwise
+					*
+					if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise
+					*
+					if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise
+					*
+					if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise
+					*
+					if it is a string, empty returns true if the string does not contain any character, and false otherwise
+
+					```
+					bool
+								var
+								0
+								<-
+								empty ('abced')
+								; // var
+								0
+								equals
+								false
+
+					```
+
+				
+					*
+					if it is a list, empty returns true if there is no element in the list, and false otherwise
+
+					```
+					bool
+								var
+								1
+								<-
+								empty([])
+								; // var
+								1
+								equals
+								true
+
+					```
+
+				
+
+			----
+			
+[//]: # (keyword|operator_enlarged_by)
+			###
+			`enlarged_by`
+Same signification as [+](OperatorsAB
+				#
+				+)
+
+			----
+			
+[//]: # (keyword|operator_envelope)
+			###
+			`envelope`
+
+		#### Possible use:
+		
+				*
+				 **`envelope`** 
+				(
+				
+				`
+				unknown
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A 3D geometry that represents the box that surrounds the geometries or the surface described by the arguments. More general than geometry(arguments).envelope, as it allows to pass int, double, point, image files, shape files, asc files, or any list combining these arguments, in which case the envelope will be correctly expanded. If an envelope cannot be determined from the arguments, a default one of dimensions (0,100, 0, 100, 0, 100) is returned
+
+			----
+			
+[//]: # (keyword|operator_eval_gaml)
+			###
+			`eval_gaml`
+
+		#### Possible use:
+		
+				*
+				 **`eval_gaml`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				evaluates the given GAML string.
+
+				#### Examples:
+				```
+				unknown
+								var
+								0
+								<-
+								eval_gaml("2+3")
+								; // var
+								0
+								equals
+								5
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_eval_when)
+			###
+			`eval_when`
+
+		#### Possible use:
+		
+				*
+				 **`eval_when`** 
+				(
+				
+				`
+				BDIPlan
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				evaluate the facet when of a given plan
+
+				#### Examples:
+				```
+				eval_when(plan1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_evaluate_sub_model)
+			###
+			`evaluate_sub_model`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				msi.gama.kernel.experiment.IExperimentAgent
+				`
+			 **`evaluate_sub_model`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`evaluate_sub_model`** 
+				(
+				
+				`
+				msi.gama.kernel.experiment.IExperimentAgent
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				Load a submodel
+
+				#### Comment:
+				loaded submodel
+
+			----
+			
+[//]: # (keyword|operator_even)
+			###
+			`even`
+
+		#### Possible use:
+		
+				*
+				 **`even`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				Returns true if the operand is even and false if it is odd.
+
+				#### Special cases:
+			
+					*
+					if the operand is equal to 0, it returns true.
+					*
+					if the operand is a float, it is truncated before
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								even (3)
+								; // var
+								0
+								equals
+								false
+bool
+								var
+								1
+								<-
+								even(-12)
+								; // var
+								1
+								equals
+								true
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_every)
+			###
+			`every`
+
+		#### Possible use:
+		
+				*
+				 **`every`** 
+				(
+				
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				 **`every`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+				*
+				
+				`
+				container
+				`
+			 **`every`** 
+				`
+				int
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`every`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+				*
+				
+				`
+				msi.gama.util.GamaDateInterval
+				`
+			 **`every`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				msi.gama.util.IList<msi.gama.util.GamaDate>
+				`
+			
+				*
+				 **`every`** 
+				(
+				
+				`
+				msi.gama.util.GamaDateInterval
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				msi.gama.util.IList<msi.gama.util.GamaDate>
+				`
+			
+
+				#### Result:
+				expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+true every operand * cycle, false otherwise
+Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
+applies a step to an interval of dates defined by 'date1 to date2'
+
+				#### Comment:
+				Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
+
+				#### Examples:
+				```
+				reflex when: every(2#days) since date('2000-01-01') { .. }
+state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time
+if every(2) {write "the cycle number is even";}
+	     else {write "the cycle number is odd";}
+(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
+
+				```
+			
+
+				#### See also:
+				[since](OperatorsOS#since), [after](OperatorsAB#after), [to](OperatorsTZ#to), 
+
+			----
+			
+[//]: # (keyword|operator_every_cycle)
+			###
+			`every_cycle`
+Same signification as [every](OperatorsCH
+				#
+				every)
+
+			----
+			
+[//]: # (keyword|operator_evidence_theory_DM)
+			###
+			`evidence_theory_DM`
+
+		#### Possible use:
+		
+				*
+				`list<list>` **`evidence_theory_DM`** 
+				`
+				list<map<string,object>>
+				`
+			
+				--->
+				
+				`
+				int
+				`
+			
+				*
+				 **`evidence_theory_DM`** 
+				(
+				`list<list>` , 
+				`
+				list<map<string,object>>
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				 **`evidence_theory_DM`** 
+				(
+				`list<list>`
+							,
+						
+				`
+				list<map<string,object>>
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
+
+				#### Special cases:
+			
+					*
+					returns -1 is the list of candidates is nil or empty
+					*
+					if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]], true)
+								; // var
+								0
+								equals
+								0
+
+				```
+			
+
+				#### See also:
+				[weighted_means_DM](OperatorsTZ#weighted_means_dm), [electre_DM](OperatorsCH#electre_dm), 
+
+			----
+			
+[//]: # (keyword|operator_exp)
+			###
+			`exp`
+
+		#### Possible use:
+		
+				*
+				 **`exp`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				 **`exp`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns Euler's number e raised to the power of the operand.
+
+				#### Special cases:
+			
+					*
+					the operand is casted to a float before being evaluated.
+					*
+					the operand is casted to a float before being evaluated.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								exp (0)
+								; // var
+								0
+								equals
+								1.0
+
+				```
+			
+
+				#### See also:
+				[ln](OperatorsIN#ln), 
+
+			----
+			
+[//]: # (keyword|operator_fact)
+			###
+			`fact`
+
+		#### Possible use:
+		
+				*
+				 **`fact`** 
+				(
+				
+				`
+				int
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the factorial of the operand.
+
+				#### Special cases:
+			
+					*
+					if the operand is less than 0, fact returns 0.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								fact(4)
+								; // var
+								0
+								equals
+								24
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_farthest_point_to)
+			###
+			`farthest_point_to`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				geometry
+				`
+			 **`farthest_point_to`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				point
+				`
+			
+				*
+				 **`farthest_point_to`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				point
+				`
+			
+
+				#### Result:
+				the farthest point of the left-operand to the left-point.
+
+				#### Examples:
+				```
+				point
+								var
+								0
+								<-
+								geom farthest_point_to(pt)
+								; // var
+								0
+								equals
+								the farthest point of geom to pt
+
+				```
+			
+
+				#### See also:
+				[any_location_in](OperatorsAB#any_location_in), [any_point_in](OperatorsAB#any_point_in), [closest_points_with](OperatorsCH#closest_points_with), [points_at](OperatorsOS#points_at), 
+
+			----
+			
+[//]: # (keyword|operator_farthest_to)
+			###
+			`farthest_to`
+
+		#### Possible use:
+		
+				*
+				`container<agent>` **`farthest_to`** 
+				`
+				geometry
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`farthest_to`** 
+				(
+				`container<agent>` , 
+				`
+				geometry
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the farthest to the operand (casted as a geometry).
+
+				#### Comment:
+				the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								[ag1, ag2, ag3] closest_to(self)
+								; // var
+								0
+								equals
+								return the farthest agent among ag1, ag2 and ag3 to the agent applying the operator.
+(species1 + species2) closest_to self
+
+				```
+			
+
+				#### See also:
+				[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [inside](OperatorsIN#inside), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [closest_to](OperatorsCH#closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), 
+
+			----
+			
+[//]: # (keyword|operator_file)
+			###
+			`file`
+
+		#### Possible use:
+		
+				*
+				 **`file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+				*
+				
+				`
+				string
+				`
+			 **`file`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				file
+				`
+			
+				*
+				 **`file`** 
+				(
+				
+				`
+				string
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
+Creates a file in read/write mode, setting its contents to the container passed in parameter
+
+				#### Comment:
+				The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
+
+				#### Special cases:
+			
+					*
+					If the specified string does not refer to an existing file, an exception is risen when the variable is used.
+
+				#### Examples:
+				```
+				let fileT type: file value: file("../includes/Stupid_Cell.Data"); 
+			// fileT represents the file "../includes/Stupid_Cell.Data"
+			// fileT.contents here contains a matrix storing all the data of the text file
+
+				```
+			
+
+				#### See also:
+				[folder](OperatorsCH#folder), [new_folder](OperatorsIN#new_folder), 
+
+			----
+			
+[//]: # (keyword|operator_file_exists)
+			###
+			`file_exists`
+
+		#### Possible use:
+		
+				*
+				 **`file_exists`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				Test whether the parameter is the path to an existing file.
+
+			----
+			
+[//]: # (keyword|operator_first)
+			###
+			`first`
+
+		#### Possible use:
+		
+				*
+				 **`first`** 
+				(
+				`container<KeyType,ValueType>`
+				) --->
+				
+				`
+				ValueType
+				`
+			
+				*
+				 **`first`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+				*
+				
+				`
+				int
+				`
+			 **`first`** 
+				`
+				container
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`first`** 
+				(
+				
+				`
+				int
+				`
+			 , 
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+				#### Result:
+				the first value of the operand
+
+				#### Comment:
+				the first operator behavior depends on the nature of the operand
+
+				#### Special cases:
+			
+					*
+					if it is a map, first returns the first value of the first pair (in insertion order)
+					*
+					if it is a file, first returns the first element of the content of the file (that is also a container)
+					*
+					if it is a population, first returns the first agent of the population
+					*
+					if it is a graph, first returns the first edge (in creation order)
+					*
+					if it is a matrix, first returns the element at {0,0} in the matrix
+					*
+					for a matrix of int or float, it will return 0 if the matrix is empty
+					*
+					for a matrix of object or geometry, it will return nil if the matrix is empty
+					*
+					if it is a list, first returns the first element of the list, or nil if the list is empty
+
+					```
+					int
+								var
+								0
+								<-
+								first ([1, 2, 3])
+								; // var
+								0
+								equals
+								1
+
+					```
+
+				
+					*
+					if it is a string, first returns a string composed of its first character
+
+					```
+					string
+								var
+								1
+								<-
+								first ('abce')
+								; // var
+								1
+								equals
+								'a'
+
+					```
+
+				
+
+				#### See also:
+				[last](OperatorsIN#last), 
+
+			----
+			
+[//]: # (keyword|operator_first_of)
+			###
+			`first_of`
+Same signification as [first](OperatorsCH
+				#
+				first)
+
+			----
+			
+[//]: # (keyword|operator_first_with)
+			###
+			`first_with`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`first_with`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`first_with`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				the first element of the left-hand operand that makes the right-hand operand evaluate to true.
+
+				#### Comment:
+				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, first_with throws an error. If there is no element that satisfies the condition, it returns nil
+					*
+					if the left-operand is a map, the keyword each will contain each value
+
+					```
+					unknown
+								var
+								4
+								<-
+								[1::2, 3::4, 5::6] first_with (each >= 4)
+								; // var
+								4
+								equals
+								4
+unknown
+								var
+								5
+								<-
+								[1::2, 3::4, 5::6].pairs first_with (each.value >= 4)
+								; // var
+								5
+								equals
+								3::4
+
+					```
+
+				
+
+				#### Examples:
+				```
+				unknown
+								var
+								0
+								<-
+								[1,2,3,4,5,6,7,8] first_with (each > 3)
+								; // var
+								0
+								equals
+								4
+unknown
+								var
+								2
+								<-
+								g2 first_with (length(g2 out_edges_of each) = 0)
+								; // var
+								2
+								equals
+								node9
+unknown
+								var
+								3
+								<-
+								(list(node) first_with (round(node(each).location.x) > 32)
+								; // var
+								3
+								equals
+								node2
+
+				```
+			
+
+				#### See also:
+				[group_by](OperatorsCH#group_by), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
+
+			----
+			
+[//]: # (keyword|operator_flip)
+			###
+			`flip`
+
+		#### Possible use:
+		
+				*
+				 **`flip`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+				#### Result:
+				true or false given the probability represented by the operand
+
+				#### Special cases:
+			
+					*
+					flip 0 always returns false, flip 1 true
+
+				#### Examples:
+				```
+				bool
+								var
+								0
+								<-
+								flip (0.66666)
+								; // var
+								0
+								equals
+								2/3 chances to return true.
+
+				```
+			
+
+				#### See also:
+				[rnd](OperatorsOS#rnd), 
+
+			----
+			
+[//]: # (keyword|operator_float)
+			###
+			`float`
+
+		#### Possible use:
+		
+				*
+				 **`float`** 
+				(
+				
+				`
+				any
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Casts the operand into the type float
+
+			----
+			
+[//]: # (keyword|operator_floor)
+			###
+			`floor`
+
+		#### Possible use:
+		
+				*
+				 **`floor`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Maps the operand to the largest previous following integer, i.e. the largest integer not greater than x.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								floor(3)
+								; // var
+								0
+								equals
+								3.0
+float
+								var
+								1
+								<-
+								floor(3.5)
+								; // var
+								1
+								equals
+								3.0
+float
+								var
+								2
+								<-
+								floor(-4.7)
+								; // var
+								2
+								equals
+								-5.0
+
+				```
+			
+
+				#### See also:
+				[ceil](OperatorsCH#ceil), [round](OperatorsOS#round), 
+
+			----
+			
+[//]: # (keyword|operator_folder)
+			###
+			`folder`
+
+		#### Possible use:
+		
+				*
+				 **`folder`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				opens an existing repository
+
+				#### Special cases:
+			
+					*
+					If the specified string does not refer to an existing repository, an exception is risen.
+
+				#### Examples:
+				```
+				folder("../includes/")
+file dirT <- folder("../includes/");
+				// dirT represents the repository "../includes/"
+				// dirT.contents here contains the list of the names of included files
+
+				```
+			
+
+				#### See also:
+				[file](OperatorsCH#file), [new_folder](OperatorsIN#new_folder), 
+
+			----
+			
+[//]: # (keyword|operator_font)
+			###
+			`font`
+
+		#### Possible use:
+		
+				*
+				 **`font`** 
+				(
+				
+				`
+				string
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				font
+				`
+			
+
+				#### Result:
+				Creates a new font, by specifying its name (either a font face name like 'Lucida Grande Bold' or 'Helvetica', or a logical name like 'Dialog', 'SansSerif', 'Serif', etc.), a size in points and a style, either #bold, #italic or #plain or a combination (addition) of them.
+
+				#### Examples:
+				```
+				font
+								var
+								0
+								<-
+								font ('Helvetica Neue',12, #bold + #italic)
+								; // var
+								0
+								equals
+								a bold and italic face of the Helvetica Neue family
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_frequency_of)
+			###
+			`frequency_of`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`frequency_of`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`frequency_of`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				Returns a map with keys equal to the application of the right-hand argument (like collect) and values equal to the frequency of this key (i.e. how many times it has been obtained)
+
+				#### Examples:
+				```
+				map
+								var
+								0
+								<-
+								[ag1, ag2, ag3, ag4] frequency_of each.size
+								; // var
+								0
+								equals
+								the different sizes as keys and the number of agents of this size as values
+
+				```
+			
+
+				#### See also:
+				[as_map](OperatorsAB#as_map), 
+
+			----
+			
+[//]: # (keyword|operator_from)
+			###
+			`from`
+Same signification as [since](OperatorsOS
+				#
+				since)
+
+			----
+			
+[//]: # (keyword|operator_fuzzy_choquet_DM)
+			###
+			`fuzzy_choquet_DM`
+
+		#### Possible use:
+		
+				*
+				 **`fuzzy_choquet_DM`** 
+				(
+				`list<list>`
+							,
+						
+				`
+				java.util.List<java.lang.String>
+				`
+			
+							,
+						
+				`
+				map
+				`
+			
+							)
+						
+				--->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				The index of the candidate that maximizes the Fuzzy Choquet Integral value. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of string); the third operand the weights of each sub-set of criteria (map with list for key and float for value)
+
+				#### Special cases:
+			
+					*
+					returns -1 is the list of candidates is nil or empty
+
+				#### Examples:
+				```
+				int
+								var
+								0
+								<-
+								fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "price", "size"],[["utility"]::0.5,["size"]::0.1,["price"]::0.4,["utility", "price"]::0.55])
+								; // var
+								0
+								equals
+								0
+
+				```
+			
+
+				#### See also:
+				[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
+
+			----
+			
+[//]: # (keyword|operator_fuzzy_kappa)
+			###
+			`fuzzy_kappa`
+
+		#### Possible use:
+		
+				*
+				 **`fuzzy_kappa`** 
+				(
+				`list<agent>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`list<float>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`matrix<float>`
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`fuzzy_kappa`** 
+				(
+				`list<agent>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`list<float>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`matrix<float>`
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+
+				#### Examples:
+				```
+				fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_fuzzy_kappa_sim)
+			###
+			`fuzzy_kappa_sim`
+
+		#### Possible use:
+		
+				*
+				 **`fuzzy_kappa_sim`** 
+				(
+				`list<agent>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`list<float>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`matrix<float>`
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`fuzzy_kappa_sim`** 
+				(
+				`list<agent>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`list<float>`
+							,
+						
+				`
+				list
+				`
+			
+							,
+						`matrix<float>`
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				list
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+
+				#### Examples:
+				```
+				fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_gaml_file)
+			###
+			`gaml_file`
+
+		#### Possible use:
+		
+				*
+				 **`gaml_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type gaml. Allowed extensions are limited to gaml, experiment
+
+			----
+			
+[//]: # (keyword|operator_gamma)
+			###
+			`gamma`
+
+		#### Possible use:
+		
+				*
+				 **`gamma`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the value of the Gamma function at x.
+
+			----
+			
+[//]: # (keyword|operator_gamma_distribution)
+			###
+			`gamma_distribution`
+
+		#### Possible use:
+		
+				*
+				 **`gamma_distribution`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the integral from zero to x of the gamma probability density function.
+
+				#### Comment:
+				incomplete_gamma(a,x) is equal to pgamma(a,1,x).
+
+			----
+			
+[//]: # (keyword|operator_gamma_distribution_complemented)
+			###
+			`gamma_distribution_complemented`
+
+		#### Possible use:
+		
+				*
+				 **`gamma_distribution_complemented`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns the integral from x to infinity of the gamma probability density function.
+
+			----
+			
+[//]: # (keyword|operator_gamma_index)
+			###
+			`gamma_index`
+
+		#### Possible use:
+		
+				*
+				 **`gamma_index`** 
+				(
+				
+				`
+				graph
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				returns the gamma index of the graph (A measure of connectivity that considers the relationship between the number of observed links and the number of possible links: gamma = e/(3 `*` (v - 2)) - for planar graph.
+
+				#### Examples:
+				```
+				graph graphEpidemio <- graph([]);
+float
+								var
+								1
+								<-
+								gamma_index(graphEpidemio)
+								; // var
+								1
+								equals
+								the gamma index of the graph
+
+				```
+			
+
+				#### See also:
+				[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [nb_cycles](OperatorsIN#nb_cycles), [connectivity_index](OperatorsCH#connectivity_index), 
+
+			----
+			
+[//]: # (keyword|operator_gamma_rnd)
+			###
+			`gamma_rnd`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				float
+				`
+			 **`gamma_rnd`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`gamma_rnd`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				returns a random value from a gamma distribution with specified values of the shape and scale parameters
+
+				#### Examples:
+				```
+				gamma_rnd(10.0,5.0)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_gauss)
+			###
+			`gauss`
+
+		#### Possible use:
+		
+				*
+				 **`gauss`** 
+				(
+				
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`gauss`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				float
+				`
+			
+				*
+				 **`gauss`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				A value from a normally distributed random variable with expected value (mean) and variance (standardDeviation). The probability density function of such a variable is a Gaussian.
+A value from a normally distributed random variable with expected value (mean) and variance (standardDeviation). The probability density function of such a variable is a Gaussian.
+
+				#### Special cases:
+			
+					*
+					when the operand is a point, it is read as {mean, standardDeviation}
+					*
+					when standardDeviation value is 0.0, it always returns the mean value
+					*
+					when the operand is a point, it is read as {mean, standardDeviation}
+					*
+					when standardDeviation value is 0.0, it always returns the mean value
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								gauss(0,0.3)
+								; // var
+								0
+								equals
+								0.22354
+float
+								var
+								1
+								<-
+								gauss(0,0.3)
+								; // var
+								1
+								equals
+								-0.1357
+float
+								var
+								2
+								<-
+								gauss({0,0.3})
+								; // var
+								2
+								equals
+								0.22354
+float
+								var
+								3
+								<-
+								gauss({0,0.3})
+								; // var
+								3
+								equals
+								-0.1357
+
+				```
+			
+
+				#### See also:
+				[skew_gauss](OperatorsOS#skew_gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), [poisson](OperatorsOS#poisson), 
+
+			----
+			
+[//]: # (keyword|operator_generate_barabasi_albert)
+			###
+			`generate_barabasi_albert`
+
+		#### Possible use:
+		
+				*
+				 **`generate_barabasi_albert`** 
+				(
+				`container<agent>`
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+				*
+				 **`generate_barabasi_albert`** 
+				(
+				
+				`
+				species
+				`
+			
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				returns a random scale-free network (following Barabasi-Albert (BA) model).
+returns a random scale-free network (following Barabasi-Albert (BA) model).
+
+				#### Comment:
+				The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
+
+				#### Special cases:
+			
+					*
+					"agents": list of existing node agents
+					*
+					"edges_species": the species of edges
+					*
+					"size": the graph will contain (size + 1) nodes
+					*
+					"m": the number of edges added per novel node
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+					*
+					"vertices_specy": the species of vertices
+					*
+					"edges_species": the species of edges
+					*
+					"size": the graph will contain (size + 1) nodes
+					*
+					"m": the number of edges added per novel node
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+
+				#### Examples:
+				```
+				graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
+		yourListOfNodes,
+		yourEdgeSpecy,
+		3,
+		5,
+		true);
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
+		yourNodeSpecy,
+		yourEdgeSpecy,
+		3,
+		5,
+		true);
+
+				```
+			
+
+				#### See also:
+				[generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), 
+
+			----
+			
+[//]: # (keyword|operator_generate_complete_graph)
+			###
+			`generate_complete_graph`
+
+		#### Possible use:
+		
+				*
+				 **`generate_complete_graph`** 
+				(
+				`container<agent>`
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+				*
+				 **`generate_complete_graph`** 
+				(
+				
+				`
+				species
+				`
+			
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+				*
+				 **`generate_complete_graph`** 
+				(
+				`container<agent>`
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+				*
+				 **`generate_complete_graph`** 
+				(
+				
+				`
+				species
+				`
+			
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				returns a fully connected graph.
+returns a fully connected graph.
+returns a fully connected graph.
+returns a fully connected graph.
+
+				#### Comment:
+				Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
+
+				#### Special cases:
+			
+					*
+					"vertices_specy": the species of vertices
+					*
+					"edges_species": the species of edges
+					*
+					"size": the graph will contain size nodes.
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+					*
+					"agents": list of existing node agents
+					*
+					"edges_species": the species of edges
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+					*
+					"agents": list of existing node agents
+					*
+					"edges_species": the species of edges
+					*
+					"layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+					*
+					"vertices_specy": the species of vertices
+					*
+					"edges_species": the species of edges
+					*
+					"size": the graph will contain size nodes.
+					*
+					"layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+
+				#### Examples:
+				```
+				graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
+			myVertexSpecy,
+			myEdgeSpecy,
+			10,
+		true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
+			myListOfNodes,
+			myEdgeSpecy,
+		true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
+			myListOfNodes,
+			myEdgeSpecy,
+			25,
+		true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
+			myVertexSpecy,
+			myEdgeSpecy,
+			10, 25,
+		true);
+
+				```
+			
+
+				#### See also:
+				[generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), 
+
+			----
+			
+[//]: # (keyword|operator_generate_watts_strogatz)
+			###
+			`generate_watts_strogatz`
+
+		#### Possible use:
+		
+				*
+				 **`generate_watts_strogatz`** 
+				(
+				`container<agent>`
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+				*
+				 **`generate_watts_strogatz`** 
+				(
+				
+				`
+				species
+				`
+			
+							,
+						
+				`
+				species
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							,
+						
+				`
+				bool
+				`
+			
+							)
+						
+				--->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				returns a random small-world network (following Watts-Strogatz model).
+returns a random small-world network (following Watts-Strogatz model).
+
+				#### Comment:
+				The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:
+
+				#### Special cases:
+			
+					*
+					"vertices_specy": the species of vertices
+					*
+					"edges_species": the species of edges
+					*
+					"size": the graph will contain (size + 1) nodes. Size must be greater than k.
+					*
+					"p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.
+					*
+					"k": the base degree of each node. k must be greater than 2 and even.
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+					*
+					"agents": list of existing node agents
+					*
+					"edges_species": the species of edges
+					*
+					"p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.
+					*
+					"k": the base degree of each node. k must be greater than 2 and even.
+					*
+					"synchronized": is the graph and the species of vertices and edges synchronized?
+
+				#### Examples:
+				```
+				graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
+			myVertexSpecy,
+			myEdgeSpecy,
+			2,
+			0.3,
+			2,
+		true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
+			myListOfNodes,
+			myEdgeSpecy,
+			0.3,
+			2,
+		true);
+
+				```
+			
+
+				#### See also:
+				[generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), 
+
+			----
+			
+[//]: # (keyword|operator_geojson_file)
+			###
+			`geojson_file`
+
+		#### Possible use:
+		
+				*
+				 **`geojson_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type geojson. Allowed extensions are limited to json, geojson, geo.json
+
+			----
+			
+[//]: # (keyword|operator_geometric_mean)
+			###
+			`geometric_mean`
+
+		#### Possible use:
+		
+				*
+				 **`geometric_mean`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				the geometric mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</A> for more details.
+
+				#### Comment:
+				The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								geometric_mean ([4.5, 3.5, 5.5, 7.0])
+								; // var
+								0
+								equals
+								4.962326343467649
+
+				```
+			
+
+				#### See also:
+				[mean](OperatorsIN#mean), [median](OperatorsIN#median), [harmonic_mean](OperatorsCH#harmonic_mean), 
+
+			----
+			
+[//]: # (keyword|operator_geometry)
+			###
+			`geometry`
+
+		#### Possible use:
+		
+				*
+				 **`geometry`** 
+				(
+				
+				`
+				any
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				Casts the operand into the type geometry
+
+			----
+			
+[//]: # (keyword|operator_geometry_collection)
+			###
+			`geometry_collection`
+
+		#### Possible use:
+		
+				*
+				 **`geometry_collection`** 
+				(
+				`container<geometry>`
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A geometry collection (multi-geometry) composed of the given list of geometries.
+
+				#### Special cases:
+			
+					*
+					if the operand is nil, returns the point geometry {0,0}
+					*
+					if the operand is composed of a single geometry, returns a copy of the geometry.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}])
+								; // var
+								0
+								equals
+								a geometry composed of the 4 points (multi-point).
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), [line](OperatorsIN#line), 
+
+			----
+			
+[//]: # (keyword|operator_get)
+			###
+			`get`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				agent
+				`
+			 **`get`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`get`** 
+				(
+				
+				`
+				agent
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+				*
+				
+				`
+				geometry
+				`
+			 **`get`** 
+				`
+				string
+				`
+			
+				--->
+				
+				`
+				unknown
+				`
+			
+				*
+				 **`get`** 
+				(
+				
+				`
+				geometry
+				`
+			 , 
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				unknown
+				`
+			
+
+				#### Result:
+				Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
+
+				#### Special cases:
+			
+					*
+					Reading the attribute of another agent
+
+					```
+					string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable
+
+					```
+
+				
+					*
+					Reading the attribute of a geometry
+
+					```
+					string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable
+
+					```
+
+				
+
+			----
+			
+[//]: # (keyword|operator_get_about)
+			###
+			`get_about`
+
+		#### Possible use:
+		
+				*
+				 **`get_about`** 
+				(
+				
+				`
+				emotion
+				`
+			
+				) --->
+				
+				`
+				predicate
+				`
+			
+
+				#### Result:
+				get the about value of the given emotion
+
+				#### Examples:
+				```
+				get_about(emotion)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_agent)
+			###
+			`get_agent`
+
+		#### Possible use:
+		
+				*
+				 **`get_agent`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.SocialLink
+				`
+			
+				) --->
+				
+				`
+				agent
+				`
+			
+
+				#### Result:
+				get the agent value of the given social link
+
+				#### Examples:
+				```
+				get_agent(social_link1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_agent_cause)
+			###
+			`get_agent_cause`
+
+		#### Possible use:
+		
+				*
+				 **`get_agent_cause`** 
+				(
+				
+				`
+				predicate
+				`
+			
+				) --->
+				
+				`
+				agent
+				`
+			
+				*
+				 **`get_agent_cause`** 
+				(
+				
+				`
+				emotion
+				`
+			
+				) --->
+				
+				`
+				agent
+				`
+			
+
+				#### Result:
+				get the agent cause value of the given emotion
+
+				#### Examples:
+				```
+				get_agent_cause(emotion)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_decay)
+			###
+			`get_decay`
+
+		#### Possible use:
+		
+				*
+				 **`get_decay`** 
+				(
+				
+				`
+				emotion
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the decay value of the given emotion
+
+				#### Examples:
+				```
+				get_decay(emotion)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_dominance)
+			###
+			`get_dominance`
+
+		#### Possible use:
+		
+				*
+				 **`get_dominance`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.SocialLink
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the dominance value of the given social link
+
+				#### Examples:
+				```
+				get_dominance(social_link1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_familiarity)
+			###
+			`get_familiarity`
+
+		#### Possible use:
+		
+				*
+				 **`get_familiarity`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.SocialLink
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the familiarity value of the given social link
+
+				#### Examples:
+				```
+				get_familiarity(social_link1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_intensity)
+			###
+			`get_intensity`
+
+		#### Possible use:
+		
+				*
+				 **`get_intensity`** 
+				(
+				
+				`
+				emotion
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the intensity value of the given emotion
+
+				#### Examples:
+				```
+				emotion set_intensity 12
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_lifetime)
+			###
+			`get_lifetime`
+
+		#### Possible use:
+		
+				*
+				 **`get_lifetime`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.MentalState
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+				*
+				 **`get_lifetime`** 
+				(
+				
+				`
+				predicate
+				`
+			
+				) --->
+				
+				`
+				int
+				`
+			
+
+				#### Result:
+				get the lifetime value of the given mental state
+
+				#### Examples:
+				```
+				get_lifetime(mental_state1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_liking)
+			###
+			`get_liking`
+
+		#### Possible use:
+		
+				*
+				 **`get_liking`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.SocialLink
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the liking value of the given social link
+
+				#### Examples:
+				```
+				get_liking(social_link1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_modality)
+			###
+			`get_modality`
+
+		#### Possible use:
+		
+				*
+				 **`get_modality`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.MentalState
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+
+				#### Result:
+				get the modality value of the given mental state
+
+				#### Examples:
+				```
+				get_modality(mental_state1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_plan_name)
+			###
+			`get_plan_name`
+
+		#### Possible use:
+		
+				*
+				 **`get_plan_name`** 
+				(
+				
+				`
+				BDIPlan
+				`
+			
+				) --->
+				
+				`
+				string
+				`
+			
+
+				#### Result:
+				get the name of a given plan
+
+				#### Examples:
+				```
+				get_plan_name(agent.current_plan)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_predicate)
+			###
+			`get_predicate`
+
+		#### Possible use:
+		
+				*
+				 **`get_predicate`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.MentalState
+				`
+			
+				) --->
+				
+				`
+				predicate
+				`
+			
+
+				#### Result:
+				get the predicate value of the given mental state
+
+				#### Examples:
+				```
+				get_predicate(mental_state1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_priority)
+			###
+			`get_priority`
+
+		#### Possible use:
+		
+				*
+				 **`get_priority`** 
+				(
+				
+				`
+				predicate
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_get_solidarity)
+			###
+			`get_solidarity`
+
+		#### Possible use:
+		
+				*
+				 **`get_solidarity`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.SocialLink
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the solidarity value of the given social link
+
+				#### Examples:
+				```
+				get_solidarity(social_link1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_strength)
+			###
+			`get_strength`
+
+		#### Possible use:
+		
+				*
+				 **`get_strength`** 
+				(
+				
+				`
+				msi.gaml.architecture.simplebdi.MentalState
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				get the strength value of the given mental state
+
+				#### Examples:
+				```
+				get_strength(mental_state1)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_get_super_intention)
+			###
+			`get_super_intention`
+
+		#### Possible use:
+		
+				*
+				 **`get_super_intention`** 
+				(
+				
+				`
+				predicate
+				`
+			
+				) --->
+				
+				`
+				msi.gaml.architecture.simplebdi.MentalState
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_get_truth)
+			###
+			`get_truth`
+
+		#### Possible use:
+		
+				*
+				 **`get_truth`** 
+				(
+				
+				`
+				predicate
+				`
+			
+				) --->
+				
+				`
+				bool
+				`
+			
+
+			----
+			
+[//]: # (keyword|operator_gif_file)
+			###
+			`gif_file`
+
+		#### Possible use:
+		
+				*
+				 **`gif_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type gif. Allowed extensions are limited to gif
+
+			----
+			
+[//]: # (keyword|operator_gini)
+			###
+			`gini`
+
+		#### Possible use:
+		
+				*
+				 **`gini`** 
+				(
+				`list<float>`
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Special cases:
+			
+					*
+					return the Gini Index of the given list of values (list of floats)
+
+					```
+					float
+								var
+								0
+								<-
+								gini([1.0, 0.5, 2.0])
+								; // var
+								0
+								equals
+								the gini index computed
+
+					```
+
+				
+
+			----
+			
+[//]: # (keyword|operator_graph)
+			###
+			`graph`
+
+		#### Possible use:
+		
+				*
+				 **`graph`** 
+				(
+				
+				`
+				any
+				`
+			
+				) --->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				Casts the operand into the type graph
+
+			----
+			
+[//]: # (keyword|operator_grayscale)
+			###
+			`grayscale`
+
+		#### Possible use:
+		
+				*
+				 **`grayscale`** 
+				(
+				
+				`
+				rgb
+				`
+			
+				) --->
+				
+				`
+				rgb
+				`
+			
+
+				#### Result:
+				Converts rgb color to grayscale value
+
+				#### Comment:
+				r=red, g=green, b=blue. Between 0 and 255 and gray = 0.299 `*` red + 0.587 `*` green + 0.114 `*` blue (Photoshop value)
+
+				#### Examples:
+				```
+				rgb
+								var
+								0
+								<-
+								grayscale (rgb(255,0,0))
+								; // var
+								0
+								equals
+								to a dark grey
+
+				```
+			
+
+				#### See also:
+				[rgb](OperatorsOS#rgb), [hsb](OperatorsCH#hsb), 
+
+			----
+			
+[//]: # (keyword|operator_grid_at)
+			###
+			`grid_at`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				species
+				`
+			 **`grid_at`** 
+				`
+				point
+				`
+			
+				--->
+				
+				`
+				agent
+				`
+			
+				*
+				 **`grid_at`** 
+				(
+				
+				`
+				species
+				`
+			 , 
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				agent
+				`
+			
+
+				#### Result:
+				returns the cell of the grid (right-hand operand) at the position given by the right-hand operand
+
+				#### Comment:
+				If the left-hand operand is a point of floats, it is used as a point of ints.
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is not a grid cell species, returns nil
+
+				#### Examples:
+				```
+				agent
+								var
+								0
+								<-
+								grid_cell grid_at {1,2}
+								; // var
+								0
+								equals
+								the agent grid_cell with grid_x=1 and grid_y = 2
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_grid_cells_to_graph)
+			###
+			`grid_cells_to_graph`
+
+		#### Possible use:
+		
+				*
+				 **`grid_cells_to_graph`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				graph
+				`
+			
+
+				#### Result:
+				creates a graph from a list of cells (operand). An edge is created between neighbors.
+
+				#### Examples:
+				```
+				my_cell_graph<-grid_cells_to_graph(cells_list)
+
+				```
+			
+
+			----
+			
+[//]: # (keyword|operator_grid_file)
+			###
+			`grid_file`
+
+		#### Possible use:
+		
+				*
+				 **`grid_file`** 
+				(
+				
+				`
+				string
+				`
+			
+				) --->
+				
+				`
+				file
+				`
+			
+
+				#### Result:
+				Constructs a file of type grid. Allowed extensions are limited to asc, tif
+
+			----
+			
+[//]: # (keyword|operator_group_by)
+			###
+			`group_by`
+
+		#### Possible use:
+		
+				*
+				
+				`
+				container
+				`
+			 **`group_by`** 
+				`
+				any expression
+				`
+			
+				--->
+				
+				`
+				map
+				`
+			
+				*
+				 **`group_by`** 
+				(
+				
+				`
+				container
+				`
+			 , 
+				`
+				any expression
+				`
+			
+				) --->
+				
+				`
+				map
+				`
+			
+
+				#### Result:
+				Returns a map, where the keys take the possible values of the right-hand operand and the map values are the list of elements of the left-hand operand associated to the key value
+
+				#### Comment:
+				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+
+				#### Special cases:
+			
+					*
+					if the left-hand operand is nil, group_by throws an error
+
+				#### Examples:
+				```
+				map
+								var
+								0
+								<-
+								[1,2,3,4,5,6,7,8] group_by (each > 3)
+								; // var
+								0
+								equals
+								[false::[1, 2, 3], true::[4, 5, 6, 7, 8]]
+map
+								var
+								1
+								<-
+								g2 group_by (length(g2 out_edges_of each) )
+								; // var
+								1
+								equals
+								[ 0::[node9, node7, node10, node8, node11], 1::[node6], 2::[node5], 3::[node4]]
+map
+								var
+								2
+								<-
+								(list(node) group_by (round(node(each).location.x))
+								; // var
+								2
+								equals
+								[32::[node5], 21::[node1], 4::[node0], 66::[node2], 96::[node3]]
+map
+								var
+								3
+								<-
+								[1::2, 3::4, 5::6] group_by (each > 4)
+								; // var
+								3
+								equals
+								[false::[2, 4], true::[6]]
+
+				```
+			
+
+				#### See also:
+				[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
+
+			----
+			
+[//]: # (keyword|operator_harmonic_mean)
+			###
+			`harmonic_mean`
+
+		#### Possible use:
+		
+				*
+				 **`harmonic_mean`** 
+				(
+				
+				`
+				container
+				`
+			
+				) --->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				the harmonic mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</A> for more details.
+
+				#### Comment:
+				The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								harmonic_mean ([4.5, 3.5, 5.5, 7.0])
+								; // var
+								0
+								equals
+								4.804159445407279
+
+				```
+			
+
+				#### See also:
+				[mean](OperatorsIN#mean), [median](OperatorsIN#median), [geometric_mean](OperatorsCH#geometric_mean), 
+
+			----
+			
+[//]: # (keyword|operator_hexagon)
+			###
+			`hexagon`
+
+		#### Possible use:
+		
+				*
+				 **`hexagon`** 
+				(
+				
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`hexagon`** 
+				(
+				
+				`
+				point
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+				*
+				
+				`
+				float
+				`
+			 **`hexagon`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				geometry
+				`
+			
+				*
+				 **`hexagon`** 
+				(
+				
+				`
+				float
+				`
+			 , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				geometry
+				`
+			
+
+				#### Result:
+				A hexagon geometry which the given with and height
+
+				#### Comment:
+				the center of the hexagon is by default the location of the current agent in which has been called this operator.the center of the hexagon is by default the location of the current agent in which has been called this operator.the center of the hexagon is by default the location of the current agent in which has been called this operator.
+
+				#### Special cases:
+			
+					*
+					returns nil if the operand is nil.
+					*
+					returns nil if the operand is nil.
+					*
+					returns nil if the operand is nil.
+
+				#### Examples:
+				```
+				geometry
+								var
+								0
+								<-
+								hexagon(10)
+								; // var
+								0
+								equals
+								a geometry as a hexagon of width of 10 and height of 10.
+geometry
+								var
+								1
+								<-
+								hexagon(10,5)
+								; // var
+								1
+								equals
+								a geometry as a hexagon of width of 10 and height of 5.
+geometry
+								var
+								2
+								<-
+								hexagon({10,5})
+								; // var
+								2
+								equals
+								a geometry as a hexagon of width of 10 and height of 5.
+
+				```
+			
+
+				#### See also:
+				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
+
+			----
+			
+[//]: # (keyword|operator_hierarchical_clustering)
+			###
+			`hierarchical_clustering`
+
+		#### Possible use:
+		
+				*
+				`container<agent>` **`hierarchical_clustering`** 
+				`
+				float
+				`
+			
+				--->
+				
+				`
+				container
+				`
+			
+				*
+				 **`hierarchical_clustering`** 
+				(
+				`container<agent>` , 
+				`
+				float
+				`
+			
+				) --->
+				
+				`
+				container
+				`
+			
+
+				#### Result:
+				A tree (list of list) contained groups of agents clustered by distance considering a distance min between two groups.
+
+				#### Comment:
+				use of hierarchical clustering with Minimum for linkage criterion between two groups of agents.
+
+				#### Examples:
+				```
+				container
+								var
+								0
+								<-
+								[ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0
+								; // var
+								0
+								equals
+								for example, can return [[[ag1],[ag3]], [ag2], [[[ag4],[ag5]],[ag6]]
+
+				```
+			
+
+				#### See also:
+				[simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), 
+
+			----
+			
+[//]: # (keyword|operator_hsb)
+			###
+			`hsb`
+
+		#### Possible use:
+		
+				*
+				 **`hsb`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`hsb`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				int
+				`
+			
+							)
+						
+				--->
+				
+				`
+				rgb
+				`
+			
+				*
+				 **`hsb`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				rgb
+				`
+			
+
+				#### Result:
+				Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color
+
+				#### Comment:
+				h,s and b components should be floating-point values between 0.0 and 1.0 and when used alpha should be an integer (between 0 and 255) or a float (between 0 and 1) . Examples: Red=(0.0,1.0,1.0), Yellow=(0.16,1.0,1.0), Green=(0.33,1.0,1.0), Cyan=(0.5,1.0,1.0), Blue=(0.66,1.0,1.0), Magenta=(0.83,1.0,1.0)
+
+				#### Examples:
+				```
+				rgb
+								var
+								0
+								<-
+								hsb (0.0,1.0,1.0)
+								; // var
+								0
+								equals
+								rgb("red")
+rgb
+								var
+								1
+								<-
+								hsb (0.5,1.0,1.0,0.0)
+								; // var
+								1
+								equals
+								rgb("cyan",0)
+
+				```
+			
+
+				#### See also:
+				[rgb](OperatorsOS#rgb), 
+
+			----
+			
+[//]: # (keyword|operator_hypot)
+			###
+			`hypot`
+
+		#### Possible use:
+		
+				*
+				 **`hypot`** 
+				(
+				
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							,
+						
+				`
+				float
+				`
+			
+							)
+						
+				--->
+				
+				`
+				float
+				`
+			
+
+				#### Result:
+				Returns sqrt(x2 +y2) without intermediate overflow or underflow.
+
+				#### Special cases:
+			
+					*
+					If either argument is infinite, then the result is positive infinity. If either argument is NaN and neither argument is infinite, then the result is NaN.
+
+				#### Examples:
+				```
+				float
+								var
+								0
+								<-
+								hypot(0,1,0,1)
+								; // var
+								0
+								equals
+								sqrt(2)
+
+				```
+			
