@@ -3814,8 +3814,10 @@ function closeRightMenu() {
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- ceil(3); // var0 equals 3.0float var1 &lt;- ceil(3.5); // var1 equals 4.0float var2 &lt;- ceil(-4.7); // var2 equals -4.0```
       
 
-#### See also: 
-[floor](OperatorsCH#floor), [round](OperatorsOS#round), 
+</code></pre>
+</div>
+<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[floor](OperatorsCH#floor), [round](OperatorsOS#round), 
     	
 ----
 
@@ -3833,7 +3835,9 @@ Centroid (weighted sum of the centroids of a decomposition of the area into tria
 </div>
 <p>point var0 &lt;- centroid(world); // var0 equals the centroid of the square, for example : {50.0,50.0}.```</p>
 
-<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#any_location_in">any_location_in</a>, <a href="OperatorsCH#closest_points_with">closest_points_with</a>, <a href="OperatorsCH#farthest_point_to">farthest_point_to</a>, <a href="OperatorsOS#points_at">points_at</a>,</p>
 
 <hr />
@@ -3892,8 +3896,8 @@ Centroid (weighted sum of the centroids of a decomposition of the area into tria
 </ul>
 
 <h4 id="result-3">Result:</h4>
-<p>A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
-A circle geometry which radius is equal to the operand.</p>
+<p>A circle geometry which radius is equal to the operand.
+A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.</p>
 
 <h4 id="comment">Comment:</h4>
 <p>the center of the circle is by default the location of the current agent in which has been called this operator.</p>
@@ -3905,11 +3909,13 @@ A circle geometry which radius is equal to the operand.</p>
 </ul>
 
 <h4 id="examples-1">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.geometry var1 &lt;- circle(10); // var1 equals a geometry as a circle of radius 10.```
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- circle(10); // var0 equals a geometry as a circle of radius 10.geometry var1 &lt;- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -3947,8 +3953,10 @@ The cleaning corresponds to a buffer with a distance of 0.0
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;point&gt; var0 &lt;- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1```
       
 
-#### See also: 
-[any_location_in](OperatorsAB#any_location_in), [any_point_in](OperatorsAB#any_point_in), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
+</code></pre>
+</div>
+<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[any_location_in](OperatorsAB#any_location_in), [any_point_in](OperatorsAB#any_point_in), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
     	
 ----
 
@@ -3970,7 +3978,9 @@ the distance is computed in the topology of the calling agent (the agent in whic
 </div>
 <p>geometry var0 &lt;- [ag1, ag2, ag3] closest_to(self); // var0 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self ```</p>
 
-<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#neighbors_at">neighbors_at</a>, <a href="OperatorsIN#neighbors_of">neighbors_of</a>, <a href="OperatorsIN#inside">inside</a>, <a href="OperatorsOS#overlapping">overlapping</a>, <a href="OperatorsAB#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAB#agents_inside">agents_inside</a>, <a href="OperatorsAB#agent_closest_to">agent_closest_to</a>,</p>
 
 <hr />
@@ -3998,8 +4008,10 @@ the distance is computed in the topology of the calling agent (the agent in whic
 <div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;- [1,2,4] collect (each *2); // var0 equals [2,4,8]container var1 &lt;- [1,2,4] collect ([2,4]); // var1 equals [[2,4],[2,4],[2,4]]container var2 &lt;- [1::2, 3::4, 5::6] collect (each + 2); // var2 equals [4,6,8]container var3 &lt;- (list(node) collect (node(each).location.x * 2); // var3 equals the list of nodes with their x multiplied by 2```
       
 
-#### See also: 
-[accumulate](OperatorsAB#accumulate), 
+</code></pre>
+</div>
+<h4 id="see-also-3">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[accumulate](OperatorsAB#accumulate), 
     	
 ----
 
@@ -4018,7 +4030,9 @@ returns the column at a num_col (right-hand operand)
 </div>
 <p>list var0 &lt;- matrix([[“el11”,”el12”,”el13”],[“el21”,”el22”,”el23”],[“el31”,”el32”,”el33”]]) column_at 2; // var0 equals [“el31”,”el32”,”el33”]```</p>
 
-<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#row_at">row_at</a>, <a href="OperatorsOS#rows_list">rows_list</a>,</p>
 
 <hr />
@@ -4037,8 +4051,10 @@ returns the column at a num_col (right-hand operand)
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;list&gt; var0 &lt;- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]```
       
 
-#### See also: 
-[rows_list](OperatorsOS#rows_list), 
+</code></pre>
+</div>
+<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[rows_list](OperatorsOS#rows_list), 
     	
 ----
 
@@ -4082,7 +4098,9 @@ the center of the cone is by default the location of the current agent in which 
 </div>
 <p>geometry var0 &lt;- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45.geometry var1 &lt;- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.```</p>
 
-<h4 id="see-also-3">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -4110,8 +4128,10 @@ the center of the cone is by default the location of the current agent in which 
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a base circle of radius 10 and a height of 5.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4132,7 +4152,9 @@ returns the connected components of a graph, i.e. the list of all edges (if the 
 </div>
 <p>graph my_graph &lt;- graph([]); list<list> var1 &lt;- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph &lt;- graph([]); list<list> var3 &lt;- connected_components_of (my_graph, true); // var3 equals the list of all the components as list```</list></list></p>
 
-<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#alpha_index">alpha_index</a>, <a href="OperatorsCH#connectivity_index">connectivity_index</a>, <a href="OperatorsIN#nb_cycles">nb_cycles</a>,</p>
 
 <hr />
@@ -4151,8 +4173,10 @@ returns the connected components of a graph, i.e. the list of all edges (if the 
 <div class="highlighter-rouge"><pre class="highlight"><code>graph graphEpidemio &lt;- graph([]); float var1 &lt;- connectivity_index(graphEpidemio); // var1 equals the connectivity index of the graph```
       
 
-#### See also: 
-[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [gamma_index](OperatorsCH#gamma_index), [nb_cycles](OperatorsIN#nb_cycles), 
+</code></pre>
+</div>
+<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [gamma_index](OperatorsCH#gamma_index), [nb_cycles](OperatorsIN#nb_cycles), 
     	
 ----
 
@@ -4201,7 +4225,9 @@ the contains operator behavior depends on the nature of the operand
 </div>
 <p>bool var0 &lt;- ‘abcded’ contains ‘bc’; // var0 equals true```</p>
 
-<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#contains_all">contains_all</a>, <a href="OperatorsCH#contains_any">contains_any</a>,</p>
 
 <hr />
@@ -4236,8 +4262,10 @@ the contains operator behavior depends on the nature of the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- [1,2,3,4,5,6] contains_all [2,4]; // var0 equals true bool var1 &lt;- [1,2,3,4,5,6] contains_all [2,8]; // var1 equals falsebool var2 &lt;- [1::2, 3::4, 5::6] contains_all [1,3]; // var2 equals false bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true```
       
 
-#### See also: 
-[contains](OperatorsCH#contains), [contains_any](OperatorsCH#contains_any), 
+</code></pre>
+</div>
+<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[contains](OperatorsCH#contains), [contains_any](OperatorsCH#contains_any), 
     	
 ----
 
@@ -4245,10 +4273,10 @@ the contains operator behavior depends on the nature of the operand
 ### `contains_any`
 
 #### Possible use: 
-  * `string` **`contains_any`** `list` ---&gt;  `bool`
-  *  **`contains_any`** (`string` , `list`) ---&gt;  `bool`
   * `container` **`contains_any`** `container` ---&gt;  `bool`
-  *  **`contains_any`** (`container` , `container`) ---&gt;  `bool` 
+  *  **`contains_any`** (`container` , `container`) ---&gt;  `bool`
+  * `string` **`contains_any`** `list` ---&gt;  `bool`
+  *  **`contains_any`** (`string` , `list`) ---&gt;  `bool` 
 
 #### Result: 
 true if the left operand contains one of the elements of the right operand, false otherwise  
@@ -4262,9 +4290,11 @@ the definition of contains depends on the container
 #### Examples: 
 </code></pre>
 </div>
-<p>bool var0 &lt;- “abcabcabc” contains_any [“ca”,”xy”]; // var0 equals truebool var1 &lt;- [1,2,3,4,5,6] contains_any [2,4]; // var1 equals true bool var2 &lt;- [1,2,3,4,5,6] contains_any [2,8]; // var2 equals truebool var3 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; // var3 equals falsebool var4 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true```</p>
+<p>bool var0 &lt;- [1,2,3,4,5,6] contains_any [2,4]; // var0 equals true bool var1 &lt;- [1,2,3,4,5,6] contains_any [2,8]; // var1 equals truebool var2 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; // var2 equals falsebool var3 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var3 equals truebool var4 &lt;- “abcabcabc” contains_any [“ca”,”xy”]; // var4 equals true```</p>
 
-<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#contains">contains</a>, <a href="OperatorsCH#contains_all">contains_all</a>,</p>
 
 <hr />
@@ -4273,10 +4303,10 @@ the definition of contains depends on the container
 
 <h4 id="possible-use-11">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-10">Result:</h4>
@@ -4288,16 +4318,18 @@ the definition of contains depends on the container
   <li>if the right-hand operand is a pair, returns true if it exists an edge between the two elements of the pair in the graph</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
+<div class="highlighter-rouge"><pre class="highlight"><code>bool var2 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 </code></pre>
 </div>
 
 <h4 id="examples-8">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); bool var2 &lt;- graphFromMap contains_edge link({1,5}::{12,45}); // var2 equals true```
+<div class="highlighter-rouge"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); bool var1 &lt;- graphFromMap contains_edge link({1,5}::{12,45}); // var1 equals true```
       
 
-#### See also: 
-[contains_vertex](OperatorsCH#contains_vertex), 
+</code></pre>
+</div>
+<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[contains_vertex](OperatorsCH#contains_vertex), 
     	
 ----
 
@@ -4319,7 +4351,9 @@ returns true if the graph(left-hand operand) contains the given vertex (righ-han
 </div>
 <p>graph graphFromMap&lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); bool var1 &lt;- graphFromMap contains_vertex {1,5}; // var1 equals true```</p>
 
-<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#contains_edge">contains_edge</a>,</p>
 
 <hr />
@@ -4420,8 +4454,8 @@ Returns the correlation of two data sequences
 ### `cos`
 
 #### Possible use: 
-  *  **`cos`** (`float`) ---&gt;  `float`
-  *  **`cos`** (`int`) ---&gt;  `float` 
+  *  **`cos`** (`int`) ---&gt;  `float`
+  *  **`cos`** (`float`) ---&gt;  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
@@ -4434,7 +4468,9 @@ Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees)
 </div>
 <p>float var0 &lt;- cos (0); // var0 equals 1.0float var1 &lt;- cos(360); // var1 equals 1.0float var2 &lt;- cos(-720); // var2 equals 1.0```</p>
 
-<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#sin">sin</a>, <a href="OperatorsTZ#tan">tan</a>,</p>
 
 <hr />
@@ -4454,7 +4490,9 @@ Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees)
   <li>Operand values out of the range [0-359] are normalized.</li>
 </ul>
 
-<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#sin">sin</a>, <a href="OperatorsTZ#tan">tan</a>,</p>
 
 <hr />
@@ -4482,8 +4520,10 @@ Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees)
 <div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- [1,2,3,4,5,6,7,8] count (each &gt; 3); // var0 equals 5// Number of nodes of graph g2 without any out edge graph g2 &lt;- graph([]); int var3 &lt;- g2 count (length(g2 out_edges_of each) = 0  ) ; // var3 equals the total number of out edges// Number of agents node with x &gt; 32 int n &lt;- (list(node) count (round(node(each).location.x) &gt; 32); int var6 &lt;- [1::2, 3::4, 5::6] count (each &gt; 4); // var6 equals 1```
       
 
-#### See also: 
-[group_by](OperatorsCH#group_by), 
+</code></pre>
+</div>
+<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[group_by](OperatorsCH#group_by), 
     	
 ----
 
@@ -4517,7 +4557,9 @@ A boolean, equal to true if the left-geometry (or agent/point) covers the right-
 </div>
 <p>bool var0 &lt;- square(5) covers square(2); // var0 equals true```</p>
 
-<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#disjoint_from">disjoint_from</a>, <a href="OperatorsCH#crosses">crosses</a>, <a href="OperatorsOS#overlaps">overlaps</a>, <a href="OperatorsOS#partially_overlaps">partially_overlaps</a>, <a href="OperatorsTZ#touches">touches</a>,</p>
 
 <hr />
@@ -4554,15 +4596,17 @@ A boolean, equal to true if the left-geometry (or agent/point) covers the right-
   *  **`cross`** (`float` , `float`) ---&gt;  `geometry` 
 
 #### Result: 
-A cross, which radius is equal to the first operand and the width of the lines for the second
 A cross, which radius is equal to the first operand
+A cross, which radius is equal to the first operand and the width of the lines for the second
 
 #### Examples: 
 </code></pre>
 </div>
-<p>geometry var0 &lt;- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines geometry var1 &lt;- cross(10); // var1 equals a geometry as a cross of radius 10```</p>
+<p>geometry var0 &lt;- cross(10); // var0 equals a geometry as a cross of radius 10geometry var1 &lt;- cross(10,2); // var1 equals a geometry as a cross of radius 10, and with a width of 2 for the lines ```</p>
 
-<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsTZ#super_ellipse">super_ellipse</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#ellipse">ellipse</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -4588,8 +4632,10 @@ A cross, which radius is equal to the first operand
 <div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- polyline([{10,10},{20,20}]) crosses polyline([{10,20},{20,10}]); // var0 equals truebool var1 &lt;- polyline([{10,10},{20,20}]) crosses {15,15}; // var1 equals truebool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,20},{20,10}]); // var2 equals true```
       
 
-#### See also: 
-[disjoint_from](OperatorsCH#disjoint_from), [intersects](OperatorsIN#intersects), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+</code></pre>
+</div>
+<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[disjoint_from](OperatorsCH#disjoint_from), [intersects](OperatorsIN#intersects), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
     	
 ----
 
@@ -4643,8 +4689,10 @@ the Coordinate Reference System (CRS) of the GIS file
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- cube(10); // var0 equals a geometry as a square of side size 10.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4653,30 +4701,32 @@ the Coordinate Reference System (CRS) of the GIS file
 
 #### Possible use: 
   *  **`curve`** (`point`, `point`, `point`) ---&gt;  `geometry`
-  *  **`curve`** (`point`, `point`, `point`, `int`) ---&gt;  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`) ---&gt;  `geometry`
+  *  **`curve`** (`point`, `point`, `point`, `int`) ---&gt;  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) ---&gt;  `geometry` 
 
 #### Result: 
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
 A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 
 #### Special cases:     
   * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil
+  * if the last operand (number of points) is inferior to 2, returns nil    
+  * if the operand is nil, returns nil
 
 #### Examples: 
 </code></pre>
 </div>
-<p>geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var0 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.```</p>
+<p>geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var1 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.```</p>
 
-<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsTZ#polygone">polygone</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsTZ#triangle">triangle</a>, <a href="OperatorsIN#line">line</a>,</p>
 
 <hr />
@@ -4704,8 +4754,10 @@ A cubic Bezier curve geometry built from the four given points composed of a giv
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- cylinder(10,10); // var0 equals a geometry as a circle of radius 10.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4778,8 +4830,10 @@ true if the agent is dead (or null), false otherwise.
 <div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3```
       
 
-#### See also: 
-[in_degree_of](OperatorsIN#in_degree_of), [out_degree_of](OperatorsOS#out_degree_of), 
+</code></pre>
+</div>
+<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[in_degree_of](OperatorsIN#in_degree_of), [out_degree_of](OperatorsOS#out_degree_of), 
     	
 ----
 
@@ -4788,10 +4842,10 @@ true if the agent is dead (or null), false otherwise.
 
 #### Possible use: 
   *  **`dem`** (`file`) ---&gt;  `geometry`
-  * `file` **`dem`** `float` ---&gt;  `geometry`
-  *  **`dem`** (`file` , `float`) ---&gt;  `geometry`
   * `file` **`dem`** `file` ---&gt;  `geometry`
   *  **`dem`** (`file` , `file`) ---&gt;  `geometry`
+  * `file` **`dem`** `float` ---&gt;  `geometry`
+  *  **`dem`** (`file` , `float`) ---&gt;  `geometry`
   *  **`dem`** (`file`, `file`, `float`) ---&gt;  `geometry` 
 
 #### Result: 
@@ -4800,7 +4854,7 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 </code></pre>
 </div>
-<p>geometry var0 &lt;- dem(dem,z_factor); // var0 equals a geometry as a rectangle of weight and height equal to the texture.geometry var1 &lt;- dem(dem,texture); // var1 equals a geometry as a rectangle of weight and height equal to the texture.geometry var2 &lt;- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture.geometry var3 &lt;- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.```</p>
+<p>geometry var0 &lt;- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture.geometry var1 &lt;- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture.geometry var2 &lt;- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture.geometry var3 &lt;- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.```</p>
 
 <hr />
 
@@ -4861,8 +4915,10 @@ the operand graph becomes a directed graph.
 #### Comment: 
 the operator alters the operand graph, it does not create a new one.    
 
-#### See also: 
-[undirected](OperatorsTZ#undirected), 
+</code></pre>
+</div>
+<h4 id="see-also-14">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[undirected](OperatorsTZ#undirected), 
     	
 ----
 
@@ -4881,7 +4937,9 @@ A direction (in degree) between a list of two geometries (geometries, agents, po
 </div>
 <p>int var0 &lt;- my_topology direction_between [ag1, ag2]; // var0 equals the direction between ag1 and ag2 considering the topology my_topology```</p>
 
-<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsTZ#towards">towards</a>, <a href="OperatorsCH#direction_to">direction_to</a>, <a href="OperatorsCH#distance_to">distance_to</a>, <a href="OperatorsCH#distance_between">distance_between</a>, <a href="OperatorsOS#path_between">path_between</a>, <a href="OperatorsOS#path_to">path_to</a>,</p>
 
 <hr />
@@ -4912,8 +4970,10 @@ A direction (in degree) between a list of two geometries (geometries, agents, po
 <div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- polyline([{10,10},{20,20}]) disjoint_from polyline([{15,15},{25,25}]); // var0 equals falsebool var1 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{15,15},{15,25},{25,25},{25,15}]); // var1 equals falsebool var2 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from {15,15}; // var2 equals falsebool var3 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from {25,25}; // var3 equals truebool var4 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{35,35},{35,45},{45,45},{45,35}]); // var4 equals true```
       
 
-#### See also: 
-[intersects](OperatorsIN#intersects), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+</code></pre>
+</div>
+<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[intersects](OperatorsIN#intersects), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
     	
 ----
 
@@ -4932,7 +4992,9 @@ A distance between a list of geometries (geometries, agents, points) considering
 </div>
 <p>float var0 &lt;- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the distance between ag1, ag2 and ag3 considering the topology my_topology```</p>
 
-<h4 id="see-also-14">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsTZ#towards">towards</a>, <a href="OperatorsCH#direction_to">direction_to</a>, <a href="OperatorsCH#distance_to">distance_to</a>, <a href="OperatorsCH#direction_between">direction_between</a>, <a href="OperatorsOS#path_between">path_between</a>, <a href="OperatorsOS#path_to">path_to</a>,</p>
 
 <hr />
@@ -4954,8 +5016,10 @@ A distance between a list of geometries (geometries, agents, points) considering
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- ag1 distance_to ag2; // var0 equals the distance between ag1 and ag2 considering the topology of the agent applying the operator```
       
 
-#### See also: 
-[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_between](OperatorsCH#distance_between), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+</code></pre>
+</div>
+<h4 id="see-also-16">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_between](OperatorsCH#distance_between), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
     	
 ----
 
@@ -5004,8 +5068,10 @@ produces a set from the elements of the operand (i.e. a list without duplicated 
 <div class="highlighter-rouge"><pre class="highlight"><code>map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])map var1 &lt;- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])```
       
 
-#### See also: 
-[as_map](OperatorsAB#as_map), 
+</code></pre>
+</div>
+<h4 id="see-also-17">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[as_map](OperatorsAB#as_map), 
     	
 ----
 
@@ -5024,9 +5090,11 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 </code></pre>
 </div>
-<p>map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])map var1 &lt;- distribution2d_of([1,1,2,12.5]); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])```</p>
+<p>map var0 &lt;- distribution2d_of([1,1,2,12.5]); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])```</p>
 
-<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#as_map">as_map</a>,</p>
 
 <hr />
@@ -5035,14 +5103,14 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 
 <h4 id="possible-use-28">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-26">Result:</h4>
@@ -5056,11 +5124,13 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 </ul>
 
 <h4 id="examples-22">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- 40 div 4.1; // var0 equals 9int var1 &lt;- 40.5 div 3; // var1 equals 13int var2 &lt;- 40.1 div 4.5; // var2 equals 8int var3 &lt;- 40 div 3; // var3 equals 13```
+<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- 40 div 3; // var0 equals 13int var1 &lt;- 40.5 div 3; // var1 equals 13int var2 &lt;- 40 div 4.1; // var2 equals 9int var3 &lt;- 40.1 div 4.5; // var3 equals 8```
       
 
-#### See also: 
-[mod](OperatorsIN#mod), 
+</code></pre>
+</div>
+<h4 id="see-also-18">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[mod](OperatorsIN#mod), 
     	
 ----
 
@@ -5096,16 +5166,16 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`pair`) ---&gt;  `unknown`
   *  **`edge`** (`unknown`) ---&gt;  `unknown`
+  *  **`edge`** (`pair`) ---&gt;  `unknown`
+  * `unknown` **`edge`** `unknown` ---&gt;  `unknown`
+  *  **`edge`** (`unknown` , `unknown`) ---&gt;  `unknown`
   * `pair` **`edge`** `float` ---&gt;  `unknown`
   *  **`edge`** (`pair` , `float`) ---&gt;  `unknown`
   * `unknown` **`edge`** `float` ---&gt;  `unknown`
   *  **`edge`** (`unknown` , `float`) ---&gt;  `unknown`
-  * `unknown` **`edge`** `unknown` ---&gt;  `unknown`
-  *  **`edge`** (`unknown` , `unknown`) ---&gt;  `unknown`
-  *  **`edge`** (`pair`, `unknown`, `float`) ---&gt;  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`) ---&gt;  `unknown`
+  *  **`edge`** (`pair`, `unknown`, `float`) ---&gt;  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `float`) ---&gt;  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) ---&gt;  `unknown`
     	
@@ -5126,7 +5196,9 @@ returns the edge linking two nodes
 </div>
 <p>unknown var0 &lt;- graphFromMap edge_between node1::node2; // var0 equals edge1```</p>
 
-<h4 id="see-also-16">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#out_edges_of">out_edges_of</a>, <a href="OperatorsIN#in_edges_of">in_edges_of</a>,</p>
 
 <hr />
@@ -5190,8 +5262,10 @@ The eigen values (matrix) of the given matrix
 <div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- electre_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "weight" :: 2.0,"p"::0.5, "q"::0.0, "s"::1.0, "maximize" :: true],["name"::"price", "weight" :: 1.0,"p"::0.5, "q"::0.0, "s"::1.0, "maximize" :: false]]); // var0 equals 0```
       
 
-#### See also: 
-[weighted_means_DM](OperatorsTZ#weighted_means_dm), [promethee_DM](OperatorsOS#promethee_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
+</code></pre>
+</div>
+<h4 id="see-also-19">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[weighted_means_DM](OperatorsTZ#weighted_means_dm), [promethee_DM](OperatorsOS#promethee_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
     	
 ----
 
@@ -5216,7 +5290,9 @@ the center of the ellipse is by default the location of the current agent in whi
 </div>
 <p>geometry var0 &lt;- ellipse(10, 10); // var0 equals a geometry as an ellipse of width 10 and height 10.```</p>
 
-<h4 id="see-also-17">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsOS#squircle">squircle</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -5371,10 +5447,10 @@ evaluate the facet when of a given plan
   *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) ---&gt;  `msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;` 
 
 #### Result: 
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-true every operand * cycle, false otherwise
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-applies a step to an interval of dates defined by 'date1 to date2'  
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+applies a step to an interval of dates defined by 'date1 to date2'
+true every operand * cycle, false otherwise  
 
 #### Comment: 
 Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
@@ -5382,9 +5458,11 @@ Used to do something at regular intervals of time. Can be used in conjunction wi
 #### Examples: 
 </code></pre>
 </div>
-<p>reflex when: every(2#days) since date(‘2000-01-01’) { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2) {write “the cycle number is even”;} 	     else {write “the cycle number is odd”;} (date(‘2000-01-01’) to date(‘2010-01-01’)) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval ```</p>
+<p>reflex when: every(2#days) since date(‘2000-01-01’) { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time (date(‘2000-01-01’) to date(‘2010-01-01’)) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2) {write “the cycle number is even”;} 	     else {write “the cycle number is odd”;} ```</p>
 
-<h4 id="see-also-18">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#since">since</a>, <a href="OperatorsAB#after">after</a>, <a href="OperatorsTZ#to">to</a>,</p>
 
 <hr />
@@ -5416,8 +5494,10 @@ Used to do something at regular intervals of time. Can be used in conjunction wi
 <div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]], true); // var0 equals 0```
       
 
-#### See also: 
-[weighted_means_DM](OperatorsTZ#weighted_means_dm), [electre_DM](OperatorsCH#electre_dm), 
+</code></pre>
+</div>
+<h4 id="see-also-20">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[weighted_means_DM](OperatorsTZ#weighted_means_dm), [electre_DM](OperatorsCH#electre_dm), 
     	
 ----
 
@@ -5425,8 +5505,8 @@ Used to do something at regular intervals of time. Can be used in conjunction wi
 ### `exp`
 
 #### Possible use: 
-  *  **`exp`** (`int`) ---&gt;  `float`
-  *  **`exp`** (`float`) ---&gt;  `float` 
+  *  **`exp`** (`float`) ---&gt;  `float`
+  *  **`exp`** (`int`) ---&gt;  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -5440,7 +5520,9 @@ Returns Euler's number e raised to the power of the operand.
 </div>
 <p>float var0 &lt;- exp (0); // var0 equals 1.0```</p>
 
-<h4 id="see-also-19">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#ln">ln</a>,</p>
 
 <hr />
@@ -5481,7 +5563,9 @@ the farthest point of the left-operand to the left-point.
 </div>
 <p>point var0 &lt;- geom farthest_point_to(pt); // var0 equals the farthest point of geom to pt```</p>
 
-<h4 id="see-also-20">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#any_location_in">any_location_in</a>, <a href="OperatorsAB#any_point_in">any_point_in</a>, <a href="OperatorsCH#closest_points_with">closest_points_with</a>, <a href="OperatorsOS#points_at">points_at</a>,</p>
 
 <hr />
@@ -5504,8 +5588,10 @@ the farthest point of the left-operand to the left-point.
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- [ag1, ag2, ag3] closest_to(self); // var0 equals return the farthest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self ```
       
 
-#### See also: 
-[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [inside](OperatorsIN#inside), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [closest_to](OperatorsCH#closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), 
+</code></pre>
+</div>
+<h4 id="see-also-21">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [inside](OperatorsIN#inside), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [closest_to](OperatorsCH#closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), 
     	
 ----
 
@@ -5518,11 +5604,11 @@ the farthest point of the left-operand to the left-point.
   *  **`file`** (`string` , `container`) ---&gt;  `file` 
 
 #### Result: 
-opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
-Creates a file in read/write mode, setting its contents to the container passed in parameter  
+Creates a file in read/write mode, setting its contents to the container passed in parameter
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.  
 
 #### Comment: 
-The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
+The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.
 
 #### Special cases:     
   * If the specified string does not refer to an existing file, an exception is risen when the variable is used.
@@ -5532,7 +5618,9 @@ The file should have a supported extension, see file type definition for support
 </div>
 <p>let fileT type: file value: file(“../includes/Stupid_Cell.Data”);  			// fileT represents the file “../includes/Stupid_Cell.Data” 			// fileT.contents here contains a matrix storing all the data of the text file ```</p>
 
-<h4 id="see-also-21">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#folder">folder</a>, <a href="OperatorsIN#new_folder">new_folder</a>,</p>
 
 <hr />
@@ -5553,8 +5641,8 @@ The file should have a supported extension, see file type definition for support
 
 <h4 id="possible-use-41">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">first</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
   <li><strong><code class="highlighter-rouge">first</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">first</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">first</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">container</code></li>
   <li><strong><code class="highlighter-rouge">first</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
 </ul>
@@ -5574,22 +5662,24 @@ The file should have a supported extension, see file type definition for support
   <li>if it is a matrix, first returns the element at {0,0} in the matrix</li>
   <li>for a matrix of int or float, it will return 0 if the matrix is empty</li>
   <li>for a matrix of object or geometry, it will return nil if the matrix is empty</li>
-  <li>if it is a list, first returns the first element of the list, or nil if the list is empty</li>
+  <li>if it is a string, first returns a string composed of its first character</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- first ([1, 2, 3]); // var0 equals 1
+<div class="highlighter-rouge"><pre class="highlight"><code>string var0 &lt;- first ('abce'); // var0 equals 'a'
 </code></pre>
 </div>
 
 <ul>
-  <li>if it is a string, first returns a string composed of its first character</li>
+  <li>if it is a list, first returns the first element of the list, or nil if the list is empty</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>string var1 &lt;- first ('abce'); // var1 equals 'a'
+<div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- first ([1, 2, 3]); // var1 equals 1
 </code></pre>
 </div>
 
-<h4 id="see-also-22">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#last">last</a>,</p>
 
 <hr />
@@ -5627,8 +5717,10 @@ The file should have a supported extension, see file type definition for support
 <div class="highlighter-rouge"><pre class="highlight"><code>unknown var0 &lt;- [1,2,3,4,5,6,7,8] first_with (each &gt; 3); // var0 equals 4unknown var2 &lt;- g2 first_with (length(g2 out_edges_of each) = 0); // var2 equals node9unknown var3 &lt;- (list(node) first_with (round(node(each).location.x) &gt; 32); // var3 equals node2```
       
 
-#### See also: 
-[group_by](OperatorsCH#group_by), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
+</code></pre>
+</div>
+<h4 id="see-also-22">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[group_by](OperatorsCH#group_by), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
     	
 ----
 
@@ -5649,7 +5741,9 @@ true or false given the probability represented by the operand
 </div>
 <p>bool var0 &lt;- flip (0.66666); // var0 equals 2/3 chances to return true.```</p>
 
-<h4 id="see-also-23">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#rnd">rnd</a>,</p>
 
 <hr />
@@ -5680,8 +5774,10 @@ true or false given the probability represented by the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- floor(3); // var0 equals 3.0float var1 &lt;- floor(3.5); // var1 equals 3.0float var2 &lt;- floor(-4.7); // var2 equals -5.0```
       
 
-#### See also: 
-[ceil](OperatorsCH#ceil), [round](OperatorsOS#round), 
+</code></pre>
+</div>
+<h4 id="see-also-23">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[ceil](OperatorsCH#ceil), [round](OperatorsOS#round), 
     	
 ----
 
@@ -5702,7 +5798,9 @@ opens an existing repository
 </div>
 <p>folder(“../includes/”) file dirT &lt;- folder(“../includes/”); 				// dirT represents the repository “../includes/” 				// dirT.contents here contains the list of the names of included files ```</p>
 
-<h4 id="see-also-24">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#file">file</a>, <a href="OperatorsIN#new_folder">new_folder</a>,</p>
 
 <hr />
@@ -5738,7 +5836,9 @@ Returns a map with keys equal to the application of the right-hand argument (lik
 </div>
 <p>map var0 &lt;- [ag1, ag2, ag3, ag4] frequency_of each.size; // var0 equals the different sizes as keys and the number of agents of this size as values```</p>
 
-<h4 id="see-also-25">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#as_map">as_map</a>,</p>
 
 <hr />
@@ -5767,8 +5867,10 @@ Returns a map with keys equal to the application of the right-hand argument (lik
 <div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "price", "size"],[["utility"]::0.5,["size"]::0.1,["price"]::0.4,["utility", "price"]::0.55]); // var0 equals 0```
       
 
-#### See also: 
-[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
+</code></pre>
+</div>
+<h4 id="see-also-24">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
     	
 ----
 
@@ -5780,13 +5882,13 @@ Returns a map with keys equal to the application of the right-hand argument (lik
   *  **`fuzzy_kappa`** (`list&lt;agent&gt;`, `list`, `list`, `list&lt;float&gt;`, `list`, `matrix&lt;float&gt;`, `float`, `list`) ---&gt;  `float` 
 
 #### Result: 
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
 
 #### Examples: 
 </code></pre>
 </div>
-<p>fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) ```</p>
+<p>fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) ```</p>
 
 <hr />
 
@@ -5799,11 +5901,11 @@ fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,
 </ul>
 
 <h4 id="result-45">Result:</h4>
-<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
 <h4 id="examples-34">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) ```
+<div class="highlighter-rouge"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) ```
   
     	
 ----
@@ -5869,7 +5971,9 @@ returns the gamma index of the graph (A measure of connectivity that considers t
 </div>
 <p>graph graphEpidemio &lt;- graph([]); float var1 &lt;- gamma_index(graphEpidemio); // var1 equals the gamma index of the graph```</p>
 
-<h4 id="see-also-26">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#alpha_index">alpha_index</a>, <a href="OperatorsAB#beta_index">beta_index</a>, <a href="OperatorsIN#nb_cycles">nb_cycles</a>, <a href="OperatorsCH#connectivity_index">connectivity_index</a>,</p>
 
 <hr />
@@ -5912,10 +6016,12 @@ A value from a normally distributed random variable with expected value (mean) a
 #### Examples: 
 </code></pre>
 </div>
-<p>float var0 &lt;- gauss(0,0.3); // var0 equals 0.22354float var1 &lt;- gauss(0,0.3); // var1 equals -0.1357float var2 &lt;- gauss({0,0.3}); // var2 equals 0.22354float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357```</p>
+<p>float var0 &lt;- gauss({0,0.3}); // var0 equals 0.22354float var1 &lt;- gauss({0,0.3}); // var1 equals -0.1357float var2 &lt;- gauss(0,0.3); // var2 equals 0.22354float var3 &lt;- gauss(0,0.3); // var3 equals -0.1357```</p>
 
-<h4 id="see-also-27">See also:</h4>
-<p><a href="OperatorsOS#skew_gauss">skew_gauss</a>, <a href="OperatorsTZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsOS#poisson">poisson</a>,</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
+<p><a href="OperatorsTZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsOS#poisson">poisson</a>, <a href="OperatorsOS#skew_gauss">skew_gauss</a>,</p>
 
 <hr />
 
@@ -5936,12 +6042,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 
 <h4 id="special-cases-24">Special cases:</h4>
 <ul>
-  <li>“agents”: list of existing node agents</li>
+  <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes</li>
   <li>“m”: the number of edges added per novel node</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“vertices_specy”: the species of vertices</li>
+  <li>“agents”: list of existing node agents</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes</li>
   <li>“m”: the number of edges added per novel node</li>
@@ -5949,11 +6055,13 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 </ul>
 
 <h4 id="examples-36">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); ```
+<div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); ```
       
 
-#### See also: 
-[generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), 
+</code></pre>
+</div>
+<h4 id="see-also-25">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), 
     	
 ----
 
@@ -5962,8 +6070,8 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 
 #### Possible use: 
   *  **`generate_complete_graph`** (`container&lt;agent&gt;`, `species`, `bool`) ---&gt;  `graph`
-  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) ---&gt;  `graph`
   *  **`generate_complete_graph`** (`container&lt;agent&gt;`, `species`, `float`, `bool`) ---&gt;  `graph`
+  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) ---&gt;  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) ---&gt;  `graph` 
 
 #### Result: 
@@ -5976,10 +6084,6 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
-  * "edges_species": the species of edges    
-  * "size": the graph will contain size nodes.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
@@ -5991,14 +6095,20 @@ Arguments should include following elements:Arguments should include following e
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "vertices_specy": the species of vertices    
+  * "edges_species": the species of edges    
+  * "size": the graph will contain size nodes.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 </code></pre>
 </div>
-<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); ```</p>
+<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); ```</p>
 
-<h4 id="see-also-28">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#generate_barabasi_albert">generate_barabasi_albert</a>, <a href="OperatorsCH#generate_watts_strogatz">generate_watts_strogatz</a>,</p>
 
 <hr />
@@ -6020,25 +6130,27 @@ returns a random small-world network (following Watts-Strogatz model).</p>
 
 <h4 id="special-cases-25">Special cases:</h4>
 <ul>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
+  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
+  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes. Size must be greater than k.</li>
   <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
   <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
-  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
-  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 
 <h4 id="examples-37">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); ```
+<div class="highlighter-rouge"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); ```
       
 
-#### See also: 
-[generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), 
+</code></pre>
+</div>
+<h4 id="see-also-26">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), 
     	
 ----
 
@@ -6070,7 +6182,9 @@ The operator casts all the numerical element of the list into float. The element
 </div>
 <p>float var0 &lt;- geometric_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.962326343467649```</p>
 
-<h4 id="see-also-29">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#mean">mean</a>, <a href="OperatorsIN#median">median</a>, <a href="OperatorsCH#harmonic_mean">harmonic_mean</a>,</p>
 
 <hr />
@@ -6107,13 +6221,16 @@ The operator casts all the numerical element of the list into float. The element
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 equals a geometry composed of the 4 points (multi-point).```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), [line](OperatorsIN#line), 
+</code></pre>
+</div>
+<h4 id="see-also-27">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), [line](OperatorsIN#line), 
     	
 ----
 
 [//]: # (keyword|operator_get)
 ### `get`
+Same signification as [read](OperatorsOS#read)
 
 #### Possible use: 
   * `agent` **`get`** `string` ---&gt;  `unknown`
@@ -6179,8 +6296,8 @@ get the about value of the given emotion
 ### `get_agent_cause`
 
 #### Possible use: 
-  *  **`get_agent_cause`** (`predicate`) ---&gt;  `agent`
-  *  **`get_agent_cause`** (`emotion`) ---&gt;  `agent` 
+  *  **`get_agent_cause`** (`emotion`) ---&gt;  `agent`
+  *  **`get_agent_cause`** (`predicate`) ---&gt;  `agent` 
 
 #### Result: 
 get the agent cause value of the given emotion
@@ -6260,8 +6377,8 @@ get the intensity value of the given emotion
 
 <h4 id="possible-use-56">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-54">Result:</h4>
@@ -6449,7 +6566,9 @@ r=red, g=green, b=blue. Between 0 and 255 and gray = 0.299 `*` red + 0.587 `*` g
 </div>
 <p>rgb var0 &lt;- grayscale (rgb(255,0,0)); // var0 equals to a dark grey```</p>
 
-<h4 id="see-also-30">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#rgb">rgb</a>, <a href="OperatorsCH#hsb">hsb</a>,</p>
 
 <hr />
@@ -6530,8 +6649,10 @@ creates a graph from a list of cells (operand). An edge is created between neigh
 <div class="highlighter-rouge"><pre class="highlight"><code>map var0 &lt;- [1,2,3,4,5,6,7,8] group_by (each &gt; 3); // var0 equals [false::[1, 2, 3], true::[4, 5, 6, 7, 8]]map var1 &lt;- g2 group_by (length(g2 out_edges_of each) ); // var1 equals [ 0::[node9, node7, node10, node8, node11], 1::[node6], 2::[node5], 3::[node4]]map var2 &lt;- (list(node) group_by (round(node(each).location.x)); // var2 equals [32::[node5], 21::[node1], 4::[node0], 66::[node2], 96::[node3]]map var3 &lt;- [1::2, 3::4, 5::6] group_by (each &gt; 4); // var3 equals [false::[2, 4], true::[6]]```
       
 
-#### See also: 
-[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
+</code></pre>
+</div>
+<h4 id="see-also-28">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
     	
 ----
 
@@ -6552,7 +6673,9 @@ The operator casts all the numerical element of the list into float. The element
 </div>
 <p>float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.804159445407279```</p>
 
-<h4 id="see-also-31">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#mean">mean</a>, <a href="OperatorsIN#median">median</a>, <a href="OperatorsCH#geometric_mean">geometric_mean</a>,</p>
 
 <hr />
@@ -6561,8 +6684,8 @@ The operator casts all the numerical element of the list into float. The element
 
 <h4 id="possible-use-63">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">hexagon</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
@@ -6581,11 +6704,13 @@ The operator casts all the numerical element of the list into float. The element
 </ul>
 
 <h4 id="examples-48">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10.geometry var1 &lt;- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5.geometry var2 &lt;- hexagon({10,5}); // var2 equals a geometry as a hexagon of width of 10 and height of 5.```
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- hexagon(10,5); // var0 equals a geometry as a hexagon of width of 10 and height of 5.geometry var1 &lt;- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5.geometry var2 &lt;- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-29">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -6607,7 +6732,9 @@ use of hierarchical clustering with Minimum for linkage criterion between two gr
 </div>
 <p>container var0 &lt;- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equals for example, can return [[[ag1],[ag3]], [ag2], [[[ag4],[ag5]],[ag6]]```</p>
 
-<h4 id="see-also-32">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#simple_clustering_by_distance">simple_clustering_by_distance</a>,</p>
 
 <hr />
@@ -6628,11 +6755,13 @@ use of hierarchical clustering with Minimum for linkage criterion between two gr
 <p>h,s and b components should be floating-point values between 0.0 and 1.0 and when used alpha should be an integer (between 0 and 255) or a float (between 0 and 1) . Examples: Red=(0.0,1.0,1.0), Yellow=(0.16,1.0,1.0), Green=(0.33,1.0,1.0), Cyan=(0.5,1.0,1.0), Blue=(0.66,1.0,1.0), Magenta=(0.83,1.0,1.0)</p>
 
 <h4 id="examples-49">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>rgb var0 &lt;- hsb (0.0,1.0,1.0); // var0 equals rgb("red")rgb var1 &lt;- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb("cyan",0)```
+<div class="highlighter-rouge"><pre class="highlight"><code>rgb var0 &lt;- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0)rgb var1 &lt;- hsb (0.0,1.0,1.0); // var1 equals rgb("red")```
       
 
-#### See also: 
-[rgb](OperatorsOS#rgb), 
+</code></pre>
+</div>
+<h4 id="see-also-30">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[rgb](OperatorsOS#rgb), 
     	
 ----
 

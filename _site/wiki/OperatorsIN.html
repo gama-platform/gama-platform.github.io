@@ -3852,7 +3852,9 @@ the definition of in depends on the container
 </div>
 <p>bool var0 &lt;- 2 in [1,2,3,4,5,6]; // var0 equals truebool var1 &lt;- 7 in [1,2,3,4,5,6]; // var1 equals falsebool var2 &lt;- 3 in [1::2, 3::4, 5::6]; // var2 equals falsebool var3 &lt;- 6 in [1::2, 3::4, 5::6]; // var3 equals truebool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true```</p>
 
-<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#contains">contains</a>,</p>
 
 <hr />
@@ -3872,8 +3874,10 @@ the definition of in depends on the container
 <div class="highlighter-rouge"><pre class="highlight"><code>int var1 &lt;- graphFromMap in_degree_of (node(3)); // var1 equals 2```
       
 
-#### See also: 
-[out_degree_of](OperatorsOS#out_degree_of), [degree_of](OperatorsCH#degree_of), 
+</code></pre>
+</div>
+<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[out_degree_of](OperatorsOS#out_degree_of), [degree_of](OperatorsCH#degree_of), 
     	
 ----
 
@@ -3892,7 +3896,9 @@ returns the list of the in-edges of a vertex (right-hand operand) in the graph g
 </div>
 <p>container var1 &lt;- graphFromMap in_edges_of node({12,45}); // var1 equals [LineString]```</p>
 
-<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#out_edges_of">out_edges_of</a>,</p>
 
 <hr />
@@ -3974,16 +3980,16 @@ returns the list of the in-edges of a vertex (right-hand operand) in the graph g
 ### `index_of`
 
 #### Possible use: 
+  * `string` **`index_of`** `string` ---&gt;  `int`
+  *  **`index_of`** (`string` , `string`) ---&gt;  `int`
   * `matrix` **`index_of`** `unknown` ---&gt;  `point`
   *  **`index_of`** (`matrix` , `unknown`) ---&gt;  `point`
-  * `map` **`index_of`** `unknown` ---&gt;  `unknown`
-  *  **`index_of`** (`map` , `unknown`) ---&gt;  `unknown`
-  * `container` **`index_of`** `unknown` ---&gt;  `int`
-  *  **`index_of`** (`container` , `unknown`) ---&gt;  `int`
   * `species` **`index_of`** `unknown` ---&gt;  `int`
   *  **`index_of`** (`species` , `unknown`) ---&gt;  `int`
-  * `string` **`index_of`** `string` ---&gt;  `int`
-  *  **`index_of`** (`string` , `string`) ---&gt;  `int` 
+  * `container` **`index_of`** `unknown` ---&gt;  `int`
+  *  **`index_of`** (`container` , `unknown`) ---&gt;  `int`
+  * `map` **`index_of`** `unknown` ---&gt;  `unknown`
+  *  **`index_of`** (`map` , `unknown`) ---&gt;  `unknown` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -3993,8 +3999,15 @@ the index of the first occurence of the right operand in the left operand contai
 The definition of index_of and the type of the index depend on the container
 
 #### Special cases:     
-  * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
   * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
+  * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
+  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
+  
+</code></pre>
+</div>
+<p>int var0 &lt;-  “abcabcabc” index_of “ca”; // var0 equals 2</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+    
   * if the left operand is a matrix, index_of returns the index as a point 
   
 </code></pre>
@@ -4008,21 +4021,16 @@ The definition of index_of and the type of the index depend on the container
 </div>
 <p>int var2 &lt;- [1,2,3,4,5,6] index_of 4; // var2 equals 3int var3 &lt;- [4,2,3,4,5,4] index_of 4; // var3 equals 0</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
-    
-  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
-  
-</code></pre>
-</div>
-<p>int var4 &lt;-  “abcabcabc” index_of “ca”; // var4 equals 2</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
 
 
 #### Examples: 
 </code></pre>
 </div>
-<p>unknown var0 &lt;- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3```</p>
+<p>unknown var4 &lt;- [1::2, 3::4, 5::6] index_of 4; // var4 equals 3```</p>
 
-<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#at">at</a>, <a href="OperatorsIN#last_index_of">last_index_of</a>,</p>
 
 <hr />
@@ -4042,8 +4050,10 @@ The definition of index_of and the type of the index depend on the container
 <div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt; var0 &lt;- [ag1, ag2, ag3] inside(self); // var0 equals the agents among ag1, ag2 and ag3 that are covered by the shape of the right-hand argument.list&lt;geometry&gt; var1 &lt;- (species1 + species2) inside (self); // var1 equals the agents among species species1 and species2 that are covered by the shape of the right-hand argument.```
       
 
-#### See also: 
-[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
+</code></pre>
+</div>
+<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
     	
 ----
 
@@ -4062,43 +4072,45 @@ Casts the operand into the type int
 ### `inter`
 
 #### Possible use: 
-  * `geometry` **`inter`** `geometry` ---&gt;  `geometry`
-  *  **`inter`** (`geometry` , `geometry`) ---&gt;  `geometry`
   * `container` **`inter`** `container` ---&gt;  `container`
-  *  **`inter`** (`container` , `container`) ---&gt;  `container` 
+  *  **`inter`** (`container` , `container`) ---&gt;  `container`
+  * `geometry` **`inter`** `geometry` ---&gt;  `geometry`
+  *  **`inter`** (`geometry` , `geometry`) ---&gt;  `geometry` 
 
 #### Result: 
-A geometry resulting from the intersection between the two geometries
-the intersection of the two operands  
+the intersection of the two operands
+A geometry resulting from the intersection between the two geometries  
 
 #### Comment: 
 both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
 #### Special cases:     
-  * returns nil if one of the operands is nil    
   * if an operand is a graph, it will be transformed into the set of its nodes    
+  * returns nil if one of the operands is nil    
   * if an operand is a map, it will be transformed into the set of its values 
   
 </code></pre>
 </div>
-<p>container var3 &lt;- [1::2, 3::4, 5::6] inter [2,4]; // var3 equals [2,4]container var4 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []</p>
+<p>container var0 &lt;- [1::2, 3::4, 5::6] inter [2,4]; // var0 equals [2,4]container var1 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
   * if an operand is a matrix, it will be transformed into the set of the lines 
   
 </code></pre>
 </div>
-<p>container var5 &lt;- matrix([[1,2,3],[4,5,4]]) inter [3,4]; // var5 equals [3,4]</p>
+<p>container var2 &lt;- matrix([[1,2,3],[4,5,4]]) inter [3,4]; // var2 equals [3,4]</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
 
 
 #### Examples: 
 </code></pre>
 </div>
-<p>geometry var0 &lt;- square(10) inter circle(5); // var0 equals circle(5)container var1 &lt;- [1,2,3,4,5,6] inter [2,4]; // var1 equals [2,4]container var2 &lt;- [1,2,3,4,5,6] inter [0,8]; // var2 equals []```</p>
+<p>container var3 &lt;- [1,2,3,4,5,6] inter [2,4]; // var3 equals [2,4]container var4 &lt;- [1,2,3,4,5,6] inter [0,8]; // var4 equals []geometry var5 &lt;- square(10) inter circle(5); // var5 equals circle(5)```</p>
 
-<h4 id="see-also-3">See also:</h4>
-<p><a href="OperatorsTZ#union">union</a>, <a href="OperatorsAB#+">+</a>, <a href="OperatorsAB#-">-</a>, <a href="OperatorsOS#remove_duplicates">remove_duplicates</a>,</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
+<p><a href="OperatorsOS#remove_duplicates">remove_duplicates</a>, <a href="OperatorsTZ#union">union</a>, <a href="OperatorsAB#+">+</a>, <a href="OperatorsAB#-">-</a>,</p>
 
 <hr />
 
@@ -4125,20 +4137,22 @@ both containers are transformed into sets (so without duplicated element, cf. re
 ### `internal_at`
 
 #### Possible use: 
-  * `agent` **`internal_at`** `container` ---&gt;  `unknown`
-  *  **`internal_at`** (`agent` , `container`) ---&gt;  `unknown`
+  * `container&lt;KeyType,ValueType&gt;` **`internal_at`** `list&lt;KeyType&gt;` ---&gt;  `ValueType`
+  *  **`internal_at`** (`container&lt;KeyType,ValueType&gt;` , `list&lt;KeyType&gt;`) ---&gt;  `ValueType`
   * `geometry` **`internal_at`** `container` ---&gt;  `unknown`
   *  **`internal_at`** (`geometry` , `container`) ---&gt;  `unknown`
-  * `container&lt;KeyType,ValueType&gt;` **`internal_at`** `list&lt;KeyType&gt;` ---&gt;  `ValueType`
-  *  **`internal_at`** (`container&lt;KeyType,ValueType&gt;` , `list&lt;KeyType&gt;`) ---&gt;  `ValueType` 
+  * `agent` **`internal_at`** `container` ---&gt;  `unknown`
+  *  **`internal_at`** (`agent` , `container`) ---&gt;  `unknown` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
+For internal use only. Corresponds to the implementation of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
-For internal use only. Corresponds to the implementation of the access to containers with [index]    
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
-#### See also: 
-[at](OperatorsAB#at), 
+</code></pre>
+</div>
+<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[at](OperatorsAB#at), 
     	
 ----
 
@@ -4189,7 +4203,9 @@ A boolean, equal to true if the left-geometry (or agent/point) intersects the ri
 </div>
 <p>bool var0 &lt;- square(5) intersects {10,10}; // var0 equals false```</p>
 
-<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#disjoint_from">disjoint_from</a>, <a href="OperatorsCH#crosses">crosses</a>, <a href="OperatorsOS#overlaps">overlaps</a>, <a href="OperatorsOS#partially_overlaps">partially_overlaps</a>, <a href="OperatorsTZ#touches">touches</a>,</p>
 
 <hr />
@@ -4523,13 +4539,13 @@ Constructs a file of type json. Allowed extensions are limited to json
   *  **`kappa`** (`list`, `list`, `list`, `list`) ---&gt;  `float` 
 
 #### Result: 
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
 kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
 #### Examples: 
 </code></pre>
 </div>
-<p>kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3]) float var2 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals the similarity between 0 and 1float var3 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0```</p>
+<p>kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3]) float var1 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var1 equals the similarity between 0 and 1float var2 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 1.0kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) ```</p>
 
 <hr />
 
@@ -4542,11 +4558,11 @@ kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). 
 </ul>
 
 <h4 id="result-21">Result:</h4>
-<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)</p>
+<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).</p>
 
 <h4 id="examples-8">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) ```
+<div class="highlighter-rouge"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) ```
   
     	
 ----
@@ -4560,8 +4576,8 @@ kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_vals
   *  **`kmeans`** (`list`, `int`, `int`) ---&gt;  `list&lt;list&gt;` 
 
 #### Result: 
-returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
 returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)
+returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
 
 #### Special cases:     
   * if the lengths of two vectors in the right-hand aren't equal, returns 0    
@@ -4570,7 +4586,7 @@ returns the list of clusters (list of instance indices) computed with the kmeans
 #### Examples: 
 </code></pre>
 </div>
-<p>kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10) kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2) ```</p>
+<p>kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2) kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10) ```</p>
 
 <hr />
 
@@ -4613,8 +4629,8 @@ Returns the kurtosis (aka excess) of a data sequence
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`string`) ---&gt;  `string`
   *  **`last`** (`container&lt;KeyType,ValueType&gt;`) ---&gt;  `ValueType`
+  *  **`last`** (`string`) ---&gt;  `string`
   * `int` **`last`** `container` ---&gt;  `container`
   *  **`last`** (`int` , `container`) ---&gt;  `container` 
 
@@ -4632,23 +4648,25 @@ the last operator behavior depends on the nature of the operand
   * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
-  
-</code></pre>
-</div>
-<p>string var0 &lt;- last (‘abce’); // var0 equals ‘e’</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    
   * if it is a list, last returns the last element of the list, or nil if the list is empty 
   
 </code></pre>
 </div>
-<p>int var1 &lt;- last ([1, 2, 3]); // var1 equals 3</p>
+<p>int var0 &lt;- last ([1, 2, 3]); // var0 equals 3</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+    
+  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
+  
+</code></pre>
+</div>
+<p>string var1 &lt;- last (‘abce’); // var1 equals ‘e’</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[first](OperatorsCH#first), 
+</code></pre>
+</div>
+<h4 id="see-also-3">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[first](OperatorsCH#first), 
     	
 ----
 
@@ -4656,16 +4674,16 @@ the last operator behavior depends on the nature of the operand
 ### `last_index_of`
 
 #### Possible use: 
-  * `map` **`last_index_of`** `unknown` ---&gt;  `unknown`
-  *  **`last_index_of`** (`map` , `unknown`) ---&gt;  `unknown`
   * `matrix` **`last_index_of`** `unknown` ---&gt;  `point`
   *  **`last_index_of`** (`matrix` , `unknown`) ---&gt;  `point`
-  * `container` **`last_index_of`** `unknown` ---&gt;  `int`
-  *  **`last_index_of`** (`container` , `unknown`) ---&gt;  `int`
+  * `map` **`last_index_of`** `unknown` ---&gt;  `unknown`
+  *  **`last_index_of`** (`map` , `unknown`) ---&gt;  `unknown`
   * `species` **`last_index_of`** `unknown` ---&gt;  `int`
   *  **`last_index_of`** (`species` , `unknown`) ---&gt;  `int`
   * `string` **`last_index_of`** `string` ---&gt;  `int`
-  *  **`last_index_of`** (`string` , `string`) ---&gt;  `int` 
+  *  **`last_index_of`** (`string` , `string`) ---&gt;  `int`
+  * `container` **`last_index_of`** `unknown` ---&gt;  `int`
+  *  **`last_index_of`** (`container` , `unknown`) ---&gt;  `int` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -4675,37 +4693,39 @@ The definition of last_index_of and the type of the index depend on the containe
 
 #### Special cases:     
   * if the left operand is a species, the last index of an agent is the same as its index    
-  * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
-  
-</code></pre>
-</div>
-<p>unknown var0 &lt;- [1::2, 3::4, 5::4] last_index_of 4; // var0 equals 5</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    
   * if the left operand is a matrix, last_index_of returns the index as a point 
   
 </code></pre>
 </div>
-<p>point var1 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var1 equals {1.0,2.0}</p>
+<p>point var0 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var0 equals {1.0,2.0}</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
-  * if the left operand is a list, last_index_of returns the index as an integer 
+  * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
   
 </code></pre>
 </div>
-<p>int var2 &lt;- [1,2,3,4,5,6] last_index_of 4; // var2 equals 3int var3 &lt;- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5</p>
+<p>unknown var1 &lt;- [1::2, 3::4, 5::4] last_index_of 4; // var1 equals 5</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
   * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
   
 </code></pre>
 </div>
-<p>int var4 &lt;- “abcabcabc” last_index_of “ca”; // var4 equals 5</p>
+<p>int var2 &lt;- “abcabcabc” last_index_of “ca”; // var2 equals 5</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+    
+  * if the left operand is a list, last_index_of returns the index as an integer 
+  
+</code></pre>
+</div>
+<p>int var3 &lt;- [1,2,3,4,5,6] last_index_of 4; // var3 equals 3int var4 &lt;- [4,2,3,4,5,4] last_index_of 4; // var4 equals 5</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[at](OperatorsAB#at), [last_index_of](OperatorsIN#last_index_of), [index_of](OperatorsIN#index_of), 
+</code></pre>
+</div>
+<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[at](OperatorsAB#at), [index_of](OperatorsIN#index_of), [last_index_of](OperatorsIN#last_index_of), 
     	
 ----
 
@@ -4744,7 +4764,9 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </div>
 <p>unknown var0 &lt;- [1,2,3,4,5,6,7,8] last_with (each &gt; 3); // var0 equals 8unknown var2 &lt;- g2 last_with (length(g2 out_edges_of each) = 0 ); // var2 equals node11unknown var3 &lt;- (list(node) last_with (round(node(each).location.x) &gt; 32); // var3 equals node3```</p>
 
-<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#group_by">group_by</a>, <a href="OperatorsCH#first_with">first_with</a>, <a href="OperatorsTZ#where">where</a>,</p>
 
 <hr />
@@ -4822,8 +4844,8 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </ul>
 
 <h4 id="result-25">Result:</h4>
-<p>A polyline geometry from the given list of points represented as a cylinder of radius r.
-A polyline geometry from the given list of points.</p>
+<p>A polyline geometry from the given list of points.
+A polyline geometry from the given list of points represented as a cylinder of radius r.</p>
 
 <h4 id="special-cases-3">Special cases:</h4>
 <ul>
@@ -4834,16 +4856,18 @@ A polyline geometry from the given list of points.</p>
   <li>if a radius is added, the given list of points represented as a cylinder of radius r</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals a polyline geometry composed of the 4 points.
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var1 &lt;- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var1 equals a polyline geometry composed of the 4 points.
 </code></pre>
 </div>
 
 <h4 id="examples-10">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var1 &lt;- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var1 equals a polyline geometry composed of the 4 points.```
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 equals a polyline geometry composed of the 4 points.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4868,7 +4892,9 @@ The geometry of the link is a line between the locations of the two operands, wh
 </div>
 <p>geometry var0 &lt;- link (geom1,geom2); // var0 equals a link geometry between geom1 and geom2.```</p>
 
-<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -4899,7 +4925,9 @@ The geometry of the link is a line between the locations of the two operands, wh
 <h4 id="comment-2">Comment:</h4>
 <p>Note that the right operand  should be positive, and that the second one is evaluated for each position  in the list.</p>
 
-<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#list">list</a>,</p>
 
 <hr />
@@ -4924,8 +4952,10 @@ The geometry of the link is a line between the locations of the two operands, wh
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- ln(1); // var0 equals 0.0float var1 &lt;- ln(exp(1)); // var1 equals 1.0```
       
 
-#### See also: 
-[exp](OperatorsCH#exp), 
+</code></pre>
+</div>
+<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[exp](OperatorsCH#exp), 
     	
 ----
 
@@ -4934,10 +4964,10 @@ The geometry of the link is a line between the locations of the two operands, wh
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) ---&gt;  `graph`
-  * `string` **`load_graph_from_file`** `file` ---&gt;  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) ---&gt;  `graph`
   * `string` **`load_graph_from_file`** `string` ---&gt;  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) ---&gt;  `graph`
+  * `string` **`load_graph_from_file`** `file` ---&gt;  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) ---&gt;  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) ---&gt;  `graph`
   *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) ---&gt;  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) ---&gt;  `graph`
@@ -4959,6 +4989,20 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
+  * "format": the format of the file, "filename": the filename of the file containing the network 
+  
+</code></pre>
+</div>
+<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			“pajek”, 			“example_of_Pajek_file”);</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+    
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+</code></pre>
+</div>
+<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			“pajek”, 			“example_of_Pajek_file”, 			myVertexSpecy, 			myEdgeSpecy );</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+    
   * "format": the format of the file, "file": the file containing the network 
   
 </code></pre>
@@ -4973,21 +5017,7 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
 <p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			“pajek”, 			“./example_of_Pajek_file”, 			myVertexSpecy, 			myEdgeSpecy );</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
-  
-</code></pre>
-</div>
-<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			“pajek”, 			“example_of_Pajek_file”, 			myVertexSpecy, 			myEdgeSpecy );</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    
   * "file": the file containing the network 
-  
-</code></pre>
-</div>
-<p>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			“pajek”, 			“example_of_Pajek_file”);</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    
-  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 </code></pre>
 </div>
@@ -5038,8 +5068,8 @@ loaded submodel
 ### `log`
 
 #### Possible use: 
-  *  **`log`** (`int`) ---&gt;  `float`
-  *  **`log`** (`float`) ---&gt;  `float` 
+  *  **`log`** (`float`) ---&gt;  `float`
+  *  **`log`** (`int`) ---&gt;  `float` 
 
 #### Result: 
 Returns the logarithm (base 10) of the operand.
@@ -5050,9 +5080,11 @@ Returns the logarithm (base 10) of the operand.
 #### Examples: 
 </code></pre>
 </div>
-<p>float var0 &lt;- log(1); // var0 equals 0.0float var1 &lt;- log(10); // var1 equals 1.0```</p>
+<p>float var0 &lt;- log(10); // var0 equals 1.0float var1 &lt;- log(1); // var1 equals 0.0```</p>
 
-<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#ln">ln</a>,</p>
 
 <hr />
@@ -5083,8 +5115,10 @@ Returns the logarithm (base 10) of the operand.
 <div class="highlighter-rouge"><pre class="highlight"><code>string var0 &lt;- lower_case("Abc"); // var0 equals 'abc'```
       
 
-#### See also: 
-[upper_case](OperatorsTZ#upper_case), 
+</code></pre>
+</div>
+<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[upper_case](OperatorsTZ#upper_case), 
     	
 ----
 
@@ -5102,7 +5136,9 @@ returns the sub-graph corresponding to the main connected components of the grap
 </div>
 <p>graph var0 &lt;- main_connected_components (my_graph); // var0 equals the sub-graph corresponding to the main connected components of the graph```</p>
 
-<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#connected_components_of">connected_components_of</a>,</p>
 
 <hr />
@@ -5149,8 +5185,10 @@ Returns
 </div>
 <div class="highlighter-rouge"><pre class="highlight"><code>      
 
-#### See also: 
-[](OperatorsTZ#), 
+</code></pre>
+</div>
+<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[](OperatorsTZ#), 
     	
 ----
 
@@ -5178,8 +5216,10 @@ creates a matrix with a size provided by the first operand, and filled with the 
 #### Comment: 
 Note that both components of the right operand point should be positive, otherwise an exception is raised.    
 
-#### See also: 
-[matrix](OperatorsIN#matrix), [as_matrix](OperatorsAB#as_matrix), 
+</code></pre>
+</div>
+<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[matrix](OperatorsIN#matrix), [as_matrix](OperatorsAB#as_matrix), 
     	
 ----
 
@@ -5218,8 +5258,10 @@ the max operator behavior depends on the nature of the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[min](OperatorsIN#min), 
+</code></pre>
+</div>
+<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[min](OperatorsIN#min), 
     	
 ----
 
@@ -5251,7 +5293,9 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </div>
 <p>unknown var1 &lt;- [1,2,4,3,5,7,6,8] max_of (each * 100 ); // var1 equals 800graph g2 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); unknown var3 &lt;- g2.vertices max_of (g2 degree_of( each )); // var3 equals 2unknown var4 &lt;- (list(node) max_of (round(node(each).location.x)); // var4 equals 96```</p>
 
-<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#min_of">min_of</a>,</p>
 
 <hr />
@@ -5270,8 +5314,10 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 <div class="highlighter-rouge"><pre class="highlight"><code>graph my_graph &lt;- graph([]); list&lt;list&gt; var1 &lt;- maximal_cliques_of (my_graph); // var1 equals the list of all the maximal cliques as list```
       
 
-#### See also: 
-[biggest_cliques_of](OperatorsAB#biggest_cliques_of), 
+</code></pre>
+</div>
+<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[biggest_cliques_of](OperatorsAB#biggest_cliques_of), 
     	
 ----
 
@@ -5295,7 +5341,9 @@ the elements of the operand are summed (see sum for more details about the sum o
 </div>
 <p>unknown var0 &lt;- mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 5.125 ```</p>
 
-<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#sum">sum</a>,</p>
 
 <hr />
@@ -5317,8 +5365,10 @@ the elements of the operand are summed (see sum for more details about the sum o
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- mean_deviation ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.125```
       
 
-#### See also: 
-[mean](OperatorsIN#mean), [standard_deviation](OperatorsOS#standard_deviation), 
+</code></pre>
+</div>
+<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[mean](OperatorsIN#mean), [standard_deviation](OperatorsOS#standard_deviation), 
     	
 ----
 
@@ -5349,7 +5399,9 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </div>
 <p>unknown var1 &lt;- [1,2] mean_of (each * 10 ); // var1 equals 15```</p>
 
-<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#min_of">min_of</a>, <a href="OperatorsIN#max_of">max_of</a>, <a href="OperatorsOS#sum_of">sum_of</a>, <a href="OperatorsOS#product_of">product_of</a>,</p>
 
 <hr />
@@ -5387,7 +5439,9 @@ the median of all the elements of the operand.
 </div>
 <p>unknown var0 &lt;- median ([4.5, 3.5, 5.5, 3.4, 7.0]); // var0 equals 5.0```</p>
 
-<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#mean">mean</a>,</p>
 
 <hr />
@@ -5462,8 +5516,10 @@ the min operator behavior depends on the nature of the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[max](OperatorsIN#max), 
+</code></pre>
+</div>
+<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[max](OperatorsIN#max), 
     	
 ----
 
@@ -5495,7 +5551,9 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </div>
 <p>unknown var1 &lt;- [1,2,4,3,5,7,6,8] min_of (each * 100 ); // var1 equals 100graph g2 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); unknown var3 &lt;- g2 min_of (length(g2 out_edges_of each) ); // var3 equals 0unknown var4 &lt;- (list(node) min_of (round(node(each).location.x)); // var4 equals 4```</p>
 
-<h4 id="see-also-14">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#max_of">max_of</a>,</p>
 
 <hr />
@@ -5644,7 +5702,9 @@ Returns the remainder of the integer division of the left-hand operand by the ri
 </div>
 <p>int var0 &lt;- 40 mod 3; // var0 equals 1```</p>
 
-<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#div">div</a>,</p>
 
 <hr />
@@ -5725,8 +5785,10 @@ the mul operator behavior depends on the nature of the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[sum](OperatorsOS#sum), 
+</code></pre>
+</div>
+<h4 id="see-also-14">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[sum](OperatorsOS#sum), 
     	
 ----
 
@@ -5744,7 +5806,9 @@ returns the maximum number of independent cycles in a graph. This number (u) is 
 </div>
 <p>graph graphEpidemio &lt;- graph([]); int var1 &lt;- nb_cycles(graphEpidemio); // var1 equals the number of cycles in the graph```</p>
 
-<h4 id="see-also-16">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#alpha_index">alpha_index</a>, <a href="OperatorsAB#beta_index">beta_index</a>, <a href="OperatorsCH#gamma_index">gamma_index</a>, <a href="OperatorsCH#connectivity_index">connectivity_index</a>,</p>
 
 <hr />
@@ -5767,8 +5831,10 @@ returns the maximum number of independent cycles in a graph. This number (u) is 
 <div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;- (self neighbors_at (10)); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator.```
       
 
-#### See also: 
-[neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [at_distance](OperatorsAB#at_distance), 
+</code></pre>
+</div>
+<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [at_distance](OperatorsAB#at_distance), 
     	
 ----
 
@@ -5790,16 +5856,18 @@ a list, containing all the agents of the same species than the argument (if it i
   
 </code></pre>
 </div>
-<p>container var0 &lt;- neighbors_of (topology(self), self,10); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.</p>
+<p>container var3 &lt;- neighbors_of (topology(self), self,10); // var3 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>
 
 
 #### Examples: 
 </code></pre>
 </div>
-<p>container var1 &lt;- graphEpidemio neighbors_of (node(3)); // var1 equals [node0,node2]container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1.0,5.0},{34.0,56.0}]container var3 &lt;- topology(self) neighbors_of self; // var3 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.```</p>
+<p>container var0 &lt;- graphEpidemio neighbors_of (node(3)); // var0 equals [node0,node2]container var1 &lt;- graphFromMap neighbors_of node({12,45}); // var1 equals [{1.0,5.0},{34.0,56.0}]container var2 &lt;- topology(self) neighbors_of self; // var2 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.```</p>
 
-<h4 id="see-also-17">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#predecessors_of">predecessors_of</a>, <a href="OperatorsOS#successors_of">successors_of</a>, <a href="OperatorsIN#neighbors_at">neighbors_at</a>, <a href="OperatorsCH#closest_to">closest_to</a>, <a href="OperatorsOS#overlapping">overlapping</a>, <a href="OperatorsAB#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAB#agents_inside">agents_inside</a>, <a href="OperatorsAB#agent_closest_to">agent_closest_to</a>,</p>
 
 <hr />
@@ -5809,38 +5877,38 @@ a list, containing all the agents of the same species than the argument (if it i
 <h4 id="possible-use-47">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">predicate</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
 </ul>
 
 <h4 id="result-46">Result:</h4>
-<p>a new emotion with the given properties (name, intensity)
-a new emotion with the given properties (name,intensity,about)
+<p>a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name, intensity)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name,intensity,decay)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)</p>
 
 <h4 id="examples-25">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>emotion("joy",12.3) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,eatFood,4) ```
+<div class="highlighter-rouge"><pre class="highlight"><code>emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy") emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) ```
   
     	
 ----
@@ -5863,7 +5931,9 @@ opens an existing repository or create a new folder if it does not exist.
 </div>
 <p>file dirNewT &lt;- new_folder(“incl/”);   	// dirNewT represents the repository “../incl/” 															// eventually creates the directory ../incl ```</p>
 
-<h4 id="see-also-18">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#folder">folder</a>, <a href="OperatorsCH#file">file</a>,</p>
 
 <hr />
@@ -5878,17 +5948,17 @@ opens an existing repository or create a new folder if it does not exist.
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_mental_state</code></strong> <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code> —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
 </ul>
@@ -5923,59 +5993,59 @@ a new mental state</p>
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) ---&gt;  `predicate`
-  * `string` **`new_predicate`** `float` ---&gt;  `predicate`
-  *  **`new_predicate`** (`string` , `float`) ---&gt;  `predicate`
-  * `string` **`new_predicate`** `map` ---&gt;  `predicate`
-  *  **`new_predicate`** (`string` , `map`) ---&gt;  `predicate`
   * `string` **`new_predicate`** `agent` ---&gt;  `predicate`
   *  **`new_predicate`** (`string` , `agent`) ---&gt;  `predicate`
-  * `string` **`new_predicate`** `int` ---&gt;  `predicate`
-  *  **`new_predicate`** (`string` , `int`) ---&gt;  `predicate`
+  * `string` **`new_predicate`** `float` ---&gt;  `predicate`
+  *  **`new_predicate`** (`string` , `float`) ---&gt;  `predicate`
   * `string` **`new_predicate`** `bool` ---&gt;  `predicate`
   *  **`new_predicate`** (`string` , `bool`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`) ---&gt;  `predicate`
+  * `string` **`new_predicate`** `int` ---&gt;  `predicate`
+  *  **`new_predicate`** (`string` , `int`) ---&gt;  `predicate`
+  * `string` **`new_predicate`** `map` ---&gt;  `predicate`
+  *  **`new_predicate`** (`string` , `map`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `agent`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`, `bool`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `agent`) ---&gt;  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `bool`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`) ---&gt;  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `bool`, `agent`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) ---&gt;  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`, `agent`) ---&gt;  `predicate` 
 
 #### Result: 
-a new predicate with the given properties (name, values, priority, lifetime, agentCause)
-a new predicate with the given is_true (name, priority)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values, priority)
-a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, priority, is_true)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values, priority,lifetime)
-a new predicate with the given properties (name, values, priority, agentCause)
-a new predicate with the given properties (name, values, lifetime, is_true)
-a new predicate with the given properties (name, values, priority, lifetime, is_true)
 a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, is_true, agentCause)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, priority, lifetime, is_true)
+a new predicate with the given properties (name, values, priority, lifetime, agentCause)
+a new predicate with the given properties (name)
+a new predicate with the given is_true (name, priority)
 a new predicate with the given properties (name, values, priority, is_true, agentCause)
-a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, priority, agentCause)
 a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, priority,lifetime)
+a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, priority, is_true)
+a new predicate with the given properties (name, values, priority)
+a new predicate with the given properties (name, values, lifetime, is_true)
 
 #### Examples: 
 </code></pre>
 </div>
-<p>predicate(“people to meet”, [“time”::10], 2.0,10,agentA) predicate(“hasWater”, 2.0 ) predicate(“people to meet”, [“time”::10], true, agentA) predicate(“people to meet”, people1, [“time”::10]) predicate(“people to meet”, people1 ) predicate(“people to meet”, [“time”::10], true) predicate(“people to meet”, [“time”::10],2.0, true) predicate(“people to meet”) predicate(“people to meet”, [“time”::10], true) predicate(“hasWater”, 10  predicate(“people to meet”, [“time”::10],2.0,10, true, agentA) predicate(“hasWater”, true) predicate(“people to meet”, [“time”::10], 2.0,10) predicate(“people to meet”, [“time”::10], 2.0,agentA) predicate(“people to meet”, [“time”::10], 10,true) predicate(“people to meet”, [“time”::10],2.0,10, true) predicate(“people to meet”, [“time”::10], agentA) predicate(“people to meet”, [“time”::10], 2.0, true, agentA) predicate(“people to meet”, [“time”::10], true) predicate(“people to meet”, [“time”::10], 10, true, agentA) predicate(“people to meet”, [“time”::10], 10, agentA) ```</p>
+<p>predicate(“people to meet”, [“time”::10], agentA) predicate(“people to meet”, [“time”::10], true, agentA) predicate(“people to meet”, [“time”::10], true) predicate(“people to meet”, [“time”::10],2.0,10, true) predicate(“people to meet”, [“time”::10], 2.0,10,agentA) predicate(“people to meet”) predicate(“hasWater”, 2.0 ) predicate(“people to meet”, [“time”::10], 2.0, true, agentA) predicate(“people to meet”, [“time”::10], 10, true, agentA) predicate(“people to meet”, [“time”::10], 2.0,agentA) predicate(“people to meet”, [“time”::10], 10, agentA) predicate(“hasWater”, true) predicate(“hasWater”, 10  predicate(“people to meet”, [“time”::10], true) predicate(“people to meet”, [“time”::10], true) predicate(“people to meet”, people1 ) predicate(“people to meet”, [“time”::10], 2.0,10) predicate(“people to meet”, [“time”::10],2.0,10, true, agentA) predicate(“people to meet”, [“time”::10],2.0, true) predicate(“people to meet”, people1, [“time”::10]) predicate(“people to meet”, [“time”::10], 10,true) ```</p>
 
 <hr />
 
@@ -5992,7 +6062,7 @@ a new predicate with the given properties (name, values, lifetime, agentCause)
 a new social link</p>
 
 <h4 id="examples-27">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>new_social_link(agentA,0.0,-0.1,0.2,0.1) new_social_link(agentA) ```
+<div class="highlighter-rouge"><pre class="highlight"><code>new_social_link(agentA) new_social_link(agentA,0.0,-0.1,0.2,0.1) ```
   
     	
 ----

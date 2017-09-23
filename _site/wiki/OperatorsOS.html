@@ -3832,8 +3832,10 @@ function closeRightMenu() {
 <div class="highlighter-rouge"><pre class="highlight"><code>// species test {} // species sous_test parent: test {} container var2 &lt;- [sous_test(0),sous_test(1),test(2),test(3)] of_generic_species test; // var2 equals [sous_test0,sous_test1,test2,test3]container var3 &lt;- [sous_test(0),sous_test(1),test(2),test(3)] of_generic_species sous_test; // var3 equals [sous_test0,sous_test1]container var4 &lt;- [sous_test(0),sous_test(1),test(2),test(3)] of_species test; // var4 equals [test2,test3]container var5 &lt;- [sous_test(0),sous_test(1),test(2),test(3)] of_species sous_test; // var5 equals [sous_test0,sous_test1]```
       
 
-#### See also: 
-[of_species](OperatorsOS#of_species), 
+</code></pre>
+</div>
+<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[of_species](OperatorsOS#of_species), 
     	
 ----
 
@@ -3855,7 +3857,9 @@ a list, containing the agents of the left-hand operand whose species is the one 
 </div>
 <p>container var0 &lt;- (self neighbors_at 10) of_species (species (self)); // var0 equals all the neighboring agents of the same species.container var1 &lt;- [test(0),test(1),node(1),node(2)] of_species test; // var1 equals [test0,test1]```</p>
 
-<h4 id="see-also">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#of_generic_species">of_generic_species</a>,</p>
 
 <hr />
@@ -3908,7 +3912,9 @@ a list, containing the agents of the left-hand operand whose species is the one 
 </code></pre>
 </div>
 
-<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#contains">contains</a>,</p>
 
 <hr />
@@ -3942,8 +3948,10 @@ a bool value, equal to the logical or between the left-hand operand and the righ
 #### Comment: 
 both operands are always casted to bool before applying the operator. Thus, an expression like 1 or 0 is accepted and returns true.    
 
-#### See also: 
-[bool](OperatorsAB#bool), [and](OperatorsAB#and), [!](OperatorsAB#!), 
+</code></pre>
+</div>
+<h4 id="see-also-1">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[bool](OperatorsAB#bool), [and](OperatorsAB#and), [!](OperatorsAB#!), 
     	
 ----
 
@@ -3974,8 +3982,8 @@ create a new predicate from two others by including them as subintentions. It's 
 </ul>
 
 <h4 id="result-4">Result:</h4>
-<p>opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.
-opens a file that a is a kind of OSM file with some filtering.</p>
+<p>opens a file that a is a kind of OSM file with some filtering.
+opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.</p>
 
 <h4 id="comment-1">Comment:</h4>
 <p>The file should have a OSM file extension, cf. file type definition for supported file extensions.The file should have a OSM file extension, cf. file type definition for supported file extensions.</p>
@@ -3987,11 +3995,13 @@ opens a file that a is a kind of OSM file with some filtering.</p>
 </ul>
 
 <h4 id="examples-2">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>file myOSMfile2 &lt;- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); file myOSMfile &lt;- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); ```
+<div class="highlighter-rouge"><pre class="highlight"><code>file myOSMfile &lt;- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); file myOSMfile2 &lt;- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); ```
       
 
-#### See also: 
-[file](OperatorsCH#file), 
+</code></pre>
+</div>
+<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[file](OperatorsCH#file), 
     	
 ----
 
@@ -4010,7 +4020,9 @@ returns the out degree of a vertex (right-hand operand) in the graph given as le
 </div>
 <p>int var1 &lt;- graphFromMap out_degree_of (node(3)); // var1 equals 4```</p>
 
-<h4 id="see-also-2">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#in_degree_of">in_degree_of</a>, <a href="OperatorsCH#degree_of">degree_of</a>,</p>
 
 <hr />
@@ -4030,8 +4042,10 @@ returns the out degree of a vertex (right-hand operand) in the graph given as le
 <div class="highlighter-rouge"><pre class="highlight"><code>container var1 &lt;- graphFromMap out_edges_of (node(3)); // var1 equals 3```
       
 
-#### See also: 
-[in_edges_of](OperatorsIN#in_edges_of), 
+</code></pre>
+</div>
+<h4 id="see-also-3">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[in_edges_of](OperatorsIN#in_edges_of), 
     	
 ----
 
@@ -4050,7 +4064,9 @@ A list of agents or geometries among the left-operand list, species or meta-popu
 </div>
 <p>list<geometry> var0 &lt;- [ag1, ag2, ag3] overlapping(self); // var0 equals return the agents among ag1, ag2 and ag3 that overlap the shape of the agent applying the operator.(species1 + species2) overlapping self ```</geometry></p>
 
-<h4 id="see-also-3">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#neighbors_at">neighbors_at</a>, <a href="OperatorsIN#neighbors_of">neighbors_of</a>, <a href="OperatorsAB#agent_closest_to">agent_closest_to</a>, <a href="OperatorsAB#agents_inside">agents_inside</a>, <a href="OperatorsCH#closest_to">closest_to</a>, <a href="OperatorsIN#inside">inside</a>, <a href="OperatorsAB#agents_overlapping">agents_overlapping</a>,</p>
 
 <hr />
@@ -4076,8 +4092,10 @@ A list of agents or geometries among the left-operand list, species or meta-popu
 <div class="highlighter-rouge"><pre class="highlight"><code>bool var0 &lt;- polyline([{10,10},{20,20}]) overlaps polyline([{15,15},{25,25}]); // var0 equals truebool var1 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polygon([{15,15},{15,25},{25,25},{25,15}]); // var1 equals truebool var2 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps {25,25}; // var2 equals falsebool var3 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polygon([{35,35},{35,45},{45,45},{45,35}]); // var3 equals falsebool var4 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polyline([{10,10},{20,20}]); // var4 equals truebool var5 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps {15,15}; // var5 equals truebool var6 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polygon([{0,0},{0,30},{30,30}, {30,0}]); // var6 equals truebool var7 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polygon([{15,15},{15,25},{25,25},{25,15}]); // var7 equals truebool var8 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) overlaps polygon([{10,20},{20,20},{20,30},{10,30}]); // var8 equals true```
       
 
-#### See also: 
-[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [intersects](OperatorsIN#intersects), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+</code></pre>
+</div>
+<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [intersects](OperatorsIN#intersects), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
     	
 ----
 
@@ -4113,7 +4131,9 @@ if one geometry operand fully covers the other geometry operand, returns false (
 </div>
 <p>bool var0 &lt;- polyline([{10,10},{20,20}]) partially_overlaps polyline([{15,15},{25,25}]); // var0 equals truebool var1 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polygon([{15,15},{15,25},{25,25},{25,15}]); // var1 equals truebool var2 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps {25,25}; // var2 equals falsebool var3 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polygon([{35,35},{35,45},{45,45},{45,35}]); // var3 equals falsebool var4 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polyline([{10,10},{20,20}]); // var4 equals falsebool var5 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps {15,15}; // var5 equals falsebool var6 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polygon([{0,0},{0,30},{30,30}, {30,0}]); // var6 equals falsebool var7 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polygon([{15,15},{15,25},{25,25},{25,15}]); // var7 equals truebool var8 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps polygon([{10,20},{20,20},{20,30},{10,30}]); // var8 equals false```</p>
 
-<h4 id="see-also-4">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#disjoint_from">disjoint_from</a>, <a href="OperatorsCH#crosses">crosses</a>, <a href="OperatorsOS#overlaps">overlaps</a>, <a href="OperatorsIN#intersects">intersects</a>, <a href="OperatorsTZ#touches">touches</a>,</p>
 
 <hr />
@@ -4134,31 +4154,33 @@ if one geometry operand fully covers the other geometry operand, returns false (
 
 <h4 id="possible-use-8">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code> <strong><code class="highlighter-rouge">path_between</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><code class="highlighter-rouge">list&lt;agent&gt;</code> <strong><code class="highlighter-rouge">path_between</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
   <li><code class="highlighter-rouge">topology</code> <strong><code class="highlighter-rouge">path_between</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">path</code></li>
   <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">topology</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">graph</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
-  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><code class="highlighter-rouge">list&lt;agent&gt;</code> <strong><code class="highlighter-rouge">path_between</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code> <strong><code class="highlighter-rouge">path_between</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
   <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">topology</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">graph</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
+  <li><strong><code class="highlighter-rouge">path_between</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
 </ul>
 
 <h4 id="result-8">Result:</h4>
 <p>The shortest path between a list of two objects in a graph
-The shortest path between two objects according to set of cells
+The shortest path between several objects according to set of cells
 The shortest path between two objects according to set of cells with corresponding weights
-The shortest path between several objects according to set of cells with corresponding weights
-The shortest path between several objects according to set of cells</p>
+The shortest path between two objects according to set of cells
+The shortest path between several objects according to set of cells with corresponding weights</p>
 
 <h4 id="examples-5">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>path var0 &lt;- path_between (my_graph, ag1, ag2); // var0 equals A path between ag1 and ag2path var1 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); // var1 equals A path between ag1 and ag2 passing through the given cell_grid agentspath var2 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var2 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal costpath var3 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var3 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal costpath var4 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var4 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agentspath var5 &lt;- my_topology path_between (ag1, ag2); // var5 equals A path between ag1 and ag2path var6 &lt;- my_topology path_between [ag1, ag2]; // var6 equals A path between ag1 and ag2```
+<div class="highlighter-rouge"><pre class="highlight"><code>path var0 &lt;- my_topology path_between [ag1, ag2]; // var0 equals A path between ag1 and ag2path var1 &lt;- my_topology path_between (ag1, ag2); // var1 equals A path between ag1 and ag2path var2 &lt;- path_between (my_graph, ag1, ag2); // var2 equals A path between ag1 and ag2path var3 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var3 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agentspath var4 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var4 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal costpath var5 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); // var5 equals A path between ag1 and ag2 passing through the given cell_grid agentspath var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var6 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost```
       
 
-#### See also: 
-[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_between](OperatorsCH#distance_between), [direction_between](OperatorsCH#direction_between), [path_to](OperatorsOS#path_to), [distance_to](OperatorsCH#distance_to), 
+</code></pre>
+</div>
+<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[towards](OperatorsTZ#towards), [direction_to](OperatorsCH#direction_to), [distance_between](OperatorsCH#distance_between), [direction_between](OperatorsCH#direction_between), [path_to](OperatorsOS#path_to), [distance_to](OperatorsCH#distance_to), 
     	
 ----
 
@@ -4179,7 +4201,9 @@ A path between two geometries (geometries, agents or points) considering the top
 </div>
 <p>path var0 &lt;- ag1 path_to ag2; // var0 equals the path between ag1 and ag2 considering the topology of the agent applying the operator```</p>
 
-<h4 id="see-also-5">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsTZ#towards">towards</a>, <a href="OperatorsCH#direction_to">direction_to</a>, <a href="OperatorsCH#distance_between">distance_between</a>, <a href="OperatorsCH#direction_between">direction_between</a>, <a href="OperatorsOS#path_between">path_between</a>, <a href="OperatorsCH#distance_to">distance_to</a>,</p>
 
 <hr />
@@ -4272,8 +4296,10 @@ percent absolute deviation indicator for 2 series of values: percent_absolute_de
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- polyplan([{0,0}, {0,10}, {10,10}, {10,0}],10); // var0 equals a polyline geometry composed of the 4 points with a depth of 10.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4412,30 +4438,30 @@ Add a given number of years to a date
 <ul>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">point</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">point</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">point</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">point</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">point</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">point</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
 <h4 id="result-15">Result:</h4>
-<p>internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
+<p>internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.</p>
@@ -4457,8 +4483,10 @@ internal use only. Use the standard construction {x,y, z} instead.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;-  line([{10,10},{80,80}]) points_along ([0.3, 0.5, 0.9]); // var0 equals the list of following points: [{31.0,31.0,0.0},{45.0,45.0,0.0},{73.0,73.0,0.0}]```
       
 
-#### See also: 
-[closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), 
+</code></pre>
+</div>
+<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), 
     	
 ----
 
@@ -4477,7 +4505,9 @@ A list of left-operand number of points located at a the right-operand distance 
 </div>
 <p>list<point> var0 &lt;- 3 points_at(20.0); // var0 equals returns [pt1, pt2, pt3] with pt1, pt2 and pt3 located at a distance of 20.0 to the agent location```</point></p>
 
-<h4 id="see-also-6">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#any_location_in">any_location_in</a>, <a href="OperatorsAB#any_point_in">any_point_in</a>, <a href="OperatorsCH#closest_points_with">closest_points_with</a>, <a href="OperatorsCH#farthest_point_to">farthest_point_to</a>,</p>
 
 <hr />
@@ -4497,8 +4527,10 @@ A list of left-operand number of points located at a the right-operand distance 
 <div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;-  square(5) points_on(2); // var0 equals a list of points belonging to the exterior ring of the square distant from each other of 2.```
       
 
-#### See also: 
-[closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
+</code></pre>
+</div>
+<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[closest_points_with](OperatorsCH#closest_points_with), [farthest_point_to](OperatorsCH#farthest_point_to), [points_at](OperatorsOS#points_at), 
     	
 ----
 
@@ -4519,7 +4551,9 @@ The Poisson distribution is a discrete probability distribution that expresses t
 </div>
 <p>int var0 &lt;- poisson(3.5); // var0 equals a random positive integer```</p>
 
-<h4 id="see-also-7">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#binomial">binomial</a>, <a href="OperatorsCH#gauss">gauss</a>,</p>
 
 <hr />
@@ -4545,8 +4579,10 @@ The Poisson distribution is a discrete probability distribution that expresses t
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- polygon([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 equals a polygon geometry composed of the 4 points.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4570,7 +4606,9 @@ A polyhedron geometry from the given list of points.
 </div>
 <p>geometry var0 &lt;- polyhedron([{0,0}, {0,10}, {10,10}, {10,0}],10); // var0 equals a polygon geometry composed of the 4 points and of depth 10.```</p>
 
-<h4 id="see-also-8">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -4600,8 +4638,10 @@ A polyhedron geometry from the given list of points.
 <div class="highlighter-rouge"><pre class="highlight"><code>container var1 &lt;- graphEpidemio predecessors_of ({1,5}); // var1 equals []container var2 &lt;- graphEpidemio predecessors_of node({34,56}); // var2 equals [{12;45}]```
       
 
-#### See also: 
-[neighbors_of](OperatorsIN#neighbors_of), [successors_of](OperatorsOS#successors_of), 
+</code></pre>
+</div>
+<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[neighbors_of](OperatorsIN#neighbors_of), [successors_of](OperatorsOS#successors_of), 
     	
 ----
 
@@ -4665,8 +4705,10 @@ returns the value predict by the regression parameters for a given instance. Usa
 <div class="highlighter-rouge"><pre class="highlight"><code>unknown var1 &lt;- [1,2] product_of (each * 10 ); // var1 equals 200```
       
 
-#### See also: 
-[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [mean_of](OperatorsIN#mean_of), 
+</code></pre>
+</div>
+<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [mean_of](OperatorsIN#mean_of), 
     	
 ----
 
@@ -4688,7 +4730,9 @@ The index of the best candidate according to the Promethee II method. This metho
 </div>
 <p>int var0 &lt;- promethee_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [[“name”::”utility”, “weight” :: 2.0,”p”::0.5, “q”::0.0, “s”::1.0, “maximize” :: true],[“name”::”price”, “weight” :: 1.0,”p”::0.5, “q”::0.0, “s”::1.0, “maximize” :: false]]); // var0 equals 1```</p>
 
-<h4 id="see-also-9">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsTZ#weighted_means_dm">weighted_means_DM</a>, <a href="OperatorsCH#electre_dm">electre_DM</a>, <a href="OperatorsCH#evidence_theory_dm">evidence_theory_DM</a>,</p>
 
 <hr />
@@ -4752,8 +4796,10 @@ The index of the best candidate according to the Promethee II method. This metho
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- pyramid(5); // var0 equals a geometry as a square with side_size = 5.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), 
+</code></pre>
+</div>
+<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), 
     	
 ----
 
@@ -4792,8 +4838,8 @@ Returns how many percent of the elements contained in the receiver are &lt;= ele
 
 #### Result: 
 Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
-Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
 Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end &gt; start with a negative step) will similarly not be accepted and yield an exception
+Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
     	
 ----
 
@@ -4850,11 +4896,13 @@ Reads an attribute of the agent. The attribute's name is specified by the operan
 </ul>
 
 <h4 id="examples-17">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- rectangle({10, 5}); // var0 equals a geometry as a rectangle with width = 10 and height = 5.geometry var1 &lt;- rectangle({2.0,6.0}, {6.0,20.0}); // var1 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.geometry var2 &lt;- rectangle(10, 5); // var2 equals a geometry as a rectangle with width = 10 and height = 5.```
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- rectangle({2.0,6.0}, {6.0,20.0}); // var0 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.geometry var1 &lt;- rectangle(10, 5); // var1 equals a geometry as a rectangle with width = 10 and height = 5.geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle with width = 10 and height = 5.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -4915,8 +4963,10 @@ all the edges containing this node are also removed.
 <div class="highlighter-rouge"><pre class="highlight"><code>string var0 &lt;- replace('to be or not to be,that is the question','to', 'do'); // var0 equals 'do be or not do be,that is the question'```
       
 
-#### See also: 
-[replace_regex](OperatorsOS#replace_regex), 
+</code></pre>
+</div>
+<h4 id="see-also-14">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[replace_regex](OperatorsOS#replace_regex), 
     	
 ----
 
@@ -4934,7 +4984,9 @@ Returns the String resulting by replacing for the first operand all the sub-stri
 </div>
 <p>string var0 &lt;- replace_regex(“colour, color”, “colou?r”, “col”); // var0 equals ‘col, col’```</p>
 
-<h4 id="see-also-10">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#replace">replace</a>,</p>
 
 <hr />
@@ -5015,12 +5067,12 @@ Returns the String resulting by replacing for the first operand all the sub-stri
 ### `rgb`
 
 #### Possible use: 
-  * `string` **`rgb`** `int` ---&gt;  `rgb`
-  *  **`rgb`** (`string` , `int`) ---&gt;  `rgb`
   * `rgb` **`rgb`** `int` ---&gt;  `rgb`
   *  **`rgb`** (`rgb` , `int`) ---&gt;  `rgb`
   * `rgb` **`rgb`** `float` ---&gt;  `rgb`
   *  **`rgb`** (`rgb` , `float`) ---&gt;  `rgb`
+  * `string` **`rgb`** `int` ---&gt;  `rgb`
+  *  **`rgb`** (`string` , `int`) ---&gt;  `rgb`
   *  **`rgb`** (`int`, `int`, `int`) ---&gt;  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `int`) ---&gt;  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `float`) ---&gt;  `rgb` 
@@ -5029,19 +5081,21 @@ Returns the String resulting by replacing for the first operand all the sub-stri
 Returns a color defined by red, green, blue components and an alpha blending value.
 
 #### Special cases:     
-  * It can be used with a name of color and alpha (between 0 and 255)    
-  * It can be used with a color and an alpha between 0 and 255    
   * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)    
-  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
+  * It can be used with a color and an alpha between 0 and 255    
   * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)    
-  * It can be used with a color and an alpha between 0 and 1
+  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
+  * It can be used with a color and an alpha between 0 and 1    
+  * It can be used with a name of color and alpha (between 0 and 255)
 
 #### Examples: 
 </code></pre>
 </div>
-<p>rgb var0 &lt;- rgb (“red”); // var0 equals rgb(255,0,0)rgb var1 &lt;- rgb(rgb(255,0,0),125); // var1 equals a light red colorrgb var2 &lt;- rgb (255,0,0,125); // var2 equals a light red colorrgb var4 &lt;- rgb (255,0,0); // var4 equals #redrgb var5 &lt;- rgb (255,0,0,0.5); // var5 equals a light red colorrgb var6 &lt;- rgb(rgb(255,0,0),0.5); // var6 equals a light red color```</p>
+<p>rgb var0 &lt;- rgb (255,0,0,125); // var0 equals a light red colorrgb var2 &lt;- rgb(rgb(255,0,0),125); // var2 equals a light red colorrgb var3 &lt;- rgb (255,0,0,0.5); // var3 equals a light red colorrgb var4 &lt;- rgb (255,0,0); // var4 equals #redrgb var5 &lt;- rgb(rgb(255,0,0),0.5); // var5 equals a light red colorrgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)```</p>
 
-<h4 id="see-also-11">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#hsb">hsb</a>,</p>
 
 <hr />
@@ -5078,18 +5132,18 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 ### `rnd`
 
 #### Possible use: 
-  *  **`rnd`** (`int`) ---&gt;  `int`
   *  **`rnd`** (`float`) ---&gt;  `float`
+  *  **`rnd`** (`int`) ---&gt;  `int`
   *  **`rnd`** (`point`) ---&gt;  `point`
-  * `float` **`rnd`** `float` ---&gt;  `float`
-  *  **`rnd`** (`float` , `float`) ---&gt;  `float`
   * `point` **`rnd`** `point` ---&gt;  `point`
   *  **`rnd`** (`point` , `point`) ---&gt;  `point`
   * `int` **`rnd`** `int` ---&gt;  `int`
   *  **`rnd`** (`int` , `int`) ---&gt;  `int`
-  *  **`rnd`** (`point`, `point`, `float`) ---&gt;  `point`
+  * `float` **`rnd`** `float` ---&gt;  `float`
+  *  **`rnd`** (`float` , `float`) ---&gt;  `float`
+  *  **`rnd`** (`int`, `int`, `int`) ---&gt;  `int`
   *  **`rnd`** (`float`, `float`, `float`) ---&gt;  `float`
-  *  **`rnd`** (`int`, `int`, `int`) ---&gt;  `int` 
+  *  **`rnd`** (`point`, `point`, `float`) ---&gt;  `point` 
 
 #### Result: 
 a random integer in the interval [0, operand]  
@@ -5104,9 +5158,11 @@ to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n
 #### Examples: 
 </code></pre>
 </div>
-<p>float var0 &lt;- rnd (2.0, 4.0); // var0 equals a float number between 2.0 and 4.0point var1 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var1 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0int var2 &lt;- rnd (2); // var2 equals 0, 1 or 2float var3 &lt;- rnd (1000) / 1000; // var3 equals a float between 0 and 1 with a precision of 0.001float var4 &lt;- rnd (2.0, 4.0, 0.5); // var4 equals a float number between 2.0 and 4.0 every 0.5point var5 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var5 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0float var6 &lt;- rnd(3.4); // var6 equals a random float between 0.0 and 3.4point var7 &lt;- rnd ({2.5,3, 0.0}); // var7 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0int var8 &lt;- rnd (2, 4); // var8 equals 2, 3 or 4int var9 &lt;- rnd (2, 12, 4); // var9 equals 2, 6 or 10```</p>
+<p>float var0 &lt;- rnd(3.4); // var0 equals a random float between 0.0 and 3.4point var1 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var1 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0int var2 &lt;- rnd (2, 4); // var2 equals 2, 3 or 4float var3 &lt;- rnd (2.0, 4.0); // var3 equals a float number between 2.0 and 4.0int var4 &lt;- rnd (2); // var4 equals 0, 1 or 2float var5 &lt;- rnd (1000) / 1000; // var5 equals a float between 0 and 1 with a precision of 0.001int var6 &lt;- rnd (2, 12, 4); // var6 equals 2, 6 or 10float var7 &lt;- rnd (2.0, 4.0, 0.5); // var7 equals a float number between 2.0 and 4.0 every 0.5point var8 &lt;- rnd ({2.5,3, 0.0}); // var8 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0point var9 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var9 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0```</p>
 
-<h4 id="see-also-12">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#flip">flip</a>,</p>
 
 <hr />
@@ -5125,8 +5181,10 @@ to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n
 <div class="highlighter-rouge"><pre class="highlight"><code>int var0 &lt;- rnd_choice([0.2,0.5,0.3]); // var0 equals 2/10 chances to return 0, 5/10 chances to return 1, 3/10 chances to return 2```
       
 
-#### See also: 
-[rnd](OperatorsOS#rnd), 
+</code></pre>
+</div>
+<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[rnd](OperatorsOS#rnd), 
     	
 ----
 
@@ -5147,7 +5205,9 @@ Return a random color equivalent to rgb(rnd(operand),rnd(operand),rnd(operand))
 </div>
 <p>rgb var0 &lt;- rnd_color(255); // var0 equals a random color, equivalent to rgb(rnd(255),rnd(255),rnd(255))```</p>
 
-<h4 id="see-also-13">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#rgb">rgb</a>, <a href="OperatorsCH#hsb">hsb</a>,</p>
 
 <hr />
@@ -5174,8 +5234,10 @@ A geometry resulting from the application of a rotation by the right-hand operan
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- self rotated_by 45; // var0 equals the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator.geometry var1 &lt;- rotated_by(pyramid(10),45, {1,0,0}); // var1 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.```
       
 
-#### See also: 
-[transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), 
+</code></pre>
+</div>
+<h4 id="see-also-16">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), 
     	
 ----
 
@@ -5183,9 +5245,9 @@ A geometry resulting from the application of a rotation by the right-hand operan
 ### `round`
 
 #### Possible use: 
-  *  **`round`** (`point`) ---&gt;  `point`
+  *  **`round`** (`float`) ---&gt;  `int`
   *  **`round`** (`int`) ---&gt;  `int`
-  *  **`round`** (`float`) ---&gt;  `int` 
+  *  **`round`** (`point`) ---&gt;  `point` 
 
 #### Result: 
 Returns the rounded value of the operand.
@@ -5196,10 +5258,12 @@ Returns the rounded value of the operand.
 #### Examples: 
 </code></pre>
 </div>
-<p>point var0 &lt;- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var0 equals {12345.79,12345.79,12345.79}int var1 &lt;- round (0.51); // var1 equals 1int var2 &lt;- round (100.2); // var2 equals 100int var3 &lt;- round(-0.51); // var3 equals -1```</p>
+<p>int var0 &lt;- round (0.51); // var0 equals 1int var1 &lt;- round (100.2); // var1 equals 100int var2 &lt;- round(-0.51); // var2 equals -1point var3 &lt;- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3 equals {12345.79,12345.79,12345.79}```</p>
 
-<h4 id="see-also-14">See also:</h4>
-<p><a href="OperatorsOS#round">round</a>, <a href="OperatorsIN#int">int</a>, <a href="OperatorsTZ#with_precision">with_precision</a>,</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
+<p><a href="OperatorsIN#int">int</a>, <a href="OperatorsTZ#with_precision">with_precision</a>, <a href="OperatorsOS#round">round</a>,</p>
 
 <hr />
 
@@ -5218,8 +5282,10 @@ Returns the rounded value of the operand.
 <div class="highlighter-rouge"><pre class="highlight"><code>list var0 &lt;- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) row_at 2; // var0 equals ["el13","el23","el33"]```
       
 
-#### See also: 
-[column_at](OperatorsCH#column_at), [columns_list](OperatorsCH#columns_list), 
+</code></pre>
+</div>
+<h4 id="see-also-17">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[column_at](OperatorsCH#column_at), [columns_list](OperatorsCH#columns_list), 
     	
 ----
 
@@ -5237,7 +5303,9 @@ returns a list of the rows of the matrix, with each row as a list of elements
 </div>
 <p>list<list> var0 &lt;- rows_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el21","el31"],["el12","el22","el32"],["el13","el23","el33"]]```</list></p>
 
-<h4 id="see-also-15">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#columns_list">columns_list</a>,</p>
 
 <hr />
@@ -5254,11 +5322,11 @@ returns a list of the rows of the matrix, with each row as a list of elements
 </ul>
 
 <h4 id="result-33">Result:</h4>
-<p>takes a sample of the specified size from the elements of x using either with or without replacement
-takes a sample of the specified size from the elements of x using either with or without replacement with given weights</p>
+<p>takes a sample of the specified size from the elements of x using either with or without replacement with given weights
+takes a sample of the specified size from the elements of x using either with or without replacement</p>
 
 <h4 id="examples-24">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;- sample([2,10,1],2,false); // var0 equals [1,2]container var1 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var1 equals [10,2]```
+<div class="highlighter-rouge"><pre class="highlight"><code>container var0 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var0 equals [10,2]container var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]```
   
     	
 ----
@@ -5329,18 +5397,18 @@ change the agent value of the given social link
 
 <h4 id="possible-use-35">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
 <h4 id="result-35">Result:</h4>
-<p>change the agentCause value of the given predicate
-change the agentCause value of the given emotion</p>
+<p>change the agentCause value of the given emotion
+change the agentCause value of the given predicate</p>
 
 <h4 id="examples-26">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>predicate set_agent_cause agentA emotion set_agent_cause agentA ```
+<div class="highlighter-rouge"><pre class="highlight"><code>emotion set_agent_cause agentA predicate set_agent_cause agentA ```
   
     	
 ----
@@ -5545,7 +5613,7 @@ change the is_true value of the given predicate
 <p>Sets the z ordinate of the n-th point of a geometry to the value provided by the third argument</p>
 
 <h4 id="examples-32">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>shape &lt;- triangle(3) set_z [5,10,14]; loop i from: 0 to: length(shape.points) - 1{set shape &lt;-  set_z (shape, i, 3.0);} ```
+<div class="highlighter-rouge"><pre class="highlight"><code>loop i from: 0 to: length(shape.points) - 1{set shape &lt;-  set_z (shape, i, 3.0);} shape &lt;- triangle(3) set_z [5,10,14]; ```
   
     	
 ----
@@ -5565,9 +5633,9 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
-  *  **`shuffle`** (`string`) ---&gt;  `string`
   *  **`shuffle`** (`matrix`) ---&gt;  `matrix`
-  *  **`shuffle`** (`container`) ---&gt;  `container` 
+  *  **`shuffle`** (`container`) ---&gt;  `container`
+  *  **`shuffle`** (`string`) ---&gt;  `string` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -5578,9 +5646,11 @@ The elements of the operand in random order.
 #### Examples: 
 </code></pre>
 </div>
-<p>string var0 &lt;- shuffle (‘abc’); // var0 equals ‘bac’ (for example)matrix var1 &lt;- shuffle (matrix([[“c11”,”c12”,”c13”],[“c21”,”c22”,”c23”]])); // var1 equals matrix([[“c12”,”c21”,”c11”],[“c13”,”c22”,”c23”]]) (for example)container var2 &lt;- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)```</p>
+<p>matrix var0 &lt;- shuffle (matrix([[“c11”,”c12”,”c13”],[“c21”,”c22”,”c23”]])); // var0 equals matrix([[“c12”,”c21”,”c11”],[“c13”,”c22”,”c23”]]) (for example)container var1 &lt;- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example)string var2 &lt;- shuffle (‘abc’); // var2 equals ‘bac’ (for example)```</p>
 
-<h4 id="see-also-16">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsOS#reverse">reverse</a>,</p>
 
 <hr />
@@ -5616,7 +5686,9 @@ A list of agent groups clustered by distance considering a distance min between 
 </div>
 <p>list&lt;list<agent>&gt; var0 &lt;- [ag1, ag2, ag3, ag4, ag5] simpleClusteringByDistance 20.0; // var0 equals for example, can return [[ag1, ag3], [ag2], [ag4, ag5]]```</agent></p>
 
-<h4 id="see-also-17">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#hierarchical_clustering">hierarchical_clustering</a>,</p>
 
 <hr />
@@ -5666,8 +5738,8 @@ The algorithm used for the simplification is Douglas-Peucker
 
 <h4 id="possible-use-44">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-44">Result:</h4>
@@ -5679,11 +5751,13 @@ The algorithm used for the simplification is Douglas-Peucker
 </ul>
 
 <h4 id="examples-35">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- sin (0); // var0 equals 0.0float var1 &lt;- sin(360); // var1 equals 0.0```
+<div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- sin(360); // var0 equals 0.0float var1 &lt;- sin (0); // var1 equals 0.0```
       
 
-#### See also: 
-[cos](OperatorsCH#cos), [tan](OperatorsTZ#tan), 
+</code></pre>
+</div>
+<h4 id="see-also-18">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[cos](OperatorsCH#cos), [tan](OperatorsTZ#tan), 
     	
 ----
 
@@ -5704,7 +5778,9 @@ Returns the value (in [-1,1]) of the sinus of the operand (in decimal degrees). 
 </div>
 <p>float var0 &lt;- sin(360); // var0 equals 0.0```</p>
 
-<h4 id="see-also-18">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#cos">cos</a>, <a href="OperatorsTZ#tan">tan</a>,</p>
 
 <hr />
@@ -5772,8 +5848,10 @@ Returns the skew of a data sequence.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- skew_gauss(0.0, 1.0, 0.7,0.1); // var0 equals 0.1729218460343077```
       
 
-#### See also: 
-[gauss](OperatorsCH#gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), [poisson](OperatorsOS#poisson), 
+</code></pre>
+</div>
+<h4 id="see-also-19">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[gauss](OperatorsCH#gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), [poisson](OperatorsOS#poisson), 
     	
 ----
 
@@ -5869,7 +5947,9 @@ the left-hand operand is casted to a list before applying the operator. In the r
 </div>
 <p>container var0 &lt;- [1,2,4,3,5,7,6,8] sort_by (each); // var0 equals [1,2,3,4,5,6,7,8]container var2 &lt;- g2 sort_by (length(g2 out_edges_of each) ); // var2 equals [node9, node7, node10, node8, node11, node6, node5, node4]container var3 &lt;- (list(node) sort_by (round(node(each).location.x)); // var3 equals [node5, node1, node0, node2, node3]container var4 &lt;- [1::2, 5::6, 3::4] sort_by (each); // var4 equals [2, 4, 6]```</p>
 
-<h4 id="see-also-19">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsCH#group_by">group_by</a>,</p>
 
 <hr />
@@ -5894,8 +5974,10 @@ the left-hand operand is casted to a list before applying the operator. In the r
 <div class="highlighter-rouge"><pre class="highlight"><code>graph graphEpidemio &lt;- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] ); unknown var1 &lt;- graphEpidemio source_of(edge(3)); // var1 equals node1graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); point var3 &lt;- graphFromMap source_of(link({1,5}::{12,45})); // var3 equals {1,5}```
       
 
-#### See also: 
-[target_of](OperatorsTZ#target_of), 
+</code></pre>
+</div>
+<h4 id="see-also-20">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[target_of](OperatorsTZ#target_of), 
     	
 ----
 
@@ -5908,8 +5990,10 @@ the left-hand operand is casted to a list before applying the operator. In the r
 #### Result: 
 allows to create a spatial graph from a container of vertices, without trying to wire them. The container can be empty. Emits an error if the contents of the container are not geometries, points or agents    
 
-#### See also: 
-[graph](OperatorsCH#graph), 
+</code></pre>
+</div>
+<h4 id="see-also-21">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[graph](OperatorsCH#graph), 
     	
 ----
 
@@ -5962,8 +6046,10 @@ casting of the operand to a species.
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- sphere(10); // var0 equals a geometry as a circle of radius 10 but displays a sphere.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-22">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -5991,20 +6077,20 @@ The two part of the left-operand lines split at the given right-operand point
 
 <h4 id="possible-use-52">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">split_geometry</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
-  <li><strong><code class="highlighter-rouge">split_geometry</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">split_geometry</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">split_geometry</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">split_geometry</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">split_geometry</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">split_geometry</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
 <h4 id="result-52">Result:</h4>
 <p>A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
-A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
-A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)</p>
+A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
+A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})</p>
 
 <h4 id="examples-41">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 10,20); // var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operatorlist&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0```
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 10,20); // var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operatorlist&lt;geometry&gt; var1 &lt;- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0list&lt;geometry&gt; var2 &lt;- to_rectangles(self, {10.0, 15.0}); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0```
   
     	
 ----
@@ -6049,8 +6135,8 @@ A list of geometries resulting after cutting the lines at their intersections.
 ### `sqrt`
 
 #### Possible use: 
-  *  **`sqrt`** (`int`) ---&gt;  `float`
-  *  **`sqrt`** (`float`) ---&gt;  `float` 
+  *  **`sqrt`** (`float`) ---&gt;  `float`
+  *  **`sqrt`** (`int`) ---&gt;  `float` 
 
 #### Result: 
 Returns the square root of the operand.
@@ -6087,8 +6173,10 @@ Returns the square root of the operand.
 <div class="highlighter-rouge"><pre class="highlight"><code>geometry var0 &lt;- square(10); // var0 equals a geometry as a square of side size 10.```
       
 
-#### See also: 
-[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
+</code></pre>
+</div>
+<h4 id="see-also-23">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [triangle](OperatorsTZ#triangle), 
     	
 ----
 
@@ -6113,7 +6201,9 @@ the center of the ellipse is by default the location of the current agent in whi
 </div>
 <p>geometry var0 &lt;- squircle(4,4); // var0 equals a geometry as a squircle of side 4 with a power of 4.```</p>
 
-<h4 id="see-also-20">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsTZ#super_ellipse">super_ellipse</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#ellipse">ellipse</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
 <hr />
@@ -6135,8 +6225,10 @@ the center of the ellipse is by default the location of the current agent in whi
 <div class="highlighter-rouge"><pre class="highlight"><code>float var0 &lt;- standard_deviation ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.2930100540985752```
       
 
-#### See also: 
-[mean](OperatorsIN#mean), [mean_deviation](OperatorsIN#mean_deviation), 
+</code></pre>
+</div>
+<h4 id="see-also-24">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[mean](OperatorsIN#mean), [mean_deviation](OperatorsIN#mean_deviation), 
     	
 ----
 
@@ -6263,8 +6355,10 @@ converts a date to astring following a custom pattern. The pattern can use "%Y %
 <div class="highlighter-rouge"><pre class="highlight"><code>container var1 &lt;- graphEpidemio successors_of ({1,5}); // var1 equals [{12,45}]container var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals []```
       
 
-#### See also: 
-[predecessors_of](OperatorsOS#predecessors_of), [neighbors_of](OperatorsIN#neighbors_of), 
+</code></pre>
+</div>
+<h4 id="see-also-25">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[predecessors_of](OperatorsOS#predecessors_of), [neighbors_of](OperatorsIN#neighbors_of), 
     	
 ----
 
@@ -6272,8 +6366,8 @@ converts a date to astring following a custom pattern. The pattern can use "%Y %
 ### `sum`
 
 #### Possible use: 
-  *  **`sum`** (`graph`) ---&gt;  `float`
-  *  **`sum`** (`container`) ---&gt;  `unknown` 
+  *  **`sum`** (`container`) ---&gt;  `unknown`
+  *  **`sum`** (`graph`) ---&gt;  `float` 
 
 #### Result: 
 the sum of all the elements of the operand  
@@ -6304,8 +6398,10 @@ the behavior depends on the nature of the operand
 <div class="highlighter-rouge"><pre class="highlight"><code>
     
 
-#### See also: 
-[mul](OperatorsIN#mul), 
+</code></pre>
+</div>
+<h4 id="see-also-26">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>[mul](OperatorsIN#mul), 
     	
 ----
 
@@ -6336,7 +6432,9 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 </div>
 <p>unknown var1 &lt;- [1,2] sum_of (each * 100 ); // var1 equals 300```</p>
 
-<h4 id="see-also-21">See also:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#### See also: 
+</code></pre>
+</div>
 <p><a href="OperatorsIN#min_of">min_of</a>, <a href="OperatorsIN#max_of">max_of</a>, <a href="OperatorsOS#product_of">product_of</a>, <a href="OperatorsIN#mean_of">mean_of</a>,</p>
 
 <hr />
