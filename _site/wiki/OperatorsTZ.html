@@ -3564,15 +3564,13 @@ function closeRightMenu() {
 
 <p>Note that due to the fact that actions are written by modelers, the general functional contract is not respected in that case: actions might perfectly have side effects on their operands (including the agent).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	----
+<hr />
 
-	## Table of Contents
+<h2 id="table-of-contents">Table of Contents</h2>
 
-	----
+<hr />
 
-	## Operators by categories
-</code></pre>
-</div>
+<h2 id="operators-by-categories">Operators by categories</h2>
 
 <hr />
 
@@ -3796,3377 +3794,1779 @@ function closeRightMenu() {
 <h3 id="user-control-operators">User control operators</h3>
 <p><a href="OperatorsTZ#user_input">user_input</a>,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	----
+<hr />
 
-	## Operators
-	
+<h2 id="operators">Operators</h2>
 
-		----
+<hr />
+
+<h3 id="tan"><code class="highlighter-rouge">tan</code></h3>
+
+<h4 id="possible-use">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
+
+<h4 id="result">Result:</h4>
+<p>Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.</p>
+
+<h4 id="special-cases">Special cases:</h4>
+<ul>
+  <li>Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16</li>
+  <li>The tangent is only defined for any real number except 90 + k <code class="highlighter-rouge">*</code> 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).</li>
+</ul>
+
+<h4 id="examples">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								tan (0)
+								; // var
+								0
+								equals
+								0.0
+float
+								var
+								1
+								&lt;-
+								tan(90)
+								; // var
+								1
+								equals
+								1.633123935319537E16
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`tan`
+<h4 id="see-also">See also:</h4>
+<p><a href="OperatorsCH#cos">cos</a>, <a href="OperatorsOS#sin">sin</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`tan`** 
-			(
-			
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`tan`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<hr />
 
-			#### Result:
-			Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
+<h3 id="tan_rad"><code class="highlighter-rouge">tan_rad</code></h3>
 
-			#### Special cases:
-		
-				*
-				Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16
-				*
-				The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).
+<h4 id="possible-use-1">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">tan_rad</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
 
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							tan (0)
-							; // var
-							0
-							equals
-							0.0 float
-							var
-							1
-							&lt;-
-							tan(90)
-							; // var
-							1
-							equals
-							1.633123935319537E16
+<h4 id="result-1">Result:</h4>
+<p>Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.</p>
 
-			```
-		
+<h4 id="special-cases-1">Special cases:</h4>
+<ul>
+  <li>Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16</li>
+  <li>The tangent is only defined for any real number except 90 + k <code class="highlighter-rouge">*</code> 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).</li>
+</ul>
 
-			#### See also:
-			[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
+<h4 id="see-also-1">See also:</h4>
+<p><a href="OperatorsCH#cos">cos</a>, <a href="OperatorsOS#sin">sin</a>,</p>
 
-		----
+<hr />
+
+<h3 id="tanh"><code class="highlighter-rouge">tanh</code></h3>
+
+<h4 id="possible-use-2">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
+
+<h4 id="result-2">Result:</h4>
+<p>Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).</p>
+
+<h4 id="examples-1">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								tanh(0)
+								; // var
+								0
+								equals
+								0.0
+float
+								var
+								1
+								&lt;-
+								tanh(100)
+								; // var
+								1
+								equals
+								1.0
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`tan_rad`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`tan_rad`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<h3 id="target_of"><code class="highlighter-rouge">target_of</code></h3>
 
-			#### Result:
-			Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
+<h4 id="possible-use-3">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">target_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">target_of</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16
-				*
-				The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).
+<h4 id="result-3">Result:</h4>
+<p>returns the target of the edge (right-hand operand) contained in the graph given in left-hand operand.</p>
 
-			#### See also:
-			[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
+<h4 id="special-cases-2">Special cases:</h4>
+<ul>
+  <li>if the lef-hand operand (the graph) is nil, returns nil</li>
+</ul>
 
-		----
+<h4 id="examples-2">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>graph graphEpidemio &lt;- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] );
+unknown
+								var
+								1
+								&lt;-
+								graphEpidemio source_of(edge(3))
+								; // var
+								1
+								equals
+								node1
+graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
+unknown
+								var
+								3
+								&lt;-
+								graphFromMap target_of(link({1,5}::{12,45}))
+								; // var
+								3
+								equals
+								{12,45}
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`tanh`
+<h4 id="see-also-2">See also:</h4>
+<p><a href="OperatorsOS#source_of">source_of</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`tanh`** 
-			(
-			
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`tanh`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<hr />
 
-			#### Result:
-			Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
+<h3 id="teapot"><code class="highlighter-rouge">teapot</code></h3>
 
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							tanh(0)
-							; // var
-							0
-							equals
-							0.0 float
-							var
-							1
-							&lt;-
-							tanh(100)
-							; // var
-							1
-							equals
-							1.0
+<h4 id="possible-use-4">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">teapot</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-4">Result:</h4>
+<p>A teapot geometry which radius is equal to the operand.</p>
 
-		----
+<h4 id="comment">Comment:</h4>
+<p>the centre of the teapot is by default the location of the current agent in which has been called this operator.</p>
+
+<h4 id="special-cases-3">Special cases:</h4>
+<ul>
+  <li>returns a point if the operand is lower or equal to 0.</li>
+</ul>
+
+<h4 id="examples-3">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								teapot(10)
+								; // var
+								0
+								equals
+								a geometry as a circle of radius 10 but displays a teapot.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`target_of`
+<h4 id="see-also-3">See also:</h4>
+<p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>, <a href="OperatorsTZ#triangle">triangle</a>,</p>
 
-	#### Possible use:
-	
-			*
-			
-			`
-			graph
-			`
-		 **`target_of`** 
-			`
-			unknown
-			`
-		
-			---&gt;
-			
-			`
-			unknown
-			`
-		
-			*
-			 **`target_of`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			unknown
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
+<hr />
 
-			#### Result:
-			returns the target of the edge (right-hand operand) contained in the graph given in left-hand operand.
+<h3 id="text_file"><code class="highlighter-rouge">text_file</code></h3>
 
-			#### Special cases:
-		
-				*
-				if the lef-hand operand (the graph) is nil, returns nil
+<h4 id="possible-use-5">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">text_file</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
+</ul>
 
-			#### Examples:
-			```
-			graph graphEpidemio &lt;- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] ); unknown
-							var
-							1
-							&lt;-
-							graphEpidemio source_of(edge(3))
-							; // var
-							1
-							equals
-							node1 graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); unknown
-							var
-							3
-							&lt;-
-							graphFromMap target_of(link({1,5}::{12,45}))
-							; // var
-							3
-							equals
-							{12,45}
+<h4 id="result-5">Result:</h4>
+<p>Constructs a file of type text. Allowed extensions are limited to txt, data, text</p>
 
-			```
-		
+<hr />
 
-			#### See also:
-			[source_of](OperatorsOS#source_of), 
+<h3 id="threeds_file"><code class="highlighter-rouge">threeds_file</code></h3>
 
-		----
+<h4 id="possible-use-6">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">threeds_file</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
+</ul>
+
+<h4 id="result-6">Result:</h4>
+<p>Constructs a file of type threeds. Allowed extensions are limited to 3ds, max</p>
+
+<hr />
+
+<h3 id="to"><code class="highlighter-rouge">to</code></h3>
+<p>Same signification as <a href="OperatorsTZ#until">until</a></p>
+
+<h4 id="possible-use-7">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">to</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
+</ul>
+
+<h4 id="result-7">Result:</h4>
+<p>builds an interval between two dates (the first inclusive and the second exclusive, which behaves like a read-only list of dates. The default step between two dates is the step of the model</p>
+
+<h4 id="comment-1">Comment:</h4>
+<p>The default step can be overruled by using the every operator applied to this interval</p>
+
+<h4 id="examples-4">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>date('2000-01-01') to date('2010-01-01') // builds an interval between these two dates
+(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`teapot`
+<h4 id="see-also-4">See also:</h4>
+<p><a href="OperatorsCH#every">every</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`teapot`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
+<hr />
 
-			#### Result:
-			A teapot geometry which radius is equal to the operand.
+<h3 id="to_gama_crs"><code class="highlighter-rouge">to_GAMA_CRS</code></h3>
 
-			#### Comment:
-			the centre of the teapot is by default the location of the current agent in which has been called this operator.
+<h4 id="possible-use-8">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">to_GAMA_CRS</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">to_GAMA_CRS</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">to_GAMA_CRS</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				returns a point if the operand is lower or equal to 0.
+<h4 id="special-cases-4">Special cases:</h4>
+<ul>
+  <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world’s agent one</li>
+</ul>
 
-			#### Examples:
-			```
-			geometry
-							var
-							0
-							&lt;-
-							teapot(10)
-							; // var
-							0
-							equals
-							a geometry as a circle of radius 10 but displays a teapot.
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								to_GAMA_CRS({121,14})
+								; // var
+								0
+								equals
+								a geometry corresponding to the agent geometry transformed into the GAMA CRS
 
-			```
-		
-
-			#### See also:
-			[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
-
-		----
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`text_file`
+<ul>
+  <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS</li>
+</ul>
 
-	#### Possible use:
-	
-			*
-			 **`text_file`** 
-			(
-			
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			file
-			`
-		
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								1
+								&lt;-
+								to_GAMA_CRS({121,14}, "EPSG:4326")
+								; // var
+								1
+								equals
+								a geometry corresponding to the agent geometry transformed into the GAMA CRS
 
-			#### Result:
-			Constructs a file of type text. Allowed extensions are limited to txt, data, text
-
-		----
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`threeds_file`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`threeds_file`** 
-			(
-			
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			file
-			`
-		
+<h3 id="to_gaml"><code class="highlighter-rouge">to_gaml</code></h3>
 
-			#### Result:
-			Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
+<h4 id="possible-use-9">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">to_gaml</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+</ul>
 
-		----
+<h4 id="result-8">Result:</h4>
+<p>returns the literal description of an expression or description – action, behavior, species, aspect, even model – in gaml</p>
+
+<h4 id="examples-5">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>string
+								var
+								0
+								&lt;-
+								to_gaml(0)
+								; // var
+								0
+								equals
+								'0'
+string
+								var
+								1
+								&lt;-
+								to_gaml(3.78)
+								; // var
+								1
+								equals
+								'3.78'
+string
+								var
+								2
+								&lt;-
+								to_gaml(true)
+								; // var
+								2
+								equals
+								'true'
+string
+								var
+								3
+								&lt;-
+								to_gaml({23, 4.0})
+								; // var
+								3
+								equals
+								'{23.0,4.0,0.0}'
+string
+								var
+								4
+								&lt;-
+								to_gaml(5::34)
+								; // var
+								4
+								equals
+								'5::34'
+string
+								var
+								5
+								&lt;-
+								to_gaml(rgb(255,0,125))
+								; // var
+								5
+								equals
+								'rgb (255, 0, 125,255)'
+string
+								var
+								6
+								&lt;-
+								to_gaml('hello')
+								; // var
+								6
+								equals
+								"'hello'"
+string
+								var
+								7
+								&lt;-
+								to_gaml([1,5,9,3])
+								; // var
+								7
+								equals
+								'[1,5,9,3]'
+string
+								var
+								8
+								&lt;-
+								to_gaml(['a'::345, 'b'::13, 'c'::12])
+								; // var
+								8
+								equals
+								"(['a'::345,'b'::13,'c'::12] as map )"
+string
+								var
+								9
+								&lt;-
+								to_gaml([[3,5,7,9],[2,4,6,8]])
+								; // var
+								9
+								equals
+								'[[3,5,7,9],[2,4,6,8]]'
+string
+								var
+								10
+								&lt;-
+								to_gaml(a_graph)
+								; // var
+								10
+								equals
+								([((1 as node)::(3 as node))::(5 as edge),((0 as node)::(3 as node))::(3 as edge),((1 as node)::(2 as node))::(1 as edge),((0 as node)::(2 as node))::(2 as edge),((0 as node)::(1 as node))::(0 as edge),((2 as node)::(3 as node))::(4 as edge)] as map ) as graph
+string
+								var
+								11
+								&lt;-
+								to_gaml(node1)
+								; // var
+								11
+								equals
+								 1 as node
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to` Same signification as [until](OperatorsTZ
-			#
-			until)
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			date
-			`
-		 **`to`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
-			`
-		
-			*
-			 **`to`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
-			`
-		
+<h3 id="to_rectangles"><code class="highlighter-rouge">to_rectangles</code></h3>
+<p>Same signification as <a href="OperatorsOS#split_geometry">split_geometry</a></p>
 
-			#### Result:
-			builds an interval between two dates (the first inclusive and the second exclusive, which behaves like a read-only list of dates. The default step between two dates is the step of the model
+<h4 id="possible-use-10">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">to_rectangles</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to_rectangles</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+</ul>
 
-			#### Comment:
-			The default step can be overruled by using the every operator applied to this interval
+<h4 id="result-9">Result:</h4>
+<p>A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry</p>
 
-			#### Examples:
-			```
-			date('2000-01-01') to date('2010-01-01') // builds an interval between these two dates (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
-
-			```
-		
-
-			#### See also:
-			[every](OperatorsCH#every), 
-
-		----
+<h4 id="examples-6">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt;
+								var
+								0
+								&lt;-
+								to_rectangles(self, {10.0, 15.0}, true)
+								; // var
+								0
+								equals
+								the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list&lt;geometry&gt;
+								var
+								1
+								&lt;-
+								to_rectangles(self, 5, 20, true)
+								; // var
+								1
+								equals
+								the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to_GAMA_CRS`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`to_GAMA_CRS`** 
-			(
-			
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			
-			`
-			geometry
-			`
-		 **`to_GAMA_CRS`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			 **`to_GAMA_CRS`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
+<h3 id="to_squares"><code class="highlighter-rouge">to_squares</code></h3>
 
-			#### Special cases:
-		
-				*
-				returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS
+<h4 id="possible-use-11">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+</ul>
 
-				```
-				geometry
-							var
-							0
-							&lt;-
-							to_GAMA_CRS({121,14}, "EPSG:4326")
-							; // var
-							0
-							equals
-							a geometry corresponding to the agent geometry transformed into the GAMA CRS
+<h4 id="result-10">Result:</h4>
+<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
 
-				```
-
-			
-				*
-				returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one
-
-				```
-				geometry
-							var
-							1
-							&lt;-
-							to_GAMA_CRS({121,14})
-							; // var
-							1
-							equals
-							a geometry corresponding to the agent geometry transformed into the GAMA CRS
-
-				```
-
-			
-
-		----
+<h4 id="examples-7">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt;
+								var
+								0
+								&lt;-
+								to_squares(self, 10, true)
+								; // var
+								0
+								equals
+								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list&lt;geometry&gt;
+								var
+								1
+								&lt;-
+								to_squares(self, 10, true, 0.99)
+								; // var
+								1
+								equals
+								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list&lt;geometry&gt;
+								var
+								2
+								&lt;-
+								to_squares(self, 10.0, true)
+								; // var
+								2
+								equals
+								the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to_gaml`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`to_gaml`** 
-			(
-			
-			`
-			unknown
-			`
-		
-			) ---&gt;
-			
-			`
-			string
-			`
-		
+<h3 id="to_triangles"><code class="highlighter-rouge">to_triangles</code></h3>
+<p>Same signification as <a href="OperatorsTZ#triangulate">triangulate</a></p>
 
-			#### Result:
-			returns the literal description of an expression or description -- action, behavior, species, aspect, even model -- in gaml
+<hr />
 
-			#### Examples:
-			```
-			string
-							var
-							0
-							&lt;-
-							to_gaml(0)
-							; // var
-							0
-							equals
-							'0' string
-							var
-							1
-							&lt;-
-							to_gaml(3.78)
-							; // var
-							1
-							equals
-							'3.78' string
-							var
-							2
-							&lt;-
-							to_gaml(true)
-							; // var
-							2
-							equals
-							'true' string
-							var
-							3
-							&lt;-
-							to_gaml({23, 4.0})
-							; // var
-							3
-							equals
-							'{23.0,4.0,0.0}' string
-							var
-							4
-							&lt;-
-							to_gaml(5::34)
-							; // var
-							4
-							equals
-							'5::34' string
-							var
-							5
-							&lt;-
-							to_gaml(rgb(255,0,125))
-							; // var
-							5
-							equals
-							'rgb (255, 0, 125,255)' string
-							var
-							6
-							&lt;-
-							to_gaml('hello')
-							; // var
-							6
-							equals
-							"'hello'" string
-							var
-							7
-							&lt;-
-							to_gaml([1,5,9,3])
-							; // var
-							7
-							equals
-							'[1,5,9,3]' string
-							var
-							8
-							&lt;-
-							to_gaml(['a'::345, 'b'::13, 'c'::12])
-							; // var
-							8
-							equals
-							"(['a'::345,'b'::13,'c'::12] as map )" string
-							var
-							9
-							&lt;-
-							to_gaml([[3,5,7,9],[2,4,6,8]])
-							; // var
-							9
-							equals
-							'[[3,5,7,9],[2,4,6,8]]' string
-							var
-							10
-							&lt;-
-							to_gaml(a_graph)
-							; // var
-							10
-							equals
-							([((1 as node)::(3 as node))::(5 as edge),((0 as node)::(3 as node))::(3 as edge),((1 as node)::(2 as node))::(1 as edge),((0 as node)::(2 as node))::(2 as edge),((0 as node)::(1 as node))::(0 as edge),((2 as node)::(3 as node))::(4 as edge)] as map ) as graph string
-							var
-							11
-							&lt;-
-							to_gaml(node1)
-							; // var
-							11
-							equals
-							 1 as node
+<h3 id="tokenize"><code class="highlighter-rouge">tokenize</code></h3>
+<p>Same signification as <a href="OperatorsOS#split_with">split_with</a></p>
 
-			```
-		
+<hr />
 
-		----
+<h3 id="topology"><code class="highlighter-rouge">topology</code></h3>
+
+<h4 id="possible-use-12">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">topology</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">topology</code></li>
+</ul>
+
+<h4 id="result-11">Result:</h4>
+<p>casting of the operand to a topology.</p>
+
+<h4 id="special-cases-5">Special cases:</h4>
+<ul>
+  <li>if the operand is a topology, returns the topology itself;</li>
+  <li>if the operand is a spatial graph, returns the graph topology associated;</li>
+  <li>if the operand is a population, returns the topology of the population;</li>
+  <li>if the operand is a shape or a geometry, returns the continuous topology bounded by the geometry;</li>
+  <li>if the operand is a matrix, returns the grid topology associated</li>
+  <li>if the operand is another kind of container, returns the multiple topology associated to the container</li>
+  <li>otherwise, casts the operand to a geometry and build a topology from it.</li>
+</ul>
+
+<h4 id="examples-8">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>topology
+								var
+								0
+								&lt;-
+								topology(0)
+								; // var
+								0
+								equals
+								nil
+topology(a_graph)	--: Multiple topology in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354]
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to_rectangles` Same signification as [split_geometry](OperatorsOS
-			#
-			split_geometry)
+<h4 id="see-also-5">See also:</h4>
+<p><a href="OperatorsCH#geometry">geometry</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`to_rectangles`** 
-			(
-			
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			point
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
-						)
-					
-			---&gt;
-			`list&lt;geometry&gt;`
-			*
-			 **`to_rectangles`** 
-			(
-			
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
-						)
-					
-			---&gt;
-			`list&lt;geometry&gt;`
+<hr />
 
-			#### Result:
-			A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
+<h3 id="touches"><code class="highlighter-rouge">touches</code></h3>
 
-			#### Examples:
-			```
-			list&lt;geometry&gt;
-							var
-							0
-							&lt;-
-							to_rectangles(self, {10.0, 15.0}, true)
-							; // var
-							0
-							equals
-							the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept list&lt;geometry&gt;
-							var
-							1
-							&lt;-
-							to_rectangles(self, 5, 20, true)
-							; // var
-							1
-							equals
-							the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+<h4 id="possible-use-13">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">touches</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">touches</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-12">Result:</h4>
+<p>A boolean, equal to true if the left-geometry (or agent/point) touches the right-geometry (or agent/point).</p>
 
-		----
+<h4 id="comment-2">Comment:</h4>
+<p>returns true when the left-operand only touches the right-operand. When one geometry covers partially (or fully) the other one, it returns false.</p>
+
+<h4 id="special-cases-6">Special cases:</h4>
+<ul>
+  <li>if one of the operand is null, returns false.</li>
+</ul>
+
+<h4 id="examples-9">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>bool
+								var
+								0
+								&lt;-
+								polyline([{10,10},{20,20}]) touches {15,15}
+								; // var
+								0
+								equals
+								false
+bool
+								var
+								1
+								&lt;-
+								polyline([{10,10},{20,20}]) touches {10,10}
+								; // var
+								1
+								equals
+								true
+bool
+								var
+								2
+								&lt;-
+								{15,15} touches {15,15}
+								; // var
+								2
+								equals
+								false
+bool
+								var
+								3
+								&lt;-
+								polyline([{10,10},{20,20}]) touches polyline([{10,10},{5,5}])
+								; // var
+								3
+								equals
+								true
+bool
+								var
+								4
+								&lt;-
+								polyline([{10,10},{20,20}]) touches polyline([{5,5},{15,15}])
+								; // var
+								4
+								equals
+								false
+bool
+								var
+								5
+								&lt;-
+								polyline([{10,10},{20,20}]) touches polyline([{15,15},{25,25}])
+								; // var
+								5
+								equals
+								false
+bool
+								var
+								6
+								&lt;-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{15,15},{15,25},{25,25},{25,15}])
+								; // var
+								6
+								equals
+								false
+bool
+								var
+								7
+								&lt;-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{10,20},{20,20},{20,30},{10,30}])
+								; // var
+								7
+								equals
+								true
+bool
+								var
+								8
+								&lt;-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{10,10},{0,10},{0,0},{10,0}])
+								; // var
+								8
+								equals
+								true
+bool
+								var
+								9
+								&lt;-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) touches {15,15}
+								; // var
+								9
+								equals
+								false
+bool
+								var
+								10
+								&lt;-
+								polygon([{10,10},{10,20},{20,20},{20,10}]) touches {10,15}
+								; // var
+								10
+								equals
+								true
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to_squares`
+<h4 id="see-also-6">See also:</h4>
+<p><a href="OperatorsCH#disjoint_from">disjoint_from</a>, <a href="OperatorsCH#crosses">crosses</a>, <a href="OperatorsOS#overlaps">overlaps</a>, <a href="OperatorsOS#partially_overlaps">partially_overlaps</a>, <a href="OperatorsIN#intersects">intersects</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`to_squares`** 
-			(
-			
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
-						)
-					
-			---&gt;
-			`list&lt;geometry&gt;`
-			*
-			 **`to_squares`** 
-			(
-			
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
-						)
-					
-			---&gt;
-			`list&lt;geometry&gt;`
-			*
-			 **`to_squares`** 
-			(
-			
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						)
-					
-			---&gt;
-			`list&lt;geometry&gt;`
+<hr />
 
-			#### Result:
-			A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+<h3 id="towards"><code class="highlighter-rouge">towards</code></h3>
 
-			#### Examples:
-			```
-			list&lt;geometry&gt;
-							var
-							0
-							&lt;-
-							to_squares(self, 10, true)
-							; // var
-							0
-							equals
-							the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept list&lt;geometry&gt;
-							var
-							1
-							&lt;-
-							to_squares(self, 10.0, true)
-							; // var
-							1
-							equals
-							the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept list&lt;geometry&gt;
-							var
-							2
-							&lt;-
-							to_squares(self, 10, true, 0.99)
-							; // var
-							2
-							equals
-							the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+<h4 id="possible-use-14">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">towards</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">towards</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-13">Result:</h4>
+<p>The direction (in degree) between the two geometries (geometries, agents, points) considering the topology of the agent applying the operator.</p>
 
-		----
+<h4 id="examples-10">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>int
+								var
+								0
+								&lt;-
+								ag1 towards ag2
+								; // var
+								0
+								equals
+								the direction between ag1 and ag2 and ag3 considering the topology of the agent applying the operator
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to_triangles` Same signification as [triangulate](OperatorsTZ
-			#
-			triangulate)
+<h4 id="see-also-7">See also:</h4>
+<p><a href="OperatorsCH#distance_between">distance_between</a>, <a href="OperatorsCH#distance_to">distance_to</a>, <a href="OperatorsCH#direction_between">direction_between</a>, <a href="OperatorsOS#path_between">path_between</a>, <a href="OperatorsOS#path_to">path_to</a>,</p>
 
-		----
+<hr />
+
+<h3 id="trace"><code class="highlighter-rouge">trace</code></h3>
+
+<h4 id="possible-use-15">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">trace</code></strong> (<code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
+
+<h4 id="result-14">Result:</h4>
+<p>The trace of the given matrix (the sum of the elements on the main diagonal).</p>
+
+<h4 id="examples-11">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								trace(matrix([[1,2],[3,4]]))
+								; // var
+								0
+								equals
+								5
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`tokenize` Same signification as [split_with](OperatorsOS
-			#
-			split_with)
+<hr />
 
-		----
+<h3 id="transformed_by"><code class="highlighter-rouge">transformed_by</code></h3>
+
+<h4 id="possible-use-16">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">transformed_by</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">transformed_by</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
+
+<h4 id="result-15">Result:</h4>
+<p>A geometry resulting from the application of a rotation and a scaling (right-operand : point {angle(degree), scale factor} of the left-hand operand (geometry, agent, point)</p>
+
+<h4 id="examples-12">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								self transformed_by {45, 0.5}
+								; // var
+								0
+								equals
+								the geometry resulting from 45 degrees rotation and 50% scaling of the geometry of the agent applying the operator.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`topology`
+<h4 id="see-also-8">See also:</h4>
+<p><a href="OperatorsOS#rotated_by">rotated_by</a>, <a href="OperatorsTZ#translated_by">translated_by</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`topology`** 
-			(
-			
-			`
-			unknown
-			`
-		
-			) ---&gt;
-			
-			`
-			topology
-			`
-		
+<hr />
 
-			#### Result:
-			casting of the operand to a topology.
+<h3 id="translated_by"><code class="highlighter-rouge">translated_by</code></h3>
 
-			#### Special cases:
-		
-				*
-				if the operand is a topology, returns the topology itself;
-				*
-				if the operand is a spatial graph, returns the graph topology associated;
-				*
-				if the operand is a population, returns the topology of the population;
-				*
-				if the operand is a shape or a geometry, returns the continuous topology bounded by the geometry;
-				*
-				if the operand is a matrix, returns the grid topology associated
-				*
-				if the operand is another kind of container, returns the multiple topology associated to the container
-				*
-				otherwise, casts the operand to a geometry and build a topology from it.
+<h4 id="possible-use-17">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">translated_by</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">translated_by</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
 
-			#### Examples:
-			```
-			topology
-							var
-							0
-							&lt;-
-							topology(0)
-							; // var
-							0
-							equals
-							nil topology(a_graph)	--: Multiple topology in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354]
+<h4 id="result-16">Result:</h4>
+<p>A geometry resulting from the application of a translation by the right-hand operand distance to the left-hand operand (geometry, agent, point)</p>
 
-			```
-		
-
-			#### See also:
-			[geometry](OperatorsCH#geometry), 
-
-		----
+<h4 id="examples-13">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								self translated_by {10,10,10}
+								; // var
+								0
+								equals
+								the geometry resulting from applying the translation to the left-hand geometry (or agent).
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`touches`
+<h4 id="see-also-9">See also:</h4>
+<p><a href="OperatorsOS#rotated_by">rotated_by</a>, <a href="OperatorsTZ#transformed_by">transformed_by</a>,</p>
 
-	#### Possible use:
-	
-			*
-			
-			`
-			geometry
-			`
-		 **`touches`** 
-			`
-			geometry
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`touches`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
+<hr />
 
-			#### Result:
-			A boolean, equal to true if the left-geometry (or agent/point) touches the right-geometry (or agent/point).
+<h3 id="translated_to"><code class="highlighter-rouge">translated_to</code></h3>
+<p>Same signification as <a href="OperatorsAB#at_location">at_location</a></p>
 
-			#### Comment:
-			returns true when the left-operand only touches the right-operand. When one geometry covers partially (or fully) the other one, it returns false.
+<hr />
 
-			#### Special cases:
-		
-				*
-				if one of the operand is null, returns false.
+<h3 id="transpose"><code class="highlighter-rouge">transpose</code></h3>
 
-			#### Examples:
-			```
-			bool
-							var
-							0
-							&lt;-
-							polyline([{10,10},{20,20}]) touches {15,15}
-							; // var
-							0
-							equals
-							false bool
-							var
-							1
-							&lt;-
-							polyline([{10,10},{20,20}]) touches {10,10}
-							; // var
-							1
-							equals
-							true bool
-							var
-							2
-							&lt;-
-							{15,15} touches {15,15}
-							; // var
-							2
-							equals
-							false bool
-							var
-							3
-							&lt;-
-							polyline([{10,10},{20,20}]) touches polyline([{10,10},{5,5}])
-							; // var
-							3
-							equals
-							true bool
-							var
-							4
-							&lt;-
-							polyline([{10,10},{20,20}]) touches polyline([{5,5},{15,15}])
-							; // var
-							4
-							equals
-							false bool
-							var
-							5
-							&lt;-
-							polyline([{10,10},{20,20}]) touches polyline([{15,15},{25,25}])
-							; // var
-							5
-							equals
-							false bool
-							var
-							6
-							&lt;-
-							polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{15,15},{15,25},{25,25},{25,15}])
-							; // var
-							6
-							equals
-							false bool
-							var
-							7
-							&lt;-
-							polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{10,20},{20,20},{20,30},{10,30}])
-							; // var
-							7
-							equals
-							true bool
-							var
-							8
-							&lt;-
-							polygon([{10,10},{10,20},{20,20},{20,10}]) touches polygon([{10,10},{0,10},{0,0},{10,0}])
-							; // var
-							8
-							equals
-							true bool
-							var
-							9
-							&lt;-
-							polygon([{10,10},{10,20},{20,20},{20,10}]) touches {15,15}
-							; // var
-							9
-							equals
-							false bool
-							var
-							10
-							&lt;-
-							polygon([{10,10},{10,20},{20,20},{20,10}]) touches {10,15}
-							; // var
-							10
-							equals
-							true
+<h4 id="possible-use-18">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">transpose</code></strong> (<code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-17">Result:</h4>
+<p>The transposition of the given matrix</p>
 
-			#### See also:
-			[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [intersects](OperatorsIN#intersects), 
-
-		----
+<h4 id="examples-14">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>matrix
+								var
+								0
+								&lt;-
+								transpose(matrix([[5,-3],[6,-4]]))
+								; // var
+								0
+								equals
+								[[5,6],[-3,-4]]
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`towards`
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			geometry
-			`
-		 **`towards`** 
-			`
-			geometry
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`towards`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
+<h3 id="triangle"><code class="highlighter-rouge">triangle</code></h3>
 
-			#### Result:
-			The direction (in degree) between the two geometries (geometries, agents, points) considering the topology of the agent applying the operator.
+<h4 id="possible-use-19">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">triangle</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
 
-			#### Examples:
-			```
-			int
-							var
-							0
-							&lt;-
-							ag1 towards ag2
-							; // var
-							0
-							equals
-							the direction between ag1 and ag2 and ag3 considering the topology of the agent applying the operator
+<h4 id="result-18">Result:</h4>
+<p>A triangle geometry which side size is given by the operand.</p>
 
-			```
-		
+<h4 id="comment-3">Comment:</h4>
+<p>the center of the triangle is by default the location of the current agent in which has been called this operator.</p>
 
-			#### See also:
-			[distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+<h4 id="special-cases-7">Special cases:</h4>
+<ul>
+  <li>returns nil if the operand is nil.</li>
+</ul>
 
-		----
+<h4 id="examples-15">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								triangle(5)
+								; // var
+								0
+								equals
+								a geometry as a triangle with side_size = 5.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`trace`
+<h4 id="see-also-10">See also:</h4>
+<p><a href="OperatorsAB#around">around</a>, <a href="OperatorsCH#circle">circle</a>, <a href="OperatorsCH#cone">cone</a>, <a href="OperatorsIN#line">line</a>, <a href="OperatorsIN#link">link</a>, <a href="OperatorsIN#norm">norm</a>, <a href="OperatorsOS#point">point</a>, <a href="OperatorsOS#polygon">polygon</a>, <a href="OperatorsOS#polyline">polyline</a>, <a href="OperatorsOS#rectangle">rectangle</a>, <a href="OperatorsOS#square">square</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`trace`** 
-			(
-			
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<hr />
 
-			#### Result:
-			The trace of the given matrix (the sum of the elements on the main diagonal).
+<h3 id="triangulate"><code class="highlighter-rouge">triangulate</code></h3>
 
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							trace(matrix([[1,2],[3,4]]))
-							; // var
-							0
-							equals
-							5
+<h4 id="possible-use-20">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">list&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-19">Result:</h4>
+<p>A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)</p>
 
-		----
+<h4 id="examples-16">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt;
+								var
+								0
+								&lt;-
+								triangulate(self)
+								; // var
+								0
+								equals
+								the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list&lt;geometry&gt;
+								var
+								1
+								&lt;-
+								triangulate(self)
+								; // var
+								1
+								equals
+								the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`transformed_by`
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			geometry
-			`
-		 **`transformed_by`** 
-			`
-			point
-			`
-		
-			---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			 **`transformed_by`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
+<h3 id="truncated_gauss"><code class="highlighter-rouge">truncated_gauss</code></h3>
 
-			#### Result:
-			A geometry resulting from the application of a rotation and a scaling (right-operand : point {angle(degree), scale factor} of the left-hand operand (geometry, agent, point)
+<h4 id="possible-use-21">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
 
-			#### Examples:
-			```
-			geometry
-							var
-							0
-							&lt;-
-							self transformed_by {45, 0.5}
-							; // var
-							0
-							equals
-							the geometry resulting from 45 degrees rotation and 50% scaling of the geometry of the agent applying the operator.
+<h4 id="result-20">Result:</h4>
+<p>A random value from a normally distributed random variable in the interval ]mean - standardDeviation; mean + standardDeviation[.</p>
 
-			```
-		
+<h4 id="special-cases-8">Special cases:</h4>
+<ul>
+  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
+  <li>if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]</li>
+  <li>when truncated_gauss is called with a list of only one element mean, it will always return 0.0</li>
+</ul>
 
-			#### See also:
-			[rotated_by](OperatorsOS#rotated_by), [translated_by](OperatorsTZ#translated_by), 
-
-		----
+<h4 id="examples-17">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								truncated_gauss ({0, 0.3})
+								; // var
+								0
+								equals
+								a float between -0.3 and 0.3
+float
+								var
+								1
+								&lt;-
+								truncated_gauss ([0.5, 0.0])
+								; // var
+								1
+								equals
+								0.5
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`translated_by`
+<h4 id="see-also-11">See also:</h4>
+<p><a href="OperatorsCH#gauss">gauss</a>,</p>
 
-	#### Possible use:
-	
-			*
-			
-			`
-			geometry
-			`
-		 **`translated_by`** 
-			`
-			point
-			`
-		
-			---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			 **`translated_by`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
+<hr />
 
-			#### Result:
-			A geometry resulting from the application of a translation by the right-hand operand distance to the left-hand operand (geometry, agent, point)
+<h3 id="type-definition"><code class="highlighter-rouge">type definition</code></h3>
 
-			#### Examples:
-			```
-			geometry
-							var
-							0
-							&lt;-
-							self translated_by {10,10,10}
-							; // var
-							0
-							equals
-							the geometry resulting from applying the translation to the left-hand geometry (or agent).
+<h4 id="possible-use-22">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">type definition</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">type definition</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-21">Result:</h4>
+<p>Casts the operand into the type type definition</p>
 
-			#### See also:
-			[rotated_by](OperatorsOS#rotated_by), [transformed_by](OperatorsTZ#transformed_by), 
+<hr />
 
-		----
+<h3 id="undirected"><code class="highlighter-rouge">undirected</code></h3>
+
+<h4 id="possible-use-23">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">undirected</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+</ul>
+
+<h4 id="result-22">Result:</h4>
+<p>the operand graph becomes an undirected graph.</p>
+
+<h4 id="comment-4">Comment:</h4>
+<p>the operator alters the operand graph, it does not create a new one.</p>
+
+<h4 id="see-also-12">See also:</h4>
+<p><a href="OperatorsCH#directed">directed</a>,</p>
+
+<hr />
+
+<h3 id="union"><code class="highlighter-rouge">union</code></h3>
+
+<h4 id="possible-use-24">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">union</code></strong> (<code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">union</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">container</code></li>
+  <li><strong><code class="highlighter-rouge">union</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
+</ul>
+
+<h4 id="result-23">Result:</h4>
+<p>returns a new list containing all the elements of both containers without duplicated elements.</p>
+
+<h4 id="special-cases-9">Special cases:</h4>
+<ul>
+  <li>if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries</li>
+  <li>if the left or right operand is nil, union throws an error</li>
+</ul>
+
+<h4 id="examples-18">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								union([geom1, geom2, geom3])
+								; // var
+								0
+								equals
+								a geometry corresponding to union between geom1, geom2 and geom3
+container
+								var
+								1
+								&lt;-
+								[1,2,3,4,5,6] union [2,4,9]
+								; // var
+								1
+								equals
+								[1,2,3,4,5,6,9]
+container
+								var
+								2
+								&lt;-
+								[1,2,3,4,5,6] union [0,8]
+								; // var
+								2
+								equals
+								[1,2,3,4,5,6,0,8]
+container
+								var
+								3
+								&lt;-
+								[1,3,2,4,5,6,8,5,6] union [0,8]
+								; // var
+								3
+								equals
+								[1,3,2,4,5,6,8,0]
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`translated_to` Same signification as [at_location](OperatorsAB
-			#
-			at_location)
+<h4 id="see-also-13">See also:</h4>
+<p><a href="OperatorsIN#inter">inter</a>, <a href="OperatorsAB#+">+</a>,</p>
 
-		----
+<hr />
+
+<h3 id="unknown"><code class="highlighter-rouge">unknown</code></h3>
+
+<h4 id="possible-use-25">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">unknown</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
+
+<h4 id="result-24">Result:</h4>
+<p>Casts the operand into the type unknown</p>
+
+<hr />
+
+<h3 id="until"><code class="highlighter-rouge">until</code></h3>
+
+<h4 id="possible-use-26">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">until</code></strong> (<code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">any expression</code> <strong><code class="highlighter-rouge">until</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">until</code></strong> (<code class="highlighter-rouge">any expression</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+</ul>
+
+<h4 id="result-25">Result:</h4>
+<p>Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of ‘current_date &lt;= argument’</p>
+
+<h4 id="examples-19">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>reflex when: until(starting_date) {} -: will be run only once at the beginning of the simulation
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`transpose`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`transpose`** 
-			(
-			
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
+<h3 id="upper_case"><code class="highlighter-rouge">upper_case</code></h3>
 
-			#### Result:
-			The transposition of the given matrix
+<h4 id="possible-use-27">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">upper_case</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+</ul>
 
-			#### Examples:
-			```
-			matrix
-							var
-							0
-							&lt;-
-							transpose(matrix([[5,-3],[6,-4]]))
-							; // var
-							0
-							equals
-							[[5,6],[-3,-4]]
+<h4 id="result-26">Result:</h4>
+<p>Converts all of the characters in the string operand to upper case</p>
 
-			```
-		
-
-		----
+<h4 id="examples-20">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>string
+								var
+								0
+								&lt;-
+								upper_case("Abc")
+								; // var
+								0
+								equals
+								'ABC'
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`triangle`
+<h4 id="see-also-14">See also:</h4>
+<p><a href="OperatorsIN#lower_case">lower_case</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`triangle`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
+<hr />
 
-			#### Result:
-			A triangle geometry which side size is given by the operand.
+<h3 id="use_cache"><code class="highlighter-rouge">use_cache</code></h3>
 
-			#### Comment:
-			the center of the triangle is by default the location of the current agent in which has been called this operator.
+<h4 id="possible-use-28">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">use_cache</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">use_cache</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				returns nil if the operand is nil.
+<h4 id="result-27">Result:</h4>
+<p>if the second operand is true, the operand graph will store in a cache all the previously computed shortest path (the cache be cleared if the graph is modified).</p>
 
-			#### Examples:
-			```
-			geometry
-							var
-							0
-							&lt;-
-							triangle(5)
-							; // var
-							0
-							equals
-							a geometry as a triangle with side_size = 5.
+<h4 id="comment-5">Comment:</h4>
+<p>the operator alters the operand graph, it does not create a new one.</p>
 
-			```
-		
+<h4 id="see-also-15">See also:</h4>
+<p><a href="OperatorsOS#path_between">path_between</a>,</p>
 
-			#### See also:
-			[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), 
+<hr />
 
-		----
+<h3 id="user_input"><code class="highlighter-rouge">user_input</code></h3>
+
+<h4 id="possible-use-29">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">user_input</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">user_input</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">user_input</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
+</ul>
+
+<h4 id="result-28">Result:</h4>
+<p>asks the user for some values (not defined as parameters). Takes a string (optional) and a map as arguments. The string is used to specify the message of the dialog box. The map is to specify the parameters you want the user to change before the simulation starts, with the name of the parameter in string key, and the default value as value.</p>
+
+<h4 id="comment-6">Comment:</h4>
+<p>This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :</p>
+
+<h4 id="examples-21">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]);
+create bug number: int(values at "Number") with: [location:: (point(values at "Location"))];
+map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]);
+create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))];
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`triangulate`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`triangulate`** 
-			(
-			`list&lt;geometry&gt;`
-			) ---&gt;
-			`list&lt;geometry&gt;`
-			*
-			 **`triangulate`** 
-			(
-			
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			`list&lt;geometry&gt;`
+<h3 id="using"><code class="highlighter-rouge">using</code></h3>
 
-			#### Result:
-			A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
+<h4 id="possible-use-30">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">any expression</code> <strong><code class="highlighter-rouge">using</code></strong> <code class="highlighter-rouge">topology</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">using</code></strong> (<code class="highlighter-rouge">any expression</code> , <code class="highlighter-rouge">topology</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
 
-			#### Examples:
-			```
-			list&lt;geometry&gt;
-							var
-							0
-							&lt;-
-							triangulate(self)
-							; // var
-							0
-							equals
-							the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. list&lt;geometry&gt;
-							var
-							1
-							&lt;-
-							triangulate(self)
-							; // var
-							1
-							equals
-							the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+<h4 id="result-29">Result:</h4>
+<p>Allows to specify in which topology a spatial computation should take place.</p>
 
-			```
-		
+<h4 id="special-cases-10">Special cases:</h4>
+<ul>
+  <li>has no effect if the topology passed as a parameter is nil</li>
+</ul>
 
-		----
+<h4 id="examples-22">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>unknown
+								var
+								0
+								&lt;-
+								(agents closest_to self) using topology(world)
+								; // var
+								0
+								equals
+								the closest agent to self (the caller) in the continuous topology of the world
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`truncated_gauss`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`truncated_gauss`** 
-			(
-			
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`truncated_gauss`** 
-			(
-			
-			`
-			container
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<h3 id="variance"><code class="highlighter-rouge">variance</code></h3>
 
-			#### Result:
-			A random value from a normally distributed random variable in the interval ]mean - standardDeviation; mean + standardDeviation[.
+<h4 id="possible-use-31">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				when the operand is a point, it is read as {mean, standardDeviation}
-				*
-				if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]
-				*
-				when truncated_gauss is called with a list of only one element mean, it will always return 0.0
+<h4 id="result-30">Result:</h4>
+<p>the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.</p>
 
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							truncated_gauss ({0, 0.3})
-							; // var
-							0
-							equals
-							a float between -0.3 and 0.3 float
-							var
-							1
-							&lt;-
-							truncated_gauss ([0.5, 0.0])
-							; // var
-							1
-							equals
-							0.5
+<h4 id="comment-7">Comment:</h4>
+<p>The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.</p>
 
-			```
-		
-
-			#### See also:
-			[gauss](OperatorsCH#gauss), 
-
-		----
+<h4 id="examples-23">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								variance ([4.5, 3.5, 5.5, 7.0])
+								; // var
+								0
+								equals
+								1.671875
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`type definition`
+<h4 id="see-also-16">See also:</h4>
+<p><a href="OperatorsIN#mean">mean</a>, <a href="OperatorsIN#median">median</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`type definition`** 
-			(
-			
-			`
-			any
-			`
-		
-			) ---&gt;
-			
-			`
-			type definition
-			`
-		
+<hr />
 
-			#### Result:
-			Casts the operand into the type type definition
+<h3 id="variance-1"><code class="highlighter-rouge">variance</code></h3>
 
-		----
+<h4 id="possible-use-32">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
+
+<h4 id="result-31">Result:</h4>
+<p>Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
+
+<hr />
+
+<h3 id="variance_of"><code class="highlighter-rouge">variance_of</code></h3>
+
+<h4 id="possible-use-33">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">variance_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">variance_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
+
+<h4 id="result-32">Result:</h4>
+<p>the variance of the right-hand expression evaluated on each of the elements of the left-hand operand</p>
+
+<h4 id="comment-8">Comment:</h4>
+<p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
+
+<h4 id="see-also-17">See also:</h4>
+<p><a href="OperatorsIN#min_of">min_of</a>, <a href="OperatorsIN#max_of">max_of</a>, <a href="OperatorsOS#sum_of">sum_of</a>, <a href="OperatorsOS#product_of">product_of</a>,</p>
+
+<hr />
+
+<h3 id="voronoi"><code class="highlighter-rouge">voronoi</code></h3>
+
+<h4 id="possible-use-34">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">voronoi</code></strong> (<code class="highlighter-rouge">list&lt;point&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><code class="highlighter-rouge">list&lt;point&gt;</code> <strong><code class="highlighter-rouge">voronoi</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">voronoi</code></strong> (<code class="highlighter-rouge">list&lt;point&gt;</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+</ul>
+
+<h4 id="result-33">Result:</h4>
+<p>A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points</p>
+
+<h4 id="examples-24">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;geometry&gt;
+								var
+								0
+								&lt;-
+								voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300))
+								; // var
+								0
+								equals
+								the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list&lt;geometry&gt;
+								var
+								1
+								&lt;-
+								voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}])
+								; // var
+								1
+								equals
+								the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`undirected`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`undirected`** 
-			(
-			
-			`
-			graph
-			`
-		
-			) ---&gt;
-			
-			`
-			graph
-			`
-		
+<h3 id="weight_of"><code class="highlighter-rouge">weight_of</code></h3>
 
-			#### Result:
-			the operand graph becomes an undirected graph.
+<h4 id="possible-use-35">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">weight_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">weight_of</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+</ul>
 
-			#### Comment:
-			the operator alters the operand graph, it does not create a new one.
+<h4 id="result-34">Result:</h4>
+<p>returns the weight of the given edge (right-hand operand) contained in the graph given in right-hand operand.</p>
 
-			#### See also:
-			[directed](OperatorsCH#directed), 
+<h4 id="comment-9">Comment:</h4>
+<p>In a localized graph, an edge has a weight by default (the distance between both vertices).</p>
 
-		----
+<h4 id="special-cases-11">Special cases:</h4>
+<ul>
+  <li>if the left-operand (the graph) is nil, returns nil</li>
+  <li>if the right-hand operand is not an edge of the given graph, weight_of checks whether it is a node of the graph and tries to return its weight</li>
+  <li>if the right-hand operand is neither a node, nor an edge, returns 1.</li>
+</ul>
+
+<h4 id="examples-25">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
+float
+								var
+								1
+								&lt;-
+								graphFromMap weight_of(link({1,5}::{12,45}))
+								; // var
+								1
+								equals
+								1.0
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`union`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`union`** 
-			(
-			`container&lt;geometry&gt;`
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			
-			`
-			container
-			`
-		 **`union`** 
-			`
-			container
-			`
-		
-			---&gt;
-			
-			`
-			container
-			`
-		
-			*
-			 **`union`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			container
-			`
-		
-			) ---&gt;
-			
-			`
-			container
-			`
-		
+<h3 id="weighted_means_dm"><code class="highlighter-rouge">weighted_means_DM</code></h3>
 
-			#### Result:
-			returns a new list containing all the elements of both containers without duplicated elements.
+<h4 id="possible-use-36">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">list&lt;list&gt;</code> <strong><code class="highlighter-rouge">weighted_means_DM</code></strong> <code class="highlighter-rouge">list&lt;map&lt;string,object&gt;&gt;</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">weighted_means_DM</code></strong> (<code class="highlighter-rouge">list&lt;list&gt;</code> , <code class="highlighter-rouge">list&lt;map&lt;string,object&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				if the left or right operand is nil, union throws an error
-				*
-				if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
+<h4 id="result-35">Result:</h4>
+<p>The index of the candidate that maximizes the weighted mean of its criterion values. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of map)</p>
 
-			#### Examples:
-			```
-			container
-							var
-							0
-							&lt;-
-							[1,2,3,4,5,6] union [2,4,9]
-							; // var
-							0
-							equals
-							[1,2,3,4,5,6,9] container
-							var
-							1
-							&lt;-
-							[1,2,3,4,5,6] union [0,8]
-							; // var
-							1
-							equals
-							[1,2,3,4,5,6,0,8] container
-							var
-							2
-							&lt;-
-							[1,3,2,4,5,6,8,5,6] union [0,8]
-							; // var
-							2
-							equals
-							[1,3,2,4,5,6,8,0] geometry
-							var
-							3
-							&lt;-
-							union([geom1, geom2, geom3])
-							; // var
-							3
-							equals
-							a geometry corresponding to union between geom1, geom2 and geom3
+<h4 id="special-cases-12">Special cases:</h4>
+<ul>
+  <li>returns -1 is the list of candidates is nil or empty</li>
+</ul>
 
-			```
-		
-
-			#### See also:
-			[inter](OperatorsIN#inter), [+](OperatorsAB#+), 
-
-		----
+<h4 id="examples-26">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>int
+								var
+								0
+								&lt;-
+								weighted_means_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "weight" :: 2.0],["name"::"price", "weight" :: 1.0]])
+								; // var
+								0
+								equals
+								1
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`unknown`
+<h4 id="see-also-18">See also:</h4>
+<p><a href="OperatorsOS#promethee_dm">promethee_DM</a>, <a href="OperatorsCH#electre_dm">electre_DM</a>, <a href="OperatorsCH#evidence_theory_dm">evidence_theory_DM</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`unknown`** 
-			(
-			
-			`
-			any
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
+<hr />
 
-			#### Result:
-			Casts the operand into the type unknown
+<h3 id="where"><code class="highlighter-rouge">where</code></h3>
 
-		----
+<h4 id="possible-use-37">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">where</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">container</code></li>
+  <li><strong><code class="highlighter-rouge">where</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
+</ul>
+
+<h4 id="result-36">Result:</h4>
+<p>a list containing all the elements of the left-hand operand that make the right-hand operand evaluate to true.</p>
+
+<h4 id="comment-10">Comment:</h4>
+<p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
+
+<h4 id="special-cases-13">Special cases:</h4>
+<ul>
+  <li>if the left-hand operand is a list nil, where returns a new empty list</li>
+  <li>if the left-operand is a map, the keyword each will contain each value</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>container
+								var
+								4
+								&lt;-
+								[1::2, 3::4, 5::6] where (each &gt;= 4)
+								; // var
+								4
+								equals
+								[4, 6]
+
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`until`
-
-	#### Possible use:
-	
-			*
-			 **`until`** 
-			(
-			
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			any expression
-			`
-		 **`until`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`until`** 
-			(
-			
-			`
-			any expression
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-
-			#### Result:
-			Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of 'current_date &lt;= argument'
-
-			#### Examples:
-			```
-			reflex when: until(starting_date) {} -: will be run only once at the beginning of the simulation
-
-			```
-		
-
-		----
+<h4 id="examples-27">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>container
+								var
+								0
+								&lt;-
+								[1,2,3,4,5,6,7,8] where (each &gt; 3)
+								; // var
+								0
+								equals
+								[4, 5, 6, 7, 8] 
+container
+								var
+								2
+								&lt;-
+								g2 where (length(g2 out_edges_of each) = 0 )
+								; // var
+								2
+								equals
+								[node9, node7, node10, node8, node11]
+container
+								var
+								3
+								&lt;-
+								(list(node) where (round(node(each).location.x) &gt; 32)
+								; // var
+								3
+								equals
+								[node2, node3]
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`upper_case`
+<h4 id="see-also-19">See also:</h4>
+<p><a href="OperatorsCH#first_with">first_with</a>, <a href="OperatorsIN#last_with">last_with</a>, <a href="OperatorsTZ#where">where</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`upper_case`** 
-			(
-			
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			string
-			`
-		
+<hr />
 
-			#### Result:
-			Converts all of the characters in the string operand to upper case
+<h3 id="with_lifetime"><code class="highlighter-rouge">with_lifetime</code></h3>
 
-			#### Examples:
-			```
-			string
-							var
-							0
-							&lt;-
-							upper_case("Abc")
-							; // var
-							0
-							equals
-							'ABC'
+<h4 id="possible-use-38">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">with_lifetime</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">with_lifetime</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+</ul>
 
-			```
-		
+<h4 id="result-37">Result:</h4>
+<p>change the parameters of the given predicate</p>
 
-			#### See also:
-			[lower_case](OperatorsIN#lower_case), 
-
-		----
+<h4 id="examples-28">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>predicate with_lifetime 10
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`use_cache`
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			graph
-			`
-		 **`use_cache`** 
-			`
-			bool
-			`
-		
-			---&gt;
-			
-			`
-			graph
-			`
-		
-			*
-			 **`use_cache`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			bool
-			`
-		
-			) ---&gt;
-			
-			`
-			graph
-			`
-		
+<h3 id="with_max_of"><code class="highlighter-rouge">with_max_of</code></h3>
 
-			#### Result:
-			if the second operand is true, the operand graph will store in a cache all the previously computed shortest path (the cache be cleared if the graph is modified).
+<h4 id="possible-use-39">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">with_max_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">with_max_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
 
-			#### Comment:
-			the operator alters the operand graph, it does not create a new one.
+<h4 id="result-38">Result:</h4>
+<p>one of elements of the left-hand operand that maximizes the value of the right-hand operand</p>
 
-			#### See also:
-			[path_between](OperatorsOS#path_between), 
+<h4 id="comment-11">Comment:</h4>
+<p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
-		----
+<h4 id="special-cases-14">Special cases:</h4>
+<ul>
+  <li>if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand</li>
+</ul>
+
+<h4 id="examples-29">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>unknown
+								var
+								0
+								&lt;-
+								[1,2,3,4,5,6,7,8] with_max_of (each )
+								; // var
+								0
+								equals
+								8
+unknown
+								var
+								2
+								&lt;-
+								g2 with_max_of (length(g2 out_edges_of each)  ) 
+								; // var
+								2
+								equals
+								node4
+unknown
+								var
+								3
+								&lt;-
+								(list(node) with_max_of (round(node(each).location.x))
+								; // var
+								3
+								equals
+								node3
+unknown
+								var
+								4
+								&lt;-
+								[1::2, 3::4, 5::6] with_max_of (each)
+								; // var
+								4
+								equals
+								6
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`user_input`
+<h4 id="see-also-20">See also:</h4>
+<p><a href="OperatorsTZ#where">where</a>, <a href="OperatorsTZ#with_min_of">with_min_of</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`user_input`** 
-			(
-			
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			`map&lt;string,unknown&gt;`
-			*
-			
-			`
-			string
-			`
-		 **`user_input`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			`map&lt;string,unknown&gt;`
-			*
-			 **`user_input`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			`map&lt;string,unknown&gt;`
+<hr />
 
-			#### Result:
-			asks the user for some values (not defined as parameters). Takes a string (optional) and a map as arguments. The string is used to specify the message of the dialog box. The map is to specify the parameters you want the user to change before the simulation starts, with the name of the parameter in string key, and the default value as value.
+<h3 id="with_min_of"><code class="highlighter-rouge">with_min_of</code></h3>
 
-			#### Comment:
-			This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :
+<h4 id="possible-use-40">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">with_min_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">with_min_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+</ul>
 
-			#### Examples:
-			```
-			map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))];
+<h4 id="result-39">Result:</h4>
+<p>one of elements of the left-hand operand that minimizes the value of the right-hand operand</p>
 
-			```
-		
+<h4 id="comment-12">Comment:</h4>
+<p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
-		----
+<h4 id="special-cases-15">Special cases:</h4>
+<ul>
+  <li>if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand</li>
+</ul>
+
+<h4 id="examples-30">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>unknown
+								var
+								0
+								&lt;-
+								[1,2,3,4,5,6,7,8] with_min_of (each )
+								; // var
+								0
+								equals
+								1
+unknown
+								var
+								2
+								&lt;-
+								g2 with_min_of (length(g2 out_edges_of each)  )
+								; // var
+								2
+								equals
+								node11
+unknown
+								var
+								3
+								&lt;-
+								(list(node) with_min_of (round(node(each).location.x))
+								; // var
+								3
+								equals
+								node0
+unknown
+								var
+								4
+								&lt;-
+								[1::2, 3::4, 5::6] with_min_of (each)
+								; // var
+								4
+								equals
+								2
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`using`
+<h4 id="see-also-21">See also:</h4>
+<p><a href="OperatorsTZ#where">where</a>, <a href="OperatorsTZ#with_max_of">with_max_of</a>,</p>
 
-	#### Possible use:
-	
-			*
-			
-			`
-			any expression
-			`
-		 **`using`** 
-			`
-			topology
-			`
-		
-			---&gt;
-			
-			`
-			unknown
-			`
-		
-			*
-			 **`using`** 
-			(
-			
-			`
-			any expression
-			`
-		 , 
-			`
-			topology
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
+<hr />
 
-			#### Result:
-			Allows to specify in which topology a spatial computation should take place.
+<h3 id="with_optimizer_type"><code class="highlighter-rouge">with_optimizer_type</code></h3>
 
-			#### Special cases:
-		
-				*
-				has no effect if the topology passed as a parameter is nil
+<h4 id="possible-use-41">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_optimizer_type</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_optimizer_type</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+</ul>
 
-			#### Examples:
-			```
-			unknown
-							var
-							0
-							&lt;-
-							(agents closest_to self) using topology(world)
-							; // var
-							0
-							equals
-							the closest agent to self (the caller) in the continuous topology of the world
+<h4 id="result-40">Result:</h4>
+<p>changes the shortest path computation method of the given graph</p>
 
-			```
-		
+<h4 id="comment-13">Comment:</h4>
+<p>the right-hand operand can be “Djikstra”, “Bellmann”, “Astar” to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.</p>
 
-		----
+<h4 id="examples-31">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>graphEpidemio &lt;- graphEpidemio with_optimizer_type "static";
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`variance`
+<h4 id="see-also-22">See also:</h4>
+<p><a href="OperatorsTZ#set_verbose">set_verbose</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`variance`** 
-			(
-			
-			`
-			container
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<hr />
 
-			#### Result:
-			the variance of the elements of the operand. See &lt;A href="http://en.wikipedia.org/wiki/Variance"&gt;Variance&lt;/A&gt; for more details.
+<h3 id="with_precision"><code class="highlighter-rouge">with_precision</code></h3>
 
-			#### Comment:
-			The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+<h4 id="possible-use-42">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+</ul>
 
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							variance ([4.5, 3.5, 5.5, 7.0])
-							; // var
-							0
-							equals
-							1.671875
+<h4 id="result-41">Result:</h4>
+<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand</p>
 
-			```
-		
-
-			#### See also:
-			[mean](OperatorsIN#mean), [median](OperatorsIN#median), 
-
-		----
+<h4 id="examples-32">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>float
+								var
+								0
+								&lt;-
+								12345.78943 with_precision 2
+								; // var
+								0
+								equals
+								12345.79
+float
+								var
+								1
+								&lt;-
+								123 with_precision 2
+								; // var
+								1
+								equals
+								123.00
+geometry
+								var
+								2
+								&lt;-
+								self with_precision 2
+								; // var
+								2
+								equals
+								the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+point
+								var
+								3
+								&lt;-
+								{12345.78943, 12345.78943, 12345.78943} with_precision 2 
+								; // var
+								3
+								equals
+								{12345.79, 12345.79, 12345.79}
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`variance`
+<h4 id="see-also-23">See also:</h4>
+<p><a href="OperatorsOS#round">round</a>,</p>
 
-	#### Possible use:
-	
-			*
-			 **`variance`** 
-			(
-			
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`variance`** 
-			(
-			
-			`
-			int
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			float
-			`
-		
+<hr />
 
-			#### Result:
-			Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size. Returns the variance from a standard deviation.
+<h3 id="with_priority"><code class="highlighter-rouge">with_priority</code></h3>
 
-		----
+<h4 id="possible-use-43">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">with_priority</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">with_priority</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+</ul>
+
+<h4 id="result-42">Result:</h4>
+<p>change the priority of the given predicate</p>
+
+<h4 id="examples-33">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>predicate with_priority 2
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`variance_of`
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			container
-			`
-		 **`variance_of`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			
-			`
-			unknown
-			`
-		
-			*
-			 **`variance_of`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
+<h3 id="with_values"><code class="highlighter-rouge">with_values</code></h3>
 
-			#### Result:
-			the variance of the right-hand expression evaluated on each of the elements of the left-hand operand
+<h4 id="possible-use-44">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">with_values</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">with_values</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+</ul>
 
-			#### Comment:
-			in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+<h4 id="result-43">Result:</h4>
+<p>change the parameters of the given predicate</p>
 
-			#### See also:
-			[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [product_of](OperatorsOS#product_of), 
-
-		----
+<h4 id="examples-34">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>predicate with_values ["time"::10]
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`voronoi`
+<hr />
 
-	#### Possible use:
-	
-			*
-			 **`voronoi`** 
-			(
-			`list&lt;point&gt;`
-			) ---&gt;
-			`list&lt;geometry&gt;`
-			*
-			`list&lt;point&gt;` **`voronoi`** 
-			`
-			geometry
-			`
-		
-			---&gt;
-			`list&lt;geometry&gt;`
-			*
-			 **`voronoi`** 
-			(
-			`list&lt;point&gt;` , 
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			`list&lt;geometry&gt;`
+<h3 id="with_weights"><code class="highlighter-rouge">with_weights</code></h3>
 
-			#### Result:
-			A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip A list of geometries corresponding to the Voronoi diagram built from the list of points
+<h4 id="possible-use-45">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+</ul>
 
-			#### Examples:
-			```
-			list&lt;geometry&gt;
-							var
-							0
-							&lt;-
-							voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300))
-							; // var
-							0
-							equals
-							the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. list&lt;geometry&gt;
-							var
-							1
-							&lt;-
-							voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}])
-							; // var
-							1
-							equals
-							the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+<h4 id="result-44">Result:</h4>
+<p>returns the graph (left-hand operand) with weight given in the map (right-hand operand).</p>
 
-			```
-		
+<h4 id="comment-14">Comment:</h4>
+<p>this operand re-initializes the path finder</p>
 
-		----
+<h4 id="special-cases-16">Special cases:</h4>
+<ul>
+  <li>if the right-hand operand is a list, affects the n elements of the list to the n first edges. Note that the ordering of edges may change overtime, which can create some problems…</li>
+  <li>if the left-hand operand is a map, the map should contains pairs such as: vertex/edge::double</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>graph_from_edges (list(ant) as_map each::one_of (list(ant))) with_weights (list(ant) as_map each::each.food)
+
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`weight_of`
+<hr />
 
-	#### Possible use:
-	
-			*
-			
-			`
-			graph
-			`
-		 **`weight_of`** 
-			`
-			unknown
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`weight_of`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			unknown
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
+<h3 id="without_holes"><code class="highlighter-rouge">without_holes</code></h3>
 
-			#### Result:
-			returns the weight of the given edge (right-hand operand) contained in the graph given in right-hand operand.
+<h4 id="possible-use-46">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">without_holes</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+</ul>
 
-			#### Comment:
-			In a localized graph, an edge has a weight by default (the distance between both vertices).
+<h4 id="result-45">Result:</h4>
+<p>A geometry corresponding to the operand geometry (geometry, agent, point) without its holes</p>
 
-			#### Special cases:
-		
-				*
-				if the left-operand (the graph) is nil, returns nil
-				*
-				if the right-hand operand is not an edge of the given graph, weight_of checks whether it is a node of the graph and tries to return its weight
-				*
-				if the right-hand operand is neither a node, nor an edge, returns 1.
-
-			#### Examples:
-			```
-			graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); float
-							var
-							1
-							&lt;-
-							graphFromMap weight_of(link({1,5}::{12,45}))
-							; // var
-							1
-							equals
-							1.0
-
-			```
-		
-
-		----
+<h4 id="examples-35">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>geometry
+								var
+								0
+								&lt;-
+								solid(self)
+								; // var
+								0
+								equals
+								the geometry corresponding to the geometry of the agent applying the operator without its holes.
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`weighted_means_DM`
+<hr />
 
-	#### Possible use:
-	
-			*
-			`list&lt;list&gt;` **`weighted_means_DM`** 
-			`
-			list&lt;map&lt;string,object&gt;&gt;
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`weighted_means_DM`** 
-			(
-			`list&lt;list&gt;` , 
-			`
-			list&lt;map&lt;string,object&gt;&gt;
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
+<h3 id="writable"><code class="highlighter-rouge">writable</code></h3>
 
-			#### Result:
-			The index of the candidate that maximizes the weighted mean of its criterion values. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of map)
+<h4 id="possible-use-47">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">writable</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">file</code></li>
+  <li><strong><code class="highlighter-rouge">writable</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				returns -1 is the list of candidates is nil or empty
+<h4 id="result-46">Result:</h4>
+<p>Marks the file as read-only or not, depending on the second boolean argument, and returns the first argument</p>
 
-			#### Examples:
-			```
-			int
-							var
-							0
-							&lt;-
-							weighted_means_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "weight" :: 2.0],["name"::"price", "weight" :: 1.0]])
-							; // var
-							0
-							equals
-							1
+<h4 id="comment-15">Comment:</h4>
+<p>A file is created using its native flags. This operator can change them. Beware that this change is system-wide (and not only restrained to GAMA): changing a file to read-only mode (e.g. “writable(f, false)”)</p>
 
-			```
-		
-
-			#### See also:
-			[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
-
-		----
+<h4 id="examples-36">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>file
+								var
+								0
+								&lt;-
+								shape_file("../images/point_eau.shp") writable false
+								; // var
+								0
+								equals
+								returns a file in read-only mode
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`where`
+<h4 id="see-also-24">See also:</h4>
+<p><a href="OperatorsCH#file">file</a>,</p>
 
-	#### Possible use:
-	
-			*
-			
-			`
-			container
-			`
-		 **`where`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			
-			`
-			container
-			`
-		
-			*
-			 **`where`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			
-			`
-			container
-			`
-		
+<hr />
 
-			#### Result:
-			a list containing all the elements of the left-hand operand that make the right-hand operand evaluate to true.
+<h3 id="xml_file"><code class="highlighter-rouge">xml_file</code></h3>
 
-			#### Comment:
-			in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+<h4 id="possible-use-48">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">xml_file</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
+</ul>
 
-			#### Special cases:
-		
-				*
-				if the left-hand operand is a list nil, where returns a new empty list
-				*
-				if the left-operand is a map, the keyword each will contain each value
+<h4 id="result-47">Result:</h4>
+<p>Constructs a file of type xml. Allowed extensions are limited to xml</p>
 
-				```
-				container
-							var
-							4
-							&lt;-
-							[1::2, 3::4, 5::6] where (each &gt;= 4)
-							; // var
-							4
-							equals
-							[4, 6]
+<hr />
 
-				```
+<h3 id="years_between"><code class="highlighter-rouge">years_between</code></h3>
 
-			
+<h4 id="possible-use-49">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">years_between</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">years_between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+</ul>
 
-			#### Examples:
-			```
-			container
-							var
-							0
-							&lt;-
-							[1,2,3,4,5,6,7,8] where (each &gt; 3)
-							; // var
-							0
-							equals
-							[4, 5, 6, 7, 8]  container
-							var
-							2
-							&lt;-
-							g2 where (length(g2 out_edges_of each) = 0 )
-							; // var
-							2
-							equals
-							[node9, node7, node10, node8, node11] container
-							var
-							3
-							&lt;-
-							(list(node) where (round(node(each).location.x) &gt; 32)
-							; // var
-							3
-							equals
-							[node2, node3]
+<h4 id="result-48">Result:</h4>
+<p>Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 
-			```
-		
-
-			#### See also:
-			[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_lifetime`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			predicate
-			`
-		 **`with_lifetime`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`with_lifetime`** 
-			(
-			
-			`
-			predicate
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			predicate
-			`
-		
-
-			#### Result:
-			change the parameters of the given predicate
-
-			#### Examples:
-			```
-			predicate with_lifetime 10
-
-			```
-		
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_max_of`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			container
-			`
-		 **`with_max_of`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			
-			`
-			unknown
-			`
-		
-			*
-			 **`with_max_of`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
-
-			#### Result:
-			one of elements of the left-hand operand that maximizes the value of the right-hand operand
-
-			#### Comment:
-			in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
-
-			#### Special cases:
-		
-				*
-				if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
-
-			#### Examples:
-			```
-			unknown
-							var
-							0
-							&lt;-
-							[1,2,3,4,5,6,7,8] with_max_of (each )
-							; // var
-							0
-							equals
-							8 unknown
-							var
-							2
-							&lt;-
-							g2 with_max_of (length(g2 out_edges_of each)  ) 
-							; // var
-							2
-							equals
-							node4 unknown
-							var
-							3
-							&lt;-
-							(list(node) with_max_of (round(node(each).location.x))
-							; // var
-							3
-							equals
-							node3 unknown
-							var
-							4
-							&lt;-
-							[1::2, 3::4, 5::6] with_max_of (each)
-							; // var
-							4
-							equals
-							6
-
-			```
-		
-
-			#### See also:
-			[where](OperatorsTZ#where), [with_min_of](OperatorsTZ#with_min_of), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_min_of`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			container
-			`
-		 **`with_min_of`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			
-			`
-			unknown
-			`
-		
-			*
-			 **`with_min_of`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			
-			`
-			unknown
-			`
-		
-
-			#### Result:
-			one of elements of the left-hand operand that minimizes the value of the right-hand operand
-
-			#### Comment:
-			in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
-
-			#### Special cases:
-		
-				*
-				if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
-
-			#### Examples:
-			```
-			unknown
-							var
-							0
-							&lt;-
-							[1,2,3,4,5,6,7,8] with_min_of (each )
-							; // var
-							0
-							equals
-							1 unknown
-							var
-							2
-							&lt;-
-							g2 with_min_of (length(g2 out_edges_of each)  )
-							; // var
-							2
-							equals
-							node11 unknown
-							var
-							3
-							&lt;-
-							(list(node) with_min_of (round(node(each).location.x))
-							; // var
-							3
-							equals
-							node0 unknown
-							var
-							4
-							&lt;-
-							[1::2, 3::4, 5::6] with_min_of (each)
-							; // var
-							4
-							equals
-							2
-
-			```
-		
-
-			#### See also:
-			[where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_optimizer_type`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			graph
-			`
-		 **`with_optimizer_type`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			graph
-			`
-		
-			*
-			 **`with_optimizer_type`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			graph
-			`
-		
-
-			#### Result:
-			changes the shortest path computation method of the given graph
-
-			#### Comment:
-			the right-hand operand can be "Djikstra", "Bellmann", "Astar" to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.
-
-			#### Examples:
-			```
-			graphEpidemio &lt;- graphEpidemio with_optimizer_type "static";
-
-			```
-		
-
-			#### See also:
-			[set_verbose](OperatorsTZ#set_verbose), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_precision`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			float
-			`
-		 **`with_precision`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`with_precision`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			geometry
-			`
-		 **`with_precision`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			 **`with_precision`** 
-			(
-			
-			`
-			geometry
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`with_precision`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`with_precision`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-
-			#### Result:
-			Rounds off the value of left-hand operand to the precision given by the value of right-hand operand A geometry corresponding to the rounding of points of the operand considering a given precison. Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
-
-			#### Examples:
-			```
-			float
-							var
-							0
-							&lt;-
-							12345.78943 with_precision 2
-							; // var
-							0
-							equals
-							12345.79 float
-							var
-							1
-							&lt;-
-							123 with_precision 2
-							; // var
-							1
-							equals
-							123.00 geometry
-							var
-							2
-							&lt;-
-							self with_precision 2
-							; // var
-							2
-							equals
-							the geometry resulting from the rounding of points of the geometry with a precision of 0.1. point
-							var
-							3
-							&lt;-
-							{12345.78943, 12345.78943, 12345.78943} with_precision 2 
-							; // var
-							3
-							equals
-							{12345.79, 12345.79, 12345.79}
-
-			```
-		
-
-			#### See also:
-			[round](OperatorsOS#round), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_priority`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			predicate
-			`
-		 **`with_priority`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`with_priority`** 
-			(
-			
-			`
-			predicate
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			predicate
-			`
-		
-
-			#### Result:
-			change the priority of the given predicate
-
-			#### Examples:
-			```
-			predicate with_priority 2
-
-			```
-		
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_values`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			predicate
-			`
-		 **`with_values`** 
-			`
-			map
-			`
-		
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`with_values`** 
-			(
-			
-			`
-			predicate
-			`
-		 , 
-			`
-			map
-			`
-		
-			) ---&gt;
-			
-			`
-			predicate
-			`
-		
-
-			#### Result:
-			change the parameters of the given predicate
-
-			#### Examples:
-			```
-			predicate with_values ["time"::10]
-
-			```
-		
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`with_weights`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			graph
-			`
-		 **`with_weights`** 
-			`
-			container
-			`
-		
-			---&gt;
-			
-			`
-			graph
-			`
-		
-			*
-			 **`with_weights`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			container
-			`
-		
-			) ---&gt;
-			
-			`
-			graph
-			`
-		
-			*
-			
-			`
-			graph
-			`
-		 **`with_weights`** 
-			`
-			map
-			`
-		
-			---&gt;
-			
-			`
-			graph
-			`
-		
-			*
-			 **`with_weights`** 
-			(
-			
-			`
-			graph
-			`
-		 , 
-			`
-			map
-			`
-		
-			) ---&gt;
-			
-			`
-			graph
-			`
-		
-
-			#### Result:
-			returns the graph (left-hand operand) with weight given in the map (right-hand operand).
-
-			#### Comment:
-			this operand re-initializes the path finder
-
-			#### Special cases:
-		
-				*
-				if the right-hand operand is a list, affects the n elements of the list to the n first edges. Note that the ordering of edges may change overtime, which can create some problems...
-				*
-				if the left-hand operand is a map, the map should contains pairs such as: vertex/edge::double
-
-				```
-				graph_from_edges (list(ant) as_map each::one_of (list(ant))) with_weights (list(ant) as_map each::each.food)
-
-				```
-
-			
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`without_holes`
-
-	#### Possible use:
-	
-			*
-			 **`without_holes`** 
-			(
-			
-			`
-			geometry
-			`
-		
-			) ---&gt;
-			
-			`
-			geometry
-			`
-		
-
-			#### Result:
-			A geometry corresponding to the operand geometry (geometry, agent, point) without its holes
-
-			#### Examples:
-			```
-			geometry
-							var
-							0
-							&lt;-
-							solid(self)
-							; // var
-							0
-							equals
-							the geometry corresponding to the geometry of the agent applying the operator without its holes.
-
-			```
-		
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`writable`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			file
-			`
-		 **`writable`** 
-			`
-			bool
-			`
-		
-			---&gt;
-			
-			`
-			file
-			`
-		
-			*
-			 **`writable`** 
-			(
-			
-			`
-			file
-			`
-		 , 
-			`
-			bool
-			`
-		
-			) ---&gt;
-			
-			`
-			file
-			`
-		
-
-			#### Result:
-			Marks the file as read-only or not, depending on the second boolean argument, and returns the first argument
-
-			#### Comment:
-			A file is created using its native flags. This operator can change them. Beware that this change is system-wide (and not only restrained to GAMA): changing a file to read-only mode (e.g. "writable(f, false)")
-
-			#### Examples:
-			```
-			file
-							var
-							0
-							&lt;-
-							shape_file("../images/point_eau.shp") writable false
-							; // var
-							0
-							equals
-							returns a file in read-only mode
-
-			```
-		
-
-			#### See also:
-			[file](OperatorsCH#file), 
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`xml_file`
-
-	#### Possible use:
-	
-			*
-			 **`xml_file`** 
-			(
-			
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			file
-			`
-		
-
-			#### Result:
-			Constructs a file of type xml. Allowed extensions are limited to xml
-
-		----
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`years_between`
-
-	#### Possible use:
-	
-			*
-			
-			`
-			date
-			`
-		 **`years_between`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`years_between`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-
-			#### Result:
-			Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
-
-			#### Examples:
-			```
-			years_between(d1, d2) -: 10 
-
-			```
+<h4 id="examples-37">Examples:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>years_between(d1, d2) -: 10 
 </code></pre>
 </div>
 

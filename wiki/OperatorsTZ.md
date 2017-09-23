@@ -82,14 +82,14 @@ Note that due to the fact that actions are written by modelers, the general func
 
 	
 
-		----
+----
 
-		## Table of Contents
+## Table of Contents
 
-		----
+----
 
-		## Operators by categories
-		
+## Operators by categories
+	
 
 ----
 
@@ -315,62 +315,31 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### User control operators
 [user_input](OperatorsTZ#user_input), 
+	
+----
 
-		----
+## Operators
+	
+    	
+----
 
-		## Operators
-		
-
-			----
-			
 [//]: # (keyword|operator_tan)
-			###
-			`tan`
+### `tan`
 
-		#### Possible use:
-		
-				*
-				 **`tan`** 
-				(
-				
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`tan`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`tan`** (`float`) --->  `float`
+  *  **`tan`** (`int`) --->  `float` 
 
-				#### Result:
-				Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
+#### Result: 
+Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
 
-				#### Special cases:
-			
-					*
-					Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16
-					*
-					The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).
+#### Special cases:     
+  * Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16    
+  * The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -388,92 +357,45 @@ float
 								1
 								equals
 								1.633123935319537E16
+```
+      
 
-				```
-			
+#### See also: 
+[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
+    	
+----
 
-				#### See also:
-				[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
-
-			----
-			
 [//]: # (keyword|operator_tan_rad)
-			###
-			`tan_rad`
+### `tan_rad`
 
-		#### Possible use:
-		
-				*
-				 **`tan_rad`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`tan_rad`** (`float`) --->  `float` 
 
-				#### Result:
-				Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
+#### Result: 
+Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
 
-				#### Special cases:
-			
-					*
-					Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16
-					*
-					The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).
+#### Special cases:     
+  * Operand values out of the range [0-359] are normalized. Notice that tan(360) does not return 0.0 but -2.4492935982947064E-16    
+  * The tangent is only defined for any real number except 90 + k `*` 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).    
 
-				#### See also:
-				[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
+#### See also: 
+[cos](OperatorsCH#cos), [sin](OperatorsOS#sin), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_tanh)
-			###
-			`tanh`
+### `tanh`
 
-		#### Possible use:
-		
-				*
-				 **`tanh`** 
-				(
-				
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`tanh`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`tanh`** (`int`) --->  `float`
+  *  **`tanh`** (`float`) --->  `float` 
 
-				#### Result:
-				Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
+#### Result: 
+Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -491,64 +413,27 @@ float
 								1
 								equals
 								1.0
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_target_of)
-			###
-			`target_of`
+### `target_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`target_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`target_of`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `graph` **`target_of`** `unknown` --->  `unknown`
+  *  **`target_of`** (`graph` , `unknown`) --->  `unknown` 
 
-				#### Result:
-				returns the target of the edge (right-hand operand) contained in the graph given in left-hand operand.
+#### Result: 
+returns the target of the edge (right-hand operand) contained in the graph given in left-hand operand.
 
-				#### Special cases:
-			
-					*
-					if the lef-hand operand (the graph) is nil, returns nil
+#### Special cases:     
+  * if the lef-hand operand (the graph) is nil, returns nil
 
-				#### Examples:
-				```
-				graph graphEpidemio <- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] );
+#### Examples: 
+```
+graph graphEpidemio <- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] );
 unknown
 								var
 								1
@@ -568,50 +453,32 @@ unknown
 								3
 								equals
 								{12,45}
+```
+      
 
-				```
-			
+#### See also: 
+[source_of](OperatorsOS#source_of), 
+    	
+----
 
-				#### See also:
-				[source_of](OperatorsOS#source_of), 
-
-			----
-			
 [//]: # (keyword|operator_teapot)
-			###
-			`teapot`
+### `teapot`
 
-		#### Possible use:
-		
-				*
-				 **`teapot`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  *  **`teapot`** (`float`) --->  `geometry` 
 
-				#### Result:
-				A teapot geometry which radius is equal to the operand.
+#### Result: 
+A teapot geometry which radius is equal to the operand.  
 
-				#### Comment:
-				the centre of the teapot is by default the location of the current agent in which has been called this operator.
+#### Comment: 
+the centre of the teapot is by default the location of the current agent in which has been called this operator.
 
-				#### Special cases:
-			
-					*
-					returns a point if the operand is lower or equal to 0.
+#### Special cases:     
+  * returns a point if the operand is lower or equal to 0.
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -620,251 +487,118 @@ unknown
 								0
 								equals
 								a geometry as a circle of radius 10 but displays a teapot.
+```
+      
 
-				```
-			
+#### See also: 
+[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+    	
+----
 
-				#### See also:
-				[around](OperatorsAB#around), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
-
-			----
-			
 [//]: # (keyword|operator_text_file)
-			###
-			`text_file`
+### `text_file`
 
-		#### Possible use:
-		
-				*
-				 **`text_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`text_file`** (`string`) --->  `file` 
 
-				#### Result:
-				Constructs a file of type text. Allowed extensions are limited to txt, data, text
+#### Result: 
+Constructs a file of type text. Allowed extensions are limited to txt, data, text
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_threeds_file)
-			###
-			`threeds_file`
+### `threeds_file`
 
-		#### Possible use:
-		
-				*
-				 **`threeds_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`threeds_file`** (`string`) --->  `file` 
 
-				#### Result:
-				Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
+#### Result: 
+Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_to)
-			###
-			`to`
-Same signification as [until](OperatorsTZ
-				#
-				until)
+### `to`
+Same signification as [until](OperatorsTZ#until)
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`to`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				msi.gama.util.IList<msi.gama.util.GamaDate>
-				`
-			
-				*
-				 **`to`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				msi.gama.util.IList<msi.gama.util.GamaDate>
-				`
-			
+#### Possible use: 
+  * `date` **`to`** `date` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`to`** (`date` , `date`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
-				#### Result:
-				builds an interval between two dates (the first inclusive and the second exclusive, which behaves like a read-only list of dates. The default step between two dates is the step of the model
+#### Result: 
+builds an interval between two dates (the first inclusive and the second exclusive, which behaves like a read-only list of dates. The default step between two dates is the step of the model  
 
-				#### Comment:
-				The default step can be overruled by using the every operator applied to this interval
+#### Comment: 
+The default step can be overruled by using the every operator applied to this interval
 
-				#### Examples:
-				```
-				date('2000-01-01') to date('2010-01-01') // builds an interval between these two dates
+#### Examples: 
+```
+date('2000-01-01') to date('2010-01-01') // builds an interval between these two dates
 (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval
+```
+      
 
-				```
-			
+#### See also: 
+[every](OperatorsCH#every), 
+    	
+----
 
-				#### See also:
-				[every](OperatorsCH#every), 
-
-			----
-			
 [//]: # (keyword|operator_to_GAMA_CRS)
-			###
-			`to_GAMA_CRS`
+### `to_GAMA_CRS`
 
-		#### Possible use:
-		
-				*
-				 **`to_GAMA_CRS`** 
-				(
-				
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`to_GAMA_CRS`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`to_GAMA_CRS`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  *  **`to_GAMA_CRS`** (`geometry`) --->  `geometry`
+  * `geometry` **`to_GAMA_CRS`** `string` --->  `geometry`
+  *  **`to_GAMA_CRS`** (`geometry` , `string`) --->  `geometry`
 
-				#### Special cases:
-			
-					*
-					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS
-
-					```
-					geometry
+#### Special cases:     
+  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one 
+  
+```
+geometry
 								var
 								0
-								<-
-								to_GAMA_CRS({121,14}, "EPSG:4326")
-								; // var
-								0
-								equals
-								a geometry corresponding to the agent geometry transformed into the GAMA CRS
-
-					```
-
-				
-					*
-					returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one
-
-					```
-					geometry
-								var
-								1
 								<-
 								to_GAMA_CRS({121,14})
 								; // var
+								0
+								equals
+								a geometry corresponding to the agent geometry transformed into the GAMA CRS
+
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
+  
+```
+geometry
+								var
+								1
+								<-
+								to_GAMA_CRS({121,14}, "EPSG:4326")
+								; // var
 								1
 								equals
 								a geometry corresponding to the agent geometry transformed into the GAMA CRS
 
-					```
+``` 
 
-				
 
-			----
-			
+    	
+----
+
 [//]: # (keyword|operator_to_gaml)
-			###
-			`to_gaml`
+### `to_gaml`
 
-		#### Possible use:
-		
-				*
-				 **`to_gaml`** 
-				(
-				
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
+#### Possible use: 
+  *  **`to_gaml`** (`unknown`) --->  `string` 
 
-				#### Result:
-				returns the literal description of an expression or description -- action, behavior, species, aspect, even model -- in gaml
+#### Result: 
+returns the literal description of an expression or description -- action, behavior, species, aspect, even model -- in gaml
 
-				#### Examples:
-				```
-				string
+#### Examples: 
+```
+string
 								var
 								0
 								<-
@@ -972,83 +706,26 @@ string
 								11
 								equals
 								 1 as node
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_to_rectangles)
-			###
-			`to_rectangles`
-Same signification as [split_geometry](OperatorsOS
-				#
-				split_geometry)
+### `to_rectangles`
+Same signification as [split_geometry](OperatorsOS#split_geometry)
 
-		#### Possible use:
-		
-				*
-				 **`to_rectangles`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				point
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				`list<geometry>`
-				*
-				 **`to_rectangles`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				`list<geometry>`
+#### Possible use: 
+  *  **`to_rectangles`** (`geometry`, `point`, `bool`) --->  `list<geometry>`
+  *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
-				#### Result:
-				A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+#### Result: 
+A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
 
-				#### Examples:
-				```
-				list<geometry>
+#### Examples: 
+```
+list<geometry>
 								var
 								0
 								<-
@@ -1066,105 +743,27 @@ list<geometry>
 								1
 								equals
 								the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_to_squares)
-			###
-			`to_squares`
+### `to_squares`
 
-		#### Possible use:
-		
-				*
-				 **`to_squares`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				`list<geometry>`
-				*
-				 **`to_squares`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				`list<geometry>`
-				*
-				 **`to_squares`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				`list<geometry>`
+#### Possible use: 
+  *  **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
+  *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
+  *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
-				#### Result:
-				A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+#### Result: 
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
-				#### Examples:
-				```
-				list<geometry>
+#### Examples: 
+```
+list<geometry>
 								var
 								0
 								<-
@@ -1177,88 +776,58 @@ list<geometry>
 								var
 								1
 								<-
-								to_squares(self, 10.0, true)
+								to_squares(self, 10, true, 0.99)
 								; // var
 								1
 								equals
-								the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 list<geometry>
 								var
 								2
 								<-
-								to_squares(self, 10, true, 0.99)
+								to_squares(self, 10.0, true)
 								; // var
 								2
 								equals
-								the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+								the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_to_triangles)
-			###
-			`to_triangles`
-Same signification as [triangulate](OperatorsTZ
-				#
-				triangulate)
+### `to_triangles`
+Same signification as [triangulate](OperatorsTZ#triangulate)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_tokenize)
-			###
-			`tokenize`
-Same signification as [split_with](OperatorsOS
-				#
-				split_with)
+### `tokenize`
+Same signification as [split_with](OperatorsOS#split_with)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_topology)
-			###
-			`topology`
+### `topology`
 
-		#### Possible use:
-		
-				*
-				 **`topology`** 
-				(
-				
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				topology
-				`
-			
+#### Possible use: 
+  *  **`topology`** (`unknown`) --->  `topology` 
 
-				#### Result:
-				casting of the operand to a topology.
+#### Result: 
+casting of the operand to a topology.
 
-				#### Special cases:
-			
-					*
-					if the operand is a topology, returns the topology itself;
-					*
-					if the operand is a spatial graph, returns the graph topology associated;
-					*
-					if the operand is a population, returns the topology of the population;
-					*
-					if the operand is a shape or a geometry, returns the continuous topology bounded by the geometry;
-					*
-					if the operand is a matrix, returns the grid topology associated
-					*
-					if the operand is another kind of container, returns the multiple topology associated to the container
-					*
-					otherwise, casts the operand to a geometry and build a topology from it.
+#### Special cases:     
+  * if the operand is a topology, returns the topology itself;    
+  * if the operand is a spatial graph, returns the graph topology associated;    
+  * if the operand is a population, returns the topology of the population;    
+  * if the operand is a shape or a geometry, returns the continuous topology bounded by the geometry;    
+  * if the operand is a matrix, returns the grid topology associated    
+  * if the operand is another kind of container, returns the multiple topology associated to the container    
+  * otherwise, casts the operand to a geometry and build a topology from it.
 
-				#### Examples:
-				```
-				topology
+#### Examples: 
+```
+topology
 								var
 								0
 								<-
@@ -1268,70 +837,33 @@ Same signification as [split_with](OperatorsOS
 								equals
 								nil
 topology(a_graph)	--: Multiple topology in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354]
+```
+      
 
-				```
-			
+#### See also: 
+[geometry](OperatorsCH#geometry), 
+    	
+----
 
-				#### See also:
-				[geometry](OperatorsCH#geometry), 
-
-			----
-			
 [//]: # (keyword|operator_touches)
-			###
-			`touches`
+### `touches`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`touches`** 
-				`
-				geometry
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`touches`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  * `geometry` **`touches`** `geometry` --->  `bool`
+  *  **`touches`** (`geometry` , `geometry`) --->  `bool` 
 
-				#### Result:
-				A boolean, equal to true if the left-geometry (or agent/point) touches the right-geometry (or agent/point).
+#### Result: 
+A boolean, equal to true if the left-geometry (or agent/point) touches the right-geometry (or agent/point).  
 
-				#### Comment:
-				returns true when the left-operand only touches the right-operand. When one geometry covers partially (or fully) the other one, it returns false.
+#### Comment: 
+returns true when the left-operand only touches the right-operand. When one geometry covers partially (or fully) the other one, it returns false.
 
-				#### Special cases:
-			
-					*
-					if one of the operand is null, returns false.
+#### Special cases:     
+  * if one of the operand is null, returns false.
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
 								<-
@@ -1430,62 +962,27 @@ bool
 								10
 								equals
 								true
+```
+      
 
-				```
-			
+#### See also: 
+[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [intersects](OperatorsIN#intersects), 
+    	
+----
 
-				#### See also:
-				[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [intersects](OperatorsIN#intersects), 
-
-			----
-			
 [//]: # (keyword|operator_towards)
-			###
-			`towards`
+### `towards`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`towards`** 
-				`
-				geometry
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`towards`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `geometry` **`towards`** `geometry` --->  `int`
+  *  **`towards`** (`geometry` , `geometry`) --->  `int` 
 
-				#### Result:
-				The direction (in degree) between the two geometries (geometries, agents, points) considering the topology of the agent applying the operator.
+#### Result: 
+The direction (in degree) between the two geometries (geometries, agents, points) considering the topology of the agent applying the operator.
 
-				#### Examples:
-				```
-				int
+#### Examples: 
+```
+int
 								var
 								0
 								<-
@@ -1494,42 +991,26 @@ bool
 								0
 								equals
 								the direction between ag1 and ag2 and ag3 considering the topology of the agent applying the operator
+```
+      
 
-				```
-			
+#### See also: 
+[distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
+    	
+----
 
-				#### See also:
-				[distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [direction_between](OperatorsCH#direction_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), 
-
-			----
-			
 [//]: # (keyword|operator_trace)
-			###
-			`trace`
+### `trace`
 
-		#### Possible use:
-		
-				*
-				 **`trace`** 
-				(
-				
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`trace`** (`matrix`) --->  `float` 
 
-				#### Result:
-				The trace of the given matrix (the sum of the elements on the main diagonal).
+#### Result: 
+The trace of the given matrix (the sum of the elements on the main diagonal).
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -1538,59 +1019,24 @@ bool
 								0
 								equals
 								5
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_transformed_by)
-			###
-			`transformed_by`
+### `transformed_by`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`transformed_by`** 
-				`
-				point
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`transformed_by`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  * `geometry` **`transformed_by`** `point` --->  `geometry`
+  *  **`transformed_by`** (`geometry` , `point`) --->  `geometry` 
 
-				#### Result:
-				A geometry resulting from the application of a rotation and a scaling (right-operand : point {angle(degree), scale factor} of the left-hand operand (geometry, agent, point)
+#### Result: 
+A geometry resulting from the application of a rotation and a scaling (right-operand : point {angle(degree), scale factor} of the left-hand operand (geometry, agent, point)
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -1599,62 +1045,27 @@ bool
 								0
 								equals
 								the geometry resulting from 45 degrees rotation and 50% scaling of the geometry of the agent applying the operator.
+```
+      
 
-				```
-			
+#### See also: 
+[rotated_by](OperatorsOS#rotated_by), [translated_by](OperatorsTZ#translated_by), 
+    	
+----
 
-				#### See also:
-				[rotated_by](OperatorsOS#rotated_by), [translated_by](OperatorsTZ#translated_by), 
-
-			----
-			
 [//]: # (keyword|operator_translated_by)
-			###
-			`translated_by`
+### `translated_by`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`translated_by`** 
-				`
-				point
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`translated_by`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  * `geometry` **`translated_by`** `point` --->  `geometry`
+  *  **`translated_by`** (`geometry` , `point`) --->  `geometry` 
 
-				#### Result:
-				A geometry resulting from the application of a translation by the right-hand operand distance to the left-hand operand (geometry, agent, point)
+#### Result: 
+A geometry resulting from the application of a translation by the right-hand operand distance to the left-hand operand (geometry, agent, point)
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -1663,51 +1074,32 @@ bool
 								0
 								equals
 								the geometry resulting from applying the translation to the left-hand geometry (or agent).
+```
+      
 
-				```
-			
+#### See also: 
+[rotated_by](OperatorsOS#rotated_by), [transformed_by](OperatorsTZ#transformed_by), 
+    	
+----
 
-				#### See also:
-				[rotated_by](OperatorsOS#rotated_by), [transformed_by](OperatorsTZ#transformed_by), 
-
-			----
-			
 [//]: # (keyword|operator_translated_to)
-			###
-			`translated_to`
-Same signification as [at_location](OperatorsAB
-				#
-				at_location)
+### `translated_to`
+Same signification as [at_location](OperatorsAB#at_location)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_transpose)
-			###
-			`transpose`
+### `transpose`
 
-		#### Possible use:
-		
-				*
-				 **`transpose`** 
-				(
-				
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
+#### Possible use: 
+  *  **`transpose`** (`matrix`) --->  `matrix` 
 
-				#### Result:
-				The transposition of the given matrix
+#### Result: 
+The transposition of the given matrix
 
-				#### Examples:
-				```
-				matrix
+#### Examples: 
+```
+matrix
 								var
 								0
 								<-
@@ -1716,47 +1108,29 @@ Same signification as [at_location](OperatorsAB
 								0
 								equals
 								[[5,6],[-3,-4]]
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_triangle)
-			###
-			`triangle`
+### `triangle`
 
-		#### Possible use:
-		
-				*
-				 **`triangle`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  *  **`triangle`** (`float`) --->  `geometry` 
 
-				#### Result:
-				A triangle geometry which side size is given by the operand.
+#### Result: 
+A triangle geometry which side size is given by the operand.  
 
-				#### Comment:
-				the center of the triangle is by default the location of the current agent in which has been called this operator.
+#### Comment: 
+the center of the triangle is by default the location of the current agent in which has been called this operator.
 
-				#### Special cases:
-			
-					*
-					returns nil if the operand is nil.
+#### Special cases:     
+  * returns nil if the operand is nil.
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -1765,44 +1139,27 @@ Same signification as [at_location](OperatorsAB
 								0
 								equals
 								a geometry as a triangle with side_size = 5.
+```
+      
 
-				```
-			
+#### See also: 
+[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), 
+    	
+----
 
-				#### See also:
-				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), 
-
-			----
-			
 [//]: # (keyword|operator_triangulate)
-			###
-			`triangulate`
+### `triangulate`
 
-		#### Possible use:
-		
-				*
-				 **`triangulate`** 
-				(
-				`list<geometry>`
-				) --->
-				`list<geometry>`
-				*
-				 **`triangulate`** 
-				(
-				
-				`
-				geometry
-				`
-			
-				) --->
-				`list<geometry>`
+#### Possible use: 
+  *  **`triangulate`** (`geometry`) --->  `list<geometry>`
+  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>` 
 
-				#### Result:
-				A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
+#### Result: 
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 
-				#### Examples:
-				```
-				list<geometry>
+#### Examples: 
+```
+list<geometry>
 								var
 								0
 								<-
@@ -1820,62 +1177,29 @@ list<geometry>
 								1
 								equals
 								the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_truncated_gauss)
-			###
-			`truncated_gauss`
+### `truncated_gauss`
 
-		#### Possible use:
-		
-				*
-				 **`truncated_gauss`** 
-				(
-				
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`truncated_gauss`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`truncated_gauss`** (`point`) --->  `float`
+  *  **`truncated_gauss`** (`container`) --->  `float` 
 
-				#### Result:
-				A random value from a normally distributed random variable in the interval ]mean - standardDeviation; mean + standardDeviation[.
+#### Result: 
+A random value from a normally distributed random variable in the interval ]mean - standardDeviation; mean + standardDeviation[.
 
-				#### Special cases:
-			
-					*
-					when the operand is a point, it is read as {mean, standardDeviation}
-					*
-					if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]
-					*
-					when truncated_gauss is called with a list of only one element mean, it will always return 0.0
+#### Special cases:     
+  * when the operand is a point, it is read as {mean, standardDeviation}    
+  * if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]    
+  * when truncated_gauss is called with a list of only one element mean, it will always return 0.0
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -1893,301 +1217,145 @@ float
 								1
 								equals
 								0.5
+```
+      
 
-				```
-			
+#### See also: 
+[gauss](OperatorsCH#gauss), 
+    	
+----
 
-				#### See also:
-				[gauss](OperatorsCH#gauss), 
-
-			----
-			
 [//]: # (keyword|operator_type definition)
-			###
-			`type definition`
+### `type definition`
 
-		#### Possible use:
-		
-				*
-				 **`type definition`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				type definition
-				`
-			
+#### Possible use: 
+  *  **`type definition`** (`any`) --->  `type definition` 
 
-				#### Result:
-				Casts the operand into the type type definition
+#### Result: 
+Casts the operand into the type type definition
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_undirected)
-			###
-			`undirected`
+### `undirected`
 
-		#### Possible use:
-		
-				*
-				 **`undirected`** 
-				(
-				
-				`
-				graph
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  *  **`undirected`** (`graph`) --->  `graph` 
 
-				#### Result:
-				the operand graph becomes an undirected graph.
+#### Result: 
+the operand graph becomes an undirected graph.  
 
-				#### Comment:
-				the operator alters the operand graph, it does not create a new one.
+#### Comment: 
+the operator alters the operand graph, it does not create a new one.    
 
-				#### See also:
-				[directed](OperatorsCH#directed), 
+#### See also: 
+[directed](OperatorsCH#directed), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_union)
-			###
-			`union`
+### `union`
 
-		#### Possible use:
-		
-				*
-				 **`union`** 
-				(
-				`container<geometry>`
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				
-				`
-				container
-				`
-			 **`union`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`union`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  *  **`union`** (`container<geometry>`) --->  `geometry`
+  * `container` **`union`** `container` --->  `container`
+  *  **`union`** (`container` , `container`) --->  `container` 
 
-				#### Result:
-				returns a new list containing all the elements of both containers without duplicated elements.
+#### Result: 
+returns a new list containing all the elements of both containers without duplicated elements.
 
-				#### Special cases:
-			
-					*
-					if the left or right operand is nil, union throws an error
-					*
-					if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
+#### Special cases:     
+  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries    
+  * if the left or right operand is nil, union throws an error
 
-				#### Examples:
-				```
-				container
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
-								[1,2,3,4,5,6] union [2,4,9]
+								union([geom1, geom2, geom3])
 								; // var
 								0
+								equals
+								a geometry corresponding to union between geom1, geom2 and geom3
+container
+								var
+								1
+								<-
+								[1,2,3,4,5,6] union [2,4,9]
+								; // var
+								1
 								equals
 								[1,2,3,4,5,6,9]
 container
 								var
-								1
+								2
 								<-
 								[1,2,3,4,5,6] union [0,8]
 								; // var
-								1
+								2
 								equals
 								[1,2,3,4,5,6,0,8]
 container
 								var
-								2
+								3
 								<-
 								[1,3,2,4,5,6,8,5,6] union [0,8]
 								; // var
-								2
+								3
 								equals
 								[1,3,2,4,5,6,8,0]
-geometry
-								var
-								3
-								<-
-								union([geom1, geom2, geom3])
-								; // var
-								3
-								equals
-								a geometry corresponding to union between geom1, geom2 and geom3
+```
+      
 
-				```
-			
+#### See also: 
+[inter](OperatorsIN#inter), [+](OperatorsAB#+), 
+    	
+----
 
-				#### See also:
-				[inter](OperatorsIN#inter), [+](OperatorsAB#+), 
-
-			----
-			
 [//]: # (keyword|operator_unknown)
-			###
-			`unknown`
+### `unknown`
 
-		#### Possible use:
-		
-				*
-				 **`unknown`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`unknown`** (`any`) --->  `unknown` 
 
-				#### Result:
-				Casts the operand into the type unknown
+#### Result: 
+Casts the operand into the type unknown
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_until)
-			###
-			`until`
+### `until`
 
-		#### Possible use:
-		
-				*
-				 **`until`** 
-				(
-				
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				any expression
-				`
-			 **`until`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`until`** 
-				(
-				
-				`
-				any expression
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`until`** (`date`) --->  `bool`
+  * `any expression` **`until`** `date` --->  `bool`
+  *  **`until`** (`any expression` , `date`) --->  `bool` 
 
-				#### Result:
-				Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of 'current_date <= argument'
+#### Result: 
+Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of 'current_date <= argument'
 
-				#### Examples:
-				```
-				reflex when: until(starting_date) {} -: will be run only once at the beginning of the simulation
+#### Examples: 
+```
+reflex when: until(starting_date) {} -: will be run only once at the beginning of the simulation
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_upper_case)
-			###
-			`upper_case`
+### `upper_case`
 
-		#### Possible use:
-		
-				*
-				 **`upper_case`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
+#### Possible use: 
+  *  **`upper_case`** (`string`) --->  `string` 
 
-				#### Result:
-				Converts all of the characters in the string operand to upper case
+#### Result: 
+Converts all of the characters in the string operand to upper case
 
-				#### Examples:
-				```
-				string
+#### Examples: 
+```
+string
 								var
 								0
 								<-
@@ -2196,180 +1364,73 @@ geometry
 								0
 								equals
 								'ABC'
+```
+      
 
-				```
-			
+#### See also: 
+[lower_case](OperatorsIN#lower_case), 
+    	
+----
 
-				#### See also:
-				[lower_case](OperatorsIN#lower_case), 
-
-			----
-			
 [//]: # (keyword|operator_use_cache)
-			###
-			`use_cache`
+### `use_cache`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`use_cache`** 
-				`
-				bool
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`use_cache`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				bool
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  * `graph` **`use_cache`** `bool` --->  `graph`
+  *  **`use_cache`** (`graph` , `bool`) --->  `graph` 
 
-				#### Result:
-				if the second operand is true, the operand graph will store in a cache all the previously computed shortest path (the cache be cleared if the graph is modified).
+#### Result: 
+if the second operand is true, the operand graph will store in a cache all the previously computed shortest path (the cache be cleared if the graph is modified).  
 
-				#### Comment:
-				the operator alters the operand graph, it does not create a new one.
+#### Comment: 
+the operator alters the operand graph, it does not create a new one.    
 
-				#### See also:
-				[path_between](OperatorsOS#path_between), 
+#### See also: 
+[path_between](OperatorsOS#path_between), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_user_input)
-			###
-			`user_input`
+### `user_input`
 
-		#### Possible use:
-		
-				*
-				 **`user_input`** 
-				(
-				
-				`
-				any expression
-				`
-			
-				) --->
-				`map<string,unknown>`
-				*
-				
-				`
-				string
-				`
-			 **`user_input`** 
-				`
-				any expression
-				`
-			
-				--->
-				`map<string,unknown>`
-				*
-				 **`user_input`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				`map<string,unknown>`
+#### Possible use: 
+  *  **`user_input`** (`any expression`) --->  `map<string,unknown>`
+  * `string` **`user_input`** `any expression` --->  `map<string,unknown>`
+  *  **`user_input`** (`string` , `any expression`) --->  `map<string,unknown>` 
 
-				#### Result:
-				asks the user for some values (not defined as parameters). Takes a string (optional) and a map as arguments. The string is used to specify the message of the dialog box. The map is to specify the parameters you want the user to change before the simulation starts, with the name of the parameter in string key, and the default value as value.
+#### Result: 
+asks the user for some values (not defined as parameters). Takes a string (optional) and a map as arguments. The string is used to specify the message of the dialog box. The map is to specify the parameters you want the user to change before the simulation starts, with the name of the parameter in string key, and the default value as value.  
 
-				#### Comment:
-				This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :
+#### Comment: 
+This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :
 
-				#### Examples:
-				```
-				map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]);
+#### Examples: 
+```
+map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]);
 create bug number: int(values at "Number") with: [location:: (point(values at "Location"))];
 map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]);
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))];
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_using)
-			###
-			`using`
+### `using`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				any expression
-				`
-			 **`using`** 
-				`
-				topology
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`using`** 
-				(
-				
-				`
-				any expression
-				`
-			 , 
-				`
-				topology
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `any expression` **`using`** `topology` --->  `unknown`
+  *  **`using`** (`any expression` , `topology`) --->  `unknown` 
 
-				#### Result:
-				Allows to specify in which topology a spatial computation should take place.
+#### Result: 
+Allows to specify in which topology a spatial computation should take place.
 
-				#### Special cases:
-			
-					*
-					has no effect if the topology passed as a parameter is nil
+#### Special cases:     
+  * has no effect if the topology passed as a parameter is nil
 
-				#### Examples:
-				```
-				unknown
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -2378,42 +1439,26 @@ create bug number: int(values2 at "Number") with: [location:: (point(values2 at 
 								0
 								equals
 								the closest agent to self (the caller) in the continuous topology of the world
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_variance)
-			###
-			`variance`
+### `variance`
 
-		#### Possible use:
-		
-				*
-				 **`variance`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`variance`** (`container`) --->  `float` 
 
-				#### Result:
-				the variance of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Variance">Variance</A> for more details.
+#### Result: 
+the variance of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Variance">Variance</A> for more details.  
 
-				#### Comment:
-				The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+#### Comment: 
+The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -2422,160 +1467,60 @@ create bug number: int(values2 at "Number") with: [location:: (point(values2 at 
 								0
 								equals
 								1.671875
+```
+      
 
-				```
-			
+#### See also: 
+[mean](OperatorsIN#mean), [median](OperatorsIN#median), 
+    	
+----
 
-				#### See also:
-				[mean](OperatorsIN#mean), [median](OperatorsIN#median), 
-
-			----
-			
 [//]: # (keyword|operator_variance)
-			###
-			`variance`
+### `variance`
 
-		#### Possible use:
-		
-				*
-				 **`variance`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`variance`** 
-				(
-				
-				`
-				int
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`variance`** (`float`) --->  `float`
+  *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+#### Result: 
 Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_variance_of)
-			###
-			`variance_of`
+### `variance_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`variance_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`variance_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`variance_of`** `any expression` --->  `unknown`
+  *  **`variance_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				the variance of the right-hand expression evaluated on each of the elements of the left-hand operand
+#### Result: 
+the variance of the right-hand expression evaluated on each of the elements of the left-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.    
 
-				#### See also:
-				[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [product_of](OperatorsOS#product_of), 
+#### See also: 
+[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [product_of](OperatorsOS#product_of), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_voronoi)
-			###
-			`voronoi`
+### `voronoi`
 
-		#### Possible use:
-		
-				*
-				 **`voronoi`** 
-				(
-				`list<point>`
-				) --->
-				`list<geometry>`
-				*
-				`list<point>` **`voronoi`** 
-				`
-				geometry
-				`
-			
-				--->
-				`list<geometry>`
-				*
-				 **`voronoi`** 
-				(
-				`list<point>` , 
-				`
-				geometry
-				`
-			
-				) --->
-				`list<geometry>`
+#### Possible use: 
+  *  **`voronoi`** (`list<point>`) --->  `list<geometry>`
+  * `list<point>` **`voronoi`** `geometry` --->  `list<geometry>`
+  *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
-				#### Result:
-				A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+#### Result: 
+A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
 A list of geometries corresponding to the Voronoi diagram built from the list of points
 
-				#### Examples:
-				```
-				list<geometry>
+#### Examples: 
+```
+list<geometry>
 								var
 								0
 								<-
@@ -2593,71 +1538,32 @@ list<geometry>
 								1
 								equals
 								the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_weight_of)
-			###
-			`weight_of`
+### `weight_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`weight_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`weight_of`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  * `graph` **`weight_of`** `unknown` --->  `float`
+  *  **`weight_of`** (`graph` , `unknown`) --->  `float` 
 
-				#### Result:
-				returns the weight of the given edge (right-hand operand) contained in the graph given in right-hand operand.
+#### Result: 
+returns the weight of the given edge (right-hand operand) contained in the graph given in right-hand operand.  
 
-				#### Comment:
-				In a localized graph, an edge has a weight by default (the distance between both vertices).
+#### Comment: 
+In a localized graph, an edge has a weight by default (the distance between both vertices).
 
-				#### Special cases:
-			
-					*
-					if the left-operand (the graph) is nil, returns nil
-					*
-					if the right-hand operand is not an edge of the given graph, weight_of checks whether it is a node of the graph and tries to return its weight
-					*
-					if the right-hand operand is neither a node, nor an edge, returns 1.
+#### Special cases:     
+  * if the left-operand (the graph) is nil, returns nil    
+  * if the right-hand operand is not an edge of the given graph, weight_of checks whether it is a node of the graph and tries to return its weight    
+  * if the right-hand operand is neither a node, nor an edge, returns 1.
 
-				#### Examples:
-				```
-				graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
+#### Examples: 
+```
+graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);
 float
 								var
 								1
@@ -2667,56 +1573,27 @@ float
 								1
 								equals
 								1.0
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_weighted_means_DM)
-			###
-			`weighted_means_DM`
+### `weighted_means_DM`
 
-		#### Possible use:
-		
-				*
-				`list<list>` **`weighted_means_DM`** 
-				`
-				list<map<string,object>>
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`weighted_means_DM`** 
-				(
-				`list<list>` , 
-				`
-				list<map<string,object>>
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `list<list>` **`weighted_means_DM`** `list<map<string,object>>` --->  `int`
+  *  **`weighted_means_DM`** (`list<list>` , `list<map<string,object>>`) --->  `int` 
 
-				#### Result:
-				The index of the candidate that maximizes the weighted mean of its criterion values. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of map)
+#### Result: 
+The index of the candidate that maximizes the weighted mean of its criterion values. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of map)
 
-				#### Special cases:
-			
-					*
-					returns -1 is the list of candidates is nil or empty
+#### Special cases:     
+  * returns -1 is the list of candidates is nil or empty
 
-				#### Examples:
-				```
-				int
+#### Examples: 
+```
+int
 								var
 								0
 								<-
@@ -2725,71 +1602,33 @@ float
 								0
 								equals
 								1
+```
+      
 
-				```
-			
+#### See also: 
+[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
+    	
+----
 
-				#### See also:
-				[promethee_DM](OperatorsOS#promethee_dm), [electre_DM](OperatorsCH#electre_dm), [evidence_theory_DM](OperatorsCH#evidence_theory_dm), 
-
-			----
-			
 [//]: # (keyword|operator_where)
-			###
-			`where`
+### `where`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`where`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`where`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `container` **`where`** `any expression` --->  `container`
+  *  **`where`** (`container` , `any expression`) --->  `container` 
 
-				#### Result:
-				a list containing all the elements of the left-hand operand that make the right-hand operand evaluate to true.
+#### Result: 
+a list containing all the elements of the left-hand operand that make the right-hand operand evaluate to true.  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is a list nil, where returns a new empty list
-					*
-					if the left-operand is a map, the keyword each will contain each value
-
-					```
-					container
+#### Special cases:     
+  * if the left-hand operand is a list nil, where returns a new empty list    
+  * if the left-operand is a map, the keyword each will contain each value 
+  
+```
+container
 								var
 								4
 								<-
@@ -2799,13 +1638,13 @@ float
 								equals
 								[4, 6]
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				container
+
+#### Examples: 
+```
+container
 								var
 								0
 								<-
@@ -2832,123 +1671,51 @@ container
 								3
 								equals
 								[node2, node3]
+```
+      
 
-				```
-			
+#### See also: 
+[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
+    	
+----
 
-				#### See also:
-				[first_with](OperatorsCH#first_with), [last_with](OperatorsIN#last_with), [where](OperatorsTZ#where), 
-
-			----
-			
 [//]: # (keyword|operator_with_lifetime)
-			###
-			`with_lifetime`
+### `with_lifetime`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				predicate
-				`
-			 **`with_lifetime`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`with_lifetime`** 
-				(
-				
-				`
-				predicate
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
+#### Possible use: 
+  * `predicate` **`with_lifetime`** `int` --->  `predicate`
+  *  **`with_lifetime`** (`predicate` , `int`) --->  `predicate` 
 
-				#### Result:
-				change the parameters of the given predicate
+#### Result: 
+change the parameters of the given predicate
 
-				#### Examples:
-				```
-				predicate with_lifetime 10
+#### Examples: 
+```
+predicate with_lifetime 10
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_with_max_of)
-			###
-			`with_max_of`
+### `with_max_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`with_max_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`with_max_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`with_max_of`** `any expression` --->  `unknown`
+  *  **`with_max_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				one of elements of the left-hand operand that maximizes the value of the right-hand operand
+#### Result: 
+one of elements of the left-hand operand that maximizes the value of the right-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
+#### Special cases:     
+  * if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
 
-				#### Examples:
-				```
-				unknown
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -2984,70 +1751,33 @@ unknown
 								4
 								equals
 								6
+```
+      
 
-				```
-			
+#### See also: 
+[where](OperatorsTZ#where), [with_min_of](OperatorsTZ#with_min_of), 
+    	
+----
 
-				#### See also:
-				[where](OperatorsTZ#where), [with_min_of](OperatorsTZ#with_min_of), 
-
-			----
-			
 [//]: # (keyword|operator_with_min_of)
-			###
-			`with_min_of`
+### `with_min_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`with_min_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`with_min_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`with_min_of`** `any expression` --->  `unknown`
+  *  **`with_min_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				one of elements of the left-hand operand that minimizes the value of the right-hand operand
+#### Result: 
+one of elements of the left-hand operand that minimizes the value of the right-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
+#### Special cases:     
+  * if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand
 
-				#### Examples:
-				```
-				unknown
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -3083,191 +1813,57 @@ unknown
 								4
 								equals
 								2
+```
+      
 
-				```
-			
+#### See also: 
+[where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), 
+    	
+----
 
-				#### See also:
-				[where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), 
-
-			----
-			
 [//]: # (keyword|operator_with_optimizer_type)
-			###
-			`with_optimizer_type`
+### `with_optimizer_type`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`with_optimizer_type`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`with_optimizer_type`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  * `graph` **`with_optimizer_type`** `string` --->  `graph`
+  *  **`with_optimizer_type`** (`graph` , `string`) --->  `graph` 
 
-				#### Result:
-				changes the shortest path computation method of the given graph
+#### Result: 
+changes the shortest path computation method of the given graph  
 
-				#### Comment:
-				the right-hand operand can be "Djikstra", "Bellmann", "Astar" to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.
+#### Comment: 
+the right-hand operand can be "Djikstra", "Bellmann", "Astar" to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.
 
-				#### Examples:
-				```
-				graphEpidemio <- graphEpidemio with_optimizer_type "static";
+#### Examples: 
+```
+graphEpidemio <- graphEpidemio with_optimizer_type "static";
+```
+      
 
-				```
-			
+#### See also: 
+[set_verbose](OperatorsTZ#set_verbose), 
+    	
+----
 
-				#### See also:
-				[set_verbose](OperatorsTZ#set_verbose), 
-
-			----
-			
 [//]: # (keyword|operator_with_precision)
-			###
-			`with_precision`
+### `with_precision`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				float
-				`
-			 **`with_precision`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`with_precision`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`with_precision`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`with_precision`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				
-				`
-				point
-				`
-			 **`with_precision`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`with_precision`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
+#### Possible use: 
+  * `float` **`with_precision`** `int` --->  `float`
+  *  **`with_precision`** (`float` , `int`) --->  `float`
+  * `geometry` **`with_precision`** `int` --->  `geometry`
+  *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point` 
 
-				#### Result:
-				Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+#### Result: 
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -3303,245 +1899,90 @@ point
 								3
 								equals
 								{12345.79, 12345.79, 12345.79}
+```
+      
 
-				```
-			
+#### See also: 
+[round](OperatorsOS#round), 
+    	
+----
 
-				#### See also:
-				[round](OperatorsOS#round), 
-
-			----
-			
 [//]: # (keyword|operator_with_priority)
-			###
-			`with_priority`
+### `with_priority`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				predicate
-				`
-			 **`with_priority`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`with_priority`** 
-				(
-				
-				`
-				predicate
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
+#### Possible use: 
+  * `predicate` **`with_priority`** `float` --->  `predicate`
+  *  **`with_priority`** (`predicate` , `float`) --->  `predicate` 
 
-				#### Result:
-				change the priority of the given predicate
+#### Result: 
+change the priority of the given predicate
 
-				#### Examples:
-				```
-				predicate with_priority 2
+#### Examples: 
+```
+predicate with_priority 2
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_with_values)
-			###
-			`with_values`
+### `with_values`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				predicate
-				`
-			 **`with_values`** 
-				`
-				map
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`with_values`** 
-				(
-				
-				`
-				predicate
-				`
-			 , 
-				`
-				map
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
+#### Possible use: 
+  * `predicate` **`with_values`** `map` --->  `predicate`
+  *  **`with_values`** (`predicate` , `map`) --->  `predicate` 
 
-				#### Result:
-				change the parameters of the given predicate
+#### Result: 
+change the parameters of the given predicate
 
-				#### Examples:
-				```
-				predicate with_values ["time"::10]
+#### Examples: 
+```
+predicate with_values ["time"::10]
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_with_weights)
-			###
-			`with_weights`
+### `with_weights`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`with_weights`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`with_weights`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
-				*
-				
-				`
-				graph
-				`
-			 **`with_weights`** 
-				`
-				map
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`with_weights`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				map
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  * `graph` **`with_weights`** `container` --->  `graph`
+  *  **`with_weights`** (`graph` , `container`) --->  `graph`
+  * `graph` **`with_weights`** `map` --->  `graph`
+  *  **`with_weights`** (`graph` , `map`) --->  `graph` 
 
-				#### Result:
-				returns the graph (left-hand operand) with weight given in the map (right-hand operand).
+#### Result: 
+returns the graph (left-hand operand) with weight given in the map (right-hand operand).  
 
-				#### Comment:
-				this operand re-initializes the path finder
+#### Comment: 
+this operand re-initializes the path finder
 
-				#### Special cases:
-			
-					*
-					if the right-hand operand is a list, affects the n elements of the list to the n first edges. Note that the ordering of edges may change overtime, which can create some problems...
-					*
-					if the left-hand operand is a map, the map should contains pairs such as: vertex/edge::double
+#### Special cases:     
+  * if the right-hand operand is a list, affects the n elements of the list to the n first edges. Note that the ordering of edges may change overtime, which can create some problems...    
+  * if the left-hand operand is a map, the map should contains pairs such as: vertex/edge::double 
+  
+```
+graph_from_edges (list(ant) as_map each::one_of (list(ant))) with_weights (list(ant) as_map each::each.food)
 
-					```
-					graph_from_edges (list(ant) as_map each::one_of (list(ant))) with_weights (list(ant) as_map each::each.food)
+``` 
 
-					```
 
-				
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_without_holes)
-			###
-			`without_holes`
+### `without_holes`
 
-		#### Possible use:
-		
-				*
-				 **`without_holes`** 
-				(
-				
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  *  **`without_holes`** (`geometry`) --->  `geometry` 
 
-				#### Result:
-				A geometry corresponding to the operand geometry (geometry, agent, point) without its holes
+#### Result: 
+A geometry corresponding to the operand geometry (geometry, agent, point) without its holes
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -3550,62 +1991,27 @@ point
 								0
 								equals
 								the geometry corresponding to the geometry of the agent applying the operator without its holes.
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_writable)
-			###
-			`writable`
+### `writable`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				file
-				`
-			 **`writable`** 
-				`
-				bool
-				`
-			
-				--->
-				
-				`
-				file
-				`
-			
-				*
-				 **`writable`** 
-				(
-				
-				`
-				file
-				`
-			 , 
-				`
-				bool
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  * `file` **`writable`** `bool` --->  `file`
+  *  **`writable`** (`file` , `bool`) --->  `file` 
 
-				#### Result:
-				Marks the file as read-only or not, depending on the second boolean argument, and returns the first argument
+#### Result: 
+Marks the file as read-only or not, depending on the second boolean argument, and returns the first argument  
 
-				#### Comment:
-				A file is created using its native flags. This operator can change them. Beware that this change is system-wide (and not only restrained to GAMA): changing a file to read-only mode (e.g. "writable(f, false)")
+#### Comment: 
+A file is created using its native flags. This operator can change them. Beware that this change is system-wide (and not only restrained to GAMA): changing a file to read-only mode (e.g. "writable(f, false)")
 
-				#### Examples:
-				```
-				file
+#### Examples: 
+```
+file
 								var
 								0
 								<-
@@ -3614,88 +2020,37 @@ point
 								0
 								equals
 								returns a file in read-only mode
+```
+      
 
-				```
-			
+#### See also: 
+[file](OperatorsCH#file), 
+    	
+----
 
-				#### See also:
-				[file](OperatorsCH#file), 
-
-			----
-			
 [//]: # (keyword|operator_xml_file)
-			###
-			`xml_file`
+### `xml_file`
 
-		#### Possible use:
-		
-				*
-				 **`xml_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`xml_file`** (`string`) --->  `file` 
 
-				#### Result:
-				Constructs a file of type xml. Allowed extensions are limited to xml
+#### Result: 
+Constructs a file of type xml. Allowed extensions are limited to xml
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_years_between)
-			###
-			`years_between`
+### `years_between`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`years_between`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`years_between`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `date` **`years_between`** `date` --->  `int`
+  *  **`years_between`** (`date` , `date`) --->  `int` 
 
-				#### Result:
-				Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
+#### Result: 
+Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
 
-				#### Examples:
-				```
-				years_between(d1, d2) -: 10 
-
-				```
-			
+#### Examples: 
+```
+years_between(d1, d2) -: 10 
+```
+  

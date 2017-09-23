@@ -82,14 +82,14 @@ Note that due to the fact that actions are written by modelers, the general func
 
 	
 
-		----
+----
 
-		## Table of Contents
+## Table of Contents
 
-		----
+----
 
-		## Operators by categories
-		
+## Operators by categories
+	
 
 ----
 
@@ -315,87 +315,37 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### User control operators
 [user_input](OperatorsTZ#user_input), 
+	
+----
 
-		----
+## Operators
+	
+    	
+----
 
-		## Operators
-		
-
-			----
-			
 [//]: # (keyword|operator_image_file)
-			###
-			`image_file`
+### `image_file`
 
-		#### Possible use:
-		
-				*
-				 **`image_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`image_file`** (`string`) --->  `file` 
 
-				#### Result:
-				Constructs a file of type image. Allowed extensions are limited to tiff, jpg, jpeg, png, pict, bmp
+#### Result: 
+Constructs a file of type image. Allowed extensions are limited to tiff, jpg, jpeg, png, pict, bmp
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_improved_generator)
-			###
-			`improved_generator`
+### `improved_generator`
 
-		#### Possible use:
-		
-				*
-				 **`improved_generator`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`improved_generator`** (`float`, `float`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				take a x, y, z and a bias parameters and gives a value
+#### Result: 
+take a x, y, z and a bias parameters and gives a value
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -404,126 +354,56 @@ Note that due to the fact that actions are written by modelers, the general func
 								0
 								equals
 								10.2
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_in)
-			###
-			`in`
+### `in`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				string
-				`
-			 **`in`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`in`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				
-				`
-				unknown
-				`
-			 **`in`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`in`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  * `unknown` **`in`** `container` --->  `bool`
+  *  **`in`** (`unknown` , `container`) --->  `bool`
+  * `string` **`in`** `string` --->  `bool`
+  *  **`in`** (`string` , `string`) --->  `bool` 
 
-				#### Result:
-				true if the right operand contains the left operand, false otherwise
+#### Result: 
+true if the right operand contains the left operand, false otherwise  
 
-				#### Comment:
-				the definition of in depends on the container
+#### Comment: 
+the definition of in depends on the container
 
-				#### Special cases:
-			
-					*
-					if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
-					*
-					if the right operand is nil or empty, in returns false
+#### Special cases:     
+  * if the right operand is nil or empty, in returns false    
+  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
 
-				#### Examples:
-				```
-				bool
-								var
-								0
-								<-
-								 'bc' in 'abcded'
-								; // var
-								0
-								equals
-								true
+#### Examples: 
+```
 bool
 								var
-								1
+								0
 								<-
 								2 in [1,2,3,4,5,6]
 								; // var
-								1
+								0
 								equals
 								true
 bool
 								var
-								2
+								1
 								<-
 								7 in [1,2,3,4,5,6]
 								; // var
+								1
+								equals
+								false
+bool
+								var
+								2
+								<-
+								3 in [1::2, 3::4, 5::6]
+								; // var
 								2
 								equals
 								false
@@ -531,76 +411,41 @@ bool
 								var
 								3
 								<-
-								3 in [1::2, 3::4, 5::6]
+								6 in [1::2, 3::4, 5::6]
 								; // var
 								3
 								equals
-								false
+								true
 bool
 								var
 								4
 								<-
-								6 in [1::2, 3::4, 5::6]
+								 'bc' in 'abcded'
 								; // var
 								4
 								equals
 								true
+```
+      
 
-				```
-			
+#### See also: 
+[contains](OperatorsCH#contains), 
+    	
+----
 
-				#### See also:
-				[contains](OperatorsCH#contains), 
-
-			----
-			
 [//]: # (keyword|operator_in_degree_of)
-			###
-			`in_degree_of`
+### `in_degree_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`in_degree_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`in_degree_of`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `graph` **`in_degree_of`** `unknown` --->  `int`
+  *  **`in_degree_of`** (`graph` , `unknown`) --->  `int` 
 
-				#### Result:
-				returns the in degree of a vertex (right-hand operand) in the graph given as left-hand operand.
+#### Result: 
+returns the in degree of a vertex (right-hand operand) in the graph given as left-hand operand.
 
-				#### Examples:
-				```
-				int
+#### Examples: 
+```
+int
 								var
 								1
 								<-
@@ -609,62 +454,27 @@ bool
 								1
 								equals
 								2
+```
+      
 
-				```
-			
+#### See also: 
+[out_degree_of](OperatorsOS#out_degree_of), [degree_of](OperatorsCH#degree_of), 
+    	
+----
 
-				#### See also:
-				[out_degree_of](OperatorsOS#out_degree_of), [degree_of](OperatorsCH#degree_of), 
-
-			----
-			
 [//]: # (keyword|operator_in_edges_of)
-			###
-			`in_edges_of`
+### `in_edges_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`in_edges_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`in_edges_of`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `graph` **`in_edges_of`** `unknown` --->  `container`
+  *  **`in_edges_of`** (`graph` , `unknown`) --->  `container` 
 
-				#### Result:
-				returns the list of the in-edges of a vertex (right-hand operand) in the graph given as left-hand operand.
+#### Result: 
+returns the list of the in-edges of a vertex (right-hand operand) in the graph given as left-hand operand.
 
-				#### Examples:
-				```
-				container
+#### Examples: 
+```
+container
 								var
 								1
 								<-
@@ -673,245 +483,77 @@ bool
 								1
 								equals
 								[LineString]
+```
+      
 
-				```
-			
+#### See also: 
+[out_edges_of](OperatorsOS#out_edges_of), 
+    	
+----
 
-				#### See also:
-				[out_edges_of](OperatorsOS#out_edges_of), 
-
-			----
-			
 [//]: # (keyword|operator_incomplete_beta)
-			###
-			`incomplete_beta`
+### `incomplete_beta`
 
-		#### Possible use:
-		
-				*
-				 **`incomplete_beta`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`incomplete_beta`** (`float`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the regularized integral of the beta function with arguments a and b, from zero to x.
+#### Result: 
+Returns the regularized integral of the beta function with arguments a and b, from zero to x.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_incomplete_gamma)
-			###
-			`incomplete_gamma`
+### `incomplete_gamma`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				float
-				`
-			 **`incomplete_gamma`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`incomplete_gamma`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  * `float` **`incomplete_gamma`** `float` --->  `float`
+  *  **`incomplete_gamma`** (`float` , `float`) --->  `float` 
 
-				#### Result:
-				Returns the regularized integral of the Gamma function with argument a to the integration end point x.
+#### Result: 
+Returns the regularized integral of the Gamma function with argument a to the integration end point x.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_incomplete_gamma_complement)
-			###
-			`incomplete_gamma_complement`
+### `incomplete_gamma_complement`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				float
-				`
-			 **`incomplete_gamma_complement`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`incomplete_gamma_complement`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  * `float` **`incomplete_gamma_complement`** `float` --->  `float`
+  *  **`incomplete_gamma_complement`** (`float` , `float`) --->  `float` 
 
-				#### Result:
-				Returns the complemented regularized incomplete Gamma function of the argument a and integration start point x.
+#### Result: 
+Returns the complemented regularized incomplete Gamma function of the argument a and integration start point x.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_indented_by)
-			###
-			`indented_by`
+### `indented_by`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				string
-				`
-			 **`indented_by`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				string
-				`
-			
-				*
-				 **`indented_by`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
+#### Possible use: 
+  * `string` **`indented_by`** `int` --->  `string`
+  *  **`indented_by`** (`string` , `int`) --->  `string` 
 
-				#### Result:
-				Converts a (possibly multiline) string by indenting it by a number -- specified by the second operand -- of tabulations to the right
+#### Result: 
+Converts a (possibly multiline) string by indenting it by a number -- specified by the second operand -- of tabulations to the right
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_index_by)
-			###
-			`index_by`
+### `index_by`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`index_by`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				map
-				`
-			
-				*
-				 **`index_by`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				map
-				`
-			
+#### Possible use: 
+  * `container` **`index_by`** `any expression` --->  `map`
+  *  **`index_by`** (`container` , `any expression`) --->  `map` 
 
-				#### Result:
-				produces a new map from the evaluation of the right-hand operand for each element of the left-hand operand
+#### Result: 
+produces a new map from the evaluation of the right-hand operand for each element of the left-hand operand
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is nil, index_by throws an error. If the operation results in duplicate keys, only the first value corresponding to the key is kept
+#### Special cases:     
+  * if the left-hand operand is nil, index_by throws an error. If the operation results in duplicate keys, only the first value corresponding to the key is kept
 
-				#### Examples:
-				```
-				map
+#### Examples: 
+```
+map
 								var
 								0
 								<-
@@ -920,207 +562,40 @@ bool
 								0
 								equals
 								[0::1, 1::2, 2::3, 3::4, 4::5, 5::6, 6::7, 7::8]
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_index_of)
-			###
-			`index_of`
+### `index_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				map
-				`
-			 **`index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`index_of`** 
-				(
-				
-				`
-				map
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`index_of`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				species
-				`
-			 **`index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`index_of`** 
-				(
-				
-				`
-				species
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`index_of`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`index_of`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				
-				`
-				container
-				`
-			 **`index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`index_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
+  * `map` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
+  * `container` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`container` , `unknown`) --->  `int`
+  * `species` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`species` , `unknown`) --->  `int`
+  * `string` **`index_of`** `string` --->  `int`
+  *  **`index_of`** (`string` , `string`) --->  `int` 
 
-				#### Result:
-				the index of the first occurence of the right operand in the left operand container
+#### Result: 
 the index of the first occurence of the right operand in the left operand container
+the index of the first occurence of the right operand in the left operand container  
 
-				#### Comment:
-				The definition of index_of and the type of the index depend on the container
+#### Comment: 
+The definition of index_of and the type of the index depend on the container
 
-				#### Special cases:
-			
-					*
-					if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped
-					*
-					if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead
-					*
-					if the left operand is a matrix, index_of returns the index as a point
-
-					```
-					point
+#### Special cases:     
+  * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
+  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
+  * if the left operand is a matrix, index_of returns the index as a point 
+  
+```
+point
 								var
 								1
 								<-
@@ -1130,56 +605,54 @@ the index of the first occurence of the right operand in the left operand contai
 								equals
 								{1.0,0.0}
 
-					```
+``` 
 
-				
-					*
-					if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string
-
-					```
-					int
+    
+  * if the left operand is a list, index_of returns the index as an integer 
+  
+```
+int
 								var
 								2
-								<-
-								 "abcabcabc" index_of "ca"
-								; // var
-								2
-								equals
-								2
-
-					```
-
-				
-					*
-					if the left operand is a list, index_of returns the index as an integer
-
-					```
-					int
-								var
-								3
 								<-
 								[1,2,3,4,5,6] index_of 4
 								; // var
-								3
+								2
 								equals
 								3
 int
 								var
-								4
+								3
 								<-
 								[4,2,3,4,5,4] index_of 4
 								; // var
-								4
+								3
 								equals
 								0
 
-					```
+``` 
 
-				
+    
+  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
+  
+```
+int
+								var
+								4
+								<-
+								 "abcabcabc" index_of "ca"
+								; // var
+								4
+								equals
+								2
 
-				#### Examples:
-				```
-				unknown
+``` 
+
+
+
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -1188,46 +661,27 @@ int
 								0
 								equals
 								3
+```
+      
 
-				```
-			
+#### See also: 
+[at](OperatorsAB#at), [last_index_of](OperatorsIN#last_index_of), 
+    	
+----
 
-				#### See also:
-				[at](OperatorsAB#at), [last_index_of](OperatorsIN#last_index_of), 
-
-			----
-			
 [//]: # (keyword|operator_inside)
-			###
-			`inside`
+### `inside`
 
-		#### Possible use:
-		
-				*
-				`container<agent>` **`inside`** 
-				`
-				geometry
-				`
-			
-				--->
-				`list<geometry>`
-				*
-				 **`inside`** 
-				(
-				`container<agent>` , 
-				`
-				geometry
-				`
-			
-				) --->
-				`list<geometry>`
+#### Possible use: 
+  * `container<agent>` **`inside`** `geometry` --->  `list<geometry>`
+  *  **`inside`** (`container<agent>` , `geometry`) --->  `list<geometry>` 
 
-				#### Result:
-				A list of agents or geometries among the left-operand list, species or meta-population (addition of species), covered by the operand (casted as a geometry).
+#### Result: 
+A list of agents or geometries among the left-operand list, species or meta-population (addition of species), covered by the operand (casted as a geometry).
 
-				#### Examples:
-				```
-				list<geometry>
+#### Examples: 
+```
+list<geometry>
 								var
 								0
 								<-
@@ -1245,241 +699,138 @@ list<geometry>
 								1
 								equals
 								the agents among species species1 and species2 that are covered by the shape of the right-hand argument.
+```
+      
 
-				```
-			
+#### See also: 
+[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
+    	
+----
 
-				#### See also:
-				[neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
-
-			----
-			
 [//]: # (keyword|operator_int)
-			###
-			`int`
+### `int`
 
-		#### Possible use:
-		
-				*
-				 **`int`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  *  **`int`** (`any`) --->  `int` 
 
-				#### Result:
-				Casts the operand into the type int
+#### Result: 
+Casts the operand into the type int
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_inter)
-			###
-			`inter`
+### `inter`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`inter`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`inter`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`inter`** 
-				`
-				geometry
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`inter`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  * `geometry` **`inter`** `geometry` --->  `geometry`
+  *  **`inter`** (`geometry` , `geometry`) --->  `geometry`
+  * `container` **`inter`** `container` --->  `container`
+  *  **`inter`** (`container` , `container`) --->  `container` 
 
-				#### Result:
-				the intersection of the two operands
+#### Result: 
 A geometry resulting from the intersection between the two geometries
+the intersection of the two operands  
 
-				#### Comment:
-				both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
+#### Comment: 
+both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
-				#### Special cases:
-			
-					*
-					if an operand is a graph, it will be transformed into the set of its nodes
-					*
-					returns nil if one of the operands is nil
-					*
-					if an operand is a map, it will be transformed into the set of its values
-
-					```
-					container
+#### Special cases:     
+  * returns nil if one of the operands is nil    
+  * if an operand is a graph, it will be transformed into the set of its nodes    
+  * if an operand is a map, it will be transformed into the set of its values 
+  
+```
+container
 								var
-								0
+								3
 								<-
 								[1::2, 3::4, 5::6] inter [2,4]
 								; // var
-								0
+								3
 								equals
 								[2,4]
 container
 								var
-								1
+								4
 								<-
 								[1::2, 3::4, 5::6] inter [1,3]
 								; // var
-								1
+								4
 								equals
 								[]
 
-					```
+``` 
 
-				
-					*
-					if an operand is a matrix, it will be transformed into the set of the lines
-
-					```
-					container
+    
+  * if an operand is a matrix, it will be transformed into the set of the lines 
+  
+```
+container
 								var
-								2
+								5
 								<-
 								matrix([[1,2,3],[4,5,4]]) inter [3,4]
 								; // var
-								2
+								5
 								equals
 								[3,4]
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				container
+
+#### Examples: 
+```
+geometry
 								var
-								3
+								0
+								<-
+								square(10) inter circle(5)
+								; // var
+								0
+								equals
+								circle(5)
+container
+								var
+								1
 								<-
 								[1,2,3,4,5,6] inter [2,4]
 								; // var
-								3
+								1
 								equals
 								[2,4]
 container
 								var
-								4
+								2
 								<-
 								[1,2,3,4,5,6] inter [0,8]
 								; // var
-								4
+								2
 								equals
 								[]
-geometry
-								var
-								5
-								<-
-								square(10) inter circle(5)
-								; // var
-								5
-								equals
-								circle(5)
+```
+      
 
-				```
-			
+#### See also: 
+[union](OperatorsTZ#union), [+](OperatorsAB#+), [-](OperatorsAB#-), [remove_duplicates](OperatorsOS#remove_duplicates), 
+    	
+----
 
-				#### See also:
-				[remove_duplicates](OperatorsOS#remove_duplicates), [union](OperatorsTZ#union), [+](OperatorsAB#+), [-](OperatorsAB#-), 
-
-			----
-			
 [//]: # (keyword|operator_interleave)
-			###
-			`interleave`
+### `interleave`
 
-		#### Possible use:
-		
-				*
-				 **`interleave`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  *  **`interleave`** (`container`) --->  `container` 
 
-				#### Result:
-				a new list containing the interleaved elements of the containers contained in the operand
+#### Result: 
+a new list containing the interleaved elements of the containers contained in the operand  
 
-				#### Comment:
-				the operand should be a list of lists of elements. The result is a list of elements.
+#### Comment: 
+the operand should be a list of lists of elements. The result is a list of elements.
 
-				#### Examples:
-				```
-				container
+#### Examples: 
+```
+container
 								var
 								0
 								<-
@@ -1497,248 +848,77 @@ container
 								1
 								equals
 								['e11','e21','e31','e12','e22','e32','e13','e23','e33']
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_internal_at)
-			###
-			`internal_at`
+### `internal_at`
 
-		#### Possible use:
-		
-				*
-				`container<KeyType,ValueType>` **`internal_at`** `list<KeyType>`
-				--->
-				
-				`
-				ValueType
-				`
-			
-				*
-				 **`internal_at`** 
-				(
-				`container<KeyType,ValueType>` , `list<KeyType>`
-				) --->
-				
-				`
-				ValueType
-				`
-			
-				*
-				
-				`
-				agent
-				`
-			 **`internal_at`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`internal_at`** 
-				(
-				
-				`
-				agent
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
-				*
-				
-				`
-				geometry
-				`
-			 **`internal_at`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`internal_at`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `agent` **`internal_at`** `container` --->  `unknown`
+  *  **`internal_at`** (`agent` , `container`) --->  `unknown`
+  * `geometry` **`internal_at`** `container` --->  `unknown`
+  *  **`internal_at`** (`geometry` , `container`) --->  `unknown`
+  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
+  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType` 
 
-				#### Result:
-				For internal use only. Corresponds to the implementation of the access to containers with [index]
+#### Result: 
 For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation of the access to containers with [index]    
 
-				#### See also:
-				[at](OperatorsAB#at), 
+#### See also: 
+[at](OperatorsAB#at), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_internal_integrated_value)
-			###
-			`internal_integrated_value`
+### `internal_integrated_value`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				any expression
-				`
-			 **`internal_integrated_value`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`internal_integrated_value`** 
-				(
-				
-				`
-				any expression
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `any expression` **`internal_integrated_value`** `any expression` --->  `container`
+  *  **`internal_integrated_value`** (`any expression` , `any expression`) --->  `container` 
 
-				#### Result:
-				For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
+#### Result: 
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_internal_zero_order_equation)
-			###
-			`internal_zero_order_equation`
+### `internal_zero_order_equation`
 
-		#### Possible use:
-		
-				*
-				 **`internal_zero_order_equation`** 
-				(
-				
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`internal_zero_order_equation`** (`any expression`) --->  `float` 
 
-				#### Result:
-				An internal placeholder function
+#### Result: 
+An internal placeholder function
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_intersection)
-			###
-			`intersection`
-Same signification as [inter](OperatorsIN
-				#
-				inter)
+### `intersection`
+Same signification as [inter](OperatorsIN#inter)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_intersects)
-			###
-			`intersects`
+### `intersects`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`intersects`** 
-				`
-				geometry
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`intersects`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  * `geometry` **`intersects`** `geometry` --->  `bool`
+  *  **`intersects`** (`geometry` , `geometry`) --->  `bool` 
 
-				#### Result:
-				A boolean, equal to true if the left-geometry (or agent/point) intersects the right-geometry (or agent/point).
+#### Result: 
+A boolean, equal to true if the left-geometry (or agent/point) intersects the right-geometry (or agent/point).
 
-				#### Special cases:
-			
-					*
-					if one of the operand is null, returns false.
+#### Special cases:     
+  * if one of the operand is null, returns false.
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
 								<-
@@ -1747,38 +927,26 @@ Same signification as [inter](OperatorsIN
 								0
 								equals
 								false
+```
+      
 
-				```
-			
+#### See also: 
+[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
+    	
+----
 
-				#### See also:
-				[disjoint_from](OperatorsCH#disjoint_from), [crosses](OperatorsCH#crosses), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [touches](OperatorsTZ#touches), 
-
-			----
-			
 [//]: # (keyword|operator_inverse)
-			###
-			`inverse`
+### `inverse`
 
-		#### Possible use:
-		
-				*
-				 **`inverse`** 
-				(
-				
-				`
-				matrix
-				`
-			
-				) --->
-				`matrix<float>`
+#### Possible use: 
+  *  **`inverse`** (`matrix`) --->  `matrix<float>` 
 
-				#### Result:
-				The inverse matrix of the given matrix. If no inverse exists, returns a matrix that has properties that resemble that of an inverse.
+#### Result: 
+The inverse matrix of the given matrix. If no inverse exists, returns a matrix that has properties that resemble that of an inverse.
 
-				#### Examples:
-				```
-				matrix<float>
+#### Examples: 
+```
+matrix<float>
 								var
 								0
 								<-
@@ -1787,68 +955,30 @@ Same signification as [inter](OperatorsIN
 								0
 								equals
 								[2.0000000000000004,-0.9999999999999998]
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_inverse_distance_weighting)
-			###
-			`inverse_distance_weighting`
-Same signification as [IDW](OperatorsAB
-				#
-				IDW)
+### `inverse_distance_weighting`
+Same signification as [IDW](OperatorsAB#IDW)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is)
-			###
-			`is`
+### `is`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				unknown
-				`
-			 **`is`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`is`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  * `unknown` **`is`** `any expression` --->  `bool`
+  *  **`is`** (`unknown` , `any expression`) --->  `bool` 
 
-				#### Result:
-				returns true if the left operand is of the right operand type, false otherwise
+#### Result: 
+returns true if the left operand is of the right operand type, false otherwise
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
 								<-
@@ -1875,91 +1005,45 @@ bool
 								2
 								equals
 								false
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_is_csv)
-			###
-			`is_csv`
+### `is_csv`
 
-		#### Possible use:
-		
-				*
-				 **`is_csv`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_csv`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a csv file.
+#### Result: 
+Tests whether the operand is a csv file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_dxf)
-			###
-			`is_dxf`
+### `is_dxf`
 
-		#### Possible use:
-		
-				*
-				 **`is_dxf`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_dxf`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a dxf file.
+#### Result: 
+Tests whether the operand is a dxf file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_finite)
-			###
-			`is_finite`
+### `is_finite`
 
-		#### Possible use:
-		
-				*
-				 **`is_finite`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_finite`** (`float`) --->  `bool` 
 
-				#### Result:
-				Returns whether the argument is a finite number or not
+#### Result: 
+Returns whether the argument is a finite number or not
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
 								<-
@@ -1977,263 +1061,144 @@ bool
 								1
 								equals
 								false
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_is_gaml)
-			###
-			`is_gaml`
+### `is_gaml`
 
-		#### Possible use:
-		
-				*
-				 **`is_gaml`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_gaml`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a gaml file.
+#### Result: 
+Tests whether the operand is a gaml file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_geojson)
-			###
-			`is_geojson`
+### `is_geojson`
 
-		#### Possible use:
-		
-				*
-				 **`is_geojson`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_geojson`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a geojson file.
+#### Result: 
+Tests whether the operand is a geojson file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_gif)
-			###
-			`is_gif`
+### `is_gif`
 
-		#### Possible use:
-		
-				*
-				 **`is_gif`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_gif`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a gif file.
+#### Result: 
+Tests whether the operand is a gif file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_grid)
-			###
-			`is_grid`
+### `is_grid`
 
-		#### Possible use:
-		
-				*
-				 **`is_grid`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_grid`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a grid file.
+#### Result: 
+Tests whether the operand is a grid file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_image)
-			###
-			`is_image`
+### `is_image`
 
-		#### Possible use:
-		
-				*
-				 **`is_image`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_image`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a image file.
+#### Result: 
+Tests whether the operand is a image file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_json)
-			###
-			`is_json`
+### `is_json`
 
-		#### Possible use:
-		
-				*
-				 **`is_json`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_json`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a json file.
+#### Result: 
+Tests whether the operand is a json file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_number)
-			###
-			`is_number`
+### `is_number`
 
-		#### Possible use:
-		
-				*
-				 **`is_number`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`is_number`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_number`** (`float`) --->  `bool`
+  *  **`is_number`** (`string`) --->  `bool` 
 
-				#### Result:
-				tests whether the operand represents a numerical value
+#### Result: 
 Returns whether the argument is a real number or not
+tests whether the operand represents a numerical value  
 
-				#### Comment:
-				Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
+#### Comment: 
+Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
-								<-
-								is_number("test")
-								; // var
-								0
-								equals
-								false
-bool
-								var
-								1
-								<-
-								is_number("123.56")
-								; // var
-								1
-								equals
-								true
-bool
-								var
-								2
-								<-
-								is_number("-1.2e5")
-								; // var
-								2
-								equals
-								true
-bool
-								var
-								3
-								<-
-								is_number("1,2")
-								; // var
-								3
-								equals
-								false
-bool
-								var
-								4
-								<-
-								is_number("#12FA")
-								; // var
-								4
-								equals
-								true
-bool
-								var
-								5
 								<-
 								is_number(4.66)
 								; // var
+								0
+								equals
+								true
+bool
+								var
+								1
+								<-
+								is_number(#infinity)
+								; // var
+								1
+								equals
+								true
+bool
+								var
+								2
+								<-
+								is_number(#nan)
+								; // var
+								2
+								equals
+								false
+bool
+								var
+								3
+								<-
+								is_number("test")
+								; // var
+								3
+								equals
+								false
+bool
+								var
+								4
+								<-
+								is_number("123.56")
+								; // var
+								4
+								equals
+								true
+bool
+								var
+								5
+								<-
+								is_number("-1.2e5")
+								; // var
 								5
 								equals
 								true
@@ -2241,229 +1206,104 @@ bool
 								var
 								6
 								<-
-								is_number(#infinity)
+								is_number("1,2")
 								; // var
 								6
 								equals
-								true
+								false
 bool
 								var
 								7
 								<-
-								is_number(#nan)
+								is_number("#12FA")
 								; // var
 								7
 								equals
-								false
+								true
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_is_obj)
-			###
-			`is_obj`
+### `is_obj`
 
-		#### Possible use:
-		
-				*
-				 **`is_obj`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_obj`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a obj file.
+#### Result: 
+Tests whether the operand is a obj file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_osm)
-			###
-			`is_osm`
+### `is_osm`
 
-		#### Possible use:
-		
-				*
-				 **`is_osm`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_osm`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a osm file.
+#### Result: 
+Tests whether the operand is a osm file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_pgm)
-			###
-			`is_pgm`
+### `is_pgm`
 
-		#### Possible use:
-		
-				*
-				 **`is_pgm`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_pgm`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a pgm file.
+#### Result: 
+Tests whether the operand is a pgm file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_property)
-			###
-			`is_property`
+### `is_property`
 
-		#### Possible use:
-		
-				*
-				 **`is_property`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_property`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a property file.
+#### Result: 
+Tests whether the operand is a property file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_R)
-			###
-			`is_R`
+### `is_R`
 
-		#### Possible use:
-		
-				*
-				 **`is_R`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_R`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a R file.
+#### Result: 
+Tests whether the operand is a R file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_shape)
-			###
-			`is_shape`
+### `is_shape`
 
-		#### Possible use:
-		
-				*
-				 **`is_shape`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_shape`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a shape file.
+#### Result: 
+Tests whether the operand is a shape file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_skill)
-			###
-			`is_skill`
+### `is_skill`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				unknown
-				`
-			 **`is_skill`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				bool
-				`
-			
-				*
-				 **`is_skill`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  * `unknown` **`is_skill`** `string` --->  `bool`
+  *  **`is_skill`** (`unknown` , `string`) --->  `bool` 
 
-				#### Result:
-				returns true if the left operand is an agent whose species implements the right-hand skill name
+#### Result: 
+returns true if the left operand is an agent whose species implements the right-hand skill name
 
-				#### Examples:
-				```
-				bool
+#### Examples: 
+```
+bool
 								var
 								0
 								<-
@@ -2472,633 +1312,221 @@ bool
 								0
 								equals
 								true
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_is_svg)
-			###
-			`is_svg`
+### `is_svg`
 
-		#### Possible use:
-		
-				*
-				 **`is_svg`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_svg`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a svg file.
+#### Result: 
+Tests whether the operand is a svg file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_text)
-			###
-			`is_text`
+### `is_text`
 
-		#### Possible use:
-		
-				*
-				 **`is_text`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_text`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a text file.
+#### Result: 
+Tests whether the operand is a text file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_threeds)
-			###
-			`is_threeds`
+### `is_threeds`
 
-		#### Possible use:
-		
-				*
-				 **`is_threeds`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_threeds`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a threeds file.
+#### Result: 
+Tests whether the operand is a threeds file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_URL)
-			###
-			`is_URL`
+### `is_URL`
 
-		#### Possible use:
-		
-				*
-				 **`is_URL`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_URL`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a URL file.
+#### Result: 
+Tests whether the operand is a URL file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_is_xml)
-			###
-			`is_xml`
+### `is_xml`
 
-		#### Possible use:
-		
-				*
-				 **`is_xml`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				bool
-				`
-			
+#### Possible use: 
+  *  **`is_xml`** (`any`) --->  `bool` 
 
-				#### Result:
-				Tests whether the operand is a xml file.
+#### Result: 
+Tests whether the operand is a xml file.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_json_file)
-			###
-			`json_file`
+### `json_file`
 
-		#### Possible use:
-		
-				*
-				 **`json_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`json_file`** (`string`) --->  `file` 
 
-				#### Result:
-				Constructs a file of type json. Allowed extensions are limited to json
+#### Result: 
+Constructs a file of type json. Allowed extensions are limited to json
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_kappa)
-			###
-			`kappa`
+### `kappa`
 
-		#### Possible use:
-		
-				*
-				 **`kappa`** 
-				(
-				
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`kappa`** 
-				(
-				
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`kappa`** (`list`, `list`, `list`) --->  `float`
+  *  **`kappa`** (`list`, `list`, `list`, `list`) --->  `float` 
 
-				#### Result:
-				kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
+#### Result: 
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
-				#### Examples:
-				```
-				kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])
+#### Examples: 
+```
+kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0])
+kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])
 float
 								var
-								1
+								2
 								<-
 								kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5])
 								; // var
-								1
+								2
 								equals
 								the similarity between 0 and 1
 float
 								var
-								2
+								3
 								<-
 								kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5])
 								; // var
-								2
+								3
 								equals
 								1.0
-kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0])
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_kappa_sim)
-			###
-			`kappa_sim`
+### `kappa_sim`
 
-		#### Possible use:
-		
-				*
-				 **`kappa_sim`** 
-				(
-				
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`kappa_sim`** 
-				(
-				
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							,
-						
-				`
-				list
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`kappa_sim`** (`list`, `list`, `list`, `list`) --->  `float`
+  *  **`kappa_sim`** (`list`, `list`, `list`, `list`, `list`) --->  `float` 
 
-				#### Result:
-				kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+#### Result: 
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
 
-				#### Examples:
-				```
-				kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0])
+#### Examples: 
+```
 kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3])
+kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0])
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_kmeans)
-			###
-			`kmeans`
+### `kmeans`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				list
-				`
-			 **`kmeans`** 
-				`
-				int
-				`
-			
-				--->
-				`list<list>`
-				*
-				 **`kmeans`** 
-				(
-				
-				`
-				list
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				`list<list>`
-				*
-				 **`kmeans`** 
-				(
-				
-				`
-				list
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				`list<list>`
+#### Possible use: 
+  * `list` **`kmeans`** `int` --->  `list<list>`
+  *  **`kmeans`** (`list` , `int`) --->  `list<list>`
+  *  **`kmeans`** (`list`, `int`, `int`) --->  `list<list>` 
 
-				#### Result:
-				returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)
+#### Result: 
 returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
+returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)
 
-				#### Special cases:
-			
-					*
-					if the lengths of two vectors in the right-hand aren't equal, returns 0
-					*
-					if the lengths of two vectors in the right-hand aren't equal, returns 0
+#### Special cases:     
+  * if the lengths of two vectors in the right-hand aren't equal, returns 0    
+  * if the lengths of two vectors in the right-hand aren't equal, returns 0
 
-				#### Examples:
-				```
-				kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2)
+#### Examples: 
+```
 kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10)
+kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2)
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_kurtosis)
-			###
-			`kurtosis`
+### `kurtosis`
 
-		#### Possible use:
-		
-				*
-				 **`kurtosis`** 
-				(
-				
-				`
-				list
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`kurtosis`** (`list`) --->  `float` 
 
-				#### Result:
-				returns kurtosis value computed from the operand list of values
+#### Result: 
+returns kurtosis value computed from the operand list of values
 
-				#### Special cases:
-			
-					*
-					if the length of the list is lower than 3, returns NaN
+#### Special cases:     
+  * if the length of the list is lower than 3, returns NaN
 
-				#### Examples:
-				```
-				kurtosis ([1,2,3,4,5])
+#### Examples: 
+```
+kurtosis ([1,2,3,4,5])
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_kurtosis)
-			###
-			`kurtosis`
+### `kurtosis`
 
-		#### Possible use:
-		
-				*
-				 **`kurtosis`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				
-				`
-				float
-				`
-			 **`kurtosis`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`kurtosis`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`kurtosis`** (`container`) --->  `float`
+  * `float` **`kurtosis`** `float` --->  `float`
+  *  **`kurtosis`** (`float` , `float`) --->  `float` 
 
-				#### Result:
-				Returns the kurtosis (aka excess) of a data sequence
+#### Result: 
 Returns the kurtosis (aka excess) of a data sequence
+Returns the kurtosis (aka excess) of a data sequence
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_last)
-			###
-			`last`
+### `last`
 
-		#### Possible use:
-		
-				*
-				 **`last`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
-				*
-				 **`last`** 
-				(
-				`container<KeyType,ValueType>`
-				) --->
-				
-				`
-				ValueType
-				`
-			
-				*
-				
-				`
-				int
-				`
-			 **`last`** 
-				`
-				container
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`last`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  *  **`last`** (`string`) --->  `string`
+  *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  * `int` **`last`** `container` --->  `container`
+  *  **`last`** (`int` , `container`) --->  `container` 
 
-				#### Result:
-				the last element of the operand
+#### Result: 
+the last element of the operand  
 
-				#### Comment:
-				the last operator behavior depends on the nature of the operand
+#### Comment: 
+the last operator behavior depends on the nature of the operand
 
-				#### Special cases:
-			
-					*
-					if it is a map, last returns the value of the last pair (in insertion order)
-					*
-					if it is a file, last returns the last element of the content of the file (that is also a container)
-					*
-					if it is a population, last returns the last agent of the population
-					*
-					if it is a graph, last returns a list containing the last edge created
-					*
-					if it is a matrix, last returns the element at {length-1,length-1} in the matrix
-					*
-					for a matrix of int or float, it will return 0 if the matrix is empty
-					*
-					for a matrix of object or geometry, it will return nil if the matrix is empty
-					*
-					if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty
-
-					```
-					string
+#### Special cases:     
+  * if it is a map, last returns the value of the last pair (in insertion order)    
+  * if it is a file, last returns the last element of the content of the file (that is also a container)    
+  * if it is a population, last returns the last agent of the population    
+  * if it is a graph, last returns a list containing the last edge created    
+  * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
+  * for a matrix of int or float, it will return 0 if the matrix is empty    
+  * for a matrix of object or geometry, it will return nil if the matrix is empty    
+  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
+  
+```
+string
 								var
 								0
 								<-
@@ -3108,14 +1536,13 @@ Returns the kurtosis (aka excess) of a data sequence
 								equals
 								'e'
 
-					```
+``` 
 
-				
-					*
-					if it is a list, last returns the last element of the list, or nil if the list is empty
-
-					```
-					int
+    
+  * if it is a list, last returns the last element of the list, or nil if the list is empty 
+  
+```
+int
 								var
 								1
 								<-
@@ -3125,267 +1552,99 @@ Returns the kurtosis (aka excess) of a data sequence
 								equals
 								3
 
-					```
+``` 
 
-				
+    
 
-				#### See also:
-				[first](OperatorsCH#first), 
+#### See also: 
+[first](OperatorsCH#first), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_last_index_of)
-			###
-			`last_index_of`
+### `last_index_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`last_index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`last_index_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				
-				`
-				matrix
-				`
-			 **`last_index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				point
-				`
-			
-				*
-				 **`last_index_of`** 
-				(
-				
-				`
-				matrix
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				point
-				`
-			
-				*
-				
-				`
-				map
-				`
-			 **`last_index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`last_index_of`** 
-				(
-				
-				`
-				map
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`last_index_of`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`last_index_of`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				
-				`
-				species
-				`
-			 **`last_index_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`last_index_of`** 
-				(
-				
-				`
-				species
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `map` **`last_index_of`** `unknown` --->  `unknown`
+  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
+  * `matrix` **`last_index_of`** `unknown` --->  `point`
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
+  * `container` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`container` , `unknown`) --->  `int`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
+  * `string` **`last_index_of`** `string` --->  `int`
+  *  **`last_index_of`** (`string` , `string`) --->  `int` 
 
-				#### Result:
-				the index of the last occurence of the right operand in the left operand container
+#### Result: 
+the index of the last occurence of the right operand in the left operand container  
 
-				#### Comment:
-				The definition of last_index_of and the type of the index depend on the container
+#### Comment: 
+The definition of last_index_of and the type of the index depend on the container
 
-				#### Special cases:
-			
-					*
-					if the left operand is a species, the last index of an agent is the same as its index
-					*
-					if the left operand is a list, last_index_of returns the index as an integer
-
-					```
-					int
+#### Special cases:     
+  * if the left operand is a species, the last index of an agent is the same as its index    
+  * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
+  
+```
+unknown
 								var
 								0
 								<-
-								[1,2,3,4,5,6] last_index_of 4
+								[1::2, 3::4, 5::4] last_index_of 4
 								; // var
 								0
+								equals
+								5
+
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+point
+								var
+								1
+								<-
+								matrix([[1,2,3],[4,5,4]]) last_index_of 4
+								; // var
+								1
+								equals
+								{1.0,2.0}
+
+``` 
+
+    
+  * if the left operand is a list, last_index_of returns the index as an integer 
+  
+```
+int
+								var
+								2
+								<-
+								[1,2,3,4,5,6] last_index_of 4
+								; // var
+								2
 								equals
 								3
 int
 								var
-								1
+								3
 								<-
 								[4,2,3,4,5,4] last_index_of 4
 								; // var
-								1
-								equals
-								5
-
-					```
-
-				
-					*
-					if the left operand is a matrix, last_index_of returns the index as a point
-
-					```
-					point
-								var
-								2
-								<-
-								matrix([[1,2,3],[4,5,4]]) last_index_of 4
-								; // var
-								2
-								equals
-								{1.0,2.0}
-
-					```
-
-				
-					*
-					if the left operand is a map, last_index_of returns the index as an int (the key of the pair)
-
-					```
-					unknown
-								var
-								3
-								<-
-								[1::2, 3::4, 5::4] last_index_of 4
-								; // var
 								3
 								equals
 								5
 
-					```
+``` 
 
-				
-					*
-					if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string
-
-					```
-					int
+    
+  * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
+  
+```
+int
 								var
 								4
 								<-
@@ -3395,82 +1654,41 @@ int
 								equals
 								5
 
-					```
+``` 
 
-				
+    
 
-				#### See also:
-				[at](OperatorsAB#at), [last_index_of](OperatorsIN#last_index_of), [index_of](OperatorsIN#index_of), 
+#### See also: 
+[at](OperatorsAB#at), [last_index_of](OperatorsIN#last_index_of), [index_of](OperatorsIN#index_of), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_last_of)
-			###
-			`last_of`
-Same signification as [last](OperatorsIN
-				#
-				last)
+### `last_of`
+Same signification as [last](OperatorsIN#last)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_last_with)
-			###
-			`last_with`
+### `last_with`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`last_with`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`last_with`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`last_with`** `any expression` --->  `unknown`
+  *  **`last_with`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				the last element of the left-hand operand that makes the right-hand operand evaluate to true.
+#### Result: 
+the last element of the left-hand operand that makes the right-hand operand evaluate to true.  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is nil, last_with throws an error.
-					*
-					If there is no element that satisfies the condition, it returns nil
-					*
-					if the left-operand is a map, the keyword each will contain each value
-
-					```
-					unknown
+#### Special cases:     
+  * if the left-hand operand is nil, last_with throws an error.    
+  * If there is no element that satisfies the condition, it returns nil    
+  * if the left-operand is a map, the keyword each will contain each value 
+  
+```
+unknown
 								var
 								4
 								<-
@@ -3489,13 +1707,13 @@ unknown
 								equals
 								5::6
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				unknown
+
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -3522,167 +1740,48 @@ unknown
 								3
 								equals
 								node3
+```
+      
 
-				```
-			
+#### See also: 
+[group_by](OperatorsCH#group_by), [first_with](OperatorsCH#first_with), [where](OperatorsTZ#where), 
+    	
+----
 
-				#### See also:
-				[group_by](OperatorsCH#group_by), [first_with](OperatorsCH#first_with), [where](OperatorsTZ#where), 
-
-			----
-			
 [//]: # (keyword|operator_layout)
-			###
-			`layout`
+### `layout`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`layout`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`layout`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`layout`** 
-				(
-				
-				`
-				graph
-				`
-			
-							,
-						
-				`
-				string
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`layout`** 
-				(
-				
-				`
-				graph
-				`
-			
-							,
-						
-				`
-				string
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						`map<string,unknown>`
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  * `graph` **`layout`** `string` --->  `graph`
+  *  **`layout`** (`graph` , `string`) --->  `graph`
+  *  **`layout`** (`graph`, `string`, `int`) --->  `graph`
+  *  **`layout`** (`graph`, `string`, `int`, `map<string,unknown>`) --->  `graph` 
 
-				#### Result:
-				layouts a GAMA graph.
+#### Result: 
+layouts a GAMA graph.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_length)
-			###
-			`length`
+### `length`
 
-		#### Possible use:
-		
-				*
-				 **`length`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
-				*
-				 **`length`** 
-				(
-				`container<KeyType,ValueType>`
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  *  **`length`** (`string`) --->  `int`
+  *  **`length`** (`container<KeyType,ValueType>`) --->  `int` 
 
-				#### Result:
-				the number of elements contained in the operand
+#### Result: 
+the number of elements contained in the operand  
 
-				#### Comment:
-				the length operator behavior depends on the nature of the operand
+#### Comment: 
+the length operator behavior depends on the nature of the operand
 
-				#### Special cases:
-			
-					*
-					if it is a population, length returns number of agents of the population
-					*
-					if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)
-					*
-					if it is a string, length returns the number of characters
-
-					```
-					int
+#### Special cases:     
+  * if it is a population, length returns number of agents of the population    
+  * if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)    
+  * if it is a string, length returns the number of characters 
+  
+```
+int
 								var
 								0
 								<-
@@ -3692,14 +1791,13 @@ unknown
 								equals
 								13
 
-					```
+``` 
 
-				
-					*
-					if it is a list or a map, length returns the number of elements in the list or map
-
-					```
-					int
+    
+  * if it is a list or a map, length returns the number of elements in the list or map 
+  
+```
+int
 								var
 								1
 								<-
@@ -3718,14 +1816,13 @@ int
 								equals
 								0
 
-					```
+``` 
 
-				
-					*
-					if it is a matrix, length returns the number of cells
-
-					```
-					int
+    
+  * if it is a matrix, length returns the number of cells 
+  
+```
+int
 								var
 								3
 								<-
@@ -3735,171 +1832,90 @@ int
 								equals
 								6
 
-					```
+``` 
 
-				
 
-			----
-			
+    	
+----
+
 [//]: # (keyword|operator_lgamma)
-			###
-			`lgamma`
-Same signification as [log_gamma](OperatorsIN
-				#
-				log_gamma)
+### `lgamma`
+Same signification as [log_gamma](OperatorsIN#log_gamma)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_line)
-			###
-			`line`
+### `line`
 
-		#### Possible use:
-		
-				*
-				 **`line`** 
-				(
-				`container<geometry>`
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				`container<geometry>` **`line`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`line`** 
-				(
-				`container<geometry>` , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  *  **`line`** (`container<geometry>`) --->  `geometry`
+  * `container<geometry>` **`line`** `float` --->  `geometry`
+  *  **`line`** (`container<geometry>` , `float`) --->  `geometry` 
 
-				#### Result:
-				A polyline geometry from the given list of points.
+#### Result: 
 A polyline geometry from the given list of points represented as a cylinder of radius r.
+A polyline geometry from the given list of points.
 
-				#### Special cases:
-			
-					*
-					if the operand is nil, returns the point geometry {0,0}
-					*
-					if the operand is composed of a single point, returns a point geometry.
-					*
-					if the operand is nil, returns the point geometry {0,0}
-					*
-					if the operand is composed of a single point, returns a point geometry.
-					*
-					if a radius is added, the given list of points represented as a cylinder of radius r
-
-					```
-					geometry
+#### Special cases:     
+  * if the operand is nil, returns the point geometry {0,0}    
+  * if the operand is composed of a single point, returns a point geometry.    
+  * if the operand is nil, returns the point geometry {0,0}    
+  * if the operand is composed of a single point, returns a point geometry.    
+  * if a radius is added, the given list of points represented as a cylinder of radius r 
+  
+```
+geometry
 								var
-								1
+								0
 								<-
 								polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2)
 								; // var
-								1
+								0
 								equals
 								a polyline geometry composed of the 4 points.
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				geometry
+
+#### Examples: 
+```
+geometry
 								var
-								0
+								1
 								<-
 								polyline([{0,0}, {0,10}, {10,10}, {10,0}])
 								; // var
-								0
+								1
 								equals
 								a polyline geometry composed of the 4 points.
+```
+      
 
-				```
-			
+#### See also: 
+[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+    	
+----
 
-				#### See also:
-				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [link](OperatorsIN#link), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygone](OperatorsTZ#polygone), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
-
-			----
-			
 [//]: # (keyword|operator_link)
-			###
-			`link`
+### `link`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`link`** 
-				`
-				geometry
-				`
-			
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`link`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				geometry
-				`
-			
-				) --->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  * `geometry` **`link`** `geometry` --->  `geometry`
+  *  **`link`** (`geometry` , `geometry`) --->  `geometry` 
 
-				#### Result:
-				A dynamic line geometry between the location of the two operands
+#### Result: 
+A dynamic line geometry between the location of the two operands  
 
-				#### Comment:
-				The geometry of the link is a line between the locations of the two operands, which is built and maintained dynamically
+#### Comment: 
+The geometry of the link is a line between the locations of the two operands, which is built and maintained dynamically
 
-				#### Special cases:
-			
-					*
-					if one of the operands is nil, link returns a point geometry at the location of the other. If both are null, it returns a point geometry at {0,0}
+#### Special cases:     
+  * if one of the operands is nil, link returns a point geometry at the location of the other. If both are null, it returns a point geometry at {0,0}
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -3908,540 +1924,199 @@ A polyline geometry from the given list of points represented as a cylinder of r
 								0
 								equals
 								a link geometry between geom1 and geom2.
+```
+      
 
-				```
-			
+#### See also: 
+[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
+    	
+----
 
-				#### See also:
-				[around](OperatorsAB#around), [circle](OperatorsCH#circle), [cone](OperatorsCH#cone), [line](OperatorsIN#line), [norm](OperatorsIN#norm), [point](OperatorsOS#point), [polygon](OperatorsOS#polygon), [polyline](OperatorsOS#polyline), [rectangle](OperatorsOS#rectangle), [square](OperatorsOS#square), [triangle](OperatorsTZ#triangle), 
-
-			----
-			
 [//]: # (keyword|operator_list)
-			###
-			`list`
+### `list`
 
-		#### Possible use:
-		
-				*
-				 **`list`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				list
-				`
-			
+#### Possible use: 
+  *  **`list`** (`any`) --->  `list` 
 
-				#### Result:
-				Casts the operand into the type list
+#### Result: 
+Casts the operand into the type list
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_list_with)
-			###
-			`list_with`
+### `list_with`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				int
-				`
-			 **`list_with`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`list_with`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `int` **`list_with`** `any expression` --->  `container`
+  *  **`list_with`** (`int` , `any expression`) --->  `container` 
 
-				#### Result:
-				creates a list with a size provided by the first operand, and filled with the second operand
+#### Result: 
+creates a list with a size provided by the first operand, and filled with the second operand  
 
-				#### Comment:
-				Note that the right operand  should be positive, and that the second one is evaluated for each position  in the list.
+#### Comment: 
+Note that the right operand  should be positive, and that the second one is evaluated for each position  in the list.    
 
-				#### See also:
-				[list](OperatorsIN#list), 
+#### See also: 
+[list](OperatorsIN#list), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_ln)
-			###
-			`ln`
+### `ln`
 
-		#### Possible use:
-		
-				*
-				 **`ln`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`ln`** 
-				(
-				
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`ln`** (`int`) --->  `float`
+  *  **`ln`** (`float`) --->  `float` 
 
-				#### Result:
-				Returns the natural logarithm (base e) of the operand.
+#### Result: 
+Returns the natural logarithm (base e) of the operand.
 
-				#### Special cases:
-			
-					*
-					an exception is raised if the operand is less than zero.
+#### Special cases:     
+  * an exception is raised if the operand is less than zero.
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
-								ln(exp(1))
+								ln(1)
 								; // var
 								0
 								equals
-								1.0
+								0.0
 float
 								var
 								1
 								<-
-								ln(1)
+								ln(exp(1))
 								; // var
 								1
 								equals
-								0.0
+								1.0
+```
+      
 
-				```
-			
+#### See also: 
+[exp](OperatorsCH#exp), 
+    	
+----
 
-				#### See also:
-				[exp](OperatorsCH#exp), 
-
-			----
-			
 [//]: # (keyword|operator_load_graph_from_file)
-			###
-			`load_graph_from_file`
+### `load_graph_from_file`
 
-		#### Possible use:
-		
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`load_graph_from_file`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`load_graph_from_file`** 
-				`
-				file
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				file
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				file
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				string
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_graph_from_file`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				string
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							,
-						
-				`
-				species
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  *  **`load_graph_from_file`** (`string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
+  * `string` **`load_graph_from_file`** `string` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
-				#### Result:
-				loads a graph from a file
-returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
+#### Result: 
+loads a graph from a file
+returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA  
 
-				#### Comment:
-				Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
+#### Comment: 
+Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
 
-				#### Special cases:
-			
-					*
-					"format": the format of the file
-					*
-					"filename": the filename of the file containing the network
-					*
-					"edges_species": the species of edges
-					*
-					"vertices_specy": the species of vertices
-					*
-					"format": the format of the file
-					*
-					"filename": the filename of the file containing the network
-					*
-					"edges_species": the species of edges
-					*
-					"vertices_specy": the species of vertices
-					*
-					"format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
+#### Special cases:     
+  * "format": the format of the file    
+  * "filename": the filename of the file containing the network    
+  * "edges_species": the species of edges    
+  * "vertices_specy": the species of vertices    
+  * "format": the format of the file    
+  * "filename": the filename of the file containing the network    
+  * "edges_species": the species of edges    
+  * "vertices_specy": the species of vertices    
+  * "format": the format of the file, "file": the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+			"pajek",
+			"example_of_Pajek_file");
 
-					```
-					graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+``` 
+
+    
+  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+			"pajek",
+			"./example_of_Pajek_file",
+			myVertexSpecy,
+			myEdgeSpecy );
+
+``` 
+
+    
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"example_of_Pajek_file",
 			myVertexSpecy,
 			myEdgeSpecy );
 
-					```
+``` 
 
-				
-					*
-					"filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
-
-					```
-					graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
-			"pajek",
-			"./example_of_Pajek_file",
-			myVertexSpecy,
-			myEdgeSpecy );
-
-					```
-
-				
-					*
-					"format": the format of the file, "filename": the filename of the file containing the network
-
-					```
-					graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+    
+  * "file": the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"example_of_Pajek_file");
 
-					```
+``` 
 
-				
-					*
-					"file": the file containing the network
-
-					```
-					graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+    
+  * "format": the format of the file, "filename": the filename of the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"example_of_Pajek_file");
 
-					```
+``` 
 
-				
-					*
-					"format": the format of the file, "file": the file containing the network
 
-					```
-					graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
-			"pajek",
-			"example_of_Pajek_file");
 
-					```
-
-				
-
-				#### Examples:
-				```
-				graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
-			"pajek",
-			"./example_of_Pajek_file",
-			myVertexSpecy,
-			myEdgeSpecy);
+#### Examples: 
+```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 			"pajek",
 			"./example_of_Pajek_file",
 			myVertexSpecy,
 			myEdgeSpecy , true);
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
+			"pajek",
+			"./example_of_Pajek_file",
+			myVertexSpecy,
+			myEdgeSpecy);
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_load_shortest_paths)
-			###
-			`load_shortest_paths`
+### `load_shortest_paths`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`load_shortest_paths`** 
-				`
-				matrix
-				`
-			
-				--->
-				
-				`
-				graph
-				`
-			
-				*
-				 **`load_shortest_paths`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				matrix
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  * `graph` **`load_shortest_paths`** `matrix` --->  `graph`
+  *  **`load_shortest_paths`** (`graph` , `matrix`) --->  `graph` 
 
-				#### Result:
-				put in the graph cache the computed shortest paths contained in the matrix (rows: source, columns: target)
+#### Result: 
+put in the graph cache the computed shortest paths contained in the matrix (rows: source, columns: target)
 
-				#### Examples:
-				```
-				graph
+#### Examples: 
+```
+graph
 								var
 								0
 								<-
@@ -4450,186 +2125,90 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 								0
 								equals
 								return my_graph with all the shortest paths computed
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_load_sub_model)
-			###
-			`load_sub_model`
+### `load_sub_model`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				string
-				`
-			 **`load_sub_model`** 
-				`
-				string
-				`
-			
-				--->
-				
-				`
-				msi.gama.kernel.experiment.IExperimentAgent
-				`
-			
-				*
-				 **`load_sub_model`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				msi.gama.kernel.experiment.IExperimentAgent
-				`
-			
+#### Possible use: 
+  * `string` **`load_sub_model`** `string` --->  `msi.gama.kernel.experiment.IExperimentAgent`
+  *  **`load_sub_model`** (`string` , `string`) --->  `msi.gama.kernel.experiment.IExperimentAgent` 
 
-				#### Result:
-				Load a submodel
+#### Result: 
+Load a submodel  
 
-				#### Comment:
-				loaded submodel
+#### Comment: 
+loaded submodel
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_log)
-			###
-			`log`
+### `log`
 
-		#### Possible use:
-		
-				*
-				 **`log`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
-				*
-				 **`log`** 
-				(
-				
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`log`** (`int`) --->  `float`
+  *  **`log`** (`float`) --->  `float` 
 
-				#### Result:
-				Returns the logarithm (base 10) of the operand.
+#### Result: 
+Returns the logarithm (base 10) of the operand.
 
-				#### Special cases:
-			
-					*
-					an exception is raised if the operand is equals or less than zero.
+#### Special cases:     
+  * an exception is raised if the operand is equals or less than zero.
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
-								log(10)
+								log(1)
 								; // var
 								0
 								equals
-								1.0
+								0.0
 float
 								var
 								1
 								<-
-								log(1)
+								log(10)
 								; // var
 								1
 								equals
-								0.0
+								1.0
+```
+      
 
-				```
-			
+#### See also: 
+[ln](OperatorsIN#ln), 
+    	
+----
 
-				#### See also:
-				[ln](OperatorsIN#ln), 
-
-			----
-			
 [//]: # (keyword|operator_log_gamma)
-			###
-			`log_gamma`
+### `log_gamma`
 
-		#### Possible use:
-		
-				*
-				 **`log_gamma`** 
-				(
-				
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`log_gamma`** (`float`) --->  `float` 
 
-				#### Result:
-				Returns the log of the value of the Gamma function at x.
+#### Result: 
+Returns the log of the value of the Gamma function at x.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_lower_case)
-			###
-			`lower_case`
+### `lower_case`
 
-		#### Possible use:
-		
-				*
-				 **`lower_case`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				string
-				`
-			
+#### Possible use: 
+  *  **`lower_case`** (`string`) --->  `string` 
 
-				#### Result:
-				Converts all of the characters in the string operand to lower case
+#### Result: 
+Converts all of the characters in the string operand to lower case
 
-				#### Examples:
-				```
-				string
+#### Examples: 
+```
+string
 								var
 								0
 								<-
@@ -4638,42 +2217,26 @@ float
 								0
 								equals
 								'abc'
+```
+      
 
-				```
-			
+#### See also: 
+[upper_case](OperatorsTZ#upper_case), 
+    	
+----
 
-				#### See also:
-				[upper_case](OperatorsTZ#upper_case), 
-
-			----
-			
 [//]: # (keyword|operator_main_connected_component)
-			###
-			`main_connected_component`
+### `main_connected_component`
 
-		#### Possible use:
-		
-				*
-				 **`main_connected_component`** 
-				(
-				
-				`
-				graph
-				`
-			
-				) --->
-				
-				`
-				graph
-				`
-			
+#### Possible use: 
+  *  **`main_connected_component`** (`graph`) --->  `graph` 
 
-				#### Result:
-				returns the sub-graph corresponding to the main connected components of the graph
+#### Result: 
+returns the sub-graph corresponding to the main connected components of the graph
 
-				#### Examples:
-				```
-				graph
+#### Examples: 
+```
+graph
 								var
 								0
 								<-
@@ -4682,101 +2245,36 @@ float
 								0
 								equals
 								the sub-graph corresponding to the main connected components of the graph
+```
+      
 
-				```
-			
+#### See also: 
+[connected_components_of](OperatorsCH#connected_components_of), 
+    	
+----
 
-				#### See also:
-				[connected_components_of](OperatorsCH#connected_components_of), 
-
-			----
-			
 [//]: # (keyword|operator_map)
-			###
-			`map`
+### `map`
 
-		#### Possible use:
-		
-				*
-				 **`map`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				map
-				`
-			
+#### Possible use: 
+  *  **`map`** (`any`) --->  `map` 
 
-				#### Result:
-				Casts the operand into the type map
+#### Result: 
+Casts the operand into the type map
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_masked_by)
-			###
-			`masked_by`
+### `masked_by`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`masked_by`** `container<geometry>`
-				--->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`masked_by`** 
-				(
-				
-				`
-				geometry
-				`
-			 , `container<geometry>`
-				) --->
-				
-				`
-				geometry
-				`
-			
-				*
-				 **`masked_by`** 
-				(
-				
-				`
-				geometry
-				`
-			
-							,
-						`container<geometry>`
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				geometry
-				`
-			
+#### Possible use: 
+  * `geometry` **`masked_by`** `container<geometry>` --->  `geometry`
+  *  **`masked_by`** (`geometry` , `container<geometry>`) --->  `geometry`
+  *  **`masked_by`** (`geometry`, `container<geometry>`, `int`) --->  `geometry`
 
-				#### Examples:
-				```
-				geometry
+#### Examples: 
+```
+geometry
 								var
 								0
 								<-
@@ -4794,194 +2292,85 @@ geometry
 								1
 								equals
 								the geometry representing the part of perception_geom visible from the agent position considering the list of obstacles obstacle_list.
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_material)
-			###
-			`material`
+### `material`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				float
-				`
-			 **`material`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				msi.gama.util.GamaMaterial
-				`
-			
-				*
-				 **`material`** 
-				(
-				
-				`
-				float
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				msi.gama.util.GamaMaterial
-				`
-			
+#### Possible use: 
+  * `float` **`material`** `float` --->  `msi.gama.util.GamaMaterial`
+  *  **`material`** (`float` , `float`) --->  `msi.gama.util.GamaMaterial` 
 
-				#### Result:
-				Returns
+#### Result: 
+Returns
 
-				#### Examples:
-				```
-				
+#### Examples: 
+```
 
-				```
-			
+```
+      
 
-				#### See also:
-				[](OperatorsTZ#), 
+#### See also: 
+[](OperatorsTZ#), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_matrix)
-			###
-			`matrix`
+### `matrix`
 
-		#### Possible use:
-		
-				*
-				 **`matrix`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
+#### Possible use: 
+  *  **`matrix`** (`any`) --->  `matrix` 
 
-				#### Result:
-				Casts the operand into the type matrix
+#### Result: 
+Casts the operand into the type matrix
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_matrix_with)
-			###
-			`matrix_with`
+### `matrix_with`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				point
-				`
-			 **`matrix_with`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				matrix
-				`
-			
-				*
-				 **`matrix_with`** 
-				(
-				
-				`
-				point
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				matrix
-				`
-			
+#### Possible use: 
+  * `point` **`matrix_with`** `any expression` --->  `matrix`
+  *  **`matrix_with`** (`point` , `any expression`) --->  `matrix` 
 
-				#### Result:
-				creates a matrix with a size provided by the first operand, and filled with the second operand
+#### Result: 
+creates a matrix with a size provided by the first operand, and filled with the second operand  
 
-				#### Comment:
-				Note that both components of the right operand point should be positive, otherwise an exception is raised.
+#### Comment: 
+Note that both components of the right operand point should be positive, otherwise an exception is raised.    
 
-				#### See also:
-				[matrix](OperatorsIN#matrix), [as_matrix](OperatorsAB#as_matrix), 
+#### See also: 
+[matrix](OperatorsIN#matrix), [as_matrix](OperatorsAB#as_matrix), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_max)
-			###
-			`max`
+### `max`
 
-		#### Possible use:
-		
-				*
-				 **`max`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`max`** (`container`) --->  `unknown` 
 
-				#### Result:
-				the maximum element found in the operand
+#### Result: 
+the maximum element found in the operand  
 
-				#### Comment:
-				the max operator behavior depends on the nature of the operand
+#### Comment: 
+the max operator behavior depends on the nature of the operand
 
-				#### Special cases:
-			
-					*
-					if it is a population of a list of other type: max transforms all elements into integer and returns the maximum of them
-					*
-					if it is a map, max returns the maximum among the list of all elements value
-					*
-					if it is a file, max returns the maximum of the content of the file (that is also a container)
-					*
-					if it is a graph, max returns the maximum of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)
-					*
-					if it is a matrix of int, float or object, max returns the maximum of all the numerical elements (thus all elements for integer and float matrices)
-					*
-					if it is a matrix of geometry, max returns the maximum of the list of the geometries
-					*
-					if it is a matrix of another type, max returns the maximum of the elements transformed into float
-					*
-					if it is a list of int of float, max returns the maximum of all the elements
-
-					```
-					unknown
+#### Special cases:     
+  * if it is a population of a list of other type: max transforms all elements into integer and returns the maximum of them    
+  * if it is a map, max returns the maximum among the list of all elements value    
+  * if it is a file, max returns the maximum of the content of the file (that is also a container)    
+  * if it is a graph, max returns the maximum of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)    
+  * if it is a matrix of int, float or object, max returns the maximum of all the numerical elements (thus all elements for integer and float matrices)    
+  * if it is a matrix of geometry, max returns the maximum of the list of the geometries    
+  * if it is a matrix of another type, max returns the maximum of the elements transformed into float    
+  * if it is a list of int of float, max returns the maximum of all the elements 
+  
+```
+unknown
 								var
 								0
 								<-
@@ -4991,14 +2380,13 @@ geometry
 								equals
 								100.0
 
-					```
+``` 
 
-				
-					*
-					if it is a list of points: max returns the maximum of all points as a point (i.e. the point with the greatest coordinate on the x-axis, in case of equality the point with the greatest coordinate on the y-axis is chosen. If all the points are equal, the first one is returned. )
-
-					```
-					unknown
+    
+  * if it is a list of points: max returns the maximum of all points as a point (i.e. the point with the greatest coordinate on the x-axis, in case of equality the point with the greatest coordinate on the y-axis is chosen. If all the points are equal, the first one is returned. ) 
+  
+```
+unknown
 								var
 								1
 								<-
@@ -5008,71 +2396,34 @@ geometry
 								equals
 								{9.0,1.0}
 
-					```
+``` 
 
-				
+    
 
-				#### See also:
-				[min](OperatorsIN#min), 
+#### See also: 
+[min](OperatorsIN#min), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_max_of)
-			###
-			`max_of`
+### `max_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`max_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`max_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`max_of`** `any expression` --->  `unknown`
+  *  **`max_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				the maximum value of the right-hand expression evaluated on each of the elements of the left-hand operand
+#### Result: 
+the maximum value of the right-hand expression evaluated on each of the elements of the left-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					As of GAMA 1.6, if the left-hand operand is nil or empty, max_of throws an error
-					*
-					if the left-operand is a map, the keyword each will contain each value
-
-					```
-					unknown
+#### Special cases:     
+  * As of GAMA 1.6, if the left-hand operand is nil or empty, max_of throws an error    
+  * if the left-operand is a map, the keyword each will contain each value 
+  
+```
+unknown
 								var
 								5
 								<-
@@ -5082,13 +2433,13 @@ geometry
 								equals
 								6
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				unknown
+
+#### Examples: 
+```
+unknown
 								var
 								1
 								<-
@@ -5116,38 +2467,26 @@ unknown
 								4
 								equals
 								96
+```
+      
 
-				```
-			
+#### See also: 
+[min_of](OperatorsIN#min_of), 
+    	
+----
 
-				#### See also:
-				[min_of](OperatorsIN#min_of), 
-
-			----
-			
 [//]: # (keyword|operator_maximal_cliques_of)
-			###
-			`maximal_cliques_of`
+### `maximal_cliques_of`
 
-		#### Possible use:
-		
-				*
-				 **`maximal_cliques_of`** 
-				(
-				
-				`
-				graph
-				`
-			
-				) --->
-				`list<list>`
+#### Possible use: 
+  *  **`maximal_cliques_of`** (`graph`) --->  `list<list>` 
 
-				#### Result:
-				returns the maximal cliques of a graph using the Bron-Kerbosch clique detection algorithm: A clique is maximal if it is impossible to enlarge it by adding another vertex from the graph. Note that a maximal clique is not necessarily the biggest clique in the graph.
+#### Result: 
+returns the maximal cliques of a graph using the Bron-Kerbosch clique detection algorithm: A clique is maximal if it is impossible to enlarge it by adding another vertex from the graph. Note that a maximal clique is not necessarily the biggest clique in the graph.
 
-				#### Examples:
-				```
-				graph my_graph <- graph([]);
+#### Examples: 
+```
+graph my_graph <- graph([]);
 list<list>
 								var
 								1
@@ -5157,50 +2496,32 @@ list<list>
 								1
 								equals
 								the list of all the maximal cliques as list
+```
+      
 
-				```
-			
+#### See also: 
+[biggest_cliques_of](OperatorsAB#biggest_cliques_of), 
+    	
+----
 
-				#### See also:
-				[biggest_cliques_of](OperatorsAB#biggest_cliques_of), 
-
-			----
-			
 [//]: # (keyword|operator_mean)
-			###
-			`mean`
+### `mean`
 
-		#### Possible use:
-		
-				*
-				 **`mean`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`mean`** (`container`) --->  `unknown` 
 
-				#### Result:
-				the mean of all the elements of the operand
+#### Result: 
+the mean of all the elements of the operand  
 
-				#### Comment:
-				the elements of the operand are summed (see sum for more details about the sum of container elements ) and then the sum value is divided by the number of elements.
+#### Comment: 
+the elements of the operand are summed (see sum for more details about the sum of container elements ) and then the sum value is divided by the number of elements.
 
-				#### Special cases:
-			
-					*
-					if the container contains points, the result will be a point. If the container contains rgb values, the result will be a rgb color
+#### Special cases:     
+  * if the container contains points, the result will be a point. If the container contains rgb values, the result will be a rgb color
 
-				#### Examples:
-				```
-				unknown
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -5209,45 +2530,29 @@ list<list>
 								0
 								equals
 								5.125 
+```
+      
 
-				```
-			
+#### See also: 
+[sum](OperatorsOS#sum), 
+    	
+----
 
-				#### See also:
-				[sum](OperatorsOS#sum), 
-
-			----
-			
 [//]: # (keyword|operator_mean_deviation)
-			###
-			`mean_deviation`
+### `mean_deviation`
 
-		#### Possible use:
-		
-				*
-				 **`mean_deviation`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`mean_deviation`** (`container`) --->  `float` 
 
-				#### Result:
-				the deviation from the mean of all the elements of the operand. See <A href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</A> for more details.
+#### Result: 
+the deviation from the mean of all the elements of the operand. See <A href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</A> for more details.  
 
-				#### Comment:
-				The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+#### Comment: 
+The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -5256,69 +2561,32 @@ list<list>
 								0
 								equals
 								1.125
+```
+      
 
-				```
-			
+#### See also: 
+[mean](OperatorsIN#mean), [standard_deviation](OperatorsOS#standard_deviation), 
+    	
+----
 
-				#### See also:
-				[mean](OperatorsIN#mean), [standard_deviation](OperatorsOS#standard_deviation), 
-
-			----
-			
 [//]: # (keyword|operator_mean_of)
-			###
-			`mean_of`
+### `mean_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`mean_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`mean_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`mean_of`** `any expression` --->  `unknown`
+  *  **`mean_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				the mean of the right-hand expression evaluated on each of the elements of the left-hand operand
+#### Result: 
+the mean of the right-hand expression evaluated on each of the elements of the left-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-operand is a map, the keyword each will contain each value
-
-					```
-					unknown
+#### Special cases:     
+  * if the left-operand is a map, the keyword each will contain each value 
+  
+```
+unknown
 								var
 								2
 								<-
@@ -5328,13 +2596,13 @@ list<list>
 								equals
 								4
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				unknown
+
+#### Examples: 
+```
+unknown
 								var
 								1
 								<-
@@ -5343,42 +2611,26 @@ list<list>
 								1
 								equals
 								15
+```
+      
 
-				```
-			
+#### See also: 
+[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [product_of](OperatorsOS#product_of), 
+    	
+----
 
-				#### See also:
-				[min_of](OperatorsIN#min_of), [max_of](OperatorsIN#max_of), [sum_of](OperatorsOS#sum_of), [product_of](OperatorsOS#product_of), 
-
-			----
-			
 [//]: # (keyword|operator_meanR)
-			###
-			`meanR`
+### `meanR`
 
-		#### Possible use:
-		
-				*
-				 **`meanR`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`meanR`** (`container`) --->  `unknown` 
 
-				#### Result:
-				returns the mean value of given vector (right-hand operand) in given variable  (left-hand operand).
+#### Result: 
+returns the mean value of given vector (right-hand operand) in given variable  (left-hand operand).
 
-				#### Examples:
-				```
-				list<int> X <- [2, 3, 1];
+#### Examples: 
+```
+list<int> X <- [2, 3, 1];
 int
 								var
 								1
@@ -5388,44 +2640,26 @@ int
 								1
 								equals
 								2
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_median)
-			###
-			`median`
+### `median`
 
-		#### Possible use:
-		
-				*
-				 **`median`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`median`** (`container`) --->  `unknown` 
 
-				#### Result:
-				the median of all the elements of the operand.
+#### Result: 
+the median of all the elements of the operand.
 
-				#### Special cases:
-			
-					*
-					if the container contains points, the result will be a point. If the container contains rgb values, the result will be a rgb color
+#### Special cases:     
+  * if the container contains points, the result will be a point. If the container contains rgb values, the result will be a rgb color
 
-				#### Examples:
-				```
-				unknown
+#### Examples: 
+```
+unknown
 								var
 								0
 								<-
@@ -5434,170 +2668,79 @@ int
 								0
 								equals
 								5.0
+```
+      
 
-				```
-			
+#### See also: 
+[mean](OperatorsIN#mean), 
+    	
+----
 
-				#### See also:
-				[mean](OperatorsIN#mean), 
-
-			----
-			
 [//]: # (keyword|operator_mental_state)
-			###
-			`mental_state`
+### `mental_state`
 
-		#### Possible use:
-		
-				*
-				 **`mental_state`** 
-				(
-				
-				`
-				any
-				`
-			
-				) --->
-				
-				`
-				mental_state
-				`
-			
+#### Possible use: 
+  *  **`mental_state`** (`any`) --->  `mental_state` 
 
-				#### Result:
-				Casts the operand into the type mental_state
+#### Result: 
+Casts the operand into the type mental_state
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_message)
-			###
-			`message`
+### `message`
 
-		#### Possible use:
-		
-				*
-				 **`message`** 
-				(
-				
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				msi.gama.extensions.messaging.GamaMessage
-				`
-			
+#### Possible use: 
+  *  **`message`** (`unknown`) --->  `msi.gama.extensions.messaging.GamaMessage` 
 
-				#### Result:
-				to be added
+#### Result: 
+to be added
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_milliseconds_between)
-			###
-			`milliseconds_between`
+### `milliseconds_between`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`milliseconds_between`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`milliseconds_between`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  * `date` **`milliseconds_between`** `date` --->  `float`
+  *  **`milliseconds_between`** (`date` , `date`) --->  `float` 
 
-				#### Result:
-				Provide the exact number of milliseconds between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
+#### Result: 
+Provide the exact number of milliseconds between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
 
-				#### Examples:
-				```
-				milliseconds_between(d1, d2) -: 10 
+#### Examples: 
+```
+milliseconds_between(d1, d2) -: 10 
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_min)
-			###
-			`min`
+### `min`
 
-		#### Possible use:
-		
-				*
-				 **`min`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`min`** (`container`) --->  `unknown` 
 
-				#### Result:
-				the minimum element found in the operand.
+#### Result: 
+the minimum element found in the operand.  
 
-				#### Comment:
-				the min operator behavior depends on the nature of the operand
+#### Comment: 
+the min operator behavior depends on the nature of the operand
 
-				#### Special cases:
-			
-					*
-					if it is a list of points: min returns the minimum of all points as a point (i.e. the point with the smallest coordinate on the x-axis, in case of equality the point with the smallest coordinate on the y-axis is chosen. If all the points are equal, the first one is returned. )
-					*
-					if it is a population of a list of other types: min transforms all elements into integer and returns the minimum of them
-					*
-					if it is a map, min returns the minimum among the list of all elements value
-					*
-					if it is a file, min returns the minimum of the content of the file (that is also a container)
-					*
-					if it is a graph, min returns the minimum of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)
-					*
-					if it is a matrix of int, float or object, min returns the minimum of all the numerical elements (thus all elements for integer and float matrices)
-					*
-					if it is a matrix of geometry, min returns the minimum of the list of the geometries
-					*
-					if it is a matrix of another type, min returns the minimum of the elements transformed into float
-					*
-					if it is a list of int or float: min returns the minimum of all the elements
-
-					```
-					unknown
+#### Special cases:     
+  * if it is a list of points: min returns the minimum of all points as a point (i.e. the point with the smallest coordinate on the x-axis, in case of equality the point with the smallest coordinate on the y-axis is chosen. If all the points are equal, the first one is returned. )    
+  * if it is a population of a list of other types: min transforms all elements into integer and returns the minimum of them    
+  * if it is a map, min returns the minimum among the list of all elements value    
+  * if it is a file, min returns the minimum of the content of the file (that is also a container)    
+  * if it is a graph, min returns the minimum of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)    
+  * if it is a matrix of int, float or object, min returns the minimum of all the numerical elements (thus all elements for integer and float matrices)    
+  * if it is a matrix of geometry, min returns the minimum of the list of the geometries    
+  * if it is a matrix of another type, min returns the minimum of the elements transformed into float    
+  * if it is a list of int or float: min returns the minimum of all the elements 
+  
+```
+unknown
 								var
 								0
 								<-
@@ -5607,71 +2750,34 @@ int
 								equals
 								23.2
 
-					```
+``` 
 
-				
+    
 
-				#### See also:
-				[max](OperatorsIN#max), 
+#### See also: 
+[max](OperatorsIN#max), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_min_of)
-			###
-			`min_of`
+### `min_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				container
-				`
-			 **`min_of`** 
-				`
-				any expression
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`min_of`** 
-				(
-				
-				`
-				container
-				`
-			 , 
-				`
-				any expression
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  * `container` **`min_of`** `any expression` --->  `unknown`
+  *  **`min_of`** (`container` , `any expression`) --->  `unknown` 
 
-				#### Result:
-				the minimum value of the right-hand expression evaluated on each of the elements of the left-hand operand
+#### Result: 
+the minimum value of the right-hand expression evaluated on each of the elements of the left-hand operand  
 
-				#### Comment:
-				in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
+#### Comment: 
+in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.
 
-				#### Special cases:
-			
-					*
-					if the left-hand operand is nil or empty, min_of throws an error
-					*
-					if the left-operand is a map, the keyword each will contain each value
-
-					```
-					unknown
+#### Special cases:     
+  * if the left-hand operand is nil or empty, min_of throws an error    
+  * if the left-operand is a map, the keyword each will contain each value 
+  
+```
+unknown
 								var
 								5
 								<-
@@ -5681,13 +2787,13 @@ int
 								equals
 								5
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				unknown
+
+#### Examples: 
+```
+unknown
 								var
 								1
 								<-
@@ -5715,449 +2821,163 @@ unknown
 								4
 								equals
 								4
+```
+      
 
-				```
-			
+#### See also: 
+[max_of](OperatorsIN#max_of), 
+    	
+----
 
-				#### See also:
-				[max_of](OperatorsIN#max_of), 
-
-			----
-			
 [//]: # (keyword|operator_minus_days)
-			###
-			`minus_days`
+### `minus_days`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_days`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_days`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_days`** `int` --->  `date`
+  *  **`minus_days`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Subtract a given number of days from a date
+#### Result: 
+Subtract a given number of days from a date
 
-				#### Examples:
-				```
-				date1 minus_days 20
+#### Examples: 
+```
+date1 minus_days 20
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_hours)
-			###
-			`minus_hours`
+### `minus_hours`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_hours`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_hours`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_hours`** `int` --->  `date`
+  *  **`minus_hours`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Remove a given number of hours from a date
+#### Result: 
+Remove a given number of hours from a date
 
-				#### Examples:
-				```
-				date1 minus_hours 15 // equivalent to date1 - 15 #h
+#### Examples: 
+```
+date1 minus_hours 15 // equivalent to date1 - 15 #h
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_minutes)
-			###
-			`minus_minutes`
+### `minus_minutes`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_minutes`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_minutes`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_minutes`** `int` --->  `date`
+  *  **`minus_minutes`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Subtract a given number of minutes from a date
+#### Result: 
+Subtract a given number of minutes from a date
 
-				#### Examples:
-				```
-				date1 minus_minutes 5 // equivalent to date1 - 5#mn
+#### Examples: 
+```
+date1 minus_minutes 5 // equivalent to date1 - 5#mn
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_months)
-			###
-			`minus_months`
+### `minus_months`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_months`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_months`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_months`** `int` --->  `date`
+  *  **`minus_months`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Subtract a given number of months from a date
+#### Result: 
+Subtract a given number of months from a date
 
-				#### Examples:
-				```
-				date1 minus_months 5
+#### Examples: 
+```
+date1 minus_months 5
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_ms)
-			###
-			`minus_ms`
+### `minus_ms`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_ms`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_ms`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_ms`** `int` --->  `date`
+  *  **`minus_ms`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Remove a given number of milliseconds from a date
+#### Result: 
+Remove a given number of milliseconds from a date
 
-				#### Examples:
-				```
-				date1 minus_ms 15 // equivalent to date1 - 15 #ms
+#### Examples: 
+```
+date1 minus_ms 15 // equivalent to date1 - 15 #ms
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_seconds)
-			###
-			`minus_seconds`
-Same signification as [-](OperatorsAB
-				#
-				-)
+### `minus_seconds`
+Same signification as [-](OperatorsAB#-)
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_minus_weeks)
-			###
-			`minus_weeks`
+### `minus_weeks`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_weeks`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_weeks`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_weeks`** `int` --->  `date`
+  *  **`minus_weeks`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Subtract a given number of weeks from a date
+#### Result: 
+Subtract a given number of weeks from a date
 
-				#### Examples:
-				```
-				date1 minus_weeks 15
+#### Examples: 
+```
+date1 minus_weeks 15
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_minus_years)
-			###
-			`minus_years`
+### `minus_years`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`minus_years`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				date
-				`
-			
-				*
-				 **`minus_years`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				date
-				`
-			
+#### Possible use: 
+  * `date` **`minus_years`** `int` --->  `date`
+  *  **`minus_years`** (`date` , `int`) --->  `date` 
 
-				#### Result:
-				Subtract a given number of year from a date
+#### Result: 
+Subtract a given number of year from a date
 
-				#### Examples:
-				```
-				date1 minus_years 3
+#### Examples: 
+```
+date1 minus_years 3
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_mod)
-			###
-			`mod`
+### `mod`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				int
-				`
-			 **`mod`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`mod`** 
-				(
-				
-				`
-				int
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `int` **`mod`** `int` --->  `int`
+  *  **`mod`** (`int` , `int`) --->  `int` 
 
-				#### Result:
-				Returns the remainder of the integer division of the left-hand operand by the right-hand operand.
+#### Result: 
+Returns the remainder of the integer division of the left-hand operand by the right-hand operand.
 
-				#### Special cases:
-			
-					*
-					if operands are float, they are truncated
-					*
-					if the right-hand operand is equal to zero, raises an exception.
+#### Special cases:     
+  * if operands are float, they are truncated    
+  * if the right-hand operand is equal to zero, raises an exception.
 
-				#### Examples:
-				```
-				int
+#### Examples: 
+```
+int
 								var
 								0
 								<-
@@ -6166,140 +2986,55 @@ Same signification as [-](OperatorsAB
 								0
 								equals
 								1
+```
+      
 
-				```
-			
+#### See also: 
+[div](OperatorsCH#div), 
+    	
+----
 
-				#### See also:
-				[div](OperatorsCH#div), 
-
-			----
-			
 [//]: # (keyword|operator_moment)
-			###
-			`moment`
+### `moment`
 
-		#### Possible use:
-		
-				*
-				 **`moment`** 
-				(
-				
-				`
-				container
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`moment`** (`container`, `int`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the moment of k-th order with constant c of a data sequence
+#### Result: 
+Returns the moment of k-th order with constant c of a data sequence
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_months_between)
-			###
-			`months_between`
+### `months_between`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				date
-				`
-			 **`months_between`** 
-				`
-				date
-				`
-			
-				--->
-				
-				`
-				int
-				`
-			
-				*
-				 **`months_between`** 
-				(
-				
-				`
-				date
-				`
-			 , 
-				`
-				date
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  * `date` **`months_between`** `date` --->  `int`
+  *  **`months_between`** (`date` , `date`) --->  `int` 
 
-				#### Result:
-				Provide the exact number of months between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
+#### Result: 
+Provide the exact number of months between two dates. This number can be positive or negative (if the second operand is smaller than the first one)
 
-				#### Examples:
-				```
-				months_between(d1, d2) -: 10 
+#### Examples: 
+```
+months_between(d1, d2) -: 10 
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_moran)
-			###
-			`moran`
+### `moran`
 
-		#### Possible use:
-		
-				*
-				`list<float>` **`moran`** `matrix<float>`
-				--->
-				
-				`
-				float
-				`
-			
-				*
-				 **`moran`** 
-				(
-				`list<float>` , `matrix<float>`
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  * `list<float>` **`moran`** `matrix<float>` --->  `float`
+  *  **`moran`** (`list<float>` , `matrix<float>`) --->  `float`
 
-				#### Special cases:
-			
-					*
-					return the Moran Index of the given list of interest points (list of floats) and the weight matrix (matrix of float)
-
-					```
-					float
+#### Special cases:     
+  * return the Moran Index of the given list of interest points (list of floats) and the weight matrix (matrix of float) 
+  
+```
+float
 								var
 								0
 								<-
@@ -6309,62 +3044,37 @@ Same signification as [-](OperatorsAB
 								equals
 								the Moran index computed
 
-					```
+``` 
 
-				
 
-			----
-			
+    	
+----
+
 [//]: # (keyword|operator_mul)
-			###
-			`mul`
+### `mul`
 
-		#### Possible use:
-		
-				*
-				 **`mul`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`mul`** (`container`) --->  `unknown` 
 
-				#### Result:
-				the product of all the elements of the operand
+#### Result: 
+the product of all the elements of the operand  
 
-				#### Comment:
-				the mul operator behavior depends on the nature of the operand
+#### Comment: 
+the mul operator behavior depends on the nature of the operand
 
-				#### Special cases:
-			
-					*
-					if it is a list of points: mul returns the product of all points as a point (each coordinate is the product of the corresponding coordinate of each element)
-					*
-					if it is a list of other types: mul transforms all elements into integer and multiplies them
-					*
-					if it is a map, mul returns the product of the value of all elements
-					*
-					if it is a file, mul returns the product of the content of the file (that is also a container)
-					*
-					if it is a graph, mul returns the product of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)
-					*
-					if it is a matrix of int, float or object, mul returns the product of all the numerical elements (thus all elements for integer and float matrices)
-					*
-					if it is a matrix of geometry, mul returns the product of the list of the geometries
-					*
-					if it is a matrix of other types: mul transforms all elements into float and multiplies them
-					*
-					if it is a list of int or float: mul returns the product of all the elements
-
-					```
-					unknown
+#### Special cases:     
+  * if it is a list of points: mul returns the product of all points as a point (each coordinate is the product of the corresponding coordinate of each element)    
+  * if it is a list of other types: mul transforms all elements into integer and multiplies them    
+  * if it is a map, mul returns the product of the value of all elements    
+  * if it is a file, mul returns the product of the content of the file (that is also a container)    
+  * if it is a graph, mul returns the product of the list of the elements of the graph (that can be the list of edges or vertexes depending on the graph)    
+  * if it is a matrix of int, float or object, mul returns the product of all the numerical elements (thus all elements for integer and float matrices)    
+  * if it is a matrix of geometry, mul returns the product of the list of the geometries    
+  * if it is a matrix of other types: mul transforms all elements into float and multiplies them    
+  * if it is a list of int or float: mul returns the product of all the elements 
+  
+```
+unknown
 								var
 								0
 								<-
@@ -6374,42 +3084,27 @@ Same signification as [-](OperatorsAB
 								equals
 								80040.0
 
-					```
+``` 
 
-				
+    
 
-				#### See also:
-				[sum](OperatorsOS#sum), 
+#### See also: 
+[sum](OperatorsOS#sum), 
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_nb_cycles)
-			###
-			`nb_cycles`
+### `nb_cycles`
 
-		#### Possible use:
-		
-				*
-				 **`nb_cycles`** 
-				(
-				
-				`
-				graph
-				`
-			
-				) --->
-				
-				`
-				int
-				`
-			
+#### Possible use: 
+  *  **`nb_cycles`** (`graph`) --->  `int` 
 
-				#### Result:
-				returns the maximum number of independent cycles in a graph. This number (u) is estimated through the number of nodes (v), links (e) and of sub-graphs (p): u = e - v + p.
+#### Result: 
+returns the maximum number of independent cycles in a graph. This number (u) is estimated through the number of nodes (v), links (e) and of sub-graphs (p): u = e - v + p.
 
-				#### Examples:
-				```
-				graph graphEpidemio <- graph([]);
+#### Examples: 
+```
+graph graphEpidemio <- graph([]);
 int
 								var
 								1
@@ -6419,65 +3114,30 @@ int
 								1
 								equals
 								the number of cycles in the graph
+```
+      
 
-				```
-			
+#### See also: 
+[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [gamma_index](OperatorsCH#gamma_index), [connectivity_index](OperatorsCH#connectivity_index), 
+    	
+----
 
-				#### See also:
-				[alpha_index](OperatorsAB#alpha_index), [beta_index](OperatorsAB#beta_index), [gamma_index](OperatorsCH#gamma_index), [connectivity_index](OperatorsCH#connectivity_index), 
-
-			----
-			
 [//]: # (keyword|operator_neighbors_at)
-			###
-			`neighbors_at`
+### `neighbors_at`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				geometry
-				`
-			 **`neighbors_at`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`neighbors_at`** 
-				(
-				
-				`
-				geometry
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `geometry` **`neighbors_at`** `float` --->  `container`
+  *  **`neighbors_at`** (`geometry` , `float`) --->  `container` 
 
-				#### Result:
-				a list, containing all the agents of the same species than the left argument (if it is an agent) located at a distance inferior or equal to the right-hand operand to the left-hand operand (geometry, agent, point).
+#### Result: 
+a list, containing all the agents of the same species than the left argument (if it is an agent) located at a distance inferior or equal to the right-hand operand to the left-hand operand (geometry, agent, point).  
 
-				#### Comment:
-				The topology used to compute the neighborhood  is the one of the left-operand if this one is an agent; otherwise the one of the agent applying the operator.
+#### Comment: 
+The topology used to compute the neighborhood  is the one of the left-operand if this one is an agent; otherwise the one of the agent applying the operator.
 
-				#### Examples:
-				```
-				container
+#### Examples: 
+```
+container
 								var
 								0
 								<-
@@ -6486,128 +3146,32 @@ int
 								0
 								equals
 								all the agents located at a distance lower or equal to 10 to the agent applying the operator.
+```
+      
 
-				```
-			
+#### See also: 
+[neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [at_distance](OperatorsAB#at_distance), 
+    	
+----
 
-				#### See also:
-				[neighbors_of](OperatorsIN#neighbors_of), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), [at_distance](OperatorsAB#at_distance), 
-
-			----
-			
 [//]: # (keyword|operator_neighbors_of)
-			###
-			`neighbors_of`
+### `neighbors_of`
 
-		#### Possible use:
-		
-				*
-				
-				`
-				graph
-				`
-			 **`neighbors_of`** 
-				`
-				unknown
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`neighbors_of`** 
-				(
-				
-				`
-				graph
-				`
-			 , 
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
-				*
-				
-				`
-				topology
-				`
-			 **`neighbors_of`** 
-				`
-				agent
-				`
-			
-				--->
-				
-				`
-				container
-				`
-			
-				*
-				 **`neighbors_of`** 
-				(
-				
-				`
-				topology
-				`
-			 , 
-				`
-				agent
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
-				*
-				 **`neighbors_of`** 
-				(
-				
-				`
-				topology
-				`
-			
-							,
-						
-				`
-				geometry
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  * `graph` **`neighbors_of`** `unknown` --->  `container`
+  *  **`neighbors_of`** (`graph` , `unknown`) --->  `container`
+  * `topology` **`neighbors_of`** `agent` --->  `container`
+  *  **`neighbors_of`** (`topology` , `agent`) --->  `container`
+  *  **`neighbors_of`** (`topology`, `geometry`, `float`) --->  `container` 
 
-				#### Result:
-				a list, containing all the agents of the same species than the argument (if it is an agent) located at a distance inferior or equal to 1 to the right-hand operand agent considering the left-hand operand topology.
+#### Result: 
+a list, containing all the agents of the same species than the argument (if it is an agent) located at a distance inferior or equal to 1 to the right-hand operand agent considering the left-hand operand topology.
 
-				#### Special cases:
-			
-					*
-					a list, containing all the agents of the same species than the left argument (if it is an agent) located at a distance inferior or equal to the third argument to the second argument (agent, geometry or point) considering the first operand topology.
-
-					```
-					container
+#### Special cases:     
+  * a list, containing all the agents of the same species than the left argument (if it is an agent) located at a distance inferior or equal to the third argument to the second argument (agent, geometry or point) considering the first operand topology. 
+  
+```
+container
 								var
 								0
 								<-
@@ -6617,13 +3181,13 @@ int
 								equals
 								all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
 
-					```
+``` 
 
-				
 
-				#### Examples:
-				```
-				container
+
+#### Examples: 
+```
+container
 								var
 								1
 								<-
@@ -6650,1013 +3214,118 @@ container
 								3
 								equals
 								returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
+```
+      
 
-				```
-			
+#### See also: 
+[predecessors_of](OperatorsOS#predecessors_of), [successors_of](OperatorsOS#successors_of), [neighbors_at](OperatorsIN#neighbors_at), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
+    	
+----
 
-				#### See also:
-				[predecessors_of](OperatorsOS#predecessors_of), [successors_of](OperatorsOS#successors_of), [neighbors_at](OperatorsIN#neighbors_at), [closest_to](OperatorsCH#closest_to), [overlapping](OperatorsOS#overlapping), [agents_overlapping](OperatorsAB#agents_overlapping), [agents_inside](OperatorsAB#agents_inside), [agent_closest_to](OperatorsAB#agent_closest_to), 
-
-			----
-			
 [//]: # (keyword|operator_new_emotion)
-			###
-			`new_emotion`
+### `new_emotion`
 
-		#### Possible use:
-		
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				emotion
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_emotion`** 
-				`
-				predicate
-				`
-			
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				predicate
-				`
-			
-				) --->
-				
-				`
-				emotion
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_emotion`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				emotion
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_emotion`** 
-				`
-				agent
-				`
-			
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				agent
-				`
-			
-				) --->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
-				*
-				 **`new_emotion`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				emotion
-				`
-			
+#### Possible use: 
+  *  **`new_emotion`** (`string`) --->  `emotion`
+  * `string` **`new_emotion`** `float` --->  `emotion`
+  *  **`new_emotion`** (`string` , `float`) --->  `emotion`
+  * `string` **`new_emotion`** `predicate` --->  `emotion`
+  *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
+  * `string` **`new_emotion`** `agent` --->  `emotion`
+  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
-				#### Result:
-				a new emotion with the given properties (name)
-a new emotion with the given properties (name,about)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
+#### Result: 
 a new emotion with the given properties (name, intensity)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name)
+a new emotion with the given properties (name,about)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 
-				#### Examples:
-				```
-				emotion("joy",12.3,eatFood,4)
+#### Examples: 
+```
+emotion("joy",12.3)
+emotion("joy",12.3,eatFood)
+emotion("joy",12.3,eatFood,4)
 emotion("joy",eatFood)
+emotion("joy",12.3,eatFood,4)
+emotion("joy",12.3,4)
+emotion("joy",12.3,eatFood,4)
+emotion("joy",12.3,eatFood,4)
+emotion("joy",12.3,eatFood,4)
 emotion("joy",12.3,eatFood,4)
 emotion("joy")
 emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3)
-emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3,eatFood)
-emotion("joy",12.3,eatFood,4)
-emotion("joy",12.3,4)
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_new_folder)
-			###
-			`new_folder`
+### `new_folder`
 
-		#### Possible use:
-		
-				*
-				 **`new_folder`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				file
-				`
-			
+#### Possible use: 
+  *  **`new_folder`** (`string`) --->  `file` 
 
-				#### Result:
-				opens an existing repository or create a new folder if it does not exist.
+#### Result: 
+opens an existing repository or create a new folder if it does not exist.
 
-				#### Special cases:
-			
-					*
-					If the specified string does not refer to an existing repository, the repository is created.
-					*
-					If the string refers to an existing file, an exception is risen.
+#### Special cases:     
+  * If the specified string does not refer to an existing repository, the repository is created.    
+  * If the string refers to an existing file, an exception is risen.
 
-				#### Examples:
-				```
-				file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "../incl/"
+#### Examples: 
+```
+file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "../incl/"
 															// eventually creates the directory ../incl
+```
+      
 
-				```
-			
+#### See also: 
+[folder](OperatorsCH#folder), [file](OperatorsCH#file), 
+    	
+----
 
-				#### See also:
-				[folder](OperatorsCH#folder), [file](OperatorsCH#file), 
-
-			----
-			
 [//]: # (keyword|operator_new_mental_state)
-			###
-			`new_mental_state`
+### `new_mental_state`
 
-		#### Possible use:
-		
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_mental_state`** 
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				) --->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_mental_state`** 
-				`
-				predicate
-				`
-			
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				predicate
-				`
-			
-				) --->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
-				*
-				 **`new_mental_state`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				predicate
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.MentalState
-				`
-			
+#### Possible use: 
+  *  **`new_mental_state`** (`string`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  * `string` **`new_mental_state`** `predicate` --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string` , `predicate`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  * `string` **`new_mental_state`** `msi.gaml.architecture.simplebdi.MentalState` --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string` , `msi.gaml.architecture.simplebdi.MentalState`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState` 
 
-				#### Result:
-				a new mental state
+#### Result: 
+a new mental state
 a new mental state
 a new mental state
 a new mental state
@@ -7674,9 +3343,8 @@ a new mental state
 a new mental state
 a new mental state
 
-				#### Examples:
-				```
-				new_social_link(agentA)
+#### Examples: 
+```
 new_social_link(agentA)
 new_social_link(agentA)
 new_social_link(agentA)
@@ -7693,959 +3361,144 @@ new_social_link(agentA)
 new_social_link(agentA)
 new_social_link(agentA)
 new_social_link(agentA)
+new_social_link(agentA)
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_new_predicate)
-			###
-			`new_predicate`
+### `new_predicate`
 
-		#### Possible use:
-		
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_predicate`** 
-				`
-				int
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				int
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_predicate`** 
-				`
-				bool
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				bool
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_predicate`** 
-				`
-				map
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				map
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_predicate`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				
-				`
-				string
-				`
-			 **`new_predicate`** 
-				`
-				agent
-				`
-			
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			 , 
-				`
-				agent
-				`
-			
-				) --->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
-				*
-				 **`new_predicate`** 
-				(
-				
-				`
-				string
-				`
-			
-							,
-						
-				`
-				map
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				int
-				`
-			
-							,
-						
-				`
-				bool
-				`
-			
-							,
-						
-				`
-				agent
-				`
-			
-							)
-						
-				--->
-				
-				`
-				predicate
-				`
-			
+#### Possible use: 
+  *  **`new_predicate`** (`string`) --->  `predicate`
+  * `string` **`new_predicate`** `float` --->  `predicate`
+  *  **`new_predicate`** (`string` , `float`) --->  `predicate`
+  * `string` **`new_predicate`** `map` --->  `predicate`
+  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
+  * `string` **`new_predicate`** `agent` --->  `predicate`
+  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
+  * `string` **`new_predicate`** `int` --->  `predicate`
+  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
+  * `string` **`new_predicate`** `bool` --->  `predicate`
+  *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`, `agent`) --->  `predicate` 
 
-				#### Result:
-				a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, priority, agentCause)
+#### Result: 
+a new predicate with the given properties (name, values, priority, lifetime, agentCause)
+a new predicate with the given is_true (name, priority)
+a new predicate with the given properties (name, values, is_true, agentCause)
+a new predicate with the given properties (name, values, priority)
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, priority, is_true)
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, priority,lifetime)
+a new predicate with the given properties (name, values, priority, agentCause)
 a new predicate with the given properties (name, values, lifetime, is_true)
 a new predicate with the given properties (name, values, priority, lifetime, is_true)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values, priority, lifetime, agentCause)
-a new predicate with the given properties (name, values, priority, is_true, agentCause)
-a new predicate with the given properties (name, values, priority, is_true)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values)
-a new predicate with the given is_true (name, priority)
-a new predicate with the given properties (name, values, priority)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, priority, is_true, agentCause)
+a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, priority,lifetime)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime, agentCause)
 
-				#### Examples:
-				```
-				predicate("people to meet", ["time"::10], true)
-predicate("people to meet", ["time"::10], 2.0,agentA)
-predicate("hasWater", 10 
-predicate("people to meet", ["time"::10], 10,true)
-predicate("people to meet", ["time"::10],2.0,10, true)
-predicate("hasWater", true)
+#### Examples: 
+```
 predicate("people to meet", ["time"::10], 2.0,10,agentA)
-predicate("people to meet", ["time"::10], 2.0, true, agentA)
-predicate("people to meet", ["time"::10],2.0, true)
-predicate("people to meet", ["time"::10], true, agentA)
-predicate("people to meet", people1 )
 predicate("hasWater", 2.0 )
+predicate("people to meet", ["time"::10], true, agentA)
 predicate("people to meet", people1, ["time"::10])
+predicate("people to meet", people1 )
+predicate("people to meet", ["time"::10], true)
+predicate("people to meet", ["time"::10],2.0, true)
 predicate("people to meet")
 predicate("people to meet", ["time"::10], true)
-predicate("people to meet", ["time"::10], agentA)
-predicate("people to meet", ["time"::10], 10, true, agentA)
-predicate("people to meet", ["time"::10], 2.0,10)
-predicate("people to meet", ["time"::10], true)
+predicate("hasWater", 10 
 predicate("people to meet", ["time"::10],2.0,10, true, agentA)
+predicate("hasWater", true)
+predicate("people to meet", ["time"::10], 2.0,10)
+predicate("people to meet", ["time"::10], 2.0,agentA)
+predicate("people to meet", ["time"::10], 10,true)
+predicate("people to meet", ["time"::10],2.0,10, true)
+predicate("people to meet", ["time"::10], agentA)
+predicate("people to meet", ["time"::10], 2.0, true, agentA)
+predicate("people to meet", ["time"::10], true)
+predicate("people to meet", ["time"::10], 10, true, agentA)
 predicate("people to meet", ["time"::10], 10, agentA)
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_new_social_link)
-			###
-			`new_social_link`
+### `new_social_link`
 
-		#### Possible use:
-		
-				*
-				 **`new_social_link`** 
-				(
-				
-				`
-				agent
-				`
-			
-				) --->
-				
-				`
-				msi.gaml.architecture.simplebdi.SocialLink
-				`
-			
-				*
-				 **`new_social_link`** 
-				(
-				
-				`
-				agent
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				msi.gaml.architecture.simplebdi.SocialLink
-				`
-			
+#### Possible use: 
+  *  **`new_social_link`** (`agent`) --->  `msi.gaml.architecture.simplebdi.SocialLink`
+  *  **`new_social_link`** (`agent`, `float`, `float`, `float`, `float`) --->  `msi.gaml.architecture.simplebdi.SocialLink` 
 
-				#### Result:
-				a new social link
+#### Result: 
+a new social link
 a new social link
 
-				#### Examples:
-				```
-				new_social_link(agentA)
+#### Examples: 
+```
 new_social_link(agentA,0.0,-0.1,0.2,0.1)
+new_social_link(agentA)
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_node)
-			###
-			`node`
+### `node`
 
-		#### Possible use:
-		
-				*
-				 **`node`** 
-				(
-				
-				`
-				unknown
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
-				*
-				
-				`
-				unknown
-				`
-			 **`node`** 
-				`
-				float
-				`
-			
-				--->
-				
-				`
-				unknown
-				`
-			
-				*
-				 **`node`** 
-				(
-				
-				`
-				unknown
-				`
-			 , 
-				`
-				float
-				`
-			
-				) --->
-				
-				`
-				unknown
-				`
-			
+#### Possible use: 
+  *  **`node`** (`unknown`) --->  `unknown`
+  * `unknown` **`node`** `float` --->  `unknown`
+  *  **`node`** (`unknown` , `float`) --->  `unknown`
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_nodes)
-			###
-			`nodes`
+### `nodes`
 
-		#### Possible use:
-		
-				*
-				 **`nodes`** 
-				(
-				
-				`
-				container
-				`
-			
-				) --->
-				
-				`
-				container
-				`
-			
+#### Possible use: 
+  *  **`nodes`** (`container`) --->  `container`
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_norm)
-			###
-			`norm`
+### `norm`
 
-		#### Possible use:
-		
-				*
-				 **`norm`** 
-				(
-				
-				`
-				point
-				`
-			
-				) --->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`norm`** (`point`) --->  `float` 
 
-				#### Result:
-				the norm of the vector with the coordinates of the point operand.
+#### Result: 
+the norm of the vector with the coordinates of the point operand.
 
-				#### Examples:
-				```
-				float
+#### Examples: 
+```
+float
 								var
 								0
 								<-
@@ -8654,135 +3507,44 @@ new_social_link(agentA,0.0,-0.1,0.2,0.1)
 								0
 								equals
 								5.0
+```
+  
+    	
+----
 
-				```
-			
-
-			----
-			
 [//]: # (keyword|operator_normal_area)
-			###
-			`normal_area`
+### `normal_area`
 
-		#### Possible use:
-		
-				*
-				 **`normal_area`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`normal_area`** (`float`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the area to the left of x in the normal distribution with the given mean and standard deviation.
+#### Result: 
+Returns the area to the left of x in the normal distribution with the given mean and standard deviation.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_normal_density)
-			###
-			`normal_density`
+### `normal_density`
 
-		#### Possible use:
-		
-				*
-				 **`normal_density`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`normal_density`** (`float`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the probability of x in the normal distribution with the given mean and standard deviation.
+#### Result: 
+Returns the probability of x in the normal distribution with the given mean and standard deviation.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_normal_inverse)
-			###
-			`normal_inverse`
+### `normal_inverse`
 
-		#### Possible use:
-		
-				*
-				 **`normal_inverse`** 
-				(
-				
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							,
-						
-				`
-				float
-				`
-			
-							)
-						
-				--->
-				
-				`
-				float
-				`
-			
+#### Possible use: 
+  *  **`normal_inverse`** (`float`, `float`, `float`) --->  `float` 
 
-				#### Result:
-				Returns the x in the normal distribution with the given mean and standard deviation, to the left of which lies the given area. normal.Inverse returns the value in terms of standard deviations from the mean, so we need to adjust it for the given mean and standard deviation.
+#### Result: 
+Returns the x in the normal distribution with the given mean and standard deviation, to the left of which lies the given area. normal.Inverse returns the value in terms of standard deviations from the mean, so we need to adjust it for the given mean and standard deviation.
+    	
+----
 
-			----
-			
 [//]: # (keyword|operator_not)
-			###
-			`not`
-Same signification as [!](OperatorsAB
-				#
-				!)
+### `not`
+Same signification as [!](OperatorsAB#!)
