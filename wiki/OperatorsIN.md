@@ -515,16 +515,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
   * `string` **`index_of`** `string` --->  `int`
   *  **`index_of`** (`string` , `string`) --->  `int`
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
   * `species` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`species` , `unknown`) --->  `int`
-  * `map` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
   * `container` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`container` , `unknown`) --->  `int` 
+  *  **`index_of`** (`container` , `unknown`) --->  `int`
+  * `map` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map` , `unknown`) --->  `unknown` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -536,6 +536,14 @@ The definition of index_of and the type of the index depend on the container
 #### Special cases:     
   * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
+  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
+  
+```
+ 
+int var0 <-  "abcabcabc" index_of "ca"; // var0 equals 2
+``` 
+
+    
   * if the left operand is a matrix, index_of returns the index as a point 
   
 ```
@@ -544,20 +552,12 @@ point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
 ``` 
 
     
-  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
-  
-```
- 
-int var2 <-  "abcabcabc" index_of "ca"; // var2 equals 2
-``` 
-
-    
   * if the left operand is a list, index_of returns the index as an integer 
   
 ```
  
-int var3 <- [1,2,3,4,5,6] index_of 4; // var3 equals 3 
-int var4 <- [4,2,3,4,5,4] index_of 4; // var4 equals 0
+int var2 <- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
+int var3 <- [4,2,3,4,5,4] index_of 4; // var3 equals 0
 ``` 
 
 
@@ -565,7 +565,7 @@ int var4 <- [4,2,3,4,5,4] index_of 4; // var4 equals 0
 #### Examples: 
 ```
  
-unknown var0 <- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3
+unknown var4 <- [1::2, 3::4, 5::6] index_of 4; // var4 equals 3
 
 ```
       
@@ -695,16 +695,16 @@ container var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e3
 ### `internal_at`
 
 #### Possible use: 
-  * `geometry` **`internal_at`** `container` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `container`) --->  `unknown`
   * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
   *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType`
+  * `geometry` **`internal_at`** `container` --->  `unknown`
+  *  **`internal_at`** (`geometry` , `container`) --->  `unknown`
   * `agent` **`internal_at`** `container` --->  `unknown`
   *  **`internal_at`** (`agent` , `container`) --->  `unknown` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
 For internal use only. Corresponds to the implementation of the access to containers with [index]
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
 
@@ -1117,14 +1117,14 @@ Constructs a file of type json. Allowed extensions are limited to json
   *  **`kappa`** (`list`, `list`, `list`, `list`) --->  `float` 
 
 #### Result: 
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
 kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
 #### Examples: 
 ```
-kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])  
-float var1 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var1 equals the similarity between 0 and 1 
-float var2 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 1.0kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) 
+kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])  
+float var2 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals the similarity between 0 and 1 
+float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
 
 ```
   
@@ -1139,12 +1139,12 @@ float var2 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 1.0kappa([c
   *  **`kappa_sim`** (`list`, `list`, `list`, `list`, `list`) --->  `float` 
 
 #### Result: 
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 
 #### Examples: 
 ```
-kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) 
+kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) 
 
 ```
   
@@ -1264,12 +1264,12 @@ int var1 <- last ([1, 2, 3]); // var1 equals 3
 #### Possible use: 
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
-  * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
   * `map` **`last_index_of`** `unknown` --->  `unknown`
   *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
+  * `matrix` **`last_index_of`** `unknown` --->  `point`
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
   * `container` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`container` , `unknown`) --->  `int` 
 
@@ -1289,19 +1289,19 @@ int var0 <- "abcabcabc" last_index_of "ca"; // var0 equals 5
 ``` 
 
     
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var1 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var1 equals {1.0,2.0}
-``` 
-
-    
   * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
   
 ```
  
-unknown var2 <- [1::2, 3::4, 5::4] last_index_of 4; // var2 equals 5
+unknown var1 <- [1::2, 3::4, 5::4] last_index_of 4; // var1 equals 5
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+ 
+point var2 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var2 equals {1.0,2.0}
 ``` 
 
     
@@ -1389,8 +1389,8 @@ layouts a GAMA graph.
 ### `length`
 
 #### Possible use: 
-  *  **`length`** (`string`) --->  `int`
-  *  **`length`** (`container<KeyType,ValueType>`) --->  `int` 
+  *  **`length`** (`container<KeyType,ValueType>`) --->  `int`
+  *  **`length`** (`string`) --->  `int` 
 
 #### Result: 
 the number of elements contained in the operand  
@@ -1401,20 +1401,12 @@ the length operator behavior depends on the nature of the operand
 #### Special cases:     
   * if it is a population, length returns number of agents of the population    
   * if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)    
-  * if it is a string, length returns the number of characters 
-  
-```
- 
-int var0 <- length ('I am an agent'); // var0 equals 13
-``` 
-
-    
   * if it is a list or a map, length returns the number of elements in the list or map 
   
 ```
  
-int var1 <- length([12,13]); // var1 equals 2 
-int var2 <- length([]); // var2 equals 0
+int var0 <- length([12,13]); // var0 equals 2 
+int var1 <- length([]); // var1 equals 0
 ``` 
 
     
@@ -1422,7 +1414,15 @@ int var2 <- length([]); // var2 equals 0
   
 ```
  
-int var3 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 equals 6
+int var2 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals 6
+``` 
+
+    
+  * if it is a string, length returns the number of characters 
+  
+```
+ 
+int var3 <- length ('I am an agent'); // var3 equals 13
 ``` 
 
 
@@ -1572,13 +1572,13 @@ float var1 <- ln(exp(1)); // var1 equals 1.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `string` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
   * `string` **`load_graph_from_file`** `file` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
+  * `string` **`load_graph_from_file`** `string` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1597,14 +1597,14 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
-  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
 ``` 
 
     
-  * "file": the file containing the network 
+  * "format": the format of the file, "file": the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -1618,24 +1618,24 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
 ``` 
 
     
-  * "format": the format of the file, "file": the file containing the network 
+  * "file": the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
     
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
 ``` 
 
 
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); 
 
 ```
   
@@ -1681,8 +1681,8 @@ loaded submodel
 ### `log`
 
 #### Possible use: 
-  *  **`log`** (`float`) --->  `float`
-  *  **`log`** (`int`) --->  `float` 
+  *  **`log`** (`int`) --->  `float`
+  *  **`log`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the logarithm (base 10) of the operand.
@@ -1693,8 +1693,8 @@ Returns the logarithm (base 10) of the operand.
 #### Examples: 
 ```
  
-float var0 <- log(10); // var0 equals 1.0 
-float var1 <- log(1); // var1 equals 0.0
+float var0 <- log(1); // var0 equals 0.0 
+float var1 <- log(10); // var1 equals 1.0
 
 ```
       
@@ -2543,7 +2543,7 @@ a list, containing all the agents of the same species than the argument (if it i
   
 ```
  
-container var3 <- neighbors_of (topology(self), self,10); // var3 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
+container var0 <- neighbors_of (topology(self), self,10); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
 ``` 
 
 
@@ -2551,9 +2551,9 @@ container var3 <- neighbors_of (topology(self), self,10); // var3 equals all the
 #### Examples: 
 ```
  
-container var0 <- graphEpidemio neighbors_of (node(3)); // var0 equals [node0,node2] 
-container var1 <- graphFromMap neighbors_of node({12,45}); // var1 equals [{1.0,5.0},{34.0,56.0}] 
-container var2 <- topology(self) neighbors_of self; // var2 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
+container var1 <- graphEpidemio neighbors_of (node(3)); // var1 equals [node0,node2] 
+container var2 <- graphFromMap neighbors_of node({12,45}); // var2 equals [{1.0,5.0},{34.0,56.0}] 
+container var3 <- topology(self) neighbors_of self; // var3 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
 
 ```
       
@@ -2576,32 +2576,32 @@ container var2 <- topology(self) neighbors_of self; // var2 equals returns all t
   *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
   * `string` **`new_emotion`** `predicate` --->  `emotion`
   *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
 #### Result: 
-a new emotion with the given properties (name,intensity,decay)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name, intensity)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name,intensity,decay)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,about)
+a new emotion with the given properties (name)
 
 #### Examples: 
 ```
-emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",eatFood) 
+emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) 
 
 ```
   
@@ -2640,24 +2640,24 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
 
 #### Possible use: 
   *  **`new_mental_state`** (`string`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  * `string` **`new_mental_state`** `predicate` --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string` , `predicate`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   * `string` **`new_mental_state`** `msi.gaml.architecture.simplebdi.MentalState` --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string` , `msi.gaml.architecture.simplebdi.MentalState`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  * `string` **`new_mental_state`** `predicate` --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string` , `predicate`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState` 
+  *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState` 
 
 #### Result: 
 a new mental state
@@ -2692,58 +2692,58 @@ new_social_link(agentA) new_social_link(agentA) new_social_link(agentA) new_soci
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `map` --->  `predicate`
-  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
   * `string` **`new_predicate`** `agent` --->  `predicate`
   *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
-  * `string` **`new_predicate`** `float` --->  `predicate`
-  *  **`new_predicate`** (`string` , `float`) --->  `predicate`
+  * `string` **`new_predicate`** `map` --->  `predicate`
+  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
   * `string` **`new_predicate`** `bool` --->  `predicate`
   *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
+  * `string` **`new_predicate`** `float` --->  `predicate`
+  *  **`new_predicate`** (`string` , `float`) --->  `predicate`
   * `string` **`new_predicate`** `int` --->  `predicate`
   *  **`new_predicate`** (`string` , `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `float`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `bool`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `float`, `int`, `bool`, `agent`) --->  `predicate` 
 
 #### Result: 
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, lifetime, is_true)
+a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values, priority, lifetime, is_true)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, priority, lifetime, agentCause)
+a new predicate with the given properties (name, values, priority, agentCause)
+a new predicate with the given properties (name, values, priority,lifetime)
 a new predicate with the given properties (name, values, priority)
 a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, 	agentCause)
-a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, priority, is_true)
-a new predicate with the given is_true (name, priority)
-a new predicate with the given properties (name, values, priority, lifetime, agentCause)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, priority, lifetime, is_true)
-a new predicate with the given properties (name, values, lifetime, is_true)
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values, priority,lifetime)
-a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values, priority, agentCause)
 a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, is_true, agentCause)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, priority, is_true)
+a new predicate with the given properties (name)
+a new predicate with the given is_true (name, priority)
 a new predicate with the given properties (name, values, priority, is_true, agentCause)
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given is_true (name, lifetime)
 
 #### Examples: 
 ```
-predicate("people to meet", people1, ["time"::10]) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10],2.0,10, true, agentA) predicate("people to meet", ["time"::10],2.0, true) predicate("hasWater", 2.0 ) predicate("people to meet", ["time"::10], 2.0,10,agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet") predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10],2.0,10, true) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], 2.0,10) predicate("hasWater", 10  predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 2.0,agentA) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], 2.0, true, agentA) 
+predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10],2.0,10, true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 2.0,10,agentA) predicate("people to meet", ["time"::10], 2.0,agentA) predicate("people to meet", ["time"::10], 2.0,10) predicate("people to meet", people1, ["time"::10]) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10],2.0,10, true, agentA) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true, agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10],2.0, true) predicate("people to meet") predicate("hasWater", 2.0 ) predicate("people to meet", ["time"::10], 2.0, true, agentA) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("hasWater", 10  
 
 ```
   
@@ -2763,7 +2763,7 @@ a new social link
 
 #### Examples: 
 ```
-new_social_link(agentA,0.0,-0.1,0.2,0.1) new_social_link(agentA) 
+new_social_link(agentA) new_social_link(agentA,0.0,-0.1,0.2,0.1) 
 
 ```
   

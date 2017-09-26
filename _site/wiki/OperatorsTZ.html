@@ -1898,7 +1898,7 @@ var json_pages = (function () {
         ,
       
        "/wiki/Index.html": {
-         "title": "",
+         "title": "Exhaustive list of GAMA Keywords",
          "url": "/wiki/Index.html"
        }
         ,
@@ -4004,20 +4004,20 @@ geometry var0 &lt;- teapot(10); // var0 equals a geometry as a circle of radius 
 
 <h4 id="special-cases-4">Special cases:</h4>
 <ul>
-  <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world’s agent one</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code> 
-geometry var0 &lt;- to_GAMA_CRS({121,14}); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
-</code></pre>
-</div>
-
-<ul>
   <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code> 
-geometry var1 &lt;- to_GAMA_CRS({121,14}, "EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+geometry var0 &lt;- to_GAMA_CRS({121,14}, "EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+</code></pre>
+</div>
+
+<ul>
+  <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world’s agent one</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> 
+geometry var1 &lt;- to_GAMA_CRS({121,14}); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
 </code></pre>
 </div>
 
@@ -4063,13 +4063,13 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 </ul>
 
 <h4 id="result-9">Result:</h4>
-<p>A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry</p>
+<p>A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry</p>
 
 <h4 id="examples-6">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list&lt;geometry&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 </code></pre>
 </div>
@@ -4086,14 +4086,14 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1
 </ul>
 
 <h4 id="result-10">Result:</h4>
-<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
 
 <h4 id="examples-7">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 </code></pre>
@@ -4431,16 +4431,16 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 
 <h4 id="special-cases-9">Special cases:</h4>
 <ul>
-  <li>if the left or right operand is nil, union throws an error</li>
   <li>if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries</li>
+  <li>if the left or right operand is nil, union throws an error</li>
 </ul>
 
 <h4 id="examples-18">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code> 
-container var0 &lt;- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
-container var1 &lt;- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
-container var2 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
-geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
+geometry var0 &lt;- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
+container var1 &lt;- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
+container var2 &lt;- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
+container var3 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
 
 </code></pre>
 </div>
@@ -4542,7 +4542,7 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 <p>This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :</p>
 
 <h4 id="examples-21">Examples:</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
+<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; 
 
 </code></pre>
 </div>
@@ -4875,24 +4875,24 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 
 <h4 id="possible-use-42">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
 <h4 id="result-41">Result:</h4>
-<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.
+<p>A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand</p>
 
 <h4 id="examples-32">Examples:</h4>
 <div class="highlighter-rouge"><pre class="highlight"><code> 
-float var0 &lt;- 12345.78943 with_precision 2; // var0 equals 12345.79 
-float var1 &lt;- 123 with_precision 2; // var1 equals 123.00 
-geometry var2 &lt;- self with_precision 2; // var2 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+geometry var0 &lt;- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+float var1 &lt;- 12345.78943 with_precision 2; // var1 equals 12345.79 
+float var2 &lt;- 123 with_precision 2; // var2 equals 123.00 
 point var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
 
 </code></pre>
@@ -4946,10 +4946,10 @@ point var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // v
 
 <h4 id="possible-use-45">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
 <h4 id="result-44">Result:</h4>
