@@ -517,8 +517,8 @@ predicate1 or predicate2
   *  **`osm_file`** (`string`, `map<string,list>`, `int`) --->  `file` 
 
 #### Result: 
-opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.
-opens a file that a is a kind of OSM file with some filtering.  
+opens a file that a is a kind of OSM file with some filtering.
+opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.  
 
 #### Comment: 
 The file should have a OSM file extension, cf. file type definition for supported file extensions.The file should have a OSM file extension, cf. file type definition for supported file extensions.
@@ -529,7 +529,7 @@ The file should have a OSM file extension, cf. file type definition for supporte
 
 #### Examples: 
 ```
-file myOSMfile2 <- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); 
+file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); file myOSMfile2 <- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); 
 
 ```
       
@@ -726,26 +726,26 @@ Casts the operand into the type path
   *  **`path_between`** (`list<agent>` , `container<geometry>`) --->  `path`
   *  **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path`
   *  **`path_between`** (`java.util.Map<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path` 
+  *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path` 
 
 #### Result: 
 The shortest path between a list of two objects in a graph
-The shortest path between several objects according to set of cells with corresponding weights
 The shortest path between two objects according to set of cells with corresponding weights
-The shortest path between two objects according to set of cells
+The shortest path between several objects according to set of cells with corresponding weights
 The shortest path between several objects according to set of cells
+The shortest path between two objects according to set of cells
 
 #### Examples: 
 ```
  
-path var0 <- my_topology path_between [ag1, ag2]; // var0 equals A path between ag1 and ag2 
-path var1 <- path_between (my_graph, ag1, ag2); // var1 equals A path between ag1 and ag2 
-path var2 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var2 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
-path var3 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var3 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
-path var4 <- path_between (cell_grid where each.is_free, ag1, ag2); // var4 equals A path between ag1 and ag2 passing through the given cell_grid agents 
+path var0 <- path_between (my_graph, ag1, ag2); // var0 equals A path between ag1 and ag2 
+path var1 <- my_topology path_between [ag1, ag2]; // var1 equals A path between ag1 and ag2 
+path var2 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var2 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
+path var3 <- my_topology path_between (ag1, ag2); // var3 equals A path between ag1 and ag2 
+path var4 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var4 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
 path var5 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
-path var6 <- my_topology path_between (ag1, ag2); // var6 equals A path between ag1 and ag2
+path var6 <- path_between (cell_grid where each.is_free, ag1, ag2); // var6 equals A path between ag1 and ag2 passing through the given cell_grid agents
 
 ```
       
@@ -1037,30 +1037,30 @@ Same signification as [normal_area](OperatorsIN#normal_area)
 #### Possible use: 
   * `int` **`point`** `float` --->  `point`
   *  **`point`** (`int` , `float`) --->  `point`
-  * `float` **`point`** `float` --->  `point`
-  *  **`point`** (`float` , `float`) --->  `point`
   * `float` **`point`** `int` --->  `point`
   *  **`point`** (`float` , `int`) --->  `point`
+  * `float` **`point`** `float` --->  `point`
+  *  **`point`** (`float` , `float`) --->  `point`
   * `int` **`point`** `int` --->  `point`
   *  **`point`** (`int` , `int`) --->  `point`
-  *  **`point`** (`float`, `int`, `float`) --->  `point`
   *  **`point`** (`float`, `float`, `int`) --->  `point`
-  *  **`point`** (`int`, `int`, `int`) --->  `point`
-  *  **`point`** (`int`, `float`, `float`) --->  `point`
   *  **`point`** (`int`, `int`, `float`) --->  `point`
+  *  **`point`** (`float`, `float`, `float`) --->  `point`
   *  **`point`** (`float`, `int`, `int`) --->  `point`
-  *  **`point`** (`float`, `float`, `float`) --->  `point` 
+  *  **`point`** (`int`, `float`, `float`) --->  `point`
+  *  **`point`** (`float`, `int`, `float`) --->  `point`
+  *  **`point`** (`int`, `int`, `int`) --->  `point` 
 
 #### Result: 
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
     	
@@ -1466,8 +1466,8 @@ Returns how many percent of the elements contained in the receiver are <= elemen
 
 #### Result: 
 Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
-Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
 Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end > start with a negative step) will similarly not be accepted and yield an exception
+Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
     	
 ----
 
@@ -1526,8 +1526,8 @@ the center of the rectangle is by default the location of the current agent in w
 #### Examples: 
 ```
  
-geometry var0 <- rectangle(10, 5); // var0 equals a geometry as a rectangle with width = 10 and height = 5. 
-geometry var1 <- rectangle({10, 5}); // var1 equals a geometry as a rectangle with width = 10 and height = 5. 
+geometry var0 <- rectangle({10, 5}); // var0 equals a geometry as a rectangle with width = 10 and height = 5. 
+geometry var1 <- rectangle(10, 5); // var1 equals a geometry as a rectangle with width = 10 and height = 5. 
 geometry var2 <- rectangle({2.0,6.0}, {6.0,20.0}); // var2 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
 
 ```
@@ -1715,10 +1715,10 @@ graph var1 <- graphEpidemio rewire_n 10; // var1 equals the graph with 3 edges r
 #### Possible use: 
   * `rgb` **`rgb`** `int` --->  `rgb`
   *  **`rgb`** (`rgb` , `int`) --->  `rgb`
-  * `rgb` **`rgb`** `float` --->  `rgb`
-  *  **`rgb`** (`rgb` , `float`) --->  `rgb`
   * `string` **`rgb`** `int` --->  `rgb`
   *  **`rgb`** (`string` , `int`) --->  `rgb`
+  * `rgb` **`rgb`** `float` --->  `rgb`
+  *  **`rgb`** (`rgb` , `float`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `float`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `int`) --->  `rgb` 
@@ -1728,21 +1728,21 @@ Returns a color defined by red, green, blue components and an alpha blending val
 
 #### Special cases:     
   * It can be used with a color and an alpha between 0 and 255    
-  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)    
-  * It can be used with a color and an alpha between 0 and 1    
-  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)    
   * It can be used with r=red, g=green, b=blue, each between 0 and 255    
-  * It can be used with a name of color and alpha (between 0 and 255)
+  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)    
+  * It can be used with a name of color and alpha (between 0 and 255)    
+  * It can be used with a color and an alpha between 0 and 1    
+  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)
 
 #### Examples: 
 ```
  
 rgb var0 <- rgb(rgb(255,0,0),125); // var0 equals a light red color 
-rgb var1 <- rgb (255,0,0,0.5); // var1 equals a light red color 
-rgb var2 <- rgb(rgb(255,0,0),0.5); // var2 equals a light red color 
-rgb var3 <- rgb (255,0,0,125); // var3 equals a light red color 
-rgb var5 <- rgb (255,0,0); // var5 equals #red 
-rgb var6 <- rgb ("red"); // var6 equals rgb(255,0,0)
+rgb var1 <- rgb (255,0,0); // var1 equals #red 
+rgb var2 <- rgb (255,0,0,0.5); // var2 equals a light red color 
+rgb var3 <- rgb ("red"); // var3 equals rgb(255,0,0) 
+rgb var4 <- rgb(rgb(255,0,0),0.5); // var4 equals a light red color 
+rgb var5 <- rgb (255,0,0,125); // var5 equals a light red color
 
 ```
       
@@ -1789,9 +1789,9 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 ### `rnd`
 
 #### Possible use: 
+  *  **`rnd`** (`float`) --->  `float`
   *  **`rnd`** (`point`) --->  `point`
   *  **`rnd`** (`int`) --->  `int`
-  *  **`rnd`** (`float`) --->  `float`
   * `int` **`rnd`** `int` --->  `int`
   *  **`rnd`** (`int` , `int`) --->  `int`
   * `point` **`rnd`** `point` --->  `point`
@@ -1809,22 +1809,22 @@ a random integer in the interval [0, operand]
 to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n is used to indicate the precision
 
 #### Special cases:     
-  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]    
-  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
+  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]    
+  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]
 
 #### Examples: 
 ```
  
 int var0 <- rnd (2, 12, 4); // var0 equals 2, 6 or 10 
 int var1 <- rnd (2, 4); // var1 equals 2, 3 or 4 
-float var2 <- rnd (2.0, 4.0, 0.5); // var2 equals a float number between 2.0 and 4.0 every 0.5 
-point var3 <- rnd ({2.5,3, 0.0}); // var3 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
-point var4 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var4 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
-float var5 <- rnd (2.0, 4.0); // var5 equals a float number between 2.0 and 4.0 
-int var6 <- rnd (2); // var6 equals 0, 1 or 2 
-float var7 <- rnd (1000) / 1000; // var7 equals a float between 0 and 1 with a precision of 0.001 
-point var8 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var8 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
-float var9 <- rnd(3.4); // var9 equals a random float between 0.0 and 3.4
+float var2 <- rnd(3.4); // var2 equals a random float between 0.0 and 3.4 
+point var3 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var3 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
+float var4 <- rnd (2.0, 4.0, 0.5); // var4 equals a float number between 2.0 and 4.0 every 0.5 
+point var5 <- rnd ({2.5,3, 0.0}); // var5 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
+float var6 <- rnd (2.0, 4.0); // var6 equals a float number between 2.0 and 4.0 
+int var7 <- rnd (2); // var7 equals 0, 1 or 2 
+float var8 <- rnd (1000) / 1000; // var8 equals a float between 0 and 1 with a precision of 0.001 
+point var9 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var9 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
 
 ```
       
@@ -1924,9 +1924,9 @@ geometry var1 <- self rotated_by 45; // var1 equals the geometry resulting from 
 ### `round`
 
 #### Possible use: 
-  *  **`round`** (`float`) --->  `int`
   *  **`round`** (`int`) --->  `int`
-  *  **`round`** (`point`) --->  `point` 
+  *  **`round`** (`point`) --->  `point`
+  *  **`round`** (`float`) --->  `int` 
 
 #### Result: 
 Returns the rounded value of the operand.
@@ -1937,10 +1937,10 @@ Returns the rounded value of the operand.
 #### Examples: 
 ```
  
-int var0 <- round (0.51); // var0 equals 1 
-int var1 <- round (100.2); // var1 equals 100 
-int var2 <- round(-0.51); // var2 equals -1 
-point var3 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3 equals {12345.79,12345.79,12345.79}
+point var0 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var0 equals {12345.79,12345.79,12345.79} 
+int var1 <- round (0.51); // var1 equals 1 
+int var2 <- round (100.2); // var2 equals 100 
+int var3 <- round(-0.51); // var3 equals -1
 
 ```
       
@@ -1948,7 +1948,7 @@ point var3 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3
 
 #### See also: 
 
-[int](OperatorsIN#int), [with_precision](OperatorsTZ#with_precision), [round](OperatorsOS#round), 
+[round](OperatorsOS#round), [int](OperatorsIN#int), [with_precision](OperatorsTZ#with_precision), 
     	
 ----
 
@@ -2012,14 +2012,14 @@ list<list> var0 <- rows_list(matrix([["el11","el12","el13"],["el21","el22","el23
   *  **`sample`** (`container`, `int`, `bool`, `container`) --->  `container` 
 
 #### Result: 
-takes a sample of the specified size from the elements of x using either with or without replacement
 takes a sample of the specified size from the elements of x using either with or without replacement with given weights
+takes a sample of the specified size from the elements of x using either with or without replacement
 
 #### Examples: 
 ```
  
-container var0 <- sample([2,10,1],2,false); // var0 equals [1,2] 
-container var1 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var1 equals [10,2]
+container var0 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var0 equals [10,2] 
+container var1 <- sample([2,10,1],2,false); // var1 equals [1,2]
 
 ```
   
@@ -2340,7 +2340,7 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-shape <- triangle(3) set_z [5,10,14]; loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} 
+loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} shape <- triangle(3) set_z [5,10,14]; 
 
 ```
   
@@ -2362,8 +2362,8 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
-  *  **`shuffle`** (`matrix`) --->  `matrix`
   *  **`shuffle`** (`string`) --->  `string`
+  *  **`shuffle`** (`matrix`) --->  `matrix`
   *  **`shuffle`** (`container`) --->  `container` 
 
 #### Result: 
@@ -2375,8 +2375,8 @@ The elements of the operand in random order.
 #### Examples: 
 ```
  
-matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
+string var0 <- shuffle ('abc'); // var0 equals 'bac' (for example) 
+matrix var1 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
 container var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
 
 ```
@@ -2861,22 +2861,22 @@ list<geometry> var0 <- polyline([{1,2},{4,6}]) split_at {7,6}; // var0 equals [p
 ### `split_geometry`
 
 #### Possible use: 
-  * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
-  *  **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
   * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
   *  **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
+  * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
+  *  **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
   *  **`split_geometry`** (`geometry`, `int`, `int`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
+A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
-list<geometry> var1 <- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
+list<geometry> var0 <- to_squares(self, 10.0); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
 list<geometry> var2 <- to_rectangles(self, 10,20); // var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
 
 ```
@@ -2930,8 +2930,8 @@ container var0 <- 'to be or not to be,that is the question' split_with ' ,'; // 
 ### `sqrt`
 
 #### Possible use: 
-  *  **`sqrt`** (`int`) --->  `float`
-  *  **`sqrt`** (`float`) --->  `float` 
+  *  **`sqrt`** (`float`) --->  `float`
+  *  **`sqrt`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the square root of the operand.
@@ -3184,8 +3184,8 @@ container var2 <- graphEpidemio successors_of node({34,56}); // var2 equals []
 ### `sum`
 
 #### Possible use: 
-  *  **`sum`** (`graph`) --->  `float`
-  *  **`sum`** (`container`) --->  `unknown` 
+  *  **`sum`** (`container`) --->  `unknown`
+  *  **`sum`** (`graph`) --->  `float` 
 
 #### Result: 
 the sum of all the elements of the operand  
