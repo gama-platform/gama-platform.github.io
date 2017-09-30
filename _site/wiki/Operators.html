@@ -3822,20 +3822,6 @@ function closeRightMenu() {
 			(
 			
 			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
 			float
 			`
 		
@@ -3860,19 +3846,33 @@ function closeRightMenu() {
 			`
 		
 			*
+			 **`-`** 
+			(
 			
 			`
 			int
+			`
+		
+			) ---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			
+			`
+			container
 			`
 		 **`-`** 
 			`
-			float
+			unknown
 			`
 		
 			---&gt;
 			
 			`
-			float
+			container
 			`
 		
 			*
@@ -3880,17 +3880,51 @@ function closeRightMenu() {
 			(
 			
 			`
-			int
+			container
 			`
 		 , 
 			`
-			float
+			unknown
 			`
 		
 			) ---&gt;
 			
 			`
-			float
+			container
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`-`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
 			`
 		
 			*
@@ -3930,11 +3964,11 @@ function closeRightMenu() {
 			*
 			
 			`
-			float
+			date
 			`
 		 **`-`** 
 			`
-			float
+			date
 			`
 		
 			---&gt;
@@ -3948,11 +3982,11 @@ function closeRightMenu() {
 			(
 			
 			`
-			float
+			date
 			`
 		 , 
 			`
-			float
+			date
 			`
 		
 			) ---&gt;
@@ -3964,17 +3998,17 @@ function closeRightMenu() {
 			*
 			
 			`
-			geometry
+			rgb
 			`
 		 **`-`** 
 			`
-			geometry
+			int
 			`
 		
 			---&gt;
 			
 			`
-			geometry
+			rgb
 			`
 		
 			*
@@ -3982,17 +4016,85 @@ function closeRightMenu() {
 			(
 			
 			`
-			geometry
+			rgb
 			`
 		 , 
 			`
-			geometry
+			int
 			`
 		
 			) ---&gt;
 			
 			`
-			geometry
+			rgb
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`-`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			rgb
+			`
+		 **`-`** 
+			`
+			rgb
+			`
+		
+			---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			rgb
+			`
+		 , 
+			`
+			rgb
+			`
+		
+			) ---&gt;
+			
+			`
+			rgb
 			`
 		
 			*
@@ -4032,41 +4134,7 @@ function closeRightMenu() {
 			*
 			
 			`
-			matrix
-			`
-		 **`-`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			matrix
+			geometry
 			`
 		 **`-`** 
 			`
@@ -4076,7 +4144,7 @@ function closeRightMenu() {
 			---&gt;
 			
 			`
-			matrix
+			geometry
 			`
 		
 			*
@@ -4084,7 +4152,7 @@ function closeRightMenu() {
 			(
 			
 			`
-			matrix
+			geometry
 			`
 		 , 
 			`
@@ -4094,23 +4162,23 @@ function closeRightMenu() {
 			) ---&gt;
 			
 			`
-			matrix
+			geometry
 			`
 		
 			*
 			
 			`
-			container
+			point
 			`
 		 **`-`** 
 			`
-			container
+			float
 			`
 		
 			---&gt;
 			
 			`
-			container
+			point
 			`
 		
 			*
@@ -4118,85 +4186,17 @@ function closeRightMenu() {
 			(
 			
 			`
-			container
+			point
 			`
 		 , 
 			`
-			container
+			float
 			`
 		
 			) ---&gt;
 			
 			`
-			container
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`-`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			rgb
-			`
-		 **`-`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			rgb
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			rgb
+			point
 			`
 		
 			*
@@ -4274,7 +4274,7 @@ function closeRightMenu() {
 			`
 		 **`-`** 
 			`
-			float
+			int
 			`
 		
 			---&gt;
@@ -4292,7 +4292,7 @@ function closeRightMenu() {
 			`
 		 , 
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -4308,7 +4308,7 @@ function closeRightMenu() {
 			`
 		 **`-`** 
 			`
-			float
+			geometry
 			`
 		
 			---&gt;
@@ -4326,81 +4326,13 @@ function closeRightMenu() {
 			`
 		 , 
 			`
-			float
+			geometry
 			`
 		
 			) ---&gt;
 			
 			`
 			geometry
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`-`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
-			map
-			`
-		 **`-`** 
-			`
-			map
-			`
-		
-			---&gt;
-			
-			`
-			map
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			map
-			`
-		 , 
-			`
-			map
-			`
-		
-			) ---&gt;
-			
-			`
-			map
 			`
 		
 			*
@@ -4440,17 +4372,17 @@ function closeRightMenu() {
 			*
 			
 			`
-			rgb
+			int
 			`
 		 **`-`** 
 			`
-			rgb
+			matrix
 			`
 		
 			---&gt;
 			
 			`
-			rgb
+			matrix
 			`
 		
 			*
@@ -4458,33 +4390,33 @@ function closeRightMenu() {
 			(
 			
 			`
-			rgb
+			int
 			`
 		 , 
 			`
-			rgb
+			matrix
 			`
 		
 			) ---&gt;
 			
 			`
-			rgb
+			matrix
 			`
 		
 			*
 			
 			`
-			point
+			float
 			`
 		 **`-`** 
 			`
-			int
+			float
 			`
 		
 			---&gt;
 			
 			`
-			point
+			float
 			`
 		
 			*
@@ -4492,17 +4424,17 @@ function closeRightMenu() {
 			(
 			
 			`
-			point
+			float
 			`
 		 , 
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
 			
 			`
-			point
+			float
 			`
 		
 			*
@@ -4512,7 +4444,7 @@ function closeRightMenu() {
 			`
 		 **`-`** 
 			`
-			unknown
+			container
 			`
 		
 			---&gt;
@@ -4530,7 +4462,7 @@ function closeRightMenu() {
 			`
 		 , 
 			`
-			unknown
+			container
 			`
 		
 			) ---&gt;
@@ -4542,6 +4474,40 @@ function closeRightMenu() {
 			*
 			
 			`
+			int
+			`
+		 **`-`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			
+			`
 			point
 			`
 		 **`-`** 
@@ -4576,6 +4542,40 @@ function closeRightMenu() {
 			*
 			
 			`
+			map
+			`
+		 **`-`** 
+			`
+			map
+			`
+		
+			---&gt;
+			
+			`
+			map
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			map
+			`
+		 , 
+			`
+			map
+			`
+		
+			) ---&gt;
+			
+			`
+			map
+			`
+		
+			*
+			
+			`
 			float
 			`
 		 **`-`** 
@@ -4610,45 +4610,11 @@ function closeRightMenu() {
 			*
 			
 			`
-			date
-			`
-		 **`-`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`-`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
 			matrix
 			`
 		 **`-`** 
 			`
-			int
+			float
 			`
 		
 			---&gt;
@@ -4666,7 +4632,7 @@ function closeRightMenu() {
 			`
 		 , 
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -4701,6 +4667,40 @@ function closeRightMenu() {
 			geometry
 			`
 		
+			*
+			
+			`
+			int
+			`
+		 **`-`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`-`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
 
 			#### Result:
 			If it is used as an unary operator, it returns the opposite of the operand. Returns the difference of the two operands.
@@ -4711,38 +4711,28 @@ function closeRightMenu() {
 			#### Special cases:
 		
 				*
-				if both operands are containers and the right operand is empty, - returns the left operand
-				*
 				if the left operand is a species and the right operand is an agent of the species, - returns a list containing all the agents of the species minus this agent
 				*
-				if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries
+				if both operands are containers and the right operand is empty, - returns the left operand
+				*
+				if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object
 
 				```
 </code></pre>
 </div>
 
-<p>geometry var7 &lt;- geom1 - geom2; // var7 equals a geometry corresponding to difference between geom1 and geom2
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one
-
-				```
-</code></pre>
-</div>
-
-<p>list<int> var8 &lt;- [1,2,3,4,5,6] - [2,4,9]; // var8 equals [1,3,5,6] 
-list<int> var9 &lt;- [1,2,3,4,5,6] - [0,8]; // var9 equals [1,2,3,4,5,6]
+<p>list<int> var7 &lt;- [1,2,3,4,5,6] - 2; // var7 equals [1,3,4,5,6] 
+list<int> var8 &lt;- [1,2,3,4,5,6] - 0; // var8 equals [1,2,3,4,5,6]
 					```</int></int></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.
+				if both operands are dates, returns the duration in seconds between  date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2)
 
 				```
 </code></pre>
 </div>
 
-<p>matrix var10 &lt;- 3.5 - matrix([[2,5],[3,4]]); // var10 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+<p>float var9 &lt;- date1 - date2; // var9 equals 598
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -4752,18 +4742,30 @@ list<int> var9 &lt;- [1,2,3,4,5,6] - [0,8]; // var9 equals [1,2,3,4,5,6]
 </code></pre>
 </div>
 
-<p>rgb var11 &lt;- rgb([255, 128, 32]) - 3; // var11 equals rgb([252,125,29])
+<p>rgb var10 &lt;- rgb([255, 128, 32]) - 3; // var10 equals rgb([252,125,29])
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds)
+				if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component
 
 				```
-				date1 - 200 
-				```
+</code></pre>
+</div>
 
-			
-				*
+<p>rgb var11 &lt;- rgb([255, 128, 32]) - rgb(‘red’); // var11 equals rgb([0,128,32])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) reduced by the right-hand operand distance
+
+				```
+</code></pre>
+</div>
+
+<p>geometry var12 &lt;- shape - 5; // var12 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number.
 
 				```
@@ -4775,14 +4777,43 @@ point var14 &lt;- {1, 2} - 4; // var14 equals {-3.0,-2.0,-4.0}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) reduced by the right-hand operand distance
+				if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds)
+
+				```
+				date1 - 200 
+				```
+
+			
+				*
+				if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries
 
 				```
 </code></pre>
 </div>
 
-<p>geometry var15 &lt;- shape - 5; // var15 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+<p>geometry var16 &lt;- geom1 - geom2; // var16 equals a geometry corresponding to difference between geom1 and geom2
 					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.
+
+				```
+</code></pre>
+</div>
+
+<p>matrix var17 &lt;- 3.5 - matrix([[2,5],[3,4]]); // var17 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one
+
+				```
+</code></pre>
+</div>
+
+<p>list<int> var18 &lt;- [1,2,3,4,5,6] - [2,4,9]; // var18 equals [1,3,5,6] 
+list<int> var19 &lt;- [1,2,3,4,5,6] - [0,8]; // var19 equals [1,2,3,4,5,6]
+					```</int></int></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.
@@ -4791,32 +4822,11 @@ point var14 &lt;- {1, 2} - 4; // var14 equals {-3.0,-2.0,-4.0}
 </code></pre>
 </div>
 
-<p>int var16 &lt;- 1 - 1; // var16 equals 0 
-int var17 &lt;- 1.0 - 1; // var17 equals 0.0 
-int var18 &lt;- 3.7 - 1.2; // var18 equals 2.5 
-int var19 &lt;- 3 - 1.2; // var19 equals 1.8
+<p>int var20 &lt;- 1 - 1; // var20 equals 0 
+int var21 &lt;- 1.0 - 1; // var21 equals 0.0 
+int var22 &lt;- 3.7 - 1.2; // var22 equals 2.5 
+int var23 &lt;- 3 - 1.2; // var23 equals 1.8
 					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component
-
-				```
-</code></pre>
-</div>
-
-<p>rgb var20 &lt;- rgb([255, 128, 32]) - rgb(‘red’); // var20 equals rgb([0,128,32])
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object
-
-				```
-</code></pre>
-</div>
-
-<p>list<int> var21 &lt;- [1,2,3,4,5,6] - 2; // var21 equals [1,3,4,5,6] 
-list<int> var22 &lt;- [1,2,3,4,5,6] - 0; // var22 equals [1,2,3,4,5,6]
-					```</int></int></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if both operands are points, returns their difference (coordinates per coordinates).
@@ -4825,17 +4835,7 @@ list<int> var22 &lt;- [1,2,3,4,5,6] - 0; // var22 equals [1,2,3,4,5,6]
 </code></pre>
 </div>
 
-<p>point var23 &lt;- {1, 2} - {4, 5}; // var23 equals {-3.0, -3.0}
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are dates, returns the duration in seconds between  date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2)
-
-				```
-</code></pre>
-</div>
-
-<p>float var24 &lt;- date1 - date2; // var24 equals 598
+<p>point var24 &lt;- {1, 2} - {4, 5}; // var24 equals {-3.0, -3.0}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -4855,15 +4855,15 @@ list<int> var22 &lt;- [1,2,3,4,5,6] - 0; // var22 equals [1,2,3,4,5,6]
 
 <p>map var0 &lt;- [‘a’::1,’b’::2] - (‘b’::2); // var0 equals [‘a’::1] 
 map var1 &lt;- [‘a’::1,’b’::2] - (‘c’::3); // var1 equals [‘a’::1,’b’::2] 
-int var2 &lt;- - (-56); // var2 equals 56 
-point var3 &lt;- -{3.0,5.0}; // var3 equals {-3.0,-5.0} 
-point var4 &lt;- -{1.0,6.0,7.0}; // var4 equals {-1.0,-6.0,-7.0} 
+point var2 &lt;- -{3.0,5.0}; // var2 equals {-3.0,-5.0} 
+point var3 &lt;- -{1.0,6.0,7.0}; // var3 equals {-1.0,-6.0,-7.0} 
+int var4 &lt;- - (-56); // var4 equals 56 
 map var5 &lt;- [‘a’::1,’b’::2] - [‘b’::2]; // var5 equals [‘a’::1] 
 map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals [‘a’::1]
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
-			[-](#-), [+](#+), [*](#*), [/](#/), [milliseconds_between](#milliseconds_between), 
+			[-](#-), [milliseconds_between](#milliseconds_between), [+](#+), [*](#*), [/](#/), 
 
 		----
 </code></pre>
@@ -5019,40 +5019,6 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			*
 			
 			`
-			date
-			`
-		 **`!=`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`!=`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
 			float
 			`
 		 **`!=`** 
@@ -5087,11 +5053,11 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			*
 			
 			`
-			float
+			date
 			`
 		 **`!=`** 
 			`
-			float
+			date
 			`
 		
 			---&gt;
@@ -5105,11 +5071,11 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			(
 			
 			`
-			float
+			date
 			`
 		 , 
 			`
-			float
+			date
 			`
 		
 			) ---&gt;
@@ -5140,6 +5106,40 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			
 			`
 			int
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`!=`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`!=`** 
+			(
+			
+			`
+			float
 			`
 		 , 
 			`
@@ -5192,11 +5192,20 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 
 			#### Examples:
 			```
-			#now != #now minus_hours 1 :- true   bool var1 &lt;- 3.0 != 3; // var1 equals false  bool var2 &lt;- 4.7 != 4; // var2 equals true  bool var3 &lt;- 3.0 != 3.0; // var3 equals false  bool var4 &lt;- 4.0 != 4.7; // var4 equals true  bool var5 &lt;- 3 != 3.0; // var5 equals false  bool var6 &lt;- 4 != 4.7; // var6 equals true  bool var7 &lt;- [2,3] != [2,3]; // var7 equals false  bool var8 &lt;- [2,4] != [2,3]; // var8 equals true
-			```
-		
+</code></pre>
+</div>
 
-			#### See also:
+<p>bool var0 &lt;- 3.0 != 3; // var0 equals false 
+bool var1 &lt;- 4.7 != 4; // var1 equals true#now != #now minus_hours 1 :- true<br />
+bool var3 &lt;- 3 != 3.0; // var3 equals false 
+bool var4 &lt;- 4 != 4.7; // var4 equals true 
+bool var5 &lt;- 3.0 != 3.0; // var5 equals false 
+bool var6 &lt;- 4.0 != 4.7; // var6 equals true 
+bool var7 &lt;- [2,3] != [2,3]; // var7 equals false 
+bool var8 &lt;- [2,4] != [2,3]; // var8 equals true
+				```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
 			[=](#=), [&gt;](#&gt;), [&lt;](#&lt;), [&gt;=](#&gt;=), [&lt;=](#&lt;=), 
 
 		----
@@ -5272,7 +5281,7 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			*
 			
 			`
-			int
+			float
 			`
 		 **`/`** 
 			`
@@ -5290,7 +5299,7 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			(
 			
 			`
-			int
+			float
 			`
 		 , 
 			`
@@ -5301,142 +5310,6 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			
 			`
 			float
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`/`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			matrix
-			`
-		 **`/`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`/`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			matrix
-			`
-		 **`/`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
 			`
 		
 			*
@@ -5476,7 +5349,7 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			*
 			
 			`
-			float
+			int
 			`
 		 **`/`** 
 			`
@@ -5494,113 +5367,11 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			(
 			
 			`
-			float
+			int
 			`
 		 , 
 			`
 			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`/`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			rgb
-			`
-		 **`/`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			rgb
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`/`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`/`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			int
 			`
 		
 			) ---&gt;
@@ -5641,6 +5412,244 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 			
 			`
 			rgb
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`/`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`/`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`/`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`/`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			rgb
+			`
+		 **`/`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			rgb
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`/`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`/`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`/`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			float
 			`
 		
 
@@ -5652,14 +5661,13 @@ map var6 &lt;- [‘a’::1,’b’::2] - [‘b’::2,’c’::3]; // var6 equals
 				*
 				if the right-hand operand is equal to zero, raises a "Division by zero" exception
 				*
-				if the left operand is a point, returns a new point with coordinates divided by the right operand
+				if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand
 
 				```
 </code></pre>
 </div>
 
-<p>point var0 &lt;- {5, 7.5} / 2.5; // var0 equals {2, 3} 
-point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
+<p>rgb var0 &lt;- rgb([255, 128, 32]) / 2; // var0 equals rgb([127,64,16])
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -5669,7 +5677,7 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 </code></pre>
 </div>
 
-<p>float var2 &lt;- 3 / 5.0; // var2 equals 0.6
+<p>float var1 &lt;- 3 / 5.0; // var1 equals 0.6
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -5679,17 +5687,18 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 </code></pre>
 </div>
 
-<p>rgb var3 &lt;- rgb([255, 128, 32]) / 2.5; // var3 equals rgb([102,51,13])
+<p>rgb var2 &lt;- rgb([255, 128, 32]) / 2.5; // var2 equals rgb([102,51,13])
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand
+				if the left operand is a point, returns a new point with coordinates divided by the right operand
 
 				```
 </code></pre>
 </div>
 
-<p>rgb var4 &lt;- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
+<p>point var3 &lt;- {5, 7.5} / 2.5; // var3 equals {2, 3} 
+point var4 &lt;- {2,5} / 4; // var4 equals {0.5,1.25}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -5707,40 +5716,6 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			*
 			
 			`
-			matrix
-			`
-		 **`.`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`.`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
 			agent
 			`
 		 **`.`** 
@@ -5770,6 +5745,40 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			
 			`
 			unknown
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`.`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`.`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
 			`
 		
 
@@ -5781,23 +5790,23 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 				*
 				if the agent is nil or dead, throws an exception
 				*
-				if both operands are matrix, returns the dot product of them
-
-				```
-</code></pre>
-</div>
-
-<p>matrix var0 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var0 equals matrix([[2,3],[3,5]])
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent
 
 				```
 </code></pre>
 </div>
 
-<p>unknown var1 &lt;- agent1.location; // var1 equals the location of the agent agent1map(nil).keys 
+<p>unknown var0 &lt;- agent1.location; // var0 equals the location of the agent agent1map(nil).keys 
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are matrix, returns the dot product of them
+
+				```
+</code></pre>
+</div>
+
+<p>matrix var2 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var2 equals matrix([[2,3],[3,5]])
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -5850,40 +5859,6 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			`
 		 **`^`** 
 			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`^`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`^`** 
-			`
 			int
 			`
 		
@@ -5933,6 +5908,40 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			
 			`
 			int
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`^`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`^`** 
+			(
+			
+			`
+			float
 			`
 		 , 
 			`
@@ -5995,6 +6004,142 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			*
 			
 			`
+			point
+			`
+		 **`*`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`*`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`*`** 
+			`
+			point
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			point
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`*`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
 			rgb
 			`
 		 **`*`** 
@@ -6033,13 +6178,13 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			`
 		 **`*`** 
 			`
-			matrix
+			int
 			`
 		
 			---&gt;
 			
 			`
-			matrix
+			int
 			`
 		
 			*
@@ -6051,149 +6196,13 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			`
 		 , 
 			`
-			matrix
+			int
 			`
 		
 			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
 			
 			`
 			int
-			`
-		 **`*`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`*`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
-			matrix
-			`
-		 **`*`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`*`** 
-			`
-			point
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			float
 			`
 		
 			*
@@ -6233,75 +6242,7 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			*
 			
 			`
-			point
-			`
-		 **`*`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`*`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			float
+			matrix
 			`
 		 **`*`** 
 			`
@@ -6319,7 +6260,7 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			(
 			
 			`
-			float
+			matrix
 			`
 		 , 
 			`
@@ -6369,45 +6310,11 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			*
 			
 			`
-			int
-			`
-		 **`*`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`*`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
 			matrix
 			`
 		 **`*`** 
 			`
-			matrix
+			int
 			`
 		
 			---&gt;
@@ -6425,7 +6332,7 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			`
 		 , 
 			`
-			matrix
+			int
 			`
 		
 			) ---&gt;
@@ -6437,11 +6344,45 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			*
 			
 			`
-			matrix
+			float
 			`
 		 **`*`** 
 			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
 			int
+			`
+		 **`*`** 
+			`
+			matrix
 			`
 		
 			---&gt;
@@ -6455,11 +6396,11 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			(
 			
 			`
-			matrix
+			int
 			`
 		 , 
 			`
-			int
+			matrix
 			`
 		
 			) ---&gt;
@@ -6500,6 +6441,74 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			
 			`
 			geometry
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`*`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`*`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`*`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			point
 			`
 		
 
@@ -6509,31 +6518,33 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 			#### Special cases:
 		
 				*
-				if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)
-
-				```
-</code></pre>
-</div>
-
-<p>rgb var1 &lt;- rgb([255, 128, 32]) * 2; // var1 equals rgb([255,255,64])
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.
-
-				```
-				matrix&lt;float&gt; m &lt;- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],[10.5,14]]) 
-				```
-
-			
-				*
 				if both operands are points, returns their scalar product
 
 				```
 </code></pre>
 </div>
 
-<p>float var3 &lt;- {2,5} * {4.5, 5}; // var3 equals 34.0
+<p>float var1 &lt;- {2,5} * {4.5, 5}; // var1 equals 34.0
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)
+
+				```
+</code></pre>
+</div>
+
+<p>rgb var2 &lt;- rgb([255, 128, 32]) * 2; // var2 equals rgb([255,255,64])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.
+
+				```
+</code></pre>
+</div>
+
+<p>int var3 &lt;- 1 * 1; // var3 equals 1
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -6547,34 +6558,32 @@ point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number
+				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.
 
 				```
-</code></pre>
-</div>
-
-<p>point var5 &lt;- {2,5} * 4; // var5 equals {8.0, 20.0} 
-point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.
-
+				matrix&lt;float&gt; m &lt;- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],[10.5,14]]) 
 				```
-</code></pre>
-</div>
 
-<p>int var7 &lt;- 1 * 1; // var7 equals 1
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
+			
+				*
 				if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient
 
 				```
 </code></pre>
 </div>
 
-<p>geometry var8 &lt;- circle(10) * 2; // var8 equals circle(20)
+<p>geometry var6 &lt;- circle(10) * 2; // var6 equals circle(20)
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number
+
+				```
+</code></pre>
+</div>
+
+<p>point var7 &lt;- {2,5} * 4; // var7 equals {8.0, 20.0} 
+point var8 &lt;- {2, 4} * 2.5; // var8 equals {5.0, 10.0}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -6586,7 +6595,7 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
-			[/](#/), [+](#+), [-](#-), 
+			[+](#+), [-](#-), [/](#/), 
 
 		----
 </code></pre>
@@ -6600,74 +6609,6 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			*
 			
 			`
-			point
-			`
-		 **`+`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`+`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			
-			`
 			date
 			`
 		 **`+`** 
@@ -6697,6 +6638,176 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			
 			`
 			string
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`+`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`+`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			matrix
+			`
+		 **`+`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			matrix
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`+`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			
+			`
+			date
+			`
+		 **`+`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			date
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			date
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			date
 			`
 		
 			*
@@ -6770,74 +6881,6 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			*
 			
 			`
-			matrix
-			`
-		 **`+`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`+`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			string
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			string
-			`
-		
-			*
-			
-			`
 			map
 			`
 		 **`+`** 
@@ -6867,6 +6910,74 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			
 			`
 			map
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`+`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			string
+			`
+		 **`+`** 
+			`
+			string
+			`
+		
+			---&gt;
+			
+			`
+			string
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			string
+			`
+		 , 
+			`
+			string
+			`
+		
+			) ---&gt;
+			
+			`
+			string
 			`
 		
 			*
@@ -6906,11 +7017,45 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			*
 			
 			`
+			float
+			`
+		 **`+`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
 			geometry
 			`
 		 **`+`** 
 			`
-			geometry
+			float
 			`
 		
 			---&gt;
@@ -6928,13 +7073,183 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			`
 		 , 
 			`
-			geometry
+			float
 			`
 		
 			) ---&gt;
 			
 			`
 			geometry
+			`
+		
+			*
+			
+			`
+			date
+			`
+		 **`+`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			date
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			date
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			date
+			`
+		
+			*
+			
+			`
+			rgb
+			`
+		 **`+`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			rgb
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`+`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`+`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`+`** 
+			`
+			matrix
+			`
+		
+			---&gt;
+			
+			`
+			matrix
+			`
+		
+			*
+			 **`+`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			matrix
+			`
+		
+			) ---&gt;
+			
+			`
+			matrix
 			`
 		
 			*
@@ -7008,74 +7323,6 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			*
 			
 			`
-			matrix
-			`
-		 **`+`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			matrix
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			date
-			`
-		 **`+`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			date
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			date
-			`
-		
-			*
-			
-			`
 			rgb
 			`
 		 **`+`** 
@@ -7105,108 +7352,6 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			
 			`
 			rgb
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`+`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
-			rgb
-			`
-		 **`+`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			rgb
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`+`** 
-			`
-			point
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			point
 			`
 		
 			*
@@ -7246,17 +7391,17 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			*
 			
 			`
-			float
+			point
 			`
 		 **`+`** 
 			`
-			float
+			point
 			`
 		
 			---&gt;
 			
 			`
-			float
+			point
 			`
 		
 			*
@@ -7264,17 +7409,17 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			(
 			
 			`
-			float
+			point
 			`
 		 , 
 			`
-			float
+			point
 			`
 		
 			) ---&gt;
 			
 			`
-			float
+			point
 			`
 		
 			*
@@ -7284,7 +7429,7 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			`
 		 **`+`** 
 			`
-			float
+			geometry
 			`
 		
 			---&gt;
@@ -7302,149 +7447,13 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 			`
 		 , 
 			`
-			float
+			geometry
 			`
 		
 			) ---&gt;
 			
 			`
 			geometry
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`+`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			
-			`
-			point
-			`
-		 **`+`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			date
-			`
-		 **`+`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			date
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			date
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`+`** 
-			`
-			matrix
-			`
-		
-			---&gt;
-			
-			`
-			matrix
-			`
-		
-			*
-			 **`+`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			matrix
-			`
-		
-			) ---&gt;
-			
-			`
-			matrix
 			`
 		
 			*
@@ -7520,76 +7529,15 @@ point var6 &lt;- {2, 4} * 2.5; // var6 equals {5.0, 10.0}
 				*
 				if both operands are species, returns a special type of list called meta-population
 				*
-				if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added
-
-				```
-</code></pre>
-</div>
-
-<p>list<int> var4 &lt;- [1,2,3,4,5,6] + 2; // var4 equals [1,2,3,4,5,6,2] 
-list<int> var5 &lt;- [1,2,3,4,5,6] + 0; // var5 equals [1,2,3,4,5,6,0]
-					```</int></int></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style
-
-				```
-</code></pre>
-</div>
-
-<p>geometry var6 &lt;- circle(5) + (5,32,#round); // var6 equals circle(10)
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries
-
-				```
-</code></pre>
-</div>
-
-<p>geometry var7 &lt;- geom1 + geom2; // var7 equals a geometry corresponding to union between geom1 and geom2
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)
-
-				```
-</code></pre>
-</div>
-
-<p>string var8 &lt;- “hello “ + 12; // var8 equals “hello 12”
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are colors, returns a new color resulting from the sum of the two operands, component by component
-
-				```
-</code></pre>
-</div>
-
-<p>rgb var9 &lt;- rgb([255, 128, 32]) + rgb(‘red’); // var9 equals rgb([255,128,32])
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.
 
 				```
 </code></pre>
 </div>
 
-<p>int var10 &lt;- 1 + 1; // var10 equals 2 
-int var11 &lt;- 1.0 + 1; // var11 equals 2.0 
-int var12 &lt;- 1.0 + 2.5; // var12 equals 3.5
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand
-
-				```
-</code></pre>
-</div>
-
-<p>rgb var13 &lt;- rgb([255, 128, 32]) + 3; // var13 equals rgb([255,131,35])
+<p>int var4 &lt;- 1 + 1; // var4 equals 2 
+int var5 &lt;- 1.0 + 1; // var5 equals 2.0 
+int var6 &lt;- 1.0 + 2.5; // var6 equals 3.5
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -7599,29 +7547,29 @@ int var12 &lt;- 1.0 + 2.5; // var12 equals 3.5
 </code></pre>
 </div>
 
-<p>geometry var14 &lt;- circle(5) + (5,32); // var14 equals circle(10)
+<p>geometry var7 &lt;- circle(5) + (5,32); // var7 equals circle(10)
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are points, returns their sum.
+				if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added
 
 				```
 </code></pre>
 </div>
 
-<p>point var15 &lt;- {1, 2} + {4, 5}; // var15 equals {5.0, 7.0}
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if both operands are list, +returns the concatenation of both lists.
-
-				```
-</code></pre>
-</div>
-
-<p>list<int> var16 &lt;- [1,2,3,4,5,6] + [2,4,9]; // var16 equals [1,2,3,4,5,6,2,4,9] 
-list<int> var17 &lt;- [1,2,3,4,5,6] + [0,8]; // var17 equals [1,2,3,4,5,6,0,8]
+<p>list<int> var8 &lt;- [1,2,3,4,5,6] + 2; // var8 equals [1,2,3,4,5,6,2] 
+list<int> var9 &lt;- [1,2,3,4,5,6] + 0; // var9 equals [1,2,3,4,5,6,0]
 					```</int></int></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style
+
+				```
+</code></pre>
+</div>
+
+<p>geometry var10 &lt;- circle(5) + (5,32,#round); // var10 equals circle(10)
+					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the right-hand operand distance. The number of segments used by default is 8 and the end cap style is #round
@@ -7630,28 +7578,7 @@ list<int> var17 &lt;- [1,2,3,4,5,6] + [0,8]; // var17 equals [1,2,3,4,5,6,0,8]
 </code></pre>
 </div>
 
-<p>geometry var18 &lt;- circle(5) + 5; // var18 equals circle(10)
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.
-
-				```
-</code></pre>
-</div>
-
-<p>matrix var19 &lt;- 3.5 + matrix([[2,5],[3,4]]); // var19 equals matrix([[5.5,8.5],[6.5,7.5]])
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
-				if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.
-
-				```
-</code></pre>
-</div>
-
-<p>point var20 &lt;- {1, 2} + 4; // var20 equals {5.0, 6.0,4.0} 
-point var21 &lt;- {1, 2} + 4.5; // var21 equals {5.5, 6.5,4.5}
+<p>geometry var11 &lt;- circle(5) + 5; // var11 equals circle(10)
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -7662,8 +7589,89 @@ point var21 &lt;- {1, 2} + 4.5; // var21 equals {5.5, 6.5,4.5}
 				```
 
 			
+				*
+				if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand
 
-			#### Examples:
+				```
+</code></pre>
+</div>
+
+<p>rgb var13 &lt;- rgb([255, 128, 32]) + 3; // var13 equals rgb([255,131,35])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.
+
+				```
+</code></pre>
+</div>
+
+<p>point var14 &lt;- {1, 2} + 4; // var14 equals {5.0, 6.0,4.0} 
+point var15 &lt;- {1, 2} + 4.5; // var15 equals {5.5, 6.5,4.5}
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.
+
+				```
+</code></pre>
+</div>
+
+<p>matrix var16 &lt;- 3.5 + matrix([[2,5],[3,4]]); // var16 equals matrix([[5.5,8.5],[6.5,7.5]])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)
+
+				```
+</code></pre>
+</div>
+
+<p>string var17 &lt;- “hello “ + 12; // var17 equals “hello 12”
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are colors, returns a new color resulting from the sum of the two operands, component by component
+
+				```
+</code></pre>
+</div>
+
+<p>rgb var18 &lt;- rgb([255, 128, 32]) + rgb(‘red’); // var18 equals rgb([255,128,32])
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are list, +returns the concatenation of both lists.
+
+				```
+</code></pre>
+</div>
+
+<p>list<int> var19 &lt;- [1,2,3,4,5,6] + [2,4,9]; // var19 equals [1,2,3,4,5,6,2,4,9] 
+list<int> var20 &lt;- [1,2,3,4,5,6] + [0,8]; // var20 equals [1,2,3,4,5,6,0,8]
+					```</int></int></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are points, returns their sum.
+
+				```
+</code></pre>
+</div>
+
+<p>point var21 &lt;- {1, 2} + {4, 5}; // var21 equals {5.0, 7.0}
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries
+
+				```
+</code></pre>
+</div>
+
+<p>geometry var22 &lt;- geom1 + geom2; // var22 equals a geometry corresponding to union between geom1 and geom2
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
 			```
 </code></pre>
 </div>
@@ -7689,6 +7697,74 @@ map var3 &lt;- [‘a’::1,’b’::2] + (‘c’::3); // var3 equals [‘a’::
 			*
 			
 			`
+			string
+			`
+		 **`&lt;`** 
+			`
+			string
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;`** 
+			(
+			
+			`
+			string
+			`
+		 , 
+			`
+			string
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`&lt;`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
 			point
 			`
 		 **`&lt;`** 
@@ -7712,6 +7788,74 @@ map var3 &lt;- [‘a’::1,’b’::2] + (‘c’::3); // var3 equals [‘a’::
 		 , 
 			`
 			point
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`&lt;`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`&lt;`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			int
 			`
 		
 			) ---&gt;
@@ -7761,40 +7905,6 @@ map var3 &lt;- [‘a’::1,’b’::2] + (‘c’::3); // var3 equals [‘a’::
 			`
 		 **`&lt;`** 
 			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`&lt;`** 
-			`
 			float
 			`
 		
@@ -7814,108 +7924,6 @@ map var3 &lt;- [‘a’::1,’b’::2] + (‘c’::3); // var3 equals [‘a’::
 		 , 
 			`
 			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`&lt;`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`&lt;`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`&lt;`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			string
 			`
 		
 			) ---&gt;
@@ -7933,33 +7941,38 @@ map var3 &lt;- [‘a’::1,’b’::2] + (‘c’::3); // var3 equals [‘a’::
 				*
 				if one of the operands is nil, returns false
 				*
-				if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.
-
-				```
-</code></pre>
-</div>
-
-<p>bool var5 &lt;- {5,7} &lt; {4,6}; // var5 equals false 
-bool var6 &lt;- {5,7} &lt; {4,8}; // var6 equals false
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if both operands are String, uses a lexicographic comparison of two strings
 
 				```
 </code></pre>
 </div>
 
-<p>bool var7 &lt;- ‘abc’ &lt; ‘aeb’; // var7 equals true
+<p>bool var0 &lt;- ‘abc’ &lt; ‘aeb’; // var0 equals true
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.
+
+				```
+</code></pre>
+</div>
+
+<p>bool var1 &lt;- {5,7} &lt; {4,6}; // var1 equals false 
+bool var2 &lt;- {5,7} &lt; {4,8}; // var2 equals false
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
 			```
-			#now &lt; #now minus_hours 1 :- false   bool var1 &lt;- 3.5 &lt; 7; // var1 equals true  bool var2 &lt;- 3.5 &lt; 7.6; // var2 equals true  bool var3 &lt;- 3 &lt; 2.5; // var3 equals false  bool var4 &lt;- 3 &lt; 7; // var4 equals true
-			```
-		
+</code></pre>
+</div>
 
-			#### See also:
+<p>bool var3 &lt;- 3 &lt; 7; // var3 equals true 
+bool var4 &lt;- 3 &lt; 2.5; // var4 equals false 
+bool var5 &lt;- 3.5 &lt; 7; // var5 equals true#now &lt; #now minus_hours 1 :- false<br />
+bool var7 &lt;- 3.5 &lt; 7.6; // var7 equals true
+				```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
 			[&gt;](#&gt;), [&gt;=](#&gt;=), [&lt;=](#&lt;=), [=](#=), [!=](#!=), 
 
 		----
@@ -7974,6 +7987,74 @@ bool var6 &lt;- {5,7} &lt; {4,8}; // var6 equals false
 			*
 			
 			`
+			date
+			`
+		 **`&lt;=`** 
+			`
+			date
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;=`** 
+			(
+			
+			`
+			date
+			`
+		 , 
+			`
+			date
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`&lt;=`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&lt;=`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
 			float
 			`
 		 **`&lt;=`** 
@@ -8042,40 +8123,6 @@ bool var6 &lt;- {5,7} &lt; {4,8}; // var6 equals false
 			*
 			
 			`
-			date
-			`
-		 **`&lt;=`** 
-			`
-			date
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;=`** 
-			(
-			
-			`
-			date
-			`
-		 , 
-			`
-			date
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
 			int
 			`
 		 **`&lt;=`** 
@@ -8095,40 +8142,6 @@ bool var6 &lt;- {5,7} &lt; {4,8}; // var6 equals false
 			
 			`
 			int
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`&lt;=`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&lt;=`** 
-			(
-			
-			`
-			float
 			`
 		 , 
 			`
@@ -8240,16 +8253,11 @@ bool var1 &lt;- {5,7} &lt;= {4,8}; // var1 equals false
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
 			```
-</code></pre>
-</div>
+			#now &lt;= #now minus_hours 1 :- false   bool var4 &lt;- 3.5 &lt;= 3.5; // var4 equals true  bool var5 &lt;- 7.0 &lt;= 7; // var5 equals true  bool var6 &lt;- 3 &lt;= 2.5; // var6 equals false  bool var7 &lt;- 3 &lt;= 7; // var7 equals true
+			```
+		
 
-<p>bool var3 &lt;- 7.0 &lt;= 7; // var3 equals true#now &lt;= #now minus_hours 1 :- false<br />
-bool var5 &lt;- 3 &lt;= 2.5; // var5 equals false 
-bool var6 &lt;- 3.5 &lt;= 3.5; // var6 equals true 
-bool var7 &lt;- 3 &lt;= 7; // var7 equals true
-				```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
+			#### See also:
 			[&gt;](#&gt;), [&lt;](#&lt;), [&gt;=](#&gt;=), [=](#=), [!=](#!=), 
 
 		----
@@ -8271,40 +8279,6 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			*
 			
 			`
-			int
-			`
-		 **`=`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`=`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
 			unknown
 			`
 		 **`=`** 
@@ -8339,7 +8313,7 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			*
 			
 			`
-			int
+			float
 			`
 		 **`=`** 
 			`
@@ -8357,7 +8331,7 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			(
 			
 			`
-			int
+			float
 			`
 		 , 
 			`
@@ -8373,11 +8347,11 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			*
 			
 			`
-			float
+			int
 			`
 		 **`=`** 
 			`
-			float
+			int
 			`
 		
 			---&gt;
@@ -8391,11 +8365,11 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			(
 			
 			`
-			float
+			int
 			`
 		 , 
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -8445,7 +8419,7 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			`
 		 **`=`** 
 			`
-			int
+			float
 			`
 		
 			---&gt;
@@ -8463,7 +8437,41 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 			`
 		 , 
 			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
 			int
+			`
+		 **`=`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`=`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			float
 			`
 		
 			) ---&gt;
@@ -8493,11 +8501,11 @@ bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 </code></pre>
 </div>
 
-<p>bool var1 &lt;- 3 = 3.0; // var1 equals true 
-bool var2 &lt;- 4 = 4.7; // var2 equals false 
-bool var3 &lt;- 4 = 5; // var3 equals false 
-bool var4 &lt;- 4.5 = 4.7; // var4 equals false#now = #now minus_hours 1 :- false<br />
-bool var6 &lt;- 4.7 = 4; // var6 equals false
+<p>bool var1 &lt;- 4.7 = 4; // var1 equals false 
+bool var2 &lt;- 4 = 5; // var2 equals false#now = #now minus_hours 1 :- false<br />
+bool var4 &lt;- 4.5 = 4.7; // var4 equals false 
+bool var5 &lt;- 3 = 3.0; // var5 equals true 
+bool var6 &lt;- 4 = 4.7; // var6 equals false
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -8515,11 +8523,11 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 			*
 			
 			`
-			float
+			string
 			`
 		 **`&gt;`** 
 			`
-			int
+			string
 			`
 		
 			---&gt;
@@ -8533,11 +8541,11 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 			(
 			
 			`
-			float
+			string
 			`
 		 , 
 			`
-			int
+			string
 			`
 		
 			) ---&gt;
@@ -8621,40 +8629,6 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 			`
 		 **`&gt;`** 
 			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&gt;`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`&gt;`** 
-			`
 			float
 			`
 		
@@ -8674,40 +8648,6 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 		 , 
 			`
 			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`&gt;`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&gt;`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			string
 			`
 		
 			) ---&gt;
@@ -8742,6 +8682,74 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 		 , 
 			`
 			float
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`&gt;`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&gt;`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`&gt;`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&gt;`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			int
 			`
 		
 			) ---&gt;
@@ -8759,38 +8767,33 @@ bool var6 &lt;- 4.7 = 4; // var6 equals false
 				*
 				if one of the operands is nil, returns false
 				*
-				if both operands are points, returns true if and only if the left component (x) of the left operand if greater than x of the right one and if the right component (y) of the left operand is greater than y of the right one.
-
-				```
-</code></pre>
-</div>
-
-<p>bool var0 &lt;- {5,7} &gt; {4,6}; // var0 equals true 
-bool var1 &lt;- {5,7} &gt; {4,8}; // var1 equals false
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if both operands are String, uses a lexicographic comparison of two strings
 
 				```
 </code></pre>
 </div>
 
-<p>bool var2 &lt;- ‘abc’ &gt; ‘aeb’; // var2 equals false
+<p>bool var0 &lt;- ‘abc’ &gt; ‘aeb’; // var0 equals false
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if both operands are points, returns true if and only if the left component (x) of the left operand if greater than x of the right one and if the right component (y) of the left operand is greater than y of the right one.
+
+				```
+</code></pre>
+</div>
+
+<p>bool var1 &lt;- {5,7} &gt; {4,6}; // var1 equals true 
+bool var2 &lt;- {5,7} &gt; {4,8}; // var2 equals false
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
 			```
-</code></pre>
-</div>
+			#now &gt; #now minus_hours 1 :- true   bool var4 &lt;- 3 &gt; 2.5; // var4 equals true  bool var5 &lt;- 3.5 &gt; 7.6; // var5 equals false  bool var6 &lt;- 3 &gt; 7; // var6 equals false  bool var7 &lt;- 3.5 &gt; 7; // var7 equals false
+			```
+		
 
-<p>bool var3 &lt;- 3.5 &gt; 7; // var3 equals false#now &gt; #now minus_hours 1 :- true<br />
-bool var5 &lt;- 3 &gt; 7; // var5 equals false 
-bool var6 &lt;- 3 &gt; 2.5; // var6 equals true 
-bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
-				```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
+			#### See also:
 			[&lt;](#&lt;), [&gt;=](#&gt;=), [&lt;=](#&lt;=), [=](#=), [!=](#!=), 
 
 		----
@@ -8805,11 +8808,11 @@ bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
 			*
 			
 			`
-			date
+			int
 			`
 		 **`&gt;=`** 
 			`
-			date
+			int
 			`
 		
 			---&gt;
@@ -8823,11 +8826,11 @@ bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
 			(
 			
 			`
-			date
+			int
 			`
 		 , 
 			`
-			date
+			int
 			`
 		
 			) ---&gt;
@@ -8873,6 +8876,40 @@ bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
 			*
 			
 			`
+			string
+			`
+		 **`&gt;=`** 
+			`
+			string
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&gt;=`** 
+			(
+			
+			`
+			string
+			`
+		 , 
+			`
+			string
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
 			float
 			`
 		 **`&gt;=`** 
@@ -8896,6 +8933,40 @@ bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
 		 , 
 			`
 			int
+			`
+		
+			) ---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			
+			`
+			date
+			`
+		 **`&gt;=`** 
+			`
+			date
+			`
+		
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`&gt;=`** 
+			(
+			
+			`
+			date
+			`
+		 , 
+			`
+			date
 			`
 		
 			) ---&gt;
@@ -8964,74 +9035,6 @@ bool var7 &lt;- 3.5 &gt; 7.6; // var7 equals false
 		 , 
 			`
 			float
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`&gt;=`** 
-			`
-			string
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&gt;=`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			string
-			`
-		
-			) ---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`&gt;=`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`&gt;=`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
 			`
 		
 			) ---&gt;
@@ -9072,11 +9075,16 @@ bool var3 &lt;- ‘abc’ &gt;= ‘abc’; // var3 equals true
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
 			```
-			#now &gt;= #now minus_hours 1 :- true   bool var5 &lt;- 3.5 &gt;= 7; // var5 equals false  bool var6 &lt;- 3.5 &gt;= 3.5; // var6 equals true  bool var7 &lt;- 3 &gt;= 2.5; // var7 equals true  bool var8 &lt;- 3 &gt;= 7; // var8 equals false
-			```
-		
+</code></pre>
+</div>
 
-			#### See also:
+<p>bool var4 &lt;- 3 &gt;= 7; // var4 equals false 
+bool var5 &lt;- 3.5 &gt;= 7; // var5 equals false#now &gt;= #now minus_hours 1 :- true<br />
+bool var7 &lt;- 3.5 &gt;= 3.5; // var7 equals true 
+bool var8 &lt;- 3 &gt;= 2.5; // var8 equals true
+				```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
 			[&gt;](#&gt;), [&lt;](#&lt;), [&lt;=](#&lt;=), [=](#=), [!=](#!=), 
 
 		----
@@ -9093,13 +9101,13 @@ bool var3 &lt;- ‘abc’ &gt;= ‘abc’; // var3 equals true
 			(
 			
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
 			
 			`
-			float
+			int
 			`
 		
 			*
@@ -9107,13 +9115,13 @@ bool var3 &lt;- ‘abc’ &gt;= ‘abc’; // var3 equals true
 			(
 			
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
 			
 			`
-			int
+			float
 			`
 		
 
@@ -9125,9 +9133,9 @@ bool var3 &lt;- ‘abc’ &gt;= ‘abc’; // var3 equals true
 </code></pre>
 </div>
 
-<p>float var0 &lt;- abs (200 * -1 + 0.5); // var0 equals 199.5 
-int var1 &lt;- abs (-10); // var1 equals 10 
-int var2 &lt;- abs (10); // var2 equals 10
+<p>int var0 &lt;- abs (-10); // var0 equals 10 
+int var1 &lt;- abs (10); // var1 equals 10 
+float var3 &lt;- abs (200 * -1 + 0.5); // var3 equals 199.5
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -9207,7 +9215,7 @@ list<int> var2 &lt;- [1,2,4] accumulate (each * 2); // var2 equals [2,4,8]
 			(
 			
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -9221,7 +9229,7 @@ list<int> var2 &lt;- [1,2,4] accumulate (each * 2); // var2 equals [2,4,8]
 			(
 			
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -10682,7 +10690,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			`
 		 **`as_distance_graph`** 
 			`
-			map
+			float
 			`
 		
 			---&gt;
@@ -10700,7 +10708,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			`
 		 , 
 			`
-			map
+			float
 			`
 		
 			) ---&gt;
@@ -10716,7 +10724,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			`
 		 **`as_distance_graph`** 
 			`
-			float
+			map
 			`
 		
 			---&gt;
@@ -10734,7 +10742,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			`
 		 , 
 			`
-			float
+			map
 			`
 		
 			) ---&gt;
@@ -10857,7 +10865,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			(
 			
 			`
-			container
+			map
 			`
 		
 			) ---&gt;
@@ -10871,7 +10879,7 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			(
 			
 			`
-			map
+			container
 			`
 		
 			) ---&gt;
@@ -10921,23 +10929,23 @@ geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 
 			#### Special cases:
 		
 				*
-				if the operand is a list, the graph will be built with elements of the list as edges
-
-				```
-</code></pre>
-</div>
-
-<p>graph var0 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var0 equals a graph with two edges and three vertices
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if the operand is a map, the graph will be built by creating edges from pairs of the map
 
 				```
 </code></pre>
 </div>
 
-<p>graph var1 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var1 equals a graph with these three vertices and two edges
+<p>graph var0 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var0 equals a graph with these three vertices and two edges
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the operand is a list, the graph will be built with elements of the list as edges
+
+				```
+</code></pre>
+</div>
+
+<p>graph var1 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var1 equals a graph with two edges and three vertices
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -11426,6 +11434,32 @@ float var1 &lt;- asin (0); // var1 equals 0.0
 	#### Possible use:
 	
 			*
+			`container&lt;KeyType,ValueType&gt;` **`at`** 
+			`
+			KeyType
+			`
+		
+			---&gt;
+			
+			`
+			ValueType
+			`
+		
+			*
+			 **`at`** 
+			(
+			`container&lt;KeyType,ValueType&gt;` , 
+			`
+			KeyType
+			`
+		
+			) ---&gt;
+			
+			`
+			ValueType
+			`
+		
+			*
 			
 			`
 			string
@@ -11459,32 +11493,6 @@ float var1 &lt;- asin (0); // var1 equals 0.0
 			string
 			`
 		
-			*
-			`container&lt;KeyType,ValueType&gt;` **`at`** 
-			`
-			KeyType
-			`
-		
-			---&gt;
-			
-			`
-			ValueType
-			`
-		
-			*
-			 **`at`** 
-			(
-			`container&lt;KeyType,ValueType&gt;` , 
-			`
-			KeyType
-			`
-		
-			) ---&gt;
-			
-			`
-			ValueType
-			`
-		
 
 			#### Result:
 			the element at the right operand index of the container
@@ -11511,8 +11519,8 @@ float var1 &lt;- asin (0); // var1 equals 0.0
 </code></pre>
 </div>
 
-<p>int var1 &lt;- [1, 2, 3] at 2; // var1 equals 3 
-point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
+<p>int var0 &lt;- [1, 2, 3] at 2; // var0 equals 3 
+point var1 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var1 equals {1.0,2.0}
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -11520,7 +11528,7 @@ point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 </code></pre>
 </div>
 
-<p>string var0 &lt;- ‘abcdef’ at 0; // var0 equals ‘a’
+<p>string var2 &lt;- ‘abcdef’ at 0; // var2 equals ‘a’
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -11637,7 +11645,7 @@ point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 			(
 			
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -11651,7 +11659,7 @@ point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 			(
 			
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -12035,6 +12043,34 @@ point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 			(
 			
 			`
+			date
+			`
+		
+						,
+					
+			`
+			date
+			`
+		
+						,
+					
+			`
+			date
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			bool
+			`
+		
+			*
+			 **`between`** 
+			(
+			
+			`
 			any expression
 			`
 		
@@ -12076,34 +12112,6 @@ point var2 &lt;- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 					
 			`
 			int
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			bool
-			`
-		
-			*
-			 **`between`** 
-			(
-			
-			`
-			date
-			`
-		
-						,
-					
-			`
-			date
-			`
-		
-						,
-					
-			`
-			date
 			`
 		
 						)
@@ -12517,7 +12525,7 @@ bool var5 &lt;- between(5.0, 1.0, 10.0); // var5 equals true
 </code></pre>
 </div>
 
-<p>rgb var1 &lt;- blend(#red, #blue); // var1 equals to a color very close to the purple
+<p>rgb var3 &lt;- blend(#red, #blue); // var3 equals to a color very close to the purple
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -12525,7 +12533,7 @@ bool var5 &lt;- between(5.0, 1.0, 10.0); // var5 equals true
 </code></pre>
 </div>
 
-<p>rgb var3 &lt;- blend(#red, #blue, 0.3); // var3 equals to a color between the purple and the blue
+<p>rgb var1 &lt;- blend(#red, #blue, 0.3); // var1 equals to a color between the purple and the blue
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -12682,15 +12690,15 @@ geometry var1 &lt;- box({10, 5 , 5}); // var1 equals a geometry as a rectangle w
 			`list&lt;rgb&gt;`
 
 			#### Result:
-			Build a list of colors of a given type (see website http://colorbrewer2.org/) Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
+			Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes Build a list of colors of a given type (see website http://colorbrewer2.org/)
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>list<rgb> var0 &lt;- list<rgb> colors &lt;- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list<rgb> var1 &lt;- list<rgb> colors &lt;- brewer_colors("Pastel1", 10);; // var1 equals a list of 10 sequential colors
+<p>list<rgb> var0 &lt;- list<rgb> colors &lt;- brewer_colors("Pastel1", 10);; // var0 equals a list of 10 sequential colors 
+list<rgb> var1 &lt;- list<rgb> colors &lt;- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
 				```</rgb></rgb></rgb></rgb></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -12823,11 +12831,11 @@ list<string> var1 &lt;- list<rgb> colors &lt;- brewer_palettes();; // var1 equal
 		
 
 			#### Result:
-			returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given method ("GLS" or "OLS"). Usage: build(data,method) returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given ordinary least squares method. Usage: build(data)
+			returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given ordinary least squares method. Usage: build(data) returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given method ("GLS" or "OLS"). Usage: build(data,method)
 
 			#### Examples:
 			```
-			build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") matrix([[1,2,3,4],[2,3,4,2]]) 
+			matrix([[1,2,3,4],[2,3,4,2]]) build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") 
 			```
 		
 
@@ -13098,7 +13106,7 @@ float var2 &lt;- ceil(-4.7); // var2 equals -4.0
 		
 
 			#### Result:
-			A circle geometry which radius is equal to the operand. A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
+			A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand. A circle geometry which radius is equal to the operand.
 
 			#### Comment:
 			the center of the circle is by default the location of the current agent in which has been called this operator.
@@ -13115,8 +13123,8 @@ float var2 &lt;- ceil(-4.7); // var2 equals -4.0
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- circle(10); // var0 equals a geometry as a circle of radius 10. 
-geometry var1 &lt;- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
+<p>geometry var0 &lt;- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}. 
+geometry var1 &lt;- circle(10); // var1 equals a geometry as a circle of radius 10.
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -13511,7 +13519,7 @@ container var3 &lt;- (list(node) collect (node(each).location.x * 2); // var3 eq
 		
 
 			#### Result:
-			command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available. command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
+			command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available. command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
 
 		----
 </code></pre>
@@ -13589,8 +13597,8 @@ container var3 &lt;- (list(node) collect (node(each).location.x * 2); // var3 eq
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+<p>geometry var0 &lt;- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 &lt;- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -13709,11 +13717,11 @@ geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min 
 			`list&lt;list&gt;`
 
 			#### Result:
-			returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.  returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
+			returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.  returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.
 
 			#### Examples:
 			```
-			graph my_graph &lt;- graph([]);   list&lt;list&gt; var1 &lt;- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph &lt;- graph([]);   list&lt;list&gt; var3 &lt;- connected_components_of (my_graph, true); // var3 equals the list of all the components as list
+			graph my_graph &lt;- graph([]);   list&lt;list&gt; var1 &lt;- connected_components_of (my_graph, true); // var1 equals the list of all the components as listgraph my_graph &lt;- graph([]);   list&lt;list&gt; var3 &lt;- connected_components_of (my_graph); // var3 equals the list of all the components as list
 			```
 		
 
@@ -14947,15 +14955,15 @@ map&lt;string,float&gt; var2 &lt;- create_map([‘a’,’b’,’c’,’d’],
 		
 
 			#### Result:
-			A cross, which radius is equal to the first operand A cross, which radius is equal to the first operand and the width of the lines for the second
+			A cross, which radius is equal to the first operand and the width of the lines for the second A cross, which radius is equal to the first operand
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- cross(10); // var0 equals a geometry as a cross of radius 10 
-geometry var1 &lt;- cross(10,2); // var1 equals a geometry as a cross of radius 10, and with a width of 2 for the lines 
+<p>geometry var0 &lt;- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines<br />
+geometry var1 &lt;- cross(10); // var1 equals a geometry as a cross of radius 10
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -15276,7 +15284,7 @@ bool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,2
 						,
 					
 			`
-			point
+			int
 			`
 		
 						)
@@ -15310,7 +15318,7 @@ bool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,2
 						,
 					
 			`
-			int
+			point
 			`
 		
 						)
@@ -15363,13 +15371,15 @@ bool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,2
 		
 
 			#### Result:
-			A quadratic Bezier curve geometry built from the three given points composed of 10 points. A cubic Bezier curve geometry built from the four given points composed of 10 points. A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points. A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+			A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points. A quadratic Bezier curve geometry built from the three given points composed of 10 points. A cubic Bezier curve geometry built from the four given points composed of a given number of points. A cubic Bezier curve geometry built from the four given points composed of 10 points.
 
 			#### Special cases:
 		
 				*
 				if the operand is nil, returns nil
 				*
+				if the last operand (number of points) is inferior to 2, returns nil
+				*
 				if the operand is nil, returns nil
 				*
 				if the operand is nil, returns nil
@@ -15377,17 +15387,15 @@ bool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,2
 				if the last operand (number of points) is inferior to 2, returns nil
 				*
 				if the operand is nil, returns nil
-				*
-				if the last operand (number of points) is inferior to 2, returns nil
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}); // var0 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var2 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+<p>geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var0 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
 geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
 				```</p>
 
@@ -15684,7 +15692,7 @@ geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier
 			`
 		 **`dem`** 
 			`
-			file
+			float
 			`
 		
 			---&gt;
@@ -15702,7 +15710,7 @@ geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier
 			`
 		 , 
 			`
-			file
+			float
 			`
 		
 			) ---&gt;
@@ -15718,7 +15726,7 @@ geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier
 			`
 		 **`dem`** 
 			`
-			float
+			file
 			`
 		
 			---&gt;
@@ -15736,7 +15744,7 @@ geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier
 			`
 		 , 
 			`
-			float
+			file
 			`
 		
 			) ---&gt;
@@ -15782,10 +15790,10 @@ geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 &lt;- dem(dem); // var1 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var2 &lt;- dem(dem,texture,z_factor); // var2 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var3 &lt;- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+<p>geometry var0 &lt;- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var1 &lt;- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var2 &lt;- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 &lt;- dem(dem,texture); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -16378,8 +16386,8 @@ bool var4 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon
 </code></pre>
 </div>
 
-<p>map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
-map var1 &lt;- distribution_of([1,1,2,12.5]); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
+<p>map var0 &lt;- distribution_of([1,1,2,12.5]); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
+map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
 map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])
 				```</p>
 
@@ -16530,8 +16538,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map([‘values’::
 </code></pre>
 </div>
 
-<p>map var0 &lt;- distribution2d_of([1,1,2,12.5]); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
-map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
+<p>map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
+map var1 &lt;- distribution2d_of([1,1,2,12.5]); // var1 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]]) 
 map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values’::[2,1,0,0,0,0,1,0,0,0],’legend’::[‘[0.0:2.0]’,’[2.0:4.0]’,’[4.0:6.0]’,’[6.0:8.0]’,’[8.0:10.0]’,’[10.0:12.0]’,’[12.0:14.0]’,’[14.0:16.0]’,’[16.0:18.0]’,’[18.0:20.0]’],’parlist’::[1,0]])
 				```</p>
 
@@ -16588,40 +16596,6 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values�
 			`
 		 **`div`** 
 			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`div`** 
-			(
-			
-			`
-			int
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
-			int
-			`
-		 **`div`** 
-			`
 			float
 			`
 		
@@ -16675,6 +16649,40 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values�
 		 , 
 			`
 			float
+			`
+		
+			) ---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			
+			`
+			int
+			`
+		 **`div`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`div`** 
+			(
+			
+			`
+			int
+			`
+		 , 
+			`
+			int
 			`
 		
 			) ---&gt;
@@ -16702,9 +16710,9 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map([‘values�
 </div>
 
 <p>int var0 &lt;- 40.5 div 3; // var0 equals 13 
-int var1 &lt;- 40 div 3; // var1 equals 13 
-int var2 &lt;- 40 div 4.1; // var2 equals 9 
-int var3 &lt;- 40.1 div 4.5; // var3 equals 8
+int var1 &lt;- 40 div 4.1; // var1 equals 9 
+int var2 &lt;- 40.1 div 4.5; // var2 equals 8 
+int var3 &lt;- 40 div 3; // var3 equals 13
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -16785,7 +16793,7 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			(
 			
 			`
-			pair
+			unknown
 			`
 		
 			) ---&gt;
@@ -16799,7 +16807,7 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			(
 			
 			`
-			unknown
+			pair
 			`
 		
 			) ---&gt;
@@ -16845,11 +16853,11 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			*
 			
 			`
-			unknown
+			pair
 			`
 		 **`edge`** 
 			`
-			unknown
+			float
 			`
 		
 			---&gt;
@@ -16863,11 +16871,11 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			(
 			
 			`
-			unknown
+			pair
 			`
 		 , 
 			`
-			unknown
+			float
 			`
 		
 			) ---&gt;
@@ -16879,11 +16887,11 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			*
 			
 			`
-			pair
+			unknown
 			`
 		 **`edge`** 
 			`
-			float
+			unknown
 			`
 		
 			---&gt;
@@ -16897,11 +16905,11 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 			(
 			
 			`
-			pair
+			unknown
 			`
 		 , 
 			`
-			float
+			unknown
 			`
 		
 			) ---&gt;
@@ -16927,7 +16935,7 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 						,
 					
 			`
-			float
+			unknown
 			`
 		
 						)
@@ -16955,7 +16963,7 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 						,
 					
 			`
-			unknown
+			float
 			`
 		
 						)
@@ -17630,40 +17638,6 @@ bool var1 &lt;- even(-12); // var1 equals true
 			*
 			
 			`
-			msi.gama.util.GamaDateInterval
-			`
-		 **`every`** 
-			`
-			any expression
-			`
-		
-			---&gt;
-			
-			`
-			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
-			`
-		
-			*
-			 **`every`** 
-			(
-			
-			`
-			msi.gama.util.GamaDateInterval
-			`
-		 , 
-			`
-			any expression
-			`
-		
-			) ---&gt;
-			
-			`
-			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
-			`
-		
-			*
-			
-			`
 			container
 			`
 		 **`every`** 
@@ -17693,23 +17667,57 @@ bool var1 &lt;- even(-12); // var1 equals true
 			
 			`
 			container
+			`
+		
+			*
+			
+			`
+			msi.gama.util.GamaDateInterval
+			`
+		 **`every`** 
+			`
+			any expression
+			`
+		
+			---&gt;
+			
+			`
+			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
+			`
+		
+			*
+			 **`every`** 
+			(
+			
+			`
+			msi.gama.util.GamaDateInterval
+			`
+		 , 
+			`
+			any expression
+			`
+		
+			) ---&gt;
+			
+			`
+			msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;
 			`
 		
 
 			#### Result:
-			applies a step to an interval of dates defined by 'date1 to date2' expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero true every operand * cycle, false otherwise
+			expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency true every operand * cycle, false otherwise Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero applies a step to an interval of dates defined by 'date1 to date2'
 
 			#### Comment:
 			Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
 
 			#### Examples:
 			```
-			(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
+			reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
 			```
 		
 
 			#### See also:
-			[to](#to), [since](#since), [after](#after), 
+			[since](#since), [after](#after), [to](#to), 
 
 		----
 </code></pre>
@@ -18844,11 +18852,11 @@ float var2 &lt;- floor(-4.7); // var2 equals -5.0
 		
 
 			#### Result:
-			fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,  fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+			fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,  fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 			#### Examples:
 			```
-			fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
+			fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
 			```
 		
 
@@ -19431,6 +19439,12 @@ float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357
 			#### Special cases:
 		
 				*
+				"agents": list of existing node agents
+				*
+				"edges_species": the species of edges
+				*
+				"synchronized": is the graph and the species of vertices and edges synchronized?
+				*
 				"vertices_specy": the species of vertices
 				*
 				"edges_species": the species of edges
@@ -19446,12 +19460,6 @@ float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357
 				"size": the graph will contain size nodes.
 				*
 				"layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.
-				*
-				"synchronized": is the graph and the species of vertices and edges synchronized?
-				*
-				"agents": list of existing node agents
-				*
-				"edges_species": the species of edges
 				*
 				"synchronized": is the graph and the species of vertices and edges synchronized?
 				*
@@ -19465,7 +19473,7 @@ float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357
 
 			#### Examples:
 			```
-			graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
+			graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
 			```
 		
 
@@ -19573,16 +19581,6 @@ float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357
 			#### Special cases:
 		
 				*
-				"agents": list of existing node agents
-				*
-				"edges_species": the species of edges
-				*
-				"p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.
-				*
-				"k": the base degree of each node. k must be greater than 2 and even.
-				*
-				"synchronized": is the graph and the species of vertices and edges synchronized?
-				*
 				"vertices_specy": the species of vertices
 				*
 				"edges_species": the species of edges
@@ -19594,10 +19592,20 @@ float var3 &lt;- gauss({0,0.3}); // var3 equals -0.1357
 				"k": the base degree of each node. k must be greater than 2 and even.
 				*
 				"synchronized": is the graph and the species of vertices and edges synchronized?
+				*
+				"agents": list of existing node agents
+				*
+				"edges_species": the species of edges
+				*
+				"p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.
+				*
+				"k": the base degree of each node. k must be greater than 2 and even.
+				*
+				"synchronized": is the graph and the species of vertices and edges synchronized?
 
 			#### Examples:
 			```
-			graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
+			graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
 			```
 		
 
@@ -20854,9 +20862,9 @@ map var3 &lt;- [1::2, 3::4, 5::6] group_by (each &gt; 4); // var3 equals [false:
 </code></pre>
 </div>
 
-<p>geometry var0 &lt;- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 &lt;- hexagon(10); // var1 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var2 &lt;- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+<p>geometry var0 &lt;- hexagon(10,5); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var1 &lt;- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 &lt;- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -21032,8 +21040,8 @@ geometry var2 &lt;- hexagon(10,5); // var2 equals a geometry as a hexagon of wid
 </code></pre>
 </div>
 
-<p>rgb var0 &lt;- hsb (0.0,1.0,1.0); // var0 equals rgb(“red”) 
-rgb var1 &lt;- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb(“cyan”,0)
+<p>rgb var0 &lt;- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb(“cyan”,0) 
+rgb var1 &lt;- hsb (0.0,1.0,1.0); // var1 equals rgb(“red”)
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -21694,7 +21702,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			*
 			
 			`
-			matrix
+			map
 			`
 		 **`index_of`** 
 			`
@@ -21704,7 +21712,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			---&gt;
 			
 			`
-			point
+			unknown
 			`
 		
 			*
@@ -21712,7 +21720,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			(
 			
 			`
-			matrix
+			map
 			`
 		 , 
 			`
@@ -21722,7 +21730,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			) ---&gt;
 			
 			`
-			point
+			unknown
 			`
 		
 			*
@@ -21751,40 +21759,6 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 		 , 
 			`
 			string
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
-			container
-			`
-		 **`index_of`** 
-			`
-			unknown
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`index_of`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			unknown
 			`
 		
 			) ---&gt;
@@ -21830,7 +21804,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			*
 			
 			`
-			map
+			matrix
 			`
 		 **`index_of`** 
 			`
@@ -21840,7 +21814,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			---&gt;
 			
 			`
-			unknown
+			point
 			`
 		
 			*
@@ -21848,7 +21822,7 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			(
 			
 			`
-			map
+			matrix
 			`
 		 , 
 			`
@@ -21858,7 +21832,41 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			) ---&gt;
 			
 			`
+			point
+			`
+		
+			*
+			
+			`
+			container
+			`
+		 **`index_of`** 
+			`
 			unknown
+			`
+		
+			---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`index_of`** 
+			(
+			
+			`
+			container
+			`
+		 , 
+			`
+			unknown
+			`
+		
+			) ---&gt;
+			
+			`
+			int
 			`
 		
 
@@ -21871,20 +21879,10 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 			#### Special cases:
 		
 				*
-				if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead
-				*
 				if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped
 				*
-				if the left operand is a matrix, index_of returns the index as a point
-
-				```
-</code></pre>
-</div>
-
-<p>point var0 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; // var0 equals {1.0,0.0}
-					```</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead
+				*
 				if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string
 
 				```
@@ -21895,14 +21893,24 @@ bool var4 &lt;-  ‘bc’ in ‘abcded’; // var4 equals true
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
+				if the left operand is a matrix, index_of returns the index as a point
+
+				```
+</code></pre>
+</div>
+
+<p>point var2 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; // var2 equals {1.0,0.0}
+					```</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>				*
 				if the left operand is a list, index_of returns the index as an integer
 
 				```
 </code></pre>
 </div>
 
-<p>int var2 &lt;- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
-int var3 &lt;- [4,2,3,4,5,4] index_of 4; // var3 equals 0
+<p>int var3 &lt;- [1,2,3,4,5,6] index_of 4; // var3 equals 3 
+int var4 &lt;- [4,2,3,4,5,4] index_of 4; // var4 equals 0
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -21910,7 +21918,7 @@ int var3 &lt;- [4,2,3,4,5,4] index_of 4; // var3 equals 0
 </code></pre>
 </div>
 
-<p>unknown var4 &lt;- [1::2, 3::4, 5::6] index_of 4; // var4 equals 3
+<p>unknown var0 &lt;- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -21998,40 +22006,6 @@ list<geometry> var1 &lt;- (species1 + species2) inside (self); // var1 equals th
 			*
 			
 			`
-			container
-			`
-		 **`inter`** 
-			`
-			container
-			`
-		
-			---&gt;
-			
-			`
-			container
-			`
-		
-			*
-			 **`inter`** 
-			(
-			
-			`
-			container
-			`
-		 , 
-			`
-			container
-			`
-		
-			) ---&gt;
-			
-			`
-			container
-			`
-		
-			*
-			
-			`
 			geometry
 			`
 		 **`inter`** 
@@ -22061,11 +22035,45 @@ list<geometry> var1 &lt;- (species1 + species2) inside (self); // var1 equals th
 			
 			`
 			geometry
+			`
+		
+			*
+			
+			`
+			container
+			`
+		 **`inter`** 
+			`
+			container
+			`
+		
+			---&gt;
+			
+			`
+			container
+			`
+		
+			*
+			 **`inter`** 
+			(
+			
+			`
+			container
+			`
+		 , 
+			`
+			container
+			`
+		
+			) ---&gt;
+			
+			`
+			container
 			`
 		
 
 			#### Result:
-			the intersection of the two operands A geometry resulting from the intersection between the two geometries
+			A geometry resulting from the intersection between the two geometries the intersection of the two operands
 
 			#### Comment:
 			both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
@@ -22073,9 +22081,9 @@ list<geometry> var1 &lt;- (species1 + species2) inside (self); // var1 equals th
 			#### Special cases:
 		
 				*
-				if an operand is a graph, it will be transformed into the set of its nodes
-				*
 				returns nil if one of the operands is nil
+				*
+				if an operand is a graph, it will be transformed into the set of its nodes
 				*
 				if an operand is a map, it will be transformed into the set of its values
 
@@ -22083,8 +22091,8 @@ list<geometry> var1 &lt;- (species1 + species2) inside (self); // var1 equals th
 </code></pre>
 </div>
 
-<p>container var0 &lt;- [1::2, 3::4, 5::6] inter [2,4]; // var0 equals [2,4] 
-container var1 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
+<p>container var3 &lt;- [1::2, 3::4, 5::6] inter [2,4]; // var3 equals [2,4] 
+container var4 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>				*
@@ -22094,7 +22102,7 @@ container var1 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
 </code></pre>
 </div>
 
-<p>container var2 &lt;- matrix([[1,2,3],[4,5,4]]) inter [3,4]; // var2 equals [3,4]
+<p>container var5 &lt;- matrix([[1,2,3],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -22102,13 +22110,13 @@ container var1 &lt;- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
 </code></pre>
 </div>
 
-<p>container var3 &lt;- [1,2,3,4,5,6] inter [2,4]; // var3 equals [2,4] 
-container var4 &lt;- [1,2,3,4,5,6] inter [0,8]; // var4 equals [] 
-geometry var5 &lt;- square(10) inter circle(5); // var5 equals circle(5)
+<p>geometry var0 &lt;- square(10) inter circle(5); // var0 equals circle(5) 
+container var1 &lt;- [1,2,3,4,5,6] inter [2,4]; // var1 equals [2,4] 
+container var2 &lt;- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
-			[remove_duplicates](#remove_duplicates), [union](#union), [+](#+), [-](#-), 
+			[union](#union), [+](#+), [-](#-), [remove_duplicates](#remove_duplicates), 
 
 		----
 </code></pre>
@@ -22756,7 +22764,7 @@ bool var1 &lt;- is_finite(#infinity); // var1 equals false
 			(
 			
 			`
-			float
+			string
 			`
 		
 			) ---&gt;
@@ -22770,7 +22778,7 @@ bool var1 &lt;- is_finite(#infinity); // var1 equals false
 			(
 			
 			`
-			string
+			float
 			`
 		
 			) ---&gt;
@@ -22781,7 +22789,7 @@ bool var1 &lt;- is_finite(#infinity); // var1 equals false
 		
 
 			#### Result:
-			Returns whether the argument is a real number or not tests whether the operand represents a numerical value
+			tests whether the operand represents a numerical value Returns whether the argument is a real number or not
 
 			#### Comment:
 			Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
@@ -22791,14 +22799,14 @@ bool var1 &lt;- is_finite(#infinity); // var1 equals false
 </code></pre>
 </div>
 
-<p>bool var0 &lt;- is_number(4.66); // var0 equals true 
-bool var1 &lt;- is_number(#infinity); // var1 equals true 
-bool var2 &lt;- is_number(#nan); // var2 equals false 
-bool var3 &lt;- is_number(“test”); // var3 equals false 
-bool var4 &lt;- is_number(“123.56”); // var4 equals true 
-bool var5 &lt;- is_number(“-1.2e5”); // var5 equals true 
-bool var6 &lt;- is_number(“1,2”); // var6 equals false 
-bool var7 &lt;- is_number(“#12FA”); // var7 equals true
+<p>bool var0 &lt;- is_number(“test”); // var0 equals false 
+bool var1 &lt;- is_number(“123.56”); // var1 equals true 
+bool var2 &lt;- is_number(“-1.2e5”); // var2 equals true 
+bool var3 &lt;- is_number(“1,2”); // var3 equals false 
+bool var4 &lt;- is_number(“#12FA”); // var4 equals true 
+bool var5 &lt;- is_number(4.66); // var5 equals true 
+bool var6 &lt;- is_number(#infinity); // var6 equals true 
+bool var7 &lt;- is_number(#nan); // var7 equals false
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -23253,11 +23261,11 @@ bool var7 &lt;- is_number(“#12FA”); // var7 equals true
 		
 
 			#### Result:
-			kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.  kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
+			kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
 			#### Examples:
 			```
-			kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])   float var2 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals the similarity between 0 and 1  float var3 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
+			kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])   float var1 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var1 equals the similarity between 0 and 1  float var2 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 1.0kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0]) 
 			```
 		
 
@@ -23346,11 +23354,11 @@ bool var7 &lt;- is_number(“#12FA”); // var7 equals true
 		
 
 			#### Result:
-			kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8). kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+			kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8) kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 
 			#### Examples:
 			```
-			kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) 
+			kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) 
 			```
 		
 
@@ -23722,40 +23730,6 @@ bool var7 &lt;- is_number(“#12FA”); // var7 equals true
 			*
 			
 			`
-			species
-			`
-		 **`last_index_of`** 
-			`
-			unknown
-			`
-		
-			---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`last_index_of`** 
-			(
-			
-			`
-			species
-			`
-		 , 
-			`
-			unknown
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			
-			`
 			matrix
 			`
 		 **`last_index_of`** 
@@ -23785,6 +23759,40 @@ bool var7 &lt;- is_number(“#12FA”); // var7 equals true
 			
 			`
 			point
+			`
+		
+			*
+			
+			`
+			species
+			`
+		 **`last_index_of`** 
+			`
+			unknown
+			`
+		
+			---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`last_index_of`** 
+			(
+			
+			`
+			species
+			`
+		 , 
+			`
+			unknown
+			`
+		
+			) ---&gt;
+			
+			`
+			int
 			`
 		
 			*
@@ -24665,7 +24673,7 @@ float var1 &lt;- ln(exp(1)); // var1 equals 1.0
 		
 
 			#### Result:
-			returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA loads a graph from a file
+			loads a graph from a file returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
 
 			#### Comment:
 			Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
@@ -24689,10 +24697,10 @@ float var1 &lt;- ln(exp(1)); // var1 equals 1.0
 				*
 				"vertices_specy": the species of vertices
 				*
-				"format": the format of the file, "file": the file containing the network
+				"filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
 
 				```
-				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
+				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
 				```
 
 			
@@ -24705,7 +24713,15 @@ float var1 &lt;- ln(exp(1)); // var1 equals 1.0
 
 			
 				*
-				"format": the format of the file, "filename": the filename of the file containing the network
+				"format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
+
+				```
+				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+				```
+
+			
+				*
+				"format": the format of the file, "file": the file containing the network
 
 				```
 				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -24713,18 +24729,10 @@ float var1 &lt;- ln(exp(1)); // var1 equals 1.0
 
 			
 				*
-				"filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
+				"format": the format of the file, "filename": the filename of the file containing the network
 
 				```
-				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
-				```
-
-			
-				*
-				"format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices
-
-				```
-				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+				graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 				```
 
 			
@@ -26745,7 +26753,7 @@ unknown var4 &lt;- (list(node) min_of (round(node(each).location.x)); // var4 eq
 </code></pre>
 </div>
 
-<p>container var3 &lt;- neighbors_of (topology(self), self,10); // var3 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
+<p>container var0 &lt;- neighbors_of (topology(self), self,10); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
 					```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### Examples:
@@ -26753,9 +26761,9 @@ unknown var4 &lt;- (list(node) min_of (round(node(each).location.x)); // var4 eq
 </code></pre>
 </div>
 
-<p>container var0 &lt;- topology(self) neighbors_of self; // var0 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology. 
-container var1 &lt;- graphEpidemio neighbors_of (node(3)); // var1 equals [node0,node2] 
-container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1.0,5.0},{34.0,56.0}]
+<p>container var1 &lt;- topology(self) neighbors_of self; // var1 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology. 
+container var2 &lt;- graphEpidemio neighbors_of (node(3)); // var2 equals [node0,node2] 
+container var3 &lt;- graphFromMap neighbors_of node({12,45}); // var3 equals [{1.0,5.0},{34.0,56.0}]
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -26825,7 +26833,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 **`new_emotion`** 
 			`
-			float
+			predicate
 			`
 		
 			---&gt;
@@ -26843,7 +26851,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 , 
 			`
-			float
+			predicate
 			`
 		
 			) ---&gt;
@@ -26859,7 +26867,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 **`new_emotion`** 
 			`
-			predicate
+			float
 			`
 		
 			---&gt;
@@ -26877,66 +26885,10 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 , 
 			`
-			predicate
+			float
 			`
 		
 			) ---&gt;
-			
-			`
-			emotion
-			`
-		
-			*
-			 **`new_emotion`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			emotion
-			`
-		
-			*
-			 **`new_emotion`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			predicate
-			`
-		
-						)
-					
-			---&gt;
 			
 			`
 			emotion
@@ -26960,6 +26912,62 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 					
 			`
 			agent
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			emotion
+			`
+		
+			*
+			 **`new_emotion`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			emotion
+			`
+		
+			*
+			 **`new_emotion`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			predicate
 			`
 		
 						)
@@ -27142,11 +27150,11 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 		
 
 			#### Result:
-			a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name,intensity,decay) a new emotion with the given properties (name) a new emotion with the given properties (name,intensity,about) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name, intensity) a new emotion with the given properties (name,about)
+			a new emotion with the given properties (name) a new emotion with the given properties (name,intensity,decay) a new emotion with the given properties (name) a new emotion with the given properties (name,intensity,about) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name) a new emotion with the given properties (name,about) a new emotion with the given properties (name, intensity) a new emotion with the given properties (name) a new emotion with the given properties (name)
 
 			#### Examples:
 			```
-			emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",eatFood) 
+			emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) 
 			```
 		
 
@@ -27379,34 +27387,6 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 						,
 					
 			`
-			predicate
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-			*
-			 **`new_mental_state`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
 			msi.gaml.architecture.simplebdi.MentalState
 			`
 		
@@ -27470,46 +27450,6 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 					
 			`
 			float
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-			*
-			 **`new_mental_state`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			agent
 			`
 		
 						)
@@ -27538,74 +27478,6 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 					
 			`
 			int
-			`
-		
-						,
-					
-			`
-			agent
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-			*
-			 **`new_mental_state`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			msi.gaml.architecture.simplebdi.MentalState
-			`
-		
-			*
-			 **`new_mental_state`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			predicate
-			`
-		
-						,
-					
-			`
-			float
 			`
 		
 						,
@@ -27682,6 +27554,102 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			int
 			`
 		
+						)
+					
+			---&gt;
+			
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+			*
+			 **`new_mental_state`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			int
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+			*
+			 **`new_mental_state`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			agent
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+			*
+			 **`new_mental_state`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			predicate
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
 						,
 					
 			`
@@ -27708,6 +27676,46 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 					
 			`
 			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			int
+			`
+		
+						,
+					
+			`
+			agent
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			msi.gaml.architecture.simplebdi.MentalState
+			`
+		
+			*
+			 **`new_mental_state`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			predicate
 			`
 		
 						,
@@ -27776,40 +27784,6 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 **`new_predicate`** 
 			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`new_predicate`** 
-			(
-			
-			`
-			string
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`new_predicate`** 
-			`
 			bool
 			`
 		
@@ -27844,7 +27818,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 **`new_predicate`** 
 			`
-			float
+			int
 			`
 		
 			---&gt;
@@ -27862,7 +27836,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		 , 
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -27940,28 +27914,34 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			`
 		
 			*
+			
+			`
+			string
+			`
+		 **`new_predicate`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			predicate
+			`
+		
+			*
 			 **`new_predicate`** 
 			(
 			
 			`
 			string
 			`
-		
-						,
-					
+		 , 
 			`
-			map
+			float
 			`
 		
-						,
-					
-			`
-			agent
-			`
-		
-						)
-					
-			---&gt;
+			) ---&gt;
 			
 			`
 			predicate
@@ -27984,7 +27964,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 						,
 					
 			`
-			bool
+			agent
 			`
 		
 						)
@@ -28071,80 +28051,6 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 			bool
 			`
 		
-						,
-					
-			`
-			agent
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`new_predicate`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			map
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			agent
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			predicate
-			`
-		
-			*
-			 **`new_predicate`** 
-			(
-			
-			`
-			string
-			`
-		
-						,
-					
-			`
-			map
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			bool
-			`
-		
 						)
 					
 			---&gt;
@@ -28177,6 +28083,40 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 					
 			`
 			bool
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			predicate
+			`
+		
+			*
+			 **`new_predicate`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			map
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						,
+					
+			`
+			int
 			`
 		
 						)
@@ -28244,7 +28184,7 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 						,
 					
 			`
-			int
+			bool
 			`
 		
 						)
@@ -28278,7 +28218,75 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 						,
 					
 			`
+			agent
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			predicate
+			`
+		
+			*
+			 **`new_predicate`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			map
+			`
+		
+						,
+					
+			`
+			bool
+			`
+		
+						,
+					
+			`
+			agent
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			predicate
+			`
+		
+			*
+			 **`new_predicate`** 
+			(
+			
+			`
+			string
+			`
+		
+						,
+					
+			`
+			map
+			`
+		
+						,
+					
+			`
 			int
+			`
+		
+						,
+					
+			`
+			bool
 			`
 		
 						,
@@ -28392,13 +28400,13 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 						,
 					
 			`
-			int
+			float
 			`
 		
 						,
 					
 			`
-			bool
+			int
 			`
 		
 						,
@@ -28463,11 +28471,11 @@ container var2 &lt;- graphFromMap neighbors_of node({12,45}); // var2 equals [{1
 		
 
 			#### Result:
-			a new predicate with the given is_true (name, lifetime) a new predicate with the given properties (name, values, priority, lifetime, agentCause) a new predicate with the given is_true (name, is_true) a new predicate with the given properties (name, values, is_true, agentCause) a new predicate with the given properties (name, values, priority, lifetime, is_true) a new predicate with the given properties (name, values, 	agentCause) a new predicate with the given properties (name, values, is_true) a new predicate with the given properties (name, values, priority, agentCause) a new predicate with the given properties (name, values, priority) a new predicate with the given properties (name, values, priority, is_true, agentCause) a new predicate with the given properties (name) a new predicate with the given is_true (name, priority) a new predicate with the given properties (name, values, priority, is_true) a new predicate with the given properties (name, values, lifetime, is_true) a new predicate with the given properties (name, values) a new predicate with the given properties (name, values, lifetime) a new predicate with the given properties (name, values, lifetime) a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause) a new predicate with the given properties (name, values, lifetime, agentCause) a new predicate with the given properties (name, values, priority,lifetime) a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+			a new predicate with the given properties (name, values, lifetime, is_true, agentCause) a new predicate with the given properties (name, values, priority, lifetime, is_true) a new predicate with the given properties (name, values, 	agentCause) a new predicate with the given properties (name) a new predicate with the given is_true (name, is_true) a new predicate with the given properties (name, values, priority, lifetime, is_true, agentCause) a new predicate with the given properties (name, values, priority, is_true, agentCause) a new predicate with the given is_true (name, lifetime) a new predicate with the given properties (name, values, lifetime, is_true) a new predicate with the given properties (name, values) a new predicate with the given properties (name, values, priority) a new predicate with the given properties (name, values, lifetime) a new predicate with the given properties (name, values, priority,lifetime) a new predicate with the given properties (name, values, lifetime) a new predicate with the given properties (name, values, is_true) a new predicate with the given properties (name, values, lifetime, agentCause) a new predicate with the given properties (name, values, priority, is_true) a new predicate with the given properties (name, values, priority, agentCause) a new predicate with the given is_true (name, priority) a new predicate with the given properties (name, values, is_true, agentCause) a new predicate with the given properties (name, values, priority, lifetime, agentCause)
 
 			#### Examples:
 			```
-			predicate("hasWater", 10  predicate("people to meet", ["time"::10], 2.0,10,agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10],2.0,10, true) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 2.0,agentA) predicate("people to meet", people1, ["time"::10]) predicate("people to meet", ["time"::10], 2.0, true, agentA) predicate("people to meet") predicate("hasWater", 2.0 ) predicate("people to meet", ["time"::10],2.0, true) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10],2.0,10, true, agentA) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], 2.0,10) predicate("people to meet", ["time"::10], 10, true, agentA) 
+			predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10],2.0,10, true) predicate("people to meet", ["time"::10], agentA) predicate("people to meet") predicate("hasWater", true) predicate("people to meet", ["time"::10],2.0,10, true, agentA) predicate("people to meet", ["time"::10], 2.0, true, agentA) predicate("hasWater", 10  predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", people1 ) predicate("people to meet", people1, ["time"::10]) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 2.0,10) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10],2.0, true) predicate("people to meet", ["time"::10], 2.0,agentA) predicate("hasWater", 2.0 ) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 2.0,10,agentA) 
 			```
 		
 
@@ -29229,7 +29237,7 @@ container var1 &lt;- [test(0),test(1),node(1),node(2)] of_species test; // var1 
 		
 
 			#### Result:
-			opens a file that a is a kind of OSM file with some filtering. opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.
+			opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected. opens a file that a is a kind of OSM file with some filtering.
 
 			#### Comment:
 			The file should have a OSM file extension, cf. file type definition for supported file extensions.The file should have a OSM file extension, cf. file type definition for supported file extensions.
@@ -29243,7 +29251,7 @@ container var1 &lt;- [test(0),test(1),node(1),node(2)] of_species test; // var1 
 
 			#### Examples:
 			```
-			file myOSMfile &lt;- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); file myOSMfile2 &lt;- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); 
+			file myOSMfile2 &lt;- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); file myOSMfile &lt;- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); 
 			```
 		
 
@@ -29621,6 +29629,32 @@ bool var8 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps po
 			*
 			
 			`
+			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
+			`
+		 **`path_between`** `container&lt;geometry&gt;`
+			---&gt;
+			
+			`
+			path
+			`
+		
+			*
+			 **`path_between`** 
+			(
+			
+			`
+			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
+			`
+		 , `container&lt;geometry&gt;`
+			) ---&gt;
+			
+			`
+			path
+			`
+		
+			*
+			
+			`
 			topology
 			`
 		 **`path_between`** `container&lt;geometry&gt;`
@@ -29663,93 +29697,11 @@ bool var8 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps po
 			`
 		
 			*
-			
-			`
-			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
-			`
-		 **`path_between`** `container&lt;geometry&gt;`
-			---&gt;
-			
-			`
-			path
-			`
-		
-			*
-			 **`path_between`** 
-			(
-			
-			`
-			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
-			`
-		 , `container&lt;geometry&gt;`
-			) ---&gt;
-			
-			`
-			path
-			`
-		
-			*
-			 **`path_between`** 
-			(
-			
-			`
-			topology
-			`
-		
-						,
-					
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			geometry
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			path
-			`
-		
-			*
 			 **`path_between`** 
 			(
 			
 			`
 			graph
-			`
-		
-						,
-					
-			`
-			geometry
-			`
-		
-						,
-					
-			`
-			geometry
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			path
-			`
-		
-			*
-			 **`path_between`** 
-			(
-			
-			`
-			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
 			`
 		
 						,
@@ -29796,22 +29748,78 @@ bool var8 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) partially_overlaps po
 			path
 			`
 		
+			*
+			 **`path_between`** 
+			(
+			
+			`
+			topology
+			`
+		
+						,
+					
+			`
+			geometry
+			`
+		
+						,
+					
+			`
+			geometry
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			path
+			`
+		
+			*
+			 **`path_between`** 
+			(
+			
+			`
+			java.util.Map&lt;msi.gama.metamodel.agent.IAgent,java.lang.Object&gt;
+			`
+		
+						,
+					
+			`
+			geometry
+			`
+		
+						,
+					
+			`
+			geometry
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			path
+			`
+		
 
 			#### Result:
-			The shortest path between a list of two objects in a graph The shortest path between several objects according to set of cells The shortest path between two objects according to set of cells with corresponding weights The shortest path between two objects according to set of cells The shortest path between several objects according to set of cells with corresponding weights
+			The shortest path between a list of two objects in a graph The shortest path between several objects according to set of cells with corresponding weights The shortest path between two objects according to set of cells The shortest path between two objects according to set of cells with corresponding weights The shortest path between several objects according to set of cells
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>path var0 &lt;- my_topology path_between (ag1, ag2); // var0 equals A path between ag1 and ag2 
-path var1 &lt;- my_topology path_between [ag1, ag2]; // var1 equals A path between ag1 and ag2 
-path var2 &lt;- path_between (my_graph, ag1, ag2); // var2 equals A path between ag1 and ag2 
-path var3 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var3 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
-path var4 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var4 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
-path var5 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); // var5 equals A path between ag1 and ag2 passing through the given cell_grid agents 
-path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var6 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost
+<p>path var0 &lt;- path_between (my_graph, ag1, ag2); // var0 equals A path between ag1 and ag2 
+path var1 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var1 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
+path var2 &lt;- my_topology path_between [ag1, ag2]; // var2 equals A path between ag1 and ag2 
+path var3 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); // var3 equals A path between ag1 and ag2 passing through the given cell_grid agents 
+path var4 &lt;- my_topology path_between (ag1, ag2); // var4 equals A path between ag1 and ag2 
+path var5 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var5 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
+path var6 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var6 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -29829,11 +29837,11 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			*
 			
 			`
-			geometry
+			point
 			`
 		 **`path_to`** 
 			`
-			geometry
+			point
 			`
 		
 			---&gt;
@@ -29847,11 +29855,11 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			(
 			
 			`
-			geometry
+			point
 			`
 		 , 
 			`
-			geometry
+			point
 			`
 		
 			) ---&gt;
@@ -29863,11 +29871,11 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			*
 			
 			`
-			point
+			geometry
 			`
 		 **`path_to`** 
 			`
-			point
+			geometry
 			`
 		
 			---&gt;
@@ -29881,11 +29889,11 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			(
 			
 			`
-			point
+			geometry
 			`
 		 , 
 			`
-			point
+			geometry
 			`
 		
 			) ---&gt;
@@ -30500,45 +30508,11 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			*
 			
 			`
-			float
-			`
-		 **`point`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`point`** 
-			(
-			
-			`
-			float
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
 			int
 			`
 		 **`point`** 
 			`
-			float
+			int
 			`
 		
 			---&gt;
@@ -30556,7 +30530,7 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			`
 		 , 
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -30568,7 +30542,7 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			*
 			
 			`
-			int
+			float
 			`
 		 **`point`** 
 			`
@@ -30586,7 +30560,7 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			(
 			
 			`
-			int
+			float
 			`
 		 , 
 			`
@@ -30634,28 +30608,34 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			`
 		
 			*
+			
+			`
+			int
+			`
+		 **`point`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
 			 **`point`** 
 			(
 			
 			`
-			float
-			`
-		
-						,
-					
-			`
 			int
 			`
-		
-						,
-					
+		 , 
 			`
 			float
 			`
 		
-						)
-					
-			---&gt;
+			) ---&gt;
 			
 			`
 			point
@@ -30679,34 +30659,6 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 					
 			`
 			float
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`point`** 
-			(
-			
-			`
-			float
-			`
-		
-						,
-					
-			`
-			int
-			`
-		
-						,
-					
-			`
-			int
 			`
 		
 						)
@@ -30784,6 +30736,34 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 						,
 					
 			`
+			float
+			`
+		
+						,
+					
+			`
+			float
+			`
+		
+						)
+					
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`point`** 
+			(
+			
+			`
+			int
+			`
+		
+						,
+					
+			`
 			int
 			`
 		
@@ -30806,6 +30786,12 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			(
 			
 			`
+			float
+			`
+		
+						,
+					
+			`
 			int
 			`
 		
@@ -30815,10 +30801,32 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 			float
 			`
 		
+						)
+					
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`point`** 
+			(
+			
+			`
+			float
+			`
+		
 						,
 					
 			`
-			float
+			int
+			`
+		
+						,
+					
+			`
+			int
 			`
 		
 						)
@@ -30831,7 +30839,7 @@ path var6 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 
 		
 
 			#### Result:
-			internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead.
+			internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y, z} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y} instead. internal use only. Use the standard construction {x,y, z} instead.
 
 		----
 </code></pre>
@@ -31797,7 +31805,7 @@ container var2 &lt;- graphEpidemio predecessors_of node({34,56}); // var2 equals
 		
 
 			#### Result:
-			Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0 Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end &gt; start with a negative step) will similarly not be accepted and yield an exception Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
+			Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end &gt; start with a negative step) will similarly not be accepted and yield an exception Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0 Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
 
 		----
 </code></pre>
@@ -32360,6 +32368,40 @@ geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle
 			*
 			
 			`
+			string
+			`
+		 **`rgb`** 
+			`
+			int
+			`
+		
+			---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			 **`rgb`** 
+			(
+			
+			`
+			string
+			`
+		 , 
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			rgb
+			`
+		
+			*
+			
+			`
 			rgb
 			`
 		 **`rgb`** 
@@ -32413,40 +32455,6 @@ geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle
 			
 			`
 			rgb
-			`
-		 , 
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			
-			`
-			string
-			`
-		 **`rgb`** 
-			`
-			int
-			`
-		
-			---&gt;
-			
-			`
-			rgb
-			`
-		
-			*
-			 **`rgb`** 
-			(
-			
-			`
-			string
 			`
 		 , 
 			`
@@ -32510,7 +32518,7 @@ geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle
 						,
 					
 			`
-			float
+			int
 			`
 		
 						)
@@ -32544,7 +32552,7 @@ geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle
 						,
 					
 			`
-			int
+			float
 			`
 		
 						)
@@ -32562,29 +32570,29 @@ geometry var2 &lt;- rectangle({10, 5}); // var2 equals a geometry as a rectangle
 			#### Special cases:
 		
 				*
-				It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)
-				*
 				It can be used with r=red, g=green, b=blue, each between 0 and 255
-				*
-				It can be used with a color and an alpha between 0 and 1
 				*
 				It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)
 				*
-				It can be used with a color and an alpha between 0 and 255
-				*
 				It can be used with a name of color and alpha (between 0 and 255)
+				*
+				It can be used with a color and an alpha between 0 and 1
+				*
+				It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)
+				*
+				It can be used with a color and an alpha between 0 and 255
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>rgb var0 &lt;- rgb (255,0,0,0.5); // var0 equals a light red color 
-rgb var1 &lt;- rgb (255,0,0); // var1 equals #red 
-rgb var2 &lt;- rgb(rgb(255,0,0),0.5); // var2 equals a light red color 
-rgb var3 &lt;- rgb (255,0,0,125); // var3 equals a light red color 
-rgb var5 &lt;- rgb(rgb(255,0,0),125); // var5 equals a light red color 
-rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
+<p>rgb var0 &lt;- rgb (255,0,0); // var0 equals #red 
+rgb var1 &lt;- rgb (255,0,0,125); // var1 equals a light red color 
+rgb var3 &lt;- rgb (“red”); // var3 equals rgb(255,0,0) 
+rgb var4 &lt;- rgb(rgb(255,0,0),0.5); // var4 equals a light red color 
+rgb var5 &lt;- rgb (255,0,0,0.5); // var5 equals a light red color 
+rgb var6 &lt;- rgb(rgb(255,0,0),125); // var6 equals a light red color
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -32682,20 +32690,6 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			(
 			
 			`
-			float
-			`
-		
-			) ---&gt;
-			
-			`
-			float
-			`
-		
-			*
-			 **`rnd`** 
-			(
-			
-			`
 			point
 			`
 		
@@ -32710,6 +32704,20 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			(
 			
 			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`rnd`** 
+			(
+			
+			`
 			int
 			`
 		
@@ -32717,6 +32725,74 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			
 			`
 			int
+			`
+		
+			*
+			
+			`
+			float
+			`
+		 **`rnd`** 
+			`
+			float
+			`
+		
+			---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			 **`rnd`** 
+			(
+			
+			`
+			float
+			`
+		 , 
+			`
+			float
+			`
+		
+			) ---&gt;
+			
+			`
+			float
+			`
+		
+			*
+			
+			`
+			point
+			`
+		 **`rnd`** 
+			`
+			point
+			`
+		
+			---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`rnd`** 
+			(
+			
+			`
+			point
+			`
+		 , 
+			`
+			point
+			`
+		
+			) ---&gt;
+			
+			`
+			point
 			`
 		
 			*
@@ -32754,68 +32830,28 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			`
 		
 			*
-			
-			`
-			point
-			`
-		 **`rnd`** 
-			`
-			point
-			`
-		
-			---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			 **`rnd`** 
-			(
-			
-			`
-			point
-			`
-		 , 
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			point
-			`
-		
-			*
-			
-			`
-			float
-			`
-		 **`rnd`** 
-			`
-			float
-			`
-		
-			---&gt;
-			
-			`
-			float
-			`
-		
-			*
 			 **`rnd`** 
 			(
 			
 			`
 			float
 			`
-		 , 
+		
+						,
+					
 			`
 			float
 			`
 		
-			) ---&gt;
+						,
+					
+			`
+			float
+			`
+		
+						)
+					
+			---&gt;
 			
 			`
 			float
@@ -32875,34 +32911,6 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			
 			`
 			point
-			`
-		
-			*
-			 **`rnd`** 
-			(
-			
-			`
-			float
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						,
-					
-			`
-			float
-			`
-		
-						)
-					
-			---&gt;
-			
-			`
-			float
 			`
 		
 
@@ -32915,25 +32923,25 @@ rgb var6 &lt;- rgb (“red”); // var6 equals rgb(255,0,0)
 			#### Special cases:
 		
 				*
-				if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
-				*
 				if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]
+				*
+				if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>float var0 &lt;- rnd(3.4); // var0 equals a random float between 0.0 and 3.4 
-int var1 &lt;- rnd (2, 12, 4); // var1 equals 2, 6 or 10 
-int var2 &lt;- rnd (2, 4); // var2 equals 2, 3 or 4 
-point var3 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var3 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
-point var4 &lt;- rnd ({2.5,3, 0.0}); // var4 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
-float var5 &lt;- rnd (2.0, 4.0, 0.5); // var5 equals a float number between 2.0 and 4.0 every 0.5 
-point var6 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var6 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
-int var7 &lt;- rnd (2); // var7 equals 0, 1 or 2 
-float var8 &lt;- rnd (1000) / 1000; // var8 equals a float between 0 and 1 with a precision of 0.001 
-float var9 &lt;- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4.0
+<p>float var0 &lt;- rnd (2.0, 4.0, 0.5); // var0 equals a float number between 2.0 and 4.0 every 0.5 
+point var1 &lt;- rnd ({2.5,3, 0.0}); // var1 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
+float var2 &lt;- rnd(3.4); // var2 equals a random float between 0.0 and 3.4 
+int var3 &lt;- rnd (2, 12, 4); // var3 equals 2, 6 or 10 
+point var4 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var4 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
+int var5 &lt;- rnd (2); // var5 equals 0, 1 or 2 
+float var6 &lt;- rnd (1000) / 1000; // var6 equals a float between 0 and 1 with a precision of 0.001 
+float var7 &lt;- rnd (2.0, 4.0); // var7 equals a float number between 2.0 and 4.0 
+point var8 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var8 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
+int var9 &lt;- rnd (2, 4); // var9 equals 2, 3 or 4
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -33034,7 +33042,7 @@ float var9 &lt;- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4
 			`
 		 **`rotated_by`** 
 			`
-			int
+			float
 			`
 		
 			---&gt;
@@ -33052,7 +33060,7 @@ float var9 &lt;- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4
 			`
 		 , 
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -33068,7 +33076,7 @@ float var9 &lt;- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4
 			`
 		 **`rotated_by`** 
 			`
-			float
+			int
 			`
 		
 			---&gt;
@@ -33086,7 +33094,7 @@ float var9 &lt;- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4
 			`
 		 , 
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -33156,6 +33164,34 @@ geometry var1 &lt;- rotated_by(pyramid(10),45, {1,0,0}); // var1 equals the geom
 			(
 			
 			`
+			point
+			`
+		
+			) ---&gt;
+			
+			`
+			point
+			`
+		
+			*
+			 **`round`** 
+			(
+			
+			`
+			int
+			`
+		
+			) ---&gt;
+			
+			`
+			int
+			`
+		
+			*
+			 **`round`** 
+			(
+			
+			`
 			float
 			`
 		
@@ -33163,34 +33199,6 @@ geometry var1 &lt;- rotated_by(pyramid(10),45, {1,0,0}); // var1 equals the geom
 			
 			`
 			int
-			`
-		
-			*
-			 **`round`** 
-			(
-			
-			`
-			int
-			`
-		
-			) ---&gt;
-			
-			`
-			int
-			`
-		
-			*
-			 **`round`** 
-			(
-			
-			`
-			point
-			`
-		
-			) ---&gt;
-			
-			`
-			point
 			`
 		
 
@@ -33207,14 +33215,14 @@ geometry var1 &lt;- rotated_by(pyramid(10),45, {1,0,0}); // var1 equals the geom
 </code></pre>
 </div>
 
-<p>int var0 &lt;- round (0.51); // var0 equals 1 
-int var1 &lt;- round (100.2); // var1 equals 100 
-int var2 &lt;- round(-0.51); // var2 equals -1 
-point var3 &lt;- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3 equals {12345.79,12345.79,12345.79}
+<p>point var0 &lt;- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var0 equals {12345.79,12345.79,12345.79} 
+int var1 &lt;- round (0.51); // var1 equals 1 
+int var2 &lt;- round (100.2); // var2 equals 100 
+int var3 &lt;- round(-0.51); // var3 equals -1
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
-			[int](#int), [with_precision](#with_precision), [round](#round), 
+			[round](#round), [int](#int), [with_precision](#with_precision), 
 
 		----
 </code></pre>
@@ -34354,7 +34362,7 @@ container var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]
 
 			#### Examples:
 			```
-			shape &lt;- triangle(3) set_z [5,10,14]; loop i from: 0 to: length(shape.points) - 1{set shape &lt;-  set_z (shape, i, 3.0);} 
+			loop i from: 0 to: length(shape.points) - 1{set shape &lt;-  set_z (shape, i, 3.0);} shape &lt;- triangle(3) set_z [5,10,14]; 
 			```
 		
 
@@ -34399,13 +34407,13 @@ container var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]
 			(
 			
 			`
-			matrix
+			string
 			`
 		
 			) ---&gt;
 			
 			`
-			matrix
+			string
 			`
 		
 			*
@@ -34427,13 +34435,13 @@ container var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]
 			(
 			
 			`
-			string
+			matrix
 			`
 		
 			) ---&gt;
 			
 			`
-			string
+			matrix
 			`
 		
 
@@ -34450,9 +34458,9 @@ container var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]
 </code></pre>
 </div>
 
-<p>matrix var0 &lt;- shuffle (matrix([[“c11”,”c12”,”c13”],[“c21”,”c22”,”c23”]])); // var0 equals matrix([[“c12”,”c21”,”c11”],[“c13”,”c22”,”c23”]]) (for example) 
+<p>string var0 &lt;- shuffle (‘abc’); // var0 equals ‘bac’ (for example) 
 container var1 &lt;- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
-string var2 &lt;- shuffle (‘abc’); // var2 equals ‘bac’ (for example)
+matrix var2 &lt;- shuffle (matrix([[“c11”,”c12”,”c13”],[“c21”,”c22”,”c23”]])); // var2 equals matrix([[“c12”,”c21”,”c11”],[“c13”,”c22”,”c23”]]) (for example)
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -34909,7 +34917,7 @@ float var1 &lt;- sin(360); // var1 equals 0.0
 		
 
 			#### Result:
-			Returns the skew of a data sequence. Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+			Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3 Returns the skew of a data sequence.
 
 		----
 </code></pre>
@@ -35531,16 +35539,16 @@ species var3 &lt;- species(node1); // var3 equals node
 			`list&lt;geometry&gt;`
 
 			#### Result:
-			A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y}) A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size) A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
+			A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows) A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y}) A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>list<geometry> var0 &lt;- to_rectangles(self, {10.0, 15.0}); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
-list<geometry> var1 &lt;- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
-list<geometry> var2 &lt;- to_rectangles(self, 10,20); // var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
+<p>list<geometry> var0 &lt;- to_rectangles(self, 10,20); // var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
+list<geometry> var1 &lt;- to_rectangles(self, {10.0, 15.0}); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
+list<geometry> var2 &lt;- to_squares(self, 10.0); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
 				```</geometry></geometry></geometry></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -36352,7 +36360,7 @@ container var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals [
 			(
 			
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -36366,7 +36374,7 @@ container var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals [
 			(
 			
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -36449,7 +36457,7 @@ float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
 			(
 			
 			`
-			float
+			int
 			`
 		
 			) ---&gt;
@@ -36463,7 +36471,7 @@ float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
 			(
 			
 			`
-			int
+			float
 			`
 		
 			) ---&gt;
@@ -36658,7 +36666,7 @@ float var1 &lt;- tanh(100); // var1 equals 1.0
 </div>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`to`
+		`to` Same signification as [until](#until)
 
 	#### Possible use:
 	
@@ -36903,15 +36911,15 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 			`list&lt;geometry&gt;`
 
 			#### Result:
-			A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+			A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>list<geometry> var0 &lt;- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+<p>list<geometry> var0 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 &lt;- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 				```</geometry></geometry></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
@@ -37509,7 +37517,7 @@ list<geometry> var1 &lt;- triangulate(self); // var1 equals the list of geometri
 			(
 			
 			`
-			point
+			container
 			`
 		
 			) ---&gt;
@@ -37523,7 +37531,7 @@ list<geometry> var1 &lt;- triangulate(self); // var1 equals the list of geometri
 			(
 			
 			`
-			container
+			point
 			`
 		
 			) ---&gt;
@@ -37539,19 +37547,19 @@ list<geometry> var1 &lt;- triangulate(self); // var1 equals the list of geometri
 			#### Special cases:
 		
 				*
-				when the operand is a point, it is read as {mean, standardDeviation}
-				*
 				if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]
 				*
 				when truncated_gauss is called with a list of only one element mean, it will always return 0.0
+				*
+				when the operand is a point, it is read as {mean, standardDeviation}
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>float var0 &lt;- truncated_gauss ({0, 0.3}); // var0 equals a float between -0.3 and 0.3 
-float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
+<p>float var0 &lt;- truncated_gauss ([0.5, 0.0]); // var0 equals 0.5 
+float var1 &lt;- truncated_gauss ({0, 0.3}); // var1 equals a float between -0.3 and 0.3
 				```</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>			#### See also:
@@ -37622,7 +37630,7 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 </div>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		###
-		`union` Same signification as [+](#+)
+		`union`
 
 	#### Possible use:
 	
@@ -37961,7 +37969,7 @@ geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corr
 
 			#### Examples:
 			```
-			map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
+			map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; 
 			```
 		
 
@@ -38209,15 +38217,15 @@ geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corr
 			`list&lt;geometry&gt;`
 
 			#### Result:
-			A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip A list of geometries corresponding to the Voronoi diagram built from the list of points
+			A list of geometries corresponding to the Voronoi diagram built from the list of points A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
 
 			#### Examples:
 			```
 </code></pre>
 </div>
 
-<p>list<geometry> var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
-list<geometry> var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+<p>list<geometry> var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
+list<geometry> var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
 				```</geometry></geometry></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>		----
