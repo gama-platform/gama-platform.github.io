@@ -1417,6 +1417,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * **`name`** (a label), (omissible) : identifier of the experiment  
   * **`title`** (a label):   
   * **`type`** (a label), takes values in: {batch, memorize, gui, headless}: the type of the experiment (either 'gui' or 'batch'
+  * `autorun` (boolean): whether this experiment should be run automatically when launched (false by default)
   * `control` (an identifier): 
   * `frequency` (int): the execution frequence of the experiment (default value: 1). If frequency: 10, the experiment is executed only each 10 steps.
   * `keep_seed` (boolean): 
