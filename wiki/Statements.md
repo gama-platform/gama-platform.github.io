@@ -3128,6 +3128,7 @@ unconscious_contagion emotion:fearConfirmed;  unconscious_contagion emotion:fear
   
   * **`name`** (a label), (omissible) : the identifier of the user_command
   * `action` (26): the identifier of the action to be executed. This action should be accessible in the context in which the user_command is defined (an experiment, the global section or a species). A special case is allowed to maintain the compatibility with older versions of GAMA, when the user_command is declared in an experiment and the action is declared in 'global'. In that case, all the simulations managed by the experiment will run the action in response to the user executing the command
+  * `category` (a label): a category label, used to group parameters in the interface
   * `color` (rgb): The color of the button to display
   * `continue` (boolean): Whether or not the button, when clicked, should dismiss the user panel it is defined in. Has no effect in other contexts (menu, parameters, inspectors)
   * `when` (boolean): the condition that should be fulfilled (in addition to the user clicking it) in order to execute this action
