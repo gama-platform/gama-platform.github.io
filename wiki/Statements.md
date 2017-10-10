@@ -48,7 +48,7 @@ wikiPagePath: wiki/Statements.md
 ## Statements by embedment
 
   * **Behavior**
-    * [add](#add), [ask](#ask), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [start_simulation](#start_simulation), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [assert](#assert), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [start_simulation](#start_simulation), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Environment**
     * [species](#species), 
   * **Experiment**
@@ -58,7 +58,7 @@ wikiPagePath: wiki/Statements.md
   * **Model**
     * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Sequence of statements or action**
-    * [add](#add), [ask](#ask), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [assert](#assert), [assert](#assert), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Single statement**
     * [run](#run), [start_simulation](#start_simulation), 
   * **Species**
@@ -450,40 +450,32 @@ species one_species { 	int a <- rnd(10); 	aspect aspect1 { 		if(a mod 2 = 0) { d
 ### assert 
 #### Facets 
   
-  * **`value`** (any type), (omissible) : the value that is evaluated and compared to other facets
-  * `equals` (any type): an expression, assert tests whether the value is equals to this expression
-  * `is_not` (any type): an expression, assert tests whether the value is not equals to this expression
-  * `raises` (an identifier): "error" or "warning", used in testing what raises the evaluation of the value: expression 
+  * **`value`** (boolean), (omissible) : a boolean expression. If its evaluation is true, the assertion is successful. Otherwise, an error (or a warning) is raised.
+  * `warning` (boolean): if set to true, makes the assertion emit a warning instead of an error 
  	
 #### Definition
 
-Allows to check whether the evaluation of a given expression fulfills a given condition. If it is not fulfilled, an exception is raised.
+Allows to check if the evaluation of a given expression returns true. If not, an error (or a warning) is raised. If the statement is used inside a test, the error is not propagagated but invalidates the test (in case of a warning, it partially invalidates it). Otherwise, it is normally propagated
 
 #### Usages
 
-* if the equals: facet is used, the equality between the evaluation of expressions in the value: and in the equals: facets is tested
+* Any boolean expression can be used
 
 ```
-assert (2+2) equals: 4; ```
+assert (2+2) = 4; assert self != nil; int t <- 0; assert is_error(3/t); (1 / 2) is float ```
 
 
-* if the is_not: facet is used, the inequality between the evaluation of expressions in the value: and in the equals: facets is tested
-
-```
-assert self is_not: nil; ```
-
-
-* if the raises: facet is used with either "warning" or "error", the statement tests whether the evaluation of the value: expression raises an error (resp. a warning)
+* if the 'warn:' facet is set to true, the statement emits a warning (instead of an error) in case the expression is false
 
 ```
-int z <- 0; assert (3/z) raises: "error"; ```
+assert 'abc' is string warning: true ```
 
     
-* See also: [test](#test), [setup](#setup), 
+* See also: [test](#test), [setup](#setup), [is_error](#is_error), [is_warning](#is_warning), 
 
 #### Embedments
 * The `assert` statement is of type: **Single statement**
-* The `assert` statement can be embedded into: test, 
+* The `assert` statement can be embedded into: test, Sequence of statements or action, Behavior, Sequence of statements or action, 
 * The `assert` statement embeds statements: 
 
 ----
@@ -1416,7 +1408,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   
   * **`name`** (a label), (omissible) : identifier of the experiment  
   * **`title`** (a label):   
-  * **`type`** (a label), takes values in: {batch, memorize, gui, headless}: the type of the experiment (either 'gui' or 'batch'
+  * **`type`** (a label), takes values in: {batch, memorize, gui, test, headless}: the type of the experiment (either 'gui' or 'batch'
   * `autorun` (boolean): whether this experiment should be run automatically when launched (false by default)
   * `control` (an identifier): 
   * `frequency` (int): the execution frequence of the experiment (default value: 1). If frequency: 10, the experiment is executed only each 10 steps.
@@ -2996,7 +2988,7 @@ As reflex, a task is a sequence of statements that can be executed, at each time
  	
 #### Definition
 
-The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue (if GAMA is configured in the preferences that the program does not stop at the first exception).
+The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue.
 
 #### Usages
 

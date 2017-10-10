@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2017/10/06 01:20:08_
+______________ _last update : 2017/10/10 01:23:44_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -406,7 +406,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | autosave | 2 | _ | _ | 2 |
 | background | 1 | _ | _ | 1 |
 | batch | 3 | 7 | 4 | 14 |
-| bdi | 1 | 61 | 0 | 62 |
+| bdi | 1 | 59 | 0 | 60 |
 | behavior | 3 | 7 | _ | 10 |
 | camera | 1 | 1 | 2 | 4 |
 | cast | 1 | 17 | 1 | 19 |
@@ -462,7 +462,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | light | 2 | 1 | 4 | 7 |
 | list | 0 | 9 | 2 | 11 |
 | load_file | 4 | 1 | 18 | 23 |
-| logical | 1 | 7 | 0 | 8 |
+| logical | 1 | 8 | 0 | 9 |
 | loop | 1 | 2 | 2 | 5 |
 | map | 0 | 16 | 1 | 17 |
 | math | 1 | 41 | 20 | 62 |
@@ -519,7 +519,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | system | 1 | 11 | 0 | 12 |
 | task_based | 1 | 4 | 0 | 5 |
 | ternary | 1 | 2 | 1 | 4 |
-| test | 0 | 4 | 2 | 6 |
+| test | 0 | 6 | 2 | 8 |
 | text | 2 | 10 | 0 | 12 |
 | texture | 0 | 1 | 3 | 4 |
 | tif | 0 | 2 | 1 | 3 |

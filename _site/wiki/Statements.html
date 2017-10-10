@@ -3575,7 +3575,7 @@ function closeRightMenu() {
 <ul>
   <li><strong>Behavior</strong>
     <ul>
-      <li><a href="#add">add</a>, <a href="#ask">ask</a>, <a href="#benchmark">benchmark</a>, <a href="#capture">capture</a>, <a href="#conscious_contagion">conscious_contagion</a>, <a href="#create">create</a>, <a href="#diffuse">diffuse</a>, <a href="#do">do</a>, <a href="#emotional_contagion">emotional_contagion</a>, <a href="#error">error</a>, <a href="#focus">focus</a>, <a href="#focus_on">focus_on</a>, <a href="#highlight">highlight</a>, <a href="#if">if</a>, <a href="#inspect">inspect</a>, <a href="#let">let</a>, <a href="#loop">loop</a>, <a href="#migrate">migrate</a>, <a href="#put">put</a>, <a href="#release">release</a>, <a href="#remove">remove</a>, <a href="#return">return</a>, <a href="#run">run</a>, <a href="#save">save</a>, <a href="#set">set</a>, <a href="#simulate">simulate</a>, <a href="#socialize">socialize</a>, <a href="#solve">solve</a>, <a href="#start_simulation">start_simulation</a>, <a href="#status">status</a>, <a href="#switch">switch</a>, <a href="#trace">trace</a>, <a href="#transition">transition</a>, <a href="#try">try</a>, <a href="#unconscious_contagion">unconscious_contagion</a>, <a href="#using">using</a>, <a href="#warn">warn</a>, <a href="#write">write</a>,</li>
+      <li><a href="#add">add</a>, <a href="#ask">ask</a>, <a href="#assert">assert</a>, <a href="#benchmark">benchmark</a>, <a href="#capture">capture</a>, <a href="#conscious_contagion">conscious_contagion</a>, <a href="#create">create</a>, <a href="#diffuse">diffuse</a>, <a href="#do">do</a>, <a href="#emotional_contagion">emotional_contagion</a>, <a href="#error">error</a>, <a href="#focus">focus</a>, <a href="#focus_on">focus_on</a>, <a href="#highlight">highlight</a>, <a href="#if">if</a>, <a href="#inspect">inspect</a>, <a href="#let">let</a>, <a href="#loop">loop</a>, <a href="#migrate">migrate</a>, <a href="#put">put</a>, <a href="#release">release</a>, <a href="#remove">remove</a>, <a href="#return">return</a>, <a href="#run">run</a>, <a href="#save">save</a>, <a href="#set">set</a>, <a href="#simulate">simulate</a>, <a href="#socialize">socialize</a>, <a href="#solve">solve</a>, <a href="#start_simulation">start_simulation</a>, <a href="#status">status</a>, <a href="#switch">switch</a>, <a href="#trace">trace</a>, <a href="#transition">transition</a>, <a href="#try">try</a>, <a href="#unconscious_contagion">unconscious_contagion</a>, <a href="#using">using</a>, <a href="#warn">warn</a>, <a href="#write">write</a>,</li>
     </ul>
   </li>
   <li><strong>Environment</strong>
@@ -3600,7 +3600,7 @@ function closeRightMenu() {
   </li>
   <li><strong>Sequence of statements or action</strong>
     <ul>
-      <li><a href="#add">add</a>, <a href="#ask">ask</a>, <a href="#benchmark">benchmark</a>, <a href="#break">break</a>, <a href="#capture">capture</a>, <a href="#conscious_contagion">conscious_contagion</a>, <a href="#create">create</a>, <a href="#data">data</a>, <a href="#datalist">datalist</a>, <a href="#diffuse">diffuse</a>, <a href="#do">do</a>, <a href="#draw">draw</a>, <a href="#emotional_contagion">emotional_contagion</a>, <a href="#error">error</a>, <a href="#focus">focus</a>, <a href="#focus_on">focus_on</a>, <a href="#highlight">highlight</a>, <a href="#if">if</a>, <a href="#inspect">inspect</a>, <a href="#let">let</a>, <a href="#loop">loop</a>, <a href="#migrate">migrate</a>, <a href="#put">put</a>, <a href="#release">release</a>, <a href="#remove">remove</a>, <a href="#return">return</a>, <a href="#save">save</a>, <a href="#set">set</a>, <a href="#simulate">simulate</a>, <a href="#socialize">socialize</a>, <a href="#solve">solve</a>, <a href="#status">status</a>, <a href="#switch">switch</a>, <a href="#trace">trace</a>, <a href="#transition">transition</a>, <a href="#try">try</a>, <a href="#unconscious_contagion">unconscious_contagion</a>, <a href="#using">using</a>, <a href="#warn">warn</a>, <a href="#write">write</a>,</li>
+      <li><a href="#add">add</a>, <a href="#ask">ask</a>, <a href="#assert">assert</a>, <a href="#assert">assert</a>, <a href="#benchmark">benchmark</a>, <a href="#break">break</a>, <a href="#capture">capture</a>, <a href="#conscious_contagion">conscious_contagion</a>, <a href="#create">create</a>, <a href="#data">data</a>, <a href="#datalist">datalist</a>, <a href="#diffuse">diffuse</a>, <a href="#do">do</a>, <a href="#draw">draw</a>, <a href="#emotional_contagion">emotional_contagion</a>, <a href="#error">error</a>, <a href="#focus">focus</a>, <a href="#focus_on">focus_on</a>, <a href="#highlight">highlight</a>, <a href="#if">if</a>, <a href="#inspect">inspect</a>, <a href="#let">let</a>, <a href="#loop">loop</a>, <a href="#migrate">migrate</a>, <a href="#put">put</a>, <a href="#release">release</a>, <a href="#remove">remove</a>, <a href="#return">return</a>, <a href="#save">save</a>, <a href="#set">set</a>, <a href="#simulate">simulate</a>, <a href="#socialize">socialize</a>, <a href="#solve">solve</a>, <a href="#status">status</a>, <a href="#switch">switch</a>, <a href="#trace">trace</a>, <a href="#transition">transition</a>, <a href="#try">try</a>, <a href="#unconscious_contagion">unconscious_contagion</a>, <a href="#using">using</a>, <a href="#warn">warn</a>, <a href="#write">write</a>,</li>
     </ul>
   </li>
   <li><strong>Single statement</strong>
@@ -4093,264 +4093,265 @@ Aspect statement is used to define a way to draw the current agent. Several aspe
 <h4 id="facets-4">Facets</h4>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">value</code></strong> (any type), (omissible) : the value that is evaluated and compared to other facets</li>
-  <li><code class="highlighter-rouge">equals</code> (any type): an expression, assert tests whether the value is equals to this expression</li>
-  <li><code class="highlighter-rouge">is_not</code> (any type): an expression, assert tests whether the value is not equals to this expression</li>
-  <li><code class="highlighter-rouge">raises</code> (an identifier): “error” or “warning”, used in testing what raises the evaluation of the value: expression</li>
+  <li><strong><code class="highlighter-rouge">value</code></strong> (boolean), (omissible) : a boolean expression. If its evaluation is true, the assertion is successful. Otherwise, an error (or a warning) is raised.</li>
+  <li><code class="highlighter-rouge">warning</code> (boolean): if set to true, makes the assertion emit a warning instead of an error</li>
 </ul>
 
 <h4 id="definition-4">Definition</h4>
 
-<p>Allows to check whether the evaluation of a given expression fulfills a given condition. If it is not fulfilled, an exception is raised.</p>
+<p>Allows to check if the evaluation of a given expression returns true. If not, an error (or a warning) is raised. If the statement is used inside a test, the error is not propagagated but invalidates the test (in case of a warning, it partially invalidates it). Otherwise, it is normally propagated</p>
 
 <h4 id="usages-4">Usages</h4>
 
 <ul>
-  <li>if the equals: facet is used, the equality between the evaluation of expressions in the value: and in the equals: facets is tested</li>
+  <li>Any boolean expression can be used</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>assert (2+2) equals: 4; ```
+<div class="highlighter-rouge"><pre class="highlight"><code>assert (2+2) = 4; assert self != nil; int t &lt;- 0; assert is_error(3/t); (1 / 2) is float ```
 
 
-* if the is_not: facet is used, the inequality between the evaluation of expressions in the value: and in the equals: facets is tested
+* if the 'warn:' facet is set to true, the statement emits a warning (instead of an error) in case the expression is false
 
 </code></pre>
 </div>
-<p>assert self is_not: nil; ```</p>
+<p>assert ‘abc’ is string warning: true ```</p>
 
 <ul>
-  <li>if the raises: facet is used with either “warning” or “error”, the statement tests whether the evaluation of the value: expression raises an error (resp. a warning)</li>
+  <li>See also: <a href="#test">test</a>, <a href="#setup">setup</a>, <a href="#is_error">is_error</a>, <a href="#is_warning">is_warning</a>,</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int z &lt;- 0; assert (3/z) raises: "error"; ```
+<h4 id="embedments-4">Embedments</h4>
+<ul>
+  <li>The <code class="highlighter-rouge">assert</code> statement is of type: <strong>Single statement</strong></li>
+  <li>The <code class="highlighter-rouge">assert</code> statement can be embedded into: test, Sequence of statements or action, Behavior, Sequence of statements or action,</li>
+  <li>The <code class="highlighter-rouge">assert</code> statement embeds statements:</li>
+</ul>
+
+<hr />
+
+<h3 id="benchmark">benchmark</h3>
+<h4 id="facets-5">Facets</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">message</code> (any type), (omissible) : A message to display alongside the results. Should concisely describe the contents of the benchmark</li>
+  <li><code class="highlighter-rouge">repeat</code> (int): An int expression describing how many executions of the block must be handled. The output in this case will return the min, max and average durations</li>
+</ul>
+
+<h4 id="definition-5">Definition</h4>
+
+<p>Displays in the console the duration in ms of the execution of the statements included in the block. It is possible to indicate, with the ‘repeat’ facet, how many times the sequence should be run</p>
+
+<h4 id="usages-5">Usages</h4>
+
+<h4 id="embedments-5">Embedments</h4>
+<ul>
+  <li>The <code class="highlighter-rouge">benchmark</code> statement is of type: <strong>Sequence of statements or action</strong></li>
+  <li>The <code class="highlighter-rouge">benchmark</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
+  <li>The <code class="highlighter-rouge">benchmark</code> statement embeds statements:</li>
+</ul>
+
+<hr />
+
+<h3 id="break">break</h3>
+<h4 id="facets-6">Facets</h4>
+
+<h4 id="definition-6">Definition</h4>
+
+<p><code class="highlighter-rouge">break</code> allows to interrupt the current sequence of statements.</p>
+
+<h4 id="usages-6">Usages</h4>
+
+<h4 id="embedments-6">Embedments</h4>
+<ul>
+  <li>The <code class="highlighter-rouge">break</code> statement is of type: <strong>Single statement</strong></li>
+  <li>The <code class="highlighter-rouge">break</code> statement can be embedded into: Sequence of statements or action,</li>
+  <li>The <code class="highlighter-rouge">break</code> statement embeds statements:</li>
+</ul>
+
+<hr />
+
+<h3 id="camera">camera</h3>
+<h4 id="facets-7">Facets</h4>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string), (omissible) : The name of the camera</li>
+  <li><code class="highlighter-rouge">location</code> (point): The location of the camera in the world</li>
+  <li><code class="highlighter-rouge">look_at</code> (point): The location that the camera is looking</li>
+  <li><code class="highlighter-rouge">up_vector</code> (point): The up-vector of the camera.</li>
+</ul>
+
+<h4 id="definition-7">Definition</h4>
+
+<p><code class="highlighter-rouge">camera</code> allows the modeler to define a camera. The display will then be able to choose among the camera defined (either within this statement or globally in GAMA) in a dynamic way.</p>
+
+<h4 id="usages-7">Usages</h4>
+
+<ul>
+  <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#display_population">display_population</a>,</li>
+</ul>
+
+<h4 id="embedments-7">Embedments</h4>
+<ul>
+  <li>The <code class="highlighter-rouge">camera</code> statement is of type: <strong>Layer</strong></li>
+  <li>The <code class="highlighter-rouge">camera</code> statement can be embedded into: display,</li>
+  <li>The <code class="highlighter-rouge">camera</code> statement embeds statements:</li>
+</ul>
+
+<hr />
+
+<h3 id="capture">capture</h3>
+<h4 id="facets-8">Facets</h4>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">target</code></strong> (any type in [agent, container]), (omissible) : an expression that is evaluated as an agent or a list of the agent to be captured</li>
+  <li><code class="highlighter-rouge">as</code> (species): the species that the captured agent(s) will become, this is a micro-species of the calling agent’s species</li>
+  <li><code class="highlighter-rouge">returns</code> (a new identifier): a list of the newly captured agent(s)</li>
+</ul>
+
+<h4 id="definition-8">Definition</h4>
+
+<p>Allows an agent to capture other agent(s) as its micro-agent(s).</p>
+
+<h4 id="usages-8">Usages</h4>
+
+<ul>
+  <li>The preliminary for an agent A to capture an agent B as its micro-agent is that the A’s species must defined a micro-species which is a sub-species of B’s species (cf. [Species161#Nesting_species Nesting species]).</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>species A { ... } species B { ...    species C parent: A {    ...    } ... } ```
+
+
+* To capture all "A" agents as "C" agents, we can ask an "B" agent to execute the following statement:
+
+</code></pre>
+</div>
+<p>capture list(B) as: C; ```</p>
+
+<ul>
+  <li>Deprecated writing:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>capture target: list (B) as: C; ```
 
     
-* See also: [test](#test), [setup](#setup), 
+* See also: [release](#release), 
 
 #### Embedments
-* The `assert` statement is of type: **Single statement**
-* The `assert` statement can be embedded into: test, 
-* The `assert` statement embeds statements: 
+* The `capture` statement is of type: **Sequence of statements or action**
+* The `capture` statement can be embedded into: Behavior, Sequence of statements or action, 
+* The `capture` statement embeds statements: 
 
 ----
 
-[//]: # (keyword|statement_benchmark)
-### benchmark 
-#### Facets 
-
-  * `message` (any type), (omissible) : A message to display alongside the results. Should concisely describe the contents of the benchmark
-  * `repeat` (int): An int expression describing how many executions of the block must be handled. The output in this case will return the min, max and average durations 
- 	
-#### Definition
-
-Displays in the console the duration in ms of the execution of the statements included in the block. It is possible to indicate, with the 'repeat' facet, how many times the sequence should be run
-
-#### Usages
-
-
-#### Embedments
-* The `benchmark` statement is of type: **Sequence of statements or action**
-* The `benchmark` statement can be embedded into: Behavior, Sequence of statements or action, Layer, 
-* The `benchmark` statement embeds statements: 
-
-----
-
-[//]: # (keyword|statement_break)
-### break 
+[//]: # (keyword|statement_catch)
+### catch 
 #### Facets 
  
  	
 #### Definition
 
-`break` allows to interrupt the current sequence of statements.
-
-#### Usages
-
-
-#### Embedments
-* The `break` statement is of type: **Single statement**
-* The `break` statement can be embedded into: Sequence of statements or action, 
-* The `break` statement embeds statements: 
-
-----
-
-[//]: # (keyword|statement_camera)
-### camera 
-#### Facets 
-  
-  * **`name`** (string), (omissible) : The name of the camera
-  * `location` (point): The location of the camera in the world
-  * `look_at` (point): The location that the camera is looking
-  * `up_vector` (point): The up-vector of the camera. 
- 	
-#### Definition
-
-`camera` allows the modeler to define a camera. The display will then be able to choose among the camera defined (either within this statement or globally in GAMA) in a dynamic way.
+This statement cannot be used alone
 
 #### Usages
     
-* See also: [display](#display), [agents](#agents), [chart](#chart), [event](#event), [graphics](#graphics), [display_grid](#display_grid), [image](#image), [display_population](#display_population), 
+* See also: [try](#try), 
 
 #### Embedments
-* The `camera` statement is of type: **Layer**
-* The `camera` statement can be embedded into: display, 
-* The `camera` statement embeds statements: 
+* The `catch` statement is of type: **Sequence of statements or action**
+* The `catch` statement can be embedded into: try, 
+* The `catch` statement embeds statements: 
 
 ----
 
-[//]: # (keyword|statement_capture)
-### capture 
+[//]: # (keyword|statement_chart)
+### chart 
 #### Facets 
   
-  * **`target`** (any type in [agent, container]), (omissible) : an expression that is evaluated as an agent or a list of the agent to be captured
-  * `as` (species): the species that the captured agent(s) will become, this is a micro-species of the calling agent's species
-  * `returns` (a new identifier): a list of the newly captured agent(s) 
+  * **`name`** (a label), (omissible) : the identifier of the chart layer
+  * `axes` (rgb): the axis color
+  * `background` (rgb): the background color
+  * `color` (rgb): Text color
+  * `gap` (float): minimum gap between bars (in proportion)
+  * `label_font` (string): Label font face
+  * `label_font_size` (int): Label font size
+  * `label_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display labels
+  * `legend_font` (string): Legend font face
+  * `legend_font_size` (int): Legend font size
+  * `legend_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display legend
+  * `memorize` (boolean): Whether or not to keep the values in memory (in order to produce a csv file, for instance). The default value, true, can also be changed in the preferences
+  * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+  * `reverse_axes` (boolean): reverse X and Y axis (for example to get horizental bar charts
+  * `series_label_position` (an identifier), takes values in: {default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).
+  * `size` (point): the layer resize factor: {1,1} refers to the original size whereas {0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that {1,1} is equivalent to {1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)
+  * `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded, default}: The sub-style style, also default style for the series.
+  * `tick_font` (string): Tick font face
+  * `tick_font_size` (int): Tick font size
+  * `tick_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display ticks
+  * `title_font` (string): Title font face
+  * `title_font_size` (int): Title font size
+  * `title_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display titles
+  * `type` (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.
+  * `x_label` (string): the title for the X axis
+  * `x_range` (any type in [float, int, point, list]): range of the x-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
+  * `x_serie` (any type in [list, float, int]): for series charts, change the default common x serie (simulation cycle) for an other value (list or numerical).
+  * `x_serie_labels` (any type in [list, float, int, a label]): change the default common x series labels (replace x value or categories) for an other value (string or numerical).
+  * `x_tick_unit` (float): the tick unit for the y-axis (distance between horyzontal lines and values on the left of the axis).
+  * `y_label` (string): the title for the Y axis
+  * `y_range` (any type in [float, int, point, list]): range of the y-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
+  * `y_serie_labels` (any type in [list, float, int, a label]): for heatmaps/3d charts, change the default y serie for an other value (string or numerical in a list or cumulative).
+  * `y_tick_unit` (float): the tick unit for the x-axis (distance between vertical lines and values bellow the axis). 
  	
 #### Definition
 
-Allows an agent to capture other agent(s) as its micro-agent(s).
+`chart` allows modeler to display a chart: this enables to display specific values of the model at each iteration. GAMA can display various chart types: time series (series), pie charts (pie) and histograms (histogram).
 
 #### Usages
 
-* The preliminary for an agent A to capture an agent B as its micro-agent is that the A's species must defined a micro-species which is a sub-species of B's species (cf. [Species161#Nesting_species Nesting species]).
+* The general syntax is:
 
 </code></pre>
 </div>
-<p>species A { … } species B { …    species C parent: A {    …    } … } ```</p>
+<p>display chart_display {    chart “chart name” type: series [additional options] {       [Set of data, datalists statements]    } } ```</p>
 
 <ul>
-  <li>To capture all “A” agents as “C” agents, we can ask an “B” agent to execute the following statement:</li>
+  <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#quadtree">quadtree</a>, <a href="#display_population">display_population</a>, <a href="#text">text</a>,</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>capture list(B) as: C; ```
-
-
-* Deprecated writing:
-
-</code></pre>
-</div>
-<p>capture target: list (B) as: C; ```</p>
-
+<h4 id="embedments-8">Embedments</h4>
 <ul>
-  <li>See also: <a href="#release">release</a>,</li>
-</ul>
-
-<h4 id="embedments-4">Embedments</h4>
-<ul>
-  <li>The <code class="highlighter-rouge">capture</code> statement is of type: <strong>Sequence of statements or action</strong></li>
-  <li>The <code class="highlighter-rouge">capture</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
-  <li>The <code class="highlighter-rouge">capture</code> statement embeds statements:</li>
+  <li>The <code class="highlighter-rouge">chart</code> statement is of type: <strong>Layer</strong></li>
+  <li>The <code class="highlighter-rouge">chart</code> statement can be embedded into: display,</li>
+  <li>The <code class="highlighter-rouge">chart</code> statement embeds statements: <a href="#add">add</a>,  <a href="#ask">ask</a>,  <a href="#data">data</a>,  <a href="#datalist">datalist</a>,  <a href="#do">do</a>,  <a href="#put">put</a>,  <a href="#remove">remove</a>,  <a href="#set">set</a>,  <a href="#simulate">simulate</a>,  <a href="#using">using</a>,</li>
 </ul>
 
 <hr />
 
-<h3 id="catch">catch</h3>
-<h4 id="facets-5">Facets</h4>
-
-<h4 id="definition-5">Definition</h4>
-
-<p>This statement cannot be used alone</p>
-
-<h4 id="usages-5">Usages</h4>
+<h3 id="conscious_contagion">conscious_contagion</h3>
+<h4 id="facets-9">Facets</h4>
 
 <ul>
-  <li>See also: <a href="#try">try</a>,</li>
+  <li><strong><code class="highlighter-rouge">emotion_created</code></strong> (546706): the emotion that will be created with the contagion</li>
+  <li><strong><code class="highlighter-rouge">emotion_detected</code></strong> (546706): the emotion that will start the contagion</li>
+  <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : the identifier of the unconscious contagion</li>
+  <li><code class="highlighter-rouge">charisma</code> (float): The charisma value of the perceived agent (between 0 and 1)</li>
+  <li><code class="highlighter-rouge">receptivity</code> (float): The receptivity value of the current agent (between 0 and 1)</li>
+  <li><code class="highlighter-rouge">threshold</code> (float): The threshold value to make the contagion</li>
+  <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to get the emotion only with a certain condition</li>
 </ul>
 
-<h4 id="embedments-5">Embedments</h4>
-<ul>
-  <li>The <code class="highlighter-rouge">catch</code> statement is of type: <strong>Sequence of statements or action</strong></li>
-  <li>The <code class="highlighter-rouge">catch</code> statement can be embedded into: try,</li>
-  <li>The <code class="highlighter-rouge">catch</code> statement embeds statements:</li>
-</ul>
+<h4 id="definition-9">Definition</h4>
 
-<hr />
+<p>enables to directly add an emotion of a perceived specie if the perceived agent ges a patricular emotion.</p>
 
-<h3 id="chart">chart</h3>
-<h4 id="facets-6">Facets</h4>
-
-<ul>
-  <li><strong><code class="highlighter-rouge">name</code></strong> (a label), (omissible) : the identifier of the chart layer</li>
-  <li><code class="highlighter-rouge">axes</code> (rgb): the axis color</li>
-  <li><code class="highlighter-rouge">background</code> (rgb): the background color</li>
-  <li><code class="highlighter-rouge">color</code> (rgb): Text color</li>
-  <li><code class="highlighter-rouge">gap</code> (float): minimum gap between bars (in proportion)</li>
-  <li><code class="highlighter-rouge">label_font</code> (string): Label font face</li>
-  <li><code class="highlighter-rouge">label_font_size</code> (int): Label font size</li>
-  <li><code class="highlighter-rouge">label_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display labels</li>
-  <li><code class="highlighter-rouge">legend_font</code> (string): Legend font face</li>
-  <li><code class="highlighter-rouge">legend_font_size</code> (int): Legend font size</li>
-  <li><code class="highlighter-rouge">legend_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display legend</li>
-  <li><code class="highlighter-rouge">memorize</code> (boolean): Whether or not to keep the values in memory (in order to produce a csv file, for instance). The default value, true, can also be changed in the preferences</li>
-  <li><code class="highlighter-rouge">position</code> (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.</li>
-  <li><code class="highlighter-rouge">reverse_axes</code> (boolean): reverse X and Y axis (for example to get horizental bar charts</li>
-  <li><code class="highlighter-rouge">series_label_position</code> (an identifier), takes values in: {default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).</li>
-  <li><code class="highlighter-rouge">size</code> (point): the layer resize factor: {1,1} refers to the original size whereas {0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that {1,1} is equivalent to {1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)</li>
-  <li><code class="highlighter-rouge">style</code> (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded, default}: The sub-style style, also default style for the series.</li>
-  <li><code class="highlighter-rouge">tick_font</code> (string): Tick font face</li>
-  <li><code class="highlighter-rouge">tick_font_size</code> (int): Tick font size</li>
-  <li><code class="highlighter-rouge">tick_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display ticks</li>
-  <li><code class="highlighter-rouge">title_font</code> (string): Title font face</li>
-  <li><code class="highlighter-rouge">title_font_size</code> (int): Title font size</li>
-  <li><code class="highlighter-rouge">title_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display titles</li>
-  <li><code class="highlighter-rouge">type</code> (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.</li>
-  <li><code class="highlighter-rouge">x_label</code> (string): the title for the X axis</li>
-  <li><code class="highlighter-rouge">x_range</code> (any type in [float, int, point, list]): range of the x-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).</li>
-  <li><code class="highlighter-rouge">x_serie</code> (any type in [list, float, int]): for series charts, change the default common x serie (simulation cycle) for an other value (list or numerical).</li>
-  <li><code class="highlighter-rouge">x_serie_labels</code> (any type in [list, float, int, a label]): change the default common x series labels (replace x value or categories) for an other value (string or numerical).</li>
-  <li><code class="highlighter-rouge">x_tick_unit</code> (float): the tick unit for the y-axis (distance between horyzontal lines and values on the left of the axis).</li>
-  <li><code class="highlighter-rouge">y_label</code> (string): the title for the Y axis</li>
-  <li><code class="highlighter-rouge">y_range</code> (any type in [float, int, point, list]): range of the y-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).</li>
-  <li><code class="highlighter-rouge">y_serie_labels</code> (any type in [list, float, int, a label]): for heatmaps/3d charts, change the default y serie for an other value (string or numerical in a list or cumulative).</li>
-  <li><code class="highlighter-rouge">y_tick_unit</code> (float): the tick unit for the x-axis (distance between vertical lines and values bellow the axis).</li>
-</ul>
-
-<h4 id="definition-6">Definition</h4>
-
-<p><code class="highlighter-rouge">chart</code> allows modeler to display a chart: this enables to display specific values of the model at each iteration. GAMA can display various chart types: time series (series), pie charts (pie) and histograms (histogram).</p>
-
-<h4 id="usages-6">Usages</h4>
+<h4 id="usages-9">Usages</h4>
 
 <ul>
-  <li>The general syntax is:</li>
+  <li>Other examples of use:
+<code class="highlighter-rouge">
+conscious_contagion emotion_detected:fear emotion_created:fearConfirmed; conscious_contagion emotion_detected:fear emotion_created:fearConfirmed charisma: 0.5 receptivity: 0.5;</code></li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>display chart_display {    chart "chart name" type: series [additional options] {       [Set of data, datalists statements]    } } ```
-
-    
-* See also: [display](#display), [agents](#agents), [event](#event), [graphics](#graphics), [display_grid](#display_grid), [image](#image), [overlay](#overlay), [quadtree](#quadtree), [display_population](#display_population), [text](#text), 
-
-#### Embedments
-* The `chart` statement is of type: **Layer**
-* The `chart` statement can be embedded into: display, 
-* The `chart` statement embeds statements: [add](#add),  [ask](#ask),  [data](#data),  [datalist](#datalist),  [do](#do),  [put](#put),  [remove](#remove),  [set](#set),  [simulate](#simulate),  [using](#using),  
-
-----
-
-[//]: # (keyword|statement_conscious_contagion)
-### conscious_contagion 
-#### Facets 
-  
-  * **`emotion_created`** (546706): the emotion that will be created with the contagion  
-  * **`emotion_detected`** (546706): the emotion that will start the contagion
-  * `name` (an identifier), (omissible) : the identifier of the unconscious contagion
-  * `charisma` (float): The charisma value of the perceived agent (between 0 and 1)
-  * `receptivity` (float): The receptivity value of the current agent (between 0 and 1)
-  * `threshold` (float): The threshold value to make the contagion
-  * `when` (boolean): A boolean value to get the emotion only with a certain condition 
- 	
-#### Definition
-
-enables to directly add an emotion of a perceived specie if the perceived agent ges a patricular emotion.
-
-#### Usages
-
-* Other examples of use: 
-</code></pre>
-</div>
-<p>conscious_contagion emotion_detected:fear emotion_created:fearConfirmed; conscious_contagion emotion_detected:fear emotion_created:fearConfirmed charisma: 0.5 receptivity: 0.5; ```</p>
-
-<h4 id="embedments-6">Embedments</h4>
+<h4 id="embedments-9">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">conscious_contagion</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">conscious_contagion</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -4360,7 +4361,7 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
 <hr />
 
 <h3 id="create">create</h3>
-<h4 id="facets-7">Facets</h4>
+<h4 id="facets-10">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">species</code> (any type in [species, agent]), (omissible) : an expression that evaluates to a species, the species of the agents to be created. In the case of simulations, the name ‘simulation’, which represents the current instance of simulation, can also be used as a proxy to their species</li>
@@ -4372,11 +4373,11 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
   <li><code class="highlighter-rouge">with</code> (map): an expression that evaluates to a map, for each pair the key is a species attribute and the value the assigned value</li>
 </ul>
 
-<h4 id="definition-7">Definition</h4>
+<h4 id="definition-10">Definition</h4>
 
 <p>Allows an agent to create <code class="highlighter-rouge">number</code> agents of species <code class="highlighter-rouge">species</code>, to create agents of species <code class="highlighter-rouge">species</code> from a shapefile or to create agents of species <code class="highlighter-rouge">species</code> from one or several localized entities (discretization of the localized entity geometries).</p>
 
-<h4 id="usages-7">Usages</h4>
+<h4 id="usages-10">Usages</h4>
 
 <ul>
   <li>Its simple syntax to create <code class="highlighter-rouge">an_int</code> agents of species <code class="highlighter-rouge">a_species</code> is:</li>
@@ -4434,7 +4435,7 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
   <li>If <code class="highlighter-rouge">number</code> equals 0 or species is not a species, the statement is ignored.</li>
 </ul>
 
-<h4 id="embedments-7">Embedments</h4>
+<h4 id="embedments-10">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">create</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">create</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -4444,7 +4445,7 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
 <hr />
 
 <h3 id="data">data</h3>
-<h4 id="facets-8">Facets</h4>
+<h4 id="facets-11">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">legend</code></strong> (string), (omissible) : The legend of the chart</li>
@@ -4463,13 +4464,13 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
   <li><code class="highlighter-rouge">y_minmax_values</code> (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value)</li>
 </ul>
 
-<h4 id="definition-8">Definition</h4>
+<h4 id="definition-11">Definition</h4>
 
 <p>This statement allows to describe the values that will be displayed on the chart.</p>
 
-<h4 id="usages-8">Usages</h4>
+<h4 id="usages-11">Usages</h4>
 
-<h4 id="embedments-8">Embedments</h4>
+<h4 id="embedments-11">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">data</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">data</code> statement can be embedded into: chart, Sequence of statements or action,</li>
@@ -4479,7 +4480,7 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
 <hr />
 
 <h3 id="datalist">datalist</h3>
-<h4 id="facets-9">Facets</h4>
+<h4 id="facets-12">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">value</code></strong> (list): the values to display. Has to be a matrix, a list or a List of List. Each element can be a number (series/histogram) or a list with two values (XY chart)</li>
@@ -4497,13 +4498,13 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
   <li><code class="highlighter-rouge">y_minmax_values</code> (list): the Y MinMax bar values to display (BW charts). Has to be a List. Each element can be a number or a list with two values (low and high value)</li>
 </ul>
 
-<h4 id="definition-9">Definition</h4>
+<h4 id="definition-12">Definition</h4>
 
 <p>add a list of series to a chart. The number of series can be dynamic (the size of the list changes each step). See Ant Foraging (Charts) model in ChartTest for examples.</p>
 
-<h4 id="usages-9">Usages</h4>
+<h4 id="usages-12">Usages</h4>
 
-<h4 id="embedments-9">Embedments</h4>
+<h4 id="embedments-12">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">datalist</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">datalist</code> statement can be embedded into: chart, Sequence of statements or action,</li>
@@ -4513,23 +4514,23 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
 <hr />
 
 <h3 id="default">default</h3>
-<h4 id="facets-10">Facets</h4>
+<h4 id="facets-13">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">value</code> (any type), (omissible) : The value or values this statement tries to match</li>
 </ul>
 
-<h4 id="definition-10">Definition</h4>
+<h4 id="definition-13">Definition</h4>
 
 <p>Used in a switch match structure, the block prefixed by default is executed only if no other block has matched (otherwise it is not).</p>
 
-<h4 id="usages-10">Usages</h4>
+<h4 id="usages-13">Usages</h4>
 
 <ul>
   <li>See also: <a href="#switch">switch</a>, <a href="#match">match</a>,</li>
 </ul>
 
-<h4 id="embedments-10">Embedments</h4>
+<h4 id="embedments-13">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">default</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">default</code> statement can be embedded into: switch,</li>
@@ -4539,7 +4540,7 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
 <hr />
 
 <h3 id="diffuse">diffuse</h3>
-<h4 id="facets-11">Facets</h4>
+<h4 id="facets-14">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">var</code></strong> (an identifier), (omissible) : the variable to be diffused</li>
@@ -4557,11 +4558,11 @@ enables to directly add an emotion of a perceived specie if the perceived agent 
   <li><code class="highlighter-rouge">variation</code> (float): an absolute value to decrease at each neighbors</li>
 </ul>
 
-<h4 id="definition-11">Definition</h4>
+<h4 id="definition-14">Definition</h4>
 
 <p>This statements allows a value to diffuse among a species on agents (generally on a grid) depending on a given diffusion matrix.</p>
 
-<h4 id="usages-11">Usages</h4>
+<h4 id="usages-14">Usages</h4>
 
 <ul>
   <li>A basic example of diffusion of the variable phero defined in the species cells, given a diffusion matrix math_diff is:</li>
@@ -4743,7 +4744,7 @@ The `display_population` statement is used using the `species keyword`. It allow
   <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>,</li>
 </ul>
 
-<h4 id="embedments-11">Embedments</h4>
+<h4 id="embedments-14">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">display_population</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">display_population</code> statement can be embedded into: display, display_population,</li>
@@ -4753,7 +4754,7 @@ The `display_population` statement is used using the `species keyword`. It allow
 <hr />
 
 <h3 id="do">do</h3>
-<h4 id="facets-12">Facets</h4>
+<h4 id="facets-15">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">action</code></strong> (an identifier), (omissible) : the name of an action or a primitive</li>
@@ -4762,11 +4763,11 @@ The `display_population` statement is used using the `species keyword`. It allow
   <li><code class="highlighter-rouge">with</code> (map): a map expression containing the parameters of the action</li>
 </ul>
 
-<h4 id="definition-12">Definition</h4>
+<h4 id="definition-15">Definition</h4>
 
 <p>Allows the agent to execute an action or a primitive.  For a list of primitives available in every species, see this [BuiltIn161 page]; for the list of primitives defined by the different skills, see this [Skills161 page]. Finally, see this [Species161 page] to know how to declare custom actions.</p>
 
-<h4 id="usages-12">Usages</h4>
+<h4 id="usages-15">Usages</h4>
 
 <ul>
   <li>The simple syntax (when the action does not expect any argument and the result is not to be kept) is:</li>
@@ -4856,7 +4857,7 @@ The `display_population` statement is used using the `species keyword`. It allow
 </div>
 <p>aspect arrowAspect { 	draw line([{20, 20}, {40, 40}]) color: #black begin_arrow:5; 	draw line([{10, 10},{20, 50}, {40, 70}]) color: #green end_arrow: 2 begin_arrow: 2 empty: true; 	draw square(10) at: {80,20} color: #purple begin_arrow: 2 empty: true; } ```</p>
 
-<h4 id="embedments-12">Embedments</h4>
+<h4 id="embedments-15">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">draw</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">draw</code> statement can be embedded into: aspect, Sequence of statements or action, Layer,</li>
@@ -4866,19 +4867,19 @@ The `display_population` statement is used using the `species keyword`. It allow
 <hr />
 
 <h3 id="else">else</h3>
-<h4 id="facets-13">Facets</h4>
+<h4 id="facets-16">Facets</h4>
 
-<h4 id="definition-13">Definition</h4>
+<h4 id="definition-16">Definition</h4>
 
 <p>This statement cannot be used alone</p>
 
-<h4 id="usages-13">Usages</h4>
+<h4 id="usages-16">Usages</h4>
 
 <ul>
   <li>See also: <a href="#if">if</a>,</li>
 </ul>
 
-<h4 id="embedments-13">Embedments</h4>
+<h4 id="embedments-16">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">else</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">else</code> statement can be embedded into: if,</li>
@@ -4888,7 +4889,7 @@ The `display_population` statement is used using the `species keyword`. It allow
 <hr />
 
 <h3 id="emotional_contagion">emotional_contagion</h3>
-<h4 id="facets-14">Facets</h4>
+<h4 id="facets-17">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">emotion_detected</code></strong> (546706): the emotion that will start the contagion</li>
@@ -4900,11 +4901,11 @@ The `display_population` statement is used using the `species keyword`. It allow
   <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to get the emotion only with a certain condition</li>
 </ul>
 
-<h4 id="definition-14">Definition</h4>
+<h4 id="definition-17">Definition</h4>
 
 <p>enables to make conscious or unconscious emotional contagion</p>
 
-<h4 id="usages-14">Usages</h4>
+<h4 id="usages-17">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -4912,7 +4913,7 @@ The `display_population` statement is used using the `species keyword`. It allow
 emotional_contagion emotion_detected:fearConfirmed; emotional_contagion emotion_detected:fear emotion_created:fearConfirmed; emotional_contagion emotion_detected:fear emotion_created:fearConfirmed charisma: 0.5 receptivity: 0.5;</code></li>
 </ul>
 
-<h4 id="embedments-14">Embedments</h4>
+<h4 id="embedments-17">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">emotional_contagion</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">emotional_contagion</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -4922,13 +4923,13 @@ emotional_contagion emotion_detected:fearConfirmed; emotional_contagion emotion_
 <hr />
 
 <h3 id="enter">enter</h3>
-<h4 id="facets-15">Facets</h4>
+<h4 id="facets-18">Facets</h4>
 
-<h4 id="definition-15">Definition</h4>
+<h4 id="definition-18">Definition</h4>
 
 <p>In an FSM architecture, <code class="highlighter-rouge">enter</code> introduces a sequence of statements to execute upon entering a state.</p>
 
-<h4 id="usages-15">Usages</h4>
+<h4 id="usages-18">Usages</h4>
 
 <ul>
   <li>In the following example, at the step it enters into the state s_init, the message ‘Enter in s_init’ is displayed followed by the display of the state name:</li>
@@ -5003,7 +5004,7 @@ The statement makes the agent output an error dialog (if the simulation contains
 </div>
 <p>error ‘This is an error raised by ‘ + self; ```</p>
 
-<h4 id="embedments-15">Embedments</h4>
+<h4 id="embedments-18">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">error</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">error</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
@@ -5013,7 +5014,7 @@ The statement makes the agent output an error dialog (if the simulation contains
 <hr />
 
 <h3 id="event">event</h3>
-<h4 id="facets-16">Facets</h4>
+<h4 id="facets-19">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : the type of event captured: can be  “mouse_up”, “mouse_down”, “mouse_move”, “mouse_exit”, “mouse_enter” or a character</li>
@@ -5021,11 +5022,11 @@ The statement makes the agent output an error dialog (if the simulation contains
   <li><code class="highlighter-rouge">unused</code> (an identifier), takes values in: {mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit}: an unused facet that serves only for the purpose of declaring the string values</li>
 </ul>
 
-<h4 id="definition-16">Definition</h4>
+<h4 id="definition-19">Definition</h4>
 
 <p><code class="highlighter-rouge">event</code> allows to interact with the simulation by capturing mouse or key events and doing an action. This action needs to be defined in ‘global’ or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location</p>
 
-<h4 id="usages-16">Usages</h4>
+<h4 id="usages-19">Usages</h4>
 
 <ul>
   <li>The general syntax is:</li>
@@ -5044,7 +5045,7 @@ The statement makes the agent output an error dialog (if the simulation contains
   <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
 </ul>
 
-<h4 id="embedments-16">Embedments</h4>
+<h4 id="embedments-19">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">event</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">event</code> statement can be embedded into: display,</li>
@@ -5054,7 +5055,7 @@ The statement makes the agent output an error dialog (if the simulation contains
 <hr />
 
 <h3 id="exhaustive">exhaustive</h3>
-<h4 id="facets-17">Facets</h4>
+<h4 id="facets-20">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : The name of the method. For internal use only</li>
@@ -5063,11 +5064,11 @@ The statement makes the agent output an error dialog (if the simulation contains
   <li><code class="highlighter-rouge">minimize</code> (float): the value the algorithm tries to minimize</li>
 </ul>
 
-<h4 id="definition-17">Definition</h4>
+<h4 id="definition-20">Definition</h4>
 
 <p>This is the standard batch method. The exhaustive mode is defined by default when there is no method element present in the batch section. It explores all the combination of parameter values in a sequential way. See [batch161 the batch dedicated page].</p>
 
-<h4 id="usages-17">Usages</h4>
+<h4 id="usages-20">Usages</h4>
 
 <ul>
   <li>As other batch methods, the basic syntax of the exhaustive statement uses <code class="highlighter-rouge">method exhaustive</code> instead of the expected <code class="highlighter-rouge">exhaustive name: id</code> :</li>
@@ -5082,7 +5083,7 @@ The statement makes the agent output an error dialog (if the simulation contains
 </div>
 <p>method exhaustive maximize: food_gathered; ```</p>
 
-<h4 id="embedments-17">Embedments</h4>
+<h4 id="embedments-20">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">exhaustive</code> statement is of type: <strong>Batch method</strong></li>
   <li>The <code class="highlighter-rouge">exhaustive</code> statement can be embedded into: Experiment,</li>
@@ -5092,13 +5093,13 @@ The statement makes the agent output an error dialog (if the simulation contains
 <hr />
 
 <h3 id="exit">exit</h3>
-<h4 id="facets-18">Facets</h4>
+<h4 id="facets-21">Facets</h4>
 
-<h4 id="definition-18">Definition</h4>
+<h4 id="definition-21">Definition</h4>
 
 <p>In an FSM architecture, <code class="highlighter-rouge">exit</code> introduces a sequence of statements to execute right before exiting the state.</p>
 
-<h4 id="usages-18">Usages</h4>
+<h4 id="usages-21">Usages</h4>
 
 <ul>
   <li>In the following example, at the state it leaves the state s_init, he will display the message ‘EXIT from s_init’:</li>
@@ -5122,7 +5123,7 @@ The statement makes the agent output an error dialog (if the simulation contains
   
   * **`name`** (a label), (omissible) : identifier of the experiment  
   * **`title`** (a label):   
-  * **`type`** (a label), takes values in: {batch, memorize, gui, headless}: the type of the experiment (either 'gui' or 'batch'
+  * **`type`** (a label), takes values in: {batch, memorize, gui, test, headless}: the type of the experiment (either 'gui' or 'batch'
   * `autorun` (boolean): whether this experiment should be run automatically when launched (false by default)
   * `control` (an identifier): 
   * `frequency` (int): the execution frequence of the experiment (default value: 1). If frequency: 10, the experiment is executed only each 10 steps.
@@ -5174,7 +5175,7 @@ enables to directly add a belief from the variable of a perceived specie.
 </div>
 <p>focus var:speed /<em>where speed is a variable from a species that is being perceived</em>/ ```</p>
 
-<h4 id="embedments-18">Embedments</h4>
+<h4 id="embedments-21">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">focus</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">focus</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -5184,17 +5185,17 @@ enables to directly add a belief from the variable of a perceived specie.
 <hr />
 
 <h3 id="focus_on">focus_on</h3>
-<h4 id="facets-19">Facets</h4>
+<h4 id="facets-22">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">value</code></strong> (any type), (omissible) : The agent, list of agents, geometry to focus on</li>
 </ul>
 
-<h4 id="definition-19">Definition</h4>
+<h4 id="definition-22">Definition</h4>
 
 <p>Allows to focus on the passed parameter in all available displays. Passing ‘nil’ for the parameter will make all screens return to their normal zoom</p>
 
-<h4 id="usages-19">Usages</h4>
+<h4 id="usages-22">Usages</h4>
 
 <ul>
   <li>Focuses on an agent, a geometry, a set of agents, etc…)</li>
@@ -5282,7 +5283,7 @@ This is a simple implementation of Genetic Algorithms (GA). See the wikipedia ar
   <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
 </ul>
 
-<h4 id="embedments-19">Embedments</h4>
+<h4 id="embedments-22">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">graphics</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">graphics</code> statement can be embedded into: display,</li>
@@ -5292,18 +5293,18 @@ This is a simple implementation of Genetic Algorithms (GA). See the wikipedia ar
 <hr />
 
 <h3 id="highlight">highlight</h3>
-<h4 id="facets-20">Facets</h4>
+<h4 id="facets-23">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">value</code></strong> (agent), (omissible) : The agent to hightlight</li>
   <li><code class="highlighter-rouge">color</code> (rgb): An optional color to highlight the agent. Note that this color will become the default color for further higlight operations</li>
 </ul>
 
-<h4 id="definition-20">Definition</h4>
+<h4 id="definition-23">Definition</h4>
 
 <p>Allows to highlight the agent passed in parameter in all available displays, optionaly setting a color. Passing ‘nil’ for the agent will remove the current highlight</p>
 
-<h4 id="usages-20">Usages</h4>
+<h4 id="usages-23">Usages</h4>
 
 <ul>
   <li>Highlighting an agent</li>
@@ -5388,7 +5389,7 @@ Allows the agent to execute a sequence of statements if and only if the conditio
 </div>
 <p>if bool_expr {     [statements] } else if bool_expr2 {     [statements] } else {     [statements] } ```</p>
 
-<h4 id="embedments-20">Embedments</h4>
+<h4 id="embedments-23">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">if</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">if</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
@@ -5398,7 +5399,7 @@ Allows the agent to execute a sequence of statements if and only if the conditio
 <hr />
 
 <h3 id="image">image</h3>
-<h4 id="facets-21">Facets</h4>
+<h4 id="facets-24">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (any type in [string, file]), (omissible) : Human readable title of the image layer</li>
@@ -5411,11 +5412,11 @@ Allows the agent to execute a sequence of statements if and only if the conditio
   <li><code class="highlighter-rouge">transparency</code> (float): the transparency rate of the agents (between 0 and 1, 1 means no transparency)</li>
 </ul>
 
-<h4 id="definition-21">Definition</h4>
+<h4 id="definition-24">Definition</h4>
 
 <p><code class="highlighter-rouge">image</code> allows modeler to display an image (e.g. as background of a simulation).</p>
 
-<h4 id="usages-21">Usages</h4>
+<h4 id="usages-24">Usages</h4>
 
 <ul>
   <li>The general syntax is:</li>
@@ -5447,7 +5448,7 @@ Allows the agent to execute a sequence of statements if and only if the conditio
   <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
 </ul>
 
-<h4 id="embedments-21">Embedments</h4>
+<h4 id="embedments-24">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">image</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">image</code> statement can be embedded into: display,</li>
@@ -5457,7 +5458,7 @@ Allows the agent to execute a sequence of statements if and only if the conditio
 <hr />
 
 <h3 id="inspect">inspect</h3>
-<h4 id="facets-22">Facets</h4>
+<h4 id="facets-25">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (any type), (omissible) : the identifier of the inspector</li>
@@ -5468,11 +5469,11 @@ Allows the agent to execute a sequence of statements if and only if the conditio
   <li><code class="highlighter-rouge">value</code> (any type): the set of agents to inspect, could be a species, a list of agents or an agent</li>
 </ul>
 
-<h4 id="definition-22">Definition</h4>
+<h4 id="definition-25">Definition</h4>
 
 <p><code class="highlighter-rouge">inspect</code> (and <code class="highlighter-rouge">browse</code>) statements allows modeler to inspect a set of agents, in a table with agents and all their attributes or an agent inspector per agent, depending on the type: chosen. Modeler can choose which attributes to display. When <code class="highlighter-rouge">browse</code> is used, type: default value is table, whereas when<code class="highlighter-rouge">inspect</code> is used, type: default value is agent.</p>
 
-<h4 id="usages-22">Usages</h4>
+<h4 id="usages-25">Usages</h4>
 
 <ul>
   <li>An example of syntax is:</li>
@@ -5545,7 +5546,7 @@ Allows to declare a temporary variable of the specified type and to initialize i
   <li>See also: <a href="#display">display</a>,</li>
 </ul>
 
-<h4 id="embedments-22">Embedments</h4>
+<h4 id="embedments-25">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">light</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">light</code> statement can be embedded into: display,</li>
@@ -5555,7 +5556,7 @@ Allows to declare a temporary variable of the specified type and to initialize i
 <hr />
 
 <h3 id="loop">loop</h3>
-<h4 id="facets-23">Facets</h4>
+<h4 id="facets-26">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (a new identifier), (omissible) : a temporary variable name</li>
@@ -5567,11 +5568,11 @@ Allows to declare a temporary variable of the specified type and to initialize i
   <li><code class="highlighter-rouge">while</code> (boolean): a boolean expression</li>
 </ul>
 
-<h4 id="definition-23">Definition</h4>
+<h4 id="definition-26">Definition</h4>
 
 <p>Allows the agent to perform the same set of statements either a fixed number of times, or while a condition is true, or by progressing in a collection of elements or along an interval of integers. Be aware that there are no prevention of infinite loops. As a consequence, open loops should be used with caution, as one agent may block the execution of the whole model.</p>
 
-<h4 id="usages-23">Usages</h4>
+<h4 id="usages-26">Usages</h4>
 
 <ul>
   <li>The basic syntax for repeating a fixed number of times a set of statements is:</li>
@@ -5662,7 +5663,7 @@ In a switch...match structure, the value of each match block is compared to the 
   <li>See also: <a href="#switch">switch</a>, <a href="#default">default</a>,</li>
 </ul>
 
-<h4 id="embedments-23">Embedments</h4>
+<h4 id="embedments-26">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">match</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">match</code> statement can be embedded into: switch,</li>
@@ -5672,7 +5673,7 @@ In a switch...match structure, the value of each match block is compared to the 
 <hr />
 
 <h3 id="migrate">migrate</h3>
-<h4 id="facets-24">Facets</h4>
+<h4 id="facets-27">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">source</code></strong> (any type in [agent, species, container, an identifier]), (omissible) : can be an agent, a list of agents, a agent’s population to be migrated</li>
@@ -5680,11 +5681,11 @@ In a switch...match structure, the value of each match block is compared to the 
   <li><code class="highlighter-rouge">returns</code> (a new identifier): the list of returned agents in a new local variable</li>
 </ul>
 
-<h4 id="definition-24">Definition</h4>
+<h4 id="definition-27">Definition</h4>
 
 <p>This command permits agents to migrate from one population/species to another population/species and stay in the same host after the migration. Species of source agents and target species respect the following constraints: (i) they are “peer” species (sharing the same direct macro-species), (ii) they have sub-species vs. parent-species relationship.</p>
 
-<h4 id="usages-24">Usages</h4>
+<h4 id="usages-27">Usages</h4>
 
 <ul>
   <li>It can be used in a 3-levels model, in case where individual agents can be captured into group meso agents and groups into clouds macro agents. migrate is used to allows agents captured by groups to migrate into clouds. See the model ‘Balls, Groups and Clouds.gaml’ in the library.</li>
@@ -5724,7 +5725,7 @@ A monitor allows to follow the value of an arbitrary expression in GAML.
 </div>
 <p>monitor “nb preys” value: length(prey as list) refresh_every: 5;   ```</p>
 
-<h4 id="embedments-24">Embedments</h4>
+<h4 id="embedments-27">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">monitor</code> statement is of type: <strong>Output</strong></li>
   <li>The <code class="highlighter-rouge">monitor</code> statement can be embedded into: output, permanent,</li>
@@ -5734,13 +5735,13 @@ A monitor allows to follow the value of an arbitrary expression in GAML.
 <hr />
 
 <h3 id="output">output</h3>
-<h4 id="facets-25">Facets</h4>
+<h4 id="facets-28">Facets</h4>
 
-<h4 id="definition-25">Definition</h4>
+<h4 id="definition-28">Definition</h4>
 
 <p><code class="highlighter-rouge">output</code> blocks define how to visualize a simulation (with one or more display blocks that define separate windows). It will include a set of displays, monitors and files statements. It will be taken into account only if the experiment type is <code class="highlighter-rouge">gui</code>.</p>
 
-<h4 id="usages-25">Usages</h4>
+<h4 id="usages-28">Usages</h4>
 
 <ul>
   <li>Its basic syntax is:</li>
@@ -5816,7 +5817,7 @@ Represents an output that writes the result of expressions into a file
   <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#display_population">display_population</a>,</li>
 </ul>
 
-<h4 id="embedments-25">Embedments</h4>
+<h4 id="embedments-28">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">overlay</code> statement is of type: <strong>Layer</strong></li>
   <li>The <code class="highlighter-rouge">overlay</code> statement can be embedded into: display,</li>
@@ -5826,7 +5827,7 @@ Represents an output that writes the result of expressions into a file
 <hr />
 
 <h3 id="parameter">parameter</h3>
-<h4 id="facets-26">Facets</h4>
+<h4 id="facets-29">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">var</code></strong> (an identifier): the name of the variable (that should be declared in the global)</li>
@@ -5843,11 +5844,11 @@ Represents an output that writes the result of expressions into a file
   <li><code class="highlighter-rouge">unit</code> (a label): the variable unit</li>
 </ul>
 
-<h4 id="definition-26">Definition</h4>
+<h4 id="definition-29">Definition</h4>
 
 <p>The parameter statement specifies which global attributes (i) will change through the successive simulations (in batch experiments), (ii) can be modified by user via the interface (in gui experiments). In GUI experiments, parameters are displayed depending on their type.</p>
 
-<h4 id="usages-26">Usages</h4>
+<h4 id="usages-29">Usages</h4>
 
 <ul>
   <li>In gui experiment, the general syntax is the following:</li>
@@ -5862,7 +5863,7 @@ Represents an output that writes the result of expressions into a file
 </div>
 <p>parameter ‘Value of toto:’ var: toto among: [1, 3, 7, 15, 100];  parameter ‘Value of titi:’ var: titi min: 1 max: 100 step: 2;  ```</p>
 
-<h4 id="embedments-26">Embedments</h4>
+<h4 id="embedments-29">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">parameter</code> statement is of type: <strong>Parameter</strong></li>
   <li>The <code class="highlighter-rouge">parameter</code> statement can be embedded into: Experiment,</li>
@@ -5872,7 +5873,7 @@ Represents an output that writes the result of expressions into a file
 <hr />
 
 <h3 id="perceive">perceive</h3>
-<h4 id="facets-27">Facets</h4>
+<h4 id="facets-30">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">target</code></strong> (any type in [container, point, agent]): the list of the agent you want to perceive</li>
@@ -5885,11 +5886,11 @@ Represents an output that writes the result of expressions into a file
   <li><code class="highlighter-rouge">when</code> (boolean): a boolean to tell when does the perceive is active</li>
 </ul>
 
-<h4 id="definition-27">Definition</h4>
+<h4 id="definition-30">Definition</h4>
 
 <p>Allow the agent, with a bdi architecture, to perceive others agents</p>
 
-<h4 id="usages-27">Usages</h4>
+<h4 id="usages-30">Usages</h4>
 
 <ul>
   <li>the basic syntax to perceive agents inside a circle of perception</li>
@@ -5924,7 +5925,7 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
 </div>
 <p>permanent { 	display Ants background: rgb(‘white’) refresh_every: 1 { 		chart “Food Gathered” type: series { 			data “Food” value: food_gathered; 		} 	} } ```</p>
 
-<h4 id="embedments-27">Embedments</h4>
+<h4 id="embedments-30">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">permanent</code> statement is of type: <strong>Output</strong></li>
   <li>The <code class="highlighter-rouge">permanent</code> statement can be embedded into: Experiment,</li>
@@ -5934,7 +5935,7 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
 <hr />
 
 <h3 id="plan">plan</h3>
-<h4 id="facets-28">Facets</h4>
+<h4 id="facets-31">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) :</li>
@@ -5947,7 +5948,7 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
   <li><code class="highlighter-rouge">when</code> (boolean):</li>
 </ul>
 
-<h4 id="embedments-28">Embedments</h4>
+<h4 id="embedments-31">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">plan</code> statement is of type: <strong>Behavior</strong></li>
   <li>The <code class="highlighter-rouge">plan</code> statement can be embedded into: Species, Model,</li>
@@ -5957,7 +5958,7 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
 <hr />
 
 <h3 id="put">put</h3>
-<h4 id="facets-29">Facets</h4>
+<h4 id="facets-32">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">in</code></strong> (any type in [container, species, agent, geometry]): an expression that evaluates to a container</li>
@@ -5969,11 +5970,11 @@ Represents the outputs of the experiment itself. In a batch experiment, the perm
   <li><code class="highlighter-rouge">weight</code> (float): an expression that evaluates to a float</li>
 </ul>
 
-<h4 id="definition-28">Definition</h4>
+<h4 id="definition-31">Definition</h4>
 
 <p>Allows the agent to replace a value in a container at a given position (in a list or a map) or for a given key (in a map). Note that the behavior and the type of the attributes depends on the specific kind of container.</p>
 
-<h4 id="usages-28">Usages</h4>
+<h4 id="usages-31">Usages</h4>
 
 <ul>
   <li>The allowed parameters configurations are the following ones:</li>
@@ -6004,7 +6005,7 @@ putMatrix &lt;- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])p
 <p>map&lt;string,int&gt; 
 putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put -10 key: “y” in: putMap;//putMap equals [“x”::4,”y”::-10]put -20 key: “z” in: putMap;//putMap equals [“x”::4,”y”::-10, “z”::-20]put -30 all: true in: putMap;//putMap equals [“x”::-30,”y”::-30, “z”::-30]```</p>
 
-<h4 id="embedments-29">Embedments</h4>
+<h4 id="embedments-32">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">put</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">put</code> statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer,</li>
@@ -6014,7 +6015,7 @@ putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put
 <hr />
 
 <h3 id="reactive_tabu">reactive_tabu</h3>
-<h4 id="facets-30">Facets</h4>
+<h4 id="facets-33">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) :</li>
@@ -6030,11 +6031,11 @@ putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put
   <li><code class="highlighter-rouge">tabu_list_size_min</code> (int): minimal size of the tabu list</li>
 </ul>
 
-<h4 id="definition-29">Definition</h4>
+<h4 id="definition-32">Definition</h4>
 
 <p>This algorithm is a simple implementation of the Reactive Tabu Search algorithm ((Battiti et al., 1993)). This Reactive Tabu Search is an enhance version of the Tabu search. It adds two new elements to the classic Tabu Search. The first one concerns the size of the tabu list: in the Reactive Tabu Search, this one is not constant anymore but it dynamically evolves according to the context. Thus, when the exploration process visits too often the same solutions, the tabu list is extended in order to favor the diversification of the search process. On the other hand, when the process has not visited an already known solution for a high number of iterations, the tabu list is shortened in order to favor the intensification of the search process. The second new element concerns the adding of cycle detection capacities. Thus, when a cycle is detected, the process applies random movements in order to break the cycle. See [batch161 the batch dedicated page].</p>
 
-<h4 id="usages-29">Usages</h4>
+<h4 id="usages-32">Usages</h4>
 
 <ul>
   <li>As other batch methods, the basic syntax of the reactive_tabu statement uses <code class="highlighter-rouge">method reactive_tabu</code> instead of the expected <code class="highlighter-rouge">reactive_tabu name: id</code> :</li>
@@ -6049,7 +6050,7 @@ putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put
 </div>
 <p>method reactive_tabu iter_max: 50 tabu_list_size_init: 5 tabu_list_size_min: 2 tabu_list_size_max: 10 nb_tests_wthout_col_max: 20 cycle_size_min: 2 cycle_size_max: 20 maximize: food_gathered; ```</p>
 
-<h4 id="embedments-30">Embedments</h4>
+<h4 id="embedments-33">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">reactive_tabu</code> statement is of type: <strong>Batch method</strong></li>
   <li>The <code class="highlighter-rouge">reactive_tabu</code> statement can be embedded into: Experiment,</li>
@@ -6059,18 +6060,18 @@ putMap &lt;- [“x”::4,”y”::7]; //putMap equals [“x”::4,”y”::7]put
 <hr />
 
 <h3 id="reflex">reflex</h3>
-<h4 id="facets-31">Facets</h4>
+<h4 id="facets-34">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : the identifier of the reflex</li>
   <li><code class="highlighter-rouge">when</code> (boolean): an expression that evaluates a boolean, the condition to fulfill in order to execute the statements embedded in the reflex.</li>
 </ul>
 
-<h4 id="definition-30">Definition</h4>
+<h4 id="definition-33">Definition</h4>
 
 <p>Reflexes are sequences of statements that can be executed by the agent. Reflexes prefixed by the ‘reflex’ keyword are executed continuously. Reflexes prefixed by ‘init’ are executed only immediately after the agent has been created. Reflexes prefixed by ‘abort’ just before the agent is killed. If a facet when: is defined, a reflex is executed only if the boolean expression evaluates to true.</p>
 
-<h4 id="usages-30">Usages</h4>
+<h4 id="usages-33">Usages</h4>
 
 <ul>
   <li>Example:</li>
@@ -6125,7 +6126,7 @@ Allows an agent to release its micro-agent(s). The preliminary for an agent to r
   <li>See also: <a href="#capture">capture</a>,</li>
 </ul>
 
-<h4 id="embedments-31">Embedments</h4>
+<h4 id="embedments-34">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">release</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">release</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -6135,7 +6136,7 @@ Allows an agent to release its micro-agent(s). The preliminary for an agent to r
 <hr />
 
 <h3 id="remove">remove</h3>
-<h4 id="facets-32">Facets</h4>
+<h4 id="facets-35">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">from</code></strong> (any type in [container, species, agent, geometry]): an expression that evaluates to a container</li>
@@ -6148,11 +6149,11 @@ Allows an agent to release its micro-agent(s). The preliminary for an agent to r
   <li><code class="highlighter-rouge">vertex</code> (any type):</li>
 </ul>
 
-<h4 id="definition-31">Definition</h4>
+<h4 id="definition-34">Definition</h4>
 
 <p>Allows the agent to remove an element from a container (a list, matrix, map…).</p>
 
-<h4 id="usages-31">Usages</h4>
+<h4 id="usages-34">Usages</h4>
 
 <ul>
   <li>This statement should be used in the following ways, depending on the kind of container used and the expected action on it:</li>
@@ -6202,7 +6203,7 @@ list var &lt;- removeGraph.edges; // var equals []```
   <li>See also: <a href="#add">add</a>, <a href="#put">put</a>,</li>
 </ul>
 
-<h4 id="embedments-32">Embedments</h4>
+<h4 id="embedments-35">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">remove</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">remove</code> statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer,</li>
@@ -6212,17 +6213,17 @@ list var &lt;- removeGraph.edges; // var equals []```
 <hr />
 
 <h3 id="return">return</h3>
-<h4 id="facets-33">Facets</h4>
+<h4 id="facets-36">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">value</code> (any type), (omissible) : an expression that is returned</li>
 </ul>
 
-<h4 id="definition-32">Definition</h4>
+<h4 id="definition-35">Definition</h4>
 
 <p>Allows to immediately stop and tell which value to return from the evaluation of the surrounding action or top-level statement (reflex, init, etc.). Usually used within the declaration of an action. For more details about actions, see the following [Section161 section].</p>
 
-<h4 id="usages-32">Usages</h4>
+<h4 id="usages-35">Usages</h4>
 
 <ul>
   <li>Example:</li>
@@ -6237,7 +6238,7 @@ list var &lt;- removeGraph.edges; // var equals []```
 </div>
 <p>// In Species A: string foo_different {      return “foo_not_same”; } /// …. // In Species B: reflex writing {     string temp &lt;- some_agent_A.foo_different []; 	// temp is now equals to “foo_not_same”  } ```</p>
 
-<h4 id="embedments-33">Embedments</h4>
+<h4 id="embedments-36">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">return</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">return</code> statement can be embedded into: action, Behavior, Sequence of statements or action,</li>
@@ -6247,7 +6248,7 @@ list var &lt;- removeGraph.edges; // var equals []```
 <hr />
 
 <h3 id="rule">rule</h3>
-<h4 id="facets-34">Facets</h4>
+<h4 id="facets-37">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : The name of the rule</li>
@@ -6283,11 +6284,11 @@ list var &lt;- removeGraph.edges; // var equals []```
   <li><code class="highlighter-rouge">when</code> (boolean):</li>
 </ul>
 
-<h4 id="definition-33">Definition</h4>
+<h4 id="definition-36">Definition</h4>
 
 <p>enables to add a desire or a belief or to remove a belief, a desire or an intention if the agent gets the belief or/and desire or/and condition mentioned.</p>
 
-<h4 id="usages-33">Usages</h4>
+<h4 id="usages-36">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -6295,7 +6296,7 @@ list var &lt;- removeGraph.edges; // var equals []```
 rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("test")</code></li>
 </ul>
 
-<h4 id="embedments-34">Embedments</h4>
+<h4 id="embedments-37">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">rule</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">rule</code> statement can be embedded into: Species, Model,</li>
@@ -6305,7 +6306,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 <hr />
 
 <h3 id="run">run</h3>
-<h4 id="facets-35">Facets</h4>
+<h4 id="facets-38">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string), (omissible) :</li>
@@ -6317,7 +6318,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
   <li><code class="highlighter-rouge">with_param</code> (map):</li>
 </ul>
 
-<h4 id="embedments-35">Embedments</h4>
+<h4 id="embedments-38">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">run</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">run</code> statement can be embedded into: Behavior, Single statement, Species, Model,</li>
@@ -6327,7 +6328,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 <hr />
 
 <h3 id="save">save</h3>
-<h4 id="facets-36">Facets</h4>
+<h4 id="facets-39">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">data</code> (any type), (omissible) : any expression, that will be saved in the file</li>
@@ -6340,11 +6341,11 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
   <li><code class="highlighter-rouge">with</code> (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file</li>
 </ul>
 
-<h4 id="definition-34">Definition</h4>
+<h4 id="definition-37">Definition</h4>
 
 <p>Allows to save data in a file. The type of file can be “shp”, “asc”, “geotiff”, “text” or “csv”.</p>
 
-<h4 id="usages-34">Usages</h4>
+<h4 id="usages-37">Usages</h4>
 
 <ul>
   <li>Its simple syntax is:</li>
@@ -6402,7 +6403,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
   <li>The save statement can be use in an init block, a reflex, an action or in a user command. Do not use it in experiments.</li>
 </ul>
 
-<h4 id="embedments-36">Embedments</h4>
+<h4 id="embedments-39">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">save</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">save</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -6412,20 +6413,20 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 <hr />
 
 <h3 id="set">set</h3>
-<h4 id="facets-37">Facets</h4>
+<h4 id="facets-40">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (any type), (omissible) : the name of an existing variable or attribute to be modified</li>
   <li><strong><code class="highlighter-rouge">value</code></strong> (any type): the value to affect to the variable or attribute</li>
 </ul>
 
-<h4 id="definition-35">Definition</h4>
+<h4 id="definition-38">Definition</h4>
 
 <p>Allows to assign a value to the variable or attribute specified</p>
 
-<h4 id="usages-35">Usages</h4>
+<h4 id="usages-38">Usages</h4>
 
-<h4 id="embedments-37">Embedments</h4>
+<h4 id="embedments-40">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">set</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">set</code> statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer,</li>
@@ -6435,13 +6436,13 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 <hr />
 
 <h3 id="setup">setup</h3>
-<h4 id="facets-38">Facets</h4>
+<h4 id="facets-41">Facets</h4>
 
-<h4 id="definition-36">Definition</h4>
+<h4 id="definition-39">Definition</h4>
 
 <p>The setup statement is used to define the set of instructions that will be executed before every [#test test].</p>
 
-<h4 id="usages-36">Usages</h4>
+<h4 id="usages-39">Usages</h4>
 
 <ul>
   <li>As every test should be independent from the others, the setup will mainly contain initialization of variables that will be used in each test.</li>
@@ -6483,7 +6484,7 @@ Allows an agent, the sender agent (that can be the [Sections161#global world age
 </div>
 <p>ask receiver_agent(s) {      // [statements] } ```</p>
 
-<h4 id="embedments-38">Embedments</h4>
+<h4 id="embedments-41">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">simulate</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">simulate</code> statement can be embedded into: chart, Experiment, Species, Behavior, Sequence of statements or action,</li>
@@ -6493,7 +6494,7 @@ Allows an agent, the sender agent (that can be the [Sections161#global world age
 <hr />
 
 <h3 id="socialize">socialize</h3>
-<h4 id="facets-39">Facets</h4>
+<h4 id="facets-42">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : the identifier of the socialize statement</li>
@@ -6505,11 +6506,11 @@ Allows an agent, the sender agent (that can be the [Sections161#global world age
   <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to socialize only with a certain condition</li>
 </ul>
 
-<h4 id="definition-37">Definition</h4>
+<h4 id="definition-40">Definition</h4>
 
 <p>enables to directly add a social link from a perceived agent.</p>
 
-<h4 id="usages-37">Usages</h4>
+<h4 id="usages-40">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -6517,7 +6518,7 @@ Allows an agent, the sender agent (that can be the [Sections161#global world age
 socialize;</code></li>
 </ul>
 
-<h4 id="embedments-39">Embedments</h4>
+<h4 id="embedments-42">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">socialize</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">socialize</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -6527,7 +6528,7 @@ socialize;</code></li>
 <hr />
 
 <h3 id="solve">solve</h3>
-<h4 id="facets-40">Facets</h4>
+<h4 id="facets-43">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">equation</code></strong> (an identifier), (omissible) : the equation system identifier to be numerically solved</li>
@@ -6545,11 +6546,11 @@ socialize;</code></li>
   <li><code class="highlighter-rouge">time_initial</code> (float): initial time</li>
 </ul>
 
-<h4 id="definition-38">Definition</h4>
+<h4 id="definition-41">Definition</h4>
 
 <p>Solves all equations which matched the given name, with all systems of agents that should solved simultaneously.</p>
 
-<h4 id="usages-38">Usages</h4>
+<h4 id="usages-41">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -6557,7 +6558,7 @@ socialize;</code></li>
 solve SIR method: "rk4" step:0.001;</code></li>
 </ul>
 
-<h4 id="embedments-40">Embedments</h4>
+<h4 id="embedments-43">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">solve</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">solve</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -6567,7 +6568,7 @@ solve SIR method: "rk4" step:0.001;</code></li>
 <hr />
 
 <h3 id="species">species</h3>
-<h4 id="facets-41">Facets</h4>
+<h4 id="facets-44">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : the identifier of the species</li>
@@ -6598,11 +6599,11 @@ solve SIR method: "rk4" step:0.001;</code></li>
   <li><code class="highlighter-rouge">width</code> (int): (grid only), the width of the grid (in terms of agent number)</li>
 </ul>
 
-<h4 id="definition-39">Definition</h4>
+<h4 id="definition-42">Definition</h4>
 
 <p>The species statement allows modelers to define new species in the model. <code class="highlighter-rouge">global</code> and <code class="highlighter-rouge">grid</code> are speciel cases of species: <code class="highlighter-rouge">global</code> being the definition of the global agent (which has automatically one instance, world) and <code class="highlighter-rouge">grid</code> being a species with a grid topology.</p>
 
-<h4 id="usages-39">Usages</h4>
+<h4 id="usages-42">Usages</h4>
 
 <ul>
   <li>Here is an example of a species definition with a FSM architecture and the additional skill moving:</li>
@@ -6630,7 +6631,7 @@ solve SIR method: "rk4" step:0.001;</code></li>
 </div>
 <p>grid ant_grid file: grid_file neighbors: 8 use_regular_agents: false {  ```</p>
 
-<h4 id="embedments-41">Embedments</h4>
+<h4 id="embedments-44">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">species</code> statement is of type: <strong>Species</strong></li>
   <li>The <code class="highlighter-rouge">species</code> statement can be embedded into: Model, Environment, Species,</li>
@@ -6640,7 +6641,7 @@ solve SIR method: "rk4" step:0.001;</code></li>
 <hr />
 
 <h3 id="start_simulation">start_simulation</h3>
-<h4 id="facets-42">Facets</h4>
+<h4 id="facets-45">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string), (omissible) :</li>
@@ -6649,7 +6650,7 @@ solve SIR method: "rk4" step:0.001;</code></li>
   <li><code class="highlighter-rouge">with_param</code> (map):</li>
 </ul>
 
-<h4 id="embedments-42">Embedments</h4>
+<h4 id="embedments-45">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">start_simulation</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">start_simulation</code> statement can be embedded into: Behavior, Single statement, Species, Model,</li>
@@ -6659,7 +6660,7 @@ solve SIR method: "rk4" step:0.001;</code></li>
 <hr />
 
 <h3 id="state">state</h3>
-<h4 id="facets-43">Facets</h4>
+<h4 id="facets-46">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : the identifier of the state</li>
@@ -6667,11 +6668,11 @@ solve SIR method: "rk4" step:0.001;</code></li>
   <li><code class="highlighter-rouge">initial</code> (boolean): specifies whether the state is the initial one (default value = false)</li>
 </ul>
 
-<h4 id="definition-40">Definition</h4>
+<h4 id="definition-43">Definition</h4>
 
 <p>A state, like a reflex, can contains several statements that can be executed at each time step by the agent.</p>
 
-<h4 id="usages-40">Usages</h4>
+<h4 id="usages-43">Usages</h4>
 
 <ul>
   <li>Here is an exemple integrating 2 states and the statements in the FSM architecture:</li>
@@ -6708,7 +6709,7 @@ The statement makes the agent output an arbitrary message in the status box.
 </div>
 <p>status (‘This is my status ‘ + self) color: #yellow; ```</p>
 
-<h4 id="embedments-43">Embedments</h4>
+<h4 id="embedments-46">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">status</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">status</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
@@ -6718,17 +6719,17 @@ The statement makes the agent output an arbitrary message in the status box.
 <hr />
 
 <h3 id="switch">switch</h3>
-<h4 id="facets-44">Facets</h4>
+<h4 id="facets-47">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">value</code></strong> (any type), (omissible) : an expression</li>
 </ul>
 
-<h4 id="definition-41">Definition</h4>
+<h4 id="definition-44">Definition</h4>
 
 <p>The “switch… match” statement is a powerful replacement for imbricated “if … else …” constructs. All the blocks that match are executed in the order they are defined. The block prefixed by default is executed only if none have matched (otherwise it is not).</p>
 
-<h4 id="usages-41">Usages</h4>
+<h4 id="usages-44">Usages</h4>
 
 <ul>
   <li>The prototypical syntax is as follows:</li>
@@ -6747,7 +6748,7 @@ The statement makes the agent output an arbitrary message in the status box.
   <li>See also: <a href="#match">match</a>, <a href="#default">default</a>, <a href="#if">if</a>,</li>
 </ul>
 
-<h4 id="embedments-44">Embedments</h4>
+<h4 id="embedments-47">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">switch</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">switch</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
@@ -6757,7 +6758,7 @@ The statement makes the agent output an arbitrary message in the status box.
 <hr />
 
 <h3 id="tabu">tabu</h3>
-<h4 id="facets-45">Facets</h4>
+<h4 id="facets-48">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : The name of the method. For internal use only</li>
@@ -6768,11 +6769,11 @@ The statement makes the agent output an arbitrary message in the status box.
   <li><code class="highlighter-rouge">tabu_list_size</code> (int): size of the tabu list</li>
 </ul>
 
-<h4 id="definition-42">Definition</h4>
+<h4 id="definition-45">Definition</h4>
 
 <p>This algorithm is an implementation of the Tabu Search algorithm. See the wikipedia article and [batch161 the batch dedicated page].</p>
 
-<h4 id="usages-42">Usages</h4>
+<h4 id="usages-45">Usages</h4>
 
 <ul>
   <li>As other batch methods, the basic syntax of the tabu statement uses <code class="highlighter-rouge">method tabu</code> instead of the expected <code class="highlighter-rouge">tabu name: id</code> :</li>
@@ -6787,7 +6788,7 @@ The statement makes the agent output an arbitrary message in the status box.
 </div>
 <p>method tabu iter_max: 50 tabu_list_size: 5 maximize: food_gathered; ```</p>
 
-<h4 id="embedments-45">Embedments</h4>
+<h4 id="embedments-48">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">tabu</code> statement is of type: <strong>Batch method</strong></li>
   <li>The <code class="highlighter-rouge">tabu</code> statement can be embedded into: Experiment,</li>
@@ -6797,20 +6798,20 @@ The statement makes the agent output an arbitrary message in the status box.
 <hr />
 
 <h3 id="task">task</h3>
-<h4 id="facets-46">Facets</h4>
+<h4 id="facets-49">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : the identifier of the task</li>
   <li><strong><code class="highlighter-rouge">weight</code></strong> (float): the priority level of the task</li>
 </ul>
 
-<h4 id="definition-43">Definition</h4>
+<h4 id="definition-46">Definition</h4>
 
 <p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
 
-<h4 id="usages-43">Usages</h4>
+<h4 id="usages-46">Usages</h4>
 
-<h4 id="embedments-46">Embedments</h4>
+<h4 id="embedments-49">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">task</code> statement is of type: <strong>Behavior</strong></li>
   <li>The <code class="highlighter-rouge">task</code> statement can be embedded into: weighted_tasks, sorted_tasks, probabilistic_tasks, Species, Experiment, Model,</li>
@@ -6820,17 +6821,17 @@ The statement makes the agent output an arbitrary message in the status box.
 <hr />
 
 <h3 id="test">test</h3>
-<h4 id="facets-47">Facets</h4>
+<h4 id="facets-50">Facets</h4>
 
 <ul>
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : identifier of the test</li>
 </ul>
 
-<h4 id="definition-44">Definition</h4>
+<h4 id="definition-47">Definition</h4>
 
-<p>The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue (if GAMA is configured in the preferences that the program does not stop at the first exception).</p>
+<p>The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue.</p>
 
-<h4 id="usages-44">Usages</h4>
+<h4 id="usages-47">Usages</h4>
 
 <ul>
   <li>An example of use:</li>
@@ -6892,7 +6893,7 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
   <li>See also: <a href="#enter">enter</a>, <a href="#state">state</a>, <a href="#exit">exit</a>,</li>
 </ul>
 
-<h4 id="embedments-47">Embedments</h4>
+<h4 id="embedments-50">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">transition</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">transition</code> statement can be embedded into: Sequence of statements or action, Behavior,</li>
@@ -6902,13 +6903,13 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
 <hr />
 
 <h3 id="try">try</h3>
-<h4 id="facets-48">Facets</h4>
+<h4 id="facets-51">Facets</h4>
 
-<h4 id="definition-45">Definition</h4>
+<h4 id="definition-48">Definition</h4>
 
 <p>Allows the agent to execute a sequence of statements and to catch any runtime error that might happen in a subsequent <code class="highlighter-rouge">catch</code> block, either to ignore it (not a good idea, usually) or to safely stop the model</p>
 
-<h4 id="usages-45">Usages</h4>
+<h4 id="usages-48">Usages</h4>
 
 <ul>
   <li>The generic syntax is:</li>
@@ -6923,7 +6924,7 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
 </div>
 <p>try {     [statements] } catch {     [statements] } ```</p>
 
-<h4 id="embedments-48">Embedments</h4>
+<h4 id="embedments-51">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">try</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">try</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>
@@ -6933,7 +6934,7 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
 <hr />
 
 <h3 id="unconscious_contagion">unconscious_contagion</h3>
-<h4 id="facets-49">Facets</h4>
+<h4 id="facets-52">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): the emotion that will be copied with the contagion</li>
@@ -6944,11 +6945,11 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
   <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to get the emotion only with a certain condition</li>
 </ul>
 
-<h4 id="definition-46">Definition</h4>
+<h4 id="definition-49">Definition</h4>
 
 <p>enables to directly copy an emotion presents in the perceived specie.</p>
 
-<h4 id="usages-46">Usages</h4>
+<h4 id="usages-49">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -6956,7 +6957,7 @@ In an FSM architecture, `transition` specifies the next state of the life cycle.
 unconscious_contagion emotion:fearConfirmed;  unconscious_contagion emotion:fearConfirmed charisma: 0.5 receptivity: 0.5;</code></li>
 </ul>
 
-<h4 id="embedments-49">Embedments</h4>
+<h4 id="embedments-52">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">unconscious_contagion</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">unconscious_contagion</code> statement can be embedded into: Behavior, Sequence of statements or action,</li>
@@ -6966,7 +6967,7 @@ unconscious_contagion emotion:fearConfirmed;  unconscious_contagion emotion:fear
 <hr />
 
 <h3 id="user_command">user_command</h3>
-<h4 id="facets-50">Facets</h4>
+<h4 id="facets-53">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (a label), (omissible) : the identifier of the user_command</li>
@@ -6978,11 +6979,11 @@ unconscious_contagion emotion:fearConfirmed;  unconscious_contagion emotion:fear
   <li><code class="highlighter-rouge">with</code> (map): the map of the parameters::values required by the action</li>
 </ul>
 
-<h4 id="definition-47">Definition</h4>
+<h4 id="definition-50">Definition</h4>
 
 <p>Anywhere in the global block, in a species or in an (GUI) experiment, user_command statements allows to either call directly an existing action (with or without arguments) or to be followed by a block that describes what to do when this command is run.</p>
 
-<h4 id="usages-47">Usages</h4>
+<h4 id="usages-50">Usages</h4>
 
 <ul>
   <li>The general syntax is for example:</li>
@@ -7050,7 +7051,7 @@ It allows to let the user define the value of a variable.
   <li>See also: <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>,</li>
 </ul>
 
-<h4 id="embedments-50">Embedments</h4>
+<h4 id="embedments-53">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">user_input</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">user_input</code> statement can be embedded into: user_command,</li>
@@ -7060,18 +7061,18 @@ It allows to let the user define the value of a variable.
 <hr />
 
 <h3 id="user_panel">user_panel</h3>
-<h4 id="facets-51">Facets</h4>
+<h4 id="facets-54">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : The name of the panel</li>
   <li><code class="highlighter-rouge">initial</code> (boolean): Whether or not this panel will be the initial one</li>
 </ul>
 
-<h4 id="definition-48">Definition</h4>
+<h4 id="definition-51">Definition</h4>
 
 <p>It is the basic behavior of the user control architecture (it is similar to state for the FSM architecture). This user_panel translates, in the interface, in a semi-modal view that awaits the user to choose action buttons, change attributes of the controlled agent, etc. Each user_panel, like a state in FSM, can have a enter and exit sections, but it is only defined in terms of a set of user_commands which describe the different action buttons present in the panel.</p>
 
-<h4 id="usages-48">Usages</h4>
+<h4 id="usages-51">Usages</h4>
 
 <ul>
   <li>The general syntax is for example:</li>
@@ -7107,7 +7108,7 @@ It allows to let the user define the value of a variable.
 </div>
 <p>float dist &lt;- 0.0; using topology(grid_ant) { 	d (self.location distance_to target.location); } ```</p>
 
-<h4 id="embedments-51">Embedments</h4>
+<h4 id="embedments-54">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">using</code> statement is of type: <strong>Sequence of statements or action</strong></li>
   <li>The <code class="highlighter-rouge">using</code> statement can be embedded into: chart, Behavior, Sequence of statements or action, Layer,</li>
@@ -7117,7 +7118,7 @@ It allows to let the user define the value of a variable.
 <hr />
 
 <h3 id="variable_container">Variable_container</h3>
-<h4 id="facets-52">Facets</h4>
+<h4 id="facets-55">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (a new identifier), (omissible) : The name of the attribute</li>
@@ -7136,13 +7137,13 @@ It allows to let the user define the value of a variable.
   <li><code class="highlighter-rouge">value</code> (any type):</li>
 </ul>
 
-<h4 id="definition-49">Definition</h4>
+<h4 id="definition-52">Definition</h4>
 
 <p>Allows to declare an attribute of a species or an experiment</p>
 
-<h4 id="usages-49">Usages</h4>
+<h4 id="usages-52">Usages</h4>
 
-<h4 id="embedments-52">Embedments</h4>
+<h4 id="embedments-55">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">Variable_container</code> statement is of type: <strong>Variable (container)</strong></li>
   <li>The <code class="highlighter-rouge">Variable_container</code> statement can be embedded into: Species, Experiment, Model,</li>
@@ -7152,7 +7153,7 @@ It allows to let the user define the value of a variable.
 <hr />
 
 <h3 id="variable_number">Variable_number</h3>
-<h4 id="facets-53">Facets</h4>
+<h4 id="facets-56">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (a new identifier), (omissible) : The name of the attribute</li>
@@ -7171,13 +7172,13 @@ It allows to let the user define the value of a variable.
   <li><code class="highlighter-rouge">value</code> (any type in [int, float]):</li>
 </ul>
 
-<h4 id="definition-50">Definition</h4>
+<h4 id="definition-53">Definition</h4>
 
 <p>Allows to declare an attribute of a species or experiment</p>
 
-<h4 id="usages-50">Usages</h4>
+<h4 id="usages-53">Usages</h4>
 
-<h4 id="embedments-53">Embedments</h4>
+<h4 id="embedments-56">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">Variable_number</code> statement is of type: <strong>Variable (number)</strong></li>
   <li>The <code class="highlighter-rouge">Variable_number</code> statement can be embedded into: Species, Experiment, Model,</li>
@@ -7187,7 +7188,7 @@ It allows to let the user define the value of a variable.
 <hr />
 
 <h3 id="variable_regular">Variable_regular</h3>
-<h4 id="facets-54">Facets</h4>
+<h4 id="facets-57">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (a new identifier), (omissible) : The name of the attribute</li>
@@ -7205,13 +7206,13 @@ It allows to let the user define the value of a variable.
   <li><code class="highlighter-rouge">value</code> (any type):</li>
 </ul>
 
-<h4 id="definition-51">Definition</h4>
+<h4 id="definition-54">Definition</h4>
 
 <p>Allows to declare an attribute of a species or an experiment</p>
 
-<h4 id="usages-51">Usages</h4>
+<h4 id="usages-54">Usages</h4>
 
-<h4 id="embedments-54">Embedments</h4>
+<h4 id="embedments-57">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">Variable_regular</code> statement is of type: <strong>Variable (regular)</strong></li>
   <li>The <code class="highlighter-rouge">Variable_regular</code> statement can be embedded into: Species, Experiment, Model,</li>
@@ -7221,17 +7222,17 @@ It allows to let the user define the value of a variable.
 <hr />
 
 <h3 id="warn">warn</h3>
-<h4 id="facets-55">Facets</h4>
+<h4 id="facets-58">Facets</h4>
 
 <ul>
   <li><strong><code class="highlighter-rouge">message</code></strong> (string), (omissible) : the message to display as a warning.</li>
 </ul>
 
-<h4 id="definition-52">Definition</h4>
+<h4 id="definition-55">Definition</h4>
 
 <p>The statement makes the agent output an arbitrary message in the error view as a warning.</p>
 
-<h4 id="usages-52">Usages</h4>
+<h4 id="usages-55">Usages</h4>
 
 <ul>
   <li>Emmitting a warning</li>
@@ -7267,7 +7268,7 @@ The statement makes the agent output an arbitrary message in the console.
 </div>
 <p>write ‘This is a message from ‘ + self; ```</p>
 
-<h4 id="embedments-55">Embedments</h4>
+<h4 id="embedments-58">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">write</code> statement is of type: <strong>Single statement</strong></li>
   <li>The <code class="highlighter-rouge">write</code> statement can be embedded into: Behavior, Sequence of statements or action, Layer,</li>

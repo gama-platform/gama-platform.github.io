@@ -69,14 +69,19 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 ## simple_bdi 
 ### Variables
 	   
+* **`amicability`** (float):    
 * **`belief_base`** (list):    
 * **`charisma`** (float):    
+* **`conscience`** (float):    
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
+* **`expressivity`** (float):    
 * **`ideal_base`** (list):    
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
+* **`neurotisme`** (float):    
+* **`openness`** (float):    
 * **`plan_base`** (list):    
 * **`plan_persistence`** (float): plan persistence   
 * **`probabilistic_choice`** (boolean):    
@@ -85,6 +90,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`thinking`** (list):    
 * **`uncertainty_base`** (list):    
 * **`use_emotions_architecture`** (boolean):    
+* **`use_personality`** (boolean):    
 * **`use_social_architecture`** (boolean):  
  	
 ### Actions 
@@ -94,6 +100,13 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 add the predicate in the belief base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to add as a belief 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_belief_emotion`**
+add the belief about an emotion in the belief base.
+* returns: bool 			
+* **`emotion`** (546706): emotion to add as a belief 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
@@ -112,12 +125,20 @@ adds the predicates is in the desire base.
 * **`lifetime`** (int): the lifetime of the belief 			
 * **`todo`** (546704): add the desire as a subintention of this parameter  
 	 
+#### **`add_desire_emotion`**
+adds the emotion in the desire base.
+* returns: bool 			
+* **`emotion`** (546706): emotion to add as a desire 			
+* **`strength`** (float): the stregth of the desire 			
+* **`lifetime`** (int): the lifetime of the desire 			
+* **`todo`** (546704): add the desire as a subintention of this parameter  
+	 
 #### **`add_desire_mental_state`**
-adds the predicates is in the desire base.
+adds the mental state is in the desire base.
 * returns: bool 			
 * **`mental_state`** (546708): mental_state to add as a desire 			
-* **`strength`** (float): the stregth of the belief 			
-* **`lifetime`** (int): the lifetime of the belief 			
+* **`strength`** (float): the stregth of the desire 			
+* **`lifetime`** (int): the lifetime of the desire 			
 * **`todo`** (546704): add the desire as a subintention of this parameter  
 	 
 #### **`add_emotion`**
@@ -132,6 +153,13 @@ add a predicate in the ideal base.
 * **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
+#### **`add_ideal_emotion`**
+add a predicate in the ideal base.
+* returns: bool 			
+* **`emotion`** (546706): emotion to add as an ideal 			
+* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`lifetime`** (int): the lifetime of the ideal  
+	 
 #### **`add_ideal_mental_state`**
 add a predicate in the ideal base.
 * returns: bool 			
@@ -143,6 +171,13 @@ add a predicate in the ideal base.
 check if the predicates is in the desire base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to check 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_intention_emotion`**
+check if the predicates is in the desire base.
+* returns: bool 			
+* **`emotion`** (546706): emotion to add as an intention 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
@@ -169,6 +204,13 @@ adds the predicates is in the desire base.
 add a predicate in the uncertainty base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to add 			
+* **`strength`** (float): the stregth of the belief 			
+* **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_uncertainty_emotion`**
+add a predicate in the uncertainty base.
+* returns: bool 			
+* **`emotion`** (546706): emotion to add as an uncertainty 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
@@ -216,6 +258,11 @@ puts the current intention on hold until the specified condition is reached or a
 return the belief about the predicate in the belief base (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.MentalState 			
 * **`predicate`** (546704): predicate to get  
+	 
+#### **`get_belief_emotion`**
+return the belief about the emotion in the belief base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`emotion`** (546706): emotion about which the belief to get is  
 	 
 #### **`get_belief_mental_state`**
 return the belief about the mental state in the belief base (if several, returns the first one).

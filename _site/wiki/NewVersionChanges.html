@@ -3536,6 +3536,7 @@ gives examples</li>
 <h2 id="language">Language</h2>
 <ul>
   <li><code class="highlighter-rouge">gama</code> : a new immutable agent that can be invoked to change preferences or access to platform-only properties (like <code class="highlighter-rouge">machine-time</code>)</li>
+  <li><code class="highlighter-rouge">abort</code>: a new behavior (like <code class="highlighter-rouge">reflex</code> or <code class="highlighter-rouge">init</code>) that is executed once when the agent is about to die</li>
   <li><code class="highlighter-rouge">try</code> and <code class="highlighter-rouge">catch</code> statements now provide a robust way to catch errors happening in the simulations.</li>
   <li><code class="highlighter-rouge">super</code> (instead of <code class="highlighter-rouge">self</code>) and <code class="highlighter-rouge">invoke</code> (instead of <code class="highlighter-rouge">do</code>) can now be used to call an action defined in a parent species.</li>
   <li><code class="highlighter-rouge">date</code> : new data type that offers the possibility to use a real calendar, to define a <code class="highlighter-rouge">starting_date</code> and to query a <code class="highlighter-rouge">current_date</code> from a simulation, to parse dates from date files or to output them in custom formats. Dates can be added, subtracted, compared. Various new operators (<code class="highlighter-rouge">minus_months</code>, etc.) allow for a fine manipulation of their data. Time units (<code class="highlighter-rouge">#sec</code>, <code class="highlighter-rouge">#s</code>, <code class="highlighter-rouge">#mn</code>, <code class="highlighter-rouge">#minute</code>, <code class="highlighter-rouge">#h</code>, <code class="highlighter-rouge">#hour</code>, <code class="highlighter-rouge">#day</code>, etc.) can be used in conjunction with them. Interval of dates (date1 to date2) can be created and used as a basis for loops, etc. Various simple operators allow for defining conditions based on the current_date (after(date1), before(date2), since(date1), etc.).</li>
@@ -3543,7 +3544,8 @@ gives examples</li>
   <li>BDI control architecture for agents</li>
   <li>file management, new operators, new statements, new skills(?), new built-in variables, files can now download their contents from the web by using standard http: https: addresses instead of file paths.</li>
   <li>The <code class="highlighter-rouge">save</code> can now directly manipulate files and … save them. So something like <code class="highlighter-rouge">save shape_file("bb.shp", my_agents collect each.shape);</code> is possible. In addition, a new facet <code class="highlighter-rouge">attributes</code> allows to define complex attributes to be saved.</li>
-  <li><code class="highlighter-rouge">status</code> statement (to manipulate the status line from GAML)</li>
+  <li><code class="highlighter-rouge">assert</code> has a simpler syntax and can be used in any behaviour to raise an error if a condition is not met.</li>
+  <li><code class="highlighter-rouge">test</code> is a new type of experiments (<code class="highlighter-rouge">experiment aaa type: test ... </code>), equivalent to a <code class="highlighter-rouge">batch</code> with an exhaustive search method, which automatically displays the status of tests found in the model.</li>
   <li>new operators (<code class="highlighter-rouge">sum_of</code>, <code class="highlighter-rouge">product_of</code>, etc.)</li>
   <li>casting of files works</li>
   <li>co-modeling (importation of micro-models that can be managed within a macro-model)</li>
@@ -3555,6 +3557,7 @@ gives examples</li>
   <li>Displays can now inherit from other displays (facets <code class="highlighter-rouge">parent</code> and <code class="highlighter-rouge">virtual</code> to describe abstract displays)</li>
   <li><code class="highlighter-rouge">on_change:</code> facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes.</li>
   <li><code class="highlighter-rouge">species</code> and <code class="highlighter-rouge">experiment</code> now support the <code class="highlighter-rouge">virtual</code> boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).</li>
+  <li><code class="highlighter-rouge">experiment</code> now supports the <code class="highlighter-rouge">auto_run</code> boolean facet (to run automatically when launched)</li>
 </ul>
 
 <h2 id="data-importation">Data importation</h2>
@@ -3570,6 +3573,11 @@ gives examples</li>
   <li>doc on built-in elements, templates, shortcuts to common tasks, hyperlinks to files used</li>
   <li>improvement in time, gathering of infos/todos</li>
   <li>warnings can be removed from model files</li>
+</ul>
+
+<h2 id="headless">Headless</h2>
+<ul>
+  <li>A new option <code class="highlighter-rouge">-validate path/to/dir</code> allows to run a complete validation of all the models in the directory</li>
 </ul>
 
 <h2 id="models-library">Models library:</h2>

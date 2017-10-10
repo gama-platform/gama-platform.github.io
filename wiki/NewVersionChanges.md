@@ -43,6 +43,7 @@ gives examples
 
 ## Language
  * `gama` : a new immutable agent that can be invoked to change preferences or access to platform-only properties (like `machine-time`)
+ * `abort`: a new behavior (like `reflex` or `init`) that is executed once when the agent is about to die
  * `try` and `catch` statements now provide a robust way to catch errors happening in the simulations. 
  * `super` (instead of `self`) and `invoke` (instead of `do`) can now be used to call an action defined in a parent species. 
  * `date` : new data type that offers the possibility to use a real calendar, to define a `starting_date` and to query a `current_date` from a simulation, to parse dates from date files or to output them in custom formats. Dates can be added, subtracted, compared. Various new operators (`minus_months`, etc.) allow for a fine manipulation of their data. Time units (`#sec`, `#s`, `#mn`, `#minute`, `#h`, `#hour`, `#day`, etc.) can be used in conjunction with them. Interval of dates (date1 to date2) can be created and used as a basis for loops, etc. Various simple operators allow for defining conditions based on the current_date (after(date1), before(date2), since(date1), etc.).
@@ -50,7 +51,8 @@ gives examples
  * BDI control architecture for agents
  * file management, new operators, new statements, new skills(?), new built-in variables, files can now download their contents from the web by using standard http: https: addresses instead of file paths.
  * The `save` can now directly manipulate files and ... save them. So something like `save shape_file("bb.shp", my_agents collect each.shape);` is possible. In addition, a new facet `attributes` allows to define complex attributes to be saved. 
- * `status` statement (to manipulate the status line from GAML)
+ * `assert` has a simpler syntax and can be used in any behaviour to raise an error if a condition is not met. 
+ * `test` is a new type of experiments (`experiment aaa type: test ... `), equivalent to a `batch` with an exhaustive search method, which automatically displays the status of tests found in the model. 
  * new operators (`sum_of`, `product_of`, etc.)
  * casting of files works
  * co-modeling (importation of micro-models that can be managed within a macro-model)
@@ -62,6 +64,7 @@ gives examples
  * Displays can now inherit from other displays (facets `parent` and `virtual` to describe abstract displays)
  * `on_change:` facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes. 
  * `species` and `experiment` now support the `virtual` boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).
+ * `experiment` now supports the `auto_run` boolean facet (to run automatically when launched)
 
 ## Data importation
  * draw of complex shapes through obj file
@@ -74,6 +77,8 @@ gives examples
  * improvement in time, gathering of infos/todos
  * warnings can be removed from model files
 
+## Headless
+ * A new option `-validate path/to/dir` allows to run a complete validation of all the models in the directory
 
 ## Models library: 
  * New models (make a list)

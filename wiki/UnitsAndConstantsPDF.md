@@ -63,7 +63,7 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#e`**, value= 2.718281828459045, Comment: The e constant
 
 [//]: # (keyword|constant_#infinity)
-* **`\#infinity`**, value= Infinity, Comment: A constant holding the positive infinity of type (Java Double.POSITIVE_INFINITY)
+* **`\#infinity`**, value= Infinity, Comment: A constant holding the positive infinity of type float (Java Double.POSITIVE_INFINITY)
 
 [//]: # (keyword|constant_#max_float)
 * **`\#max_float`**, value= 1.7976931348623157E308, Comment: A constant holding the largest positive finite value of type float (Java Double.MAX_VALUE)
