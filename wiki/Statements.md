@@ -1442,10 +1442,15 @@ Declaration of a particular type of agent that can manage simulations
 
   * `name` (an identifier), (omissible) : the identifier of the focus
   * `agent_cause` (agent): the agentCause value of the created belief (can be nil
+  * `belief` (546704): The predicate to focus on the beliefs of the other agent
+  * `desire` (546704): The predicate to focus on the desires of the other agent
+  * `emotion` (546706): The emotion to focus on the emotions of the other agent
   * `expression` (any type): an expression that will be the value kept in the belief
+  * `ideal` (546704): The predicate to focus on the ideals of the other agent
   * `lifetime` (int): the lifetime value of the created belief
   * `strength` (any type in [float, int]): The priority of the created predicate
   * `truth` (boolean): the truth value of the created belief
+  * `uncertainty` (546704): The predicate to focus on the uncertainties of the other agent
   * `var` (any type in [any type, list, container]): the variable of the perceived agent you want to add to your beliefs
   * `when` (boolean): A boolean value to focus only with a certain condition 
  	
