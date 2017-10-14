@@ -72,15 +72,15 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`amicability`** (float):    
 * **`belief_base`** (list):    
 * **`charisma`** (float):    
-* **`conscience`** (float):    
+* **`conscientiousness`** (float):    
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
-* **`expressivity`** (float):    
+* **`extraversion`** (float):    
 * **`ideal_base`** (list):    
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
-* **`neurotisme`** (float):    
+* **`neurotism`** (float):    
 * **`openness`** (float):    
 * **`plan_base`** (list):    
 * **`plan_persistence`** (float): plan persistence   
