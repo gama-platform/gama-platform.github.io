@@ -51,7 +51,8 @@
         $.getJSON('https://graph.facebook.com/238065426321929/feed?access_token=229040647557399|MQKFlFYX7YW25XGj4GUYZ7B1lcY', function(data) 
         {
 		var ahtml="";
-		for(var i = 0; i < 5; i++) 
+                var nbCount = 5;
+		for(var i = 0; i < nbCount; i++) 
                 {
 		
 			var d = new Date(data["data"][i]["created_time"]);
@@ -62,7 +63,14 @@
 			}
 			else
 			{
-				ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+				if("story" in data["data"][i])
+                                {
+                                    ahtml=ahtml+"<small><strong class='w3-light-gray w3-text-deep-purple'> "+d.toDateString() + "</strong></small><p>"+truncate(data["data"][i]["story"] , nbWords)+"...<a href='https://facebook.com/"+data["data"][i]["id"].replace("_","/posts/")+ "'>See more</a>";
+                                }
+                                else
+                                {
+                                    nbCount = nbCount+1;
+                                }
 			}
 			ahtml=ahtml+"</p></div>";
 		}
