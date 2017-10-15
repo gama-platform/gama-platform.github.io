@@ -131,7 +131,8 @@ lunr.Index.prototype.query = function (fn) {
 
   var query = new lunr.Query(this.fields),
       matchingFields = Object.create(null),
-      queryVectors = Object.create(null)
+      queryVectors = Object.create(null),
+      termFieldCache = Object.create(null)
 
   fn.call(query, query)
 
@@ -192,7 +193,8 @@ lunr.Index.prototype.query = function (fn) {
            */
           var field = clause.fields[k],
               fieldPosting = posting[field],
-              matchingDocumentRefs = Object.keys(fieldPosting)
+              matchingDocumentRefs = Object.keys(fieldPosting),
+              termField = expandedTerm + "/" + field
 
           /*
            * To support field level boosts a query vector is created per
@@ -202,7 +204,7 @@ lunr.Index.prototype.query = function (fn) {
            * If the query vector for this field does not exist yet it needs
            * to be created.
            */
-          if (!(field in queryVectors)) {
+          if (queryVectors[field] === undefined) {
             queryVectors[field] = new lunr.Vector
           }
 
@@ -213,6 +215,14 @@ lunr.Index.prototype.query = function (fn) {
            */
           queryVectors[field].upsert(termIndex, 1 * clause.boost, function (a, b) { return a + b })
 
+          /**
+           * If we've already seen this term, field combo then we've already collected
+           * the matching documents and metadata, no need to go through all that again
+           */
+          if (termFieldCache[termField]) {
+            continue
+          }
+
           for (var l = 0; l < matchingDocumentRefs.length; l++) {
             /*
              * All metadata for this term/field/document triple
@@ -222,25 +232,26 @@ lunr.Index.prototype.query = function (fn) {
              */
             var matchingDocumentRef = matchingDocumentRefs[l],
                 matchingFieldRef = new lunr.FieldRef (matchingDocumentRef, field),
-                documentMetadata, matchData
+                metadata = fieldPosting[matchingDocumentRef],
+                fieldMatch
 
-            documentMetadata = fieldPosting[matchingDocumentRef]
-            matchData = new lunr.MatchData (expandedTerm, field, documentMetadata)
-
-            if (matchingFieldRef in matchingFields) {
-              matchingFields[matchingFieldRef].combine(matchData)
+            if ((fieldMatch = matchingFields[matchingFieldRef]) === undefined) {
+              matchingFields[matchingFieldRef] = new lunr.MatchData (expandedTerm, field, metadata)
             } else {
-              matchingFields[matchingFieldRef] = matchData
+              fieldMatch.add(expandedTerm, term, metadata)
             }
 
           }
+
+          termFieldCache[termField] = true
         }
       }
     }
   }
 
   var matchingFieldRefs = Object.keys(matchingFields),
-      results = {}
+      results = [],
+      matches = Object.create(null)
 
   for (var i = 0; i < matchingFieldRefs.length; i++) {
     /*
@@ -254,31 +265,29 @@ lunr.Index.prototype.query = function (fn) {
     var fieldRef = lunr.FieldRef.fromString(matchingFieldRefs[i]),
         docRef = fieldRef.docRef,
         fieldVector = this.fieldVectors[fieldRef],
-        score = queryVectors[fieldRef.fieldName].similarity(fieldVector)
+        score = queryVectors[fieldRef.fieldName].similarity(fieldVector),
+        docMatch
 
-    if (docRef in results) {
-      results[docRef].score += score
-      results[docRef].matchData.combine(matchingFields[fieldRef])
+    if ((docMatch = matches[docRef]) !== undefined) {
+      docMatch.score += score
+      docMatch.matchData.combine(matchingFields[fieldRef])
     } else {
-      results[docRef] = {
+      var match = {
         ref: docRef,
         score: score,
         matchData: matchingFields[fieldRef]
       }
+      matches[docRef] = match
+      results.push(match)
     }
   }
 
   /*
-   * The results object needs to be converted into a list
-   * of results, sorted by score before being returned.
+   * Sort the results objects by score, highest first.
    */
-  return Object.keys(results)
-    .map(function (key) {
-      return results[key]
-    })
-    .sort(function (a, b) {
-      return b.score - a.score
-    })
+  return results.sort(function (a, b) {
+    return b.score - a.score
+  })
 }
 
 /**
