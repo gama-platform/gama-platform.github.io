@@ -3502,341 +3502,336 @@ SIR_EBM_coupling is the coupling that manipulates the elements inside SIR_EBM mo
 
 <p>Imported models :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SIR_ABM 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SIR_ABM</span> 
 
-global{
-	geometry shape&lt;-envelope(square(100));
-	float beta &lt;- 0.5 ; 	 
-	float nu &lt;- 0.001 ;
-	float delta &lt;- 0.01;
-	init{
-		create Host number:495 ;
-		create Host number:5{state&lt;-1;}
+<span class="n">global</span><span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
+	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="p">;</span> 	 
+	<span class="n">float</span> <span class="n">nu</span> <span class="p">&lt;-</span> <span class="m">0.001</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span><span class="m">495</span> <span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span><span class="m">5</span><span class="p">{</span><span class="n">state</span><span class="p">&lt;-</span><span class="m">1</span><span class="p">;}</span>
 		
-	}
-}
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species Host skills:[moving]{
-	int state&lt;-0;
-	list&lt;rgb&gt; color&lt;-[#green, #red, #yellow];
-	reflex moving{
-		do wander;
-	}
+<span class="n">species</span> <span class="n">Host</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
+	<span class="n">int</span> <span class="n">state</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">color</span><span class="p">&lt;-[#</span><span class="n">green</span><span class="p">,</span> <span class="p">#</span><span class="n">red</span><span class="p">,</span> <span class="p">#</span><span class="n">yellow</span><span class="p">];</span>
+	<span class="n">reflex</span> <span class="n">moving</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 
 
     
-    reflex become_infected when: state=1 {
-    	list n&lt;- self neighbors_at(1);
-    	ask n{    		
-	    	if (flip(beta)) {
-				state&lt;-1;    
-	        }
-    	}
-    }
+    <span class="n">reflex</span> <span class="n">become_infected</span> <span class="n">when</span><span class="p">:</span> <span class="n">state</span><span class="p">=</span><span class="m">1</span> <span class="p">{</span>
+    	<span class="k">list</span> <span class="n">n</span><span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    	<span class="n">ask</span> <span class="n">n</span><span class="p">{</span>    		
+	    	<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">beta</span><span class="p">))</span> <span class="p">{</span>
+				<span class="n">state</span><span class="p">&lt;-</span><span class="m">1</span><span class="p">;</span>    
+	        <span class="p">}</span>
+    	<span class="p">}</span>
+    <span class="p">}</span>
     
-    reflex become_immune when: (state=1 and flip(delta)) {
-    	state&lt;-2;
-    }
+    <span class="n">reflex</span> <span class="n">become_immune</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">state</span><span class="p">=</span><span class="m">1</span> <span class="k">and</span> <span class="n">flip</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="p">{</span>
+    	<span class="n">state</span><span class="p">&lt;-</span><span class="m">2</span><span class="p">;</span>
+    <span class="p">}</span>
     
             
-	aspect base{
-		draw circle(1) color: color[state];
-	}
-}
-experiment SIR_ABM_exp type:gui{
-	output {
-		display gridDisp{
-			species Host aspect:base;
-		}
-	}
-}
-</code></pre>
-</div>
+	<span class="n">aspect</span> <span class="n">base</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">[</span><span class="n">state</span><span class="p">];</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">SIR_ABM_exp</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">gridDisp</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">Host</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SIR_ABM_coupling
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SIR_ABM_coupling</span>
 
-import "SIR_ABM.gaml"
-experiment SIR_ABM_coupling_exp type: gui parent: SIR_ABM_exp
-{
-	int get_num_S
-	{
-		return length(Host where (each.state = 0));
-	}
+<span class="n">import</span> <span class="s2">"SIR_ABM.gaml"</span>
+<span class="n">experiment</span> <span class="n">SIR_ABM_coupling_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="n">parent</span><span class="p">:</span> <span class="n">SIR_ABM_exp</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">get_num_S</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">length</span><span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">0</span><span class="p">));</span>
+	<span class="p">}</span>
 
-	int get_num_I
-	{
-		return length(Host where (each.state = 1));
-	}
+	<span class="n">int</span> <span class="n">get_num_I</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">length</span><span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">1</span><span class="p">));</span>
+	<span class="p">}</span>
 
-	int get_num_R
-	{
-		return length(Host where (each.state = 2));
-	}
+	<span class="n">int</span> <span class="n">get_num_R</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">length</span><span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">2</span><span class="p">));</span>
+	<span class="p">}</span>
 
-	action set_num_S_I_R (int numS, int numI, int numR)
-	{
-		unknown call;
-		call &lt;- set_num_S(numS);
-		call &lt;- set_num_I(numI);
-		call &lt;- set_num_R(numR);
-	}
+	<span class="n">action</span> <span class="n">set_num_S_I_R</span> <span class="p">(</span><span class="n">int</span> <span class="n">numS</span><span class="p">,</span> <span class="n">int</span> <span class="n">numI</span><span class="p">,</span> <span class="n">int</span> <span class="n">numR</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">unknown</span> <span class="n">call</span><span class="p">;</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_S</span><span class="p">(</span><span class="n">numS</span><span class="p">);</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_I</span><span class="p">(</span><span class="n">numI</span><span class="p">);</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_R</span><span class="p">(</span><span class="n">numR</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	action set_num_S (int num)
-	{
-		ask (Host where (each.state = 0))
-		{
-			do die;
-		}
+	<span class="n">action</span> <span class="n">set_num_S</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">0</span><span class="p">))</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		create Host number: num
-		{
-			state &lt;- 0;
-		}
+		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span> <span class="n">num</span>
+		<span class="p">{</span>
+			<span class="n">state</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	action set_num_I (int num)
-	{
-		ask (Host where (each.state = 1))
-		{
-			do die;
-		}
+	<span class="n">action</span> <span class="n">set_num_I</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">1</span><span class="p">))</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		create Host number: num
-		{
-			state &lt;- 1;
-		}
+		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span> <span class="n">num</span>
+		<span class="p">{</span>
+			<span class="n">state</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	action set_num_R (int num)
-	{
-		ask (Host where (each.state = 2))
-		{
-			do die;
-		}
+	<span class="n">action</span> <span class="n">set_num_R</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">Host</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="m">2</span><span class="p">))</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		create Host number: num
-		{
-			state &lt;- 2;
-		}
+		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span> <span class="n">num</span>
+		<span class="p">{</span>
+			<span class="n">state</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	output
-	{
-	}
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SIR_EBM
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SIR_EBM</span>
 
-global {
-	init{
-		create agent_with_SIR_dynamic;
-	} 
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">agent_with_SIR_dynamic</span><span class="p">;</span>
+	<span class="p">}</span> 
+<span class="p">}</span>
 
 
-species agent_with_SIR_dynamic {
-	int N &lt;- 495 ;
-	int iInit &lt;- 5;		
+<span class="n">species</span> <span class="n">agent_with_SIR_dynamic</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="m">495</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">iInit</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>		
 
-    float t;  
-	float S &lt;- N - float(iInit); 	      
-	float I &lt;- float(iInit); 
-	float R &lt;- 0.0; 
+    <span class="n">float</span> <span class="n">t</span><span class="p">;</span>  
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">float</span><span class="p">(</span><span class="n">iInit</span><span class="p">);</span> 	      
+	<span class="n">float</span> <span class="n">I</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">iInit</span><span class="p">);</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
 	
-	float alpha &lt;- 0.2;
-	float beta &lt;- 0.8; 
+	<span class="n">float</span> <span class="n">alpha</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.8</span><span class="p">;</span> 
 
-	float h &lt;- 0.01;
+	<span class="n">float</span> <span class="n">h</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
    
-	equation SIR{ 
-		diff(S,t) = (- beta *   S * I / N);
-		diff(I,t) = (  beta*  S * I / N) - (alpha * I)  ;
-		diff(R,t) = (  alpha  *  I) ;
-	}
+	<span class="n">equation</span> <span class="n">SIR</span><span class="p">{</span> 
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(-</span> <span class="n">beta</span> <span class="p">*</span>   <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span>  <span class="n">beta</span><span class="p">*</span>  <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="p">*</span> <span class="n">I</span><span class="p">)</span>  <span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span>  <span class="n">alpha</span>  <span class="p">*</span>  <span class="n">I</span><span class="p">)</span> <span class="p">;</span>
+	<span class="p">}</span>
                 
-    reflex solving {
-//    	write S;
-    	solve SIR method: "rk4" step: h;// cycle_length: 1/h ;
-    }    
-}
+    <span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+<span class="p">//</span>    	<span class="nb">write</span> <span class="n">S</span><span class="p">;</span>
+    	<span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span><span class="p">;//</span> <span class="n">cycle_length</span><span class="p">:</span> <span class="m">1</span><span class="p">/</span><span class="n">h</span> <span class="p">;</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
 
 
-experiment SIR_EBM_exp type: gui {
-	output { 
-		display display_charts {
-			chart "SIR_agent" type: series background: #white {
-				data 'S' value: first(list(agent_with_SIR_dynamic)).S color: #green ;				
-				data 'I' value: first(list(agent_with_SIR_dynamic)).I color: #red ;
-				data 'R' value: first(list(agent_with_SIR_dynamic)).R color: #blue ;
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">SIR_EBM_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span> 
+		<span class="n">display</span> <span class="n">display_charts</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SIR_agent"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SIR_EBM_coupling
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SIR_EBM_coupling</span>
 
-import "SIR_EBM.gaml"
-experiment SIR_EBM_coupling_exp type: gui parent: SIR_EBM_exp
-{
-	int get_num_S
-	{
-		return first(agent_with_SIR_dynamic).S;
-	}
+<span class="n">import</span> <span class="s2">"SIR_EBM.gaml"</span>
+<span class="n">experiment</span> <span class="n">SIR_EBM_coupling_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="n">parent</span><span class="p">:</span> <span class="n">SIR_EBM_exp</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">get_num_S</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">S</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	int get_num_I
-	{
-		return first(agent_with_SIR_dynamic).I;
-	}
+	<span class="n">int</span> <span class="n">get_num_I</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">I</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	int get_num_R
-	{
-		return first(agent_with_SIR_dynamic).R;
-	}
+	<span class="n">int</span> <span class="n">get_num_R</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">R</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	action set_num_S_I_R (int numS, int numI, int numR)
-	{
-		unknown call;
-		call &lt;- set_num_S(numS);
-		call &lt;- set_num_I(numI);
-		call &lt;- set_num_R(numR);
-	}
+	<span class="n">action</span> <span class="n">set_num_S_I_R</span> <span class="p">(</span><span class="n">int</span> <span class="n">numS</span><span class="p">,</span> <span class="n">int</span> <span class="n">numI</span><span class="p">,</span> <span class="n">int</span> <span class="n">numR</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">unknown</span> <span class="n">call</span><span class="p">;</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_S</span><span class="p">(</span><span class="n">numS</span><span class="p">);</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_I</span><span class="p">(</span><span class="n">numI</span><span class="p">);</span>
+		<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">set_num_R</span><span class="p">(</span><span class="n">numR</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	action set_num_S (int num)
-	{
-		first(agent_with_SIR_dynamic).S &lt;- float(num);
-	}
+	<span class="n">action</span> <span class="n">set_num_S</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">S</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	action set_num_I (int num)
-	{
-		first(agent_with_SIR_dynamic).I &lt;- float(num);
-	}
+	<span class="n">action</span> <span class="n">set_num_I</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">I</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	action set_num_R (int num)
-	{
-		first(agent_with_SIR_dynamic).R &lt;- float(num);
-	}
+	<span class="n">action</span> <span class="n">set_num_R</span> <span class="p">(</span><span class="n">int</span> <span class="n">num</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">first</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">).</span><span class="n">R</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	output
-	{
-	}
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Comodel_SIR_Switch
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Comodel_SIR_Switch</span>
 
-import "Legacy_models/SIR_EBM_coupling.gaml" as SIR_1
-import "Legacy_models/SIR_ABM_coupling.gaml" as SIR_2
+<span class="n">import</span> <span class="s2">"Legacy_models/SIR_EBM_coupling.gaml"</span> <span class="k">as</span> <span class="n">SIR_1</span>
+<span class="n">import</span> <span class="s2">"Legacy_models/SIR_ABM_coupling.gaml"</span> <span class="k">as</span> <span class="n">SIR_2</span>
 
 
-global
-{
-	geometry shape &lt;- envelope(square(100));
-	int switch_threshold &lt;- 120; // threshold for switching models
-	int threshold_to_IBM &lt;- 220; // threshold under which the model swith to IBM
-	int threshold_to_Maths &lt;- 20;
-	init
-	{
-		create SIR_1.SIR_EBM_coupling_exp;
-		create SIR_2.SIR_ABM_coupling_exp;
-		create Switch;
-	}
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
+	<span class="n">int</span> <span class="n">switch_threshold</span> <span class="p">&lt;-</span> <span class="m">120</span><span class="p">;</span> <span class="p">//</span> <span class="n">threshold</span> <span class="n">for</span> <span class="n">switching</span> <span class="n">models</span>
+	<span class="n">int</span> <span class="n">threshold_to_IBM</span> <span class="p">&lt;-</span> <span class="m">220</span><span class="p">;</span> <span class="p">//</span> <span class="n">threshold</span> <span class="n">under</span> <span class="n">which</span> <span class="n">the</span> <span class="k">model</span> <span class="n">swith</span> <span class="k">to</span> <span class="n">IBM</span>
+	<span class="n">int</span> <span class="n">threshold_to_Maths</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Switch</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-species Switch
-{
-	int S &lt;- 495;
-	int I &lt;- 5;
-	int R &lt;- 0;
-	reflex request_from_micro_model
-	{
-		//if the size of S population and I population are bigger than a threshold, use the EBM
-		if (S &gt; threshold_to_Maths and I &gt; threshold_to_Maths)
-		{
-			ask world
-			{
-				unknown call;
-				call &lt;- first(SIR_1.SIR_EBM_coupling_exp).set_num_S_I_R(myself.S, myself.I, myself.R);
-				ask first(SIR_1.SIR_EBM_coupling_exp).simulation
-				{
-					loop times: 5
-					{
-						do _step_;
-					}
+<span class="n">species</span> <span class="n">Switch</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="m">495</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">I</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">request_from_micro_model</span>
+	<span class="p">{</span>
+		<span class="p">//</span><span class="k">if</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">S</span> <span class="n">population</span> <span class="k">and</span> <span class="n">I</span> <span class="n">population</span> <span class="n">are</span> <span class="n">bigger</span> <span class="n">than</span> <span class="n">a</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">use</span> <span class="n">the</span> <span class="n">EBM</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">S</span> <span class="p">&gt;</span> <span class="n">threshold_to_Maths</span> <span class="k">and</span> <span class="n">I</span> <span class="p">&gt;</span> <span class="n">threshold_to_Maths</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">ask</span> <span class="n">world</span>
+			<span class="p">{</span>
+				<span class="n">unknown</span> <span class="n">call</span><span class="p">;</span>
+				<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">).</span><span class="n">set_num_S_I_R</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">S</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">I</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">R</span><span class="p">);</span>
+				<span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">).</span><span class="n">simulation</span>
+				<span class="p">{</span>
+					<span class="n">loop</span> <span class="n">times</span><span class="p">:</span> <span class="m">5</span>
+					<span class="p">{</span>
+						<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+					<span class="p">}</span>
 
-				}
+				<span class="p">}</span>
 
-				myself.S &lt;- first(SIR_1.SIR_EBM_coupling_exp).get_num_S();
-				myself.I &lt;- first(SIR_1.SIR_EBM_coupling_exp).get_num_I();
-				myself.R &lt;- first(SIR_1.SIR_EBM_coupling_exp).get_num_R();
-			}
+				<span class="n">myself</span><span class="p">.</span><span class="n">S</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">).</span><span class="n">get_num_S</span><span class="p">();</span>
+				<span class="n">myself</span><span class="p">.</span><span class="n">I</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">).</span><span class="n">get_num_I</span><span class="p">();</span>
+				<span class="n">myself</span><span class="p">.</span><span class="n">R</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_1</span><span class="p">.</span><span class="n">SIR_EBM_coupling_exp</span><span class="p">).</span><span class="n">get_num_R</span><span class="p">();</span>
+			<span class="p">}</span>
 
-		}
+		<span class="p">}</span>
 		
-		//if the size of S population or  I population are smaller  than a threshold, use the ABM
-		if (I &lt; threshold_to_IBM or S &lt; threshold_to_IBM)
-		{
-			ask world
-			{
-				unknown call;
-				call &lt;- first(SIR_2.SIR_ABM_coupling_exp).set_num_S_I_R(myself.S, myself.I, myself.R);
-				ask first(SIR_2.SIR_ABM_coupling_exp).simulation
-				{
-					loop times: 1
-					{
-						do _step_;
-					}
+		<span class="p">//</span><span class="k">if</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">S</span> <span class="n">population</span> <span class="k">or</span>  <span class="n">I</span> <span class="n">population</span> <span class="n">are</span> <span class="n">smaller</span>  <span class="n">than</span> <span class="n">a</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">use</span> <span class="n">the</span> <span class="n">ABM</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">I</span> <span class="p">&lt;</span> <span class="n">threshold_to_IBM</span> <span class="k">or</span> <span class="n">S</span> <span class="p">&lt;</span> <span class="n">threshold_to_IBM</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">ask</span> <span class="n">world</span>
+			<span class="p">{</span>
+				<span class="n">unknown</span> <span class="n">call</span><span class="p">;</span>
+				<span class="n">call</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">).</span><span class="n">set_num_S_I_R</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">S</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">I</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">R</span><span class="p">);</span>
+				<span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">).</span><span class="n">simulation</span>
+				<span class="p">{</span>
+					<span class="n">loop</span> <span class="n">times</span><span class="p">:</span> <span class="m">1</span>
+					<span class="p">{</span>
+						<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+					<span class="p">}</span>
 
-				}
+				<span class="p">}</span>
 
-				myself.S &lt;- first(SIR_2.SIR_ABM_coupling_exp).get_num_S();
-				myself.I &lt;- first(SIR_2.SIR_ABM_coupling_exp).get_num_I();
-				myself.R &lt;- first(SIR_2.SIR_ABM_coupling_exp).get_num_R();
-			}
+				<span class="n">myself</span><span class="p">.</span><span class="n">S</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">).</span><span class="n">get_num_S</span><span class="p">();</span>
+				<span class="n">myself</span><span class="p">.</span><span class="n">I</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">).</span><span class="n">get_num_I</span><span class="p">();</span>
+				<span class="n">myself</span><span class="p">.</span><span class="n">R</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_2</span><span class="p">.</span><span class="n">SIR_ABM_coupling_exp</span><span class="p">).</span><span class="n">get_num_R</span><span class="p">();</span>
+			<span class="p">}</span>
 
-		}
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	aspect base
-	{
-		draw square(100);
-	}
+	<span class="n">aspect</span> <span class="n">base</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment Simple_exp type: gui
-{
-	output
-	{
-		display co_SIR_chart
-		{
-			chart "SIR_agent" type: series background: # white
-			{
-				data 'S' value: first(Switch).S color: # green;
-				data 'I' value: first(Switch).I color: # red;
-				data 'R' value: first(Switch).R color: # yellow;
-			}
+<span class="n">experiment</span> <span class="n">Simple_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">co_SIR_chart</span>
+		<span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SIR_agent"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span>
+			<span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">Switch</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">Switch</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">Switch</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">yellow</span><span class="p">;</span>
+			<span class="p">}</span>
 
-		}
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

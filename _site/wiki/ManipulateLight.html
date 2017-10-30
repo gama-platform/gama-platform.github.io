@@ -3496,34 +3496,33 @@ function closeRightMenu() {
 
 <p>When using opengl display, GAMA provides you the possibility to manipulate one or several lights, making your display more realistic.
 Most of the following screenshots will be taken with the following short example gaml :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>model test_light
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">test_light</span>
 
-grid cells {
-	aspect base {
-		draw square(1) at:{grid_x,grid_y} color:#white;
-	}
-}
-experiment my_experiment type:gui{
-	output {
-		display my_display type:opengl background:#darkblue {
-			species cells aspect:base;
-			graphics "my_layer" {
-				draw square(100) color:#white at:{50,50};
-				draw cube(5) color:#lightgrey at:{50,30};
-				draw cube(5) color:#lightgrey at:{30,35};
-				draw cube(5) color:#lightgrey at:{60,35};
-				draw sphere(5) color:#lightgrey at:{10,10,2.5};
-				draw sphere(5) color:#lightgrey at:{20,30,2.5};
-				draw sphere(5) color:#lightgrey at:{40,30,2.5};
-				draw sphere(5) color:#lightgrey at:{40,60,2.5};
-				draw cone3D(5,5) color:#lightgrey at:{55,10,0};
-				draw cylinder(5,5) color:#lightgrey at:{10,60,0};
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">grid</span> <span class="n">cells</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">at</span><span class="p">:{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">}</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:#</span><span class="n">darkblue</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">cells</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"my_layer"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span> <span class="n">at</span><span class="p">:{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">50</span><span class="p">,</span><span class="m">30</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">30</span><span class="p">,</span><span class="m">35</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">60</span><span class="p">,</span><span class="m">35</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">40</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cone3D</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">55</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cylinder</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h2 id="index">Index</h2>
 
@@ -3624,14 +3623,13 @@ This specular light is not implemented yet in gama, only the two others are.</p>
 
 <p>In order to keep it simple, the ambient light can be set directly when you are declaring your display, through the facet <code class="highlighter-rouge">ambient_light</code>. You will have one only ambient light.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_experiment type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type:gui {
 	output {
 		display "my_display" type:opengl ambient_light:100 {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><em>Note for developers</em> : Note that this ambient light is set to the GL_LIGHT0. This GL_LIGHT0 only contains an ambient light, and no either diffuse nor specular light.</p>
 
@@ -3639,15 +3637,14 @@ This specular light is not implemented yet in gama, only the two others are.</p>
 
 <p>In order to add lights, or modifying the existing lights, you can use the statement <code class="highlighter-rouge">light</code>, inside your <code class="highlighter-rouge">display</code> scope :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_experiment type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type:gui {
 	output {
 		display "my_display" type:opengl {
 			light id:0;
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This statement has just one non-optional facet : the facet “id”. Through this facet, you can specify which light you want. You can control 7 lights, through an integer value between 1 and 7.
 Once you are manipulating a light through the <code class="highlighter-rouge">light</code> statement, the light is turned on. To switch off the light, you have to add the facet <code class="highlighter-rouge">active</code>, and turn it to <code class="highlighter-rouge">false</code>.
@@ -3660,9 +3657,8 @@ An other very important facet is the <code class="highlighter-rouge">type</code>
 
 <p>Example of implementation :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>light id:1 type:direction direction:{1,1,1} color:rgb(255,0,0);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:direction direction:{1,1,1} color:rgb(255,0,0);
+</code></pre></div></div>
 
 <h4 id="declaring-point-light">Declaring point light</h4>
 
@@ -3670,17 +3666,15 @@ An other very important facet is the <code class="highlighter-rouge">type</code>
 
 <p>Example of implementation of a basic point light :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0);
+</code></pre></div></div>
 
 <p>You can add, if you want, a custom attenuation of the light, through the facets <code class="highlighter-rouge">linear_attenuation</code> or <code class="highlighter-rouge">quadratic_attenuation</code>.</p>
 
 <p>Example of implementation of a point light with attenuation :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0) linear_attenuation:0.1;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0) linear_attenuation:0.1;
+</code></pre></div></div>
 
 <h4 id="declaring-spot-light">Declaring spot light</h4>
 
@@ -3688,17 +3682,15 @@ An other very important facet is the <code class="highlighter-rouge">type</code>
 
 <p>Example of implementation of a basic spot light :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
+</code></pre></div></div>
 
 <p>Same as for point light, you can specify an attenuation for a spot light.</p>
 
 <p>Example of implementation of a spot light with attenuation :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
+</code></pre></div></div>
 
 <p>Note that when you are working with lights, you can display your lights through the facet <code class="highlighter-rouge">draw light</code> to help you implementing your model. The three types of lights are displayed differently :</p>
 <ul>

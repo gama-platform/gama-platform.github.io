@@ -3513,11 +3513,10 @@ function closeRightMenu() {
 
 <p>Concerning the step facet, the variable can be modified by the modeler. A classic way of doing it consists in reediting the variable in the global section:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
        float step &lt;- 1 #hour;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In this example, each simulation step will represent 1 hour. This time will be taken into account for all actions based on time (e.g. moving actions).</p>
 
@@ -3548,29 +3547,25 @@ A date variable has several attributes:</p>
 </ul>
 
 <p>Several ways can be used to define a date. The simplest consists in using a list of int values: [year,month of the year,day of the month, hour of the day, minute of the hour, second of the minute]</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>date my_date &lt;- date([2010,3,23,17,30,10]); // the 23th of March 2010, at 17:30:10
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>date my_date &lt;- date([2010,3,23,17,30,10]); // the 23th of March 2010, at 17:30:10
+</code></pre></div></div>
 <p>Another way consists in using a string with the good format:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>date my_date &lt;- date("2010-3-23T17:30:10+07:00"); 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>date my_date &lt;- date("2010-3-23T17:30:10+07:00"); 
+</code></pre></div></div>
 
 <p>Note that the current date can be access through the #now built-in variable (variable of type date).</p>
 
 <p>In addition, GAMA provides different useful operators working on dates. For instance, it is possible to compute the duration in seconds between 2 dates using the “<code class="highlighter-rouge">-</code>” operator. The result is given in seconds:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>float d &lt;- starting_date - my_date;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float d &lt;- starting_date - my_date;
+</code></pre></div></div>
 
 <p>It is also possible to add or subtract a duration (in seconds) to a date:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>write "my_date + 10: " + (my_date + 10);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write "my_date + 10: " + (my_date + 10);
 write "my_date - 10: " + (my_date - 10);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>At last, it is possible to add or subtract a duration (in years, months, weeks, days, hours, minutes,  seconds) to a date:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>write "my_date add_years 1: " + (my_date add_years 1);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write "my_date add_years 1: " + (my_date add_years 1);
 write "my_date add_months 1: " + (my_date add_months 1);
 write "my_date add_weeks 1: " + (my_date add_weeks 1);
 write "my_date add_days 1: " + (my_date add_days 1);
@@ -3585,8 +3580,7 @@ write "my_date subtract_days 1: " + (my_date subtract_days 1);
 write "my_date subtract_hours 1: " + (my_date subtract_hours 1);
 write "my_date subtract_minutes 1: " + (my_date subtract_minutes 1);
 write "my_date subtract_seconds 1: " + (my_date subtract_seconds 1);
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>For the modelers, two global date variable are available:</p>
 <ul>
   <li><code class="highlighter-rouge">starting_date</code>: date considered as the beginning of the simulation</li>
@@ -3594,11 +3588,10 @@ write "my_date subtract_seconds 1: " + (my_date subtract_seconds 1);
 </ul>
 
 <p>By default, these variables are nil. Defining a value of the starting_date allows to change the normal time management of the simulation by a more realistic one (using calendar):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
      date starting_date &lt;- date([1979,12,17,19,45,10]);
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When a variable is set to this variable, the current_date variable is automatically initialized with the same value. However, at each simulation step, the current_date variable is incremented by the step variable. The value of the current_date will replace the value of the time variable in the top left green panel.</p>
 

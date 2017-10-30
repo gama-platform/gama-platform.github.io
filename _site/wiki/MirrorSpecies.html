@@ -3508,28 +3508,25 @@ Mirror species can be used in different situations but the one we describe here 
 
 <p>A mirror species can be defined using the <code class="highlighter-rouge">mirrors</code> keyword as following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species B mirrors: A{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species B mirrors: A{
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In this case the species B mirrors the species A.</p>
 
 <p>By default the location of the species B will be random but in many cases, once want to place the mirror agent at the same location of the reference species. This can be achieve by simply adding the following lines in the mirror species :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species B mirrors: A{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species B mirrors: A{
     point location &lt;- target.location update: target.location;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong><code class="highlighter-rouge">target</code></strong> is a built-in attribute of a mirror species. It refers to the instance of the species tracked.</p>
 
 <p>In the same spirit any attribute of a reference species can be reach using the same syntax. For instance if the species A has an attribute called <code class="highlighter-rouge">attribute1</code> of type <code class="highlighter-rouge">int</code> is is possible to get this attribute from the mirror species B using the following syntax:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int value &lt;- target.attribute1;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int value &lt;- target.attribute1;
+</code></pre></div></div>
 
 <h2 id="example">Example</h2>
 
@@ -3539,39 +3536,38 @@ Mirror species can be used in different situations but the one we describe here 
 
 <p>Here is an example of implementation for this model:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Mirror
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Mirror</span>
 
-global {
-  init{
-    create A number:100;    
-  }
-}
+<span class="n">global</span> <span class="p">{</span>
+  <span class="n">init</span><span class="p">{</span>
+    <span class="nb">create</span> <span class="n">A</span> <span class="n">number</span><span class="p">:</span><span class="m">100</span><span class="p">;</span>    
+  <span class="p">}</span>
+<span class="p">}</span>
 
-species A skills:[moving]{
-    reflex update{
-        do wander;
-    }
-    aspect base{
-        draw circle(1) color: #white;
-    }
-}
-species B mirrors: A{
-    point location &lt;- target.location update: point(target.location.x,target.location.y,target.location.z+5);
-    aspect base {
-        draw sphere(2) color: #blue;
-    }
-}
+<span class="n">species</span> <span class="n">A</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
+    <span class="n">reflex</span> <span class="n">update</span><span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">base</span><span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">species</span> <span class="n">B</span> <span class="n">mirrors</span><span class="p">:</span> <span class="n">A</span><span class="p">{</span>
+    <span class="n">point</span> <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">target</span><span class="p">.</span><span class="n">location</span> <span class="n">update</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">+</span><span class="m">5</span><span class="p">);</span>
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-experiment mirroExp type: gui {
-    output {
-        display superposedView type: opengl{ 
-          species A aspect: base;
-          species B aspect: base transparency:0.5;
-        }
-    }
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">mirroExp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">superposedView</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span> 
+          <span class="n">species</span> <span class="n">A</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+          <span class="n">species</span> <span class="n">B</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.5</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

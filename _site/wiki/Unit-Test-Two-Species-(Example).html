@@ -3504,39 +3504,38 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model test_unitTest_framework
+<span class="k">model</span> <span class="n">test_unitTest_framework</span>
 
-global {
-	init {
-		//Create agents : one to test the population of test_species1 and the test_species1 agents
-		create test_species2 number: 1;
-		create test_species1 number: 10;
-	}
-	//At each step, one of the agents of test_species1 dies
-	reflex one_should_die {
-		ask one_of(test_species1){
-			do die;
-		}
-	}
-}
-
-
-species test_species2 {
-	//The step is computed each step to test if there is still at least 5 agents of test_species1
-	test t1 {
-     	assert (length(test_species1) &gt; 5) equals: true;
-	}
-}
-
-species test_species1 {
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">agents</span> <span class="p">:</span> <span class="n">one</span> <span class="k">to</span> <span class="n">test</span> <span class="n">the</span> <span class="n">population</span> <span class="k">of</span> <span class="n">test_species1</span> <span class="k">and</span> <span class="n">the</span> <span class="n">test_species1</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">test_species2</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">test_species1</span> <span class="n">number</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">At</span> <span class="n">each</span> <span class="n">step</span><span class="p">,</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">test_species1</span> <span class="n">dies</span>
+	<span class="n">reflex</span> <span class="n">one_should_die</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">one_of</span><span class="p">(</span><span class="n">test_species1</span><span class="p">){</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment new type: gui {}
-</code></pre>
-</div>
+<span class="n">species</span> <span class="n">test_species2</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">step</span> <span class="n">is</span> <span class="n">computed</span> <span class="n">each</span> <span class="n">step</span> <span class="k">to</span> <span class="n">test</span> <span class="k">if</span> <span class="n">there</span> <span class="n">is</span> <span class="n">still</span> <span class="n">at</span> <span class="n">least</span> <span class="m">5</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">test_species1</span>
+	<span class="n">test</span> <span class="n">t1</span> <span class="p">{</span>
+     	<span class="nb">assert</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">test_species1</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">)</span> <span class="n">equals</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">species</span> <span class="n">test_species1</span> <span class="p">{</span>
+<span class="p">}</span>
+
+
+<span class="n">experiment</span> <span class="n">new</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{}</span>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3507,393 +3507,392 @@ function closeRightMenu() {
 <p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SISs-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model all_predefined_equations
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">all_predefined_equations</span>
 
-global {
-	float mu &lt;- 0.02;
-	float alpha &lt;- 35.842;
-	float gamma &lt;- 100.0;
-	float beta0 &lt;- 1884.95;
-	float beta1 &lt;- 0.255;
-	float hKR4 &lt;- 0.01;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">mu</span> <span class="p">&lt;-</span> <span class="m">0.02</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">alpha</span> <span class="p">&lt;-</span> <span class="m">35.842</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta0</span> <span class="p">&lt;-</span> <span class="m">1884.95</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta1</span> <span class="p">&lt;-</span> <span class="m">0.255</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">hKR4</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
 	
-	init {
-		create preSI  with: [h::0.1,N::500,I::1.0];
-		create userSI with: [h::0.1,N::500,I::1.0];
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">preSI</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userSI</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
 
-		create preSIS  with: [h::0.1,N::500,I::1.0];
-		create userSIS with: [h::0.1,N::500,I::1.0];
+		<span class="nb">create</span> <span class="n">preSIS</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userSIS</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
 				
-		create preSIR  with: [h::0.1,N::500,I::1.0];
-		create userSIR with: [h::0.1,N::500,I::1.0];
+		<span class="nb">create</span> <span class="n">preSIR</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userSIR</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
 		
-		create preSIRS  with: [h::0.1,N::500,I::1.0];
-		create userSIRS with: [h::0.1,N::500,I::1.0];	
+		<span class="nb">create</span> <span class="n">preSIRS</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userSIRS</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>	
 		
-		create preSEIR  with: [h::0.1,N::500,I::1.0];
-		create userSEIR with: [h::0.1,N::500,I::1.0];		
+		<span class="nb">create</span> <span class="n">preSEIR</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userSEIR</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">::</span><span class="m">500</span><span class="p">,</span><span class="n">I</span><span class="p">::</span><span class="m">1.0</span><span class="p">];</span>		
 		
-		create preLV  with: [h::0.1,x::2.0,y::2.0];
-		create userLV with: [h::0.1,x::2.0,y::2.0];			
-	}
-}
+		<span class="nb">create</span> <span class="n">preLV</span>  <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">x</span><span class="p">::</span><span class="m">2.0</span><span class="p">,</span><span class="n">y</span><span class="p">::</span><span class="m">2.0</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">userLV</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">x</span><span class="p">::</span><span class="m">2.0</span><span class="p">,</span><span class="n">y</span><span class="p">::</span><span class="m">2.0</span><span class="p">];</span>			
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species preSI {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float h;
-	float beta&lt;-0.4;
+<span class="n">species</span> <span class="n">preSI</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
 
-	// must be followed with exact order S, I, t  and N,beta
-	equation eqSI type: SI vars: [S,I,t] params: [N,beta] ;
-	/*reflex solving {
-		list i_list;
-		//solve eqSI method: "dp853" step: 0.01 cycle_length: 100 min_step: 1 max_step: 1 scalAbsoluteTolerance: 1 scalRelativeTolerance: 1 integrated_times: i_list ;
-		//solve eqSI method:rk4 step:h;
-	}*/
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span> <span class="n">N</span><span class="p">,</span><span class="n">beta</span>
+	<span class="n">equation</span> <span class="n">eqSI</span> <span class="n">type</span><span class="p">:</span> <span class="n">SI</span> <span class="n">vars</span><span class="p">:</span> <span class="p">[</span><span class="n">S</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">]</span> <span class="p">;</span>
+	<span class="p">/*</span><span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="k">list</span> <span class="n">i_list</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">solve</span> <span class="n">eqSI</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"dp853"</span> <span class="n">step</span><span class="p">:</span> <span class="m">0.01</span> <span class="n">cycle_length</span><span class="p">:</span> <span class="m">100</span> <span class="n">min_step</span><span class="p">:</span> <span class="m">1</span> <span class="n">max_step</span><span class="p">:</span> <span class="m">1</span> <span class="n">scalAbsoluteTolerance</span><span class="p">:</span> <span class="m">1</span> <span class="n">scalRelativeTolerance</span><span class="p">:</span> <span class="m">1</span> <span class="n">integrated_times</span><span class="p">:</span> <span class="n">i_list</span> <span class="p">;</span>
+		<span class="p">//</span><span class="n">solve</span> <span class="n">eqSI</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}*/</span>
 	
-	reflex solving {
-		list i_list;
-		list v_list ;
-		solve eqSI method: "rk4" step: h ;//cycle_length: 1/h integrated_times: i_list integrated_values: v_list;
-		write "i_list: " + i_list;
-		write "v_list:" + v_list;
-	}
-}
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="k">list</span> <span class="n">i_list</span><span class="p">;</span>
+		<span class="k">list</span> <span class="n">v_list</span> <span class="p">;</span>
+		<span class="n">solve</span> <span class="n">eqSI</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span> <span class="p">;//</span><span class="n">cycle_length</span><span class="p">:</span> <span class="m">1</span><span class="p">/</span><span class="n">h</span> <span class="n">integrated_times</span><span class="p">:</span> <span class="n">i_list</span> <span class="n">integrated_values</span><span class="p">:</span> <span class="n">v_list</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"i_list: "</span> <span class="p">+</span> <span class="n">i_list</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"v_list:"</span> <span class="p">+</span> <span class="n">v_list</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userSI {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float h;
-	float beta&lt;-0.4;
+<span class="n">species</span> <span class="n">userSI</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
 	
-	equation eqSI {
-		diff(S,t) = -beta * S * I / N ;
-		diff(I,t) = beta * S * I / N ;
-	}		
-	reflex solving{solve eqSI method:rk4 step:h;}
+	<span class="n">equation</span> <span class="n">eqSI</span> <span class="p">{</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">-</span><span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">;</span>
+	<span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span><span class="p">{</span><span class="n">solve</span> <span class="n">eqSI</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;}</span>
 	
-}
+<span class="p">}</span>
 
 
-species preSIS {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01;    		
+<span class="n">species</span> <span class="n">preSIS</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span>    		
 
-	// must be followed with exact order S, I, t  and N,beta
-	equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma] ;
-	reflex solving {
-		solve eqSIS method:rk4 step:h;
-	}
-}
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span> <span class="n">N</span><span class="p">,</span><span class="n">beta</span>
+	<span class="n">equation</span> <span class="n">eqSIS</span> <span class="n">type</span><span class="p">:</span> <span class="n">SIS</span> <span class="n">vars</span><span class="p">:</span> <span class="p">[</span><span class="n">S</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">]</span> <span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqSIS</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userSIS {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01;    		
+<span class="n">species</span> <span class="n">userSIS</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span>    		
 	
-	equation eqSIS {
-		diff(S,t) = -beta * S * I / N + gamma * I;
-		diff(I,t) = beta * S * I / N - gamma * I;
-	}		
-	reflex solving {	
-		solve eqSIS method:rk4 step:h;
-	}
-}
+	<span class="n">equation</span> <span class="n">eqSIS</span> <span class="p">{</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">-</span><span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">+</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span><span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">-</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span><span class="p">;</span>
+	<span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>	
+		<span class="n">solve</span> <span class="n">eqSIS</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species preSIR {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 
+<span class="n">species</span> <span class="n">preSIR</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 
 
-	// must be followed with exact order S, I, R, t  and N,beta,delta
-	equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;
-	reflex solving {	
-		solve eqSIR method:rk4 step:h;
-	}
-}
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span> <span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">delta</span>
+	<span class="n">equation</span> <span class="n">eqSIR</span> <span class="n">type</span><span class="p">:</span><span class="n">SIR</span> <span class="n">vars</span><span class="p">:[</span><span class="n">S</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:[</span><span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">]</span> <span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>	
+		<span class="n">solve</span> <span class="n">eqSIR</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userSIR{
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 				
+<span class="n">species</span> <span class="n">userSIR</span><span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 				
 	
-	equation eqSIR {
-		diff(S,t) = (- beta * S * I / N);
-		diff(I,t) = (beta * S * I / N) - (gamma * I);
-		diff(R,t) = (gamma * I);
-	}		
-	reflex solving {
-		solve eqSIR method:rk4 step:h;
-	}
-}
+	<span class="n">equation</span> <span class="n">eqSIR</span> <span class="p">{</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+	<span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqSIR</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species preSIRS {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 
-	float omega &lt;- 0.05;
-	float mu &lt;- 0.01;
+<span class="n">species</span> <span class="n">preSIRS</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">omega</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">mu</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
 
-	// must be followed with exact order S, I, R, t  and N,beta,delta
-	equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;
-	reflex solving {
-		solve eqSIRS method:rk4 step:h;
-	}
-}
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span> <span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">delta</span>
+	<span class="n">equation</span> <span class="n">eqSIRS</span> <span class="n">type</span><span class="p">:</span> <span class="n">SIRS</span> <span class="n">vars</span><span class="p">:</span> <span class="p">[</span><span class="n">S</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">mu</span><span class="p">]</span> <span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqSIRS</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userSIRS {
-	float t;
-	int N;
-	float I ; 
-	float S &lt;- N - I; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 	
-	float omega &lt;- 0.05;
-	float mu &lt;- 0.01;   					
+<span class="n">species</span> <span class="n">userSIRS</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 	
+	<span class="n">float</span> <span class="n">omega</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">mu</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>   					
 	
-	equation eqSIRS {
-		 diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
-		 diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
-		 diff(R,t) = gamma * I - omega * R - mu * R ;
-	}		
-	reflex solving {
-		solve eqSIRS method:rk4 step:h;
-	}
-}
+	<span class="n">equation</span> <span class="n">eqSIRS</span> <span class="p">{</span>
+		 <span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">N</span> <span class="p">+</span> <span class="n">omega</span> <span class="p">*</span> <span class="n">R</span> <span class="p">+</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">S</span> <span class="p">;</span>
+		 <span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">-</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">I</span> <span class="p">;</span>
+		 <span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span> <span class="p">-</span> <span class="n">omega</span> <span class="p">*</span> <span class="n">R</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">R</span> <span class="p">;</span>
+	<span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqSIRS</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species preSEIR {
-	float t;
-	int N;
-	float S &lt;- N - I;     	
-	float E &lt;- 0.0;
-	float I ; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 
-	float sigma &lt;- 0.05;
-	float mu &lt;- 0.01;
+<span class="n">species</span> <span class="n">preSEIR</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span>     	
+	<span class="n">float</span> <span class="n">E</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">sigma</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">mu</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
 
-	// must be followed with exact order S, E, I, R, t  and N,beta,gamma,sigma,mu
-	equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;
-	reflex solving {
-		solve eqSEIR method:rk4 step:h;
-	}
-}
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">S</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span> <span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">mu</span>
+	<span class="n">equation</span> <span class="n">eqSEIR</span> <span class="n">type</span><span class="p">:</span> <span class="n">SEIR</span> <span class="n">vars</span><span class="p">:</span> <span class="p">[</span><span class="n">S</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">mu</span><span class="p">]</span> <span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqSEIR</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userSEIR {
-	float t;
-	int N;
-	float S &lt;- N - I;     	
-	float E &lt;- 0.0;
-	float I ; 
-	float R &lt;- 0.0; 
-	float h;
-	float beta&lt;-0.4;
-	float gamma&lt;-0.01; 	
-	float sigma &lt;- 0.05;
-	float mu &lt;- 0.01;   					
+<span class="n">species</span> <span class="n">userSEIR</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span>     	
+	<span class="n">float</span> <span class="n">E</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">I</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span><span class="p">&lt;-</span><span class="m">0.4</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span><span class="p">&lt;-</span><span class="m">0.01</span><span class="p">;</span> 	
+	<span class="n">float</span> <span class="n">sigma</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">mu</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>   					
 	
-	equation eqSEIR {
-		diff(S,t) = mu * N - beta * S * I / N - mu * S ;
-		diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
-		diff(I,t) = sigma * E - mu * I - gamma * I;
-		diff(R,t) = gamma * I - mu * R ;
-	}		
-	reflex solving {
-	solve eqSEIR method:rk4 step:h;
-	}
-}
+	<span class="n">equation</span> <span class="n">eqSEIR</span> <span class="p">{</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">N</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">S</span> <span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">E</span> <span class="p">-</span> <span class="n">sigma</span> <span class="p">*</span> <span class="n">E</span> <span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">sigma</span> <span class="p">*</span> <span class="n">E</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">I</span> <span class="p">-</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span><span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">I</span> <span class="p">-</span> <span class="n">mu</span> <span class="p">*</span> <span class="n">R</span> <span class="p">;</span>
+	<span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+	<span class="n">solve</span> <span class="n">eqSEIR</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species preLV {
-	float t;
-	float x ; 
-	float y ; 
-	float h;
-	float alpha &lt;- 0.8 ;
-	float beta  &lt;- 0.3 ;
-	float gamma &lt;- 0.2 ;
-	float delta &lt;- 0.85;
+<span class="n">species</span> <span class="n">preLV</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">x</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">y</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">alpha</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span>  <span class="p">&lt;-</span> <span class="m">0.3</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span> <span class="p">&lt;-</span> <span class="m">0.2</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.85</span><span class="p">;</span>
 
-	// must be followed with exact order x, y, t  and  alpha,beta,delta,gamma
-	equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;
-	reflex solving {
-		solve eqLV method:rk4 step:h;
-	}
-}
+	<span class="p">//</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="k">with</span> <span class="n">exact</span> <span class="n">order</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span>  <span class="k">and</span>  <span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">delta</span><span class="p">,</span><span class="n">gamma</span>
+	<span class="n">equation</span> <span class="n">eqLV</span> <span class="n">type</span><span class="p">:</span> <span class="n">LV</span> <span class="n">vars</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">delta</span><span class="p">,</span><span class="n">gamma</span><span class="p">]</span> <span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqLV</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species userLV {
-	float t;
-	float x ; 
-	float y ; 
-	float h;
-	float alpha &lt;- 0.8 ;
-	float beta  &lt;- 0.3 ;
-	float gamma &lt;- 0.2 ;
-	float delta &lt;- 0.85;
+<span class="n">species</span> <span class="n">userLV</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">x</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">y</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">alpha</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span>  <span class="p">&lt;-</span> <span class="m">0.3</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">gamma</span> <span class="p">&lt;-</span> <span class="m">0.2</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.85</span><span class="p">;</span>
 	
-	equation eqLV { 
-		diff(x,t) =   x * (alpha - beta * y);
-		diff(y,t) = - y * (delta - gamma * x);
-    }		
-	reflex solving {
-		solve eqLV method:rk4 step:h;
-	}
-}
+	<span class="n">equation</span> <span class="n">eqLV</span> <span class="p">{</span> 
+		<span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span>   <span class="n">x</span> <span class="p">*</span> <span class="p">(</span><span class="n">alpha</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">y</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">-</span> <span class="n">y</span> <span class="p">*</span> <span class="p">(</span><span class="n">delta</span> <span class="p">-</span> <span class="n">gamma</span> <span class="p">*</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>		
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">eqLV</span> <span class="n">method</span><span class="p">:</span><span class="n">rk4</span> <span class="n">step</span><span class="p">:</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
 
-experiment examples type: gui {
-	output {		
-		display SI  {
-			chart 'examplePreSI' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "S" value: first(preSI).S color: #green;
-				data "I" value: first(preSI).I color: #red;
-			}
-			chart 'examplesUserSI' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "S" value: first(userSI).S color: #green;
-				data "I" value: first(userSI).I color: #red;
-			}
-		}
+<span class="n">experiment</span> <span class="n">examples</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>		
+		<span class="n">display</span> <span class="n">SI</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreSI'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSI</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSI</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserSI'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSI</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSI</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 
-		display SISs  {
-			chart 'examplePreSIS' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "S" value: first(preSIS).S color: #green;
-				data "I" value: first(preSIS).I color: #red;
-			}
-			chart 'examplesUserSIS' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "S" value: first(userSIS).S color: #green;
-				data "I" value: first(userSIS).I color: #red;
-			}			
-		}
+		<span class="n">display</span> <span class="n">SISs</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreSIS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIS</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIS</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserSIS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIS</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIS</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>			
+		<span class="p">}</span>
 		
-		display SIR  {
-			chart 'examplePreSIR' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "S" value: first(preSIR).S color: #green;
-				data "I" value: first(preSIR).I color: #red;
-				data "R" value: first(preSIR).R color: #blue;
-			}
-			chart 'examplesUserSIR' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "S" value: first(userSIR).S color: #green;
-				data "I" value: first(userSIR).I color: #red;
-				data "R" value: first(userSIR).R color: #blue;
-			}			
-		}
+		<span class="n">display</span> <span class="n">SIR</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreSIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserSIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>			
+		<span class="p">}</span>
 
-		display SIRS  {
-			chart 'examplePreSIRS' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "S" value: first(preSIRS).S color: #green;
-				data "I" value: first(preSIRS).I color: #red;
-				data "R" value: first(preSIRS).R color: #blue;
-			}
-			chart 'examplesUserSIRS' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "S" value: first(userSIRS).S color: #green;
-				data "I" value: first(userSIRS).I color: #red;
-				data "R" value: first(userSIRS).R color: #blue;
-			}			
-		}
+		<span class="n">display</span> <span class="n">SIRS</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreSIRS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserSIRS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>			
+		<span class="p">}</span>
 
-		display SEIR  {
-			chart 'examplePreSEIR' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "S" value: first(preSEIR).S color: #green;
-				data "E" value: first(preSEIR).E color: #yellow;
-				data "I" value: first(preSEIR).I color: #red;
-				data "R" value: first(preSEIR).R color: #blue;
-			}
-			chart 'examplesUserSEIR' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "S" value: first(userSEIR).S color: #green;
-				data "E" value: first(userSEIR).E color: #yellow;				
-				data "I" value: first(userSEIR).I color: #red;
-				data "R" value: first(userSEIR).R color: #blue;
-			}
-		}
+		<span class="n">display</span> <span class="n">SEIR</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreSEIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"E"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">E</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserSEIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"S"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"E"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">E</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s2">"I"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"R"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 
-		display LV  {
-			chart 'examplePreLV' type: series background: #lightgray position: {0,0} size:{1,0.5} {
-				data "x" value: first(preLV).x color: #yellow;
-				data "y" value: first(preLV).y color: #blue;
-			}
-			chart 'examplesUserLV' type: series background: #lightgray position: {0,0.5} size:{1,0.5} {
-				data "x" value: first(userLV).x color: #yellow;
-				data "y" value: first(userLV).y color: #blue;
-			}			
-		}						
-	}
-}
+		<span class="n">display</span> <span class="n">LV</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'examplePreLV'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"x"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preLV</span><span class="p">).</span><span class="n">x</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"y"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">preLV</span><span class="p">).</span><span class="n">y</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'examplesUserLV'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"x"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userLV</span><span class="p">).</span><span class="n">x</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"y"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">userLV</span><span class="p">).</span><span class="n">y</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>			
+		<span class="p">}</span>						
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment diff_predefined_defined_by_user type: gui {
-	output {
-		display diff  {
-			chart 'diffSI' type: series background: #lightgray  position: {0,0} size:{0.5, 0.33} {
-				data "dS" value: (first(userSI).S - first(preSI).S) color: #yellow;
-				data "dI" value: (first(userSI).I - first(preSI).I) color: #blue;
-			}
-			chart 'diffSIS' type: series background: #lightgray position: {0.5,0} size:{0.5, 0.33} {
-				data "dS" value: (first(userSIS).S - first(preSIS).S) color: #yellow;
-				data "dI" value: (first(userSIS).I - first(preSIS).I) color: #blue;
-			}
-			chart 'diffSIR' type: series background: #lightgray position: {0,0.33} size:{0.5, 0.33} {
-				data "dS" value: (first(userSIR).S - first(preSIR).S) color: #yellow;
-				data "dI" value: (first(userSIR).I - first(preSIR).I) color: #blue;
-				data "dR" value: (first(userSIR).R - first(preSIR).R) color: #red;
-			}		
-			chart 'diffSIRS' type: series background: #lightgray position: {0.5,0.33} size:{0.5, 0.33} {
-				data "dS" value: (first(userSIRS).S - first(preSIRS).S) color: #yellow;
-				data "dI" value: (first(userSIRS).I - first(preSIRS).I) color: #blue;
-				data "dR" value: (first(userSIRS).R - first(preSIRS).R) color: #red;
-			}	
-			chart 'diffSEIR' type: series background: #lightgray position: {0,0.66} size:{0.5, 0.33} {
-				data "dS" value: (first(userSEIR).S - first(preSEIR).S) color: #yellow;
-				data "dE" value: (first(userSEIR).E - first(preSEIR).E) color: #yellow;				
-				data "dI" value: (first(userSEIR).I - first(preSEIR).I) color: #blue;
-				data "dR" value: (first(userSEIR).R - first(preSEIR).R) color: #red;
-			}	
-			chart 'diffLV' type: series background: #lightgray position: {0.5,0.66} size:{0.5, 0.33} {
-				data "dx" value: (first(userLV).x - first(preLV).x) color: #yellow;
-				data "dy" value: (first(userLV).y - first(preLV).y) color: #red;				
-			}					
-		}	
-	}
-}
+<span class="n">experiment</span> <span class="n">diff_predefined_defined_by_user</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">diff</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s1">'diffSI'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span>  <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dS"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSI</span><span class="p">).</span><span class="n">S</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSI</span><span class="p">).</span><span class="n">S</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dI"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSI</span><span class="p">).</span><span class="n">I</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSI</span><span class="p">).</span><span class="n">I</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'diffSIS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dS"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIS</span><span class="p">).</span><span class="n">S</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIS</span><span class="p">).</span><span class="n">S</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dI"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIS</span><span class="p">).</span><span class="n">I</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIS</span><span class="p">).</span><span class="n">I</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s1">'diffSIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.33</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dS"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">S</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">S</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dI"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">I</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">I</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dR"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIR</span><span class="p">).</span><span class="n">R</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIR</span><span class="p">).</span><span class="n">R</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>		
+			<span class="n">chart</span> <span class="s1">'diffSIRS'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.33</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dS"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">S</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">S</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dI"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">I</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">I</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dR"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSIRS</span><span class="p">).</span><span class="n">R</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSIRS</span><span class="p">).</span><span class="n">R</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>	
+			<span class="n">chart</span> <span class="s1">'diffSEIR'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0.66</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dS"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">S</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">S</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dE"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">E</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">E</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s2">"dI"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">I</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">I</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dR"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userSEIR</span><span class="p">).</span><span class="n">R</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preSEIR</span><span class="p">).</span><span class="n">R</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>	
+			<span class="n">chart</span> <span class="s1">'diffLV'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.66</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.33</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"dx"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userLV</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preLV</span><span class="p">).</span><span class="n">x</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"dy"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">userLV</span><span class="p">).</span><span class="n">y</span> <span class="p">-</span> <span class="n">first</span><span class="p">(</span><span class="n">preLV</span><span class="p">).</span><span class="n">y</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>				
+			<span class="p">}</span>					
+		<span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

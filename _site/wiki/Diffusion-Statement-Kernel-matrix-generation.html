@@ -3501,33 +3501,33 @@ function closeRightMenu() {
 <p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Kernel matrix generation/my_display-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model kernelmatrixgeneration
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">kernelmatrixgeneration</span>
 
-global {
-	// parameters
-	float variation &lt;- 0.0;
-	float proportion &lt;- 1.0;
-	int radius &lt;- 1;
-	float min_value &lt;- 0.0;
-	int cycle_length &lt;- 1;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="k">parameters</span>
+	<span class="n">float</span> <span class="n">variation</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proportion</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">radius</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">min_value</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">cycle_length</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
 	
-	// global variables
-	int cell_max_size &lt;- 51;
-	int x_min &lt;- cell_max_size;
-	int x_max &lt;- 0;
-	int y_min &lt;- cell_max_size;
-	int y_max &lt;- 0;
+	<span class="p">//</span> <span class="n">global</span> <span class="n">variables</span>
+	<span class="n">int</span> <span class="n">cell_max_size</span> <span class="p">&lt;-</span> <span class="m">51</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">x_min</span> <span class="p">&lt;-</span> <span class="n">cell_max_size</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">x_max</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">y_min</span> <span class="p">&lt;-</span> <span class="n">cell_max_size</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">y_max</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
 	
-	float world_size &lt;- 100.0;
-	geometry shape &lt;- cube(world_size);
+	<span class="n">float</span> <span class="n">world_size</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">world_size</span><span class="p">);</span>
 	
-	buffer_cells selected_cells;
+	<span class="n">buffer_cells</span> <span class="n">selected_cells</span><span class="p">;</span>
 	
-	// init the emiter cell as the one in the center of the world.
-	init {
-		selected_cells &lt;- location as buffer_cells;
-		// no need to have a faster display. Let's cool down your computer a bit ;)
+	<span class="p">//</span> <span class="n">init</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cell</span> <span class="k">as</span> <span class="n">the</span> <span class="n">one</span> <span class="k">in</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span><span class="p">.</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">selected_cells</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="k">as</span> <span class="n">buffer_cells</span><span class="p">;</span>
+		<span class="p">//</span> <span class="n">no</span> <span class="n">need</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">faster</span> <span class="n">display</span><span class="p">.</span> <span class="n">Let</span><span class="s1">'s cool down your computer a bit ;)
 		minimum_cycle_duration &lt;- 200#ms;
 	}
 	
@@ -3608,8 +3608,7 @@ experiment my_experiment type:gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

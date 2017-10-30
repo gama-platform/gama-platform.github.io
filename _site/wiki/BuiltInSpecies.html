@@ -3502,15 +3502,13 @@ function closeRightMenu() {
 
 <p>It is possible to use in the models a set of built-in agents. These agents allow to directly use some advance features like clustering, multi-criteria analysis, etc. The creation of these agents are similar as for other kinds of agents:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>create species: my_built_in_agent returns: the_agent;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create species: my_built_in_agent returns: the_agent;
+</code></pre></div></div>
 
 <p>So, for instance, to be able to use clustering techniques in the model:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>create cluster_builder returns: clusterer;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create cluster_builder returns: clusterer;
+</code></pre></div></div>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 <wiki:toc max_depth="3" />
@@ -3595,7 +3593,7 @@ function closeRightMenu() {
 
 <ul>
   <li>
-    <p>returns: <code class="highlighter-rouge">container</code></p>
+    <p>returns: <code class="highlighter-rouge">list</code></p>
   </li>
   <li>→ <strong><code class="highlighter-rouge">select</code></strong> (<code class="highlighter-rouge">string</code>): select string</li>
   <li>→ <strong><code class="highlighter-rouge">values</code></strong> (<code class="highlighter-rouge">list</code>): List of values that are used to replace question marks</li>
@@ -3684,7 +3682,12 @@ function closeRightMenu() {
 <h4 id="compute_forces"><strong><code class="highlighter-rouge">compute_forces</code></strong></h4>
 
 <ul>
-  <li>returns: <code class="highlighter-rouge">unknown</code></li>
+  <li>
+    <p>returns: <code class="highlighter-rouge">unknown</code></p>
+  </li>
+  <li>
+    <p>→ <strong><code class="highlighter-rouge">step</code></strong> (<code class="highlighter-rouge">float</code>):</p>
+  </li>
 </ul>
 
     </div>

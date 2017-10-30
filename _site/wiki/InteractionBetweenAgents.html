@@ -3513,7 +3513,7 @@ function closeRightMenu() {
   <li>If you want to interact with one particular agent (for example, defined as an attribute of your species):</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	agent target;
 	reflex update {
 		ask target {
@@ -3521,14 +3521,13 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>If you want to interact with a group of agents:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	list&lt;agent&gt; targets;
 	reflex update {
 		ask targets {
@@ -3536,14 +3535,13 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>If you want to interact with agents, as if they were instance of a certain species (can raise an error if it’s not the case!):</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	list&lt;agent&gt; targets;
 	reflex update {
 		ask targets as:my_species {
@@ -3551,14 +3549,13 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>If you want to interact with all the agent of a species:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	list&lt;agent&gt; targets;
 	reflex update {
 		ask other_species {
@@ -3569,35 +3566,32 @@ function closeRightMenu() {
 
 species other_species {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that you can use the attribute <em>population</em> of <code class="highlighter-rouge">species</code> if you find it more explicit:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask other_species.population
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask other_species.population
+</code></pre></div></div>
 
 <ul>
   <li>If you want to interact with all the agent of a particular species from a list of agents (for example, using the global variable “agents”):</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_specie {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_specie {
 	reflex update {
 		ask species of_species my_specie {
 			// statements
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="pseudo-variables">Pseudo variables</h2>
 
 <p>Once you are in the ask scope, you can use some pseudo variables to refer to the receiver agent (the one specify just after the ask statement) or the transmitter agent (the agent which is asking). 
 We use the pseudo variable <code class="highlighter-rouge">self</code> to refer to the receiver agent, and the pseudo variable <code class="highlighter-rouge">myself</code> to refer to the transmitter agent. The pseudo variable <code class="highlighter-rouge">self</code> can be omitted when calling actions or attributes.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species speciesA {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species speciesA {
 	init {
 		name &lt;- "speciesA";
 	}
@@ -3615,12 +3609,11 @@ species speciesB {
 		name &lt;- "speciesB";
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now, if we introduce a third species, we can write an <code class="highlighter-rouge">ask</code> statement inside another.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species speciesA {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species speciesA {
 	init {
 		name &lt;- "speciesA";
 	}
@@ -3647,8 +3640,7 @@ species speciesC {
 		name &lt;- "speciesC";
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Nb: try to avoid multiple imbrications of ask statements. Most of the time, there is another way to do the same thing.</p>
 
@@ -3656,18 +3648,17 @@ species speciesC {
 
 <p>The operator <code class="highlighter-rouge">at_distance</code> can be used to know the list of agents that are in a certain distance from another agent.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	reflex update {
 		list&lt;agent&gt; neighbours &lt;- agents at_distance(5);
 		// neighbours contains the list of all the agents located at a distance &lt;= 5 from the caller agent.
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The operator <code class="highlighter-rouge">closest_to</code> returns the closest agent of a position among a container.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	reflex update {
 		agent agentA &lt;- agents closest_to(self);
 		// agentA contains the closest agent from the caller agent.
@@ -3678,8 +3669,7 @@ species speciesC {
 
 species other_specie {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="example">Example</h2>
 
@@ -3690,39 +3680,38 @@ Hint: use the operator <code class="highlighter-rouge">polyline</code> to constr
 
 <p>Here is one example of implementation:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model connect_the_neighbours
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">connect_the_neighbours</span>
 
-global{
-	float speed &lt;- 0.2;
-	float distance_to_intercept &lt;- 10.0;
-	int number_of_circle &lt;- 100;
-	init {
-		create my_species number:number_of_circle;
-	}
-}
+<span class="n">global</span><span class="p">{</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">distance_to_intercept</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_circle</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_circle</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species my_species {
-	reflex move {
-		location &lt;- {location.x+rnd(-speed,speed),location.y+rnd(-speed,speed)};
-	}
-	aspect default {
-		draw circle(1);
-		ask my_species at_distance(distance_to_intercept) {
-			draw polyline([self.location,myself.location]) color:#black;
-		}
-	}
-}
+<span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">rnd</span><span class="p">(-</span><span class="n">speed</span><span class="p">,</span><span class="n">speed</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">rnd</span><span class="p">(-</span><span class="n">speed</span><span class="p">,</span><span class="n">speed</span><span class="p">)};</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+		<span class="n">ask</span> <span class="n">my_species</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">distance_to_intercept</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">myself</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment my_experiment type:gui
-{
-	output{
-		display myDisplay {
-			species my_species aspect:default;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span><span class="p">{</span>
+		<span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

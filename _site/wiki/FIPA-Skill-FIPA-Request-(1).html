@@ -3502,55 +3502,54 @@ After the Initiator reads the ‘refuse’ message, the ‘fipa-request’ conve
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model fipa_request_1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">fipa_request_1</span>
 
-global {
-	Participant p;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
 	
-	init {
-		create Initiator;
-		create Participant returns: ps;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
 		
-		 p &lt;- ps at 0;
+		 <span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
 		
-		write 'Step the simulation to observe the outcome in the console';
-	}
-}
+		<span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species Initiator skills: [fipa] {
-	reflex print_debug_infor {
-		write name + ' with conversations: ' + (string(conversations)) + '; messages: ' + (string(mailbox));
-	}
+<span class="n">species</span> <span class="n">Initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+	<span class="p">}</span>
 	
-	reflex send_request when: (time = 1) {
-		write 'send message';
-		do start_conversation with: [ to :: [p], protocol :: 'fipa-request', performative :: 'request', contents :: ['go sleeping'] ];
-	}
+	<span class="n">reflex</span> <span class="n">send_request</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="s1">'send message'</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-request'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'request'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'go sleeping'</span><span class="p">]</span> <span class="p">];</span>
+	<span class="p">}</span>
 	
-	reflex read_refuse_message when: !(empty(refuses)) {
-		write 'read refuse messages';
-		loop r over: refuses {
-			write 'refuse message with content: ' + string(r.contents);
-		}
-	}
-}
+	<span class="n">reflex</span> <span class="n">read_refuse_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(refuses)) {
+</span>		<span class="nb">write</span> <span class="s1">'read refuse messages'</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'refuse message with content: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species Participant skills: [fipa] {
-	reflex print_debug_infor {
-		write name + ' with conversations: ' + (string(conversations)) + '; messages: ' + (string(mailbox));
-	}
+<span class="n">species</span> <span class="n">Participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+	<span class="p">}</span>
 
-	reflex reply_messages when: (!empty(mailbox)) {
-		write name + ' sends a refuse message';
-		do refuse with: [ message :: (mailbox at 0), contents :: ['I don\'t want'] ];
+	<span class="n">reflex</span> <span class="n">reply_messages</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="c1">!empty(mailbox)) {
+</span>		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a refuse message'</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">refuse</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="p">(</span><span class="n">mailbox</span> <span class="n">at</span> <span class="m">0</span><span class="p">),</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I don\'</span><span class="n">t</span> <span class="n">want</span><span class="s1">'] ];
 	}
 }
 
 
 
 experiment test_request_interaction_protocol type: gui {}
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

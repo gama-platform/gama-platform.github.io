@@ -3503,81 +3503,80 @@ function closeRightMenu() {
 <p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations SIR (Influence of Integration Step)/SIR_100-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model SIR_influence_of_integration_step
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">SIR_influence_of_integration_step</span>
 
-global { 
-	float step&lt;-1#s;
-	float beta &lt;- 0.8 ; 	
-	float delta &lt;- 0.01 ; 
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="n">float</span> <span class="n">step</span><span class="p">&lt;-</span><span class="m">1</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="p">;</span> 	
+	<span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span> <span class="p">;</span> 
 	
-	float s1 &lt;- 1#s;
-	float s2 &lt;- 1.5#s;
-	float s3 &lt;- 2#s;
+	<span class="n">float</span> <span class="n">s1</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">s2</span> <span class="p">&lt;-</span> <span class="m">1.5</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">s3</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
 	
-	init {
-		create SIR_agt with: [h::1,myUnit::s1];
-		create SIR_agt with: [h::0.1,myUnit::s2];
-		create SIR_agt with: [h::0.01,myUnit::s3];	
-  	}  
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">SIR_agt</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">1</span><span class="p">,</span><span class="n">myUnit</span><span class="p">::</span><span class="n">s1</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">SIR_agt</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.1</span><span class="p">,</span><span class="n">myUnit</span><span class="p">::</span><span class="n">s2</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">SIR_agt</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">h</span><span class="p">::</span><span class="m">0.01</span><span class="p">,</span><span class="n">myUnit</span><span class="p">::</span><span class="n">s3</span><span class="p">];</span>	
+  	<span class="p">}</span>  
+<span class="p">}</span>
 
 
 
-species SIR_agt {
-	int N &lt;- 500;
-    float t;    
+<span class="n">species</span> <span class="n">SIR_agt</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">t</span><span class="p">;</span>    
 
-	float I &lt;- 1.0; 
-	float S &lt;- N - I; 
-	float R &lt;- 0.0; 
+	<span class="n">float</span> <span class="n">I</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">I</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
 		
-   	float h;   		
-	float myUnit&lt;-1#s;
-	equation SIR{ 
-		diff(S,t) =myUnit* (- beta  * S * I / N);
-		diff(I,t) =myUnit* (beta * S * I / N) - (delta * I);
-		diff(R,t) =myUnit* (delta * I);
-	} 
+   	<span class="n">float</span> <span class="n">h</span><span class="p">;</span>   		
+	<span class="n">float</span> <span class="n">myUnit</span><span class="p">&lt;-</span><span class="m">1</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="n">equation</span> <span class="n">SIR</span><span class="p">{</span> 
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span><span class="n">myUnit</span><span class="p">*</span> <span class="p">(-</span> <span class="n">beta</span>  <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span><span class="n">myUnit</span><span class="p">*</span> <span class="p">(</span><span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">delta</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span><span class="n">myUnit</span><span class="p">*</span> <span class="p">(</span><span class="n">delta</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+	<span class="p">}</span> 
 
-	reflex solving {
-		solve SIR method: "rk4" step: h;// cycle_length:mycycle ;
-//		S&lt;-S*myUnit;
-//		I&lt;-I*myUnit;
-//		R&lt;-R*myUnit;
-	}      
-}
+	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+		<span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span><span class="p">;//</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">mycycle</span> <span class="p">;</span>
+<span class="p">//</span>		<span class="n">S</span><span class="p">&lt;-</span><span class="n">S</span><span class="p">*</span><span class="n">myUnit</span><span class="p">;</span>
+<span class="p">//</span>		<span class="n">I</span><span class="p">&lt;-</span><span class="n">I</span><span class="p">*</span><span class="n">myUnit</span><span class="p">;</span>
+<span class="p">//</span>		<span class="n">R</span><span class="p">&lt;-</span><span class="n">R</span><span class="p">*</span><span class="n">myUnit</span><span class="p">;</span>
+	<span class="p">}</span>      
+<span class="p">}</span>
 
 
-experiment mysimulation1 type: gui { 
- 	output { 
-		display SIR_1  {
-			chart "SI - h=1" type: series background: #white {
-				data 'S' value: first(SIR_agt where (each.myUnit = s1)).S color: #green;				
-				data 'I' value: first(SIR_agt where (each.myUnit = s1)).I color: #red ;
-				data 'R' value: first(SIR_agt where (each.myUnit = s1)).R color: #blue ;				
-			}
-		}
+<span class="n">experiment</span> <span class="n">mysimulation1</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span> 
+ 	<span class="n">output</span> <span class="p">{</span> 
+		<span class="n">display</span> <span class="n">SIR_1</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SI - h=1"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s1</span><span class="p">)).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s1</span><span class="p">)).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s1</span><span class="p">)).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>				
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		display SIR_10 {
-			chart "SI - h=0.1" type: series background: #white{
-				data 'S' value: first(SIR_agt where (each.myUnit = s2)).S color: #green;				
-				data 'I' value: first(SIR_agt where (each.myUnit = s2)).I color: #red ;
-				data 'R' value: first(SIR_agt where (each.myUnit = s2)).R color: #blue ;				
-			}
-		}
+		<span class="n">display</span> <span class="n">SIR_10</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SI - h=0.1"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span><span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s2</span><span class="p">)).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s2</span><span class="p">)).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s2</span><span class="p">)).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>				
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		display SIR_100  {
-			chart "SI - h=0.01" type: series background: #white {
-				data 'S' value: first(SIR_agt where (each.myUnit = s3)).S color: #green;				
-				data 'I' value: first(SIR_agt where (each.myUnit = s3)).I color: #red ;
-				data 'R' value: first(SIR_agt where (each.myUnit = s3)).R color: #blue ;				
-			}
-		}	
-	}
-}
-</code></pre>
-</div>
+		<span class="n">display</span> <span class="n">SIR_100</span>  <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SI - h=0.01"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s3</span><span class="p">)).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s3</span><span class="p">)).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">SIR_agt</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">myUnit</span> <span class="p">=</span> <span class="n">s3</span><span class="p">)).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>				
+			<span class="p">}</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3502,70 +3502,69 @@ function closeRightMenu() {
 <p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Uniform Diffusion/uniform_diffusion_in_8_neighbors_grid-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model uniform_diffusion
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">uniform_diffusion</span>
 
-global {
-	int size &lt;- 64; // better to have a pow of 2 for the size of the grid
-  	geometry shape &lt;- envelope(square(size) * 10);
-  	cells_eight_nb selected_cells_8;
-  	cells_four_nb selected_cells_4;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">64</span><span class="p">;</span> <span class="p">//</span> <span class="n">better</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">pow</span> <span class="k">of</span> <span class="m">2</span> <span class="n">for</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
+  	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="p">*</span> <span class="m">10</span><span class="p">);</span>
+  	<span class="n">cells_eight_nb</span> <span class="n">selected_cells_8</span><span class="p">;</span>
+  	<span class="n">cells_four_nb</span> <span class="n">selected_cells_4</span><span class="p">;</span>
 
-	// Initialize the emiter cell as the cell at the center of the word
-	init {
-		selected_cells_8 &lt;- location as cells_eight_nb;
-		selected_cells_4 &lt;- location as cells_four_nb;
-	}
-	reflex new_Value {
-		ask selected_cells_4 {
-			phero &lt;- 1.0;
-		}
-		ask selected_cells_8 {
-			phero &lt;- 1.0;
-		}
-	}
-	reflex diff {
-		// Declare a diffusion on the grid "cells", with a uniform matrix of diffusion. The value of the diffusion
-		// will be store in the new variable "phero" of the cell.
-		diffuse var: phero on: cells_eight_nb ;
-		diffuse var: phero on: cells_four_nb ;
-	}
-}
-
-
-grid cells_eight_nb height: size width: size neighbors: 8 {
-	// "phero" is the variable storing the value of the diffusion
-	float phero  &lt;- 0.0;
-	// the color of the cell is linked to the value of "phero".
-	rgb color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
-	// Update the "grid_value", which will be used for the elevation of the cell
-	float grid_value update: phero * 100;
-} 
-
-grid cells_four_nb height: size width: size neighbors: 4 {
-	// "phero" is the variable storing the value of the diffusion
-	float phero  &lt;- 0.0;
-	// the color of the cell is linked to the value of "phero".
-	rgb color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
-	// Update the "grid_value", which will be used for the elevation of the cell
-	float grid_value update: phero * 100;
-} 
+	<span class="p">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cell</span> <span class="k">as</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">at</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">word</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">selected_cells_8</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="k">as</span> <span class="n">cells_eight_nb</span><span class="p">;</span>
+		<span class="n">selected_cells_4</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="k">as</span> <span class="n">cells_four_nb</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">new_Value</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">selected_cells_4</span> <span class="p">{</span>
+			<span class="n">phero</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">selected_cells_8</span> <span class="p">{</span>
+			<span class="n">phero</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">diff</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">Declare</span> <span class="n">a</span> <span class="n">diffusion</span> <span class="n">on</span> <span class="n">the</span> <span class="n">grid</span> <span class="s2">"cells"</span><span class="p">,</span> <span class="k">with</span> <span class="n">a</span> <span class="n">uniform</span> <span class="n">matrix</span> <span class="k">of</span> <span class="n">diffusion</span><span class="p">.</span> <span class="n">The</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
+		<span class="p">//</span> <span class="n">will</span> <span class="n">be</span> <span class="n">store</span> <span class="k">in</span> <span class="n">the</span> <span class="n">new</span> <span class="n">variable</span> <span class="s2">"phero"</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span><span class="p">.</span>
+		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_eight_nb</span> <span class="p">;</span>
+		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_four_nb</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment diffusion type: gui {
-	output {
-		display uniform_diffusion_in_8_neighbors_grid type: opengl {
-			// Display the grid with elevation
-			grid cells_eight_nb elevation: true triangulation: true;
-		}
-		display uniform_diffusion_in_4_neighbors_grid type: opengl {
-			// Display the grid with elevation
-			grid cells_four_nb elevation: true triangulation: true;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">grid</span> <span class="n">cells_eight_nb</span> <span class="n">height</span><span class="p">:</span> <span class="n">size</span> <span class="n">width</span><span class="p">:</span> <span class="n">size</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">8</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="s2">"phero"</span> <span class="n">is</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
+	<span class="n">float</span> <span class="n">phero</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">linked</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="s2">"phero"</span><span class="p">.</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>
+	<span class="p">//</span> <span class="n">Update</span> <span class="n">the</span> <span class="s2">"grid_value"</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">elevation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="n">grid_value</span> <span class="n">update</span><span class="p">:</span> <span class="n">phero</span> <span class="p">*</span> <span class="m">100</span><span class="p">;</span>
+<span class="p">}</span> 
+
+<span class="n">grid</span> <span class="n">cells_four_nb</span> <span class="n">height</span><span class="p">:</span> <span class="n">size</span> <span class="n">width</span><span class="p">:</span> <span class="n">size</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="s2">"phero"</span> <span class="n">is</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
+	<span class="n">float</span> <span class="n">phero</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">linked</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="s2">"phero"</span><span class="p">.</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>
+	<span class="p">//</span> <span class="n">Update</span> <span class="n">the</span> <span class="s2">"grid_value"</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">elevation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="n">grid_value</span> <span class="n">update</span><span class="p">:</span> <span class="n">phero</span> <span class="p">*</span> <span class="m">100</span><span class="p">;</span>
+<span class="p">}</span> 
+
+
+<span class="n">experiment</span> <span class="n">diffusion</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">uniform_diffusion_in_8_neighbors_grid</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
+			<span class="n">grid</span> <span class="n">cells_eight_nb</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">uniform_diffusion_in_4_neighbors_grid</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
+			<span class="n">grid</span> <span class="n">cells_four_nb</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

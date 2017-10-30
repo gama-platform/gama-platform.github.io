@@ -3535,9 +3535,8 @@ function closeRightMenu() {
 <h3 id="shell-script">Shell Script</h3>
 <p>It can be found in the <code class="highlighter-rouge">headless</code> directory located inside <code class="highlighter-rouge">Gama</code>. Its name is <code class="highlighter-rouge">gama-headless.sh</code> on MacOSX and Linux, and <code class="highlighter-rouge">gama-headless.bat</code> on Windows.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> sh gama-headless.sh [m/c/t/hpc/v] $1 $2
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sh gama-headless.sh [m/c/t/hpc/v] $1 $2
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3558,9 +3557,8 @@ function closeRightMenu() {
   <li>For example (using the provided sample), navigate in your terminal to the GAMA root folder and type :</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sh headless/gama-headless.sh headless/samples/predatorPrey.xml outputHeadLess
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh headless/gama-headless.sh headless/samples/predatorPrey.xml outputHeadLess
+</code></pre></div></div>
 
 <p>As specified in <strong>predatorPrey.xml</strong>, this command runs the prey - predator model for 1000 steps and record a screenshot of the main display every 5 steps. The screenshots are recorded in the directory outputHeadLess (under the GAMA root folder).</p>
 
@@ -3568,9 +3566,8 @@ function closeRightMenu() {
 
 <h3 id="java-command">Java Command</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>java -cp $GAMA_CLASSPATH -Xms512m -Xmx2048m -Djava.awt.headless=true org.eclipse.core.launcher.Main -application msi.gama.headless.id4 $1 $2
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -cp $GAMA_CLASSPATH -Xms512m -Xmx2048m -Djava.awt.headless=true org.eclipse.core.launcher.Main -application msi.gama.headless.id4 $1 $2
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3588,7 +3585,7 @@ function closeRightMenu() {
 
 <p>The XML input file contains for example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;Experiment_plan&gt;</span>
  <span class="nt">&lt;Simulation</span> <span class="na">id=</span><span class="s">"2"</span> <span class="na">sourcePath=</span><span class="s">"./predatorPrey/predatorPrey.gaml"</span> <span class="na">finalStep=</span><span class="s">"1000"</span> <span class="na">experiment=</span><span class="s">"predPrey"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;Parameters&gt;</span>
@@ -3603,15 +3600,13 @@ function closeRightMenu() {
   <span class="nt">&lt;/Outputs&gt;</span>
  <span class="nt">&lt;/Simulation&gt;</span>
 <span class="nt">&lt;/Experiment_plan&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Note that several simulations could be determined in one experiment plan. These simulations are run in parallel according to the number of allocated cores.</p>
 
 <h3 id="heading">Heading</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey"&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey"&gt;
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3627,9 +3622,8 @@ function closeRightMenu() {
 <h3 id="parameters">Parameters</h3>
 <p>One line per parameter you want to specify a value to:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Parameter name="nb_predator_init" type="INT" value="53" /&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Parameter name="nb_predator_init" type="INT" value="53" /&gt;
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3644,12 +3638,11 @@ function closeRightMenu() {
 <h3 id="outputs">Outputs</h3>
 <p>One line per output value you want to retrieve. Outputs can be names of monitors or displays defined in the ‘output’ section of experiments, or the names of attributes defined in the experiment or the model itself (in the ‘global’ section).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    ... with the name of a monitor defined in the 'output' section of the experiment...
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ... with the name of a monitor defined in the 'output' section of the experiment...
     &lt;Output id="2" name="number_of_preys" framerate="1" /&gt;
     ... with the name of a (built-in) variable defined in the experiment itself...
     &lt;Output id="4" name="duration" framerate="1" /&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3669,15 +3662,14 @@ function closeRightMenu() {
 <h2 id="output-directory">Output Directory</h2>
 <p>During headless experiments, a directory is created with the following structure:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Outputed-directory-path/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Outputed-directory-path/
     |-simulation-output.xml
     |- snapshot
           |- main_display2-0.png
           |- main_display2-10.png
           |- ...
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li>with:
     <ul>
@@ -3694,7 +3686,7 @@ function closeRightMenu() {
 <h2 id="simulation-output">Simulation Output</h2>
 <p>A file named <code class="highlighter-rouge">simulation-output.xml</code> is created with the following contents when the experiment runs.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;Simulation</span> <span class="na">id=</span><span class="s">"2"</span> <span class="nt">&gt;</span>
 	<span class="nt">&lt;Step</span> <span class="na">id=</span><span class="s">'0'</span> <span class="nt">&gt;</span>
 		<span class="nt">&lt;Variable</span> <span class="na">name=</span><span class="s">'main_display'</span> <span class="na">value=</span><span class="s">'main_display2-0.png'</span><span class="nt">/&gt;</span>
@@ -3711,8 +3703,7 @@ function closeRightMenu() {
         <span class="nt">&lt;Step</span> <span class="na">id=</span><span class="s">'2'</span><span class="nt">&gt;</span>
 
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>With:
@@ -3724,23 +3715,21 @@ function closeRightMenu() {
 </ul>
 
 <h3 id="step">Step</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>	&lt;Step id='1' &gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	&lt;Step id='1' &gt;
 		&lt;Variable name='main_display' value='main_display2-0.png'/&gt;
 		&lt;Variable name='number_of_preys' value='624'/&gt;
 		&lt;Variable name='number_of_predators' value='51'/&gt;
                 &lt;Variable name='duration' value='6' /&gt;
 	&lt;/Step&gt;
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>There is one Variable block per Output identified in the output experiment file.</p>
 
 <h3 id="variable">Variable</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> &lt;Variable name='main_display' value='main_display2-0.png'/&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;Variable name='main_display' value='main_display2-0.png'/&gt;
+</code></pre></div></div>
 
 <ul>
   <li>with:
@@ -3756,9 +3745,8 @@ function closeRightMenu() {
 <h2 id="snapshot-files">Snapshot files</h2>
 <p>This directory contains images generated during the experiment. There is one image per displayed output per step (according to the framerate). File names follow a naming convention, e.g:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>   [outputName][SimulationID]_[stepID].png -&gt; main_display2-20.png
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   [outputName][SimulationID]_[stepID].png -&gt; main_display2-20.png
+</code></pre></div></div>
 
 <p>Note that images are saved in ‘.png’ format.</p>
 

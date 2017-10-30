@@ -3500,53 +3500,52 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model DB2agentSQLite
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">DB2agentSQLite</span>
 
-global {
-//	file buildingsShp &lt;- file('../../includes/building.shp');
-//	file boundsShp &lt;- file('../../includes/bounds.shp');
-//	geometry shape &lt;- envelope(boundsShp);
+<span class="n">global</span> <span class="p">{</span>
+<span class="p">//</span>	<span class="n">file</span> <span class="n">buildingsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/building.shp'</span><span class="p">);</span>
+<span class="p">//</span>	<span class="n">file</span> <span class="n">boundsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/bounds.shp'</span><span class="p">);</span>
+<span class="p">//</span>	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsShp</span><span class="p">);</span>
 
 	
-	map&lt;string,string&gt; BOUNDS &lt;- ["dbtype"::"sqlite",
-								  'database'::'../../includes/spatialite.db',
-								 //'srid'::'32648',
-								  "select"::"SELECT AsBinary(geom) as geom FROM bounds;"				
-				  				 ];
-	map&lt;string,string&gt; PARAMS &lt;- ["dbtype"::"sqlite",
-								  //'srid'::'32648',
-								  'database'::'../../includes/spatialite.db'
-								  ];
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
+								  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span><span class="p">,</span>
+								 <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
+								  <span class="s2">"select"</span><span class="p">::</span><span class="s2">"SELECT AsBinary(geom) as geom FROM bounds;"</span>				
+				  				 <span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
+								  <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
+								  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span>
+								  <span class="p">];</span>
 	
-	string QUERY &lt;- "SELECT name, type, AsBinary(geom) as geom FROM buildings ;";
-	geometry shape &lt;- envelope(BOUNDS);		  	
+	<span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, AsBinary(geom) as geom FROM buildings ;"</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>		  	
 	  	
-	init {
-		create DB_accessor {
-			create buildings from: list(self select [params:: PARAMS, select:: QUERY]) 
-							 with:[ 'name'::"name",'type'::"type", 'shape':: geometry("geom")];
-		 }
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
+							 <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
+		 <span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species DB_accessor skills: [SQLSKILL];
+<span class="n">species</span> <span class="n">DB_accessor</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">];</span>
 
-species buildings {
-	string type;
-	aspect default {
-		draw shape color: #gray ;
-	}	
-}	
+<span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>	
 
-experiment DB2agentSQLite type: gui {
-	output {
-		display fullView {
-			species buildings aspect: default;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">DB2agentSQLite</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

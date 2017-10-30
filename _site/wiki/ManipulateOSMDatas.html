@@ -3547,42 +3547,41 @@ Several software are possible to use, but we will focus on <a href="http://www.q
 
 <p>Copy passed all the .shp created in the include folder of your GAMA project. You are now ready to write the model.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model HowToUseOpenStreetMap
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">HowToUseOpenStreetMap</span>
 
-global {
-	// Global variables related to the Management units	
-	file shapeFile &lt;- file('../includes/new_york.shp'); 
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span> <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Management</span> <span class="n">units</span>	
+	<span class="n">file</span> <span class="n">shapeFile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/new_york.shp'</span><span class="p">);</span> 
 	
-	//definition of the environment size from the shapefile. 
-	//Note that is possible to define it from several files by using: geometry shape &lt;- envelope(envelope(file1) + envelope(file2) + ...);
-	geometry shape &lt;- envelope(shapeFile);
+	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">.</span> 
+	<span class="p">//</span><span class="n">Note</span> <span class="n">that</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">it</span> <span class="k">from</span> <span class="n">several</span> <span class="n">files</span> <span class="n">by</span> <span class="n">using</span><span class="p">:</span> <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">envelope</span><span class="p">(</span><span class="n">file1</span><span class="p">)</span> <span class="p">+</span> <span class="n">envelope</span><span class="p">(</span><span class="n">file2</span><span class="p">)</span> <span class="p">+</span> <span class="p">...);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shapeFile</span><span class="p">);</span>
 	
-	init {
-		//Creation of elementOfNewYork agents from the shapefile (and reading some of the shapefile attributes)
-		create elementOfNewYork from: shapeFile 
-			with: [elementId::int(read('id')), elementHeight::int(read('height')), elementColor::string(read('attrForGama'))] ;
-    }
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">elementOfNewYork</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="p">(</span><span class="k">and</span> <span class="n">reading</span> <span class="n">some</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">attributes</span><span class="p">)</span>
+		<span class="nb">create</span> <span class="n">elementOfNewYork</span> <span class="k">from</span><span class="p">:</span> <span class="n">shapeFile</span> 
+			<span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">elementId</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)),</span> <span class="n">elementHeight</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'height'</span><span class="p">)),</span> <span class="n">elementColor</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'attrForGama'</span><span class="p">))]</span> <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 	
-species elementOfNewYork{
-	int elementId;
-	int elementHeight;
-	string elementColor;
+<span class="n">species</span> <span class="n">elementOfNewYork</span><span class="p">{</span>
+	<span class="n">int</span> <span class="n">elementId</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">elementHeight</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">elementColor</span><span class="p">;</span>
 	
-	aspect basic{
-		draw shape color: (elementColor = "blue") ? #blue : ( (elementColor = "red") ? #red : #yellow ) depth: elementHeight;
-	}
-}	
+	<span class="n">aspect</span> <span class="n">basic</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">blue</span> <span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">elementHeight</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>	
 
-experiment main type: gui {		
-	output {
-		display HowToUseOpenStreetMap type:opengl {
-	   		species elementOfNewYork aspect: basic; 
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>		
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">HowToUseOpenStreetMap</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+	   		<span class="n">species</span> <span class="n">elementOfNewYork</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">basic</span><span class="p">;</span> 
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Here is the result, with a special colorization of the different elements regarding to the value of the attribute “attrForGama”, and an elevation regarding to the value of the attribute “height”.</p>
 

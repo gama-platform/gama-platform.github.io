@@ -3513,7 +3513,7 @@ function closeRightMenu() {
 
 <p><img src="resources/images/tutorials/roads_display.tiff" alt="images/roads_display.tiff" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species road {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species road {
 	geometry display_shape &lt;- line(shape.points, 2.0);
 	
 	//....
@@ -3521,42 +3521,39 @@ function closeRightMenu() {
 		draw display_shape color: #black;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Concerning the building species, we add a new variable called <em>height</em> of type <em>float</em> that is initialized by a random value between 20 and 40 meters.
 We define then an aspect called <em>geom3D</em> that draws the shape of the building with a depth of height and with using a texture (“texture.jpg” that is located inside the includes folder).</p>
 
 <p><img src="resources/images/tutorials/buildings_display.tiff" alt="images/buildings_display.tiff" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	float height &lt;- 20#m + rnd(20) #m;
 	//....
 	aspect geom3D {
 		draw shape depth: height texture:["../includes/texture.jpg"];
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>At last, we define a new aspect called <em>geom3D</em> for the people species that draws first a pyramid of 5 meters size, then a sphere of radius 2 meters at a height of 5m (z = 5). Note that it is possible to access the coordinates of a point by using the <em>x</em>, <em>y</em> and <em>z</em> variables. In GAMA, a point can be defined by using the format <em>{x_value,y_value,z_value}</em>.</p>
 
 <p><img src="resources/images/tutorials/people_display.tiff" alt="images/people_display.tiff" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species people skills:[moving]{		
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
 	//....
 	aspect geom3D{
 		draw pyramid(5) color: is_infected ? #red : #green;
 		draw sphere(2) at: {location.x,location.y,5} color: is_infected ? #red : #green;	
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="output">output</h3>
 
 <p>We define a new display called <em>map_3D</em> of type <em>opengl</em> with an <em>ambient_light</em> of 120 that displays first a image (“soil.jpg”), then the road with the <em>geom3D</em> aspect, then the building with the <em>geom3D</em> aspect, and finally the people with the <em>geom3D</em> aspect. All layers except the people’s one will not be refreshed (refresh set to false).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type: gui {
 	output {
 	// monitor and other displays	
 		display map_3D type: opengl ambient_light: 120 {
@@ -3567,132 +3564,130 @@ We define then an aspect called <em>geom3D</em> that draws the shape of the buil
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SI_city5
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city5</span>
 
-global{ 
-	int nb_people &lt;- 2147;
-	int nb_infected_init &lt;- 5;
-	float step &lt;- 1 #mn;
-	file roads_shapefile &lt;- file("../includes/roads.shp");
-	file buildings_shapefile &lt;- file("../includes/buildings.shp");
-	geometry shape &lt;- envelope(roads_shapefile);
-	int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-	int nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-	float infected_rate update: nb_people_infected/nb_people;
+<span class="n">global</span><span class="p">{</span> 
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/roads.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">nb_people</span><span class="p">;</span>
 	
-	graph road_network;
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
 	
-	init{
-		create road from: roads_shapefile;
-		road_network &lt;- as_edge_graph(road);
-		create building from: buildings_shapefile;
-		create people number:nb_people {
-			my_house &lt;- one_of(building);
-			location &lt;- any_location_in(my_house);
-		}
-		ask nb_infected_init among people {
-			is_infected &lt;- true;
-		}
-	}
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">my_house</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">my_house</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex end_simulation when: infected_rate = 1.0 {
-		do pause;
-	}
-}
+	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species people skills:[moving]{		
-	float speed &lt;- (2 + rnd(3)) #km/#h;
-	bool is_infected &lt;- false;
-	building my_house;
-	point target;
-	bool in_my_house &lt;- true;
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">building</span> <span class="n">my_house</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">in_my_house</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
 	
-	reflex stay when: target = nil {
-		if flip(in_my_house ? 0.01 : 0.1) {
-			building bd_target &lt;- in_my_house ? one_of(building) : my_house;
-			target &lt;- any_location_in (bd_target);
-			in_my_house &lt;- not in_my_house;
-		}
-	}
+	<span class="n">reflex</span> <span class="n">stay</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">in_my_house</span> <span class="p">?</span> <span class="m">0.01</span> <span class="p">:</span> <span class="m">0.1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">building</span> <span class="n">bd_target</span> <span class="p">&lt;-</span> <span class="n">in_my_house</span> <span class="p">?</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">)</span> <span class="p">:</span> <span class="n">my_house</span><span class="p">;</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">bd_target</span><span class="p">);</span>
+			<span class="n">in_my_house</span> <span class="p">&lt;-</span> <span class="k">not</span> <span class="n">in_my_house</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 		
-	reflex move when: target != nil{
-		do goto target:target on: road_network;
-		if (location = target) {
-			target &lt;- nil;
-		} 
-	}
-	reflex infect when: is_infected{
-		ask people at_distance 10 #m {
-			if flip(0.05) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw circle(10) color:is_infected ? #red : #green;
-	}
-	aspect geom3D{
-		draw pyramid(5) color: is_infected ? #red : #green;
-		draw sphere(2) at: {location.x,location.y,5} color: is_infected ? #red : #green;	
-	}
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="c1">!= nil{
+</span>		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">#</span><span class="n">m</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.05</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom3D</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">pyramid</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>	
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-species road {
-	geometry display_shape &lt;- line(shape.points, 2.0);
+<span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">display_shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">,</span> <span class="m">2.0</span><span class="p">);</span>
 	
-	aspect geom {
-		draw shape color: #black;
-	}
-	aspect geom3D {
-		draw display_shape color: #black;
-	}
-}
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom3D</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">display_shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species building {
-	float height &lt;- 20#m + rnd(20) #m;
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">#</span><span class="n">m</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">20</span><span class="p">)</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
 	
-	aspect geom {
-		draw shape color: #gray;
-	}
-	aspect geom3D {
-		draw shape depth: height texture:["../includes/texture.jpg"];
-	}
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom3D</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span> <span class="n">texture</span><span class="p">:[</span><span class="s2">"../includes/texture.jpg"</span><span class="p">];</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	parameter "Nb people infected at init" var: nb_infected_init min: 1 max: 2147;
-	output {
-		monitor "Infected people rate" value: infected_rate;
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
 		
-		display map type: opengl{
-			species road aspect:geom;
-			species building aspect:geom;
-			species people aspect:circle;			
-		}
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
 		
-		display map_3D type: opengl ambient_light: 120 {
-			image "../includes/soil.jpg" refresh: false;
-			species road aspect:geom3D refresh: false;
-			species building aspect:geom3D refresh: false;
-			species people aspect:geom3D;			
-		}
+		<span class="n">display</span> <span class="n">map_3D</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">ambient_light</span><span class="p">:</span> <span class="m">120</span> <span class="p">{</span>
+			<span class="n">image</span> <span class="s2">"../includes/soil.jpg"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom3D</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom3D</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom3D</span><span class="p">;</span>			
+		<span class="p">}</span>
 	
-		display chart refresh:every(10) {
-			chart "Disease spreading" type: series {
-				data "susceptible" value: nb_people_not_infected color: #green;
-				data "infected" value: nb_people_infected color: #red;
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+		<span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

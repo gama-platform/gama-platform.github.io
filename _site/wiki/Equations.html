@@ -3547,7 +3547,7 @@ function closeRightMenu() {
 <h2 id="equation"><code class="highlighter-rouge">equation</code></h2>
 <h3 id="defining-an-ode-system">Defining an ODE system</h3>
 <p>Defining a new ODE system needs to define a new <code class="highlighter-rouge">equation</code> block in a species. As example, the following <code class="highlighter-rouge">eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species userSI {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species userSI {
 	float t ;
 	float I ; 
 	float S ; 
@@ -3560,8 +3560,7 @@ function closeRightMenu() {
 		diff(I,t) = beta * S * I / N ;
 	}
 }			
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>This equation has to be defined in a species with <code class="highlighter-rouge">t</code>, <code class="highlighter-rouge">S</code> and <code class="highlighter-rouge">I</code> attributes. <code class="highlighter-rouge">beta</code> (and other similar parameters) can be defined either in the specific species (if it is specific to each agents) or in the <code class="highlighter-rouge">global</code> if it is a constant.</p>
 
 <p>Note: the <code class="highlighter-rouge">t</code> attribute will be automatically updated using the <code class="highlighter-rouge">solve</code> statement ; it contains the time elapsed in the equation integration.</p>
@@ -3572,9 +3571,8 @@ function closeRightMenu() {
   <li><code class="highlighter-rouge">type</code>: the identifier of the built-in system (here SI) (the list of all built-in systems are described below),</li>
   <li><code class="highlighter-rouge">vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,</li>
   <li><code class="highlighter-rouge">params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.
-    <div class="highlighter-rouge"><pre class="highlight"><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -3583,7 +3581,7 @@ function closeRightMenu() {
 <p>An equation system can be split into several species and each part of the system are synchronized using the <code class="highlighter-rouge">simultaneously</code> facet of <code class="highlighter-rouge">equation</code>. The system split into several agents can be integrated using a single call to the <code class="highlighter-rouge">solve</code> statement. Notice that all the <code class="highlighter-rouge">equation</code> definition must have the same name.</p>
 
 <p>For example the SI system presented above can be defined in two different species <code class="highlighter-rouge">S_agt</code> (containing the equation defining the evolution of the S value) and <code class="highlighter-rouge">I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code class="highlighter-rouge">simultaneously</code> facet of the <code class="highlighter-rouge">equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code class="highlighter-rouge">S_agt</code> agent.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species S_agt {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species S_agt {
 	float t ;		
 	float Ssize ;
 	
@@ -3603,11 +3601,10 @@ species I_agt {
 		diff(Isize, t) = (beta * first(S_agt).Ssize * Isize / N);
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The interest is that the modeler can create several agents for each compartment, which different values. For example in the SI model, the modeler can choose to create 1 agent <code class="highlighter-rouge">S_agt</code> and 2 agents <code class="highlighter-rouge">I_agt</code>. The <code class="highlighter-rouge">beta</code> attribute will have different values in the two agents, in order to represent 2 different strains.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	int number_S &lt;- 495 ; // The number of susceptible
 	int number_I &lt;- 5   ; // The number of infected
 	int nb_I &lt;- 2;
@@ -3626,8 +3623,7 @@ species I_agt {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The results are computed using the RK4 method with:</p>
 <ul>
@@ -3642,11 +3638,10 @@ species I_agt {
 
 <h2 id="solve-an-equation"><code class="highlighter-rouge">solve</code> an equation</h2>
 <p>The <code class="highlighter-rouge">solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code class="highlighter-rouge">step</code> facet. The <code class="highlighter-rouge">solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code class="highlighter-rouge">method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>reflex solving {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex solving {
 	solve eqSI method:rk4 step:h;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>With a smaller integration step, the integration will be faster but less accurate.</p>
 
 <h2 id="more-details">More details</h2>
@@ -3655,9 +3650,8 @@ species I_agt {
 
 <p>The <code class="highlighter-rouge">solve</code> statement can have a huge set of facets (see [S_Statements#solve] for more details). The basic use of the <code class="highlighter-rouge">solve</code> statement requiers only the equation identifier. By default, the integration method is Runge-Kutta 4 with an integration step of <code class="highlighter-rouge">1</code>, which means that at each simulation step the equation integration is made over 1 unit of time (which is implicitly defined by the system parameter value).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>solve eqSI ;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>solve eqSI ;
+</code></pre></div></div>
 
 <p>2 integration methods can be used:</p>
 <ul>
@@ -3706,12 +3700,11 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqbuiltinsi-type-si-vars-sit-params-nbeta"><code class="highlighter-rouge">equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta];</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqSI {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSI {
 	diff(S,t) = -beta * S * I / N ;
 	diff(I,t) = beta * S * I / N ;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/multiParadigmModeling/SI-compartment.png" alt="SI-compartment.png" /></p>
 
@@ -3730,12 +3723,11 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqsis-type-sis-vars-sit-params-nbetagamma"><code class="highlighter-rouge">equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma];</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqSIS {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIS {
 	diff(S,t) = -beta * S * I / N + gamma * I;
 	diff(I,t) = beta * S * I / N - gamma * I;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><img src="resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS-compartment.png" /></p>
 
 <p><img src="resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS-equations.png" /></p>
@@ -3754,13 +3746,12 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqsir-typesir-varssirt-paramsnbetagamma-"><code class="highlighter-rouge">equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqSIR {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIR {
 	diff(S,t) = (- beta * S * I / N);
 	diff(I,t) = (beta * S * I / N) - (gamma * I);
 	diff(R,t) = (gamma * I);
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png" /></p>
 
@@ -3781,13 +3772,12 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqsirs-type-sirs-vars-sirt-params-nbetagammaomegamu-"><code class="highlighter-rouge">equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqSIRS {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIRS {
 	 diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
 	 diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
 	 diff(R,t) = gamma * I - omega * R - mu * R ;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS-compartment.png" /></p>
 
@@ -3810,14 +3800,13 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqseir-type-seir-vars-seirt-params-nbetagammasigmamu-"><code class="highlighter-rouge">equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqSEIR {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSEIR {
 	diff(S,t) = mu * N - beta * S * I / N - mu * S ;
 	diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
 	diff(I,t) = sigma * E - mu * I - gamma * I;
 	diff(R,t) = gamma * I - mu * R ;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR-compartment.png" /></p>
 
@@ -3841,12 +3830,11 @@ integrated_values (list): list of variables’s value inside integration process
 <h4 id="equation-eqlv-type-lv-vars-xyt-params-alphabetadeltagamma-"><code class="highlighter-rouge">equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;</code></h4>
 
 <p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>equation eqLV { 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqLV { 
 	diff(x,t) =   x * (alpha - beta * y);
 	diff(y,t) = - y * (delta - gamma * x);
 }	
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/multiParadigmModeling/LV-equations.png" alt="LV-equations.png" /></p>
 

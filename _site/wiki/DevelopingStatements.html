@@ -3526,31 +3526,29 @@ function closeRightMenu() {
 <p>The <code class="highlighter-rouge">write</code> statement is an example of a SINGLE_STATEMENT (i.e. statement that does not embed a sequence of statements).
 It can used inside a BEHAVIOR statement (i.e. <code class="highlighter-rouge">reflex</code>, <code class="highlighter-rouge">init</code>…), a SEQUENCE_STATEMENT (e.g. <code class="highlighter-rouge">loop</code>, <code class="highlighter-rouge">ask</code>, <code class="highlighter-rouge">if</code>…) or a LAYER statement.
 It defines a single facet (“message”) mandatory and omissible.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@symbol(name = IKeyword.WRITE, kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.WRITE, kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
 @inside(kinds = { ISymbolKind.BEHAVIOR, ISymbolKind.SEQUENCE_STATEMENT, ISymbolKind.LAYER })
 @facets(value = { 
         @facet(name = IKeyword.MESSAGE, type = IType.NONE, optional = false) 
    }, omissible = IKeyword.MESSAGE)
 public class WriteStatement extends AbstractStatement {
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="the-aspect-statement">The <code class="highlighter-rouge">aspect</code> statement</h3>
 
 <p>The <code class="highlighter-rouge">aspect</code> statement defines an example of BEHAVIOR statement (i.e. a statement that can written at the same level as <code class="highlighter-rouge">init</code>, <code class="highlighter-rouge">reflex</code>…), containing a sequence of embedded statements. It can only be used inside a <code class="highlighter-rouge">species</code> statement (i.e. the definition of a new species) and the <code class="highlighter-rouge">global</code> block. It defines a single facet <code class="highlighter-rouge">name</code> mandatory and omissible.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@symbol(name = { IKeyword.ASPECT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = { IKeyword.ASPECT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.MODEL })
 @facets(value = { @facet(name = IKeyword.NAME, type = IType.ID, optional = true) 
    }, omissible = IKeyword.NAME)
 public class AspectStatement extends AbstractStatementSequence {
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="the-action-statement">The <code class="highlighter-rouge">action</code> statement</h3>
 
 <p>The <code class="highlighter-rouge">action</code> statement defines an example of ACTION statement containing a sequence of embedded statements and that can have arguments.
 It can be used (to define an action) in any species, experiment or global statement. It defines several facets and uses a custom validator and a custom serializer.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@symbol(name = IKeyword.ACTION, kind = ISymbolKind.ACTION, with_sequence = true, with_args = true, unique_name = true)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.ACTION, kind = ISymbolKind.ACTION, with_sequence = true, with_args = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.EXPERIMENT, ISymbolKind.MODEL })
 @facets(value = {
 	@facet(name = IKeyword.NAME, type = IType.ID, optional = false),
@@ -3562,8 +3560,7 @@ It can be used (to define an action) in any species, experiment or global statem
 @validator(ActionValidator.class)
 @serializer(ActionSerializer.class)
 public class ActionStatement extends AbstractStatementSequenceWithArgs {
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="implementation">Implementation</h2>
 
@@ -3579,15 +3576,14 @@ public class ActionStatement extends AbstractStatementSequenceWithArgs {
 <h3 id="define-a-single_statement-statement">Define a SINGLE_STATEMENT statement</h3>
 
 <p>To define a SINGLE_STATEMENT statement that can be executed in any behavior and sequence of statements and with 2 facets, we first define a new Java class that extends <code class="highlighter-rouge">AbstractStatement</code> such as:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@symbol(name = "testStatement", kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = "testStatement", kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
 @inside(kinds = { ISymbolKind.BEHAVIOR, ISymbolKind.SEQUENCE_STATEMENT})
 @facets(value = { 
         @facet(name = IKeyword.NAME, type = IType.NONE, optional = false),
         @facet(name = "test_facet", type = IType.NONE, optional = true)     
    }, omissible = IKeyword.NAME)
 public class SingleStatementExample extends AbstractStatement {
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The class should at least implement:</p>
 <ul>
@@ -3600,9 +3596,8 @@ final IExpression name;</li>
 	super(desc);
 	name = getFacet(IKeyword.NAME);
 }</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>  * the **method privateExecuteIn**: this method is executed each time the statement is called in the model.
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  * the **method privateExecuteIn**: this method is executed each time the statement is called in the model.
+</code></pre></div></div>
 <p>protected Object privateExecuteIn(IScope scope) throws GamaRuntimeException { 
 	IAgent agent = stack.getAgentScope();
 	String nameStr = null;
@@ -3615,7 +3610,7 @@ final IExpression name;</li>
 	}
 	return nameStr;
 }</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>The variable `scope` of type `IScope` can be used to:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The variable `scope` of type `IScope` can be used to:
   * get the current agent with: `scope.getAgentScope()`
   * evaluate an expression in the current scope: `Cast.asString(scope, message.value(scope))`
 
@@ -3625,8 +3620,7 @@ final IExpression name;</li>
 This kind of statements includes SEQUENCE\_STATEMENT (e.g. `if`, `loop`,...), BEHAVIOR (e.g. `reflex`,...)...
 
 Such a statement is defined in a class extending the `AbstractStatementSequence` class, e.g.:
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>@symbol(name = { IKeyword.REFLEX, IKeyword.INIT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.EXPERIMENT, ISymbolKind.MODEL })
 @facets(value = { @facet(name = IKeyword.WHEN, type = IType.BOOL, optional = true),
@@ -3634,7 +3628,7 @@ Such a statement is defined in a class extending the `AbstractStatementSequence`
 @validator(ValidNameValidator.class)</p>
 
 <p>public class ReflexStatement extends AbstractStatementSequence {</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 This class should only implement a constructor. The class `AbstractStatementSequence` provides a generic implementation for:
   * `privateExecuteIn(IScope scope)`: it executes each embedded statement with the scope.
   * `executeOn(final IScope scope)`: it executes the statement with a given scope.
@@ -3644,8 +3638,7 @@ This class should only implement a constructor. The class `AbstractStatementSequ
 
 The following methods have a default implementation, but can be overridden if necessary:
   * the **`String getTrace(final IScope scope)` method** is called to trace the execution of statements using [trace statement](Statements#trace).
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>public String getTrace(final IScope scope) {
 	// We dont trace write statements
 	return “”;

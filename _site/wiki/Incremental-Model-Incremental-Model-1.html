@@ -3498,57 +3498,56 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model SI_city
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">SI_city</span>
 
-global{ 
-	int nb_people &lt;- 500;
-	float infection_distance &lt;- 2.0 #m;
-	float proba_infection &lt;- 0.05;
-	int nb_infected_init &lt;- 5;
-	float step &lt;- 1 #minutes;
-	geometry shape&lt;-envelope(square(500 #m));
+<span class="n">global</span><span class="p">{</span> 
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">500</span> <span class="p">#</span><span class="n">m</span><span class="p">));</span>
 	
-	init{
-		create people number:nb_people {
-			speed &lt;- 5.0 #km/#h;
-		}
-		ask nb_infected_init among people {
-			is_infected &lt;- true;
-		}
-	}
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-species people skills:[moving]{		
-	bool is_infected &lt;- false;
-	reflex move{
-		do wander;
-	}
-	reflex infect when: is_infected{
-		ask people at_distance infection_distance {
-			if flip(proba_infection) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw circle(5) color:is_infected ? #red : #green;
-	}
-}
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	parameter "Infection distance" var: infection_distance;
-	parameter "Proba infection" var: proba_infection min: 0.0 max: 1.0;
-	parameter "Nb people infected at init" var: nb_infected_init ;
-	output {
-		display map {
-			species people aspect:circle;			
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

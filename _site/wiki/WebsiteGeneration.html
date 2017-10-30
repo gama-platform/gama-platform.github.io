@@ -3633,9 +3633,8 @@ If a <em>section</em>/<em>sub-section</em> has no sub-division, then this <em>se
 
 <p>Metadatas in content files are written as comments, with the following syntax:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[//]: # (name_of_the_medatada|value_of_the_metadata)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[//]: # (name_of_the_medatada|value_of_the_metadata)
+</code></pre></div></div>
 
 <p>Medatadas are not displayed in the wiki and the website content. For the website generation, metadatas are used in order to build the database, most of all to manage the search engine, and the learning graph.</p>
 
@@ -3697,14 +3696,13 @@ The plugin is also used to generate the model library in the markdown format, wi
 </ul>
 
 <p>Format of the xml file to “tune up” the screenshot generation :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;xmlFile&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;xmlFile&gt;
   &lt;experiment id="name_of_the_file_without_extention"+" "+"model_name"+" "+"experiment_name"&gt;
     &lt;display name="display_name_1" cycle_number="number_of_the_cycle_for_the_screenshot"/&gt;
     &lt;display name="display_name_2" cycle_number="number_of_the_cycle_for_the_screenshot"/&gt;
   &lt;/experiment&gt;
 &lt;/xmlFile&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><em>TODO</em></p>
 
@@ -3817,14 +3815,13 @@ A keyword in attached with a category (among the following names : concept, type
 <p>The file <strong>category.txt</strong> is a very simple file, listing the different keyword categories. This file will be used to build the <strong>Category</strong> table.</p>
 
 <p>Format of the file:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>concept, type, statement, species, architecture, operator, skill, constant, action, attribute, facet
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>concept, type, statement, species, architecture, operator, skill, constant, action, attribute, facet
+</code></pre></div></div>
 
 <p>The file <strong>keyword.xml</strong> is an xml file that contains all the possible keywords (all except some keywords written manually directly in the documentation pages). The GAML words can be found directly using the code of GAMA. The concept words can be found using the code of GAMA (thanks to the tag “category”) and also by using the tags in the header of the model files. This xml file will be used to build the <strong>Keyword</strong> and the <strong>AssociationKeywordCategory</strong> tables.</p>
 
 <p>Format of the file:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;keyword id:keywordname_keywordcategory&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;keyword id:keywordname_keywordcategory&gt;
   &lt;name&gt;keywordname&lt;/name&gt;
   &lt;category&gt;keywordcategory&lt;/category&gt;
   &lt;associatedKeywordList&gt;
@@ -3832,8 +3829,7 @@ A keyword in attached with a category (among the following names : concept, type
     &lt;associatedKeyword&gt;keywordId2&lt;/associatedKeyword&gt;
   &lt;/associatedKeywordList&gt;
 &lt;/keyword&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that:</p>
 <ul>
@@ -3852,24 +3848,22 @@ A keyword in attached with a category (among the following names : concept, type
 <p>The <strong>alias.txt</strong> file contains all the connexions between alias and keyword name. It will be used to build the <strong>Alias</strong> table.</p>
 
 <p>Format of the file :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>aliasName1:remplacedWord1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aliasName1:remplacedWord1
 aliasName2:remplacedWord2
 kill:die
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The <strong>learningConcept.xml</strong> file is used to list the learning concepts, and to connect them to their prerequisite concepts. It will be used to build the <strong>LearningConcept</strong> and the <strong>AssociationLearningConcept</strong> tables.</p>
 
 <p>Format of the file :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;learningConcept id:learningConceptName&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;learningConcept id:learningConceptName&gt;
   &lt;name&gt;learningConceptName&lt;/name&gt;
   &lt;prerequisiteList&gt;
     &lt;prerequisite&gt;learningConcept1&lt;/prerequisite&gt;
     &lt;prerequisite&gt;learningConcept2...&lt;/prerequisite&gt;
   &lt;/prerequisiteList&gt;
 &lt;/learningConcept&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Note that the value of the attribute “name” can be used as an unique id.</p>
 
 <h4 id="role-of-the-website-content-generation-script-in-the-construction-of-the-database">Role of the website content generation script in the construction of the database</h4>
@@ -3927,7 +3921,7 @@ kill:die
 
 <p>Exemple :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/**
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
 * Name: 3D Display model of differents shapes and a special Object
 * Author: 
 * Description: Model presenting a 3D display of differents shapes (pyramid, cone, cylinder, sphere and a teapot object) to represent the same agents but with
@@ -3935,8 +3929,7 @@ kill:die
 *       from their closest neighbour. 
 * Tags: 3d, shape, neighbors
 */
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that if you don’t want this model to have a page in the website, you can name it starting with the character <code class="highlighter-rouge">_</code>.</p>
 
@@ -3945,16 +3938,15 @@ kill:die
 
 <p>Exemple :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@operator(value = "flip",
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@operator(value = "flip",
 	concept = { IConcept.RANDOM }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <hr />
 
 <p><em>The following text has been automatically generated from “mainCheckConcepts”</em></p>
 
-<p><strong>__</strong><strong>__</strong>__ <em>last update : 2017/10/14 01:23:57</em></p>
+<p><strong>__</strong><strong>__</strong>__ <em>last update : 2017/10/30 01:47:31</em></p>
 
 <p><strong>List of concepts to use for model library (except Syntax):</strong></p>
 
@@ -4374,9 +4366,9 @@ kill:die
     <tr>
       <td style="text-align: left">headless</td>
       <td style="text-align: left">0</td>
-      <td style="text-align: left">5</td>
       <td style="text-align: left">0</td>
-      <td style="text-align: left">5</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
     </tr>
     <tr>
       <td style="text-align: left">hydrology</td>

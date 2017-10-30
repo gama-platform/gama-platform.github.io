@@ -3500,100 +3500,99 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model traffic
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">traffic</span>
 
-global {
-	//Shapefile of the buildings
-	file building_shapefile &lt;- file("../includes/buildings.shp");
-	//Shapefile of the roads
-	file road_shapefile &lt;- file("../includes/roads.shp");
-	//Shape of the environment
-	geometry shape &lt;- envelope(road_shapefile);
-	//Step value
-	float step &lt;- 10 #s;
-	//Graph of the road network
-	graph road_network;
-	//Map containing all the weights for the road network graph
-	map&lt;road,float&gt; road_weights;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">road_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/roads.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">road_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Step</span> <span class="n">value</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Graph</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Map</span> <span class="n">containing</span> <span class="n">all</span> <span class="n">the</span> <span class="n">weights</span> <span class="n">for</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span> <span class="n">graph</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">road_weights</span><span class="p">;</span>
 	
-	init {
-		//Initialization of the building using the shapefile of buildings
-		create building from: building_shapefile;
-		//Initialization of the road using the shapefile of roads
-		create road from: road_shapefile;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">of</span> <span class="n">buildings</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">of</span> <span class="n">roads</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">road_shapefile</span><span class="p">;</span>
 		
-		//Creation of the people agents
-		create people number: 1000{
-			//People agents are located anywhere in one of the building
-			location &lt;- any_location_in(one_of(building));
-      	}
-      	//Weights of the road
-      	road_weights &lt;- road as_map (each::each.shape.perimeter);
-      	road_network &lt;- as_edge_graph(road);
-	}
-	//Reflex to update the speed of the roads according to the weights
-	reflex update_road_speed  {
-		road_weights &lt;- road as_map (each::each.shape.perimeter / each.speed_coeff);
-		road_network &lt;- road_network with_weights road_weights;
-	}
-}
-//Species to represent the people using the skill moving
-species people skills: [moving]{
-	//Target point of the agent
-	point target;
-	//Probability of leaving the building
-	float leaving_proba &lt;- 0.05; 
-	//Speed of the agent
-	float speed &lt;- 5 #km/#h;
-	rgb color &lt;- rnd_color(255);
-	//Reflex to leave the building to another building
-	reflex leave when: (target = nil) and (flip(leaving_proba)) {
-		target &lt;- any_location_in(one_of(building));
-	}
-	//Reflex to move to the target building moving on the road network
-	reflex move when: target != nil {
-		do goto target: target on: road_network recompute_path: false move_weights: road_weights;
-		if (location = target) {
-			target &lt;- nil;
-		}	
-	}
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">1000</span><span class="p">{</span>
+			<span class="p">//</span><span class="n">People</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">located</span> <span class="n">anywhere</span> <span class="k">in</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>
+      	<span class="p">}</span>
+      	<span class="p">//</span><span class="n">Weights</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
+      	<span class="n">road_weights</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span><span class="p">);</span>
+      	<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">weights</span>
+	<span class="n">reflex</span> <span class="n">update_road_speed</span>  <span class="p">{</span>
+		<span class="n">road_weights</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">each</span><span class="p">.</span><span class="n">speed_coeff</span><span class="p">);</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">road_network</span> <span class="n">with_weights</span> <span class="n">road_weights</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">people</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]{</span>
+	<span class="p">//</span><span class="n">Target</span> <span class="n">point</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Probability</span> <span class="k">of</span> <span class="n">leaving</span> <span class="n">the</span> <span class="n">building</span>
+	<span class="n">float</span> <span class="n">leaving_proba</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span> 
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">leave</span> <span class="n">the</span> <span class="n">building</span> <span class="k">to</span> <span class="n">another</span> <span class="n">building</span>
+	<span class="n">reflex</span> <span class="n">leave</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">leaving_proba</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="k">to</span> <span class="n">the</span> <span class="n">target</span> <span class="n">building</span> <span class="n">moving</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="c1">!= nil {
+</span>		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span> <span class="n">recompute_path</span><span class="p">:</span> <span class="nb">false</span> <span class="n">move_weights</span><span class="p">:</span> <span class="n">road_weights</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
 	
-	aspect default {
-		draw circle(5) color: color;
-	}
-}
-//Species to represent the buildings
-species building {
-	aspect default {
-		draw shape color: #gray;
-	}
-}
-//Species to represent the roads
-species road {
-	//Capacity of the road considering its perimeter
-	float capacity &lt;- 1 + shape.perimeter/30;
-	//Number of people on the road
-	int nb_people &lt;- 0 update: length(people at_distance 1);
-	//Speed coefficient computed using the number of people on the road and the capicity of the road
-	float speed_coeff &lt;- 1.0 update:  exp(-nb_people/capacity) min: 0.1;
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">buildings</span>
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">roads</span>
+<span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Capacity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">perimeter</span>
+	<span class="n">float</span> <span class="n">capacity</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">+</span> <span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span><span class="p">/</span><span class="m">30</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">people</span> <span class="n">at_distance</span> <span class="m">1</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Speed</span> <span class="n">coefficient</span> <span class="n">computed</span> <span class="n">using</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">the</span> <span class="n">capicity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
+	<span class="n">float</span> <span class="n">speed_coeff</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="n">update</span><span class="p">:</span>  <span class="nb">exp</span><span class="p">(-</span><span class="n">nb_people</span><span class="p">/</span><span class="n">capacity</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span><span class="p">;</span>
 	
-	aspect default {
-		draw (shape + 3 * speed_coeff) color: #red;
-	}
-}
-experiment trafic type: gui {
-	float minimum_cycle_duration &lt;- 0.01;
-	output {
-		display carte type: opengl{
-			species building refresh: false;
-			species road ;
-			species people ;
-		}
-	}
-}
-</code></pre>
-</div>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="p">(</span><span class="n">shape</span> <span class="p">+</span> <span class="m">3</span> <span class="p">*</span> <span class="n">speed_coeff</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">trafic</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">carte</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

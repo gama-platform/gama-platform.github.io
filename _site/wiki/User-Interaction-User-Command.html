@@ -3500,69 +3500,68 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model usercommand
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">usercommand</span>
 
-global {
-	//Number of agent to initialise
-	int nbAgent &lt;- 1;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">initialise</span>
+	<span class="n">int</span> <span class="n">nbAgent</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
 	
-	init {
-		//Create the agent
-		create cell number: nbAgent {
-			color &lt;-°green;
-		}
-	}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">agent</span>
+		<span class="nb">create</span> <span class="n">cell</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbAgent</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span><span class="err">°</span><span class="n">green</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	//These commands are displayed in the world layer
-	//User command to create an agent according to the location where the user right click
-	user_command "Create an agent" {
-   		create cell number: nbAgent with: [location::user_location]  {
-   			color &lt;-°green;
-   		} 
-	}
-	//User command to create a given number of agents according
-	user_command "Create agents" {
-		 map input_values &lt;- user_input(["Number" :: nbAgent, "shape" :: "circle"]);
-     	 create cell number: int(input_values at "Number") with: [color:: °pink, is_square:: string(input_values at "shape") = "square"];
-	}
+	<span class="p">//</span><span class="n">These</span> <span class="n">commands</span> <span class="n">are</span> <span class="n">displayed</span> <span class="k">in</span> <span class="n">the</span> <span class="n">world</span> <span class="n">layer</span>
+	<span class="p">//</span><span class="n">User</span> <span class="nf">command</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">an</span> <span class="n">agent</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">location</span> <span class="n">where</span> <span class="n">the</span> <span class="n">user</span> <span class="n">right</span> <span class="n">click</span>
+	<span class="n">user_command</span> <span class="s2">"Create an agent"</span> <span class="p">{</span>
+   		<span class="nb">create</span> <span class="n">cell</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbAgent</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span><span class="p">::</span><span class="n">user_location</span><span class="p">]</span>  <span class="p">{</span>
+   			<span class="n">color</span> <span class="p">&lt;-</span><span class="err">°</span><span class="n">green</span><span class="p">;</span>
+   		<span class="p">}</span> 
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">User</span> <span class="nf">command</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">given</span> <span class="n">number</span> <span class="k">of</span> <span class="n">agents</span> <span class="n">according</span>
+	<span class="n">user_command</span> <span class="s2">"Create agents"</span> <span class="p">{</span>
+		 <span class="n">map</span> <span class="n">input_values</span> <span class="p">&lt;-</span> <span class="n">user_input</span><span class="p">([</span><span class="s2">"Number"</span> <span class="p">::</span> <span class="n">nbAgent</span><span class="p">,</span> <span class="s2">"shape"</span> <span class="p">::</span> <span class="s2">"circle"</span><span class="p">]);</span>
+     	 <span class="nb">create</span> <span class="n">cell</span> <span class="n">number</span><span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">input_values</span> <span class="n">at</span> <span class="s2">"Number"</span><span class="p">)</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">color</span><span class="p">::</span> <span class="err">°</span><span class="n">pink</span><span class="p">,</span> <span class="n">is_square</span><span class="p">::</span> <span class="k">string</span><span class="p">(</span><span class="n">input_values</span> <span class="n">at</span> <span class="s2">"shape"</span><span class="p">)</span> <span class="p">=</span> <span class="s2">"square"</span><span class="p">];</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-//Species that will be used
-species cell {
-	rgb color;	
-	bool is_square &lt;- false; 
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span>
+<span class="n">species</span> <span class="n">cell</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>	
+	<span class="n">bool</span> <span class="n">is_square</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span> 
 	
-	//These commands will be displayed in the cells layer, after right clicking on a agent
-	user_command "change color"action: change_color;
-	user_command "change shape" action: change_shape;
+	<span class="p">//</span><span class="n">These</span> <span class="n">commands</span> <span class="n">will</span> <span class="n">be</span> <span class="n">displayed</span> <span class="k">in</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">layer</span><span class="p">,</span> <span class="n">after</span> <span class="n">right</span> <span class="n">clicking</span> <span class="n">on</span> <span class="n">a</span> <span class="n">agent</span>
+	<span class="n">user_command</span> <span class="s2">"change color"</span><span class="n">action</span><span class="p">:</span> <span class="n">change_color</span><span class="p">;</span>
+	<span class="n">user_command</span> <span class="s2">"change shape"</span> <span class="n">action</span><span class="p">:</span> <span class="n">change_shape</span><span class="p">;</span>
 	
-	//Action to change the color of the agent triggered by change color user command
-	action change_color 
-    {
-     color &lt;- color = °green ? °pink : °green;
-    } 
-	//Action to change the shape of the agent triggered by change shape user command
-    action change_shape
-    {
-       is_square &lt;- not (is_square);
-    }
-	aspect default {
-		draw is_square ? square(2): circle(1) color: color;
-	}
-}
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">triggered</span> <span class="n">by</span> <span class="n">change</span> <span class="n">color</span> <span class="n">user</span> <span class="nf">command</span>
+	<span class="n">action</span> <span class="n">change_color</span> 
+    <span class="p">{</span>
+     <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">color</span> <span class="p">=</span> <span class="err">°</span><span class="n">green</span> <span class="p">?</span> <span class="err">°</span><span class="n">pink</span> <span class="p">:</span> <span class="err">°</span><span class="n">green</span><span class="p">;</span>
+    <span class="p">}</span> 
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">triggered</span> <span class="n">by</span> <span class="n">change</span> <span class="n">shape</span> <span class="n">user</span> <span class="nf">command</span>
+    <span class="n">action</span> <span class="n">change_shape</span>
+    <span class="p">{</span>
+       <span class="n">is_square</span> <span class="p">&lt;-</span> <span class="k">not</span> <span class="p">(</span><span class="n">is_square</span><span class="p">);</span>
+    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">is_square</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="m">2</span><span class="p">):</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment Displays type: gui {
-	output {
-		display map { 
-			species cell;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">Displays</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span> 
+			<span class="n">species</span> <span class="n">cell</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

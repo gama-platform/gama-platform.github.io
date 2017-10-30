@@ -3531,10 +3531,9 @@ function closeRightMenu() {
 
 <p>Concerning our model, we will give the <strong>moving</strong> skill to the <strong>people</strong> agents: it will give to the people agents supplementary variables (speed, heading, destination) and actions (follow, goto, move, wander).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species people skills:[moving]{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Concerning the internal state, a <a href="RegularSpecies#declaration">attribute</a> is defined as follows: type of the attribute (int (integer), float (floating point number), string, bool (boolean, true or false), point (coordinates), list, pair, map, file, matrix, espèce d’agents, rgb (color), graph, path…) + name</p>
 <ul>
@@ -3549,11 +3548,10 @@ function closeRightMenu() {
 </ul>
 
 <p>We will give a variable to <strong>people</strong> agents: <strong>is_infected</strong> (bool):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species people skills:[moving]{		
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
 	bool is_infected &lt;- false;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Concerning the display of an agent, <a href="RegularSpecies#the-aspect-statement">aspects</a> have to be defined. An aspect represents a possible way to display the agents of a species : aspect aspect_name {…}
 In the block of an aspect, it is possible to draw :</p>
@@ -3564,30 +3562,27 @@ In the block of an aspect, it is possible to draw :</p>
 </ul>
 
 <p>We define an aspect for this species. In this model, we want to display for each people agent a circle of radius 5 and red or green according to the value of is_infected (if infected: red, green otherwise). We then use the keyword <strong>draw</strong> with a circle shape. To define the color that depends on is_infected, we use the tertiary operator <strong>condition ? val1 : val2</strong>. If the condition is true, this operator will return <strong>val1</strong>, otherwise <strong>val2</strong>. Note that it is possible to get a color value by using the symbol <em>#</em> + color name: e.g. #blue, #red, #white, #yellow, #magenta, #pink…</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species people skills:[moving]{		
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
 	...
 	aspect circle{
 		draw circle(5) color:is_infected ? #red : #green;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Concerning the behavior of agents, the simplest way to define it is through reflexes. A reflex is a block of statements (that can be defined in global or any species) that will be automatically executed at each simulation step if its condition is true. A reflex is defined as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>   reflex reflex_name when: condition {...}
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   reflex reflex_name when: condition {...}
+</code></pre></div></div>
 
 <p>The <strong>when</strong> facet is optional: when it is omitted, the reflex is activated at each time step. Note that if several reflexes are defined for a species, the reflexes will be activated following their definition order.</p>
 
 <p>We define a first reflex called <strong>move</strong> that allows the people agents to move using the <strong>wander</strong> action (provided by the <strong>moving</strong> skill) that allows to randomly move (with taking into account the agent <strong>speed</strong>)</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species people {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people {
         ...
         reflex move{
 		do wander;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that an action is a capability available to the agents of a species (what they can do). It is a block of statements that can be used and reused whenever needed. Some actions, called primitives, are directly coded in Java: for instance, the <strong>wander</strong> action defined in the <strong>moving</strong> skill.</p>
 <ul>
@@ -3598,20 +3593,18 @@ In the block of an aspect, it is possible to draw :</p>
 <p>There are two ways to call an action: using a statement or as part of an expression</p>
 <ul>
   <li>for actions that do not return a result:
-    <div class="highlighter-rouge"><pre class="highlight"><code>do action_name arg1: v1 arg2: v2;
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do action_name arg1: v1 arg2: v2;
+</code></pre></div>    </div>
   </li>
   <li>for actions that return a result:
-    <div class="highlighter-rouge"><pre class="highlight"><code>my_var &lt;- self action_name (arg1:v1, arg2:v2);
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_var &lt;- self action_name (arg1:v1, arg2:v2);
+</code></pre></div>    </div>
   </li>
 </ul>
 
 <p>The second reflex we have to define is the <strong>infect</strong> one. This reflex will be activated only if <strong>is_infected</strong> is true. This reflex consists is asking all the people agents at a distance lower or equal to <strong>infection_distance</strong> to become infected with a probability <strong>proba_infection</strong>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species people skills:[moving]{		
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
 	...
 	reflex infect when: is_infected{
 		ask people at_distance infection_distance {
@@ -3622,8 +3615,7 @@ In the block of an aspect, it is possible to draw :</p>
 	}
 	...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that we used the <strong>ask</strong> statement. This statement allows to make a remote agent executes a list of statements. We used as well the <strong>flip</strong> operator that allows to test a probability.</p>
 
@@ -3634,7 +3626,7 @@ It allows to init simulations (init block): the world is always created and init
 
 <h4 id="global-variable">global variable</h4>
 <p>For our model, we define 4 global variables: <strong>nb_people</strong> (int, init value: 500), <strong>infection distance</strong> (float value, init value: 2 meters), <strong>proba_infection</strong> (float, init value: 0.05) and nb_infected_init (int, init value: 5). In addition, we redefine the geometry of the world by a square of 500 meters size and a simulation step of 1 minute.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global{ 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{ 
 	int nb_people &lt;- 500;
 	float infection_distance &lt;- 2.0 #m;
 	float proba_infection &lt;- 0.05;
@@ -3642,8 +3634,7 @@ It allows to init simulations (init block): the world is always created and init
 	float step &lt;- 1 #minutes;
 	geometry shape&lt;-square(500 #m);
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="model-initialization">Model initialization</h4>
 <p>The init section of the global block allows to initialize the model.
@@ -3657,7 +3648,7 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 <p>For our model, definition of the init block in order to create <strong>nb_people</strong> people agents. We set the init value of the <strong>speed</strong> variable (given by the <strong>moving</strong> skill) to 5km/h.</p>
 <blockquote>
   <p>In addition we ask <strong>nb_infected_init</strong> people to become infected (use of the <strong>nb among list</strong> to randomly draw nb elements of the list).</p>
-  <div class="highlighter-rouge"><pre class="highlight"><code>global{ 
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{ 
 	...
 	init{
 		create people number:nb_people {
@@ -3668,8 +3659,7 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 		}
 	}
 }
-</code></pre>
-  </div>
+</code></pre></div>  </div>
 </blockquote>
 
 <h3 id="experiment">experiment</h3>
@@ -3680,10 +3670,9 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 </ul>
 
 <p>In our model, we define a gui experiment called main_experiment :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type: gui {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="input">input</h4>
 <p>Experiments can define (input) parameters. A parameter definition allows to make the value of a global variable definable by the user through the graphic interface.</p>
@@ -3702,14 +3691,13 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 <p>Note that the init, min and max values can be defined in the global variable definition.</p>
 
 <p>In the experiment, definition of three parameters from the the global variable <strong>infection_distance</strong>, <strong>proba_infection</strong> and <strong>nb_infected_init</strong> :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type:gui{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
 	parameter "Infection distance" var: infection_distance;
 	parameter "Proba infection" var: proba_infection min: 0.0 max: 1.0;
 	parameter "Nb people infected at init" var: nb_infected_init ;
 	...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="output">output</h4>
 <p>Output blocks are defined in an experiment and define how to visualize a simulation (with one or more display blocks that define separate windows). Each display can be refreshed independently by defining the facet <strong>refresh_every:</strong> nb (int) (the display will be refreshed every nb steps of the simulation).</p>
@@ -3726,7 +3714,7 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 <p>Note that it is possible to define a <a href="G__3DSpecificInstructions">opengl display</a> (for 3D display) by using the facet <strong>type: opengl</strong>.</p>
 
 <p>In our model, we define a display to draw the <strong>people</strong> agents with their <strong>circle</strong> aspect.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type:gui{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
 	...
         output {
 		display map {
@@ -3734,61 +3722,59 @@ The statement <em>create</em> allows to create agents of a specific species: <st
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SI_city
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city</span>
 
-global{ 
-	int nb_people &lt;- 500;
-	float agent_speed &lt;- 5.0 #km/#h;
-	float infection_distance &lt;- 2.0 #m;
-	float proba_infection &lt;- 0.05;
-	int nb_infected_init &lt;- 5;
-	float step &lt;- 1 #minutes;
-	geometry shape&lt;-square(500 #m);
+<span class="n">global</span><span class="p">{</span> 
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">agent_speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">square</span><span class="p">(</span><span class="m">500</span> <span class="p">#</span><span class="n">m</span><span class="p">);</span>
 	
-	init{
-		create people number:nb_people;
-		ask nb_infected_init among people {
-			is_infected &lt;- true;
-		}
-	}
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-species people skills:[moving]{		
-	float speed &lt;- agent_speed;
-	bool is_infected &lt;- false;
-	reflex move{
-		do wander;
-	}
-	reflex infect when: is_infected{
-		ask people at_distance infection_distance {
-			if flip(proba_infection) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw circle(5) color:is_infected ? #red : #green;
-	}
-}
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">agent_speed</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	parameter "Infection distance" var: infection_distance;
-	parameter "Proba infection" var: proba_infection min: 0.0 max: 1.0;
-	parameter "Nb people infected at init" var: nb_infected_init ;
-	output {
-		display map {
-			species people aspect:circle;			
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

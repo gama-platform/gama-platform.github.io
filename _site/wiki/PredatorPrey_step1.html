@@ -3559,7 +3559,7 @@ In the block of an aspect, it is possible to draw :</p>
 <h4 id="prey-species-code">Prey species code</h4>
 <p>For the moment, we only define an aspect for this species. We want to display for each prey agent a circle of radius <em>size</em> and color <em>color</em>. We then use the keyword <strong>draw</strong> with a circle shape.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species prey {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species prey {
 	float size &lt;- 1.0 ;
 	rgb color &lt;- #blue;
 		
@@ -3567,8 +3567,7 @@ In the block of an aspect, it is possible to draw :</p>
 		draw circle(size) color: color ;
 	}
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="global-section">global section</h3>
 <p>The global section represents a specific agent, called world. Defining this agent follows the same principle as any agent and is, thus, defined after a species.
@@ -3577,11 +3576,10 @@ It allows to initialize simulations (init block): the world is always created an
 
 <h4 id="global-variable">global variable</h4>
 <p>In the current model, we will only have a certain numbers of preys thus we need to hold this number in a global or world’s variable of type integer (<em>int</em>) which can be done as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    int nb_preys_init &lt;- 200;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="model-initialization">Model initialization</h4>
 
@@ -3593,11 +3591,10 @@ It allows to initialize simulations (init block): the world is always created an
 </ul>
 
 <p>Definition of the init block in order to create <em>nb_preys_init</em> <em>prey</em> agents:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>   init {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   init {
       create prey number: nb_preys_init ;
    }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="experiment">experiment</h3>
 <p>An experiment block defines how a model can be simulated (executed). Several experiments can be defined for a given model. They are defined using : <strong>experiment</strong> exp_name type: gui/batch {<code class="highlighter-rouge">[input]</code> <code class="highlighter-rouge">[output]</code>}</p>
@@ -3607,10 +3604,9 @@ It allows to initialize simulations (init block): the world is always created an
 </ul>
 
 <p>In our model, we define a gui experiment called <em>prey_predator</em>  :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment prey_predator type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment prey_predator type: gui {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="input">input</h4>
 <p>Experiments can define (input) parameters. A parameter definition allows to make the value of a global variable definable by the user through the graphic interface.</p>
@@ -3629,11 +3625,10 @@ It allows to initialize simulations (init block): the world is always created an
 <p>Note that the init, min and max values can be defined in the global variable definition.</p>
 
 <p>In the experiment, definition of a parameter from the the global variable <em>nb_preys_init</em> :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment prey_predator type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment prey_predator type: gui {
    parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="output">output</h4>
 <p>Output blocks are defined in an experiment and define how to visualize a simulation (with one or more display blocks that define separate windows). Each display can be refreshed independently by defining the facet <strong>refresh_every:</strong> nb (int) (the display will be refreshed every nb steps of the simulation).</p>
@@ -3650,44 +3645,42 @@ It allows to initialize simulations (init block): the world is always created an
 <p>Note that it is possible to define a <a href="Defining3DDisplays">opengl display</a> (for 3D display) by using the facet <strong>type: opengl</strong>.</p>
 
 <p>In our model, we define a display to draw the <em>prey</em> agents.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code> output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> output {
       display main_display {
          species prey aspect: base ;
       }
    }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model prey_predator
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">prey_predator</span>
 
-global {
-	int nb_preys_init &lt;- 200;
-	init {
-		create prey number: nb_preys_init ;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species prey {
-	float size &lt;- 1.0 ;
-	rgb color &lt;- #blue;
+<span class="n">species</span> <span class="n">prey</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
 		
-	aspect base {
-		draw circle(size) color: color ;
-	}
-} 
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
 
-experiment prey_predator type: gui {
-	parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
-	output {
-		display main_display {
-			species prey aspect: base ;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

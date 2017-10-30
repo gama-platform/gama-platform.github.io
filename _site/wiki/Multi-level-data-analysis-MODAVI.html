@@ -3500,301 +3500,300 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model modavi
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">modavi</span>
  
-global {
-	//Graph of the agents
-	graph&lt;node_agent,edge_agent&gt; my_graph ;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Graph</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">graph</span><span class="p">&lt;</span><span class="n">node_agent</span><span class="p">,</span><span class="n">edge_agent</span><span class="p">&gt;</span> <span class="n">my_graph</span> <span class="p">;</span>
 	
-	//Number of agents to create
-	int nbAgent parameter: 'Number of Agents' min: 1 &lt;- 500 category: 'Model';
-	//Number of value per class
-	int nbValuePerClass parameter: 'Number of value per class' min: 1 max:100 &lt;- 15 category: 'Model';
-	//Boolean to know if we display a spatial graph or not
-	bool spatialGraph parameter: 'Spatial Graph' &lt;- true category: 'Model';
-	//Distance to link two node agents
-	float distance parameter: 'Distance' min: 1.0&lt;- 10.0 category: 'Model';
-	//Threshold
-	int threshold parameter: 'Threshold' min: 0 &lt;- 0 category: 'Model';
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">agents</span> <span class="k">to</span> <span class="nb">create</span>
+	<span class="n">int</span> <span class="n">nbAgent</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">value</span> <span class="n">per</span> <span class="n">class</span>
+	<span class="n">int</span> <span class="n">nbValuePerClass</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of value per class'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span><span class="m">100</span> <span class="p">&lt;-</span> <span class="m">15</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">Boolean</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">we</span> <span class="n">display</span> <span class="n">a</span> <span class="n">spatial</span> <span class="n">graph</span> <span class="k">or</span> <span class="k">not</span>
+	<span class="n">bool</span> <span class="n">spatialGraph</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Spatial Graph'</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Distance</span> <span class="k">to</span> <span class="n">link</span> <span class="n">two</span> <span class="n">node</span> <span class="n">agents</span>
+	<span class="n">float</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Distance'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span><span class="p">&lt;-</span> <span class="m">10.0</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Threshold</span>
+	<span class="n">int</span> <span class="n">threshold</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Threshold'</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
 
-	//Size of a node agent
-	int nodeSize parameter: 'Node size' min: 1 &lt;- 1 category: 'Aspect';
-	//Size of a macro node agent
-	int macroNodeSize parameter: 'Macro Node size' min: 1 &lt;- 2 category: 'Aspect';
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">node</span> <span class="n">agent</span>
+	<span class="n">int</span> <span class="n">nodeSize</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Node size'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Aspect'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">macro</span> <span class="n">node</span> <span class="n">agent</span>
+	<span class="n">int</span> <span class="n">macroNodeSize</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Macro Node size'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Aspect'</span><span class="p">;</span>
 	
-	//Number of type of class
-	int nbTypeOfClass &lt;-1;
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">type</span> <span class="k">of</span> <span class="n">class</span>
+	<span class="n">int</span> <span class="n">nbTypeOfClass</span> <span class="p">&lt;-</span><span class="m">1</span><span class="p">;</span>
 	
-	//Zoom factor
-	int zoomFactor &lt;- nbTypeOfClass;
+	<span class="p">//</span><span class="n">Zoom</span> <span class="n">factor</span>
+	<span class="n">int</span> <span class="n">zoomFactor</span> <span class="p">&lt;-</span> <span class="n">nbTypeOfClass</span><span class="p">;</span>
 
-	//List of the different interaction matrices
-	list&lt;matrix&lt;int&gt;&gt; interactionMatrix &lt;-list_with(nbTypeOfClass,matrix([0]));
-	//Number maximum of edges
-    int nbEdgeMax;
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">different</span> <span class="n">interaction</span> <span class="n">matrices</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">matrix</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">interactionMatrix</span> <span class="p">&lt;-</span><span class="n">list_with</span><span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,</span><span class="n">matrix</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="n">maximum</span> <span class="k">of</span> <span class="n">edges</span>
+    <span class="n">int</span> <span class="n">nbEdgeMax</span><span class="p">;</span>
     
-    //Reflex to update the interaction matrix list
-    reflex updateInteractionMatrix{
-    	//Ask for each edge agent to update it sources and destination to create the matrix
-    	ask edge_agent{
-			loop i from:0 to: nbTypeOfClass-1{															
-				src &lt;- my_graph source_of(self);
-				dest &lt;- my_graph target_of(self);
-				int tmp &lt;- (interactionMatrix[i]  at {(src.classVector[i]-1),(dest.classVector[i]-1)});
-				interactionMatrix[i][src.classVector[i]-1,dest.classVector[i]-1] &lt;- (tmp+1);
-			}
-		}
-	}
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">interaction</span> <span class="n">matrix</span> <span class="k">list</span>
+    <span class="n">reflex</span> <span class="n">updateInteractionMatrix</span><span class="p">{</span>
+    	<span class="p">//</span><span class="n">Ask</span> <span class="n">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">update</span> <span class="n">it</span> <span class="n">sources</span> <span class="k">and</span> <span class="n">destination</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">matrix</span>
+    	<span class="n">ask</span> <span class="n">edge_agent</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>															
+				<span class="n">src</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">source_of</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+				<span class="n">dest</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">target_of</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+				<span class="n">int</span> <span class="n">tmp</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">interactionMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="n">at</span> <span class="p">{(</span><span class="n">src</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]-</span><span class="m">1</span><span class="p">),(</span><span class="n">dest</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]-</span><span class="m">1</span><span class="p">)});</span>
+				<span class="n">interactionMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">src</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]-</span><span class="m">1</span><span class="p">,</span><span class="n">dest</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]-</span><span class="m">1</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">tmp</span><span class="p">+</span><span class="m">1</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	//Reflex to compute te maximum number of edges
-	reflex computeNbEdgeMax{
-		//Number maximum of edges
-		nbEdgeMax &lt;-1;
-		//Ask for each macro edge its aggregated link list number
-		ask macroEdge{
-			if(nbAggregatedLinkList[0] &gt; nbEdgeMax){
-				nbEdgeMax &lt;-nbAggregatedLinkList[0];
-			}	
-		}
-	}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">te</span> <span class="n">maximum</span> <span class="n">number</span> <span class="k">of</span> <span class="n">edges</span>
+	<span class="n">reflex</span> <span class="n">computeNbEdgeMax</span><span class="p">{</span>
+		<span class="p">//</span><span class="n">Number</span> <span class="n">maximum</span> <span class="k">of</span> <span class="n">edges</span>
+		<span class="n">nbEdgeMax</span> <span class="p">&lt;-</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Ask</span> <span class="n">for</span> <span class="n">each</span> <span class="n">macro</span> <span class="n">edge</span> <span class="n">its</span> <span class="n">aggregated</span> <span class="n">link</span> <span class="k">list</span> <span class="n">number</span>
+		<span class="n">ask</span> <span class="n">macroEdge</span><span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">nbAggregatedLinkList</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&gt;</span> <span class="n">nbEdgeMax</span><span class="p">){</span>
+				<span class="n">nbEdgeMax</span> <span class="p">&lt;-</span><span class="n">nbAggregatedLinkList</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+			<span class="p">}</span>	
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-	//Initialization of the model
-	init {
-		//Initialization of the matrix
-		do InitInteractionMatrix;
-		//If we want a spatial graph in that case we create a graph according to their distance, else we create a barabasi albert graph
-		if(spatialGraph){
-			create node_agent number:nbAgent;
-			my_graph &lt;- graph&lt;node_agent, edge_agent&gt;(as_distance_graph(node_agent, (["distance"::distance, "species"::edge_agent])));
+	<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">matrix</span>
+		<span class="k">do</span> <span class="n">InitInteractionMatrix</span><span class="p">;</span>
+		<span class="p">//</span><span class="k">If</span> <span class="n">we</span> <span class="n">want</span> <span class="n">a</span> <span class="n">spatial</span> <span class="n">graph</span> <span class="k">in</span> <span class="n">that</span> <span class="k">case</span> <span class="n">we</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">distance</span><span class="p">,</span> <span class="k">else</span> <span class="n">we</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">barabasi</span> <span class="n">albert</span> <span class="n">graph</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">spatialGraph</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">node_agent</span> <span class="n">number</span><span class="p">:</span><span class="n">nbAgent</span><span class="p">;</span>
+			<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">graph</span><span class="p">&lt;</span><span class="n">node_agent</span><span class="p">,</span> <span class="n">edge_agent</span><span class="p">&gt;(</span><span class="n">as_distance_graph</span><span class="p">(</span><span class="n">node_agent</span><span class="p">,</span> <span class="p">([</span><span class="s2">"distance"</span><span class="p">::</span><span class="n">distance</span><span class="p">,</span> <span class="s2">"species"</span><span class="p">::</span><span class="n">edge_agent</span><span class="p">])));</span>
 			
-		}
-        else{
-          my_graph &lt;- graph&lt;node_agent, edge_agent&gt;(generate_barabasi_albert(node_agent,edge_agent,nbAgent,2,true));	
-        }
+		<span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+          <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">graph</span><span class="p">&lt;</span><span class="n">node_agent</span><span class="p">,</span> <span class="n">edge_agent</span><span class="p">&gt;(</span><span class="n">generate_barabasi_albert</span><span class="p">(</span><span class="n">node_agent</span><span class="p">,</span><span class="n">edge_agent</span><span class="p">,</span><span class="n">nbAgent</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="nb">true</span><span class="p">));</span>	
+        <span class="p">}</span>
         
-		//For each node agent, we compute its class value
-		ask node_agent as list{
-			loop i from:0 to:nbTypeOfClass-1{
-				classVector[i] &lt;- rnd(nbValuePerClass-1)+1;
- 			}		
-		}
+		<span class="p">//</span><span class="n">For</span> <span class="n">each</span> <span class="n">node</span> <span class="n">agent</span><span class="p">,</span> <span class="n">we</span> <span class="n">compute</span> <span class="n">its</span> <span class="n">class</span> <span class="n">value</span>
+		<span class="n">ask</span> <span class="n">node_agent</span> <span class="k">as</span> <span class="k">list</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+				<span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="n">nbValuePerClass</span><span class="p">-</span><span class="m">1</span><span class="p">)+</span><span class="m">1</span><span class="p">;</span>
+ 			<span class="p">}</span>		
+		<span class="p">}</span>
 
-		int i&lt;-1;
-		//Creation of the macronode according to the number of value per class
-		create macroNode number: nbValuePerClass{	 
-			class &lt;-i;
-			location &lt;- {(cos (((class-1)/nbValuePerClass)*360)*50 +50),(sin (((class-1)/nbValuePerClass)*360)*50+50),0};
-			color &lt;- hsb (i/nbValuePerClass,1.0,1.0);
-			do updatemyNodes;
-			i&lt;-i+1;	
-		}
-		//We finally create the macroGraph
-		create macroGraph;
-	 }
-	 //Action to initialize the interaction Matrix according to the number of type of classes
-	 action InitInteractionMatrix{
-		 loop i from:0 to:nbTypeOfClass-1{
-				interactionMatrix[i] &lt;- 0 as_matrix({nbValuePerClass,nbValuePerClass});
- 		  }	
-	}
-}
+		<span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">macronode</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">value</span> <span class="n">per</span> <span class="n">class</span>
+		<span class="nb">create</span> <span class="n">macroNode</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbValuePerClass</span><span class="p">{</span>	 
+			<span class="n">class</span> <span class="p">&lt;-</span><span class="n">i</span><span class="p">;</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="nb">cos</span> <span class="p">(((</span><span class="n">class</span><span class="p">-</span><span class="m">1</span><span class="p">)/</span><span class="n">nbValuePerClass</span><span class="p">)*</span><span class="m">360</span><span class="p">)*</span><span class="m">50</span> <span class="p">+</span><span class="m">50</span><span class="p">),(</span><span class="nb">sin</span> <span class="p">(((</span><span class="n">class</span><span class="p">-</span><span class="m">1</span><span class="p">)/</span><span class="n">nbValuePerClass</span><span class="p">)*</span><span class="m">360</span><span class="p">)*</span><span class="m">50</span><span class="p">+</span><span class="m">50</span><span class="p">),</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span> <span class="p">(</span><span class="n">i</span><span class="p">/</span><span class="n">nbValuePerClass</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>
+			<span class="k">do</span> <span class="n">updatemyNodes</span><span class="p">;</span>
+			<span class="n">i</span><span class="p">&lt;-</span><span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>	
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">We</span> <span class="n">finally</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">macroGraph</span>
+		<span class="nb">create</span> <span class="n">macroGraph</span><span class="p">;</span>
+	 <span class="p">}</span>
+	 <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">interaction</span> <span class="n">Matrix</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">type</span> <span class="k">of</span> <span class="n">classes</span>
+	 <span class="n">action</span> <span class="n">InitInteractionMatrix</span><span class="p">{</span>
+		 <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+				<span class="n">interactionMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">as_matrix</span><span class="p">({</span><span class="n">nbValuePerClass</span><span class="p">,</span><span class="n">nbValuePerClass</span><span class="p">});</span>
+ 		  <span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-	//Species to represent the node_agent
-	species node_agent  {
-		//Color of the node agent
-		rgb color;
-		//List of the class
-		list&lt;int&gt; classVector &lt;- list_with (nbTypeOfClass,0);
-		//List of the position
-		list&lt;point&gt; posVector &lt;- list_with (nbTypeOfClass,{0,0});
-		//List of the color
-		list&lt;rgb&gt; colorList &lt;- list_with (nbTypeOfClass, rgb(0,0,0));
+	<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">node_agent</span>
+	<span class="n">species</span> <span class="n">node_agent</span>  <span class="p">{</span>
+		<span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">node</span> <span class="n">agent</span>
+		<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">class</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">classVector</span> <span class="p">&lt;-</span> <span class="n">list_with</span> <span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">position</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">posVector</span> <span class="p">&lt;-</span> <span class="n">list_with</span> <span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">});</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">color</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">colorList</span> <span class="p">&lt;-</span> <span class="n">list_with</span> <span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,</span> <span class="n">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
 								
-		//Shuffle the classes of the node_agent
-		reflex shuffleClass{
-			loop i from:0 to: nbTypeOfClass-1{
-				classVector[i] &lt;- rnd(nbValuePerClass-1)+1;
-			}	
-		}
+		<span class="p">//</span><span class="n">Shuffle</span> <span class="n">the</span> <span class="n">classes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">node_agent</span>
+		<span class="n">reflex</span> <span class="n">shuffleClass</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+				<span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="n">nbValuePerClass</span><span class="p">-</span><span class="m">1</span><span class="p">)+</span><span class="m">1</span><span class="p">;</span>
+			<span class="p">}</span>	
+		<span class="p">}</span>
  		
-		aspect real {			 
-			draw sphere(nodeSize) color: colorList[0];
-		} 
+		<span class="n">aspect</span> <span class="k">real</span> <span class="p">{</span>			 
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">nodeSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">colorList</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="p">}</span> 
 								
-		aspect coloredByClass{
-			loop i from:0 to: nbTypeOfClass-1{
-			    colorList[i]&lt;- hsb (classVector[i]/nbValuePerClass,1.0,1.0);					
-			    posVector[i] &lt;- {(location.x+i*110)*(1/zoomFactor),(location.y)*(1/zoomFactor),0};  
-			    draw sphere(nodeSize/zoomFactor) color: colorList[i] at: posVector[i] ;   
-			}
-		}
+		<span class="n">aspect</span> <span class="n">coloredByClass</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+			    <span class="n">colorList</span><span class="p">[</span><span class="n">i</span><span class="p">]&lt;-</span> <span class="n">hsb</span> <span class="p">(</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]/</span><span class="n">nbValuePerClass</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>					
+			    <span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">i</span><span class="p">*</span><span class="m">110</span><span class="p">)*(</span><span class="m">1</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">),(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">)*(</span><span class="m">1</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">),</span><span class="m">0</span><span class="p">};</span>  
+			    <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">nodeSize</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">colorList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span> <span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">;</span>   
+			<span class="p">}</span>
+		<span class="p">}</span>
 	
-	}
+	<span class="p">}</span>
 	
-	//Species edge_agent to represent the edge of the graph
-	species edge_agent { 
-		rgb color;
-		//Source of the edge
-		node_agent src;
-		//Target of the edge
-		node_agent dest;
+	<span class="p">//</span><span class="n">Species</span> <span class="n">edge_agent</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">edge</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
+	<span class="n">species</span> <span class="n">edge_agent</span> <span class="p">{</span> 
+		<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Source</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edge</span>
+		<span class="n">node_agent</span> <span class="n">src</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Target</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edge</span>
+		<span class="n">node_agent</span> <span class="n">dest</span><span class="p">;</span>
 			 
-		aspect base {
-			draw shape color: rgb(125,125,125);
-		}	
+		<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">);</span>
+		<span class="p">}</span>	
 		
-		aspect edgeGenericSpatialized{
-			loop i from:0 to: nbTypeOfClass-1{
-			  if ((src != nil) and (dest !=nil) ){
-				draw line( [ (src.posVector[i]) , (dest.posVector[i])] ) color:rgb(125,125,125);
-			  }
-			}
-		}
-	}
-	//Species representing the macro node agents
-	species macroNode{
-		rgb color;
-		int class;
-		//List of all the aggregated nodes
-		list&lt;int&gt; nbAggregatedNodes &lt;- list_with(nbTypeOfClass,0);
-		//List of all the position
-		list&lt;point&gt; posVector &lt;-list_with(nbTypeOfClass,{0,0});
+		<span class="n">aspect</span> <span class="n">edgeGenericSpatialized</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+			  <span class="k">if</span> <span class="p">((</span><span class="n">src</span> <span class="c1">!= nil) and (dest !=nil) ){
+</span>				<span class="n">draw</span> <span class="n">line</span><span class="p">(</span> <span class="p">[</span> <span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">,</span> <span class="p">(</span><span class="n">dest</span><span class="p">.</span><span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">);</span>
+			  <span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Species</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">macro</span> <span class="n">node</span> <span class="n">agents</span>
+	<span class="n">species</span> <span class="n">macroNode</span><span class="p">{</span>
+		<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+		<span class="n">int</span> <span class="n">class</span><span class="p">;</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">aggregated</span> <span class="n">nodes</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">nbAggregatedNodes</span> <span class="p">&lt;-</span> <span class="n">list_with</span><span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">position</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">posVector</span> <span class="p">&lt;-</span><span class="n">list_with</span><span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">});</span>
 		 
-		//Update the nodes of the agents
-		reflex update{
-			do updatemyNodes;
-		}
-		//For each classes, find all the nodes with the same classes
-		action updatemyNodes{
-			loop i from:0 to: nbTypeOfClass-1{			
-				nbAggregatedNodes[i]&lt;-0;
-				ask node_agent as list{
-				  if	(classVector[i] = myself.class) {
-					myself.nbAggregatedNodes[i] &lt;- myself.nbAggregatedNodes[i]+1;
-				  }	 
-			    }
-		    }	    
-		} 
+		<span class="p">//</span><span class="n">Update</span> <span class="n">the</span> <span class="n">nodes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+		<span class="n">reflex</span> <span class="n">update</span><span class="p">{</span>
+			<span class="k">do</span> <span class="n">updatemyNodes</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">For</span> <span class="n">each</span> <span class="n">classes</span><span class="p">,</span> <span class="n">find</span> <span class="n">all</span> <span class="n">the</span> <span class="n">nodes</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">classes</span>
+		<span class="n">action</span> <span class="n">updatemyNodes</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>			
+				<span class="n">nbAggregatedNodes</span><span class="p">[</span><span class="n">i</span><span class="p">]&lt;-</span><span class="m">0</span><span class="p">;</span>
+				<span class="n">ask</span> <span class="n">node_agent</span> <span class="k">as</span> <span class="k">list</span><span class="p">{</span>
+				  <span class="k">if</span>	<span class="p">(</span><span class="n">classVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">myself</span><span class="p">.</span><span class="n">class</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">myself</span><span class="p">.</span><span class="n">nbAggregatedNodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">nbAggregatedNodes</span><span class="p">[</span><span class="n">i</span><span class="p">]+</span><span class="m">1</span><span class="p">;</span>
+				  <span class="p">}</span>	 
+			    <span class="p">}</span>
+		    <span class="p">}</span>	    
+		<span class="p">}</span> 
 		
-		aspect sphere{
-			draw sphere((nbAggregatedNodes[0]/10)*macroNodeSize) color: color at: point([location.x,location.y]) ;
-		}
+		<span class="n">aspect</span> <span class="n">sphere</span><span class="p">{</span>
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">((</span><span class="n">nbAggregatedNodes</span><span class="p">[</span><span class="m">0</span><span class="p">]/</span><span class="m">10</span><span class="p">)*</span><span class="n">macroNodeSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">([</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">])</span> <span class="p">;</span>
+		<span class="p">}</span>
 		
-		aspect Generic{
-			loop i from:0 to: nbTypeOfClass-1
-			{
-			posVector[i] &lt;- {(location.x+i*150)*(1/zoomFactor),(location.y)*(1/zoomFactor),0};	
-			draw sphere((nbAggregatedNodes[i]/10)*macroNodeSize*(1/zoomFactor)) color: color at: posVector[i] ;
-			}
-		}
+		<span class="n">aspect</span> <span class="n">Generic</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span>
+			<span class="p">{</span>
+			<span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">i</span><span class="p">*</span><span class="m">150</span><span class="p">)*(</span><span class="m">1</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">),(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">)*(</span><span class="m">1</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">),</span><span class="m">0</span><span class="p">};</span>	
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">((</span><span class="n">nbAggregatedNodes</span><span class="p">[</span><span class="n">i</span><span class="p">]/</span><span class="m">10</span><span class="p">)*</span><span class="n">macroNodeSize</span><span class="p">*(</span><span class="m">1</span><span class="p">/</span><span class="n">zoomFactor</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">at</span><span class="p">:</span> <span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		//This action only works when having nbTypeOfClass=1
-		action removeMicroNode{
-			ask node_agent as list{
-				  if	(classVector[0] = myself.class) {
-				      do die;
-				  }	 
-	         }
-		}
+		<span class="p">//</span><span class="n">This</span> <span class="n">action</span> <span class="n">only</span> <span class="n">works</span> <span class="n">when</span> <span class="n">having</span> <span class="n">nbTypeOfClass</span><span class="p">=</span><span class="m">1</span>
+		<span class="n">action</span> <span class="n">removeMicroNode</span><span class="p">{</span>
+			<span class="n">ask</span> <span class="n">node_agent</span> <span class="k">as</span> <span class="k">list</span><span class="p">{</span>
+				  <span class="k">if</span>	<span class="p">(</span><span class="n">classVector</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="n">myself</span><span class="p">.</span><span class="n">class</span><span class="p">)</span> <span class="p">{</span>
+				      <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+				  <span class="p">}</span>	 
+	         <span class="p">}</span>
+		<span class="p">}</span>
 		
-		user_command "Remove all micro node" action: removeMicroNode;
-	}
+		<span class="n">user_command</span> <span class="s2">"Remove all micro node"</span> <span class="n">action</span><span class="p">:</span> <span class="n">removeMicroNode</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	//Species macroEdge representing the macro edges agents
-	species macroEdge  { 
-		rgb color &lt;- #black;
-		//Source of the macroedge
-		macroNode src;
-		//Destination of the macroedge
-		macroNode dest;
-		//List of all the aggregated links
-		list&lt;int&gt; nbAggregatedLinkList &lt;- list_with(nbTypeOfClass,0);
+	<span class="p">//</span><span class="n">Species</span> <span class="n">macroEdge</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">macro</span> <span class="n">edges</span> <span class="n">agents</span>
+	<span class="n">species</span> <span class="n">macroEdge</span>  <span class="p">{</span> 
+		<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Source</span> <span class="k">of</span> <span class="n">the</span> <span class="n">macroedge</span>
+		<span class="n">macroNode</span> <span class="n">src</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Destination</span> <span class="k">of</span> <span class="n">the</span> <span class="n">macroedge</span>
+		<span class="n">macroNode</span> <span class="n">dest</span><span class="p">;</span>
+		<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">aggregated</span> <span class="n">links</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">nbAggregatedLinkList</span> <span class="p">&lt;-</span> <span class="n">list_with</span><span class="p">(</span><span class="n">nbTypeOfClass</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
 		
-		aspect base {
-			loop i from:0 to: nbTypeOfClass-1{
-				if(nbAggregatedLinkList[i]&gt;threshold){
-				draw (line([src.posVector[i],dest.posVector[i]]) buffer ((nbAggregatedLinkList[i])/((length(edge_agent)))*nbEdgeMax)) color: rgb(125,125,125) border:rgb(125,125,125); 	
-				}
-			}
-		}
+		<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">nbAggregatedLinkList</span><span class="p">[</span><span class="n">i</span><span class="p">]&gt;</span><span class="n">threshold</span><span class="p">){</span>
+				<span class="n">draw</span> <span class="p">(</span><span class="n">line</span><span class="p">([</span><span class="n">src</span><span class="p">.</span><span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">dest</span><span class="p">.</span><span class="n">posVector</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="n">buffer</span> <span class="p">((</span><span class="n">nbAggregatedLinkList</span><span class="p">[</span><span class="n">i</span><span class="p">])/((</span><span class="n">length</span><span class="p">(</span><span class="n">edge_agent</span><span class="p">)))*</span><span class="n">nbEdgeMax</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">)</span> <span class="n">border</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">,</span><span class="m">125</span><span class="p">);</span> 	
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		//Action to remove a micro edge
-		action removeMicroEdge{
-			ask edge_agent as list{
-				  if	((self.src.classVector[0] =  myself.src.class) and (self.dest.classVector[0] =  myself.dest.class)) {
-				      do die;
-				  }	 
-	         }
-		}
+		<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">remove</span> <span class="n">a</span> <span class="n">micro</span> <span class="n">edge</span>
+		<span class="n">action</span> <span class="n">removeMicroEdge</span><span class="p">{</span>
+			<span class="n">ask</span> <span class="n">edge_agent</span> <span class="k">as</span> <span class="k">list</span><span class="p">{</span>
+				  <span class="k">if</span>	<span class="p">((</span><span class="n">self</span><span class="p">.</span><span class="n">src</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span>  <span class="n">myself</span><span class="p">.</span><span class="n">src</span><span class="p">.</span><span class="n">class</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dest</span><span class="p">.</span><span class="n">classVector</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span>  <span class="n">myself</span><span class="p">.</span><span class="n">dest</span><span class="p">.</span><span class="n">class</span><span class="p">))</span> <span class="p">{</span>
+				      <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+				  <span class="p">}</span>	 
+	         <span class="p">}</span>
+		<span class="p">}</span>
 		
-		user_command "Remove all micro edge" action: removeMicroEdge;	
-	}
+		<span class="n">user_command</span> <span class="s2">"Remove all micro edge"</span> <span class="n">action</span><span class="p">:</span> <span class="n">removeMicroEdge</span><span class="p">;</span>	
+	<span class="p">}</span>
 	
-	//Species macroGraph representing the macro graph composed of macroNode and macroEdge
-	species macroGraph {
+	<span class="p">//</span><span class="n">Species</span> <span class="n">macroGraph</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">macro</span> <span class="n">graph</span> <span class="n">composed</span> <span class="k">of</span> <span class="n">macroNode</span> <span class="k">and</span> <span class="n">macroEdge</span>
+	<span class="n">species</span> <span class="n">macroGraph</span> <span class="p">{</span>
 		
 
-  	//Reflex to update the graph by killing all the previous edges first 
-   reflex updateAllMacroEdge {	
-	 	ask macroEdge as list{
-	 		do die;
-	 	}
+  	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">by</span> <span class="n">killing</span> <span class="n">all</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">edges</span> <span class="n">first</span> 
+   <span class="n">reflex</span> <span class="n">updateAllMacroEdge</span> <span class="p">{</span>	
+	 	<span class="n">ask</span> <span class="n">macroEdge</span> <span class="k">as</span> <span class="k">list</span><span class="p">{</span>
+	 		<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+	 	<span class="p">}</span>
 	 	
-	 	loop h from:0 to: nbTypeOfClass-1{
-		 	loop i from: 0 to: nbValuePerClass-1{
-		      loop j from: 0 to: nbValuePerClass-1{
-		        int tmp &lt;- interactionMatrix[h] at {i,j}; 
+	 	<span class="n">loop</span> <span class="n">h</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+		 	<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbValuePerClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+		      <span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nbValuePerClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+		        <span class="n">int</span> <span class="n">tmp</span> <span class="p">&lt;-</span> <span class="n">interactionMatrix</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="n">at</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">};</span> 
 
-		        if(i!=j){
-		            create macroEdge{
-		              nbAggregatedLinkList[h] &lt;- tmp;
-		              src &lt;- macroNode[i];
-				      dest &lt;- macroNode[j];
-		            }	  
-		        }      
-		      }
-		    }
-	    }
-  	}
-  	//Reflex to initialize the matrix
-  	reflex initMatrix{
-  		loop i from:0 to:nbTypeOfClass-1{
-  		  interactionMatrix[i] &lt;- 0 as_matrix({nbValuePerClass,nbValuePerClass});	
-  		}	
-	  }	
-	}
+		        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="c1">!=j){
+</span>		            <span class="nb">create</span> <span class="n">macroEdge</span><span class="p">{</span>
+		              <span class="n">nbAggregatedLinkList</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">tmp</span><span class="p">;</span>
+		              <span class="n">src</span> <span class="p">&lt;-</span> <span class="n">macroNode</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+				      <span class="n">dest</span> <span class="p">&lt;-</span> <span class="n">macroNode</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+		            <span class="p">}</span>	  
+		        <span class="p">}</span>      
+		      <span class="p">}</span>
+		    <span class="p">}</span>
+	    <span class="p">}</span>
+  	<span class="p">}</span>
+  	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">matrix</span>
+  	<span class="n">reflex</span> <span class="n">initMatrix</span><span class="p">{</span>
+  		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nbTypeOfClass</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+  		  <span class="n">interactionMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">as_matrix</span><span class="p">({</span><span class="n">nbValuePerClass</span><span class="p">,</span><span class="n">nbValuePerClass</span><span class="p">});</span>	
+  		<span class="p">}</span>	
+	  <span class="p">}</span>	
+	<span class="p">}</span>
 
 
 
-experiment MODAVI type: gui {
-	output {			
-		display MODAVI type:opengl draw_env:false {
-			graphics 'ReferenceModel'{
-				draw "Reference model" at:{200,50,0} size:5 color: #black perspective:false;
-			}
-			species node_agent aspect: real position:{100,0,0.01} ;
+<span class="n">experiment</span> <span class="n">MODAVI</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>			
+		<span class="n">display</span> <span class="n">MODAVI</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s1">'ReferenceModel'</span><span class="p">{</span>
+				<span class="n">draw</span> <span class="s2">"Reference model"</span> <span class="n">at</span><span class="p">:{</span><span class="m">200</span><span class="p">,</span><span class="m">50</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:</span><span class="m">5</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">real</span> <span class="n">position</span><span class="p">:{</span><span class="m">100</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">}</span> <span class="p">;</span>
 			
-			graphics 'View1'{
-				draw "Advanced view" at:{50,210,0} size:5 color: #black perspective:false;
-			}
-			species node_agent aspect: coloredByClass position: {0,100,0.02};
-			species edge_agent aspect: edgeGenericSpatialized position: {0,100,0.02};
+			<span class="n">graphics</span> <span class="s1">'View1'</span><span class="p">{</span>
+				<span class="n">draw</span> <span class="s2">"Advanced view"</span> <span class="n">at</span><span class="p">:{</span><span class="m">50</span><span class="p">,</span><span class="m">210</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:</span><span class="m">5</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">coloredByClass</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">0.02</span><span class="p">};</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">edgeGenericSpatialized</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">0.02</span><span class="p">};</span>
 			
-			graphics 'AbstractView'{
-				draw "Abstract view/controller" at:{250,210,0} size:5 color: #black perspective:false;
-			}
-			species macroNode aspect:Generic position: {200,100,0.01};
-			species macroEdge aspect:base position: {200,100,0.01};	
-		}
-	}		
-}
+			<span class="n">graphics</span> <span class="s1">'AbstractView'</span><span class="p">{</span>
+				<span class="n">draw</span> <span class="s2">"Abstract view/controller"</span> <span class="n">at</span><span class="p">:{</span><span class="m">250</span><span class="p">,</span><span class="m">210</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:</span><span class="m">5</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">species</span> <span class="n">macroNode</span> <span class="n">aspect</span><span class="p">:</span><span class="n">Generic</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">200</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">0.01</span><span class="p">};</span>
+			<span class="n">species</span> <span class="n">macroEdge</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">200</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">0.01</span><span class="p">};</span>	
+		<span class="p">}</span>
+	<span class="p">}</span>		
+<span class="p">}</span>
 
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

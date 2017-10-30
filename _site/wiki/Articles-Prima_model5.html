@@ -3500,110 +3500,109 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model model5 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model5</span> 
 
-global {
-	//Shapefile of the roads
-	file roads_shapefile &lt;- file("../includes/road.shp");
-	//Shapefile of the buildings
-	file buildings_shapefile &lt;- file("../includes/building.shp");
-	//The bounds of the world are the bounds of the roads shapefile
-	geometry shape &lt;- envelope(roads_shapefile);
-	//The graph of road on which people agents will move
-	graph road_network;
-	init {
-		//Creation of the roads using the road shapefile
-		create roads from: roads_shapefile;
-		//Creation of the graph using the road agents as edge
-		road_network &lt;- as_edge_graph(roads);
-		//Creation of the building using the building shapefile
-		create buildings from: buildings_shapefile;
-		//Creation of the people that will be placed in a building randomly chosen
-		create people number:1000 {
-			buildings init_place &lt;- one_of(buildings);
-			location &lt;- any_location_in(init_place) + {0,0, init_place.height};
-			target &lt;- any_location_in(one_of(buildings));
-		}
-	}
-}
-//Species people that can be infected and will move from a location to a target
-species people skills:[moving]{		
-	float speed &lt;- 5.0 + rnd(5);
-	bool is_infected &lt;- flip(0.01);
-	point target;
-	//Make the agent move to its target
-	reflex move {
-		do goto target:target on: road_network;
-		//Change the target once it has been reached
-		if (location = target) {
-			target &lt;- any_location_in(one_of(buildings));
-		}
-	}
-	//Reflex to infect the people agent if it is not infected already and if there are infected people nearby
-	reflex infect when: is_infected{
-		ask people at_distance 10 {
-			if flip(0.01) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw sphere(5) color:is_infected ? #red : #green;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">are</span> <span class="n">the</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">shapefile</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">graph</span> <span class="k">of</span> <span class="n">road</span> <span class="n">on</span> <span class="n">which</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">will</span> <span class="n">move</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">roads</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span> <span class="k">as</span> <span class="n">edge</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">roads</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">using</span> <span class="n">the</span> <span class="n">building</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">a</span> <span class="n">building</span> <span class="n">randomly</span> <span class="n">chosen</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">1000</span> <span class="p">{</span>
+			<span class="n">buildings</span> <span class="n">init_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">init_place</span><span class="p">)</span> <span class="p">+</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="n">init_place</span><span class="p">.</span><span class="n">height</span><span class="p">};</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">infected</span> <span class="k">and</span> <span class="n">will</span> <span class="n">move</span> <span class="k">from</span> <span class="n">a</span> <span class="n">location</span> <span class="k">to</span> <span class="n">a</span> <span class="n">target</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Change</span> <span class="n">the</span> <span class="n">target</span> <span class="n">once</span> <span class="n">it</span> <span class="n">has</span> <span class="n">been</span> <span class="n">reached</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">infect</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="k">not</span> <span class="n">infected</span> <span class="n">already</span> <span class="k">and</span> <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">infected</span> <span class="n">people</span> <span class="n">nearby</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species roads {
-	aspect geom {
-		draw shape color: #black;
-	}
-}
-//Species buildings that will change the people agents inside it to people in building agent
-//Managing them once they have been captured, and releasing them once they reached a
-//leaving time
-species buildings {
-	float height &lt;- 10.0+ rnd(10);
-	int nb_I -&gt; {members count (people_in_building(each).is_infected)};
+<span class="n">species</span> <span class="n">roads</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">buildings</span> <span class="n">that</span> <span class="n">will</span> <span class="n">change</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">inside</span> <span class="n">it</span> <span class="k">to</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">agent</span>
+<span class="p">//</span><span class="n">Managing</span> <span class="n">them</span> <span class="n">once</span> <span class="n">they</span> <span class="n">have</span> <span class="n">been</span> <span class="n">captured</span><span class="p">,</span> <span class="k">and</span> <span class="n">releasing</span> <span class="n">them</span> <span class="n">once</span> <span class="n">they</span> <span class="n">reached</span> <span class="n">a</span>
+<span class="p">//</span><span class="n">leaving</span> <span class="n">time</span>
+<span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_I</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">members</span> <span class="k">count</span> <span class="p">(</span><span class="n">people_in_building</span><span class="p">(</span><span class="n">each</span><span class="p">).</span><span class="n">is_infected</span><span class="p">)};</span>
 	
-	aspect geom {
-		draw shape color: empty(members) ? #gray : (nb_I/length(members) &gt; 0.5 ? #red : #green) depth: height;
-	}
-	//Species people in building that will be managed by the building agents
-	species people_in_building parent: people schedules: [] {
-		int leaving_time;
-		aspect circle{}
-	}
-	//Reflex to capture the people entering inside the building, changing them in people in building species and puting a leaving time to know when lettiing
-	// them out
-	reflex let_people_enter {
-		list&lt;people&gt; entering_people &lt;- (people inside self);
-		if !(empty (entering_people)) {
-			//Change the species of the people captured from people species to people_in_building species
-			capture entering_people as: people_in_building returns: people_captured;
-			ask people_captured {
-				leaving_time &lt;- int(time + 50 + rnd(50));
-			}
- 		}
-	}
-	//Reflex to let the people_in_building agents go out if there leaving time is reached, releasing them in the world as people agent
-	reflex let_people_leave  {
-		list&lt;people_in_building&gt; leaving_people &lt;- members of_species people_in_building where (time &gt;= each.leaving_time);
-		if !(empty (leaving_people)) {
-			release leaving_people as: people in: world;
-		}
-	}
-}
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">empty</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="p">(</span><span class="n">nb_I</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0.5</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span>
+	<span class="n">species</span> <span class="n">people_in_building</span> <span class="n">parent</span><span class="p">:</span> <span class="n">people</span> <span class="n">schedules</span><span class="p">:</span> <span class="p">[]</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">leaving_time</span><span class="p">;</span>
+		<span class="n">aspect</span> <span class="n">circle</span><span class="p">{}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">capture</span> <span class="n">the</span> <span class="n">people</span> <span class="n">entering</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">building</span><span class="p">,</span> <span class="n">changing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">species</span> <span class="k">and</span> <span class="n">puting</span> <span class="n">a</span> <span class="n">leaving</span> <span class="n">time</span> <span class="k">to</span> <span class="n">know</span> <span class="n">when</span> <span class="n">lettiing</span>
+	<span class="p">//</span> <span class="n">them</span> <span class="n">out</span>
+	<span class="n">reflex</span> <span class="n">let_people_enter</span> <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;</span> <span class="n">entering_people</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">people</span> <span class="n">inside</span> <span class="n">self</span><span class="p">);</span>
+		<span class="k">if</span> <span class="c1">!(empty (entering_people)) {
+</span>			<span class="p">//</span><span class="n">Change</span> <span class="n">the</span> <span class="n">species</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">captured</span> <span class="k">from</span> <span class="n">people</span> <span class="n">species</span> <span class="k">to</span> <span class="n">people_in_building</span> <span class="n">species</span>
+			<span class="n">capture</span> <span class="n">entering_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people_in_building</span> <span class="n">returns</span><span class="p">:</span> <span class="n">people_captured</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">people_captured</span> <span class="p">{</span>
+				<span class="n">leaving_time</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">time</span> <span class="p">+</span> <span class="m">50</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">50</span><span class="p">));</span>
+			<span class="p">}</span>
+ 		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">let</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="n">go</span> <span class="n">out</span> <span class="k">if</span> <span class="n">there</span> <span class="n">leaving</span> <span class="n">time</span> <span class="n">is</span> <span class="n">reached</span><span class="p">,</span> <span class="n">releasing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">the</span> <span class="n">world</span> <span class="k">as</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">reflex</span> <span class="n">let_people_leave</span>  <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">leaving_people</span> <span class="p">&lt;-</span> <span class="n">members</span> <span class="n">of_species</span> <span class="n">people_in_building</span> <span class="n">where</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;=</span> <span class="n">each</span><span class="p">.</span><span class="n">leaving_time</span><span class="p">);</span>
+		<span class="k">if</span> <span class="c1">!(empty (leaving_people)) {
+</span>			<span class="n">release</span> <span class="n">leaving_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people</span> <span class="k">in</span><span class="p">:</span> <span class="n">world</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	output {
-		display map type: opengl {
-			species roads aspect:geom;
-			species buildings aspect:geom;
-			species people aspect:circle;			
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3508,27 +3508,25 @@ function closeRightMenu() {
 </ul>
 
 <h1 id="definition-of-the-symbol-in-msigamacoresrcmsigamaopenglgloutputjava">Definition of the symbol in <code class="highlighter-rouge">msi.gama.core/src/msi/gama/opengl/GLOutput.java</code></h1>
-<div class="highlighter-rouge"><pre class="highlight"><code>@symbol(name = IKeyword.DISPLAY_GL, kind = ISymbolKind.OUTPUT)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.DISPLAY_GL, kind = ISymbolKind.OUTPUT)
 @facets(value = {
 	//@facet(name = IKeyword.DISPLAY_GRAPH, type = IType.STRING_STR, optional = false),
 	@facet(name = IKeyword.NAME, type = IType.STRING_STR, optional = true)
 	}, omissible = IKeyword.NAME)
 @with_sequence
 @inside(symbols = IKeyword.OUTPUT)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="use-of-the-symbol-in-msigamamodelsmodelsgraphmodeltestsiggaml-">Use of the symbol in <code class="highlighter-rouge">msi.gama.models/models/graph/model/testSIG.gaml</code> :</h1>
-<div class="highlighter-rouge"><pre class="highlight"><code>output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
 	graphdisplaygl {		
 	}
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li>A new view in msi.gama.jogl plugin.xml</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    &lt;extension
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;extension
           point="org.eclipse.ui.views"&gt;
            &lt;view allowMultiple="true"
             category="msi.gama.gui.category.gama"
@@ -3539,15 +3537,13 @@ function closeRightMenu() {
             restorable="true"&gt;
           &lt;/view&gt;
     &lt;/extension&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This view is implemented in <code class="highlighter-rouge">/Users/macbookpro/Projects/GamaDev/msi.gama.jogl/src/msi/gama/jogl/GLView.java</code></p>
 
 <p>The view ID must also be defined <code class="highlighter-rouge">src/msi/gama/common/util/GuiUtils.java</code></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>public static final String GL_VIEW_ID = "msi.gama.jogl.GLView";
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static final String GL_VIEW_ID = "msi.gama.jogl.GLView";
+</code></pre></div></div>
 
 <p><a href="http://gama-platform.googlecode.com/files/gama-opengl.png" title="CodingCampNight"><img src="http://gama-platform.googlecode.com/files/gama-opengl.png" alt="CodingCampNight" /></a></p>
 

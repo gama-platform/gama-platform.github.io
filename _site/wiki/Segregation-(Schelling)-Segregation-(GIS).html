@@ -3500,147 +3500,146 @@ function closeRightMenu() {
 
 <p>Imported model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model segregation_base
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">segregation_base</span>
 
-global {
-	//Different colors for the group
-	rgb color_1 &lt;- rgb ("yellow") parameter: "Color of group 1:" category: "User interface";
-	rgb color_2 &lt;- rgb ("red") parameter: "Color of group 2:" category: "User interface";
-	rgb color_3 &lt;- rgb ("blue") parameter: "Color of group 3:" category: "User interface";
-	rgb color_4 &lt;- rgb ("orange") parameter: "Color of group 4:" category: "User interface";
-	rgb color_5 &lt;- rgb ("green") parameter: "Color of group 5:" category: "User interface";
-	rgb color_6 &lt;- rgb ("pink") parameter: "Color of group 6:" category: "User interface";   
-	rgb color_7 &lt;- rgb ("magenta") parameter: "Color of group 7:" category: "User interface";
-	rgb color_8 &lt;- rgb ("cyan") parameter: "Color of group 8:" category: "User interface";
-    list colors &lt;- [color_1, color_2, color_3, color_4, color_5, color_6, color_7, color_8] of: rgb;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Different</span> <span class="n">colors</span> <span class="n">for</span> <span class="n">the</span> <span class="n">group</span>
+	<span class="n">rgb</span> <span class="n">color_1</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"yellow"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 1:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_2</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"red"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 2:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_3</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"blue"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 3:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_4</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"orange"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 4:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_5</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"green"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 5:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_6</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"pink"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 6:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>   
+	<span class="n">rgb</span> <span class="n">color_7</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"magenta"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 7:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_8</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s2">"cyan"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Color of group 8:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"User interface"</span><span class="p">;</span>
+    <span class="k">list</span> <span class="n">colors</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">color_3</span><span class="p">,</span> <span class="n">color_4</span><span class="p">,</span> <span class="n">color_5</span><span class="p">,</span> <span class="n">color_6</span><span class="p">,</span> <span class="n">color_7</span><span class="p">,</span> <span class="n">color_8</span><span class="p">]</span> <span class="k">of</span><span class="p">:</span> <span class="n">rgb</span><span class="p">;</span>
 
 	
-	//Number of groups
-	int number_of_groups &lt;- 2 max: 8 parameter: "Number of groups:" category: "Population";
-	//Density of the people
-	float density_of_people &lt;- 0.7 parameter: "Density of people:" category: "Population" min: 0.01 max: 0.99;
-	//Percentage of similar wanted for segregation
-	float percent_similar_wanted &lt;- 0.5 min: float (0) max: float (1) parameter: "Desired percentage of similarity:" category: "Population";
-	//Dimension of the grid
-	int dimensions &lt;- 40 max: 400 min: 10 parameter: "Width and height of the environment:" category: "Environment";
-	//Neighbours distance for the perception of the agents
-	int neighbours_distance &lt;- 2 max: 10 min: 1 parameter: "Distance of perception:" category: "Population";
-	//Number of people agents
-	int number_of_people &lt;- 0;
-	//Number of happy people
-	int sum_happy_people &lt;- 0 update: all_people count (each.is_happy);
-	//Number of similar neighbours
-	int sum_similar_neighbours &lt;- 0 update: sum (all_people collect each.similar_nearby);
-	//Number of neighbours
-	int sum_total_neighbours &lt;- 1 update: sum (all_people collect each.total_nearby) min: 1;
-	//List of all the places
-	list&lt;agent&gt; all_places;
-	//List of all the people
-	list&lt;base&gt; all_people;  
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">groups</span>
+	<span class="n">int</span> <span class="n">number_of_groups</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">8</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Number of groups:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Population"</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Density</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span>
+	<span class="n">float</span> <span class="n">density_of_people</span> <span class="p">&lt;-</span> <span class="m">0.7</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Density of people:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Population"</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.01</span> <span class="k">max</span><span class="p">:</span> <span class="m">0.99</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Percentage</span> <span class="k">of</span> <span class="n">similar</span> <span class="n">wanted</span> <span class="n">for</span> <span class="n">segregation</span>
+	<span class="n">float</span> <span class="n">percent_similar_wanted</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span> <span class="n">float</span> <span class="p">(</span><span class="m">0</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">float</span> <span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Desired percentage of similarity:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Population"</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Dimension</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
+	<span class="n">int</span> <span class="n">dimensions</span> <span class="p">&lt;-</span> <span class="m">40</span> <span class="k">max</span><span class="p">:</span> <span class="m">400</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Width and height of the environment:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Environment"</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Neighbours</span> <span class="n">distance</span> <span class="n">for</span> <span class="n">the</span> <span class="n">perception</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">neighbours_distance</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">10</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Distance of perception:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Population"</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">number_of_people</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">happy</span> <span class="n">people</span>
+	<span class="n">int</span> <span class="n">sum_happy_people</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span> <span class="n">all_people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_happy</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">similar</span> <span class="n">neighbours</span>
+	<span class="n">int</span> <span class="n">sum_similar_neighbours</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span> <span class="k">sum</span> <span class="p">(</span><span class="n">all_people</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">similar_nearby</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">neighbours</span>
+	<span class="n">int</span> <span class="n">sum_total_neighbours</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="n">update</span><span class="p">:</span> <span class="k">sum</span> <span class="p">(</span><span class="n">all_people</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">total_nearby</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">places</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">all_places</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">base</span><span class="p">&gt;</span> <span class="n">all_people</span><span class="p">;</span>  
 	
-	//Action to write the description of the model in the console
-	action description {
-		write
-		"\\n\\u25B6 Description. \\n\\u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.\\n\\u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbours is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighbourhood that fits their desire. \\n\\u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbours) of the agents to see how it affects the global process. ";
-	}
-	//Initialization of the model
-	init {
-		//Write the description of the model 
-		do description;
-		//Initialization of the places
-		do initialize_places;
-		//Computation of the number of people according to the density of people
-		number_of_people &lt;- int( length (all_places) * density_of_people);
-		//Initialization of the people
-		do initialize_people;
-	}
-	//Action to initialize places defined in the subclasses
-	action initialize_places virtual: true;
-	//Action to initialize people in the subclasses
-	action initialize_people virtual: true;
-}
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="nb">write</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="k">in</span> <span class="n">the</span> <span class="n">console</span>
+	<span class="n">action</span> <span class="n">description</span> <span class="p">{</span>
+		<span class="nb">write</span>
+		<span class="s2">"</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">u25B6 Description. </span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbours is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighbourhood that fits their desire. </span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbours) of the agents to see how it affects the global process. "</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Write</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> 
+		<span class="k">do</span> <span class="n">description</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">places</span>
+		<span class="k">do</span> <span class="n">initialize_places</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">density</span> <span class="k">of</span> <span class="n">people</span>
+		<span class="n">number_of_people</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span> <span class="n">length</span> <span class="p">(</span><span class="n">all_places</span><span class="p">)</span> <span class="p">*</span> <span class="n">density_of_people</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span>
+		<span class="k">do</span> <span class="n">initialize_people</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">places</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">subclasses</span>
+	<span class="n">action</span> <span class="n">initialize_places</span> <span class="n">virtual</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">people</span> <span class="k">in</span> <span class="n">the</span> <span class="n">subclasses</span>
+	<span class="n">action</span> <span class="n">initialize_people</span> <span class="n">virtual</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Species base representing the people agents
-species base {
-	rgb color;
-	//List of all the neighbours agents
-	list&lt;base&gt; my_neighbours;
-	//computation of the similar neighbours
-	int similar_nearby -&gt; {
-		(my_neighbours count (each.color = color))
-	};
-	//Computation of the total neighbours nearby
-	int total_nearby -&gt; {
-		length (my_neighbours)
-	};
-	//Boolean to know if the agent is happy or not
-	bool is_happy -&gt; {similar_nearby &gt;= (percent_similar_wanted * total_nearby )} ;
-}
+<span class="p">//</span><span class="n">Species</span> <span class="n">base</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+<span class="n">species</span> <span class="n">base</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbours</span> <span class="n">agents</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">base</span><span class="p">&gt;</span> <span class="n">my_neighbours</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">similar</span> <span class="n">neighbours</span>
+	<span class="n">int</span> <span class="n">similar_nearby</span> <span class="p">-&gt;</span> <span class="p">{</span>
+		<span class="p">(</span><span class="n">my_neighbours</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">color</span><span class="p">))</span>
+	<span class="p">};</span>
+	<span class="p">//</span><span class="n">Computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">total</span> <span class="n">neighbours</span> <span class="n">nearby</span>
+	<span class="n">int</span> <span class="n">total_nearby</span> <span class="p">-&gt;</span> <span class="p">{</span>
+		<span class="n">length</span> <span class="p">(</span><span class="n">my_neighbours</span><span class="p">)</span>
+	<span class="p">};</span>
+	<span class="p">//</span><span class="k">Boolean</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">happy</span> <span class="k">or</span> <span class="k">not</span>
+	<span class="n">bool</span> <span class="n">is_happy</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">similar_nearby</span> <span class="p">&gt;=</span> <span class="p">(</span><span class="n">percent_similar_wanted</span> <span class="p">*</span> <span class="n">total_nearby</span> <span class="p">)}</span> <span class="p">;</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model segregation
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">segregation</span>
 
-//Import the model Common Schelling Segregation
-import "../include/Common Schelling Segregation.gaml" 
-global {
-	//List of all the free places
-	list&lt;space&gt; free_places  ;  
-	//List of all the places
-	list&lt;space&gt; all_places ;
-	//Neighbours distance for the perception of an agent
-	int neighbours_distance &lt;- 50 min: 1 parameter: "Distance of perception:" category: "Population" max: 1000;
-	//Shapefile to load
-	file shape_file_name &lt;- file("../gis/nha2.shp") parameter: "Shapefile to load:" category: "GIS specific";
-	//Shape of the environment
-	geometry shape &lt;- envelope(shape_file_name);
-	//Square meters per people in m2
-	int square_meters_per_people &lt;- 200 parameter: "Occupancy of people (in m2):" category: "GIS specific";
+<span class="p">//</span><span class="n">Import</span> <span class="n">the</span> <span class="k">model</span> <span class="n">Common</span> <span class="n">Schelling</span> <span class="n">Segregation</span>
+<span class="n">import</span> <span class="s2">"../include/Common Schelling Segregation.gaml"</span> 
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">free</span> <span class="n">places</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">space</span><span class="p">&gt;</span> <span class="n">free_places</span>  <span class="p">;</span>  
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">places</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">space</span><span class="p">&gt;</span> <span class="n">all_places</span> <span class="p">;</span>
+	<span class="p">//</span><span class="n">Neighbours</span> <span class="n">distance</span> <span class="n">for</span> <span class="n">the</span> <span class="n">perception</span> <span class="k">of</span> <span class="n">an</span> <span class="n">agent</span>
+	<span class="n">int</span> <span class="n">neighbours_distance</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Distance of perception:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Population"</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">to</span> <span class="nf">load</span>
+	<span class="n">file</span> <span class="n">shape_file_name</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../gis/nha2.shp"</span><span class="p">)</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Shapefile to load:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS specific"</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_name</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Square</span> <span class="n">meters</span> <span class="n">per</span> <span class="n">people</span> <span class="k">in</span> <span class="n">m2</span>
+	<span class="n">int</span> <span class="n">square_meters_per_people</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Occupancy of people (in m2):"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS specific"</span><span class="p">;</span>
 	
-	//Action to initialize people agents
-	action initialize_people { 
-		//Create all the places with a surface given within the shapefile
-		create space from: shape_file_name with: [surface :: float(read("AREA"))];
-		all_places  &lt;- shuffle(space);
-		//Compute the number of people to create considering the density of people
-		number_of_people &lt;- int( density_of_people * sum (all_places collect (each.capacity))); 
-		create people number: number_of_people;  
-	    all_people &lt;- people as list ; 
-	    //Move all the people to a new place
-		ask people  {  
-			do move_to_new_place;       
-		}   
-	}      
-	//Action to initialize the places
-	action initialize_places {}   
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">action</span> <span class="n">initialize_people</span> <span class="p">{</span> 
+		<span class="p">//</span><span class="n">Create</span> <span class="n">all</span> <span class="n">the</span> <span class="n">places</span> <span class="k">with</span> <span class="n">a</span> <span class="n">surface</span> <span class="n">given</span> <span class="n">within</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">space</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_name</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">surface</span> <span class="p">::</span> <span class="n">float</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"AREA"</span><span class="p">))];</span>
+		<span class="n">all_places</span>  <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">space</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Compute</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">considering</span> <span class="n">the</span> <span class="n">density</span> <span class="k">of</span> <span class="n">people</span>
+		<span class="n">number_of_people</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span> <span class="n">density_of_people</span> <span class="p">*</span> <span class="k">sum</span> <span class="p">(</span><span class="n">all_places</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">capacity</span><span class="p">)));</span> 
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_people</span><span class="p">;</span>  
+	    <span class="n">all_people</span> <span class="p">&lt;-</span> <span class="n">people</span> <span class="k">as</span> <span class="k">list</span> <span class="p">;</span> 
+	    <span class="p">//</span><span class="n">Move</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people</span> <span class="k">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">place</span>
+		<span class="n">ask</span> <span class="n">people</span>  <span class="p">{</span>  
+			<span class="k">do</span> <span class="n">move_to_new_place</span><span class="p">;</span>       
+		<span class="p">}</span>   
+	<span class="p">}</span>      
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">places</span>
+	<span class="n">action</span> <span class="n">initialize_places</span> <span class="p">{}</span>   
 	
-} 
+<span class="p">}</span> 
 
-//Species people representing the people
-species people parent: base { 
-	//Size of the people agent
-	float size const: true &lt;- 2.0;
-	//Color of the people agent  
-	rgb color const: true &lt;- colors at (rnd (number_of_groups - 1)); 
-	int red const: true &lt;- (color as list) at 0; 
-	int green const: true &lt;- (color as list) at 1;  
-	int blue const: true &lt;- (color as list) at 2;  
-	//Building in which the agent lives
-	space current_building &lt;- nil;
-	//List of all the neighbour people agents
-	list&lt;people&gt; my_neighbours -&gt; {people at_distance neighbours_distance}; 
+<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">people</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">parent</span><span class="p">:</span> <span class="n">base</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>  
+	<span class="n">rgb</span> <span class="n">color</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">colors</span> <span class="n">at</span> <span class="p">(</span><span class="n">rnd</span> <span class="p">(</span><span class="n">number_of_groups</span> <span class="p">-</span> <span class="m">1</span><span class="p">));</span> 
+	<span class="n">int</span> <span class="n">red</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">color</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">green</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">color</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">at</span> <span class="m">1</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">blue</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">color</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">at</span> <span class="m">2</span><span class="p">;</span>  
+	<span class="p">//</span><span class="n">Building</span> <span class="k">in</span> <span class="n">which</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">lives</span>
+	<span class="n">space</span> <span class="n">current_building</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbour</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;</span> <span class="n">my_neighbours</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">people</span> <span class="n">at_distance</span> <span class="n">neighbours_distance</span><span class="p">};</span> 
 	
-	//Action to move to a new place
-	action move_to_new_place {  
-		current_building &lt;- (shuffle(all_places) first_with (((each).capacity) &gt; 0));
-		ask current_building {
-			do accept one_people: myself;   
-		}
-	}
-	//Reflex to migrate to another place if the agent isn't happy
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">move</span> <span class="k">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">place</span>
+	<span class="n">action</span> <span class="n">move_to_new_place</span> <span class="p">{</span>  
+		<span class="n">current_building</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shuffle</span><span class="p">(</span><span class="n">all_places</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(((</span><span class="n">each</span><span class="p">).</span><span class="n">capacity</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">));</span>
+		<span class="n">ask</span> <span class="n">current_building</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">accept</span> <span class="n">one_people</span><span class="p">:</span> <span class="n">myself</span><span class="p">;</span>   
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">migrate</span> <span class="k">to</span> <span class="n">another</span> <span class="n">place</span> <span class="k">if</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">isn</span><span class="s1">'t happy
 	reflex migrate when: !is_happy {
 		if current_building != nil {
 			ask current_building { 
@@ -3709,8 +3708,7 @@ experiment schelling type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

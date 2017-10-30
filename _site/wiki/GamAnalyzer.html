@@ -3537,30 +3537,27 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
 <p>This example is based on a toy model which is only composed of wandering people. In this example we will use GamAnalyzer to follow the agent people.</p>
 
 <p>###</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>agent_group_follower peoplefollower;
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>create agentfollower 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent_group_follower peoplefollower;
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create agentfollower 
 {
   do analyse_cluster species_to_analyse:"people";
   peoplefollower&lt;-self;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="expglobalnone">expGlobalNone</h3>
 <p>No clustering only the current agent follower is displayed</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect base {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base {
   display_mode &lt;-"global";
   clustering_mode &lt;-"none";
   draw shape color: #red;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="expsimglobalnone">expSimGlobalNone</h3>
 <p>The agent_group_follower corresponding to the current iteration and all the already launch experiments are displayed.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect simglobal{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect simglobal{
   display_mode &lt;-"simglobal";
   clustering_mode &lt;-"none";
   draw shape color: #red;
@@ -3570,21 +3567,19 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
     curColor &lt;- curColor+1;
   }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="expcluster">expCluster</h3>
 <p>The agent group follower is divided in cluster computed thanks to a dbscan algorithm. Only the current agent_group_follower is displayed</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect cluster {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect cluster {
   display_mode &lt;-"global";
   clustering_mode &lt;-"dbscan";
   draw shape color: #red;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="expclustersimglobal">expClusterSimGlobal</h3>
 <p>The agent_group_follower (made of different cluster) corresponding to the current iteration and all the already launch experiments are displayed.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect clusterSimGlobal {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect clusterSimGlobal {
   display_mode &lt;-"simglobal";
   clustering_mode &lt;-"dbscan";
   draw shape color: #red;
@@ -3594,8 +3589,7 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
     curColor &lt;- curColor+1;
   } 
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

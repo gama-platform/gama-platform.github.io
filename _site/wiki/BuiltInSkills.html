@@ -3504,41 +3504,36 @@ function closeRightMenu() {
 
 <p>Skills are built-in modules, written in Java, that provide a set of related built-in variables and built-in actions (in addition to those already provided by GAMA) to the species that declare them. A declaration of skill is done by filling the skills attribute in the species definition:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species skills: [skill1, skill2] {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species skills: [skill1, skill2] {
     ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Skills have been designed to be mutually compatible so that any combination of them will result in a functional species. An example of skill is the <code class="highlighter-rouge">moving</code> skill.</p>
 
 <p>So, for instance, if a species is declared as:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species foo skills: [moving]{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species foo skills: [moving]{
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Its agents will automatically be provided with the following variables : <code class="highlighter-rouge">speed</code>, <code class="highlighter-rouge">heading</code>, <code class="highlighter-rouge">destination</code> and the following actions: <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">goto</code>, <code class="highlighter-rouge">wander</code>, <code class="highlighter-rouge">follow</code> in addition to those built-in in species and declared by the modeller. Most of these variables, except the ones marked read-only, can be customized and modified like normal variables by the modeller. For instance, one could want to set a maximum for the speed; this would be done by redeclaring it like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>float speed max:100 min:0;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float speed max:100 min:0;
+</code></pre></div></div>
 
 <p>Or, to obtain a speed increasing at each simulation step:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>float speed max:100 min:0  &lt;- 1 update: speed * 1.01;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float speed max:100 min:0  &lt;- 1 update: speed * 1.01;
+</code></pre></div></div>
 
 <p>Or, to change the speed in a behavior:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if speed = 5 {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if speed = 5 {
     speed &lt;- 10;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <hr />
 
@@ -4248,7 +4243,7 @@ function closeRightMenu() {
 <h4 id="select-1"><strong><code class="highlighter-rouge">select</code></strong></h4>
 
 <ul>
-  <li>returns: container</li>
+  <li>returns: list</li>
   <li><strong><code class="highlighter-rouge">params</code></strong> (map): Connection parameters</li>
   <li><strong><code class="highlighter-rouge">select</code></strong> (string): select string with question marks</li>
   <li><strong><code class="highlighter-rouge">values</code></strong> (list): List of values that are used to replace question marks</li>

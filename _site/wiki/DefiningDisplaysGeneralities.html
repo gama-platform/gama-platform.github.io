@@ -3514,7 +3514,7 @@ function closeRightMenu() {
 
 <p>A display is the graphical output of your simulation. You can define several displays related with what you want to represent from your model execution. To define a display, use the keyword <code class="highlighter-rouge">display</code> inside the <code class="highlighter-rouge">output</code> scope, and specify a name (<code class="highlighter-rouge">name</code> facet).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_experiment type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
 	output {
 		display "display1" {
 		}
@@ -3522,20 +3522,17 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Other facets are available when defining your display:</p>
 <ul>
   <li>Use <code class="highlighter-rouge">background</code> to define a color for your background
-    <div class="highlighter-rouge"><pre class="highlight"><code>display "my_display" background:#red
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display "my_display" background:#red
+</code></pre></div>    </div>
   </li>
   <li>Use <code class="highlighter-rouge">refresh</code> if you want to refresh the display when a condition is true (to refresh your display every number of steps, use the operator <code class="highlighter-rouge">every</code>)
-    <div class="highlighter-rouge"><pre class="highlight"><code>display "my_display" refresh:every(10)
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display "my_display" refresh:every(10)
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -3547,15 +3544,13 @@ function closeRightMenu() {
 
 <p>You can save the display on the disk, as a png file, in the folder name_of_model/models/snapshots, by using the facet <code class="highlighter-rouge">autosave</code>. This facet takes one a boolean as argument (to allow or not to save each frame) or a point (to define the size of your image). By default, the resolution of the output image is 500x500px (note that when no unit is provided, the unit is <code class="highlighter-rouge">#px</code> (pixel) ).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>display my_display autosave:true type:java2D {}
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display my_display autosave:true type:java2D {}
+</code></pre></div></div>
 
 <p>is equivalent to :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>display my_display autosave:{500,500} type:java2D {}
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display my_display autosave:{500,500} type:java2D {}
+</code></pre></div></div>
 
 <p>Each display can be decomposed in one or several layers. Here is a screenshot (from the Toy Model Ant) to better understand those different notions we are about to tackle in this session.</p>
 
@@ -3569,7 +3564,7 @@ function closeRightMenu() {
 
 <p>Thus, the following code:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment expe type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
     output {
         display my_display {
             graphics "layer1" {
@@ -3584,8 +3579,7 @@ function closeRightMenu() {
         }
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Will have this output:</p>
 
@@ -3593,7 +3587,7 @@ function closeRightMenu() {
 
 <p>Most of the layers have the <code class="highlighter-rouge">transparency</code> facet in order to see the layers which are under.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment expe type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
 	output {
 		display my_display {
 			graphics "layer1" {
@@ -3605,8 +3599,7 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/definingGUIExperiment/layers_transparency.png" alt="images/layers_transparency.png" /></p>
 
@@ -3614,7 +3607,7 @@ function closeRightMenu() {
 The <code class="highlighter-rouge">position</code> facet is used with a point type, between {0,0} and {1,1}, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point {0.5,0.5}, the upper left corner of your layer will be in the center of your display. By default, this value is {0,0}.
 The <code class="highlighter-rouge">size</code> facet is used with a point type, between {0,0} and {1,1} also. It corresponds to the size occupied by the layer in percentage. By default, this value is {1,1}.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment expe type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
 	output {
 		display my_display {
 			graphics "layer1" position:{0,0} size:{0.5,0.8} {
@@ -3629,8 +3622,7 @@ The <code class="highlighter-rouge">size</code> facet is used with a point type,
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/definingGUIExperiment/layers_size_position.png" alt="images/layers_size_position.png" /></p>
 

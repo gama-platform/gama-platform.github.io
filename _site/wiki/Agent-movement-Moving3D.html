@@ -3500,216 +3500,216 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
-model Moving3DModel   
+<span class="k">model</span> <span class="n">Moving3DModel</span>   
 
-global {
-	int number_of_agents parameter: 'Number of Agents' min: 1 &lt;- 250 step:10 category: 'Initialization'; 
-	int envSize &lt;-100; //max:100;
-	int mazeSize &lt;-10;
-	int radius parameter: 'Radius' min: 1 &lt;- 1 ;
-	int directionSize parameter: 'direction size' min: 1 &lt;- 10 ;
-	string effectType &lt;-"";// among:["","firework", "blob","direction"];
-	string movingType &lt;-"move";
-	graph mazeGraph;
-	geometry shape &lt;- cube(envSize);
-	bool trace &lt;-false;
-	string agentAspect &lt;- "sphere" among:["circle", "sphere","direction"];
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">250</span> <span class="n">step</span><span class="p">:</span><span class="m">10</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">envSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span> <span class="p">//</span><span class="k">max</span><span class="p">:</span><span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">mazeSize</span> <span class="p">&lt;-</span><span class="m">10</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">radius</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Radius'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">directionSize</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'direction size'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">;</span>
+	<span class="k">string</span> <span class="n">effectType</span> <span class="p">&lt;-</span><span class="s2">""</span><span class="p">;//</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">,</span> <span class="s2">"blob"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
+	<span class="k">string</span> <span class="n">movingType</span> <span class="p">&lt;-</span><span class="s2">"move"</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">envSize</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">trace</span> <span class="p">&lt;-</span><span class="nb">false</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"sphere"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"circle"</span><span class="p">,</span> <span class="s2">"sphere"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
 
-	init { 
+	<span class="n">init</span> <span class="p">{</span> 
 		
-		if(movingType = "move" or movingType = "complete"){
-		  create movingAgent number: number_of_agents{
-		  	if(effectType = "firework"){
-		  	  location &lt;- {envSize/2, envSize/2, envSize/2};	
-		  	}
-		  	else{
-		  		location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
-		  	}
-		    color&lt;-°red;	
-		  }	
-		}
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"move"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+		  <span class="nb">create</span> <span class="n">movingAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+		  	<span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"firework"</span><span class="p">){</span>
+		  	  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">};</span>	
+		  	<span class="p">}</span>
+		  	<span class="k">else</span><span class="p">{</span>
+		  		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+		  	<span class="p">}</span>
+		    <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">red</span><span class="p">;</span>	
+		  <span class="p">}</span>	
+		<span class="p">}</span>
 		
-		if(movingType = "wander" or movingType = "complete"){
-			create wanderAgent number: number_of_agents{
-			  location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
-			  color&lt;-°green;	
-			}
-		}
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"wander"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">wanderAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">green</span><span class="p">;</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		if(movingType = "goto" or movingType = "complete"){
-			create gotoAgent number: number_of_agents{
-			  location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
-			  myTarget &lt;-{rnd(envSize),rnd(envSize),rnd(envSize)};
-			  color&lt;-°yellow;
-			}
-		}
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"goto"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">gotoAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">yellow</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		if(movingType = "gotoOnNetwork" or movingType = "complete"){
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
 			
-			loop i from:0 to:mazeSize{
-		      loop j from:0 to: mazeSize{
-			    loop k from:0 to:mazeSize{
-			      create cell{
-				    location &lt;-{(i)*envSize/mazeSize,(j)*envSize/mazeSize, (k)*envSize/mazeSize};
-			      }	
-			    }	
-	          }
-		    }
-		    create gotoAgentOnNetwork number: number_of_agents{
-			  location &lt;- {floor(rnd(envSize)/mazeSize)*10, floor(rnd(envSize)/mazeSize)*10, floor(rnd(envSize)/mazeSize)*10};
-			  myTarget &lt;-{0,0,0};
-			  speed &lt;-0.1;
-			  color&lt;-°orange;		
-			}
-		    mazeGraph &lt;- as_distance_graph(cell, ["distance"::10.0,"species"::edge_agent]);
-		}
-	 }
-}
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
+		      <span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">mazeSize</span><span class="p">{</span>
+			    <span class="n">loop</span> <span class="n">k</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
+			      <span class="nb">create</span> <span class="n">cell</span><span class="p">{</span>
+				    <span class="n">location</span> <span class="p">&lt;-{(</span><span class="n">i</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,(</span><span class="n">j</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">};</span>
+			      <span class="p">}</span>	
+			    <span class="p">}</span>	
+	          <span class="p">}</span>
+		    <span class="p">}</span>
+		    <span class="nb">create</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">};</span>
+			  <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			  <span class="n">speed</span> <span class="p">&lt;-</span><span class="m">0.1</span><span class="p">;</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">orange</span><span class="p">;</span>		
+			<span class="p">}</span>
+		    <span class="n">mazeGraph</span> <span class="p">&lt;-</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="p">[</span><span class="s2">"distance"</span><span class="p">::</span><span class="m">10.0</span><span class="p">,</span><span class="s2">"species"</span><span class="p">::</span><span class="n">edge_agent</span><span class="p">]);</span>
+		<span class="p">}</span>
+	 <span class="p">}</span>
+<span class="p">}</span>
 
-species abstractAgent skills: [moving3D]{
-	rgb color;
-	aspect default {
-		if(agentAspect = "sphere"){
-			draw sphere(radius) color:color;
-		}
-		if(agentAspect = "circle"){
-			draw circle(radius) color:color;
-		}
-		if(agentAspect = "direction"){
-		  draw sphere(radius) color:color;
-          draw line([{location.x,location.y,location.z},{location.x+directionSize*cos(pitch)*cos(heading),location.y+directionSize*cos(pitch)*sin(heading),location.z+directionSize*sin(pitch)}]) end_arrow:1.0 color:color;	
-		}  	 	
-    }
-} 
+<span class="n">species</span> <span class="n">abstractAgent</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"sphere"</span><span class="p">){</span>
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"circle"</span><span class="p">){</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"direction"</span><span class="p">){</span>
+		  <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+          <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">},{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">pitch</span><span class="p">)}])</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1.0</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>	
+		<span class="p">}</span>  	 	
+    <span class="p">}</span>
+<span class="p">}</span> 
 
-species movingAgent  parent:abstractAgent{ 
-	reflex move{
-	  do move;
-	}		
-}
+<span class="n">species</span> <span class="n">movingAgent</span>  <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+	  <span class="k">do</span> <span class="n">move</span><span class="p">;</span>
+	<span class="p">}</span>		
+<span class="p">}</span>
 
-species wanderAgent parent:abstractAgent{ 
-	reflex wander{
-	  do wander amplitude:90;
-	}
-}
+<span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
+	<span class="n">reflex</span> <span class="n">wander</span><span class="p">{</span>
+	  <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species gotoAgent parent:abstractAgent{ 
-	point myTarget;
-	string gotoType;
-	reflex goto{
-		if(effectType = "blob"){
-			myTarget&lt;-{rnd(envSize),rnd(envSize),rnd(envSize)};
-		}
-	  	do goto target:myTarget;	  
-	}
-}
+<span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"blob"</span><span class="p">){</span>
+			<span class="n">myTarget</span><span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+		<span class="p">}</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>	  
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species gotoAgentOnNetwork parent:abstractAgent{ 
-	point myTarget;
-	string gotoType;
-	reflex goto{
-	  	do goto target:myTarget on: mazeGraph;
-	}		
-}
+<span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	<span class="p">}</span>		
+<span class="p">}</span>
 
-species followAgent parent:abstractAgent{ 
-	point myTarget;
-	string gotoType;
-	reflex goto{
-	  if(gotoType = "goto"){
-	  	do goto target:myTarget;
-	  }
-	  if(gotoType = "gotoOnNetwork"){
-	  	do goto target:myTarget on: mazeGraph;
-	  }
+<span class="n">species</span> <span class="n">followAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+	  <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"goto"</span><span class="p">){</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>
+	  <span class="p">}</span>
+	  <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span><span class="p">){</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	  <span class="p">}</span>
 	  
-	}	
-}
+	<span class="p">}</span>	
+<span class="p">}</span>
     
-species cell schedules:[]{
+<span class="n">species</span> <span class="n">cell</span> <span class="n">schedules</span><span class="p">:[]{</span>
 	
-	aspect myPoint{
-		draw sphere(0.01 * envSize/mazeSize) color:rgb(255,255,255,0.5) at:location ;
-	}
+	<span class="n">aspect</span> <span class="n">myPoint</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">0.01</span> <span class="p">*</span> <span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0.5</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="p">;</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-species edge_agent schedules:[]{
-	aspect base2 {
-		draw shape color: rgb(255,255,255);
-	}
-}
+<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">schedules</span><span class="p">:[]{</span>
+	<span class="n">aspect</span> <span class="n">base2</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 	
 
-experiment Moving  type: gui {
-	parameter "Trace" var:trace &lt;- false;
-	parameter "Movement" var:movingType &lt;- "move";
-	parameter "Agent Aspect" var:agentAspect &lt;- "direction";
-	parameter "Effect type" var:effectType &lt;- "" among:["","firework"];
-	output {	
-		display MovingAgent type:opengl  background:rgb(10,40,55) {
-			species movingAgent trace:trace;
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">Moving</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"move"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Effect type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">];</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">MovingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">movingAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment Wandering  type: gui {
-	parameter "Trace" var:trace &lt;- false;
-	parameter "Movement" var:movingType &lt;- "wander";
-	parameter "Agent Aspect" var:agentAspect &lt;- "direction";
-	output {	
-		display WanderingAgent type:opengl  background:rgb(10,40,55) {
-			species wanderAgent trace:trace;
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">Wandering</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"wander"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">WanderingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment Goto  type: gui {
-	parameter "Trace" var:trace &lt;- false;
-	parameter "Movement" var:movingType &lt;- "goto";
-	parameter "Agent Aspect" var:agentAspect &lt;- "direction";
-	parameter "Effect Type" var:effectType &lt;- "" among:["","blob"];
-	output {	
-		display GotoAgent type:opengl  background:rgb(10,40,55) {
-			species gotoAgent trace:trace;
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">Goto</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"goto"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Effect Type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"blob"</span><span class="p">];</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">GotoAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment GotoOnNetwork  type: gui {
-	parameter "Trace" var:trace &lt;- false;
-	parameter "Movement" var:movingType &lt;- "gotoOnNetwork";
-	parameter "Agent Aspect" var:agentAspect &lt;- "direction";
-	output {
+<span class="n">experiment</span> <span class="n">GotoOnNetwork</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"gotoOnNetwork"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
 			
-		display GotoOnNetworkAgent type:opengl background:rgb(10,40,55) {
-			species gotoAgentOnNetwork trace:trace;
-			species cell aspect:myPoint;
-			species edge_agent aspect: base2 ;
-		}
-	}
-}
+		<span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment Complete  type: gui {
-	parameter "Trace" var:trace &lt;- false;
-	parameter "Movement" var:movingType &lt;- "complete";
-	parameter "Agent Aspect" var:agentAspect &lt;- "direction";
-	output {
+<span class="n">experiment</span> <span class="n">Complete</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"complete"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
 			
-		display GotoOnNetworkAgent type:opengl background:rgb(10,40,55) {
-			species movingAgent position:{0,0,0} trace:trace;
-			species wanderAgent position:{envSize,0,0} trace:trace;
-			species gotoAgent position:{envSize*2,0,0} trace:trace;
-			species gotoAgentOnNetwork position:{envSize*3,0,0} trace:trace;
-			species cell aspect:myPoint position:{envSize*3,0,0};
-			species edge_agent aspect: base2 position:{envSize*3,0,0};
-		}
-	}
-}
+		<span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">movingAgent</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
 
@@ -3717,8 +3717,7 @@ experiment Complete  type: gui {
 
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

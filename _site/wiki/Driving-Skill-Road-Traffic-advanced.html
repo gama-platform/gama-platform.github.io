@@ -3500,258 +3500,257 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model RoadTrafficComplex
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">RoadTrafficComplex</span>
  
-global {   
-	bool simple_data &lt;- false;
+<span class="n">global</span> <span class="p">{</span>   
+	<span class="n">bool</span> <span class="n">simple_data</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
 	
-	//Check if we use simple data or more complex roads
-	file shape_file_roads  &lt;- simple_data ? file("../includes/RoadCircleLanes.shp"): file("../includes/ManhattanRoads.shp") ;
-	file shape_file_nodes  &lt;- simple_data ? file("../includes/NodeCircleLanes.shp") : file("../includes/ManhattanNodes.shp");
-	file shape_file_bounds &lt;- simple_data ? file("../includes/BoundsLaneRoad.shp") :file("../includes/ManhattanRoads.shp");
-	geometry shape &lt;- envelope(shape_file_bounds) + 50.0;
+	<span class="p">//</span><span class="n">Check</span> <span class="k">if</span> <span class="n">we</span> <span class="n">use</span> <span class="n">simple</span> <span class="n">data</span> <span class="k">or</span> <span class="n">more</span> <span class="n">complex</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">shape_file_roads</span>  <span class="p">&lt;-</span> <span class="n">simple_data</span> <span class="p">?</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/RoadCircleLanes.shp"</span><span class="p">):</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanRoads.shp"</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">shape_file_nodes</span>  <span class="p">&lt;-</span> <span class="n">simple_data</span> <span class="p">?</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/NodeCircleLanes.shp"</span><span class="p">)</span> <span class="p">:</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanNodes.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">simple_data</span> <span class="p">?</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/BoundsLaneRoad.shp"</span><span class="p">)</span> <span class="p">:</span><span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanRoads.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">)</span> <span class="p">+</span> <span class="m">50.0</span><span class="p">;</span>
 	
-	graph road_network;  
-	int nb_people &lt;- simple_data ? 20 : 500;
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="n">simple_data</span> <span class="p">?</span> <span class="m">20</span> <span class="p">:</span> <span class="m">500</span><span class="p">;</span>
 	 
-	init {  
-		//create the intersection and check if there are traffic lights or not by looking the values inside the type column of the shapefile and linking
-		// this column to the attribute is_traffic_signal. 
-		create intersection from: shape_file_nodes with:[is_traffic_signal::(read("type") = "traffic_signals")];
+	<span class="n">init</span> <span class="p">{</span>  
+		<span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="n">intersection</span> <span class="k">and</span> <span class="n">check</span> <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">traffic</span> <span class="n">lights</span> <span class="k">or</span> <span class="k">not</span> <span class="n">by</span> <span class="n">looking</span> <span class="n">the</span> <span class="n">values</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">type</span> <span class="n">column</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">and</span> <span class="n">linking</span>
+		<span class="p">//</span> <span class="n">this</span> <span class="n">column</span> <span class="k">to</span> <span class="n">the</span> <span class="n">attribute</span> <span class="n">is_traffic_signal</span><span class="p">.</span> 
+		<span class="nb">create</span> <span class="n">intersection</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_nodes</span> <span class="k">with</span><span class="p">:[</span><span class="n">is_traffic_signal</span><span class="p">::(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span> <span class="p">=</span> <span class="s2">"traffic_signals"</span><span class="p">)];</span>
 		
-		//create road agents using the shapefile and using the oneway column to check the orientation of the roads if there are directed
-		create road from: shape_file_roads with:[lanes::int(read("lanes")), oneway::string(read("oneway"))] {
-			geom_display &lt;- shape + (2.5 * lanes);
-			maxspeed &lt;- (lanes = 1 ? 30.0 : (lanes = 2 ? 50.0 : 70.0)) °km/°h;
-			switch oneway {
-				match "no" {
-					create road {
-						lanes &lt;- max([1, int (myself.lanes / 2.0)]);
-						shape &lt;- polyline(reverse(myself.shape.points));
-						maxspeed &lt;- myself.maxspeed;
-						geom_display  &lt;- myself.geom_display;
-						linked_road &lt;- myself;
-						myself.linked_road &lt;- self;
-					}
-					lanes &lt;- int(lanes /2.0 + 0.5);
-				}
-				match "-1" {
-					shape &lt;- polyline(reverse(shape.points));
-				}	
-			}
-		}	
-		map general_speed_map &lt;- road as_map (each::(each.shape.perimeter / each.maxspeed));
+		<span class="p">//</span><span class="nb">create</span> <span class="n">road</span> <span class="n">agents</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">and</span> <span class="n">using</span> <span class="n">the</span> <span class="n">oneway</span> <span class="n">column</span> <span class="k">to</span> <span class="n">check</span> <span class="n">the</span> <span class="n">orientation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">directed</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="k">with</span><span class="p">:[</span><span class="n">lanes</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"lanes"</span><span class="p">)),</span> <span class="n">oneway</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"oneway"</span><span class="p">))]</span> <span class="p">{</span>
+			<span class="n">geom_display</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="p">+</span> <span class="p">(</span><span class="m">2.5</span> <span class="p">*</span> <span class="n">lanes</span><span class="p">);</span>
+			<span class="n">maxspeed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">lanes</span> <span class="p">=</span> <span class="m">1</span> <span class="p">?</span> <span class="m">30.0</span> <span class="p">:</span> <span class="p">(</span><span class="n">lanes</span> <span class="p">=</span> <span class="m">2</span> <span class="p">?</span> <span class="m">50.0</span> <span class="p">:</span> <span class="m">70.0</span><span class="p">))</span> <span class="err">°</span><span class="n">km</span><span class="p">/</span><span class="err">°</span><span class="n">h</span><span class="p">;</span>
+			<span class="n">switch</span> <span class="n">oneway</span> <span class="p">{</span>
+				<span class="n">match</span> <span class="s2">"no"</span> <span class="p">{</span>
+					<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+						<span class="n">lanes</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">([</span><span class="m">1</span><span class="p">,</span> <span class="n">int</span> <span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">lanes</span> <span class="p">/</span> <span class="m">2.0</span><span class="p">)]);</span>
+						<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
+						<span class="n">maxspeed</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">maxspeed</span><span class="p">;</span>
+						<span class="n">geom_display</span>  <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">geom_display</span><span class="p">;</span>
+						<span class="n">linked_road</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">;</span>
+						<span class="n">myself</span><span class="p">.</span><span class="n">linked_road</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+					<span class="p">}</span>
+					<span class="n">lanes</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">lanes</span> <span class="p">/</span><span class="m">2.0</span> <span class="p">+</span> <span class="m">0.5</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="n">match</span> <span class="s2">"-1"</span> <span class="p">{</span>
+					<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
+				<span class="p">}</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>	
+		<span class="n">map</span> <span class="n">general_speed_map</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">each</span><span class="p">.</span><span class="n">maxspeed</span><span class="p">));</span>
 		
-		//creation of the road network using the road and intersection agents
-		road_network &lt;-  (as_driving_graph(road, intersection))  with_weights general_speed_map;
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">intersection</span> <span class="n">agents</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">as_driving_graph</span><span class="p">(</span><span class="n">road</span><span class="p">,</span> <span class="n">intersection</span><span class="p">))</span>  <span class="n">with_weights</span> <span class="n">general_speed_map</span><span class="p">;</span>
 		
-		//initialize the traffic light
-		ask intersection {
-			do initialize;
-		}
+		<span class="p">//</span><span class="n">initialize</span> <span class="n">the</span> <span class="n">traffic</span> <span class="n">light</span>
+		<span class="n">ask</span> <span class="n">intersection</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">initialize</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		create people number: nb_people { 
-			max_speed &lt;- 160 °km/°h;
-			vehicle_length &lt;- 5.0 °m;
-			right_side_driving &lt;- true;
-			proba_lane_change_up &lt;- 0.1 + (rnd(500) / 500);
-			proba_lane_change_down &lt;- 0.5+ (rnd(500) / 500);
-			location &lt;- one_of(intersection where empty(each.stop)).location;
-			security_distance_coeff &lt;- 5/9 * 3.6 * (1.5 - rnd(1000) / 1000);  
-			proba_respect_priorities &lt;- 1.0 - rnd(200/1000);
-			proba_respect_stops &lt;- [1.0];
-			proba_block_node &lt;- 0.0;
-			proba_use_linked_road &lt;- 0.0;
-			max_acceleration &lt;- 5/3.6;
-			speed_coeff &lt;- 1.2 - (rnd(400) / 1000);
-			threshold_stucked &lt;-int ( (1 + rnd(5))°mn);
-			proba_breakdown &lt;- 0.00001;
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span> 
+			<span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">160</span> <span class="err">°</span><span class="n">km</span><span class="p">/</span><span class="err">°</span><span class="n">h</span><span class="p">;</span>
+			<span class="n">vehicle_length</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="err">°</span><span class="n">m</span><span class="p">;</span>
+			<span class="n">right_side_driving</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="n">proba_lane_change_up</span> <span class="p">&lt;-</span> <span class="m">0.1</span> <span class="p">+</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">500</span><span class="p">)</span> <span class="p">/</span> <span class="m">500</span><span class="p">);</span>
+			<span class="n">proba_lane_change_down</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">+</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">500</span><span class="p">)</span> <span class="p">/</span> <span class="m">500</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">intersection</span> <span class="n">where</span> <span class="n">empty</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="nf">stop</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
+			<span class="n">security_distance_coeff</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">/</span><span class="m">9</span> <span class="p">*</span> <span class="m">3.6</span> <span class="p">*</span> <span class="p">(</span><span class="m">1.5</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">);</span>  
+			<span class="n">proba_respect_priorities</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">200</span><span class="p">/</span><span class="m">1000</span><span class="p">);</span>
+			<span class="n">proba_respect_stops</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">1.0</span><span class="p">];</span>
+			<span class="n">proba_block_node</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+			<span class="n">proba_use_linked_road</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+			<span class="n">max_acceleration</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">/</span><span class="m">3.6</span><span class="p">;</span>
+			<span class="n">speed_coeff</span> <span class="p">&lt;-</span> <span class="m">1.2</span> <span class="p">-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">400</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">);</span>
+			<span class="n">threshold_stucked</span> <span class="p">&lt;-</span><span class="n">int</span> <span class="p">(</span> <span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">))</span><span class="err">°</span><span class="n">mn</span><span class="p">);</span>
+			<span class="n">proba_breakdown</span> <span class="p">&lt;-</span> <span class="m">0.00001</span><span class="p">;</span>
 			
-		}	
-	}
+		<span class="p">}</span>	
+	<span class="p">}</span>
 	
-} 
+<span class="p">}</span> 
 
-//species that will represent the intersection node, it can be traffic lights or not, using the skill_road_node skill
-species intersection skills: [skill_road_node] {
-	bool is_traffic_signal;
-	list&lt;list&gt; stop;
-	int time_to_change &lt;- 100;
-	int counter &lt;- rnd (time_to_change) ;
-	list&lt;road&gt; ways1;
-	list&lt;road&gt; ways2;
-	bool is_green;
-	rgb color_fire;
+<span class="p">//</span><span class="n">species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">intersection</span> <span class="n">node</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">traffic</span> <span class="n">lights</span> <span class="k">or</span> <span class="k">not</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill_road_node</span> <span class="n">skill</span>
+<span class="n">species</span> <span class="n">intersection</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">skill_road_node</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">bool</span> <span class="n">is_traffic_signal</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="nf">stop</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">time_to_change</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="k">counter</span> <span class="p">&lt;-</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">time_to_change</span><span class="p">)</span> <span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">road</span><span class="p">&gt;</span> <span class="n">ways1</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">road</span><span class="p">&gt;</span> <span class="n">ways2</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_green</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_fire</span><span class="p">;</span>
 	
-	action initialize {
-		if (is_traffic_signal) {
-			do compute_crossing;
-			stop&lt;&lt; [];
-			if (flip(0.5)) {
-				do to_green;
-			} else {
-				do to_red;
-			}	
-		}
-	}
+	<span class="n">action</span> <span class="n">initialize</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">is_traffic_signal</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">compute_crossing</span><span class="p">;</span>
+			<span class="nf">stop</span><span class="p">&lt;&lt;</span> <span class="p">[];</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.5</span><span class="p">))</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">to_green</span><span class="p">;</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">to_red</span><span class="p">;</span>
+			<span class="p">}</span>	
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	action compute_crossing{
-		if  (length(roads_in) &gt;= 2) {
-			road rd0 &lt;- road(roads_in[0]);
-			list&lt;point&gt; pts &lt;- rd0.shape.points;						
-			float ref_angle &lt;-  float( last(pts) direction_to rd0.location);
-			loop rd over: roads_in {
-				list&lt;point&gt; pts2 &lt;- road(rd).shape.points;						
-				float angle_dest &lt;-  float( last(pts2) direction_to rd.location);
-				float ang &lt;- abs(angle_dest - ref_angle);
-				if (ang &gt; 45 and ang &lt; 135) or  (ang &gt; 225 and ang &lt; 315) {
-					ways2&lt;&lt; road(rd);
-				}
-			}
-		}
-		loop rd over: roads_in {
-			if not(rd in ways2) {
-				ways1 &lt;&lt; road(rd);
-			}
-		}
-	}
+	<span class="n">action</span> <span class="n">compute_crossing</span><span class="p">{</span>
+		<span class="k">if</span>  <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">roads_in</span><span class="p">)</span> <span class="p">&gt;=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">road</span> <span class="n">rd0</span> <span class="p">&lt;-</span> <span class="n">road</span><span class="p">(</span><span class="n">roads_in</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">pts</span> <span class="p">&lt;-</span> <span class="n">rd0</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">;</span>						
+			<span class="n">float</span> <span class="n">ref_angle</span> <span class="p">&lt;-</span>  <span class="n">float</span><span class="p">(</span> <span class="n">last</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span> <span class="n">direction_to</span> <span class="n">rd0</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+			<span class="n">loop</span> <span class="n">rd</span> <span class="n">over</span><span class="p">:</span> <span class="n">roads_in</span> <span class="p">{</span>
+				<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">pts2</span> <span class="p">&lt;-</span> <span class="n">road</span><span class="p">(</span><span class="n">rd</span><span class="p">).</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">;</span>						
+				<span class="n">float</span> <span class="n">angle_dest</span> <span class="p">&lt;-</span>  <span class="n">float</span><span class="p">(</span> <span class="n">last</span><span class="p">(</span><span class="n">pts2</span><span class="p">)</span> <span class="n">direction_to</span> <span class="n">rd</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+				<span class="n">float</span> <span class="n">ang</span> <span class="p">&lt;-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">angle_dest</span> <span class="p">-</span> <span class="n">ref_angle</span><span class="p">);</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">ang</span> <span class="p">&gt;</span> <span class="m">45</span> <span class="k">and</span> <span class="n">ang</span> <span class="p">&lt;</span> <span class="m">135</span><span class="p">)</span> <span class="k">or</span>  <span class="p">(</span><span class="n">ang</span> <span class="p">&gt;</span> <span class="m">225</span> <span class="k">and</span> <span class="n">ang</span> <span class="p">&lt;</span> <span class="m">315</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">ways2</span><span class="p">&lt;&lt;</span> <span class="n">road</span><span class="p">(</span><span class="n">rd</span><span class="p">);</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">loop</span> <span class="n">rd</span> <span class="n">over</span><span class="p">:</span> <span class="n">roads_in</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="k">not</span><span class="p">(</span><span class="n">rd</span> <span class="k">in</span> <span class="n">ways2</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">ways1</span> <span class="p">&lt;&lt;</span> <span class="n">road</span><span class="p">(</span><span class="n">rd</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	action to_green {
-		stop[0] &lt;- ways2 ;
-		color_fire &lt;- #green;
-		is_green &lt;- true;
-	}
+	<span class="n">action</span> <span class="n">to_green</span> <span class="p">{</span>
+		<span class="nf">stop</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ways2</span> <span class="p">;</span>
+		<span class="n">color_fire</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+		<span class="n">is_green</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	action to_red {
-		stop[0] &lt;- ways1;
-		color_fire &lt;- #red;
-		is_green &lt;- false;
-	}
-	reflex dynamic_node when: is_traffic_signal  {
-		counter &lt;- counter + 1;
-		if (counter &gt;= time_to_change) { 
-			counter &lt;- 0;
-			if is_green {do to_red;}
-			else {do to_green;}
-		} 
-	}
+	<span class="n">action</span> <span class="n">to_red</span> <span class="p">{</span>
+		<span class="nf">stop</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ways1</span><span class="p">;</span>
+		<span class="n">color_fire</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+		<span class="n">is_green</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">dynamic_node</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_traffic_signal</span>  <span class="p">{</span>
+		<span class="k">counter</span> <span class="p">&lt;-</span> <span class="k">counter</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">counter</span> <span class="p">&gt;=</span> <span class="n">time_to_change</span><span class="p">)</span> <span class="p">{</span> 
+			<span class="k">counter</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+			<span class="k">if</span> <span class="n">is_green</span> <span class="p">{</span><span class="k">do</span> <span class="n">to_red</span><span class="p">;}</span>
+			<span class="k">else</span> <span class="p">{</span><span class="k">do</span> <span class="n">to_green</span><span class="p">;}</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
 	
-	aspect base {
-		if (is_traffic_signal) {	
-			draw circle(5) color: color_fire;
-		}
-	}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">is_traffic_signal</span><span class="p">)</span> <span class="p">{</span>	
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_fire</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	aspect base3D {
-		if (is_traffic_signal) {	
-			draw box(1,1,10) color:#black;
-			draw sphere(5) at: {location.x,location.y,12} color: color_fire;
-		}
-	}
-}
+	<span class="n">aspect</span> <span class="n">base3D</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">is_traffic_signal</span><span class="p">)</span> <span class="p">{</span>	
+			<span class="n">draw</span> <span class="n">box</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">12</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_fire</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-//species that will represent the roads, it can be directed or not and uses the skill skill_road
-species road skills: [skill_road] { 
-	geometry geom_display;
-	string oneway;
-	aspect base {    
-		draw shape color: #gray end_arrow: 10;
-	} 
-	aspect base3D {    
-		draw geom_display color: #gray ;
-	} 
-}
+<span class="p">//</span><span class="n">species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">roads</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">directed</span> <span class="k">or</span> <span class="k">not</span> <span class="k">and</span> <span class="k">uses</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">skill_road</span>
+<span class="n">species</span> <span class="n">road</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">skill_road</span><span class="p">]</span> <span class="p">{</span> 
+	<span class="n">geometry</span> <span class="n">geom_display</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">oneway</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>    
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">end_arrow</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+	<span class="p">}</span> 
+	<span class="n">aspect</span> <span class="n">base3D</span> <span class="p">{</span>    
+		<span class="n">draw</span> <span class="n">geom_display</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+	<span class="p">}</span> 
+<span class="p">}</span>
 
-//People species that will move on the graph of roads to a target and using the skill advanced_driving
-species people skills: [advanced_driving] { 
-	rgb color &lt;- rgb(rnd(255), rnd(255), rnd(255)) ;
-	int counter_stucked &lt;- 0;
-	int threshold_stucked;
-	bool breakdown &lt;- false;
-	float proba_breakdown ;
-	intersection target;
+<span class="p">//</span><span class="n">People</span> <span class="n">species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">move</span> <span class="n">on</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">of</span> <span class="n">roads</span> <span class="k">to</span> <span class="n">a</span> <span class="n">target</span> <span class="k">and</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">advanced_driving</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">advanced_driving</span><span class="p">]</span> <span class="p">{</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">))</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">counter_stucked</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">threshold_stucked</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">breakdown</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_breakdown</span> <span class="p">;</span>
+	<span class="n">intersection</span> <span class="n">target</span><span class="p">;</span>
 	
-	reflex breakdown when: flip(proba_breakdown){
-		breakdown &lt;- true;
-		max_speed &lt;- 1 °km/°h;
-	}
+	<span class="n">reflex</span> <span class="n">breakdown</span> <span class="n">when</span><span class="p">:</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_breakdown</span><span class="p">){</span>
+		<span class="n">breakdown</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="err">°</span><span class="n">km</span><span class="p">/</span><span class="err">°</span><span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	reflex time_to_go when: final_target = nil {
-		target &lt;- one_of(intersection where not each.is_traffic_signal);
-		current_path &lt;- compute_path(graph: road_network, target: target );
-		if (current_path = nil ) {
-			final_target &lt;- nil;
-		}
-	}
-	reflex move when: current_path != nil and final_target != nil {
-		do drive;
-		if real_speed &lt; 5°km/°h {
-			counter_stucked&lt;- counter_stucked + 1;
-			if (counter_stucked mod threshold_stucked = 0) {
-				proba_use_linked_road &lt;- min([1.0,proba_use_linked_road + 0.1]);
-			}
-		} else {
-			counter_stucked&lt;- 0;
-			proba_use_linked_road &lt;- 0.0;
-		}
-	}
+	<span class="n">reflex</span> <span class="n">time_to_go</span> <span class="n">when</span><span class="p">:</span> <span class="n">final_target</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">{</span>
+		<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">intersection</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_traffic_signal</span><span class="p">);</span>
+		<span class="n">current_path</span> <span class="p">&lt;-</span> <span class="n">compute_path</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">road_network</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">current_path</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">)</span> <span class="p">{</span>
+			<span class="n">final_target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">current_path</span> <span class="c1">!= nil and final_target != nil {
+</span>		<span class="k">do</span> <span class="n">drive</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">real_speed</span> <span class="p">&lt;</span> <span class="m">5</span><span class="err">°</span><span class="n">km</span><span class="p">/</span><span class="err">°</span><span class="n">h</span> <span class="p">{</span>
+			<span class="n">counter_stucked</span><span class="p">&lt;-</span> <span class="n">counter_stucked</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">counter_stucked</span> <span class="k">mod</span> <span class="n">threshold_stucked</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">proba_use_linked_road</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="m">1.0</span><span class="p">,</span><span class="n">proba_use_linked_road</span> <span class="p">+</span> <span class="m">0.1</span><span class="p">]);</span>
+			<span class="p">}</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">counter_stucked</span><span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+			<span class="n">proba_use_linked_road</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-	aspect base { 
-		draw breakdown ? square(15) : triangle(15) color: color rotate:heading + 90;
-	} 
-	aspect base3D {
-		point loc &lt;- calcul_loc();
-		draw box(vehicle_length, 1,1) at: loc rotate:  heading color: color;
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">breakdown</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="m">15</span><span class="p">)</span> <span class="p">:</span> <span class="n">triangle</span><span class="p">(</span><span class="m">15</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">rotate</span><span class="p">:</span><span class="n">heading</span> <span class="p">+</span> <span class="m">90</span><span class="p">;</span>
+	<span class="p">}</span> 
+	<span class="n">aspect</span> <span class="n">base3D</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">loc</span> <span class="p">&lt;-</span> <span class="n">calcul_loc</span><span class="p">();</span>
+		<span class="n">draw</span> <span class="n">box</span><span class="p">(</span><span class="n">vehicle_length</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">loc</span> <span class="n">rotate</span><span class="p">:</span>  <span class="n">heading</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
 		
-		draw triangle(0.5) depth: 1.5 at: loc rotate:  heading + 90 color: color;
+		<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="m">1.5</span> <span class="n">at</span><span class="p">:</span> <span class="n">loc</span> <span class="n">rotate</span><span class="p">:</span>  <span class="n">heading</span> <span class="p">+</span> <span class="m">90</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
 		
-		if (breakdown) {
-			draw circle(2) at: loc color: #red;
-		}
-	} 
+		<span class="k">if</span> <span class="p">(</span><span class="n">breakdown</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">loc</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span> 
 	
-	point calcul_loc {
-		if (current_road = nil) {
-			return location;
-		} else {
-			float val &lt;- (road(current_road).lanes - current_lane) + 0.5;
-			val &lt;- on_linked_road ? val * - 1 : val;
-			if (val = 0) {
-				return location; 
-			} else {
-				return (location + {cos(heading + 90) * val, sin(heading + 90) * val});
-			}
-		}
-	}
+	<span class="n">point</span> <span class="n">calcul_loc</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">current_road</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">return</span> <span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">road</span><span class="p">(</span><span class="n">current_road</span><span class="p">).</span><span class="n">lanes</span> <span class="p">-</span> <span class="n">current_lane</span><span class="p">)</span> <span class="p">+</span> <span class="m">0.5</span><span class="p">;</span>
+			<span class="n">val</span> <span class="p">&lt;-</span> <span class="n">on_linked_road</span> <span class="p">?</span> <span class="n">val</span> <span class="p">*</span> <span class="p">-</span> <span class="m">1</span> <span class="p">:</span> <span class="n">val</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">return</span> <span class="n">location</span><span class="p">;</span> 
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="n">return</span> <span class="p">(</span><span class="n">location</span> <span class="p">+</span> <span class="p">{</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span> <span class="p">+</span> <span class="m">90</span><span class="p">)</span> <span class="p">*</span> <span class="n">val</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">heading</span> <span class="p">+</span> <span class="m">90</span><span class="p">)</span> <span class="p">*</span> <span class="n">val</span><span class="p">});</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-} 
+<span class="p">}</span> 
 
-experiment experiment_2D type: gui {
-	parameter "if true, simple data (simple track), if false complex one (Manhattan):" var: simple_data category: "GIS" ;
-	output {
-		display city_display {
-			species road aspect: base ;
-			species intersection aspect: base;
-			species people aspect: base;
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">experiment_2D</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="n">var</span><span class="p">:</span> <span class="n">simple_data</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">intersection</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment experiment_3D type: gui {
-	parameter "if true, simple data (simple track), if false complex one (Manhattan):" var: simple_data category: "GIS" ;
-	output {
-		display carte_principale type: opengl {
-			species road aspect: base3D refresh: true;
-			species intersection aspect: base3D;
-			species people aspect: base3D ; 
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">experiment_3D</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="n">var</span><span class="p">:</span> <span class="n">simple_data</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">carte_principale</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base3D</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">intersection</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base3D</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base3D</span> <span class="p">;</span> 
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

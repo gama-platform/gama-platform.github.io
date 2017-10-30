@@ -3528,10 +3528,9 @@ function closeRightMenu() {
 <h3 id="workaround-if-gama-does-not-display-the-menus-the-edit-menu-is-the-only-one-working">Workaround if GAMA does not display the menus (the ‘Edit’ menu is the only one working)</h3>
 <p>If, when selecting a menu, nothing happens (or, in the case of the ‘Agents’ menu, all population submenus appear empty), it is likely that you have run into this issue: https://bugs.eclipse.org/bugs/show_bug.cgi?id=330563. The only workaround known is to launch GAMA from the command line (or from a shell script) after having told Ubuntu to attach its menu back to its main window. For example (if you are in the directory where the “Gama” executable is present):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export UBUNTU_MENUPROXY=0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export UBUNTU_MENUPROXY=0
 ./Gama
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>No fix can be provided from the GAMA side for the moment.</p>
 

@@ -3500,42 +3500,41 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Tuto3D   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Tuto3D</span>   
 
-global {
-  int nb_cells &lt;-100;
-  int environmentSize &lt;-100;
-  geometry shape &lt;- cube(environmentSize);	
-  init { 
-    create cells number: nb_cells { 
-      location &lt;- {rnd(environmentSize), rnd(environmentSize), rnd(environmentSize)};       
-    } 
-  }  
-} 
+<span class="n">global</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
+  <span class="n">int</span> <span class="n">environmentSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
+  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">);</span>	
+  <span class="n">init</span> <span class="p">{</span> 
+    <span class="nb">create</span> <span class="n">cells</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="p">{</span> 
+      <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)};</span>       
+    <span class="p">}</span> 
+  <span class="p">}</span>  
+<span class="p">}</span> 
   
-species cells skills:[moving3D]{  
+<span class="n">species</span> <span class="n">cells</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving3D</span><span class="p">]{</span>  
 	
-  reflex move{
-  	do move;
-  }	                    
-  aspect default {
-    draw sphere(environmentSize*0.01) color:#blue;   
-  }
-}
+  <span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+  	<span class="k">do</span> <span class="n">move</span><span class="p">;</span>
+  <span class="p">}</span>	                    
+  <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">*</span><span class="m">0.01</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>   
+  <span class="p">}</span>
+<span class="p">}</span>
 
-experiment Tuto3D  type: gui {
-  parameter "Initial number of cells: " var: nb_cells min: 1 max: 1000 category: "Cells" ;
-  output {
-    display View1 type:opengl{
-      graphics "env"{
-      	draw cube(environmentSize) color: #black empty:true;	
-      }
-      species cells;
-    }
-  }
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">Tuto3D</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+  <span class="n">parameter</span> <span class="s2">"Initial number of cells: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Cells"</span> <span class="p">;</span>
+  <span class="n">output</span> <span class="p">{</span>
+    <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span><span class="p">{</span>
+      <span class="n">graphics</span> <span class="s2">"env"</span><span class="p">{</span>
+      	<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>	
+      <span class="p">}</span>
+      <span class="n">species</span> <span class="n">cells</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

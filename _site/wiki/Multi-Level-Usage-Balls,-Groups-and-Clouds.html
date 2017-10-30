@@ -3500,87 +3500,87 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model balls_groups_clouds
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">balls_groups_clouds</span>
 
-global { 
-	// Parameters
-	bool create_group &lt;- true; 
-	bool create_cloud &lt;- false; 
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span> <span class="k">Parameters</span>
+	<span class="n">bool</span> <span class="n">create_group</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span> 
+	<span class="n">bool</span> <span class="n">create_cloud</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span> 
 	
-	// Environment
-	point environment_bounds &lt;- {500, 500}; 
-	geometry shape &lt;- rectangle(environment_bounds) ;		
+	<span class="p">//</span> <span class="n">Environment</span>
+	<span class="n">point</span> <span class="n">environment_bounds</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">500</span><span class="p">,</span> <span class="m">500</span><span class="p">};</span> 
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_bounds</span><span class="p">)</span> <span class="p">;</span>		
 	
-	//Define a inner environment smaller inside the environment
-	int inner_bounds_x &lt;- (int((environment_bounds.x) / 20))  ;
-	int inner_bounds_y &lt;- (int((environment_bounds.y) / 20))  ;
-	int xmin &lt;- inner_bounds_x ;
-	int ymin &lt;- inner_bounds_y ;       
-	int xmax &lt;- int((environment_bounds.x) - inner_bounds_x) ;
-	int ymax &lt;- int((environment_bounds.y) - inner_bounds_y) ;
+	<span class="p">//</span><span class="n">Define</span> <span class="n">a</span> <span class="n">inner</span> <span class="n">environment</span> <span class="n">smaller</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">inner_bounds_x</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">((</span><span class="n">environment_bounds</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">/</span> <span class="m">20</span><span class="p">))</span>  <span class="p">;</span>
+	<span class="n">int</span> <span class="n">inner_bounds_y</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">((</span><span class="n">environment_bounds</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">/</span> <span class="m">20</span><span class="p">))</span>  <span class="p">;</span>
+	<span class="n">int</span> <span class="n">xmin</span> <span class="p">&lt;-</span> <span class="n">inner_bounds_x</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">ymin</span> <span class="p">&lt;-</span> <span class="n">inner_bounds_y</span> <span class="p">;</span>       
+	<span class="n">int</span> <span class="n">xmax</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">((</span><span class="n">environment_bounds</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">-</span> <span class="n">inner_bounds_x</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">ymax</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">((</span><span class="n">environment_bounds</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">-</span> <span class="n">inner_bounds_y</span><span class="p">)</span> <span class="p">;</span>
 	
-	float MAX_DISTANCE &lt;- environment_bounds.x + environment_bounds.y  ;
+	<span class="n">float</span> <span class="n">MAX_DISTANCE</span> <span class="p">&lt;-</span> <span class="n">environment_bounds</span><span class="p">.</span><span class="n">x</span> <span class="p">+</span> <span class="n">environment_bounds</span><span class="p">.</span><span class="n">y</span>  <span class="p">;</span>
 	
-	//Global variables for ball agents
-	rgb ball_color &lt;- #green; 
-	rgb chaos_ball_color &lt;- #red;
-	float ball_size &lt;- float(3);  
-	float ball_speed &lt;- float(1);
-	float chaos_ball_speed &lt;- 8 * ball_speed;  
-	int ball_number &lt;- 200 min: 2 max: 1000;  
-	geometry ball_shape &lt;- circle (ball_size) ;
-	float ball_separation &lt;- 6 * ball_size; 
+	<span class="p">//</span><span class="n">Global</span> <span class="n">variables</span> <span class="n">for</span> <span class="n">ball</span> <span class="n">agents</span>
+	<span class="n">rgb</span> <span class="n">ball_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">chaos_ball_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">ball_size</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>  
+	<span class="n">float</span> <span class="n">ball_speed</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">chaos_ball_speed</span> <span class="p">&lt;-</span> <span class="m">8</span> <span class="p">*</span> <span class="n">ball_speed</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">ball_number</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="k">min</span><span class="p">:</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>  
+	<span class="n">geometry</span> <span class="n">ball_shape</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="n">ball_size</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">ball_separation</span> <span class="p">&lt;-</span> <span class="m">6</span> <span class="p">*</span> <span class="n">ball_size</span><span class="p">;</span> 
 	
-	//Global variables for group agents
-	int group_creation_distance &lt;- int(ball_separation + 1);
-	int min_group_member &lt;- 3;
-	int group_base_speed &lt;- (int(ball_speed * 1.5));
-	int base_perception_range &lt;- int (environment_bounds.x / 100) min: 1 ;  
-	int creation_frequency &lt;- 3;
-	int update_frequency &lt;- 3;
-	int merge_frequency &lt;- 3;
-	float merge_possibility &lt;- 0.3;
+	<span class="p">//</span><span class="n">Global</span> <span class="n">variables</span> <span class="n">for</span> <span class="n">group</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">group_creation_distance</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">ball_separation</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">min_group_member</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">group_base_speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">ball_speed</span> <span class="p">*</span> <span class="m">1.5</span><span class="p">));</span>
+	<span class="n">int</span> <span class="n">base_perception_range</span> <span class="p">&lt;-</span> <span class="n">int</span> <span class="p">(</span><span class="n">environment_bounds</span><span class="p">.</span><span class="n">x</span> <span class="p">/</span> <span class="m">100</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">;</span>  
+	<span class="n">int</span> <span class="n">creation_frequency</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">update_frequency</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">merge_frequency</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">merge_possibility</span> <span class="p">&lt;-</span> <span class="m">0.3</span><span class="p">;</span>
 	
-	//Global variables for Clouds Agents
-	int cloud_creation_distance &lt;- 30 const: true;
-	int min_cloud_member &lt;- 3 const: true;
-	int cloud_speed &lt;- 3 const: true;
-	int cloud_perception_range &lt;- base_perception_range const: true ; 
+	<span class="p">//</span><span class="n">Global</span> <span class="n">variables</span> <span class="n">for</span> <span class="n">Clouds</span> <span class="n">Agents</span>
+	<span class="n">int</span> <span class="n">cloud_creation_distance</span> <span class="p">&lt;-</span> <span class="m">30</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">min_cloud_member</span> <span class="p">&lt;-</span> <span class="m">3</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">cloud_speed</span> <span class="p">&lt;-</span> <span class="m">3</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">cloud_perception_range</span> <span class="p">&lt;-</span> <span class="n">base_perception_range</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">;</span> 
 	
-	init {
-		create ball number: ball_number ;
-		create group_agents_viewer;
-		create cloud_agents_viewer;
-	}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">ball</span> <span class="n">number</span><span class="p">:</span> <span class="n">ball_number</span> <span class="p">;</span>
+		<span class="nb">create</span> <span class="n">group_agents_viewer</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">cloud_agents_viewer</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	//The simulation will try to create group at each frequence cycle
-	reflex create_groups when: ( create_group and ((cycle mod creation_frequency) = 0) ) {
-		//create a list from all balls following the nearest ball
-		list&lt;ball&gt; free_balls &lt;- ball where ((each.state) = 'follow_nearest_ball') ;
+	<span class="p">//</span><span class="n">The</span> <span class="n">simulation</span> <span class="n">will</span> <span class="n">try</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">group</span> <span class="n">at</span> <span class="n">each</span> <span class="n">frequence</span> <span class="n">cycle</span>
+	<span class="n">reflex</span> <span class="n">create_groups</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span> <span class="n">create_group</span> <span class="k">and</span> <span class="p">((</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">creation_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">a</span> <span class="k">list</span> <span class="k">from</span> <span class="n">all</span> <span class="n">balls</span> <span class="n">following</span> <span class="n">the</span> <span class="n">nearest</span> <span class="n">ball</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">ball</span><span class="p">&gt;</span> <span class="n">free_balls</span> <span class="p">&lt;-</span> <span class="n">ball</span> <span class="n">where</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">state</span><span class="p">)</span> <span class="p">=</span> <span class="s1">'follow_nearest_ball'</span><span class="p">)</span> <span class="p">;</span>
 
-		if (length (free_balls) &gt; 1) {
-			//Clustering of the balls according to their distance with at least a minimal number of balls in a group
-			list&lt;list&lt;ball&gt;&gt; satisfying_ball_groups &lt;- (free_balls simple_clustering_by_distance group_creation_distance) where ( (length (each)) &gt; min_group_member ) ;
+		<span class="k">if</span> <span class="p">(</span><span class="n">length</span> <span class="p">(</span><span class="n">free_balls</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">Clustering</span> <span class="k">of</span> <span class="n">the</span> <span class="n">balls</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">distance</span> <span class="k">with</span> <span class="n">at</span> <span class="n">least</span> <span class="n">a</span> <span class="n">minimal</span> <span class="n">number</span> <span class="k">of</span> <span class="n">balls</span> <span class="k">in</span> <span class="n">a</span> <span class="n">group</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">ball</span><span class="p">&gt;&gt;</span> <span class="n">satisfying_ball_groups</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">free_balls</span> <span class="n">simple_clustering_by_distance</span> <span class="n">group_creation_distance</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span> <span class="p">(</span><span class="n">length</span> <span class="p">(</span><span class="n">each</span><span class="p">))</span> <span class="p">&gt;</span> <span class="n">min_group_member</span> <span class="p">)</span> <span class="p">;</span>
 			
 			
-			loop one_group over: satisfying_ball_groups {
-				create group returns: new_groups;
+			<span class="n">loop</span> <span class="n">one_group</span> <span class="n">over</span><span class="p">:</span> <span class="n">satisfying_ball_groups</span> <span class="p">{</span>
+				<span class="nb">create</span> <span class="n">group</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_groups</span><span class="p">;</span>
 				
-				//Capture by the new groups created of the different balls present in the list one_group
-				ask (new_groups at 0) as: group {
-					capture one_group as: ball_in_group; 
-				}
-			}
-		}
-	}
+				<span class="p">//</span><span class="n">Capture</span> <span class="n">by</span> <span class="n">the</span> <span class="n">new</span> <span class="n">groups</span> <span class="n">created</span> <span class="k">of</span> <span class="n">the</span> <span class="n">different</span> <span class="n">balls</span> <span class="n">present</span> <span class="k">in</span> <span class="n">the</span> <span class="k">list</span> <span class="n">one_group</span>
+				<span class="n">ask</span> <span class="p">(</span><span class="n">new_groups</span> <span class="n">at</span> <span class="m">0</span><span class="p">)</span> <span class="k">as</span><span class="p">:</span> <span class="n">group</span> <span class="p">{</span>
+					<span class="n">capture</span> <span class="n">one_group</span> <span class="k">as</span><span class="p">:</span> <span class="n">ball_in_group</span><span class="p">;</span> 
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	//The simulation will try to create clouds at each frequence cycle
-	reflex create_clouds when: (create_cloud and ((cycle mod creation_frequency) = 0) ) {
-		//A cloud can be created only using group with a number of balls inside greater than 5% of the total ball number
-		list&lt;group&gt; candidate_groups &lt;- group where (length(each.members) &gt; (0.05 * ball_number) );
+	<span class="p">//</span><span class="n">The</span> <span class="n">simulation</span> <span class="n">will</span> <span class="n">try</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">clouds</span> <span class="n">at</span> <span class="n">each</span> <span class="n">frequence</span> <span class="n">cycle</span>
+	<span class="n">reflex</span> <span class="n">create_clouds</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">create_cloud</span> <span class="k">and</span> <span class="p">((</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">creation_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">A</span> <span class="n">cloud</span> <span class="n">can</span> <span class="n">be</span> <span class="n">created</span> <span class="n">only</span> <span class="n">using</span> <span class="n">group</span> <span class="k">with</span> <span class="n">a</span> <span class="n">number</span> <span class="k">of</span> <span class="n">balls</span> <span class="n">inside</span> <span class="n">greater</span> <span class="n">than</span> <span class="m">5</span><span class="p">%</span> <span class="k">of</span> <span class="n">the</span> <span class="n">total</span> <span class="n">ball</span> <span class="n">number</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">group</span><span class="p">&gt;</span> <span class="n">candidate_groups</span> <span class="p">&lt;-</span> <span class="n">group</span> <span class="n">where</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">members</span><span class="p">)</span> <span class="p">&gt;</span> <span class="p">(</span><span class="m">0.05</span> <span class="p">*</span> <span class="n">ball_number</span><span class="p">)</span> <span class="p">);</span>
 		
-		//A cloud can be created also only using group which aren't too far away 
+		<span class="p">//</span><span class="n">A</span> <span class="n">cloud</span> <span class="n">can</span> <span class="n">be</span> <span class="n">created</span> <span class="n">also</span> <span class="n">only</span> <span class="n">using</span> <span class="n">group</span> <span class="n">which</span> <span class="n">aren</span><span class="s1">'t too far away 
 		list&lt;list&lt;group&gt;&gt; satisfying_groups &lt;- (candidate_groups simple_clustering_by_distance cloud_creation_distance) where (length(each) &gt;= min_cloud_member);
 		
 		//Creation of the different clouds using the groups satisfying both conditions
@@ -3649,7 +3649,7 @@ global {
 				color &lt;- ball_color ;
 				speed &lt;- ball_speed ;
 			}
-			list&lt;ball&gt; free_balls &lt;- (list (ball) - self) where ((each.state) = 'follow_nearest_ball') ;
+			list&lt;ball&gt; free_balls &lt;- (list (ball) - self) where ((each.state) = '</span><span class="n">follow_nearest_ball</span><span class="s1">') ;
 			ball nearest_free_ball &lt;- free_balls closest_to self;
 			if nearest_free_ball != nil {
 				heading &lt;- self towards (nearest_free_ball) ; 
@@ -3701,7 +3701,7 @@ global {
 		//Parameter to capture the balls contains in the perception range
 		float perception_range update: float(base_perception_range + (rnd(5))) ;
 		
-		ball nearest_free_ball update: ( ball where ( (each.state = 'follow_nearest_ball') ) ) closest_to self ;
+		ball nearest_free_ball update: ( ball where ( (each.state = '</span><span class="n">follow_nearest_ball</span><span class="s1">') ) ) closest_to self ;
 		group nearest_smaller_group update: ( ( (group as list) - self ) where ( (length (each.members)) &lt; (length (members)) ) ) closest_to self ;
 		base target update: (self get_nearer_target []) depends_on: [nearest_free_ball, nearest_smaller_group] ;
 		 
@@ -3753,7 +3753,7 @@ global {
 		
 		//Reflex to capture all the balls close to the group agent
 		reflex capture_nearby_free_balls when: (cycle mod update_frequency) = 0 {
-			list&lt;ball&gt; nearby_free_balls &lt;- (ball overlapping (shape + perception_range)) where (each.state = 'follow_nearest_ball');
+			list&lt;ball&gt; nearby_free_balls &lt;- (ball overlapping (shape + perception_range)) where (each.state = '</span><span class="n">follow_nearest_ball</span><span class="s1">');
 			if !(empty (nearby_free_balls)) {
 				capture nearby_free_balls as: ball_in_group;
 			}
@@ -3762,7 +3762,7 @@ global {
 		//Action to do when the group is disaggregated
 		action disaggregate {
 			release members as: ball in: world {
-				 state &lt;- 'chaos' ;
+				 state &lt;- '</span><span class="n">chaos</span><span class="s1">' ;
 			}
 			
 			do die ;
@@ -3954,29 +3954,29 @@ global {
 	 	 
 		aspect default {
 			draw shape color: color empty: true;
-			draw (name + ' with ' + (string(length(members))) + ' groups.') size: 15 color: color  at: {location.x - 65, location.y};
+			draw (name + '</span> <span class="k">with</span> <span class="s1">' + (string(length(members))) + '</span> <span class="n">groups</span><span class="p">.</span><span class="s1">') size: 15 color: color  at: {location.x - 65, location.y};
 		}
 	}
 	
 	species group_agents_viewer  { 
 		aspect default {
-			draw ('Number of groups: ' + (string (length (world.agents of_generic_species group)))) at: {(environment_bounds.x)/2 - 210, (environment_bounds.y)/2} color: #blue size: 40  ;
+			draw ('</span><span class="n">Number</span> <span class="k">of</span> <span class="n">groups</span><span class="p">:</span> <span class="s1">' + (string (length (world.agents of_generic_species group)))) at: {(environment_bounds.x)/2 - 210, (environment_bounds.y)/2} color: #blue size: 40  ;
 		}
 	}
 
 	species cloud_agents_viewer  { 
 		aspect default {
-			draw ('Number of clouds: ' + (string (length (list(cloud))))) at: {(environment_bounds.x)/2 - 210, (environment_bounds.y)/2} color: #green size: 40 ;
+			draw ('</span><span class="n">Number</span> <span class="k">of</span> <span class="n">clouds</span><span class="p">:</span> <span class="s1">' + (string (length (list(cloud))))) at: {(environment_bounds.x)/2 - 210, (environment_bounds.y)/2} color: #green size: 40 ;
 		}
 	} 
 
 
 experiment group_experiment type: gui {
-	parameter 'Create groups?' var: create_group &lt;- true;
-	parameter 'Create clouds?' var: create_cloud &lt;- false;
+	parameter '</span><span class="n">Create</span> <span class="n">groups</span><span class="p">?</span><span class="s1">' var: create_group &lt;- true;
+	parameter '</span><span class="n">Create</span> <span class="n">clouds</span><span class="p">?</span><span class="s1">' var: create_cloud &lt;- false;
 		
 	output {
-		display 'Standard display' {
+		display '</span><span class="n">Standard</span> <span class="n">display</span><span class="s1">' {
 			species ball aspect: default transparency: 0.5 ;
 			
 			species group aspect: default transparency: 0.5 {
@@ -3984,11 +3984,11 @@ experiment group_experiment type: gui {
 			}
 		}
 		
-		display 'Ball display' {
+		display '</span><span class="n">Ball</span> <span class="n">display</span><span class="s1">' {
 			species ball;
 		}
 		
-		display 'Group display' {
+		display '</span><span class="n">Group</span> <span class="n">display</span><span class="s1">' {
 			species group;
 			species group_agents_viewer;
 		}
@@ -3997,11 +3997,11 @@ experiment group_experiment type: gui {
 
 experiment cloud_experiment type: gui {
 
-	parameter 'Create groups?' var: create_group &lt;- true;
-	parameter 'Create clouds?' var: create_cloud &lt;- true;
+	parameter '</span><span class="n">Create</span> <span class="n">groups</span><span class="p">?</span><span class="s1">' var: create_group &lt;- true;
+	parameter '</span><span class="n">Create</span> <span class="n">clouds</span><span class="p">?</span><span class="s1">' var: create_cloud &lt;- true;
 		
 	output {
-		display 'Standard display' {
+		display '</span><span class="n">Standard</span> <span class="n">display</span><span class="s1">' {
 			species ball aspect: default transparency: 0.5 ;
 			
 			species group aspect: default transparency: 0.5 {
@@ -4016,16 +4016,16 @@ experiment cloud_experiment type: gui {
 			}
 		}
 		
-		display 'Ball display' {
+		display '</span><span class="n">Ball</span> <span class="n">display</span><span class="s1">' {
 			species ball;
 		}
 		
-		display 'Group display' {
+		display '</span><span class="n">Group</span> <span class="n">display</span><span class="s1">' {
 			species group;
 			species group_agents_viewer;
 		}
 
-		display 'Cloud display' {
+		display '</span><span class="n">Cloud</span> <span class="n">display</span><span class="s1">' {
 			species cloud;
 		}
 		
@@ -4035,8 +4035,7 @@ experiment cloud_experiment type: gui {
 	}
 }
 
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

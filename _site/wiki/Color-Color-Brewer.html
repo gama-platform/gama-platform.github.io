@@ -3500,95 +3500,94 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model ColorBrewer
-
-
-global {
-
-//number of colors
-int nb_classes&lt;-14 min:5 max: 15;
-
-int square_size &lt;- 10;
-
-//list of palettes that have at least nb_classes
-list&lt;string&gt; palettes &lt;- brewer_palettes(nb_classes);
-
-//the current sequential palette from the list of all available sequential Palettes
-string sequentialPalette &lt;- "YlOrRd" among:["YlOrRd","Grays","PuBu","BuPu","YlOrBr","Greens","BuGn","GnBu","PuRd","Purples","Blues","Oranges","OrRd","Reds","YlGn","YlGnBu"];
-
-//the current diverging palette from the list of all available diverging Palettes
-string divergingPalette &lt;- "BrBG" among:["PRGn","PuOr","RdGy","Spectral","RdYlGn","RdBu","RdYlBu","PiYG","BrBG"];
-
-//the current qualitative palette from the list of all available qualitative Palettes
-string qualitativePalette &lt;- "Pastel1" among:["Accents","Paired","Set3","Set2","Set1","Dark2","Pastel2","Pastel1"];
-
-//build the lists of colors from the palettes
-list&lt;rgb&gt; SequentialColors&lt;-list&lt;rgb&gt;(brewer_colors(sequentialPalette));
-list&lt;rgb&gt; DivergingColors&lt;-list&lt;rgb&gt;(brewer_colors(divergingPalette));
-list&lt;rgb&gt; QualitativeColors&lt;-list&lt;rgb&gt;(brewer_colors(qualitativePalette));
+<span class="k">model</span> <span class="n">ColorBrewer</span>
 
 
-	init {
-		//if the palettes is not empty
-		if (not empty(palettes)) {
-			//for each palette
-			loop i from: 0 to: length(palettes) - 1 {
-				//define a  list of nb_classes colors from the current palette
-				list&lt;rgb&gt; colors&lt;-list&lt;rgb&gt;(brewer_colors(palettes[i],nb_classes));
+<span class="n">global</span> <span class="p">{</span>
+
+<span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">colors</span>
+<span class="n">int</span> <span class="n">nb_classes</span><span class="p">&lt;-</span><span class="m">14</span> <span class="k">min</span><span class="p">:</span><span class="m">5</span> <span class="k">max</span><span class="p">:</span> <span class="m">15</span><span class="p">;</span>
+
+<span class="n">int</span> <span class="n">square_size</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+
+<span class="p">//</span><span class="k">list</span> <span class="k">of</span> <span class="n">palettes</span> <span class="n">that</span> <span class="n">have</span> <span class="n">at</span> <span class="n">least</span> <span class="n">nb_classes</span>
+<span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">palettes</span> <span class="p">&lt;-</span> <span class="n">brewer_palettes</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">);</span>
+
+<span class="p">//</span><span class="n">the</span> <span class="n">current</span> <span class="n">sequential</span> <span class="n">palette</span> <span class="k">from</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">available</span> <span class="n">sequential</span> <span class="n">Palettes</span>
+<span class="k">string</span> <span class="n">sequentialPalette</span> <span class="p">&lt;-</span> <span class="s2">"YlOrRd"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"YlOrRd"</span><span class="p">,</span><span class="s2">"Grays"</span><span class="p">,</span><span class="s2">"PuBu"</span><span class="p">,</span><span class="s2">"BuPu"</span><span class="p">,</span><span class="s2">"YlOrBr"</span><span class="p">,</span><span class="s2">"Greens"</span><span class="p">,</span><span class="s2">"BuGn"</span><span class="p">,</span><span class="s2">"GnBu"</span><span class="p">,</span><span class="s2">"PuRd"</span><span class="p">,</span><span class="s2">"Purples"</span><span class="p">,</span><span class="s2">"Blues"</span><span class="p">,</span><span class="s2">"Oranges"</span><span class="p">,</span><span class="s2">"OrRd"</span><span class="p">,</span><span class="s2">"Reds"</span><span class="p">,</span><span class="s2">"YlGn"</span><span class="p">,</span><span class="s2">"YlGnBu"</span><span class="p">];</span>
+
+<span class="p">//</span><span class="n">the</span> <span class="n">current</span> <span class="n">diverging</span> <span class="n">palette</span> <span class="k">from</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">available</span> <span class="n">diverging</span> <span class="n">Palettes</span>
+<span class="k">string</span> <span class="n">divergingPalette</span> <span class="p">&lt;-</span> <span class="s2">"BrBG"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"PRGn"</span><span class="p">,</span><span class="s2">"PuOr"</span><span class="p">,</span><span class="s2">"RdGy"</span><span class="p">,</span><span class="s2">"Spectral"</span><span class="p">,</span><span class="s2">"RdYlGn"</span><span class="p">,</span><span class="s2">"RdBu"</span><span class="p">,</span><span class="s2">"RdYlBu"</span><span class="p">,</span><span class="s2">"PiYG"</span><span class="p">,</span><span class="s2">"BrBG"</span><span class="p">];</span>
+
+<span class="p">//</span><span class="n">the</span> <span class="n">current</span> <span class="n">qualitative</span> <span class="n">palette</span> <span class="k">from</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">available</span> <span class="n">qualitative</span> <span class="n">Palettes</span>
+<span class="k">string</span> <span class="n">qualitativePalette</span> <span class="p">&lt;-</span> <span class="s2">"Pastel1"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"Accents"</span><span class="p">,</span><span class="s2">"Paired"</span><span class="p">,</span><span class="s2">"Set3"</span><span class="p">,</span><span class="s2">"Set2"</span><span class="p">,</span><span class="s2">"Set1"</span><span class="p">,</span><span class="s2">"Dark2"</span><span class="p">,</span><span class="s2">"Pastel2"</span><span class="p">,</span><span class="s2">"Pastel1"</span><span class="p">];</span>
+
+<span class="p">//</span><span class="n">build</span> <span class="n">the</span> <span class="n">lists</span> <span class="k">of</span> <span class="n">colors</span> <span class="k">from</span> <span class="n">the</span> <span class="n">palettes</span>
+<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">SequentialColors</span><span class="p">&lt;-</span><span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;(</span><span class="n">brewer_colors</span><span class="p">(</span><span class="n">sequentialPalette</span><span class="p">));</span>
+<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">DivergingColors</span><span class="p">&lt;-</span><span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;(</span><span class="n">brewer_colors</span><span class="p">(</span><span class="n">divergingPalette</span><span class="p">));</span>
+<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">QualitativeColors</span><span class="p">&lt;-</span><span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;(</span><span class="n">brewer_colors</span><span class="p">(</span><span class="n">qualitativePalette</span><span class="p">));</span>
+
+
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="k">if</span> <span class="n">the</span> <span class="n">palettes</span> <span class="n">is</span> <span class="k">not</span> <span class="n">empty</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">palettes</span><span class="p">))</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">for</span> <span class="n">each</span> <span class="n">palette</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">palettes</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+				<span class="p">//</span><span class="n">define</span> <span class="n">a</span>  <span class="k">list</span> <span class="k">of</span> <span class="n">nb_classes</span> <span class="n">colors</span> <span class="k">from</span> <span class="n">the</span> <span class="n">current</span> <span class="n">palette</span>
+				<span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">colors</span><span class="p">&lt;-</span><span class="k">list</span><span class="p">&lt;</span><span class="n">rgb</span><span class="p">&gt;(</span><span class="n">brewer_colors</span><span class="p">(</span><span class="n">palettes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">nb_classes</span><span class="p">));</span>
 				
-				//define the colors of the corresponding cells
-				ask cell where (each.grid_y = i){
-					color &lt;- colors[grid_x,i];	
-				}
-			}
-		}
-	}
-}
+				<span class="p">//</span><span class="n">define</span> <span class="n">the</span> <span class="n">colors</span> <span class="k">of</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">cells</span>
+				<span class="n">ask</span> <span class="n">cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">=</span> <span class="n">i</span><span class="p">){</span>
+					<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">colors</span><span class="p">[</span><span class="n">grid_x</span><span class="p">,</span><span class="n">i</span><span class="p">];</span>	
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-grid cell width:nb_classes height: max([1,length(palettes)]) ;
+<span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span><span class="n">nb_classes</span> <span class="n">height</span><span class="p">:</span> <span class="k">max</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">palettes</span><span class="p">)])</span> <span class="p">;</span>
 
 
-//in this experiment, we do not use the cell agents, but we directlty draw the different palettes of colors
-experiment BrewerPalette type: gui {
-	parameter "Sequential Palettes" var:sequentialPalette category:"Brewer";
-	parameter "Diverging Palettes" var:divergingPalette category:"Brewer";
-	parameter "Qualitatives Palettes" var:qualitativePalette category:"Brewer";
-	output {
-		display View1 type:opengl draw_env:false{
-			graphics "brewer"{
-				//Sequential
-				draw "Sequential" at:{-world.shape.width*0.2,0} color:°black perspective:true;
-				loop i from:0 to:length(SequentialColors)-1{
-					draw square(square_size) color:SequentialColors[i] at: {square_size*(0.5 + i), 0, 0};
-				}
-				//Diverging
-				loop i from:0 to:length(DivergingColors)-1{
-					draw "Diverging" at:{-world.shape.width*0.2,1*square_size} color:°black perspective:false;
-					draw square(square_size) color:DivergingColors[i] at: {square_size*(0.5 + i), 1*square_size, 0};
-				}
-				//Qualitative		
-				loop i from:0 to:length(QualitativeColors)-1{
-					draw "Qualitative" at:{-world.shape.width*0.2,2*square_size} color:°black perspective:false;
-					draw square(square_size) color:QualitativeColors[i] at: {square_size*(0.5 + i), 2*square_size, 0};
-				}
-		    }
-		}	
-	}
-}
+<span class="p">//</span><span class="k">in</span> <span class="n">this</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">we</span> <span class="k">do</span> <span class="k">not</span> <span class="n">use</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">agents</span><span class="p">,</span> <span class="n">but</span> <span class="n">we</span> <span class="n">directlty</span> <span class="n">draw</span> <span class="n">the</span> <span class="n">different</span> <span class="n">palettes</span> <span class="k">of</span> <span class="n">colors</span>
+<span class="n">experiment</span> <span class="n">BrewerPalette</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Sequential Palettes"</span> <span class="n">var</span><span class="p">:</span><span class="n">sequentialPalette</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Brewer"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Diverging Palettes"</span> <span class="n">var</span><span class="p">:</span><span class="n">divergingPalette</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Brewer"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Qualitatives Palettes"</span> <span class="n">var</span><span class="p">:</span><span class="n">qualitativePalette</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Brewer"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"brewer"</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Sequential</span>
+				<span class="n">draw</span> <span class="s2">"Sequential"</span> <span class="n">at</span><span class="p">:{-</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.2</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+				<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">SequentialColors</span><span class="p">)-</span><span class="m">1</span><span class="p">{</span>
+					<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="n">square_size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">SequentialColors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">square_size</span><span class="p">*(</span><span class="m">0.5</span> <span class="p">+</span> <span class="n">i</span><span class="p">),</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+				<span class="p">}</span>
+				<span class="p">//</span><span class="n">Diverging</span>
+				<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">DivergingColors</span><span class="p">)-</span><span class="m">1</span><span class="p">{</span>
+					<span class="n">draw</span> <span class="s2">"Diverging"</span> <span class="n">at</span><span class="p">:{-</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.2</span><span class="p">,</span><span class="m">1</span><span class="p">*</span><span class="n">square_size</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="n">square_size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">DivergingColors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">square_size</span><span class="p">*(</span><span class="m">0.5</span> <span class="p">+</span> <span class="n">i</span><span class="p">),</span> <span class="m">1</span><span class="p">*</span><span class="n">square_size</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+				<span class="p">}</span>
+				<span class="p">//</span><span class="n">Qualitative</span>		
+				<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">QualitativeColors</span><span class="p">)-</span><span class="m">1</span><span class="p">{</span>
+					<span class="n">draw</span> <span class="s2">"Qualitative"</span> <span class="n">at</span><span class="p">:{-</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.2</span><span class="p">,</span><span class="m">2</span><span class="p">*</span><span class="n">square_size</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="n">square_size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">QualitativeColors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">square_size</span><span class="p">*(</span><span class="m">0.5</span> <span class="p">+</span> <span class="n">i</span><span class="p">),</span> <span class="m">2</span><span class="p">*</span><span class="n">square_size</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+				<span class="p">}</span>
+		    <span class="p">}</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
 
-//in this experiment, we display the cell agents with the  different aspects
-experiment BrewerColoredAgent type: gui {
-	parameter "Number of data classes" var:nb_classes category:"Brewer";
-	output {
-		display View1 {
-			grid cell lines: #black ;
-		}	
-	}
-}
-</code></pre>
-</div>
+<span class="p">//</span><span class="k">in</span> <span class="n">this</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">we</span> <span class="n">display</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">agents</span> <span class="k">with</span> <span class="n">the</span>  <span class="n">different</span> <span class="n">aspects</span>
+<span class="n">experiment</span> <span class="n">BrewerColoredAgent</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Number of data classes"</span> <span class="n">var</span><span class="p">:</span><span class="n">nb_classes</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Brewer"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">View1</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

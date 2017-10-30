@@ -3500,77 +3500,76 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model simpleOSMLoading 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">simpleOSMLoading</span> 
  
-global{
+<span class="n">global</span><span class="p">{</span>
 	
-	//map used to filter the object to build from the OSM file according to attributes. for an exhaustive list, see: http://wiki.openstreetmap.org/wiki/Map_Features
-	map filtering &lt;- map(["highway"::["primary", "secondary", "tertiary", "motorway", "living_street","residential", "unclassified"], "building"::["yes"]]);
-	//OSM file to load
-	file&lt;geometry&gt; osmfile &lt;-  file&lt;geometry&gt;(osm_file("../includes/rouen.gz", filtering))  ;
+	<span class="p">//</span><span class="n">map</span> <span class="n">used</span> <span class="k">to</span> <span class="n">filter</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">build</span> <span class="k">from</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span> <span class="n">according</span> <span class="k">to</span> <span class="n">attributes</span><span class="p">.</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
+	<span class="n">map</span> <span class="n">filtering</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">([</span><span class="s2">"highway"</span><span class="p">::[</span><span class="s2">"primary"</span><span class="p">,</span> <span class="s2">"secondary"</span><span class="p">,</span> <span class="s2">"tertiary"</span><span class="p">,</span> <span class="s2">"motorway"</span><span class="p">,</span> <span class="s2">"living_street"</span><span class="p">,</span><span class="s2">"residential"</span><span class="p">,</span> <span class="s2">"unclassified"</span><span class="p">],</span> <span class="s2">"building"</span><span class="p">::[</span><span class="s2">"yes"</span><span class="p">]]);</span>
+	<span class="p">//</span><span class="n">OSM</span> <span class="n">file</span> <span class="k">to</span> <span class="nf">load</span>
+	<span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">osmfile</span> <span class="p">&lt;-</span>  <span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;(</span><span class="n">osm_file</span><span class="p">(</span><span class="s2">"../includes/rouen.gz"</span><span class="p">,</span> <span class="n">filtering</span><span class="p">))</span>  <span class="p">;</span>
 	
-	//compute the size of the environment from the envelope of the OSM file
-	geometry shape &lt;- envelope(osmfile);
+	<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="k">from</span> <span class="n">the</span> <span class="n">envelope</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">osmfile</span><span class="p">);</span>
 	
-	init {
-		//possibility to load all of the attibutes of the OSM data: for an exhaustive list, see: http://wiki.openstreetmap.org/wiki/Map_Features
-		create osm_agent from:osmfile with: [highway_str::string(read("highway")), building_str::string(read("building"))];
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">possibility</span> <span class="k">to</span> <span class="nf">load</span> <span class="n">all</span> <span class="k">of</span> <span class="n">the</span> <span class="n">attibutes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">data</span><span class="p">:</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
+		<span class="nb">create</span> <span class="n">osm_agent</span> <span class="k">from</span><span class="p">:</span><span class="n">osmfile</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">highway_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"highway"</span><span class="p">)),</span> <span class="n">building_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"building"</span><span class="p">))];</span>
 		
-		//from the created generic agents, creation of the selected agents
-		ask osm_agent {
-			if (length(shape.points) = 1 and highway_str != nil ) {
-				create node_agent with: [shape ::shape, type:: highway_str]; 
-			} else {
-				if (highway_str != nil ) {
-					create road with: [shape ::shape, type:: highway_str];
-				} else if (building_str != nil){
-					create building with: [shape ::shape];
-				}  
-			}
-			//do the generic agent die
-			do die;
-		}
-	}	
-}
+		<span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">created</span> <span class="n">generic</span> <span class="n">agents</span><span class="p">,</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">agents</span>
+		<span class="n">ask</span> <span class="n">osm_agent</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span> <span class="k">and</span> <span class="n">highway_str</span> <span class="c1">!= nil ) {
+</span>				<span class="nb">create</span> <span class="n">node_agent</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span> 
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">highway_str</span> <span class="c1">!= nil ) {
+</span>					<span class="nb">create</span> <span class="n">road</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span>
+				<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">building_str</span> <span class="c1">!= nil){
+</span>					<span class="nb">create</span> <span class="n">building</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">];</span>
+				<span class="p">}</span>  
+			<span class="p">}</span>
+			<span class="p">//</span><span class="k">do</span> <span class="n">the</span> <span class="n">generic</span> <span class="n">agent</span> <span class="n">die</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
 
-species osm_agent {
-	string highway_str;
-	string building_str;
-} 
+<span class="n">species</span> <span class="n">osm_agent</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">highway_str</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">building_str</span><span class="p">;</span>
+<span class="p">}</span> 
 	
-species road {
-	rgb color &lt;- rnd_color(255);
-	string type;
-	aspect default {
-		draw shape color: color; 
-	}
-} 
+<span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
+	<span class="p">}</span>
+<span class="p">}</span> 
 	
-species node_agent {
-	string type;
-	aspect default { 
-		draw square(3) color: #red ;
-	}
-} 
+<span class="n">species</span> <span class="n">node_agent</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
 	
-species building {
-	aspect default { 
-		draw shape color: rgb(200,200,200);
-	}
-}  
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>  
 
-experiment load_OSM type: gui {
-	output {
-		display map type: opengl {
-			species building refresh: false;
-			species road refresh: false  ;
-			species node_agent refresh: false ;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">load_OSM</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span>  <span class="p">;</span>
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

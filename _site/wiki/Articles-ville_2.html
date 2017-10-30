@@ -3500,56 +3500,55 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model ville
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">ville</span>
 
-global {
-	file shape_file_batiments &lt;- file("../includes/batiments.shp");
-	file shape_file_routes &lt;- file("../includes/routes.shp");
-	geometry shape &lt;- envelope(shape_file_routes);
-	init {
-		create route from: shape_file_routes;
-		create batiment from: shape_file_batiments with: [type:: string(read("NATURE"))];
-		create foyer number: 500;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">shape_file_batiments</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/batiments.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_routes</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/routes.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_routes</span><span class="p">);</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">route</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_routes</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">batiment</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_batiments</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span> <span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))];</span>
+		<span class="nb">create</span> <span class="n">foyer</span> <span class="n">number</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species batiment {
-	string type;
-	int capacite &lt;- type = "Industrial" ? 0 : int(shape.area / 60.0);
-	aspect geometrie {
-		draw shape color: type = "Industrial" ? #pink : #gray;
-	}
-}
+<span class="n">species</span> <span class="n">batiment</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">capacite</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">/</span> <span class="m">60.0</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">geometrie</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="p">#</span><span class="n">pink</span> <span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species route {
-	aspect geometrie {
-		draw shape color: #black;
-	}
-}
+<span class="n">species</span> <span class="n">route</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">geometrie</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species foyer {
-	float revenu &lt;- gauss(1500, 500);
-	batiment habitation;
-	batiment lieu_travail;
+<span class="n">species</span> <span class="n">foyer</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">revenu</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">1500</span><span class="p">,</span> <span class="m">500</span><span class="p">);</span>
+	<span class="n">batiment</span> <span class="n">habitation</span><span class="p">;</span>
+	<span class="n">batiment</span> <span class="n">lieu_travail</span><span class="p">;</span>
 	
-	aspect revenu {
-		int val &lt;- int(255 * (revenu / 3000));
-		draw circle(5) color: rgb(255 - val, val, 0);
-	}
-}
+	<span class="n">aspect</span> <span class="n">revenu</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="n">revenu</span> <span class="p">/</span> <span class="m">3000</span><span class="p">));</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span> <span class="p">-</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment ville type: gui {
-	output {
-		display carte_principale {
-			species batiment aspect: geometrie;
-			species route aspect: geometrie;
-			species foyer aspect: revenu;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">ville</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">carte_principale</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">batiment</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometrie</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">route</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometrie</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">foyer</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">revenu</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

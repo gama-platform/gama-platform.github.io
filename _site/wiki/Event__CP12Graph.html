@@ -3507,7 +3507,7 @@ function closeRightMenu() {
 
 <p>Till now, the GAML langage does not enables an easy way to create primitives that both take more than 3 args as an input and return an object. Thus loading a graph is defined as an action of a skill; one has to create an instance of agent with this skill for loading the network.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {  
 	var mongraphe type:graph;
 	graph_manager graph_util;
 
@@ -3521,8 +3521,7 @@ function closeRightMenu() {
 	}  
 }
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="graph-manipulators">graph manipulators</h3>
 
@@ -3536,12 +3535,11 @@ function closeRightMenu() {
 
 <p>First of all, we had to disturb many GAMA-gurus for undertanding how to create a novel View (that is, another tab in the simulation perspective) from GAML. A novel display is defined for displaying a network.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
 	graphdisplay nameOfMyDisplay graph: mongraphe {	 
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This line indicates that we would like to display a graph defined in the variable “mongraphe”. This simple line will open the display.</p>
 

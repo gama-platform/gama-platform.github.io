@@ -3500,59 +3500,58 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model test_unitTest_framework
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">test_unitTest_framework</span>
 
-global {
-	init {
-		create test_species number: 1;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">test_species</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-//Species to do the different unit tests
-species test_species {
-	int a &lt;- 0;
+<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="k">do</span> <span class="n">the</span> <span class="n">different</span> <span class="n">unit</span> <span class="n">tests</span>
+<span class="n">species</span> <span class="n">test_species</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
 	
-	//Setup a to 10 launched before each test
-	setup {
-		a &lt;- 10;
-		write "SetUp : a = " + a;
-	}
+	<span class="p">//</span><span class="n">Setup</span> <span class="n">a</span> <span class="k">to</span> <span class="m">10</span> <span class="n">launched</span> <span class="n">before</span> <span class="n">each</span> <span class="n">test</span>
+	<span class="n">setup</span> <span class="p">{</span>
+		<span class="n">a</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"SetUp : a = "</span> <span class="p">+</span> <span class="n">a</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	//First test executing comparison between numbers
-	test t1 {
-     	assert 100 + 100 equals: 200;
-    		assert 100 + 100 equals: 201;
-	}
+	<span class="p">//</span><span class="n">First</span> <span class="n">test</span> <span class="n">executing</span> <span class="n">comparison</span> <span class="n">between</span> <span class="n">numbers</span>
+	<span class="n">test</span> <span class="n">t1</span> <span class="p">{</span>
+     	<span class="nb">assert</span> <span class="m">100</span> <span class="p">+</span> <span class="m">100</span> <span class="n">equals</span><span class="p">:</span> <span class="m">200</span><span class="p">;</span>
+    		<span class="nb">assert</span> <span class="m">100</span> <span class="p">+</span> <span class="m">100</span> <span class="n">equals</span><span class="p">:</span> <span class="m">201</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	//Second test executing comparison between list and type
-	test t2 {
-    	assert any([1,2,3]) is_not: nil;
-    	assert any([1,2,3]) is int;
-    	assert any([1,2,3]) is_not: 5;
-    	assert any([1,2,3]) is float;
-    	assert any([1,2,3]) is string;
-	}
+	<span class="p">//</span><span class="n">Second</span> <span class="n">test</span> <span class="n">executing</span> <span class="n">comparison</span> <span class="n">between</span> <span class="k">list</span> <span class="k">and</span> <span class="n">type</span>
+	<span class="n">test</span> <span class="n">t2</span> <span class="p">{</span>
+    	<span class="nb">assert</span> <span class="n">any</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span> <span class="n">is_not</span><span class="p">:</span> <span class="n">nil</span><span class="p">;</span>
+    	<span class="nb">assert</span> <span class="n">any</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span> <span class="n">is</span> <span class="n">int</span><span class="p">;</span>
+    	<span class="nb">assert</span> <span class="n">any</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span> <span class="n">is_not</span><span class="p">:</span> <span class="m">5</span><span class="p">;</span>
+    	<span class="nb">assert</span> <span class="n">any</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span> <span class="n">is</span> <span class="n">float</span><span class="p">;</span>
+    	<span class="nb">assert</span> <span class="n">any</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span> <span class="n">is</span> <span class="k">string</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	//test the incrementation of a
-	test incement_a {
-   		a&lt;- a + 10;
-    		write "a: " + a;
-	}
+	<span class="p">//</span><span class="n">test</span> <span class="n">the</span> <span class="n">incrementation</span> <span class="k">of</span> <span class="n">a</span>
+	<span class="n">test</span> <span class="n">incement_a</span> <span class="p">{</span>
+   		<span class="n">a</span><span class="p">&lt;-</span> <span class="n">a</span> <span class="p">+</span> <span class="m">10</span><span class="p">;</span>
+    		<span class="nb">write</span> <span class="s2">"a: "</span> <span class="p">+</span> <span class="n">a</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	//Third test for lists
-	test t3 {
- 		list&lt;int&gt; aa;
-	 	assert aa[0] raises: "error";
-	 	assert aa[0] raises: "";
-	 	assert a raises: "error";
-	}
-}
+	<span class="p">//</span><span class="n">Third</span> <span class="n">test</span> <span class="n">for</span> <span class="n">lists</span>
+	<span class="n">test</span> <span class="n">t3</span> <span class="p">{</span>
+ 		<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">aa</span><span class="p">;</span>
+	 	<span class="nb">assert</span> <span class="n">aa</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="n">raises</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">;</span>
+	 	<span class="nb">assert</span> <span class="n">aa</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="n">raises</span><span class="p">:</span> <span class="s2">""</span><span class="p">;</span>
+	 	<span class="nb">assert</span> <span class="n">a</span> <span class="n">raises</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment new type: gui {}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">new</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{}</span>
+</code></pre></div></div>
 
     </div>
     </div>

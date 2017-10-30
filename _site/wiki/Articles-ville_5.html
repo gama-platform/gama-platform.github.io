@@ -3500,97 +3500,96 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model ville
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">ville</span>
 
-global {
-	file shape_file_batiments &lt;- file("../includes/batiments.shp");
-	file shape_file_routes &lt;- file("../includes/routes.shp");
-	geometry shape &lt;- envelope(shape_file_routes);
-	graph&lt;point, route&gt; reseau_route;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">shape_file_batiments</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/batiments.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_routes</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/routes.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_routes</span><span class="p">);</span>
+	<span class="n">graph</span><span class="p">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">route</span><span class="p">&gt;</span> <span class="n">reseau_route</span><span class="p">;</span>
 	
-	init {
-		create route from: shape_file_routes;
-		reseau_route &lt;- as_edge_graph(route);
-		create batiment from: shape_file_batiments with: [type:: string(read("NATURE"))];
-		create foyer number: 500;
-	}
-} 
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">route</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_routes</span><span class="p">;</span>
+		<span class="n">reseau_route</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">route</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">batiment</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_batiments</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span> <span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))];</span>
+		<span class="nb">create</span> <span class="n">foyer</span> <span class="n">number</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
 
-species foyer {
-	float revenu &lt;- gauss(1500, 500);
-	bool est_satisfait update: calculer_satisfaction();
-	batiment habitation;
-	batiment lieu_travail;
-	init {
-		lieu_travail &lt;- one_of(batiment where (each.type = "Industrial"));
-		habitation &lt;- choisir_batiment(); 
-		do emmenager;
-	}
-	bool calculer_satisfaction {
-		list&lt;foyer&gt; voisins &lt;- foyer at_distance 50.0;
-		float revenu_moyen &lt;- mean(voisins collect (each.revenu));
-		return empty(voisins) or (revenu_moyen &gt; (revenu * 0.7) and revenu_moyen &lt; (revenu / 0.7));
-	}
-	action emmenager {
-		habitation.capacite &lt;- habitation.capacite - 1;
-		habitation.foyers &lt;&lt; self;
-		location &lt;- any_location_in(habitation.shape) + {0,0, habitation.hauteur};
-	}
-	action demenager {
-		habitation.capacite &lt;- habitation.capacite + 1;
-		remove self from: habitation.foyers;
-	}
-	batiment choisir_batiment {
-		return one_of(batiment where ((each.capacite &gt;0) and ( each.distances[lieu_travail]&lt; 1000.0)));
-	}
-	reflex demenagement when: !est_satisfait {
-		do demenager;
-		habitation &lt;- choisir_batiment();
-		do emmenager;
-	}
-	aspect revenu {
-		int val &lt;- int(255 * (revenu / 3000));
-		draw sphere(5) color: rgb(255 - val, val, 0);
-	}
-}
-species batiment {
-	string type;
-	int capacite &lt;- type = "Industrial" ? 0 : int(shape.area / 70.0);
-	map&lt;batiment,float&gt; distances;
-	int hauteur &lt;- 5 + rnd(10);
-	list&lt;foyer&gt; foyers ;
-	float revenu_moyen update: empty(foyer) ? 0.0 : mean (foyers collect each.revenu);
-	init {
-		loop bat over: batiment where (each.type = "Industrial") {
-			put (topology(reseau_route) distance_between [self,bat]) at: bat in: distances;
-		}
-	}
-	aspect geometrie {
-		draw shape color: type = "Industrial" ? #pink : #gray depth: hauteur;
-	}
-	aspect information_foyer {
-		draw shape color: type = "Industrial" ? #pink : (empty(foyers) ? #gray : rgb(int(255 * (1 - (revenu_moyen / 3000))), int(255 * (revenu_moyen / 3000)), 0)) depth: length(foyers);
-	}
-}
-species route {
-	aspect geometrie {
-		draw shape color: #black;
-	}
-}
-experiment ville type: gui {
-	output {
-		display carte_principale type: java2D {
-			species batiment aspect: geometrie;
-			species route aspect: geometrie;
-			species foyer aspect: revenu;
-		}
-		display carte_batiment type: opengl {
-			species batiment aspect: information_foyer;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">species</span> <span class="n">foyer</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">revenu</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">1500</span><span class="p">,</span> <span class="m">500</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">est_satisfait</span> <span class="n">update</span><span class="p">:</span> <span class="n">calculer_satisfaction</span><span class="p">();</span>
+	<span class="n">batiment</span> <span class="n">habitation</span><span class="p">;</span>
+	<span class="n">batiment</span> <span class="n">lieu_travail</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">lieu_travail</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">batiment</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span><span class="p">));</span>
+		<span class="n">habitation</span> <span class="p">&lt;-</span> <span class="n">choisir_batiment</span><span class="p">();</span> 
+		<span class="k">do</span> <span class="n">emmenager</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">bool</span> <span class="n">calculer_satisfaction</span> <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">foyer</span><span class="p">&gt;</span> <span class="n">voisins</span> <span class="p">&lt;-</span> <span class="n">foyer</span> <span class="n">at_distance</span> <span class="m">50.0</span><span class="p">;</span>
+		<span class="n">float</span> <span class="n">revenu_moyen</span> <span class="p">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">voisins</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">revenu</span><span class="p">));</span>
+		<span class="n">return</span> <span class="n">empty</span><span class="p">(</span><span class="n">voisins</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">revenu_moyen</span> <span class="p">&gt;</span> <span class="p">(</span><span class="n">revenu</span> <span class="p">*</span> <span class="m">0.7</span><span class="p">)</span> <span class="k">and</span> <span class="n">revenu_moyen</span> <span class="p">&lt;</span> <span class="p">(</span><span class="n">revenu</span> <span class="p">/</span> <span class="m">0.7</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">emmenager</span> <span class="p">{</span>
+		<span class="n">habitation</span><span class="p">.</span><span class="n">capacite</span> <span class="p">&lt;-</span> <span class="n">habitation</span><span class="p">.</span><span class="n">capacite</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">habitation</span><span class="p">.</span><span class="n">foyers</span> <span class="p">&lt;&lt;</span> <span class="n">self</span><span class="p">;</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">habitation</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span> <span class="p">+</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="n">habitation</span><span class="p">.</span><span class="n">hauteur</span><span class="p">};</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">demenager</span> <span class="p">{</span>
+		<span class="n">habitation</span><span class="p">.</span><span class="n">capacite</span> <span class="p">&lt;-</span> <span class="n">habitation</span><span class="p">.</span><span class="n">capacite</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">remove</span> <span class="n">self</span> <span class="k">from</span><span class="p">:</span> <span class="n">habitation</span><span class="p">.</span><span class="n">foyers</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">batiment</span> <span class="n">choisir_batiment</span> <span class="p">{</span>
+		<span class="n">return</span> <span class="n">one_of</span><span class="p">(</span><span class="n">batiment</span> <span class="n">where</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">capacite</span> <span class="p">&gt;</span><span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span> <span class="n">each</span><span class="p">.</span><span class="n">distances</span><span class="p">[</span><span class="n">lieu_travail</span><span class="p">]&lt;</span> <span class="m">1000.0</span><span class="p">)));</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">demenagement</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!est_satisfait {
+</span>		<span class="k">do</span> <span class="n">demenager</span><span class="p">;</span>
+		<span class="n">habitation</span> <span class="p">&lt;-</span> <span class="n">choisir_batiment</span><span class="p">();</span>
+		<span class="k">do</span> <span class="n">emmenager</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">revenu</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="n">revenu</span> <span class="p">/</span> <span class="m">3000</span><span class="p">));</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span> <span class="p">-</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">species</span> <span class="n">batiment</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">capacite</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">/</span> <span class="m">70.0</span><span class="p">);</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="n">batiment</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">distances</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">hauteur</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">foyer</span><span class="p">&gt;</span> <span class="n">foyers</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">revenu_moyen</span> <span class="n">update</span><span class="p">:</span> <span class="n">empty</span><span class="p">(</span><span class="n">foyer</span><span class="p">)</span> <span class="p">?</span> <span class="m">0.0</span> <span class="p">:</span> <span class="n">mean</span> <span class="p">(</span><span class="n">foyers</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">revenu</span><span class="p">);</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">bat</span> <span class="n">over</span><span class="p">:</span> <span class="n">batiment</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">put</span> <span class="p">(</span><span class="n">topology</span><span class="p">(</span><span class="n">reseau_route</span><span class="p">)</span> <span class="n">distance_between</span> <span class="p">[</span><span class="n">self</span><span class="p">,</span><span class="n">bat</span><span class="p">])</span> <span class="n">at</span><span class="p">:</span> <span class="n">bat</span> <span class="k">in</span><span class="p">:</span> <span class="n">distances</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geometrie</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="p">#</span><span class="n">pink</span> <span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">hauteur</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">information_foyer</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="p">#</span><span class="n">pink</span> <span class="p">:</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">foyers</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="p">(</span><span class="n">revenu_moyen</span> <span class="p">/</span> <span class="m">3000</span><span class="p">))),</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="n">revenu_moyen</span> <span class="p">/</span> <span class="m">3000</span><span class="p">)),</span> <span class="m">0</span><span class="p">))</span> <span class="n">depth</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">foyers</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">species</span> <span class="n">route</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">geometrie</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">ville</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">carte_principale</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">batiment</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometrie</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">route</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometrie</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">foyer</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">revenu</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">carte_batiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">batiment</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">information_foyer</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

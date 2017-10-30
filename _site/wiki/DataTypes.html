@@ -3554,9 +3554,8 @@ There are 4 categories of types:</p>
   <li><strong>Other declarations:</strong> expressions that require a boolean operand often directly apply a casting to bool to their operand. It is a convenient way to directly obtain a bool value.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>bool (0) -&gt; false
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool (0) -&gt; false
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="float">float</h3>
@@ -3567,9 +3566,8 @@ There are 4 categories of types:</p>
   <li><strong>Other declarations:</strong> expressions that require an integer operand often directly apply a casting to float to their operand. Using it is a way to obtain a float constant.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>float (12) -&gt; 12.0
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float (12) -&gt; 12.0
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="int">int</h3>
@@ -3580,9 +3578,8 @@ There are 4 categories of types:</p>
   <li><strong>Other declarations:</strong> expressions that require an integer operand often directly apply a casting to int to their operand. Using it is a way to obtain an integer constant.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int (234.5) -&gt; 234.
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int (234.5) -&gt; 234.
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="string">string</h3>
@@ -3599,15 +3596,13 @@ There are 4 categories of types:</p>
 <h2 id="complex-built-in-types">Complex built-in types</h2>
 
 <p>Contrarily to primitive built-in types, complex types have often various attributes. They can be accessed in the same way as attributes of agents:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>complex_type nom_var &lt;- init_var;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>complex_type nom_var &lt;- init_var;
 ltype_attr attr_var &lt;- nom_var.attr_name;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>For example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>file fileText &lt;- file("../data/cell.Data");
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file fileText &lt;- file("../data/cell.Data");
 bool fileTextReadable &lt;- fileText.readable;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="agent">agent</h3>
 <ul>
@@ -3624,12 +3619,11 @@ bool fileTextReadable &lt;- fileText.readable;
   <li><strong>Comments:</strong>  a container variable can be a list, a matrix, a map… Conversely each list, matrix and map is a kind of container. In consequence every container can be used in container-related operators.</li>
   <li><strong>See also:</strong> <a href="Operators#containers-related-operators">Container operators</a></li>
   <li><strong>Declaration:</strong>
-    <div class="highlighter-rouge"><pre class="highlight"><code>container c  &lt;- [1,2,3];
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>container c  &lt;- [1,2,3];
 container c  &lt;- matrix [[1,2,3],[4,5,6]];
 container c  &lt;- map ["x"::5, "y"::12];
 container c  &lt;- list species1;
-</code></pre>
-    </div>
+</code></pre></div>    </div>
     <p><a href="#table-of-contents">Top of the page</a></p>
   </li>
 </ul>
@@ -3663,7 +3657,7 @@ container c  &lt;- list species1;
   <li><strong>Declaration:</strong> a file can be created using the generic <code class="highlighter-rouge">file</code> (that opens a file in read only mode and tries to determine its contents), <code class="highlighter-rouge">folder</code> or the <code class="highlighter-rouge">new_folder</code> (to open an existing folder or create a new one) unary operators. But things can be specialized with the combination of the <code class="highlighter-rouge">read</code>/<code class="highlighter-rouge">write</code> and <code class="highlighter-rouge">image</code>/<code class="highlighter-rouge">text</code>/<code class="highlighter-rouge">shapefile</code>/<code class="highlighter-rouge">properties</code> unary operators.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>folder(a_string)  // returns a file managing a existing folder
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>folder(a_string)  // returns a file managing a existing folder
 file(a_string) // returns any kind of file in read-only mode
 read(text(a_string)) // returns a text file in read-only mode
 read(image(a_string)) // does the same with an image file.
@@ -3671,8 +3665,7 @@ write(properties(a_string)) // returns a property file which is available for wr
                             // (if it exists, contents will be appended unless it is cleared 
                             // using the standard container operations).
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
 
@@ -3703,10 +3696,9 @@ write(properties(a_string)) // returns a property file which is available for wr
   <li><strong>Declaration:</strong> geometries can be built from a point, a list of points or by using specific operators (circle, square, triangle…).</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry varGeom &lt;- circle(5);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry varGeom &lt;- circle(5);
 geometry polygonGeom &lt;- polygon([{3,5}, {5,6},{1,4}]);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
 
@@ -3733,7 +3725,7 @@ geometry polygonGeom &lt;- polygon([{3,5}, {5,6},{1,4}]);
   <li><strong>Declaration:</strong> graphs can be built from a list of vertices (agents or geometries) or from a list of edges (agents or geometries) by using specific operators. They are often used to deal with a road network and are built from a shapefile.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>create road from: shape_file_road;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create road from: shape_file_road;
 graph the_graph &lt;- as_edge_graph(road);
 
 graph([1,9,5])        --: ([1: in[] + out[], 5: in[] + out[], 9: in[] + out[]], [])
@@ -3741,8 +3733,7 @@ graph([node(0), node(1), node(2)]      // if node is a species
 graph(['a'::345, 'b'::13])  --:  ([b: in[] + out[b::13], a: in[] + out[a::345], 13: in[b::13] + out[], 345: in[a::345] + out[]], [a::345=(a,345), b::13=(b,13)])
 graph(a_graph)  --: a_graph
 graph(node1)    --: null
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
 
@@ -3755,13 +3746,11 @@ graph(node1)    --: null
   <li><strong>Other declarations:</strong> lists can be build litteraly from a point, or a string, or any other element by using the list casting operator.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>list (1) -&gt; [1]
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>list&lt;int&gt; myList &lt;- [1,2,3,4]; 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list (1) -&gt; [1]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; myList &lt;- [1,2,3,4]; 
 myList[2] =&gt; 3
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="map">map</h3>
@@ -3780,11 +3769,10 @@ myList[2] =&gt; 3
   <li><strong>Other declarations:</strong> lists can be built litteraly from a point, or a string, or any other element by using the map casting operator.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map (1) -&gt; [1::1]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map (1) -&gt; [1::1]
 map ({1,5}) -&gt; [x::1, y::5]
 []   // empty map 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="matrix">matrix</h3>
@@ -3794,7 +3782,7 @@ map ({1,5}) -&gt; [x::1, y::5]
   <li><strong>Litteral declaration:</strong> Matrices cannot be defined literally. One-dimensions matrices can be built by using the matrix casting operator applied on a list. Two-dimensions matrices need to to be declared as variables first, before being filled.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>//builds a one-dimension matrix, of size 5
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//builds a one-dimension matrix, of size 5
 matrix mat1 &lt;- matrix ([10, 20, 30, 40, 50]);
 //  builds a two-dimensions matrix with 10 columns and 5 rows, where each cell is initialized to 0.0
 matrix mat2 &lt;- 0.0 as_matrix({10,5}); 
@@ -3803,8 +3791,7 @@ matrix mat3 &lt;- matrix([["c11","c12","c13"],["c21","c22","c23"]]);
     -&gt; c11;c21
        c12;c22
        c13;c23
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="pair">pair</h3>
@@ -3827,12 +3814,11 @@ matrix mat3 &lt;- matrix([["c11","c12","c13"],["c21","c22","c23"]]);
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pair testPair &lt;- "key"::56;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pair testPair &lt;- "key"::56;
 pair testPairPoint &lt;- {3,5};             // 3::5
 pair testPairList2 &lt;- [6,7,8];           // 6::7
 pair testPairMap &lt;- [2::6,5::8,12::45];  // [12,5,2]::[45,8,6]
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="path">path</h3>
@@ -3854,7 +3840,7 @@ pair testPairMap &lt;- [2::6,5::8,12::45];  // [12,5,2]::[45,8,6]
   <li><strong>Declaration:</strong> paths are very barely defined litterally. We can nevertheless use the <code class="highlighter-rouge">path</code> unary operator on a list of points to build a path. Operators dedicated to the computation of paths (such as path_to or path_between) are often used to build a path.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>path([{1,5},{2,9},{5,8}]) // a path from {1,5} to {5,8} through {2,9}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path([{1,5},{2,9},{5,8}]) // a path from {1,5} to {5,8} through {2,9}
        
 geometry rect &lt;- rectangle(5);
 geometry poly &lt;- polygon([{10,20},{11,21},{10,21},{11,22}]);
@@ -3869,8 +3855,7 @@ a_topology path_between a_container_of_geometries // idem with an explicit topol
 
 path_between (a_graph, a_source, a_target) // idem with a the given graph as topology
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
 
@@ -3889,10 +3874,9 @@ path_between (a_graph, a_source, a_target) // idem with a the given graph as top
   <li><strong>Other declarations:</strong> points can be built litteraly from a list, or from an integer or float value by using the point casting operator.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>point ([12,123.45]) -&gt; {12.0, 123.45} 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>point ([12,123.45]) -&gt; {12.0, 123.45} 
 point (2) -&gt; {2.0, 2.0}
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="rgb">rgb</h3>
@@ -3920,13 +3904,12 @@ point (2) -&gt; {2.0, 2.0}
   <li><strong>Declaration:</strong></li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rgb cssRed &lt;- #red;   // Since 1.6.1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rgb cssRed &lt;- #red;   // Since 1.6.1
 rgb testColor &lt;- rgb('white');                 // rgb [255,255,255]
 rgb test &lt;- rgb(3,5,67);                     // rgb [3,5,67]
 rgb te &lt;- rgb(340);                            // rgb [0,1,84]
 rgb tete &lt;- rgb(["r"::34, "g"::56, "b"::345]); // rgb [34,56,255]
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
 <h3 id="species">species</h3>
@@ -3955,7 +3938,7 @@ rgb tete &lt;- rgb(["r"::34, "g"::56, "b"::345]); // rgb [34,56,255]
 
 <p>In the simple following example, we create a set of “humans” and initialize a random “friendship network” among them. See how the name of the species, human, is used in the create command, as an argument to the list casting operator, and as the type of the variable named friend.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
     init {
          create human number: 10;
          ask human {
@@ -3968,8 +3951,7 @@ entities {
         human friend &lt;- nil;
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
 
@@ -4003,27 +3985,25 @@ More complex topologies can also be built using dedicated operators, e.g. to dec
 
 <p>Sometimes, besides the species of agents that compose the model, it can be necessary to declare custom datatypes. Species serve this purpose as well, and can be seen as “classes” that can help to instantiate simple “objects”. In the following example, we declare a new kind of “object”, bottle, that lacks the skills habitually associated with agents (moving, visible, etc.), but can nevertheless group together attributes and behaviors within the same closure. The following example demonstrates how to create the species:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species bottle {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species bottle {
     float volume &lt;- 0.0 max:1 min:0.0;
     bool is_empty -&gt; {volume = 0.0};
     action fill {
          volume &lt;- 1.0;
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>How to use this species to declare new bottles :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>create bottle {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create bottle {
     volume &lt;- 0.5;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And how to use bottles as any other agent in a species (a drinker owns a bottle; when he gets thirsty, it drinks a random quantity from it; when it is empty, it refills it):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species drinker {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species drinker {
      ...
     bottle my_bottle&lt;- nil;
     float quantity &lt;- rnd (100) / 100;
@@ -4053,8 +4033,7 @@ More complex topologies can also be built using dedicated operators, e.g. to dec
          do drink;
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="#table-of-contents">Top of the page</a></p>
 
     </div>

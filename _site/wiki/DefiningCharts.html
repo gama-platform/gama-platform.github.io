@@ -3508,7 +3508,7 @@ function closeRightMenu() {
 
 <p>To define a chart, we have to use the <code class="highlighter-rouge">chart</code> statement. A chart has to be named (with the <code class="highlighter-rouge">name</code> facet), and the type has to be specified (with the <code class="highlighter-rouge">type</code> facet). The value of the <code class="highlighter-rouge">type</code> facet can be <code class="highlighter-rouge">histogram</code>, <code class="highlighter-rouge">pie</code>, <code class="highlighter-rouge">series</code>, <code class="highlighter-rouge">scatter</code>, <code class="highlighter-rouge">xy</code>. A chart has to be defined inside a display.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_experiment type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
 	output {
 		display "my_display" {
 			chart "my_chart" type:pie {
@@ -3516,8 +3516,7 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>After declaring your chart, you have to define the data you want to display in your chart.</p>
 
@@ -3531,7 +3530,7 @@ function closeRightMenu() {
 
 <p>The <code class="highlighter-rouge">data</code> statement is used to specify which variable will be displayed. You have to give your data a name (that will be displayed in your chart), the value of the variable you want to follow (using the <code class="highlighter-rouge">value</code> facet). You can add come optional facets such as <code class="highlighter-rouge">color</code> to specify the color of your data.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
 	int numberA &lt;- 2 update:numberA*2;
 	int numberB &lt;- 10000 update:numberB-1000;
@@ -3547,16 +3546,14 @@ experiment my_experiment type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>(TODO_IMAGE)</p>
 
 <p>The <code class="highlighter-rouge">datalist</code> statement is used several variables in one statement.  Instead of giving simple values, datalist is used with lists.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>datalist ["numberA","numberB"] value:[numberA,numberB] color:[#red,#blue];
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datalist ["numberA","numberB"] value:[numberA,numberB] color:[#red,#blue];
+</code></pre></div></div>
 <p>[TODO]
 Datalist provides you some additional facets you can use. If you want to learn more about them, please read the documentation [URL]</p>
 

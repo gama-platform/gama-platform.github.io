@@ -3693,7 +3693,7 @@ Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instr
 <p>Most of the annotations can contain a <a href="DevelopingIndexAnnotations#doc"><code class="highlighter-rouge">@doc</code></a> annotation, that can contain the main part of the documentation.</p>
 
 <p>For example, the <code class="highlighter-rouge">inter</code> (<a href="Operators#inter">inter</a>) operator is commented using:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@doc(
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@doc(
   value = "the intersection of the two operands",
   comment = "both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.",
   usages = {
@@ -3707,8 +3707,7 @@ Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instr
     @example(value = "[1,2,3,4,5,6] inter [2,4]", equals = "[2,4]"),
     @example(value = "[1,2,3,4,5,6] inter [0,8]", equals = "[]") },
   see = { "remove_duplicates" })
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>This <code class="highlighter-rouge">@doc</code>annotation contains 5 parts:</p>
 <ul>
   <li>value: describes the documented element,</li>
@@ -3723,9 +3722,8 @@ Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instr
 <p>This annotation contains a particular use example of the documented element. It is also used to generate unit test and patterns.</p>
 
 <p>The simplest way to use it:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@example(value = "[1::2, 3::4, 5::6] inter [2,4]", equals = "[2,4]")
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@example(value = "[1::2, 3::4, 5::6] inter [2,4]", equals = "[2,4]")
+</code></pre></div></div>
 
 <p>In this example:</p>
 <ul>
@@ -3734,9 +3732,8 @@ Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instr
 </ul>
 
 <p>This will become in the documentation:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>list var3 &lt;- [1::2, 3::4, 5::6] inter [2,4];    // var3 equals [2,4]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list var3 &lt;- [1::2, 3::4, 5::6] inter [2,4];    // var3 equals [2,4]
+</code></pre></div></div>
 <p>When no variable is given in the annotation, an automatic name is generated. The type of the variable is determined thanks to the return type of the operator with these parameters.</p>
 
 <p>This example can also generate a unit test model. In this case, the value in the variable will be compared to the <code class="highlighter-rouge">equals</code> part.</p>

@@ -3590,11 +3590,10 @@ function closeRightMenu() {
 </ul>
 
 <p>the <strong>drive</strong> action works as follow: while the agent has the time to move (<strong>remaining_time &gt; 0</strong>), it first defines the speed expected. This speed is computed from the <strong>max_speed</strong> of the road, the current <strong>real_speed</strong>, the <strong>max_speed</strong>, the <strong>max_acceleration</strong> and the <strong>speed_coef</strong> of the driver (see Equation 1).</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_driver,max_speed_road * speed_coef_driver))
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Then, the agent moves toward the current target and compute the remaining time. During the movement, the agents can change lanes (see below). If the agent reaches its final target, it stops; if it reaches its current target (that is not the final target), it tests if it can cross the intersection to reach the next road of the current path. If it is possible, it defines its new target (target node of the next road) and continues to move.</p>
 
@@ -3619,7 +3618,7 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
 <p><a href="resources/images/recipes/sim_snapshot.png">images//sim_snapshot.png</a></p>
 
 <p>The following code shows the definition of species to represent the road infrastructure:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species road skills: [skill_road] { 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species road skills: [skill_road] { 
   string oneway;
 }
 
@@ -3636,8 +3635,7 @@ species node skills: [skill_road_node] {
     } 
   }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In order to use our driving skill, we just have to add the <strong>skill_road_node</strong> to the <strong>node</strong> species and the <strong>skill_road</strong> to the <strong>road</strong> species. In addition, we added to the road species a variable called <strong>oneway</strong> that will be initialized from the OSM data and that represents the traffic direction (see the OSM map features for more details). Concerning the node, we defined 3 new attributes:</p>
 
@@ -3650,7 +3648,7 @@ species node skills: [skill_road_node] {
 <p>In addition, we defined for the <strong>node</strong> species a reflex (behavior) called <strong>dynamic</strong> that will be activated only for traffic light nodes and that will increment the <strong>counter</strong> value. If this counter is higher than <strong>time_to_change</strong>, this variable is set to 0, and the node change the value of the <strong>stop</strong> variable: if the traffic light was green (i.e. there is no road concerns by this stop sign), the list of block roads is set by all the roads that enter the node; if the traffic light was red (i.e. there is at least one road concerns by this stop sign), the list of block roads is set to an empty list.</p>
 
 <p>The following code shows the definition of driver species:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 species driver skills: [advanced_driving] { 
   reflex time_to_go when: final_target = nil {
     current_path &lt;- compute_path(
@@ -3660,8 +3658,7 @@ species driver skills: [advanced_driving] {
     do drive;
   }
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In order to use our driving plug-in, we just have to add the <strong>advanced_driving</strong> to the <strong>driver</strong> species. For this species, we defined two reflexes:</p>
 <ul>
@@ -3671,7 +3668,7 @@ species driver skills: [advanced_driving] {
 </ul>
 
 <p>We describe in the following code how we initialize the simulation:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>init {  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>init {  
   create node from: file("nodes.shp") with:[
     is_traffic_signal::read("type")="traffic_signals"];
     
@@ -3718,8 +3715,7 @@ species driver skills: [advanced_driving] {
     proba_use_linked_road &lt;- rnd(10) / 1000;
   }	
 }	
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In this code, we create the node agents from the node shapefile (while reading the attributes contained in the shapefile), then we create in the same way the road agents. However, for the road agents, we use the <strong>oneway</strong> variable to define if we should or not reverse their geometry (<strong>oneway</strong> = “-1”) or create a reverse road (<strong>oneway</strong> = “no”). Then, from the road and node agents, we create a graph (while taking into account the <strong>maxspeed</strong> of the road for the weights of the edges). This graph is the one that will be used by all agents to compute their path to their final target. Finally, we create 1000 driver agents. At initialization, they are randomly placed on the nodes; their vehicle has a length of 3m; the maximal acceleration of their vehicle is randomly drawn between 0.5 and 1; the speed coefficient of the driver is randomly drawn between 0.8 and 1.2; they are driving on the right side of the road; their probability of changing lane for a upper lane is randomly drawn between 0 and 1.0; their probability of changing lane for a lower lane is randomly drawn between 0.5 and 1.0; the security distance coefficient is randomly drawn between 1 and 3; their probability to respect priorities is randomly drawn between 0.8 and 1; their probability to respect light signal is randomly drawn between 0.998 and 1; their probability to block a node is randomly drawn between 0 and 0.003;  their probability to use the reverse road is randomly drawn between 0 and 0.01;</p>
 

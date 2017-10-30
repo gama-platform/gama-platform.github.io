@@ -3500,117 +3500,116 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model OSMdata_to_shapefile 
+<span class="k">model</span> <span class="n">OSMdata_to_shapefile</span> 
  
-global{
-	//map used to filter the object to build from the OSM file according to attributes. for an exhaustive list, see: http://wiki.openstreetmap.org/wiki/Map_Features
-	map filtering &lt;- map(["highway"::["primary", "secondary", "tertiary", "motorway", "living_street","residential", "unclassified"]]);
+<span class="n">global</span><span class="p">{</span>
+	<span class="p">//</span><span class="n">map</span> <span class="n">used</span> <span class="k">to</span> <span class="n">filter</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">build</span> <span class="k">from</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span> <span class="n">according</span> <span class="k">to</span> <span class="n">attributes</span><span class="p">.</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
+	<span class="n">map</span> <span class="n">filtering</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">([</span><span class="s2">"highway"</span><span class="p">::[</span><span class="s2">"primary"</span><span class="p">,</span> <span class="s2">"secondary"</span><span class="p">,</span> <span class="s2">"tertiary"</span><span class="p">,</span> <span class="s2">"motorway"</span><span class="p">,</span> <span class="s2">"living_street"</span><span class="p">,</span><span class="s2">"residential"</span><span class="p">,</span> <span class="s2">"unclassified"</span><span class="p">]]);</span>
 	
-	//OSM file to load
-	file&lt;geometry&gt; osmfile &lt;-  file&lt;geometry&gt;(osm_file("../includes/rouen.gz", filtering))  ;
+	<span class="p">//</span><span class="n">OSM</span> <span class="n">file</span> <span class="k">to</span> <span class="nf">load</span>
+	<span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">osmfile</span> <span class="p">&lt;-</span>  <span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;(</span><span class="n">osm_file</span><span class="p">(</span><span class="s2">"../includes/rouen.gz"</span><span class="p">,</span> <span class="n">filtering</span><span class="p">))</span>  <span class="p">;</span>
 	
-	geometry shape &lt;- envelope(osmfile);
-	graph the_graph; 
-	map&lt;point, intersection&gt; nodes_map;
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">osmfile</span><span class="p">);</span>
+	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span> 
+	<span class="n">map</span><span class="p">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">intersection</span><span class="p">&gt;</span> <span class="n">nodes_map</span><span class="p">;</span>
 	
 	
 
-	init {
-		write "OSM file loaded: " + length(osmfile) + " geometries";
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">"OSM file loaded: "</span> <span class="p">+</span> <span class="n">length</span><span class="p">(</span><span class="n">osmfile</span><span class="p">)</span> <span class="p">+</span> <span class="s2">" geometries"</span><span class="p">;</span>
 		
-		//from the OSM file, creation of the selected agents
-		loop geom over: osmfile {
-			if (shape covers geom) {
-				string highway_str &lt;- string(geom get ("highway"));
-				if (length(geom.points) = 1 ) {
-					if ( highway_str != nil ) {
-						string crossing &lt;- string(geom get ("crossing"));
-						create intersection with: [shape ::geom, type:: highway_str, crossing::crossing] {
-							nodes_map[location] &lt;- self;
-						}
-					}
-				} else {
-					string oneway &lt;- string(geom get ("oneway"));
-					float maxspeed_val &lt;- float(geom get ("maxspeed"));
-					string lanes_str &lt;- string(geom get ("lanes"));
-					int lanes_val &lt;- empty(lanes_str) ? 1 : ((length(lanes_str) &gt; 1) ? int(first(lanes_str)) : int(lanes_str));
-					create road with: [shape ::geom, type:: highway_str, oneway::oneway, maxspeed::maxspeed_val, lanes::lanes_val] {
-						if lanes &lt; 1 {lanes &lt;- 1;} //default value for the lanes attribute
-						if maxspeed = 0 {maxspeed &lt;- 50.0;} //default value for the maxspeed attribute
-					}
-				}	
-			}
-		}
-		write "Road and node agents created";
+		<span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span><span class="p">,</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">agents</span>
+		<span class="n">loop</span> <span class="n">geom</span> <span class="n">over</span><span class="p">:</span> <span class="n">osmfile</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">shape</span> <span class="n">covers</span> <span class="n">geom</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">string</span> <span class="n">highway_str</span> <span class="p">&lt;-</span> <span class="k">string</span><span class="p">(</span><span class="n">geom</span> <span class="n">get</span> <span class="p">(</span><span class="s2">"highway"</span><span class="p">));</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">geom</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span> <span class="p">)</span> <span class="p">{</span>
+					<span class="k">if</span> <span class="p">(</span> <span class="n">highway_str</span> <span class="c1">!= nil ) {
+</span>						<span class="k">string</span> <span class="n">crossing</span> <span class="p">&lt;-</span> <span class="k">string</span><span class="p">(</span><span class="n">geom</span> <span class="n">get</span> <span class="p">(</span><span class="s2">"crossing"</span><span class="p">));</span>
+						<span class="nb">create</span> <span class="n">intersection</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">geom</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">,</span> <span class="n">crossing</span><span class="p">::</span><span class="n">crossing</span><span class="p">]</span> <span class="p">{</span>
+							<span class="n">nodes_map</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+						<span class="p">}</span>
+					<span class="p">}</span>
+				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+					<span class="k">string</span> <span class="n">oneway</span> <span class="p">&lt;-</span> <span class="k">string</span><span class="p">(</span><span class="n">geom</span> <span class="n">get</span> <span class="p">(</span><span class="s2">"oneway"</span><span class="p">));</span>
+					<span class="n">float</span> <span class="n">maxspeed_val</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">geom</span> <span class="n">get</span> <span class="p">(</span><span class="s2">"maxspeed"</span><span class="p">));</span>
+					<span class="k">string</span> <span class="n">lanes_str</span> <span class="p">&lt;-</span> <span class="k">string</span><span class="p">(</span><span class="n">geom</span> <span class="n">get</span> <span class="p">(</span><span class="s2">"lanes"</span><span class="p">));</span>
+					<span class="n">int</span> <span class="n">lanes_val</span> <span class="p">&lt;-</span> <span class="n">empty</span><span class="p">(</span><span class="n">lanes_str</span><span class="p">)</span> <span class="p">?</span> <span class="m">1</span> <span class="p">:</span> <span class="p">((</span><span class="n">length</span><span class="p">(</span><span class="n">lanes_str</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">?</span> <span class="n">int</span><span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">lanes_str</span><span class="p">))</span> <span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">lanes_str</span><span class="p">));</span>
+					<span class="nb">create</span> <span class="n">road</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">geom</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">,</span> <span class="n">oneway</span><span class="p">::</span><span class="n">oneway</span><span class="p">,</span> <span class="n">maxspeed</span><span class="p">::</span><span class="n">maxspeed_val</span><span class="p">,</span> <span class="n">lanes</span><span class="p">::</span><span class="n">lanes_val</span><span class="p">]</span> <span class="p">{</span>
+						<span class="k">if</span> <span class="n">lanes</span> <span class="p">&lt;</span> <span class="m">1</span> <span class="p">{</span><span class="n">lanes</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;}</span> <span class="p">//</span><span class="n">default</span> <span class="n">value</span> <span class="n">for</span> <span class="n">the</span> <span class="n">lanes</span> <span class="n">attribute</span>
+						<span class="k">if</span> <span class="n">maxspeed</span> <span class="p">=</span> <span class="m">0</span> <span class="p">{</span><span class="n">maxspeed</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;}</span> <span class="p">//</span><span class="n">default</span> <span class="n">value</span> <span class="n">for</span> <span class="n">the</span> <span class="n">maxspeed</span> <span class="n">attribute</span>
+					<span class="p">}</span>
+				<span class="p">}</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nb">write</span> <span class="s2">"Road and node agents created"</span><span class="p">;</span>
 		
-		ask road {
-			point ptF &lt;- first(shape.points);
-			if (not(ptF in nodes_map)) {
-				create intersection with:[location::ptF] {
-					nodes_map[location] &lt;- self;
-				}	
-			}
-			point ptL &lt;- last(shape.points);
-			if (not(ptL in nodes_map)) {
-				create intersection with:[location::ptL] {
-					nodes_map[location] &lt;- self;
-				}
-			}
-		}
+		<span class="n">ask</span> <span class="n">road</span> <span class="p">{</span>
+			<span class="n">point</span> <span class="n">ptF</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="k">not</span><span class="p">(</span><span class="n">ptF</span> <span class="k">in</span> <span class="n">nodes_map</span><span class="p">))</span> <span class="p">{</span>
+				<span class="nb">create</span> <span class="n">intersection</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">ptF</span><span class="p">]</span> <span class="p">{</span>
+					<span class="n">nodes_map</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+				<span class="p">}</span>	
+			<span class="p">}</span>
+			<span class="n">point</span> <span class="n">ptL</span> <span class="p">&lt;-</span> <span class="n">last</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="k">not</span><span class="p">(</span><span class="n">ptL</span> <span class="k">in</span> <span class="n">nodes_map</span><span class="p">))</span> <span class="p">{</span>
+				<span class="nb">create</span> <span class="n">intersection</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">ptL</span><span class="p">]</span> <span class="p">{</span>
+					<span class="n">nodes_map</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 			
-		write "Supplementary node agents created";
-		ask intersection {
-			if (empty (road overlapping (self))) {
-				do die;
-			}
-		}
+		<span class="nb">write</span> <span class="s2">"Supplementary node agents created"</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">intersection</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">empty</span> <span class="p">(</span><span class="n">road</span> <span class="n">overlapping</span> <span class="p">(</span><span class="n">self</span><span class="p">)))</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 		
-		write "node agents filtered";
+		<span class="nb">write</span> <span class="s2">"node agents filtered"</span><span class="p">;</span>
 		
-		//Save all the road agents inside the file with the path written, using the with: facet to make a link between attributes and columns of the resulting shapefiles. 
-		save road type:"shp" to:"../includes/roads.shp" with:[lanes::"lanes",maxspeed::"maxspeed", oneway::"oneway"] ;
-		save intersection type:"shp" to:"../includes/nodes.shp" with:[type::"type", crossing::"crossing"] ;
-		write "road and node shapefile saved";
-	}
-}
+		<span class="p">//</span><span class="n">Save</span> <span class="n">all</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">file</span> <span class="k">with</span> <span class="n">the</span> <span class="n">path</span> <span class="n">written</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="k">with</span><span class="p">:</span> <span class="n">facet</span> <span class="k">to</span> <span class="n">make</span> <span class="n">a</span> <span class="n">link</span> <span class="n">between</span> <span class="n">attributes</span> <span class="k">and</span> <span class="n">columns</span> <span class="k">of</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">shapefiles</span><span class="p">.</span> 
+		<span class="n">save</span> <span class="n">road</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../includes/roads.shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">lanes</span><span class="p">::</span><span class="s2">"lanes"</span><span class="p">,</span><span class="n">maxspeed</span><span class="p">::</span><span class="s2">"maxspeed"</span><span class="p">,</span> <span class="n">oneway</span><span class="p">::</span><span class="s2">"oneway"</span><span class="p">]</span> <span class="p">;</span>
+		<span class="n">save</span> <span class="n">intersection</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../includes/nodes.shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">type</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="n">crossing</span><span class="p">::</span><span class="s2">"crossing"</span><span class="p">]</span> <span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"road and node shapefile saved"</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 	
 
-species road{
-	rgb color &lt;- rgb(rnd(255),rnd(255),rnd(255));
-	string type;
-	string oneway;
-	float maxspeed;
-	int lanes;
-	aspect base_ligne {
-		draw shape color: color; 
-	}
+<span class="n">species</span> <span class="n">road</span><span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">oneway</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">maxspeed</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">lanes</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base_ligne</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
+	<span class="p">}</span>
 	
-} 
+<span class="p">}</span> 
 	
-species intersection {
-	string type;
-	string crossing;
-	aspect base { 
-		draw square(3) color: #red ;
-	}
-} 
+<span class="n">species</span> <span class="n">intersection</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">crossing</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
 	
 
-experiment fromOSMtoShapefiles type: gui {
-	output {
-		display map type: opengl {
-			graphics "world" {
-				draw world.shape.contour;
-			}
-			species road aspect: base_ligne  refresh: false  ;
-			species intersection aspect: base   refresh: false ;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">fromOSMtoShapefiles</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"world"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">contour</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base_ligne</span>  <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span>  <span class="p">;</span>
+			<span class="n">species</span> <span class="n">intersection</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span>   <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

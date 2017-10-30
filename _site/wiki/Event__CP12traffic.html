@@ -3501,13 +3501,12 @@ function closeRightMenu() {
 <p>We propose a plug-in that contains the driving plug-in. This plug-in extends the moving skill. In particular, it proposes a new primitive “gotoTraffic” that integrates a collision avoiding algorithm.
 2 models (in “models/experimental models”) were proposed to illustrate the use of our plug-in.</p>
 
-<p>DrivingSkill.java implements a new skill in <code class="highlighter-rouge">package msi.gaml.extensions.traffic</code></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@skill("driving")
+<p>DrivingSkill.java implements a new skill in <code class="highlighter-rouge"><span class="k">package</span> <span class="n">msi</span><span class="p">.</span><span class="n">gaml</span><span class="p">.</span><span class="n">extensions</span><span class="p">.</span><span class="n">traffic</span></code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@skill("driving")
 public class DrivingSkill extends MovingSkill{
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>New model in <code class="highlighter-rouge">msi.gama.models/experimental_models/traffic</code></p>
 
@@ -3516,8 +3515,8 @@ public class DrivingSkill extends MovingSkill{
 <p>A second plugin is under development concerning physic computation. In particular, it allows to handle collisions between two convex polygons. A first toy model concerning pool game was developed.
 Library used: http://www.jbox2d.org/</p>
 
-<p><code class="highlighter-rouge">src/msi/gaml/extensions/physics/PhysicsSkill.java</code> implements a new skill in <code class="highlighter-rouge">package msi.gaml.extensions.physics</code></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@skill("physical")
+<p><code class="highlighter-rouge">src/msi/gaml/extensions/physics/PhysicsSkill.java</code> implements a new skill in <code class="highlighter-rouge"><span class="k">package</span> <span class="n">msi</span><span class="p">.</span><span class="n">gaml</span><span class="p">.</span><span class="n">extensions</span><span class="p">.</span><span class="n">physics</span></code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@skill("physical")
 public class PhysicsSkill extends Skill{
         @setter("physical_world")
         public void setWorldAgent(final IAgent _agent, final IAgent _world){
@@ -3529,8 +3528,7 @@ public class PhysicsSkill extends Skill{
         }
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

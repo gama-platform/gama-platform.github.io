@@ -3514,27 +3514,25 @@ function closeRightMenu() {
 <p>First, we define a new species called <strong>people_in_building</strong> inside the <strong>building</strong> species. Thus, a building could have agents of this species as <strong>members</strong> and control them. The <strong>people_in_building</strong> species has for parent the <strong>people</strong> species, which means that a <strong>people_in_building</strong> agent has all the properties, aspect and behaviors of a <strong>people</strong> agent.
 In our case, we want the once a people agent inside a building, this people agent does nothing. Then, we use the <strong>schedules</strong> facet of the species to remove the <strong>people_in_building</strong> from the scheduler.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	...
         species people_in_building parent: people schedules: [] {
 	}
 	...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We define a new dynamic variable for building agent: <strong>people_inside</strong> that will correspond to the list of <strong>people_in_building</strong> agents inside the building. Note that we use the syntax <strong>-&gt; {…}</strong> to make the variable dynamic. However, instead of <strong>update</strong> that allows a variable to be recomputed at each simulation step, the syntax <strong>-&gt; {…}</strong> allows the variable to be recomputed each time it is called (and thus avoid outdated problems). To compute this variable, we use the <strong>members</strong> built-in variable that corresponds to the list of micro-agents captured by the macro-agent.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	...
         list&lt;people_in_building&gt; people_inside -&gt; {members collect people_in_building(each)};
 	...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We define a first reflex for the buildings that will be activated at each simulation step and that will allow the building to capture all the people that are inside its geometry and that are not moving (target = nil). Capturing agents means putting them inside its <strong>members</strong> list and changing their species: here the <strong>people</strong> agents become <strong>people_in_building</strong> agents.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	...
       reflex let_people_enter {
 		list&lt;people&gt; entering_people &lt;- people inside self where (each.target = nil);
@@ -3544,12 +3542,11 @@ In our case, we want the once a people agent inside a building, this people agen
 	}
         ....
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We define a second reflex for the buildings that will be activated at each simulation step and that will allow the building to release some of the <strong>people_in_building</strong> agents. First, it increments the staying counter of all the <strong>people_in_building</strong> agents. Then it builds the list of leaving people by testing the same probability as before for all the <strong>people_in_building</strong> agents. Finally, if this list is not empty, it releases them as people agents (and gives them a new target point).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	...
        reflex let_people_leave  {
 		ask members as: people_in_building{
@@ -3565,12 +3562,11 @@ In our case, we want the once a people agent inside a building, this people agen
 	}
         ....
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>At last, we refine the aspect of the buildings: if there is not people inside the building, we draw it with gray color. If the number of <strong>people_in_building</strong> infected is higher than the number of <strong>people_in_building</strong> not infected, we draw it in red; otherwise in green.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	...
         aspect geom {
 	 	int nbI &lt;- members count people_in_building(each).is_infected;
@@ -3578,24 +3574,22 @@ In our case, we want the once a people agent inside a building, this people agen
 		draw shape color:nbT = 0 ? #gray : (float(nbI)/nbT &gt; 0.5 ? #red : #green) depth: height;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="global-variables">global variables</h3>
 <p>In order to take into account the people that are inside the buildings for the computation of <strong>nb_people_infected</strong>, we first build the list of <strong>people_in_building</strong>. As <strong>people_in_building</strong> is a macro species of <strong>building</strong>, we cannot compute it directly like for the other species, we then aggregate all the list <strong>people_inside</strong> of all building in a single list (<strong>list_people_in_buildings</strong>). Then, we compute the number of infected people as the number of people infected outside the building + the number of people infected inside them.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global  {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global  {
 	...
 	list&lt;people_in_building&gt; list_people_in_buildings update: (building accumulate each.people_inside) where (not dead(each));
 	int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected) + (empty(list_people_in_buildings) ? 0 : list_people_in_buildings count (each.is_infected));
         ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 global  {
 	int nb_people &lt;- 500;
 	float step &lt;- 1 #minutes;
@@ -3732,8 +3726,7 @@ experiment main_experiment type:gui{
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

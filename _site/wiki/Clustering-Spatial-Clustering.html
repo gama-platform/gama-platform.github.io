@@ -3500,136 +3500,135 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model clustering
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">clustering</span>
 
-global {
-	//define the maximal distance between people in the continuous environement (in meters): if the distance between 2 people is lower than this value, they will be in the same group
-	float max_dist_people &lt;- 20.0;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">define</span> <span class="n">the</span> <span class="n">maximal</span> <span class="n">distance</span> <span class="n">between</span> <span class="n">people</span> <span class="k">in</span> <span class="n">the</span> <span class="n">continuous</span> <span class="n">environement</span> <span class="p">(</span><span class="k">in</span> <span class="n">meters</span><span class="p">):</span> <span class="k">if</span> <span class="n">the</span> <span class="n">distance</span> <span class="n">between</span> <span class="m">2</span> <span class="n">people</span> <span class="n">is</span> <span class="n">lower</span> <span class="n">than</span> <span class="n">this</span> <span class="n">value</span><span class="p">,</span> <span class="n">they</span> <span class="n">will</span> <span class="n">be</span> <span class="k">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">group</span>
+	<span class="n">float</span> <span class="n">max_dist_people</span> <span class="p">&lt;-</span> <span class="m">20.0</span><span class="p">;</span>
 	
-	//define the maximal distance between cells (in number of cells): if the distance between 2 cells is lower than this value, they will be in the same group
-	int max_dist_cell &lt;- 1;
+	<span class="p">//</span><span class="n">define</span> <span class="n">the</span> <span class="n">maximal</span> <span class="n">distance</span> <span class="n">between</span> <span class="n">cells</span> <span class="p">(</span><span class="k">in</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cells</span><span class="p">):</span> <span class="k">if</span> <span class="n">the</span> <span class="n">distance</span> <span class="n">between</span> <span class="m">2</span> <span class="n">cells</span> <span class="n">is</span> <span class="n">lower</span> <span class="n">than</span> <span class="n">this</span> <span class="n">value</span><span class="p">,</span> <span class="n">they</span> <span class="n">will</span> <span class="n">be</span> <span class="k">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">group</span>
+	<span class="n">int</span> <span class="n">max_dist_cell</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
 	
-	//probability for a cell to have vegetation
-	float proba_vegetation &lt;- 0.2;
+	<span class="p">//</span><span class="n">probability</span> <span class="n">for</span> <span class="n">a</span> <span class="n">cell</span> <span class="k">to</span> <span class="n">have</span> <span class="n">vegetation</span>
+	<span class="n">float</span> <span class="n">proba_vegetation</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
 	
-	//create the people agents
-	init {
-		create people number:20; 
-    }
+	<span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">20</span><span class="p">;</span> 
+    <span class="p">}</span>
     
-    //reflex that builds the people clusters
-    reflex people_clustering {
-    	//clustering by using the simple clustering operator: two people agents are in the same groups if their distance is lower than max_dist_people (in meters)
-    	//returns a list of lists (i.e. a list of groups, a group is a list of people agents)
-    	list&lt;list&lt;people&gt;&gt; clusters &lt;- list&lt;list&lt;people&gt;&gt;(simple_clustering_by_distance(people, max_dist_people));
+    <span class="p">//</span><span class="n">reflex</span> <span class="n">that</span> <span class="n">builds</span> <span class="n">the</span> <span class="n">people</span> <span class="n">clusters</span>
+    <span class="n">reflex</span> <span class="n">people_clustering</span> <span class="p">{</span>
+    	<span class="p">//</span><span class="n">clustering</span> <span class="n">by</span> <span class="n">using</span> <span class="n">the</span> <span class="n">simple</span> <span class="n">clustering</span> <span class="n">operator</span><span class="p">:</span> <span class="n">two</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">are</span> <span class="k">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">groups</span> <span class="k">if</span> <span class="n">their</span> <span class="n">distance</span> <span class="n">is</span> <span class="n">lower</span> <span class="n">than</span> <span class="n">max_dist_people</span> <span class="p">(</span><span class="k">in</span> <span class="n">meters</span><span class="p">)</span>
+    	<span class="p">//</span><span class="n">returns</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">lists</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">groups</span><span class="p">,</span> <span class="n">a</span> <span class="n">group</span> <span class="n">is</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agents</span><span class="p">)</span>
+    	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;&gt;</span> <span class="n">clusters</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;&gt;(</span><span class="n">simple_clustering_by_distance</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">max_dist_people</span><span class="p">));</span>
         
-        //We give a random color to each group (i.e. to each people agents of the group)
-        loop cluster over: clusters {
-        	rgb rnd_color &lt;- rnd_color(255);
-        	ask cluster {
-        		color_cluster &lt;- rnd_color;
-        	}
-        }
+        <span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">people</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
+        <span class="n">loop</span> <span class="n">cluster</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusters</span> <span class="p">{</span>
+        	<span class="n">rgb</span> <span class="n">rnd_color</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+        	<span class="n">ask</span> <span class="n">cluster</span> <span class="p">{</span>
+        		<span class="n">color_cluster</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">;</span>
+        	<span class="p">}</span>
+        <span class="p">}</span>
         
-        //build the hierchical clustering (https://en.wikipedia.org/wiki/Hierarchical_clustering)
-        list clustering_tree &lt;- hierarchical_clustering (people, max_dist_people);
+        <span class="p">//</span><span class="n">build</span> <span class="n">the</span> <span class="n">hierchical</span> <span class="n">clustering</span> <span class="p">(</span><span class="n">https</span><span class="p">://</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Hierarchical_clustering</span><span class="p">)</span>
+        <span class="k">list</span> <span class="n">clustering_tree</span> <span class="p">&lt;-</span> <span class="n">hierarchical_clustering</span> <span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">max_dist_people</span><span class="p">);</span>
         
-        //create groups from the results of the hierarchical clustering
-        do create_groups(clustering_tree, nil);
-    }
+        <span class="p">//</span><span class="nb">create</span> <span class="n">groups</span> <span class="k">from</span> <span class="n">the</span> <span class="n">results</span> <span class="k">of</span> <span class="n">the</span> <span class="n">hierarchical</span> <span class="n">clustering</span>
+        <span class="k">do</span> <span class="n">create_groups</span><span class="p">(</span><span class="n">clustering_tree</span><span class="p">,</span> <span class="n">nil</span><span class="p">);</span>
+    <span class="p">}</span>
     
-    //recursive action that create group_people agents from the list of group.
-    action create_groups (list group, group_people parent_gp) {
-    	bool compute_shape &lt;- false;
-    	loop el over: group {
-    		if (el is people) {
-    			parent_gp.shape &lt;- people(el).shape;
-    		}
-    		else {
-    			create group_people returns: created_g{
-    				if (parent_gp != nil) {
-    					add self to: parent_gp.sub_groups;
-    				}
-    				parent &lt;- parent_gp;
-    			}
-    			do create_groups(el, first(created_g));
-    			compute_shape &lt;- true;
-    		}
-    	}
-    	if (compute_shape and parent_gp != nil) {
-    		ask parent_gp {
-    			shape &lt;- polyline (sub_groups collect each.location);
-    		}
+    <span class="p">//</span><span class="n">recursive</span> <span class="n">action</span> <span class="n">that</span> <span class="nb">create</span> <span class="n">group_people</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">group</span><span class="p">.</span>
+    <span class="n">action</span> <span class="n">create_groups</span> <span class="p">(</span><span class="k">list</span> <span class="n">group</span><span class="p">,</span> <span class="n">group_people</span> <span class="n">parent_gp</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="n">bool</span> <span class="n">compute_shape</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+    	<span class="n">loop</span> <span class="n">el</span> <span class="n">over</span><span class="p">:</span> <span class="n">group</span> <span class="p">{</span>
+    		<span class="k">if</span> <span class="p">(</span><span class="n">el</span> <span class="n">is</span> <span class="n">people</span><span class="p">)</span> <span class="p">{</span>
+    			<span class="n">parent_gp</span><span class="p">.</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">people</span><span class="p">(</span><span class="n">el</span><span class="p">).</span><span class="n">shape</span><span class="p">;</span>
+    		<span class="p">}</span>
+    		<span class="k">else</span> <span class="p">{</span>
+    			<span class="nb">create</span> <span class="n">group_people</span> <span class="n">returns</span><span class="p">:</span> <span class="n">created_g</span><span class="p">{</span>
+    				<span class="k">if</span> <span class="p">(</span><span class="n">parent_gp</span> <span class="c1">!= nil) {
+</span>    					<span class="n">add</span> <span class="n">self</span> <span class="k">to</span><span class="p">:</span> <span class="n">parent_gp</span><span class="p">.</span><span class="n">sub_groups</span><span class="p">;</span>
+    				<span class="p">}</span>
+    				<span class="n">parent</span> <span class="p">&lt;-</span> <span class="n">parent_gp</span><span class="p">;</span>
+    			<span class="p">}</span>
+    			<span class="k">do</span> <span class="n">create_groups</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">first</span><span class="p">(</span><span class="n">created_g</span><span class="p">));</span>
+    			<span class="n">compute_shape</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    		<span class="p">}</span>
+    	<span class="p">}</span>
+    	<span class="k">if</span> <span class="p">(</span><span class="n">compute_shape</span> <span class="k">and</span> <span class="n">parent_gp</span> <span class="c1">!= nil) {
+</span>    		<span class="n">ask</span> <span class="n">parent_gp</span> <span class="p">{</span>
+    			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span> <span class="p">(</span><span class="n">sub_groups</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+    		<span class="p">}</span>
     		
-    	}
-    }
-    //reflex that builds the cell clusters
-    reflex forest_clustering {
-    	list&lt;list&lt;vegetation_cell&gt;&gt; clusters &lt;- list&lt;list&lt;vegetation_cell&gt;&gt;(simple_clustering_by_distance(vegetation_cell where (each.color = #green), max_dist_cell));
-        loop cluster over: clusters {
-        	create forest {
-        		cells &lt;- cluster;
-        		shape &lt;- union (cells);
-        	}
-        }
-        list clustering_tree &lt;- hierarchical_clustering (people, max_dist_people);
-    }
+    	<span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">reflex</span> <span class="n">that</span> <span class="n">builds</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">clusters</span>
+    <span class="n">reflex</span> <span class="n">forest_clustering</span> <span class="p">{</span>
+    	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;&gt;</span> <span class="n">clusters</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;&gt;(</span><span class="n">simple_clustering_by_distance</span><span class="p">(</span><span class="n">vegetation_cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="p">#</span><span class="n">green</span><span class="p">),</span> <span class="n">max_dist_cell</span><span class="p">));</span>
+        <span class="n">loop</span> <span class="n">cluster</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusters</span> <span class="p">{</span>
+        	<span class="nb">create</span> <span class="n">forest</span> <span class="p">{</span>
+        		<span class="n">cells</span> <span class="p">&lt;-</span> <span class="n">cluster</span><span class="p">;</span>
+        		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="k">union</span> <span class="p">(</span><span class="n">cells</span><span class="p">);</span>
+        	<span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">list</span> <span class="n">clustering_tree</span> <span class="p">&lt;-</span> <span class="n">hierarchical_clustering</span> <span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">max_dist_people</span><span class="p">);</span>
+    <span class="p">}</span>
     
-}
-grid vegetation_cell width: 25 height: 25 neighbors: 4{
-	rgb color &lt;- flip (proba_vegetation) ? #green : #white;
-}
+<span class="p">}</span>
+<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">25</span> <span class="n">height</span><span class="p">:</span> <span class="m">25</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span><span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">flip</span> <span class="p">(</span><span class="n">proba_vegetation</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">green</span> <span class="p">:</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
+<span class="p">}</span>
 
-species forest {
-	list&lt;vegetation_cell&gt; cells;
-	aspect default {
-		draw shape.contour + 0.5 color: #red;
-	}
-}
+<span class="n">species</span> <span class="n">forest</span> <span class="p">{</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">cells</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span><span class="p">.</span><span class="n">contour</span> <span class="p">+</span> <span class="m">0.5</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species people {
-	rgb color_cluster &lt;- #black;
-	rgb color_tree &lt;- #black;
-	aspect cluster {
-		draw circle(2) color: color_cluster;
-	}
-	aspect tree {
-		draw circle(2) color: color_tree;
-	}
-}
+<span class="n">species</span> <span class="n">people</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color_cluster</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_tree</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">cluster</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_cluster</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">tree</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_tree</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species group_people {
-	list&lt;group_people&gt; sub_groups;
-	group_people parent;
-	aspect default {
-		draw shape + 0.2 color: #red;
-		if (parent != nil) {
-			draw line ([location, parent.location]) end_arrow: 2 color: #red;
-		}
-	}
-}
+<span class="n">species</span> <span class="n">group_people</span> <span class="p">{</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">group_people</span><span class="p">&gt;</span> <span class="n">sub_groups</span><span class="p">;</span>
+	<span class="n">group_people</span> <span class="n">parent</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="m">0.2</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">parent</span> <span class="c1">!= nil) {
+</span>			<span class="n">draw</span> <span class="n">line</span> <span class="p">([</span><span class="n">location</span><span class="p">,</span> <span class="n">parent</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">end_arrow</span><span class="p">:</span> <span class="m">2</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment clustering type: gui {
-	parameter "Maximal distance for people clustering" var: max_dist_people min: 0.0 max: 100.0 category: "People";
-	parameter "Maximal distance for vegetation cell clustering" var: max_dist_cell min: 0 max: 5 category: "Forest";
-	parameter "Probability for vegetation cells" var: proba_vegetation min: 0.1 max: 1.0 category: "Forest";
-	output {
-		display map_people_clusters {
-			species people aspect: cluster;
-		}
-		display map_people_tree {
-			species people aspect: tree;
-			species group_people;
-		}
-		display map_forest_clusters {
-			grid vegetation_cell lines: #black;
-			species forest;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">clustering</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Maximal distance for people clustering"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_dist_people</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">100.0</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Maximal distance for vegetation cell clustering"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_dist_cell</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">5</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Forest"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Probability for vegetation cells"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_vegetation</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Forest"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map_people_clusters</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">cluster</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">map_people_tree</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">tree</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">group_people</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">map_forest_clusters</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">forest</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

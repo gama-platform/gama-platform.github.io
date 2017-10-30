@@ -3509,28 +3509,25 @@ Developing a new type allows, then, to add a new data structure to GAML.</p>
 <p>The class representing the data structure is a Java class annotated by:</p>
 <ul>
   <li>a <a href="DevelopingIndexAnnotations#@vars">@vars</a> annotation to describe the attributes of a complex type. The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@var</code> elements.
-    <div class="highlighter-rouge"><pre class="highlight"><code>@vars({ @var(name = IKeyword.COLOR_RED, type = IType.INT), @var(name = IKeyword.COLOR_GREEN, type = IType.INT),
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({ @var(name = IKeyword.COLOR_RED, type = IType.INT), @var(name = IKeyword.COLOR_GREEN, type = IType.INT),
 @var(name = IKeyword.COLOR_BLUE, type = IType.INT), @var(name = IKeyword.ALPHA, type = IType.INT),
 @var(name = IKeyword.BRIGHTER, type = IType.COLOR), @var(name = IKeyword.DARKER, type = IType.COLOR) })
 public class GamaColor extends Color implements IValue {
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ul>
 
 <p>It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the <a href="DevelopingIndexAnnotations#@getter">@getter</a> or <a href="DevelopingIndexAnnotations#@setter">@setter</a> annotations.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@getter(IKeyword.COLOR_RED)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(IKeyword.COLOR_RED)
 public Integer red() {
 	return super.getRed();
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In addition it is recommended that this class implements the <code class="highlighter-rouge">IValue</code> interface. It provides a clean way to give a string representation of the type and thus eases good serialization of the object.
 To this purpose the following method needs to be implemented:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>public abstract String stringValue(IScope scope) throws GamaRuntimeException;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public abstract String stringValue(IScope scope) throws GamaRuntimeException;
+</code></pre></div></div>
 
 <h2 id="the-type-file">The type file</h2>
 
@@ -3541,16 +3538,14 @@ To this purpose the following method needs to be implemented:</p>
 </ul>
 
 <p>Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaFloatType.java">GamaFloatType.java</a>):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@type(name = IKeyword.FLOAT, id = IType.FLOAT, wraps = { Double.class, double.class }, kind = ISymbolKind.Variable.NUMBER)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@type(name = IKeyword.FLOAT, id = IType.FLOAT, wraps = { Double.class, double.class }, kind = ISymbolKind.Variable.NUMBER)
+</code></pre></div></div>
 
 <h3 id="inheritance-from-the-gamatypet-class">Inheritance from the <code class="highlighter-rouge">GamaType&lt;T&gt;</code> class</h3>
 <p>Each java class aiming at implement a type should inherit from the GamaType abstract class.
 Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaColorType.java">GamaColorType.java</a>):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>public class GamaColorType extends GamaType&lt;GamaColor&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class GamaColorType extends GamaType&lt;GamaColor&gt;
+</code></pre></div></div>
 
 <p>This class imposes to implement the three following methods (with the example of the GamaColorType):</p>
 <ul>

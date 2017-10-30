@@ -3510,18 +3510,17 @@ function closeRightMenu() {
 
 <p>A species can have other species as micro-species. The micro-species of a species is declared inside the species’ declaration.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species macro_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species macro_species {
       species micro_species_in_group {
       }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In the above example, “micro_species_in_group” is a micro-species of “macro_species”. An agent of “macro_species” can have agents “micro_species_in_group” as micro-agents. Agents of “micro_species_in_group” have an agent of “macro_species” as “host” agent.</p>
 
 <p>As the species “micro_species_in_group” is declared inside the species “macro_species”, “micro_species_in_group” will return a list of “micro_species_in_group” agent inside the given “macro_species” agent.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
 	init {
 		create macro_species number:5;
@@ -3541,8 +3540,7 @@ species macro_species
 
 experiment my_experiment type: gui {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In this above example, we create 5 macro-species, and each one of these macro-species create a random number of inner micro-species. We can see that “micro_species_in_group” refers to the list of micro-species inside the given macro-species.</p>
 
@@ -3552,7 +3550,7 @@ experiment my_experiment type: gui {
 
 <p>The <code class="highlighter-rouge">members</code> built-in attribute is used inside the macro-agent, to get the list of all its micro-agents.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species macro_species 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species macro_species 
 {
 	init {
 		create first_micro_species number:3;
@@ -3566,12 +3564,11 @@ experiment my_experiment type: gui {
     species second_micro_species {
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">host</code> built-in attribute is used inside the micro-agent to get the host macro-agent.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species macro_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species macro_species {
 	
 	micro_species_in_group micro_agent;
 	
@@ -3586,12 +3583,11 @@ experiment my_experiment type: gui {
     	}
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>NB: We already said that the world agent is a particular agent, instantiated just once. In fact, the world agent is the host of all the agents. You can try to get the host for a regular species, you will get the world agent itself (named as you named your model). You can also try to get the members of your world (from the global scope for example), and you will get the list of the agents presents in the world.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
 	init {
 		create macro_species number:5;
@@ -3605,8 +3601,7 @@ species macro_species
 		write "the macro species named "+name+" is hosted by "+host;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="representation-of-an-entity-as-different-types-of-agent">Representation of an entity as different types of agent</h2>
 
@@ -3617,7 +3612,7 @@ You have then to distinguish two different species to define your micro-species:
   <li>The second is the real micro-species, defined inside the macro-species (it is the “bee_in_swarm” or the “pedestrian_in_building” for instance). We will name this species as “micro_species_in_group”. This species has to inherit from the “micro_species”.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species micro_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species micro_species {
 }
 
 species macro_species 
@@ -3625,8 +3620,7 @@ species macro_species
 	species micro_species_in_group parent: micro_species {
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="dynamic-migration-of-agents">Dynamic migration of agents</h2>
 
@@ -3634,15 +3628,13 @@ species macro_species
 
 <p>The statement <code class="highlighter-rouge">capture</code> is used by the “macro_species” to capture one (or several) “micro_species” agent(s), and turn it (them) to a “micro_species_in_group”. You can specify which agent (or list of agents) you want to capture by using the facet <code class="highlighter-rouge">target</code>. The facet <code class="highlighter-rouge">as</code> is used to cast the agent from “micro_species” to “micro_species_in_group”. You can use the facet <code class="highlighter-rouge">return</code> to get the newly captured agent(s).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>capture target:micro_species as:micro_species_in_group;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>capture target:micro_species as:micro_species_in_group;
+</code></pre></div></div>
 
 <p>The statement <code class="highlighter-rouge">release</code> is used by the “macro_species” to release one (or several) “micro_species_in_group” agent(s), and turn it (them) to a “micro_species”. You can specify which agent (or list of agents) you want to release by using the facet <code class="highlighter-rouge">target</code>. The facet <code class="highlighter-rouge">as</code> is used to cast the agent from “micro_species_in_group” to “micro_species”. The facet <code class="highlighter-rouge">in</code> is used to specify the new host (by default, it is the host of the “macro_species”). You can use the facet <code class="highlighter-rouge">return</code> to get the newly released agent(s).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>release target:list(micro_species_in_group) as:micro_species in:world;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>release target:list(micro_species_in_group) as:micro_species in:world;
+</code></pre></div></div>
 
 <p>The statement <code class="highlighter-rouge">migrate</code>, less used, permits agents to migrate from one population/species to another population/species and stay in the same host after the migration. Read the GAML Reference to learn more about this statement.
 <a href="# (keyword|statement_migrate)">//</a>: # (endConcept|multi_level)</p>
@@ -3653,93 +3645,92 @@ species macro_species
 
 <p><img src="resources/images/definingAdvancedSpecies/multilevel_model.png" alt="images/multilevel_model.png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model multilevel
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">multilevel</span>
 
-global {
-	int release_time &lt;- 20;
-	int capture_time &lt;- 100;
-	int remaining_release_time &lt;- 0;
-	int remaining_capture_time &lt;- capture_time;
-	init {
-		create micro_species number:200;
-	}
-	reflex reflex_timer {
-		if (remaining_release_time=1)
-		{
-			remaining_release_time &lt;- 0;
-			remaining_capture_time &lt;- capture_time;
-		}
-		else if (remaining_capture_time=1)
-		{
-			remaining_capture_time &lt;- 0;
-			remaining_release_time &lt;- release_time;
-		}
-		remaining_release_time &lt;- remaining_release_time - 1;
-		remaining_capture_time &lt;- remaining_capture_time - 1;
-	}
-	reflex capture_micro_species when:(remaining_capture_time&gt;0 and flip(0.1)) {
-		ask macro_species {
-			list&lt;micro_species&gt; micro_species_in_range &lt;- micro_species at_distance 1;
-			if (micro_species_in_range != []) {
-				do capture_micro_species(micro_species_in_range);
-			}
-		}
-		ask micro_species {
-			list&lt;micro_species&gt; micro_species_list_to_be_captured &lt;- micro_species at_distance 1;
-			if(micro_species_list_to_be_captured != []) {
-				create macro_species {
-					location &lt;- myself.location;
-					add item:myself to:micro_species_list_to_be_captured;
-					do capture_micro_species(micro_species_list_to_be_captured);
-				}
-			}
-		}
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">release_time</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">capture_time</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">remaining_release_time</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">remaining_capture_time</span> <span class="p">&lt;-</span> <span class="n">capture_time</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">micro_species</span> <span class="n">number</span><span class="p">:</span><span class="m">200</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">reflex_timer</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">remaining_release_time</span><span class="p">=</span><span class="m">1</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">remaining_release_time</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+			<span class="n">remaining_capture_time</span> <span class="p">&lt;-</span> <span class="n">capture_time</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">remaining_capture_time</span><span class="p">=</span><span class="m">1</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">remaining_capture_time</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+			<span class="n">remaining_release_time</span> <span class="p">&lt;-</span> <span class="n">release_time</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">remaining_release_time</span> <span class="p">&lt;-</span> <span class="n">remaining_release_time</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">remaining_capture_time</span> <span class="p">&lt;-</span> <span class="n">remaining_capture_time</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">capture_micro_species</span> <span class="n">when</span><span class="p">:(</span><span class="n">remaining_capture_time</span><span class="p">&gt;</span><span class="m">0</span> <span class="k">and</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">macro_species</span> <span class="p">{</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="n">micro_species</span><span class="p">&gt;</span> <span class="n">micro_species_in_range</span> <span class="p">&lt;-</span> <span class="n">micro_species</span> <span class="n">at_distance</span> <span class="m">1</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">micro_species_in_range</span> <span class="c1">!= []) {
+</span>				<span class="k">do</span> <span class="n">capture_micro_species</span><span class="p">(</span><span class="n">micro_species_in_range</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">micro_species</span> <span class="p">{</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="n">micro_species</span><span class="p">&gt;</span> <span class="n">micro_species_list_to_be_captured</span> <span class="p">&lt;-</span> <span class="n">micro_species</span> <span class="n">at_distance</span> <span class="m">1</span><span class="p">;</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">micro_species_list_to_be_captured</span> <span class="c1">!= []) {
+</span>				<span class="nb">create</span> <span class="n">macro_species</span> <span class="p">{</span>
+					<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+					<span class="n">add</span> <span class="n">item</span><span class="p">:</span><span class="n">myself</span> <span class="k">to</span><span class="p">:</span><span class="n">micro_species_list_to_be_captured</span><span class="p">;</span>
+					<span class="k">do</span> <span class="n">capture_micro_species</span><span class="p">(</span><span class="n">micro_species_list_to_be_captured</span><span class="p">);</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species micro_species skills:[moving] {
-	geometry shape &lt;- circle(1);
-	aspect base {
-		draw shape;
-	}
-	reflex move{
-		do wander;
-	}
-}
+<span class="n">species</span> <span class="n">micro_species</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species macro_species {
-	geometry shape &lt;- circle(1) update:circle(length(members));
+<span class="n">species</span> <span class="n">macro_species</span> <span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span><span class="n">circle</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">));</span>
 	
-	species micro_species_in_group parent:micro_species {
-	}
+	<span class="n">species</span> <span class="n">micro_species_in_group</span> <span class="n">parent</span><span class="p">:</span><span class="n">micro_species</span> <span class="p">{</span>
+	<span class="p">}</span>
 	
-	action capture_micro_species(list&lt;micro_species&gt; micro_list) {
-		loop mic_sp over:micro_list {
-			capture mic_sp as:micro_species_in_group;
-		}
-	}
+	<span class="n">action</span> <span class="n">capture_micro_species</span><span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">micro_species</span><span class="p">&gt;</span> <span class="n">micro_list</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">mic_sp</span> <span class="n">over</span><span class="p">:</span><span class="n">micro_list</span> <span class="p">{</span>
+			<span class="n">capture</span> <span class="n">mic_sp</span> <span class="k">as</span><span class="p">:</span><span class="n">micro_species_in_group</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex release_reflex when:(remaining_release_time&gt;0 and flip(0.1)) {
-		release members as:micro_species /*in:world*/;
-		do die;
-	}
+	<span class="n">reflex</span> <span class="n">release_reflex</span> <span class="n">when</span><span class="p">:(</span><span class="n">remaining_release_time</span><span class="p">&gt;</span><span class="m">0</span> <span class="k">and</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">release</span> <span class="n">members</span> <span class="k">as</span><span class="p">:</span><span class="n">micro_species</span> <span class="p">/*</span><span class="k">in</span><span class="p">:</span><span class="n">world</span><span class="p">*/;</span>
+		<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	aspect base {
-		draw shape;
-		draw text:string(length(members)) color:#black size:4;
-	}
-}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">text</span><span class="p">:</span><span class="k">string</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">))</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span> <span class="n">size</span><span class="p">:</span><span class="m">4</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment MyExperiment type: gui {
-	output {
-		display MyDisplay type: java2D {
-			species macro_species aspect: base;
-			species micro_species aspect: base;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">MyExperiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">macro_species</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">micro_species</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

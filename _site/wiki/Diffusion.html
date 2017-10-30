@@ -3547,7 +3547,7 @@ function closeRightMenu() {
 
 <p>Here is the template of code we will use for the next following part of this page:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	int size &lt;- 64; // the size has to be a power of 2.
   	cells selected_cells;
 
@@ -3586,8 +3586,7 @@ experiment diffusion type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This model will simulate a diffusion through a grid at each step, affecting 1 to the center cell diffusing variable value. The diffusion will be seen during the simulation through a color code, and through the elevation of the cell.</p>
 
@@ -3597,18 +3596,16 @@ experiment diffusion type: gui {
 
 <p>Example of matrix:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In the <code class="highlighter-rouge">diffuse</code> statement, you than have to specify the matrix of diffusion you want in the facet <code class="highlighter-rouge">matrix</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>diffuse var: phero on: cells matrix:mat_diff;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diffuse var: phero on: cells matrix:mat_diff;
+</code></pre></div></div>
 
 <p>Using the facet <code class="highlighter-rouge">propagation</code>, you can specify if you want the value to be propagated as a <em>diffusion</em> or as a <em>gratient</em>.</p>
 
@@ -3648,7 +3645,7 @@ experiment diffusion type: gui {
 
 <p>Writing those two thinks are exactly equivalent (for diffusion):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
 			[1/81,2/81,3/81,2/81,1/81],
 			[2/81,4/81,6/81,4/81,2/81],
 			[3/81,6/81,1/9,6/81,3/81],
@@ -3656,16 +3653,14 @@ experiment diffusion type: gui {
 			[1/81,2/81,3/81,2/81,1/81]]);
 	reflex diff {
 		diffuse var: phero on: cells matrix:mat_diff;
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
 	reflex diff {
 		diffuse var: phero on: cells matrix:mat_diff cycle_length:2;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="executing-several-diffusion-matrix">Executing several diffusion matrix</h3>
 
@@ -3721,14 +3716,13 @@ experiment diffusion type: gui {
 
 <p>Pseudo-code (<code class="highlighter-rouge">k</code> the kernel, <code class="highlighter-rouge">x</code> the input matrix, <code class="highlighter-rouge">y</code> the output matrix) :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
   for (j = 0 ; j &lt; y.nbCols ; j++)
     for (m = 0 ; m &lt; k.nbRows ; m++)
       for (n = 0 ; n &lt; k.nbCols ; n++)
         y[i,j] += k[k.nbRows - m - 1, k.nbCols - n - 1] 
             * x[i - k.nbRows/2 + m, j - k.nbCols/2 + n]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="dot-product">Dot Product</h3>
 
@@ -3738,13 +3732,12 @@ experiment diffusion type: gui {
 
 <p>Pseudo-code (<code class="highlighter-rouge">k</code> the kernel, <code class="highlighter-rouge">x</code> the input matrix, <code class="highlighter-rouge">y</code> the output matrix) :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
   for (j = 0 ; j &lt; y.nbCols ; j++)
     for (m = 0 ; m &lt; k.nbRows ; m++)
       for (n = 0 ; n &lt; k.nbCols ; n++)
         y[i - k.nbRows/2 + m, j - k.nbCols/2 + n] += k[m, n] * x[i, j]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="using-mask">Using mask</h2>
 
@@ -3772,7 +3765,7 @@ experiment diffusion type: gui {
 
 <p>If you want to simulate a wall blocking a uniform diffusion, you can declare a second diffusion matrix that will be applied only on the cells where your wall will be. This diffusion matrix will “push” the values outside from himself, but conserving the values (the sum of the values of the diffusion still have to be equal to 1) :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
@@ -3786,8 +3779,7 @@ reflex diff {
 	diffuse var: phero on: (cells where(each.grid_x&gt;30)) matrix:mat_diff;
 	diffuse var: phero on: (cells where(each.grid_x=30)) matrix:mat_diff_left_wall;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/recipes/wall_simulation.png" alt="resources/images/recipes/wall_simulation.png" /></p>
 
@@ -3797,7 +3789,7 @@ reflex diff {
 
 <p>Let’s simulate a uniform diffusion that is pushed by a wind from “north” everywhere in the grid. A wind from “west” as blowing at the top side of the grid. We will here have to build 2 matrix : one for the uniform diffusion, one for the “north” wind and one for the “west” wind. The sum of the values for the 2 matrix meant to simulate the wind will be equal to 0 (as it will be add to the diffusion matrix).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
@@ -3817,8 +3809,7 @@ reflex diff {
 	diffuse var: phero on: cells matrix:mat_wind_from_north;
 	diffuse var: phero on: (cells where (each.grid_y&gt;=32)) matrix:mat_wind_from_west;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/recipes/diffusion_with_wind.png" alt="resources/images/recipes/diffusion_with_wind.png" /></p>
 
@@ -3832,7 +3823,7 @@ reflex diff {
 
 <p><img src="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png" alt="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
@@ -3846,8 +3837,7 @@ reflex diff {
 	diffuse var: phero on: (cells where(each.grid_y&gt;0)) matrix:mat_diff;
 	diffuse var: phero on: (cells where(each.grid_y=0)) matrix:mat_diff_upper_edge;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="pseudo-code">Pseudo code</h2>
 
@@ -3857,7 +3847,7 @@ reflex diff {
 
 <p>1) : Execute the statement <code class="highlighter-rouge">diffuse</code>, store the diffusions in a map (from class <em>DiffusionStatement</em> to class <em>GridDiffuser</em>) :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- Get all the facet values
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Get all the facet values
 - Compute the "real" mask, from the facet "mask:" and the facet "on:".
   - If no value for "mask:" and "on:" all the grid, the mask is equal to null.
 - Compute the matrix of diffusion
@@ -3867,12 +3857,11 @@ reflex diff {
   - Map : ["method_diffu", "is_gradient", "matrix", "mask", "min_value"] is value, ["var_diffu", "grid_name"] is key.
   - If the key exists in the map, try to "mix" the diffusions
     - If "method_diffu", "mask" and "is_gradient" equal for the 2 diffusions, mix the diffusion matrix.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>2) : At the end of the step, execute the diffusions (class <em>GridDiffuser</em>) :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- For each key of the map,
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- For each key of the map,
   - Load the couple "var_diffu" / "grid_name"
   - Build the "output" and "input" array with the dimension of the grid. 
   - Initialize the "output" array with -Double.MAX_VALUE.
@@ -3884,8 +3873,7 @@ reflex diff {
         - Else, do the computation (gradient or diffusion).
     - Finish the diffusion :
       - If output[idx] &gt; -Double.MAX_VALUE, write the new value in the cell.
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

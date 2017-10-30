@@ -3502,46 +3502,45 @@ After the Initiator agent reads the ‘reject_proposal’ message, the conversat
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model fipa_propose_2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">fipa_propose_2</span>
 
-global {
-	Participant p;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
 	
-	init {
-		create Initiator;
-		create Participant returns: ps;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
 		
-		 p &lt;- ps at 0;
+		 <span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
 		
-		write 'Step the simulation to observe the outcome in the console';
-	}
-}
+		<span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species Initiator skills: [fipa] {
-	reflex send_propose_message when: (time = 1) {
-		write name + ' sends a propose message';
-		do start_conversation with: [ to :: [p], protocol :: 'fipa-propose', performative :: 'propose', contents :: ['Go swimming?'] ];
-	}
+<span class="n">species</span> <span class="n">Initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">reflex</span> <span class="n">send_propose_message</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a propose message'</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-propose'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'propose'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Go swimming?'</span><span class="p">]</span> <span class="p">];</span>
+	<span class="p">}</span>
 
-	reflex read_accept_proposals when: !(empty(reject_proposals)) {
-		write name + ' receives reject_proposal messages';
-		loop i over: reject_proposals {
-			write 'reject_proposal message with content: ' + (string(i.contents));
-		}
-	}
-}
+	<span class="n">reflex</span> <span class="n">read_accept_proposals</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(reject_proposals)) {
+</span>		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives reject_proposal messages'</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">reject_proposals</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'reject_proposal message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species Participant skills: [fipa] {
-	reflex accept_proposal when: !(empty(proposes)) {
-		message proposalFromInitiator &lt;- proposes at 0;
+<span class="n">species</span> <span class="n">Participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">reflex</span> <span class="n">accept_proposal</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(proposes)) {
+</span>		<span class="n">message</span> <span class="n">proposalFromInitiator</span> <span class="p">&lt;-</span> <span class="n">proposes</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
 		
-		do reject_proposal with: [ message :: proposalFromInitiator, contents :: ['No! It \'s too cold today!'] ];
-	}
-}
+		<span class="k">do</span> <span class="n">reject_proposal</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">proposalFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'No! It \'</span><span class="n">s</span> <span class="n">too</span> <span class="n">cold</span> <span class="n">today</span><span class="c1">!'] ];
+</span>	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment test_propose_interaction_protocol type: gui {}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">test_propose_interaction_protocol</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{}</span>
+</code></pre></div></div>
 
     </div>
     </div>

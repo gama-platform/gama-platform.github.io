@@ -3501,55 +3501,54 @@ function closeRightMenu() {
 <p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations SIR (Simple)/display_charts-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model simple_ODE_SIR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">simple_ODE_SIR</span>
 
-global {
-	init{
-		create agent_with_SIR_dynamic number:1;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">agent_with_SIR_dynamic</span> <span class="n">number</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species agent_with_SIR_dynamic {
-	int N &lt;- 1500 ;
-	int iInit &lt;- 1;		
+<span class="n">species</span> <span class="n">agent_with_SIR_dynamic</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="m">1500</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">iInit</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>		
 
-    float t;  
-	float S &lt;- N - float(iInit); 	      
-	float I &lt;- float(iInit); 
-	float R &lt;- 0.0; 
+    <span class="n">float</span> <span class="n">t</span><span class="p">;</span>  
+	<span class="n">float</span> <span class="n">S</span> <span class="p">&lt;-</span> <span class="n">N</span> <span class="p">-</span> <span class="n">float</span><span class="p">(</span><span class="n">iInit</span><span class="p">);</span> 	      
+	<span class="n">float</span> <span class="n">I</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">iInit</span><span class="p">);</span> 
+	<span class="n">float</span> <span class="n">R</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span> 
 	
-	float alpha &lt;- 0.2 min: 0.0 max: 1.0;
-	float beta &lt;- 0.8 min: 0.0 max: 1.0;
+	<span class="n">float</span> <span class="n">alpha</span> <span class="p">&lt;-</span> <span class="m">0.2</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
 
-	float h &lt;- 0.01;
+	<span class="n">float</span> <span class="n">h</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
    
-	equation SIR{ 
-		diff(S,t) = (- beta * S * I / N);
-		diff(I,t) = (beta * S * I / N) - (alpha * I);
-		diff(R,t) = (alpha * I);
-	}
+	<span class="n">equation</span> <span class="n">SIR</span><span class="p">{</span> 
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">N</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="p">*</span> <span class="n">I</span><span class="p">);</span>
+	<span class="p">}</span>
                 
-    reflex solving {
-    	solve SIR method: "rk4" step: h ;//cycle_length: 1/h ;
-    }    
-}
+    <span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span>
+    	<span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span> <span class="p">;//</span><span class="n">cycle_length</span><span class="p">:</span> <span class="m">1</span><span class="p">/</span><span class="n">h</span> <span class="p">;</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
 
 
-experiment maths type: gui {
-	output { 
-		display display_charts {
-			chart "SIR_agent" type: series background: #white {
-				data 'S' value: first(list(agent_with_SIR_dynamic)).S color: #green ;				
-				data 'I' value: first(list(agent_with_SIR_dynamic)).I color: #red ;
-				data 'R' value: first(list(agent_with_SIR_dynamic)).R color: #blue ;
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">maths</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span> 
+		<span class="n">display</span> <span class="n">display_charts</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"SIR_agent"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">white</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'S'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">S</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'I'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">I</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'R'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">agent_with_SIR_dynamic</span><span class="p">)).</span><span class="n">R</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

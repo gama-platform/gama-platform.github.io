@@ -3500,38 +3500,38 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model grid_move
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">grid_move</span>
 
-global {
-	//Shapefile of the buildings
-	file building_shapefile &lt;- file("../includes/building.shp");
-	//Shape of the world
-	geometry shape &lt;- envelope(building_shapefile);
-	//Maximum memory of the agent to avoid loop of the agents
-	int max_memory &lt;- 5;
-	//Size of the people agents
-	float people_size &lt;- 2.0;
-	//Number of people agents
-	int nb_people &lt;- 500;
-	//Evacuation point for the people agents
-	point target_point &lt;- {world.location.x, 0};
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Maximum</span> <span class="n">memory</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">loop</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">max_memory</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Evacuation</span> <span class="n">point</span> <span class="n">for</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
 	
-	init {
-		//Creation of the building agents using the shapefile
-		create building from: building_shapefile
-		{
-			//Initialization of the cell is_obstacle attribute
-			ask cell overlapping self {
-				is_obstacle &lt;- true;
-				color &lt;- #black;
-			}
-		}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span>
+		<span class="p">{</span>
+			<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_obstacle</span> <span class="n">attribute</span>
+			<span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">{</span>
+				<span class="n">is_obstacle</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 
-		list&lt;cell&gt; free_cell &lt;- cell where not (each.is_obstacle);
-		cell the_target_cell &lt;- cell closest_to target_point;
-		//Creation of the people agent
-		create people number: nb_people {
-			//People agent are placed randomly among the cells which haven't people or obstacle
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">free_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">);</span>
+		<span class="n">cell</span> <span class="n">the_target_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">closest_to</span> <span class="n">target_point</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">People</span> <span class="n">agent</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">which</span> <span class="n">haven</span><span class="s1">'t people or obstacle
 			current_cell &lt;- one_of(free_cell);
 			current_cell.is_free &lt;- false;
 			remove current_cell from: free_cell;
@@ -3569,7 +3569,7 @@ species people {
 	}
 	//Reflex to move the agent
 	reflex move {
-		//List of all the cells possible (which aren't obstacles, without people on it and on which the agent hasn't already passed
+		//List of all the cells possible (which aren'</span><span class="n">t</span> <span class="n">obstacles</span><span class="p">,</span> <span class="n">without</span> <span class="n">people</span> <span class="n">on</span> <span class="n">it</span> <span class="k">and</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">hasn</span><span class="s1">'t already passed
 		list&lt;cell&gt; possible_cells &lt;- current_cell neighbors_at 1 where (not (each.is_obstacle) and each.is_free and not (each in memory));
 		//If there is possible cell, the agent move on the closest one to the evacuation point
 		if not empty(possible_cells) {
@@ -3602,7 +3602,7 @@ experiment main type: gui {
 	output {
 		display map type: opengl camera_pos: {world.location.x,-world.shape.height*1.5,70}
                         camera_look_pos:{world.location.x,0,0}    {
-			image '../images/soil.jpg';
+			image '</span><span class="p">../</span><span class="n">images</span><span class="p">/</span><span class="n">soil</span><span class="p">.</span><span class="n">jpg</span><span class="s1">';
 			species building refresh: false;
 			species people;
 			graphics "exit" refresh: false {
@@ -3611,8 +3611,7 @@ experiment main type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

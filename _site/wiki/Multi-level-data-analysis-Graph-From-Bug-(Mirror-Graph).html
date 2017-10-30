@@ -3500,83 +3500,82 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model Graph
+<span class="k">model</span> <span class="n">Graph</span>
 
-//Import the model Common Bug Species model
-import '../includes/Common Bug Species.gaml'
+<span class="p">//</span><span class="n">Import</span> <span class="n">the</span> <span class="k">model</span> <span class="n">Common</span> <span class="n">Bug</span> <span class="n">Species</span> <span class="k">model</span>
+<span class="n">import</span> <span class="s1">'../includes/Common Bug Species.gaml'</span>
 
-global {
-	//Distance to link two bugs
-	int distance parameter: 'Distance' min: 1 &lt;- 25 category: 'Model';
-	//variable to start the animation of the model
-	int startAnimation parameter: 'Start Animation ' min: 1 &lt;- 25 category: 'Animation View';
-	//Variable to save the time animation
-	int timeAnim &lt;- 0;
-	//Reflex to update the time of animation
-	reflex updateAnimation 
-	{
-		if (time &gt; startAnimation) 
-		{
-			timeAnim &lt;- int(time - startAnimation);
-		}
-	}
-}
-//Species node_agent mirroring the bug species, represented as graph node
-species node_agent mirrors: list(bug) parent: graph_node edge_species: edge_agent {
-	//Their location is the one of the target location
-	point location &lt;- target.location update: target.location;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Distance</span> <span class="k">to</span> <span class="n">link</span> <span class="n">two</span> <span class="n">bugs</span>
+	<span class="n">int</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Distance'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">variable</span> <span class="k">to</span> <span class="n">start</span> <span class="n">the</span> <span class="n">animation</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span>
+	<span class="n">int</span> <span class="n">startAnimation</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Start Animation '</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Animation View'</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Variable</span> <span class="k">to</span> <span class="n">save</span> <span class="n">the</span> <span class="n">time</span> <span class="n">animation</span>
+	<span class="n">int</span> <span class="n">timeAnim</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">time</span> <span class="k">of</span> <span class="n">animation</span>
+	<span class="n">reflex</span> <span class="n">updateAnimation</span> 
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;</span> <span class="n">startAnimation</span><span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="n">timeAnim</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">time</span> <span class="p">-</span> <span class="n">startAnimation</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">node_agent</span> <span class="n">mirroring</span> <span class="n">the</span> <span class="n">bug</span> <span class="n">species</span><span class="p">,</span> <span class="n">represented</span> <span class="k">as</span> <span class="n">graph</span> <span class="n">node</span>
+<span class="n">species</span> <span class="n">node_agent</span> <span class="n">mirrors</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">bug</span><span class="p">)</span> <span class="n">parent</span><span class="p">:</span> <span class="n">graph_node</span> <span class="n">edge_species</span><span class="p">:</span> <span class="n">edge_agent</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Their</span> <span class="n">location</span> <span class="n">is</span> <span class="n">the</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">target</span> <span class="n">location</span>
+	<span class="n">point</span> <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">target</span><span class="p">.</span><span class="n">location</span> <span class="n">update</span><span class="p">:</span> <span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
 	
-	//Action to know if an agent is related to another agent considering their distance
-	bool related_to (node_agent other) {
-		using topology(target) {
-			return (target.location distance_to other.target.location) &lt; distance;
-		}
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">an</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">related</span> <span class="k">to</span> <span class="n">another</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">their</span> <span class="n">distance</span>
+	<span class="n">bool</span> <span class="n">related_to</span> <span class="p">(</span><span class="n">node_agent</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">using</span> <span class="n">topology</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">return</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">other</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">)</span> <span class="p">&lt;</span> <span class="n">distance</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	aspect base {
-		draw sphere(2) color: #green;
-	}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	aspect dynamic {
-		int degree &lt;- (my_graph) degree_of (self);
-		draw sphere(1 + (degree / 5.0)) color: #blue;
-	}
+	<span class="n">aspect</span> <span class="k">dynamic</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">degree</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="p">(</span><span class="n">degree</span> <span class="p">/</span> <span class="m">5.0</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
-//Species edge to represent the edges of the graph
-species edge_agent parent: base_edge {
-	rgb color;
-	aspect base {
-		draw shape color: #green;
-	}
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">edge</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
+<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">parent</span><span class="p">:</span> <span class="n">base_edge</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	aspect dynamic {
-		shape &lt;- line([{ self.source.location.x, self.source.location.y, self.source.location.z }, { self.target.location.x, self.target.location.y, self.target.location.z }]);
-		float val &lt;- 255.0 * (shape.perimeter / distance);
-		color &lt;- hsb(val, 1.0, 1.0);
-		draw shape + 0.1 color: color border: color;
-	}
+	<span class="n">aspect</span> <span class="k">dynamic</span> <span class="p">{</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span> <span class="n">self</span><span class="p">.</span><span class="n">source</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">source</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">source</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span> <span class="p">},</span> <span class="p">{</span> <span class="n">self</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span> <span class="p">}]);</span>
+		<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255.0</span> <span class="p">*</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">);</span>
+		<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="m">0.1</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">border</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment AdvancedView type: gui {
-	output {
-		display graph_plus_bug_layered type: opengl { 
-		  species bug aspect: base;
-		  species node_agent aspect: base position: { 0, 0, 0.2 };
-		  species edge_agent aspect: base position: { 0, 0, 0.2 };
-		  species node_agent aspect: dynamic position: { 0, 0, 0.4 };
-		  species edge_agent aspect: dynamic position: { 0, 0, 0.4 };
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">AdvancedView</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">graph_plus_bug_layered</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+		  <span class="n">species</span> <span class="n">bug</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		  <span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span> <span class="p">};</span>
+		  <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span> <span class="p">};</span>
+		  <span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">dynamic</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.4</span> <span class="p">};</span>
+		  <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">dynamic</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.4</span> <span class="p">};</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

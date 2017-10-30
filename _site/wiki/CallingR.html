@@ -3560,21 +3560,20 @@ function closeRightMenu() {
 
 <h4 id="example-1">Example 1</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global {
-	list X &lt;- [2, 3, 1];
-	list Y &lt;- [2, 12, 4]; 
+<span class="n">global</span> <span class="p">{</span>
+	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+	<span class="k">list</span> <span class="n">Y</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">4</span><span class="p">];</span> 
 
-	list result;
+	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 	
-	init{
-		write corR(X, Y); // -&gt; 0.755928946018454
-		write meanR(X); // -&gt; 2.0
-	}
-}
-</code></pre>
-</div>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">write</span> <span class="n">corR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">0.755928946018454</span>
+		<span class="nb">write</span> <span class="n">meanR</span><span class="p">(</span><span class="n">X</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">2.0</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="calling-r-codes-from-a-text-file-rtxt-without-the-parameters">Calling R codes from a text file (<strong>.R,</strong>.txt) WITHOUT the parameters</h3>
 
@@ -3582,66 +3581,62 @@ global {
 <strong>Remarks</strong>: Don’t let any white lines at the end of R codes. <strong>R_compute</strong> will return the last variable of R file, this parameter can be a basic type or a list.  Please ensure that the called packages must be installed before using.</p>
 
 <h4 id="example-2">Example 2</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global
-{
-	list result;
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	init{
-		result &lt;- R_compute("C:/YourPath/Correlation.R");
-		write result at 0;
-	}
-}
-</code></pre>
-</div>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <p>Above syntax is deprecated, use following syntax with R_file instead of R_compute:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global
-{
-	file result;
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="n">file</span> <span class="n">result</span><span class="p">;</span>
 
-	init{
-		result &lt;- R_file("C:/YourPath/Correlation.R");
-		write result.contents;
-	}
-}
-</code></pre>
-</div>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_file</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="n">result</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <h4 id="correlationr-file">Correlation.R file</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>x &lt;- c(1, 2, 3)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x &lt;- c(1, 2, 3)
 
 y &lt;- c(1, 2, 4)
 
 result &lt;- cor(x, y, method = "pearson")
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="output">Output</h3>
 
 <p><code class="highlighter-rouge">result::[0.981980506061966]</code></p>
 
 <h4 id="example-3">Example 3</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global
-{
-	list result;
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	init{
-		result &lt;- R_compute("C:/YourPath/RandomForest.R");
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/RandomForest.R"</span><span class="p">);</span>
 
-		write result at 0;
-	}
-}
-</code></pre>
-</div>
+		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="randomforestr-file">RandomForest.R file</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Load the package:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Load the package:
 
 library(randomForest)
 
@@ -3676,8 +3671,7 @@ pred&lt;-predict(model, testset[,-ncol], type="class")
 # Calculate the accuracy:
 
 acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="output-1">Output</h4>
 
@@ -3691,20 +3685,19 @@ acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
 
 <h4 id="example-4">Example 4</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global
-{
-	list X &lt;- [2, 3, 1];
-	list result;
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	init{
-		result &lt;- R_compute_param("C:/YourPath/Mean.R", X);
-		write result at 0;
-	}
-}
-</code></pre>
-</div>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/Mean.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="meanr-file">Mean.R file</h4>
 
@@ -3716,19 +3709,18 @@ global
 
 <h4 id="example-5">Example 5</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model CallingR
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
 
-global {
-	list X &lt;- [2, 3, 1];
-	list result;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 	
-        init{
-		result &lt;- R_compute_param("C:/YourPath/AddParam.R", X);
-		write result at 0;
-	}
-}
-</code></pre>
-</div>
+        <span class="n">init</span><span class="p">{</span>
+		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/AddParam.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="addparamr-file">AddParam.R file</h4>
 

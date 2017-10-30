@@ -3510,31 +3510,27 @@ function closeRightMenu() {
 </ul>
 
 <p>So, an expression like:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>float foo &lt;- 1;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float foo &lt;- 1;
+</code></pre></div></div>
 
 <p>will be considered as 1 meter if <code class="highlighter-rouge">foo</code> is a distance, or 1 second if it is a duration, or 1 meter/second if it is a speed. If one wants to specify the unit, it can be done very simply by adding the unit symbol (<code class="highlighter-rouge">°</code> or <code class="highlighter-rouge">#</code>) followed by an unit name after the numeric value, like:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>float foo &lt;- 1 °centimeter;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float foo &lt;- 1 °centimeter;
+</code></pre></div></div>
 
 <p>or</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>float foo &lt;- 1 #centimeter;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float foo &lt;- 1 #centimeter;
+</code></pre></div></div>
 
 <p>In that case, the numeric value of <code class="highlighter-rouge">foo</code> will be automatically translated to 0.01 (meter). It is recommended to always use float as the type of the variables that might be qualified by units (otherwise, for example in the previous case, they might be truncated to 0). 
 Several units names are allowed as qualifiers of numeric variables. 
 These units represent the basic metric and US units. Composed and derived units (like velocity, acceleration, special volumes or surfaces) can be obtained by combining these units using the <code class="highlighter-rouge">*</code> and <code class="highlighter-rouge">/</code> operators. For instance:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>float one_kmh &lt;- 1 °km / °h const: true;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float one_kmh &lt;- 1 °km / °h const: true;
 float one_millisecond &lt;-1 °sec / 1000;
 float one_cubic_inch &lt;- 1 °sqin * 1 °inch;
 ... etc ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 <wiki:toc max_depth="3" />
@@ -3856,9 +3852,8 @@ float one_cubic_inch &lt;- 1 °sqin * 1 °inch;
 <h2 id="colors">Colors</h2>
 
 <p>In addition to the previous units, GAML provides a direct access to the 147 named colors defined in CSS (see http://www.cssportal.com/css3-color-names/). E.g,</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rgb my_color &lt;- °teal;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rgb my_color &lt;- °teal;
+</code></pre></div></div>
 
 <ul>
   <li><strong><code class="highlighter-rouge">\#aliceblue</code></strong>, value= r=240, g=248, b=255, alpha=1</li>

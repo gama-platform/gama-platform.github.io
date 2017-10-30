@@ -3531,7 +3531,7 @@ First it creates a <a href="GlobalSpecies"><code class="highlighter-rouge">world
 <h2 id="agents-step">Agents Step</h2>
 <p>When an agent is asked to <em>step</em>, it means that it is expected to update its variables, run its behaviors and then <em>step</em> its micro-agents (if any).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>step of agent agent_a
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>step of agent agent_a
     {
         species_a &lt;- agent_a.species
         architecture_a &lt;- species_a.architecture
@@ -3546,8 +3546,7 @@ First it creates a <a href="GlobalSpecies"><code class="highlighter-rouge">world
         }
     }
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="schedule-agents">Schedule Agents</h2>
 
@@ -3557,60 +3556,54 @@ First it creates a <a href="GlobalSpecies"><code class="highlighter-rouge">world
 
 <p>A practical application of this facet is to reduce simulation artifacts created by the default scheduling of populations, which is sequential (i.e. their agents are executed in turn in their order of creation). To enable a pseudo-parallel scheduling based on a random scheduling recomputed at each step, one has simply to define the corresponding species like in the following example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species A schedules: shuffle(A) {...}
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species A schedules: shuffle(A) {...}
+</code></pre></div></div>
 
 <p>Moving further, it is possible to enable a completely random scheduling that will eliminate the sequential scheduling of populations:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global schedules: [world] + shuffle(A + B + C) {...}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [world] + shuffle(A + B + C) {...}
 
 species A schedules: [] {...}
 species B schedules: [] {...}
 species C schedules: [] {...}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>It is important to (1) explicitly invoke the scheduling of the world (although it doesn’t have to be the first); (2) suppress the population-based scheduling to avoid having agent being scheduled 2 times (one time in the custom definition, one time by their population).</p>
 
 <p>Other schemes are possible. For instance, the following definition will completely suppress the default scheduling mechanism to replace it with a custom scheduler that will execute the world, then all agents of species A in a random way and then all agents of species B in their order of creation:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global schedules: [world] + shuffle(A) + B {...} // explicit scheduling in the world
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [world] + shuffle(A) + B {...} // explicit scheduling in the world
 
 species A schedules [];
 
 species B schedules: [];
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Complex conditions can be used to express which agents need to be scheduled each step. For instance, in the following definition, only agents of A that return true to a particular condition are scheduled:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species A schedules: A where each.can_be_scheduled() {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species A schedules: A where each.can_be_scheduled() {
 
     bool can_be_scheduled() {
          ...
          returns true_or_false;
     }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Be aware that enabling a custom scheduling can potentially end up in non-functional simulations. For example, the following definitions will result in a simulation that will <strong>never be executed</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global schedules: [] {}; // the world is NEVER scheduled
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [] {}; // the world is NEVER scheduled
  
 species my_scheduler schedules: [world] ; // so its micro-species 'my_scheduler' is NOT scheduled either. 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and this one will result in an <strong>infinite loop</strong> (which will trigger a stack overflow at some point):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {} // The world is normally scheduled...
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {} // The world is normally scheduled...
 
 species my_scheduler schedules: [world]; // ... but schedules itself again as a consequence of scheduling the micro-species 'my_scheduler'
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

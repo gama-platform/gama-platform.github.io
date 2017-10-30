@@ -3512,17 +3512,16 @@ function closeRightMenu() {
 The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@var</code> elements.</p>
 
 <p>In a <a href="DevelopingIndexAnnotations#@var">@var</a> element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@vars({
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({
   @var(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
   @var(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
 })
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In order to detail how to access these new attributes (if needed), developers have to define a getter (using <code class="highlighter-rouge">@getter</code>) and a setter (using <code class="highlighter-rouge">@setter</code>) methods.
 If no getter (and setter) is defined, the attribute can nevertheless be set and get, using implicit by default getter and setter. But as soon as a getter and/or a setter is defined, they replace the implicit default ones.
 For example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@getter(var = IKeyword.SPEED)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(var = IKeyword.SPEED)
 public double getSpeed(final IAgent agent) {
     return (Double) agent.getAttribute(IKeyword.SPEED);
 }
@@ -3531,14 +3530,13 @@ public double getSpeed(final IAgent agent) {
 public void setSpeed(final IAgent agent, final double s) {
     agent.setAttribute(IKeyword.SPEED, s);
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="defining-new-actions">Defining new actions</h2>
 <p>An action (also called <code class="highlighter-rouge">primitive</code>) is basically a Java method that can be called from the GAML language using the same syntax as the one used for calling actions defined in a model. The method should be annotated with <code class="highlighter-rouge">@action</code>, supplying the name of the action as it will be available in GAML.</p>
 
 <p>The developer can also define parameters for this action using the annotation <code class="highlighter-rouge">@arg</code> will a set of parameters names. For example, the action <code class="highlighter-rouge">goto</code> of the MovingSkill is defined as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@action(name="goto", args={ 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@action(name="goto", args={ 
     @arg(name = "target", type = { IType.AGENT, IType.POINT,IType.GEOMETRY }, optional = false),
     @arg(name = IKeyword.SPEED, type = IType.FLOAT, optional = true),
     @arg(name = "on", type = { IType.GRAPH }, optional = true)
@@ -3548,16 +3546,13 @@ public void setSpeed(final IAgent agent, final double s) {
 public IPath primGoto(final IScope scope) throws GamaRuntimeException {
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>It is called in GAMA models with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>do goto (target: the_target, on: the_graph);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do goto (target: the_target, on: the_graph);
+</code></pre></div></div>
 <p>or</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>path path_followed &lt;- self goto (target: the_target, on: the_graph, return_path: true);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path path_followed &lt;- self goto (target: the_target, on: the_graph, return_path: true);
+</code></pre></div></div>
 
 <h3 id="access-to-parameters-in-actions">Access to parameters in actions</h3>
 <p>To get the value of the arguments passed in GAML to the Java code, two methods can be useful:</p>

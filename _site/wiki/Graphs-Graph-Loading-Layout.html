@@ -3500,52 +3500,51 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model graphloadinglayout
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">graphloadinglayout</span>
 
-global {
-	graph the_graph ;
-	string barabasi_file &lt;- "../includes/ProteinSimple.dgs";
-	geometry shape &lt;- rectangle(500,500);
-	string layout_type &lt;- "forcedirected";
-	int layout_time &lt;- 1000;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">graph</span> <span class="n">the_graph</span> <span class="p">;</span>
+	<span class="k">string</span> <span class="n">barabasi_file</span> <span class="p">&lt;-</span> <span class="s2">"../includes/ProteinSimple.dgs"</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">500</span><span class="p">);</span>
+	<span class="k">string</span> <span class="n">layout_type</span> <span class="p">&lt;-</span> <span class="s2">"forcedirected"</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">layout_time</span> <span class="p">&lt;-</span> <span class="m">1000</span><span class="p">;</span>
 	
-	//The operator load_graph_from_file generates the graph from the file, and chose the vertices as agents of node_agent 
-	//species, and edges as edge_agent agents
-	init {
-		the_graph &lt;- load_graph_from_file(barabasi_file, node_agent, edge_agent);
-	}
+	<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">load_graph_from_file</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">from</span> <span class="n">the</span> <span class="n">file</span><span class="p">,</span> <span class="k">and</span> <span class="n">chose</span> <span class="n">the</span> <span class="n">vertices</span> <span class="k">as</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">node_agent</span> 
+	<span class="p">//</span><span class="n">species</span><span class="p">,</span> <span class="k">and</span> <span class="n">edges</span> <span class="k">as</span> <span class="n">edge_agent</span> <span class="n">agents</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">load_graph_from_file</span><span class="p">(</span><span class="n">barabasi_file</span><span class="p">,</span> <span class="n">node_agent</span><span class="p">,</span> <span class="n">edge_agent</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-	//In case the layout type is forcedirected or random, the reflex will change at each step the layout of the graph
-	reflex layout_graph {
-		the_graph &lt;- layout(the_graph, layout_type, layout_time);
-	}
-}
+	<span class="p">//</span><span class="k">In</span> <span class="k">case</span> <span class="n">the</span> <span class="n">layout</span> <span class="n">type</span> <span class="n">is</span> <span class="n">forcedirected</span> <span class="k">or</span> <span class="nb">random</span><span class="p">,</span> <span class="n">the</span> <span class="n">reflex</span> <span class="n">will</span> <span class="n">change</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span> <span class="n">the</span> <span class="n">layout</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
+	<span class="n">reflex</span> <span class="n">layout_graph</span> <span class="p">{</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">layout</span><span class="p">(</span><span class="n">the_graph</span><span class="p">,</span> <span class="n">layout_type</span><span class="p">,</span> <span class="n">layout_time</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species edge_agent {
-	aspect default {	
-		draw shape color: #black;
-	}
-}
+<span class="n">species</span> <span class="n">edge_agent</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>	
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species node_agent {
-	aspect default {	
-		draw circle(2) color: #red;
-	}
-}
+<span class="n">species</span> <span class="n">node_agent</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>	
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment loadgraph type: gui {
-	parameter "Layout type" var: layout_type among: [ "forcedirected", "random", "radialtree", "circle"];
-	parameter "layout time" var: layout_time min: 1 max: 100000;
-	output {
-		display map type: opengl{
-			species edge_agent ;
-			species node_agent ;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">loadgraph</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Layout type"</span> <span class="n">var</span><span class="p">:</span> <span class="n">layout_type</span> <span class="n">among</span><span class="p">:</span> <span class="p">[</span> <span class="s2">"forcedirected"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">,</span> <span class="s2">"radialtree"</span><span class="p">,</span> <span class="s2">"circle"</span><span class="p">];</span>
+	<span class="n">parameter</span> <span class="s2">"layout time"</span> <span class="n">var</span><span class="p">:</span> <span class="n">layout_time</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">100000</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

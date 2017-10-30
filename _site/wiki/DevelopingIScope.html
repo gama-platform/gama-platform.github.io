@@ -3503,19 +3503,16 @@ function closeRightMenu() {
 <p>A variable <code class="highlighter-rouge">scope</code> of type <code class="highlighter-rouge">IScope</code> can be used to:</p>
 <ul>
   <li>get the current agent with: <code class="highlighter-rouge">scope.getAgentScope()</code>
-    <div class="highlighter-rouge"><pre class="highlight"><code>IAgent agent = scope.getAgentScope();
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IAgent agent = scope.getAgentScope();
+</code></pre></div>    </div>
   </li>
   <li>evaluate an expression in the current scope:
-    <div class="highlighter-rouge"><pre class="highlight"><code>String mes = Cast.asString(scope, message.value(scope));
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String mes = Cast.asString(scope, message.value(scope));
+</code></pre></div>    </div>
   </li>
   <li>know whether the scope has been interrupted:
-    <div class="highlighter-rouge"><pre class="highlight"><code>boolean b = scope.interrupted();
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boolean b = scope.interrupted();
+</code></pre></div>    </div>
   </li>
 </ul>
 

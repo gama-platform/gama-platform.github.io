@@ -3506,34 +3506,31 @@ function closeRightMenu() {
 <h3 id="species">species</h3>
 <p>We define a new species of agents: the <strong>people</strong> agents. In this model, these agents will not have a specific behavior yet. They will be just displayed. Thus, we just have to define an aspect for the agents. We want to represent the <strong>people</strong> agents by a yellow circle of radius 10m. We then use the <strong>circle</strong> value for the <strong>shape</strong> facet of the <strong>draw</strong> command, with the expected color and radius size (defined by the facet <strong>size</strong>).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species people {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people {
 	rgb color &lt;- #yellow ;
 	
 	aspect base {
 		draw circle(10) color: color;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="parameter">parameter</h3>
 <p>We have to add a new parameter: the number of <strong>people</strong> agents created</p>
 
 <p>In the global section, definition of the <strong>nb_people</strong> variable:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>   int nb_people &lt;- 100;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   int nb_people &lt;- 100;
+</code></pre></div></div>
 
 <p>In the experiment section, definition of the parameter:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>   parameter "Number of people agents" var: nb_people category: "People" ;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   parameter "Number of people agents" var: nb_people category: "People" ;
+</code></pre></div></div>
 
 <h3 id="creation-and-placement-of-the-people-agents">creation and placement of the people agents</h3>
 
 <p>We have to create <strong>nb_people</strong> <strong>people</strong> agents. Each <strong>people</strong> is placed in a buildings of type ‘Residential’ randomly selected. In order to simplify the GAML code, we defined a local variable <strong>residential_buildings</strong> that represent the list of buildings of type ‘Residential’. To filter the list of <strong>building</strong> agents (obtained by <strong>building</strong>), we use the <strong>where</strong> operator. We use the operator <strong>one_of</strong> to randomly select one agent of this list. There are several ways to place a <strong>people</strong> agent inside this building. In this tutorial, we choose to use the <strong>any_location_in</strong> operator. This operator returns a random point situated inside the operand geometry.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	...
 	init {
 		create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
@@ -3548,88 +3545,85 @@ function closeRightMenu() {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="display">display</h3>
 <p>We add the <strong>people</strong> agent in the defined display.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>   output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   output {
       display city_display {
          species building aspect: base ;
          species road aspect: base ;
          species people aspect: base ;
       }
    }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model tutorial_gis_city_traffic
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">tutorial_gis_city_traffic</span>
 
-global {
-	file shape_file_buildings &lt;- file("../includes/building.shp");
-	file shape_file_roads &lt;- file("../includes/road.shp");
-	file shape_file_bounds &lt;- file("../includes/bounds.shp");
-	geometry shape &lt;- envelope(shape_file_bounds);
-	float step &lt;- 10 #mn;
-	int nb_people &lt;- 100;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_roads</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/bounds.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
 	
-	init {
-		create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
-			if type="Industrial" {
-				color &lt;- #blue ;
-			}
-		}
-		create road from: shape_file_roads ;
-		list&lt;building&gt; residential_buildings &lt;- building where (each.type="Residential");
-		create people number: nb_people {
-			location &lt;- any_location_in (one_of (residential_buildings));
-		}
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))]</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span> <span class="p">{</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="p">;</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">residential_buildings</span> <span class="p">&lt;-</span> <span class="n">building</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span><span class="p">=</span><span class="s2">"Residential"</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">residential_buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species building {
-	string type; 
-	rgb color &lt;- #gray  ;
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">gray</span>  <span class="p">;</span>
 	
-	aspect base {
-		draw shape color: color ;
-	}
-}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species road  {
-	rgb color &lt;- #black ;
-	aspect base {
-		draw shape color: color ;
-	}
-}
+<span class="n">species</span> <span class="n">road</span>  <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species people {
-	rgb color &lt;- #yellow ;
+<span class="n">species</span> <span class="n">people</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">;</span>
 	
-	aspect base {
-		draw circle(10) color: color;
-	}
-}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment road_traffic type: gui {
-	parameter "Shapefile for the buildings:" var: shape_file_buildings category: "GIS" ;
-	parameter "Shapefile for the roads:" var: shape_file_roads category: "GIS" ;
-	parameter "Shapefile for the bounds:" var: shape_file_bounds category: "GIS" ;
-	parameter "Number of people agents" var: nb_people category: "People" ;
+<span class="n">experiment</span> <span class="n">road_traffic</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_bounds</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of people agents"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
 	
-	output {
-		display city_display type:opengl {
-			species building aspect: base ;
-			species road aspect: base ;
-			species people aspect: base ;
-		}
-	}
-}
-</code></pre>
-</div>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3500,135 +3500,134 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model gridloading
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">gridloading</span>
 
-global {
-	file grid_data &lt;- file("../includes/DEM-Vulcano/vulcano_50.asc");
-	file dem parameter: 'DEM' &lt;- file('../includes/DEM-Vulcano/DEM.png');
-	file texture parameter: 'Texture' &lt;- file('../includes/DEM-Vulcano/Texture.png');
-	geometry shape &lt;- envelope(200);
-	init
-	{
-		ask cell
-		{
-			float r;
-			float g;
-			float b;
-			if(grid_value&lt;20)
-			{
-				r&lt;- 76+(26*(grid_value-7)/13);
-				g&lt;- 153-(51*(grid_value-7)/13);
-				b&lt;-0.0;
-			}
-			else
-			{
-				r&lt;- 102+(122*(grid_value-20)/19);
-				g&lt;- 51+(173*(grid_value-20)/19);
-				b&lt;- 224*(grid_value-20)/19;
-			}
-			self.color&lt;-rgb(r,g,b);
-		}
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">grid_data</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/DEM-Vulcano/vulcano_50.asc"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">dem</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'DEM'</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/DEM-Vulcano/DEM.png'</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">texture</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Texture'</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/DEM-Vulcano/Texture.png'</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="n">cell</span>
+		<span class="p">{</span>
+			<span class="n">float</span> <span class="n">r</span><span class="p">;</span>
+			<span class="n">float</span> <span class="n">g</span><span class="p">;</span>
+			<span class="n">float</span> <span class="n">b</span><span class="p">;</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">grid_value</span><span class="p">&lt;</span><span class="m">20</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">r</span><span class="p">&lt;-</span> <span class="m">76</span><span class="p">+(</span><span class="m">26</span><span class="p">*(</span><span class="n">grid_value</span><span class="p">-</span><span class="m">7</span><span class="p">)/</span><span class="m">13</span><span class="p">);</span>
+				<span class="n">g</span><span class="p">&lt;-</span> <span class="m">153</span><span class="p">-(</span><span class="m">51</span><span class="p">*(</span><span class="n">grid_value</span><span class="p">-</span><span class="m">7</span><span class="p">)/</span><span class="m">13</span><span class="p">);</span>
+				<span class="n">b</span><span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">else</span>
+			<span class="p">{</span>
+				<span class="n">r</span><span class="p">&lt;-</span> <span class="m">102</span><span class="p">+(</span><span class="m">122</span><span class="p">*(</span><span class="n">grid_value</span><span class="p">-</span><span class="m">20</span><span class="p">)/</span><span class="m">19</span><span class="p">);</span>
+				<span class="n">g</span><span class="p">&lt;-</span> <span class="m">51</span><span class="p">+(</span><span class="m">173</span><span class="p">*(</span><span class="n">grid_value</span><span class="p">-</span><span class="m">20</span><span class="p">)/</span><span class="m">19</span><span class="p">);</span>
+				<span class="n">b</span><span class="p">&lt;-</span> <span class="m">224</span><span class="p">*(</span><span class="n">grid_value</span><span class="p">-</span><span class="m">20</span><span class="p">)/</span><span class="m">19</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">self</span><span class="p">.</span><span class="n">color</span><span class="p">&lt;-</span><span class="n">rgb</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-grid cell file: grid_data {
-	rgb color;
-	reflex decreaseValue {
-		grid_value &lt;- grid_value  + rnd (0.2) - 0.1;
-	}
-}
+<span class="n">grid</span> <span class="n">cell</span> <span class="n">file</span><span class="p">:</span> <span class="n">grid_data</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">decreaseValue</span> <span class="p">{</span>
+		<span class="n">grid_value</span> <span class="p">&lt;-</span> <span class="n">grid_value</span>  <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="m">0.2</span><span class="p">)</span> <span class="p">-</span> <span class="m">0.1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment DEM type: gui {
-	output {
+<span class="n">experiment</span> <span class="n">DEM</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
 
-		//Display the grid triangulated in 3D with the cell altitude corresponding to its grid_value and the color cells (if defined otherwise in black)
-		display gridWithElevationTriangulated type: opengl autosave: true{ 
-			grid cell elevation: true triangulation: true ;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">triangulated</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="n">cells</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span> <span class="n">otherwise</span> <span class="k">in</span> <span class="n">black</span><span class="p">)</span>
+		<span class="n">display</span> <span class="n">gridWithElevationTriangulated</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">autosave</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span> <span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the grid triangulated in 3D with the cell altitude corresponding to its grid_value and the color of cells as a gray value corresponding to grid_value / maxZ *255
-		display gridGrayScaledTriangulated type: opengl { 
-			grid cell elevation: true grayscale: true triangulation: true;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">triangulated</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">cells</span> <span class="k">as</span> <span class="n">a</span> <span class="n">gray</span> <span class="n">value</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">grid_value</span> <span class="p">/</span> <span class="n">maxZ</span> <span class="p">*</span><span class="m">255</span>
+		<span class="n">display</span> <span class="n">gridGrayScaledTriangulated</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">grayscale</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the textured grid in 3D with the cell altitude corresponding to its grid_value.				
-		display gridTextured type: opengl { 
-			grid cell texture: texture text: false triangulation: true elevation: true;
-		}
-	}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">textured</span> <span class="n">grid</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span><span class="p">.</span>				
+		<span class="n">display</span> <span class="n">gridTextured</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">texture</span><span class="p">:</span> <span class="n">texture</span> <span class="n">text</span><span class="p">:</span> <span class="nb">false</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment GridDEMComplete type: gui {
-	output {
+<span class="n">experiment</span> <span class="n">GridDEMComplete</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
 
-	//Display the grid on a plan with cell color (if defined otherwise in black)
-		display grid type: opengl { //Same as in java2D
-			grid cell;
-		}
+	<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">on</span> <span class="n">a</span> <span class="n">plan</span> <span class="k">with</span> <span class="n">cell</span> <span class="n">color</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span> <span class="n">otherwise</span> <span class="k">in</span> <span class="n">black</span><span class="p">)</span>
+		<span class="n">display</span> <span class="n">grid</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> <span class="p">//</span><span class="n">Same</span> <span class="k">as</span> <span class="k">in</span> <span class="n">java2D</span>
+			<span class="n">grid</span> <span class="n">cell</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the grid in 3D with the cell altitude corresponding to its grid_value and the color cells (if defined otherwise in black)
-		display gridWithElevation type: opengl { 
-			grid cell elevation: true;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="n">cells</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span> <span class="n">otherwise</span> <span class="k">in</span> <span class="n">black</span><span class="p">)</span>
+		<span class="n">display</span> <span class="n">gridWithElevation</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the grid triangulated in 3D with the cell altitude corresponding to its grid_value and the color cells (if defined otherwise in black)
-		display gridWithElevationTriangulated type: opengl { 
-			grid cell elevation: true triangulation: true ;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">triangulated</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="n">cells</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span> <span class="n">otherwise</span> <span class="k">in</span> <span class="n">black</span><span class="p">)</span>
+		<span class="n">display</span> <span class="n">gridWithElevationTriangulated</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span> <span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the grid in 3D with the cell altitude corresponding to its grid_value and the color of cells as a gray value corresponding to grid_value / maxZ *255
-		display gridGrayScaled type: opengl { 
-			grid cell elevation: true grayscale: true;
-		}
-		//Display the grid triangulated in 3D with the cell altitude corresponding to its grid_value and the color of cells as a gray value corresponding to grid_value / maxZ *255
-		display gridGrayScaledTriangulated type: opengl { 
-			grid cell elevation: true grayscale: true triangulation: true;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">cells</span> <span class="k">as</span> <span class="n">a</span> <span class="n">gray</span> <span class="n">value</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">grid_value</span> <span class="p">/</span> <span class="n">maxZ</span> <span class="p">*</span><span class="m">255</span>
+		<span class="n">display</span> <span class="n">gridGrayScaled</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">grayscale</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">triangulated</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span> <span class="k">and</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">cells</span> <span class="k">as</span> <span class="n">a</span> <span class="n">gray</span> <span class="n">value</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">grid_value</span> <span class="p">/</span> <span class="n">maxZ</span> <span class="p">*</span><span class="m">255</span>
+		<span class="n">display</span> <span class="n">gridGrayScaledTriangulated</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">grayscale</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the textured grid in 3D with the cell altitude corresponding to its grid_value.				
-		display gridTextured type: opengl { 
-			grid cell texture: texture text: false triangulation: false elevation: true;
-		}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">textured</span> <span class="n">grid</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span><span class="p">.</span>				
+		<span class="n">display</span> <span class="n">gridTextured</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">texture</span><span class="p">:</span> <span class="n">texture</span> <span class="n">text</span><span class="p">:</span> <span class="nb">false</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">false</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//Display the textured triangulated grid in 3D with the cell altitude corresponding to its grid_value.
-		display gridTexturedTriangulated type: opengl { 
-			grid cell texture: texture text: false triangulation: true elevation: true;
-		}
-		display gridWithText type: opengl { 
-			grid cell text: true elevation: true grayscale: true;
-		}
-	}
+		<span class="p">//</span><span class="n">Display</span> <span class="n">the</span> <span class="n">textured</span> <span class="n">triangulated</span> <span class="n">grid</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">altitude</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">its</span> <span class="n">grid_value</span><span class="p">.</span>
+		<span class="n">display</span> <span class="n">gridTexturedTriangulated</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">texture</span><span class="p">:</span> <span class="n">texture</span> <span class="n">text</span><span class="p">:</span> <span class="nb">false</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">gridWithText</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">grid</span> <span class="n">cell</span> <span class="n">text</span><span class="p">:</span> <span class="nb">true</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">grayscale</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment GraphicDEMComplete type: gui {
-	output {
-		display VulcanoTexturedScaled type: opengl draw_env: false { 
-			graphics 'GraphicPrimitive' {
-				draw dem(dem, texture, 0.1);
-			}
-		} 
-		display VulcanoDEMScaled type: opengl draw_env: false { 
-			graphics 'GraphicPrimitive' {
-				draw dem(dem, 0.1);
-			}
-		} 
-		display VulcanoTextured type: opengl draw_env: false { 
-			graphics 'GraphicPrimitive' {
-				draw dem(dem, texture);
-			}
-		} 
-		display VulcanoDEM type: opengl draw_env: false { 
-			graphics 'GraphicPrimitive' {
-				draw dem(dem);
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">GraphicDEMComplete</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">VulcanoTexturedScaled</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span> 
+			<span class="n">graphics</span> <span class="s1">'GraphicPrimitive'</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">dem</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span> 
+		<span class="n">display</span> <span class="n">VulcanoDEMScaled</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span> 
+			<span class="n">graphics</span> <span class="s1">'GraphicPrimitive'</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">dem</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span> 
+		<span class="n">display</span> <span class="n">VulcanoTextured</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span> 
+			<span class="n">graphics</span> <span class="s1">'GraphicPrimitive'</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">dem</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">texture</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span> 
+		<span class="n">display</span> <span class="n">VulcanoDEM</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span> 
+			<span class="n">graphics</span> <span class="s1">'GraphicPrimitive'</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">dem</span><span class="p">(</span><span class="n">dem</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

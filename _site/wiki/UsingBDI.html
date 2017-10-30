@@ -3531,44 +3531,40 @@ function closeRightMenu() {
 
 <h3 id="species-helicopter-creation">Species Helicopter creation</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species helicopter skills:[moving] control: simple_bdi{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species helicopter skills:[moving] control: simple_bdi{
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="attributes">Attributes</h4>
 <p>The species <code class="highlighter-rouge">helicopter</code> needs 2 attributes to represent the water value and its speed.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>float waterValue;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float waterValue;
 float speed &lt;- 10.0;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="predicates">Predicates</h4>
 <p>The predicate are the structure that are used to define a belief, a desire or an intention.
 In this model we choose to declare 3 different predicates.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>predicate patrol_desire &lt;- new_predicate("patrol") with_priority 1;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate patrol_desire &lt;- new_predicate("patrol") with_priority 1;
 predicate water_predicate &lt;- new_predicate("has water", true) with_priority 3;
 predicate no_water_predicate &lt;- new_predicate("has water", false) ;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The <strong>new_predicate()</strong> tool creates a predicate. It needs a name (string type) and it can contain a map of values, a priority (double type) or a truth value (boolean type).
 The <strong>with_priority</strong> tool add a priority to a predicate. The priority is used as an argument when the agent has to choose between two predicates (to choose an intention for example).</p>
 
 <h4 id="initialization">Initialization</h4>
 <p>The initialization consists in setting the attribute <strong>waterValue</strong> to 1 and to add one desire. Three optional parameters are also set. The first desire added in the desire base is the <strong>patrol_desire</strong> saying that the helicopter wants to patrol. The optional parameters are specific to the BDI plug-in. You can specify the commitment of an agent to his intentions and his plans with the variables intention_persistence and plan_persistence that are floats between 0.0 (no commitment) and 1.0. The variable probabilistic_choice is a boolean that enables the agent to use a probabilistic choice (when true) or a deterministic choice (when false) when trying to find a plan or an intention.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>waterValue &lt;-1.0;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>waterValue &lt;-1.0;
 do add_desire(patrol_desire);
 intention_persistence &lt;- 1.0;
 plan_persistence &lt;- 1.0;
 probabilistic_choice &lt;- false;	
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="perception">Perception</h4>
 <p>At each iteration, the helicopter has two perceptions to do. The first one is about itself. The helicopter needs to perceive if it has water or not. If it has water, it adds the belief corresponding belief and removes the belief that it does not have water. And if it does not have water, that is the contrary.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>perceive target:self{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>perceive target:self{
 	if(waterValue&gt;0){
 		do add_belief(water_predicate);
 		do remove_belief(no_water_predicate);
@@ -3578,38 +3574,34 @@ probabilistic_choice &lt;- false;
 		do remove_belief(water_predicate);
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The second perception is about the fires. Here, the fires are represented with the species <strong>fireArea</strong>. The helicopter has a radius of perception of 10 meters. If it perceives a fire, it will focus on the location of this fire. The <strong>focus</strong> tool create a belief with the same name as the focus (here, “fireLocation”) and will store the value of the focused variable (here, the variable location from the specie fireArea) with a priority of 10 in this example. Once the fire is perceived, the helicopter removes its intention of patrolling.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>perceive target:fireArea in: 10{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>perceive target:fireArea in: 10{
 	focus fireLocation var:location priority:10;
 	ask myself{
 		do remove_intention(patrol_desire, true);
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="rules">Rules</h4>
 <p>The agent can use rules to create desires from beliefs. In this example, the agent has two rules. The first <strong>rule</strong> is to have a desire corresponding to the belief of a location of a fire. It means that when the agent has the belief that there is a fire in a particular location, it will have the desire to extinguish it. This permits to have the location value in the desire base.
 The second rule is to create the desire to have water when the agent has the belief that it not has water.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rule belief: new_predicate("fireLocation") new_desire: get_belief_with_name("fireLocation");
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rule belief: new_predicate("fireLocation") new_desire: get_belief_with_name("fireLocation");
 rule belief: no_water_predicate new_desire: water_predicate;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="plan">Plan</h4>
 <h5 id="patrolling">Patrolling</h5>
 <p>This plan will be used when the agent has the intention to patrol.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plan patrolling intention: patrol_desire{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plan patrolling intention: patrol_desire{
   do wander;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h5 id="stopfire">stopFire</h5>
 <p>This plan is executed when the agent has the intention to extinguish a fire.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plan stopFire intention: new_predicate("fireLocation") {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plan stopFire intention: new_predicate("fireLocation") {
 	point target_fire &lt;- point(get_current_intention().values["location_value"] );
 	if(waterValue&gt;0){
 		if (self distance_to target_fire &lt;= 1) {
@@ -3636,50 +3628,45 @@ rule belief: no_water_predicate new_desire: water_predicate;
 		do current_intention_on_hold();
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h5 id="gototakewater">gotoTakeWater</h5>
 <p>This plan is executed when the agent has the intention to have water.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plan gotoTakeWater intention: water_predicate {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plan gotoTakeWater intention: water_predicate {
     	waterArea wa &lt;- first(waterArea);
         do goto target: wa);
     	if (self distance_to wa &lt;= 1) {
     		waterValue &lt;- waterValue + 2.0;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Plans can have other options. They can have a priority (with the facet priority), a boolean condition to start (with the facet when) or a boolean condition to stop (with the facet finished_when).</p>
 
 <h4 id="rest-of-the-code">Rest of the code</h4>
 <h5 id="aspect-of-the-helicopter">Aspect of the helicopter</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect base {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base {
 	draw circle(1) color: #black;	
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h5 id="firearea-species">FireArea Species</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code>species fireArea{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species fireArea{
         float size &lt;-1.0;	
 
         aspect base {
           draw circle(size) color: #red;
         }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h5 id="waterarea-species">WaterArea Species</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code>species waterArea{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species waterArea{
 	float size &lt;-10.0;
 
 	aspect base {
 	  draw circle(size) color: #blue;		
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

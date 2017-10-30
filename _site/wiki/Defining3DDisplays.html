@@ -3524,12 +3524,11 @@ function closeRightMenu() {
 
 <ul>
   <li>Define the attribute type of the display with <code class="highlighter-rouge">type:opengl</code> in the output of your model (or use the preferences-&gt;display windows to use it by default):
-    <div class="highlighter-rouge"><pre class="highlight"><code>output {
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
 display DisplayName type:opengl {
   species mySpecies;
 }
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -3545,7 +3544,7 @@ display DisplayName type:opengl {
 
 <p>Here is an example of display using all the previous facet (experiment factice to add to the model <em>Incremental Model 5</em>). You can also dynamically change those value by showing the side bar in the display.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment expe_test type:gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe_test type:gui {
 	output {
 		display city_display type: opengl{
 			species road aspect: geom refresh:false;
@@ -3555,8 +3554,7 @@ display DisplayName type:opengl {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="resources/images/definingGUIExperiment/species_layer.png" alt="images/species_layer.png" /></p>
 
@@ -3591,31 +3589,28 @@ The default value is (0,1,0)</p>
 <p><a href="https://code.google.com/p/gama-platform/source/browse/branches/GAMA_CURRENT/msi.gama.models/models/Features/3D Visualization/Toy Models/Boids 3D Camera movement.gaml">Boids 3D Camera movement</a></p>
 
 <h4 id="default-view">Default view</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>display RealBoids   type:opengl{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display RealBoids   type:opengl{
 ...		
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="first-person-view">First person view</h4>
 <p>You can set the position as a first person shooter video game using:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>display FirstPerson  type:opengl 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display FirstPerson  type:opengl 
 camera_pos:{boids(1).location.x,-boids(1).location.y,10} 
 camera_look_pos:{cos(boids(1).heading)*world.shape.width,-sin(boids(1).heading)*world.shape.height,0} 
 camera_up_vector:{0.0,0.0,1.0}{
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="third-person-view">Third Person view</h4>
 <p>You can follow an agent during a simulation by positioning the camera above it using:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>display ThirdPerson  type:opengl camera_pos:{boids(1).location.x,-boids(1).location.y,250}  camera_look_pos:{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display ThirdPerson  type:opengl camera_pos:{boids(1).location.x,-boids(1).location.y,250}  camera_look_pos:{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
 ...
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="lighting">Lighting</h2>
 
@@ -3637,11 +3632,10 @@ camera_up_vector:{0.0,0.0,1.0}{
 
 <p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=op56elmEEYs" target="_blank">&lt;img src=’http://img.youtube.com/vi/op56elmEEYs/0.jpg’ width=’425’ height=344 /&gt;</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>display View1  type:opengl draw_diffuse_light:true ambient_light:(0) diffuse_light:(255) diffuse_light_pos:{50+ 150*sin(time*2),50,150*cos(time*2){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display View1  type:opengl draw_diffuse_light:true ambient_light:(0) diffuse_light:(255) diffuse_light_pos:{50+ 150*sin(time*2),50,150*cos(time*2){
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3500,98 +3500,97 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model circle_model
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">circle_model</span>
 
-global { 
-	//Number of agents to create
-	int number_of_agents min: 1 &lt;- 50 ;
-	//Radius of the circle that the cells will make
-	int radius_of_circle min: 10 &lt;- 1000 ;
-	//Repulsion strength of one cell to the others
-	int repulsion_strength min: 1 &lt;- 5 ;
-	//Size of the environment
-	int width_and_height_of_environment min: 10 &lt;- 3000 ; 
-	//Range of the agents
-	int range_of_agents min: 1 &lt;- 25 ;
-	//Speed of the agents
-	float speed_of_agents min: 0.1  &lt;- 2.0 ; 
-	//Size of the agents
-	int size_of_agents &lt;- 100;
-	//Center of the considered circle created by the cells
-	point center const: true &lt;- {width_and_height_of_environment/2,width_and_height_of_environment/2};
-	geometry shape &lt;- square(width_and_height_of_environment);
-	init { 
-		//Creation of the cell agents
-		create cell number: number_of_agents;
-	}  
-}  
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">agents</span> <span class="k">to</span> <span class="nb">create</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="p">;</span>
+	<span class="p">//</span><span class="n">Radius</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">that</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">will</span> <span class="n">make</span>
+	<span class="n">int</span> <span class="n">radius_of_circle</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">1000</span> <span class="p">;</span>
+	<span class="p">//</span><span class="n">Repulsion</span> <span class="n">strength</span> <span class="k">of</span> <span class="n">one</span> <span class="n">cell</span> <span class="k">to</span> <span class="n">the</span> <span class="n">others</span>
+	<span class="n">int</span> <span class="n">repulsion_strength</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">3000</span> <span class="p">;</span> 
+	<span class="p">//</span><span class="k">Range</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">range_of_agents</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="p">;</span>
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">float</span> <span class="n">speed_of_agents</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span>  <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">;</span> 
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">size_of_agents</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">considered</span> <span class="n">circle</span> <span class="n">created</span> <span class="n">by</span> <span class="n">the</span> <span class="n">cells</span>
+	<span class="n">point</span> <span class="n">center</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_and_height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">width_and_height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">};</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
+	<span class="n">init</span> <span class="p">{</span> 
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">cell</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
+	<span class="p">}</span>  
+<span class="p">}</span>  
   
-//Species cell which represents the cell agents, using the skill moving
-species cell skills: [moving] {  
-	//Color of the cell, randomly chosen
-	rgb color const: true &lt;- [100 + rnd (155),100 + rnd (155), 100 + rnd (155)] as rgb;
-	//Size of the cell
-	float size const: true &lt;- float(size_of_agents);
-	//Range of the cell
-	float range const: true &lt;- float(range_of_agents); 
-	//Speed of the cell
-	float speed const: true &lt;- speed_of_agents;   
-	//Heading of the cell, the direction it 'watches'
-	int heading &lt;- rnd(359);
+<span class="p">//</span><span class="n">Species</span> <span class="n">cell</span> <span class="n">which</span> <span class="n">represents</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">agents</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
+<span class="n">species</span> <span class="n">cell</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>  
+	<span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span><span class="p">,</span> <span class="n">randomly</span> <span class="n">chosen</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">100</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="m">155</span><span class="p">),</span><span class="m">100</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="m">155</span><span class="p">),</span> <span class="m">100</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="m">155</span><span class="p">)]</span> <span class="k">as</span> <span class="n">rgb</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">size_of_agents</span><span class="p">);</span>
+	<span class="p">//</span><span class="k">Range</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="k">range</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">range_of_agents</span><span class="p">);</span> 
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">speed_of_agents</span><span class="p">;</span>   
+	<span class="p">//</span><span class="n">Heading</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span><span class="p">,</span> <span class="n">the</span> <span class="n">direction</span> <span class="n">it</span> <span class="s1">'watches'</span>
+	<span class="n">int</span> <span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">359</span><span class="p">);</span>
 	
-	//Reflex to make the cell agent fo to the center, calling the derivated action move
-	reflex go_to_center {
-		heading &lt;- (((self distance_to center) &gt; radius_of_circle) ? self towards center : (self towards center) - 180);
-		do move speed: speed; 
-	}
-	//Reflex to flee of the other cells agents, which will help to design the circle shape
-	reflex flee_others {
-		cell close &lt;- one_of ( ( (self neighbors_at range) of_species cell) sort_by (self distance_to each) );
-		if close != nil {
-			heading &lt;- (self towards close) - 180;
-			float dist &lt;- self distance_to close;
-			do move speed: dist / repulsion_strength heading: heading;
-		}
-	}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">agent</span> <span class="n">fo</span> <span class="k">to</span> <span class="n">the</span> <span class="n">center</span><span class="p">,</span> <span class="n">calling</span> <span class="n">the</span> <span class="n">derivated</span> <span class="n">action</span> <span class="n">move</span>
+	<span class="n">reflex</span> <span class="n">go_to_center</span> <span class="p">{</span>
+		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="p">(((</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">center</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">radius_of_circle</span><span class="p">)</span> <span class="p">?</span> <span class="n">self</span> <span class="n">towards</span> <span class="n">center</span> <span class="p">:</span> <span class="p">(</span><span class="n">self</span> <span class="n">towards</span> <span class="n">center</span><span class="p">)</span> <span class="p">-</span> <span class="m">180</span><span class="p">);</span>
+		<span class="k">do</span> <span class="n">move</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">flee</span> <span class="k">of</span> <span class="n">the</span> <span class="n">other</span> <span class="n">cells</span> <span class="n">agents</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">help</span> <span class="k">to</span> <span class="n">design</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">shape</span>
+	<span class="n">reflex</span> <span class="n">flee_others</span> <span class="p">{</span>
+		<span class="n">cell</span> <span class="n">close</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span> <span class="p">(</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="k">range</span><span class="p">)</span> <span class="n">of_species</span> <span class="n">cell</span><span class="p">)</span> <span class="n">sort_by</span> <span class="p">(</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">each</span><span class="p">)</span> <span class="p">);</span>
+		<span class="k">if</span> <span class="n">close</span> <span class="c1">!= nil {
+</span>			<span class="n">heading</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">towards</span> <span class="n">close</span><span class="p">)</span> <span class="p">-</span> <span class="m">180</span><span class="p">;</span>
+			<span class="n">float</span> <span class="n">dist</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">close</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">move</span> <span class="n">speed</span><span class="p">:</span> <span class="n">dist</span> <span class="p">/</span> <span class="n">repulsion_strength</span> <span class="n">heading</span><span class="p">:</span> <span class="n">heading</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	aspect default { 
-		draw circle(size)  color: color;
-	}
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment main type: gui {
-	parameter 'Number of Agents' var: number_of_agents;
-	parameter 'Radius of Circle' var: radius_of_circle; 
-	parameter 'Strength of Repulsion' var: repulsion_strength; 
-	parameter 'Dimensions' var: width_and_height_of_environment;
-	parameter 'Range of Agents' var: range_of_agents;
-	parameter 'Speed of Agents' var: speed_of_agents ; 
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s1">'Number of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Radius of Circle'</span> <span class="n">var</span><span class="p">:</span> <span class="n">radius_of_circle</span><span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Strength of Repulsion'</span> <span class="n">var</span><span class="p">:</span> <span class="n">repulsion_strength</span><span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Dimensions'</span> <span class="n">var</span><span class="p">:</span> <span class="n">width_and_height_of_environment</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Range of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">range_of_agents</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Speed of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">speed_of_agents</span> <span class="p">;</span> 
 	
-	output {
-		display Circle {
-			species cell;
-		}
-	}
-}
-experiment main2 type: gui  {
-	parameter "Size of Agents" var: size_of_agents &lt;- 100;
-	parameter 'Number of Agents' var: number_of_agents &lt;- 300;
-	parameter 'Radius of Circle' var: radius_of_circle min: 10 &lt;- 15000;
-	parameter 'Strength of Repulsion' var: repulsion_strength min: 1 &lt;- 50;
-	parameter 'Dimensions' var: width_and_height_of_environment  min: 10 &lt;- 40000;
-	parameter 'Range of Agents' var: range_of_agents min: 1 &lt;- 250;
-	parameter 'Speed of Agents' var: speed_of_agents min: 0.1 &lt;- 100.0 ;
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Circle</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">cell</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">main2</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>  <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Size of Agents"</span> <span class="n">var</span><span class="p">:</span> <span class="n">size_of_agents</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Number of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">300</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Radius of Circle'</span> <span class="n">var</span><span class="p">:</span> <span class="n">radius_of_circle</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">15000</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Strength of Repulsion'</span> <span class="n">var</span><span class="p">:</span> <span class="n">repulsion_strength</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Dimensions'</span> <span class="n">var</span><span class="p">:</span> <span class="n">width_and_height_of_environment</span>  <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">40000</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Range of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">range_of_agents</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">250</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Speed of Agents'</span> <span class="n">var</span><span class="p">:</span> <span class="n">speed_of_agents</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="p">;</span>
 
-	output {
-		display Circle  {
-			species cell;
-		}
-	}
-}
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Circle</span>  <span class="p">{</span>
+			<span class="n">species</span> <span class="n">cell</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

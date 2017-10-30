@@ -3509,9 +3509,8 @@ function closeRightMenu() {
 
 <p>Definition of a monitor:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>monitor monitor_name value: an_expression refresh:boolean_statement;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monitor monitor_name value: an_expression refresh:boolean_statement;
+</code></pre></div></div>
 
 <p>with:</p>
 <ul>
@@ -3521,13 +3520,12 @@ function closeRightMenu() {
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_experiment type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
 	output {
 		monitor monitor_name value: cycle refresh:every(1);
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>NB : you can also declare monitors during the simulation, by clicking on the button “Add new monitor”, and specifying the name of the variable you want to follow.</p>
 
@@ -3537,9 +3535,8 @@ function closeRightMenu() {
 
 <p>Use the statement <code class="highlighter-rouge">inspect</code> to define your inspector, in the output scope of your gui experiment. The inspector has to be named (using the facet <code class="highlighter-rouge">name</code>), a value has to be specified (with the <code class="highlighter-rouge">value</code> facet).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>inspect name:"inspector_name" value:the_value_you_want_to_display;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inspect name:"inspector_name" value:the_value_you_want_to_display;
+</code></pre></div></div>
 
 <p>Note that you can inspect any type of species (regular species, grid species, even the world…).</p>
 
@@ -3555,33 +3552,32 @@ function closeRightMenu() {
 
 <p>Example of implementation :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model new
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">new</span>
 
-global {
-	init {
-		create my_species number:3;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">3</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species my_species {
-	int int_attr &lt;- 6;
-	string str_attr &lt;- "my_value";
-	string str_attr_not_important &lt;- "blabla";
-}
+<span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">int_attr</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">str_attr</span> <span class="p">&lt;-</span> <span class="s2">"my_value"</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">str_attr_not_important</span> <span class="p">&lt;-</span> <span class="s2">"blabla"</span><span class="p">;</span>
+<span class="p">}</span>
 
-grid my_grid_species width: 10 height: 10 {
-	int rnd_value &lt;- rnd(5);
-}
+<span class="n">grid</span> <span class="n">my_grid_species</span> <span class="n">width</span><span class="p">:</span> <span class="m">10</span> <span class="n">height</span><span class="p">:</span> <span class="m">10</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">rnd_value</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+<span class="p">}</span>
 
-experiment my_experiment type:gui {
-	output {
-		inspect name:"my_species_inspector" value:my_species attributes:["int_attr","str_attr"];
-		inspect name:"my_species_browser" value:my_species type:table;
-		inspect name:"my_grid_species_browser" value:5 among my_grid_species type:table;
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_inspector"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">attributes</span><span class="p">:[</span><span class="s2">"int_attr"</span><span class="p">,</span><span class="s2">"str_attr"</span><span class="p">];</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_grid_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="m">5</span> <span class="n">among</span> <span class="n">my_grid_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Another statement, <code class="highlighter-rouge">browse</code>, is doing a similar thing, but preferring the <em>table</em> type (if you want to browse an agent species, the default type will be the <em>table</em> type).
 <a href="# (keyword|statement_inspector)">//</a>: # (endConcept|monitors_and_inspectors)</p>

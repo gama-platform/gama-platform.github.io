@@ -3511,21 +3511,19 @@ In the global species you can define the attributes, actions and behaviors that 
 
 <p>A GAMA model contains a unique global section that defines the global species.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	// definition of global attributes, actions, behaviours
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">global</code> can use facets, such as the <code class="highlighter-rouge">torus</code> facet, to make the environment a torus or not (if it is a torus, all the agents going out of the environment will appear in the other side. If it’s not, the agents won’t be able to go out of the environment). By default, the environment is not a torus.</p>
 
 <p><img src="resources/images/manipulateBasicSpecies/torus.png" alt="images/torus.png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global torus:true {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global torus:true {
 	// definition of global attributes, actions, behaviours
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Other facets such as <code class="highlighter-rouge">control</code> or <code class="highlighter-rouge">schedules</code> are also available, but we will explain them later.</p>
 
@@ -3535,11 +3533,10 @@ In the global species you can define the attributes, actions and behaviors that 
 
 <p>In the global context, you have to define a size and a shape for your environment. In fact, an attribute already exists for the global species: it’s called shape, and its type is a geometry. By default, shape is equal to a 100m*100m square. You can change the geometry of the shape by affecting another value:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry shape &lt;- circle(50#mm);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry shape &lt;- circle(50#mm);
 geometry shape &lt;- rectangle(10#m,20#m);
 geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>nb: there are just examples. Try to avoid mixing dimensions! If no dimensions are specify, it’ll be meter by default.</p>
 
@@ -3568,26 +3565,24 @@ geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
 
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 ...
     float step &lt;- 10°h;
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="time">time</h3>
 <ul>
   <li>float, read-only, represents the current simulated time in seconds (the default unit). It is time in the model time. Begins at zero. Basically, we have:   <strong>time = cycle <code class="highlighter-rouge">*</code> step</strong>  .</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 ...
     int nb_minutes function: { int(time / 60)};
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
 
@@ -3616,19 +3611,17 @@ geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
   <li>list, read-only, returns a list of all the agents of the model that are considered as “active” (i.e. all the agents with behaviors, excluding the places). Note that obtaining this list can be quite time consuming, as the world has to go through all the species and get their agents before assembling the result. For instance, instead of writing something like:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask agents of_species my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agents of_species my_species {
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>one would prefer to write (which is much faster):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask my_species {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask my_species {
 ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Note that any agent has the <code class="highlighter-rouge">agents</code> attribute, representing the agents it contains. So to get all the agents of the simulation, we need to access the <code class="highlighter-rouge">agents</code> of the world using: <code class="highlighter-rouge">world.agents</code>.</p>
 
 <h2 id="built-in-actions">Built-in Actions</h2>
@@ -3639,28 +3632,26 @@ geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
   <li>stops the simulation.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
      ...
      reflex halting when: empty (agents) {
             do halt;
      }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="pause">pause</h3>
 <ul>
   <li>pauses the simulation, which can then be continued by the user.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
      ...
      reflex toto when: time = 100 {
             do pause;
      }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="the-init-statement">The init statement</h2>
 

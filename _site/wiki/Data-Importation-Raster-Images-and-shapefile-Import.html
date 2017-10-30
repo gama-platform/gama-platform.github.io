@@ -3500,109 +3500,108 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model RasterAndShapefiles
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">RasterAndShapefiles</span>
 
 
  
-global {
-	// Constants
-	int heightImg const: true &lt;- 5587;
-	int widthImg const: true &lt;- 6201;	
-	file boundsMNT const: true &lt;- file("../images/mnt/boundsMNT.shp"); 
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="n">Constants</span>
+	<span class="n">int</span> <span class="n">heightImg</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="m">5587</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">widthImg</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="m">6201</span><span class="p">;</span>	
+	<span class="n">file</span> <span class="n">boundsMNT</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../images/mnt/boundsMNT.shp"</span><span class="p">);</span> 
 	
 	
-// The environment bounds are defined using the hand-made boundsMNT shapefile.
-// This shapefile has been created as a georeferenced bounding box of the MNT raster image, using information of the .pgw file
-	geometry shape &lt;- envelope(boundsMNT);
+<span class="p">//</span> <span class="n">The</span> <span class="n">environment</span> <span class="n">bounds</span> <span class="n">are</span> <span class="n">defined</span> <span class="n">using</span> <span class="n">the</span> <span class="n">hand</span><span class="p">-</span><span class="n">made</span> <span class="n">boundsMNT</span> <span class="n">shapefile</span><span class="p">.</span>
+<span class="p">//</span> <span class="n">This</span> <span class="n">shapefile</span> <span class="n">has</span> <span class="n">been</span> <span class="n">created</span> <span class="k">as</span> <span class="n">a</span> <span class="n">georeferenced</span> <span class="n">bounding</span> <span class="n">box</span> <span class="k">of</span> <span class="n">the</span> <span class="n">MNT</span> <span class="n">raster</span> <span class="n">image</span><span class="p">,</span> <span class="n">using</span> <span class="n">information</span> <span class="k">of</span> <span class="n">the</span> <span class="p">.</span><span class="n">pgw</span> <span class="n">file</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsMNT</span><span class="p">);</span>
 	
-	// Global variables related to the MNT
-	file mntImageRaster &lt;- image_file('../images/mnt/testAG.jpg') ;
-	int factorDiscret  &lt;- 10;
+	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span> <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">MNT</span>
+	<span class="n">file</span> <span class="n">mntImageRaster</span> <span class="p">&lt;-</span> <span class="n">image_file</span><span class="p">(</span><span class="s1">'../images/mnt/testAG.jpg'</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">factorDiscret</span>  <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
 	
-	// Global variables  related to the Management units	
-	file ManagementUnitShape &lt;- file('../images/ug/UGSelect.shp');
+	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span>  <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Management</span> <span class="n">units</span>	
+	<span class="n">file</span> <span class="n">ManagementUnitShape</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../images/ug/UGSelect.shp'</span><span class="p">);</span>
 	
-	// Global variables  related to the water network
-	file waterShape &lt;- file('../images/reseauHydro/reseauEau.shp');
+	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span>  <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">water</span> <span class="n">network</span>
+	<span class="n">file</span> <span class="n">waterShape</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../images/reseauHydro/reseauEau.shp'</span><span class="p">);</span>
 
-	// Global variables  related to izard agents
-	int nbIzard &lt;- 25 ;
-	file izardShape &lt;-file('../images/icons/izard.gif') ;
+	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span>  <span class="n">related</span> <span class="k">to</span> <span class="n">izard</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">nbIzard</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">izardShape</span> <span class="p">&lt;-</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/icons/izard.gif'</span><span class="p">)</span> <span class="p">;</span>
 		
-	// Initialization of grid and creation of the izard agents.
-	// Creation of managmentUnit and rivers agents from the corresponding shapefile
-	init {
-		create managementUnit from: ManagementUnitShape 
-				with: [MUcode::int(read('Code_UG')), MULabel::string(read('Libelle_UG')), pgeSAGE::string(read('PGE_SAGE'))] ;
+	<span class="p">//</span> <span class="n">Initialization</span> <span class="k">of</span> <span class="n">grid</span> <span class="k">and</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">izard</span> <span class="n">agents</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">Creation</span> <span class="k">of</span> <span class="n">managmentUnit</span> <span class="k">and</span> <span class="n">rivers</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">shapefile</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">managementUnit</span> <span class="k">from</span><span class="p">:</span> <span class="n">ManagementUnitShape</span> 
+				<span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">MUcode</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'Code_UG'</span><span class="p">)),</span> <span class="n">MULabel</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'Libelle_UG'</span><span class="p">)),</span> <span class="n">pgeSAGE</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'PGE_SAGE'</span><span class="p">))]</span> <span class="p">;</span>
 				
-		create river from: waterShape;
+		<span class="nb">create</span> <span class="n">river</span> <span class="k">from</span><span class="p">:</span> <span class="n">waterShape</span><span class="p">;</span>
 				
-		matrix&lt;int&gt; mapColor &lt;- matrix&lt;int&gt;(mntImageRaster as_matrix {widthImg/factorDiscret,heightImg/factorDiscret}) ;
-		ask cell {		
-			color &lt;- rgb( mapColor at {grid_x,grid_y} );
-		}
-		create izard number: nbIzard; 			
-    }
-}
+		<span class="n">matrix</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">mapColor</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;(</span><span class="n">mntImageRaster</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">widthImg</span><span class="p">/</span><span class="n">factorDiscret</span><span class="p">,</span><span class="n">heightImg</span><span class="p">/</span><span class="n">factorDiscret</span><span class="p">})</span> <span class="p">;</span>
+		<span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>		
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span> <span class="n">mapColor</span> <span class="n">at</span> <span class="p">{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">}</span> <span class="p">);</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">izard</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbIzard</span><span class="p">;</span> 			
+    <span class="p">}</span>
+<span class="p">}</span>
 
-species river {
-	aspect default{
-		draw shape color: #blue;
-	}	
-}
+<span class="n">species</span> <span class="n">river</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
 
-species managementUnit{
-	int MUcode;
-	string MULabel;
-	string pgeSAGE;
+<span class="n">species</span> <span class="n">managementUnit</span><span class="p">{</span>
+	<span class="n">int</span> <span class="n">MUcode</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">MULabel</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">pgeSAGE</span><span class="p">;</span>
 	
-	aspect default{
-		draw shape;
-	}
-}	
-species izard {	
-	init{
-		location &lt;- (shuffle(cell) first_with ((each.color != #white) and (empty(izard inside each)))).location ;
-	}	
-	aspect default{
-		draw square(5000) color: #orange;
-	}
-	aspect image{
-		draw izardShape size: 5000;
-	}
-}	
+	<span class="n">aspect</span> <span class="n">default</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>	
+<span class="n">species</span> <span class="n">izard</span> <span class="p">{</span>	
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shuffle</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">color</span> <span class="c1">!= #white) and (empty(izard inside each)))).location ;
+</span>	<span class="p">}</span>	
+	<span class="n">aspect</span> <span class="n">default</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">5000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">orange</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">image</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">izardShape</span> <span class="n">size</span><span class="p">:</span> <span class="m">5000</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>	
 
-// We create a grid as environment with the same dimensions as the matrix in which we want to store the image
+<span class="p">//</span> <span class="n">We</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">grid</span> <span class="k">as</span> <span class="n">environment</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">dimensions</span> <span class="k">as</span> <span class="n">the</span> <span class="n">matrix</span> <span class="k">in</span> <span class="n">which</span> <span class="n">we</span> <span class="n">want</span> <span class="k">to</span> <span class="n">store</span> <span class="n">the</span> <span class="n">image</span>
 
-grid cell width: widthImg/factorDiscret height: heightImg/factorDiscret;
+<span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="n">widthImg</span><span class="p">/</span><span class="n">factorDiscret</span> <span class="n">height</span><span class="p">:</span> <span class="n">heightImg</span><span class="p">/</span><span class="n">factorDiscret</span><span class="p">;</span>
 
 
 
-experiment main type: gui {
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 	
-	// We display:
-	// - the original MNT image as background
-	// - the grid representing the MNT
-	// - izard agents
-	// - the management unit shapefile
-	// - the river shapefile
-	// We can thus compare the original MNT image and the discretized image in the grid.
-	// For cosmetic need, we can choose to not display the grid. 
-	output {
-		display HowToImportVectorial {
-	        image 'Background' file: mntImageRaster.path;  		
-	       	grid cell;
-	 		species managementUnit transparency: 0.5;
-	 		species river ;
-	 		species izard aspect: image;  
-		}
-	}
-}
+	<span class="p">//</span> <span class="n">We</span> <span class="n">display</span><span class="p">:</span>
+	<span class="p">//</span> <span class="p">-</span> <span class="n">the</span> <span class="n">original</span> <span class="n">MNT</span> <span class="n">image</span> <span class="k">as</span> <span class="n">background</span>
+	<span class="p">//</span> <span class="p">-</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">MNT</span>
+	<span class="p">//</span> <span class="p">-</span> <span class="n">izard</span> <span class="n">agents</span>
+	<span class="p">//</span> <span class="p">-</span> <span class="n">the</span> <span class="n">management</span> <span class="n">unit</span> <span class="n">shapefile</span>
+	<span class="p">//</span> <span class="p">-</span> <span class="n">the</span> <span class="n">river</span> <span class="n">shapefile</span>
+	<span class="p">//</span> <span class="n">We</span> <span class="n">can</span> <span class="n">thus</span> <span class="n">compare</span> <span class="n">the</span> <span class="n">original</span> <span class="n">MNT</span> <span class="n">image</span> <span class="k">and</span> <span class="n">the</span> <span class="n">discretized</span> <span class="n">image</span> <span class="k">in</span> <span class="n">the</span> <span class="n">grid</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">For</span> <span class="n">cosmetic</span> <span class="n">need</span><span class="p">,</span> <span class="n">we</span> <span class="n">can</span> <span class="n">choose</span> <span class="k">to</span> <span class="k">not</span> <span class="n">display</span> <span class="n">the</span> <span class="n">grid</span><span class="p">.</span> 
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">HowToImportVectorial</span> <span class="p">{</span>
+	        <span class="n">image</span> <span class="s1">'Background'</span> <span class="n">file</span><span class="p">:</span> <span class="n">mntImageRaster</span><span class="p">.</span><span class="n">path</span><span class="p">;</span>  		
+	       	<span class="n">grid</span> <span class="n">cell</span><span class="p">;</span>
+	 		<span class="n">species</span> <span class="n">managementUnit</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">;</span>
+	 		<span class="n">species</span> <span class="n">river</span> <span class="p">;</span>
+	 		<span class="n">species</span> <span class="n">izard</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">image</span><span class="p">;</span>  
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

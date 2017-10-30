@@ -3510,7 +3510,7 @@ For each of these species, we define a new attribute: <strong>color</strong> of 
 Concerning the <strong>building</strong> agent, we define a second attribute named <strong>type</strong> representing the type of the building (“Residential” or “Industrial”).
 At last, we define an aspect for these species. In this model, we want to represent the geometry of the agent, we then use the keyword <strong>draw</strong> that allow to draw a given geometry. In order to draw the geometry of the agent we use the attribute <strong>shape</strong> (which is a built-in attribute of all agents).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species building {
 	string type; 
 	rgb color &lt;- #gray  ;
 	
@@ -3526,36 +3526,33 @@ species road  {
 		draw shape color: color ;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="parameters">parameters</h3>
 <p>GAMA allows to automatically read GIS data that are formatted as shapefiles. In order to let the user chooses his/her shapefiles, we define three parameters. One allowing the user to choose the road shapefile, one allowing him/her to choose the building shapefile, and, at last, one allowing him/her to choose the bounds shapefile. We will come back later on the notion of “bounds” in GAMA.</p>
 
 <p>Definition of the three global variables of type <em>file</em> concerning the GIS files:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    file shape_file_buildings &lt;- file("../includes/building.shp");
    file shape_file_roads &lt;- file("../includes/road.shp");
    file shape_file_bounds &lt;- file("../includes/bounds.shp");
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In the experiment section, we add three parameters to allow the user to change the shapefile used directly through the UI:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment road_traffic type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment road_traffic type: gui {
    parameter "Shapefile for the buildings:" var: shape_file_buildings category: "GIS" ;
    parameter "Shapefile for the roads:" var: shape_file_roads category: "GIS" ;
    parameter "Shapefile for the bounds:" var: shape_file_bounds category: "GIS" ;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="agentification-of-gis-data">agentification of GIS data</h3>
 
 <p>In GAMA, the agentification of GIS data is very straightforward: it only requires to use the <strong>create</strong> command with the <strong>from</strong> facet to pass the shapefile. Each object of the shapefile will be directly used to instantiate an agent of the specified species. The reading of an attribute in a shapefile is also very simple. It only requires to use the <strong>with</strong> facet: the argument of this facet is a dictionary of which the keys are the names of the agent attributes and the value the <strong>read</strong> command followed by the name of the shapefile attribute (“NATURE” in our case).</p>
 
 <p>Init section of the global block: creation of the road and building agents from the shape files. Concerning the <strong>building</strong> agents, reading of the “NATURE” attribute of the shapefile to initiate the value of the <strong>type</strong> attribute. If the <strong>type</strong> attribute is equal to “Industrial” set the <strong>color</strong> attribute to “blue”.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
   ...
   init {
    create building from: shape_file_buildings with: [type::read ("NATURE")] {
@@ -3565,96 +3562,91 @@ species road  {
    }
    create road from: shape_file_roads ;
   } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="time-step">time step</h3>
 <p>In GAMA, by default, a time step represents 1 second. It is possible to redefine this value by overriding the <strong>step</strong> global variable. This value of the time step is used by the moving primitives of GAMA.</p>
 
 <p>In our model, we define that a step represent 10 minutes. Note that it is possible to define the unit of a value by using <em>#</em> + unit name. For instance, #mn or #km for kilometers.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
   ...
   float step &lt;- 10 #mn;
   ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="environment">environment</h3>
 <p>Building a GIS environment in GAMA requires nothing special, just to define the bounds of the environment, i.e. the geometry of the world agent. It is possible to use a shapefile to automatically define it by computing its envelope. In this model, we use a specific shapefile to define it. However, it would been possible to use the road shapefile to define it and let GAMA computes it enveloppe automatically.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
   ...
   geometry shape &lt;- envelope(shape_file_bounds); 
   ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="display">display</h3>
 <p>We define a display to visualize the road and building agents. We use for that the classic <strong>species</strong> keyword. In order to optimize the display we use an opengl display (facet <strong>type: opengl</strong>).</p>
 
 <p>In the <strong>experiment</strong> block:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
    display city_display type:opengl {
       species building aspect: base ;
       species road aspect: base ;
    }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model tutorial_gis_city_traffic
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">tutorial_gis_city_traffic</span>
 
-global {
-	file shape_file_buildings &lt;- file("../includes/building.shp");
-	file shape_file_roads &lt;- file("../includes/road.shp");
-	file shape_file_bounds &lt;- file("../includes/bounds.shp");
-	geometry shape &lt;- envelope(shape_file_bounds);
-	float step &lt;- 10 #mn;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_roads</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/bounds.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
 	
-	init {
-		create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
-			if type="Industrial" {
-				color &lt;- #blue ;
-			}
-		}
-		create road from: shape_file_roads ;
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))]</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span> <span class="p">{</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species building {
-	string type; 
-	rgb color &lt;- #gray  ;
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">gray</span>  <span class="p">;</span>
 	
-	aspect base {
-		draw shape color: color ;
-	}
-}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species road  {
-	rgb color &lt;- #black ;
-	aspect base {
-		draw shape color: color ;
-	}
-}
+<span class="n">species</span> <span class="n">road</span>  <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment road_traffic type: gui {
-	parameter "Shapefile for the buildings:" var: shape_file_buildings category: "GIS" ;
-	parameter "Shapefile for the roads:" var: shape_file_roads category: "GIS" ;
-	parameter "Shapefile for the bounds:" var: shape_file_bounds category: "GIS" ;
+<span class="n">experiment</span> <span class="n">road_traffic</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_bounds</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
 	
-	output {
-		display city_display type:opengl {
-			species building aspect: base ;
-			species road aspect: base ;
-		}
-	}
-}
-</code></pre>
-</div>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

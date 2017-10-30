@@ -3500,121 +3500,120 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
 
-model graph3D
+<span class="k">model</span> <span class="n">graph3D</span>
 
-global {
-	int number_of_agents parameter: 'Number of Agents' min: 1 &lt;- 200 category: 'Initialization';
-	int width_and_height_of_environment parameter: 'Dimensions' min: 100 &lt;- 500 category: 'Initialization';
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="k">min</span><span class="p">:</span> <span class="m">100</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
 	
-	//Distance to know if a sphere is adjacent or not with an other
-	int distance parameter: 'distance ' min: 1 &lt;- 100;
-	
-	
-	int degreeMax &lt;- 1;
-	geometry shape &lt;- cube(width_and_height_of_environment);
+	<span class="p">//</span><span class="n">Distance</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">a</span> <span class="n">sphere</span> <span class="n">is</span> <span class="n">adjacent</span> <span class="k">or</span> <span class="k">not</span> <span class="k">with</span> <span class="n">an</span> <span class="n">other</span>
+	<span class="n">int</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'distance '</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
 	
 	
-	graph my_graph;
-	init {
+	<span class="n">int</span> <span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
+	
+	
+	<span class="n">graph</span> <span class="n">my_graph</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
 		
-		//creation of the node agent ie the spheres with a random location in the environment
-		create node_agent number: number_of_agents {
-			location &lt;- { rnd(width_and_height_of_environment), rnd(width_and_height_of_environment), rnd(width_and_height_of_environment) };
-		}
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">node</span> <span class="n">agent</span> <span class="n">ie</span> <span class="n">the</span> <span class="n">spheres</span> <span class="k">with</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">location</span> <span class="k">in</span> <span class="n">the</span> <span class="n">environment</span>
+		<span class="nb">create</span> <span class="n">node_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">)</span> <span class="p">};</span>
+		<span class="p">}</span>
 		
-		do degreeMax_computation;
+		<span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
 		
-		ask node_agent {
-			do compute_degree;
-		}
-	}
+		<span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex updateDegreeMax {
-		do degreeMax_computation;
-	}
+	<span class="n">reflex</span> <span class="n">updateDegreeMax</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	action degreeMax_computation {
-		my_graph &lt;- node_agent as_distance_graph(distance);
-		degreeMax &lt;- 1;
-		ask node_agent {
-			if ((my_graph) degree_of (self) &gt; degreeMax) {
-				degreeMax &lt;- (my_graph) degree_of (self);
-			}
-		}
-	}
-}
+	<span class="n">action</span> <span class="n">degreeMax_computation</span> <span class="p">{</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">node_agent</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
+		<span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">((</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">degreeMax</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species node_agent skills: [moving3D] {
-	int degree;
-	float radius;
-	rgb color ;
-	float speed &lt;- 5.0;
-	reflex move {
-		//make the agent move randomly
-		do wander;
-		//compute the degree of the agent
-		do compute_degree;
-	}
+<span class="n">species</span> <span class="n">node_agent</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">degree</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">radius</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">randomly</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">degree</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+		<span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
+	<span class="p">}</span>
 	
 	
-	action compute_degree {
-		degree &lt;- my_graph = nil ? 0 : (my_graph) degree_of (self);
-		radius &lt;- ((((degree + 1) ^ 1.4) / (degreeMax))) * 5;
-		color &lt;- hsb(0.66,degree / (degreeMax + 1), 0.5);
-	}
+	<span class="n">action</span> <span class="n">compute_degree</span> <span class="p">{</span>
+		<span class="n">degree</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
+		<span class="n">radius</span> <span class="p">&lt;-</span> <span class="p">((((</span><span class="n">degree</span> <span class="p">+</span> <span class="m">1</span><span class="p">)</span> <span class="p">^</span> <span class="m">1.4</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span><span class="p">)))</span> <span class="p">*</span> <span class="m">5</span><span class="p">;</span>
+		<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="m">0.66</span><span class="p">,</span><span class="n">degree</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span> <span class="p">+</span> <span class="m">1</span><span class="p">),</span> <span class="m">0.5</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    aspect base {
-		draw sphere(10) color:°black;
-	}
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	aspect dynamic {
-		draw sphere(radius) color: color;
-	}
+	<span class="n">aspect</span> <span class="k">dynamic</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment Display type: gui {
-	output {
-		display WanderingSphere type: opengl { 
-			species node_agent aspect: dynamic;
-			graphics "edges" {
-				//Creation of the edges of adjacence
-				if (my_graph != nil) {
-					loop eg over: my_graph.edges {
-						geometry edge_geom &lt;- geometry(eg);
-						float val &lt;- 255 * edge_geom.perimeter / distance; 
-						draw line(edge_geom.points, 0.5)  color: rgb(val,val,val);
-					}
-				}
+<span class="n">experiment</span> <span class="n">Display</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">dynamic</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
+				<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">adjacence</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
+</span>					<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+						<span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
+						<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
+						<span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span>  <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">);</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
 				
-			}
-		}
-	}
-}
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment SimpleDisplay type: gui {
-	output {
-		display WanderingSphere type: opengl { 
-			species node_agent aspect: base;
-			graphics "edges" {
-				if (my_graph != nil) {
-					loop eg over: my_graph.edges {
-						geometry edge_geom &lt;- geometry(eg);
-						float val &lt;- 255 * edge_geom.perimeter / distance; 
-						draw line(edge_geom.points) color:°black;
-					}
-				}
+<span class="n">experiment</span> <span class="n">SimpleDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
+</span>					<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+						<span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
+						<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
+						<span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
 				
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

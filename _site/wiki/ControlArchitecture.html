@@ -3501,10 +3501,9 @@ function closeRightMenu() {
 <p>The attachment of a control architecture to a species is done through the facets <code class="highlighter-rouge">control</code>.</p>
 
 <p>For example, the given code allows to attach the <code class="highlighter-rouge">fsm</code> control architecture to the dummy species.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: fsm {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: fsm {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>GAMA integrates several agent control architectures that can be used in addition to the common behavior structure:</p>
 
@@ -3561,11 +3560,10 @@ function closeRightMenu() {
 
 <p>Using the FSM architecture for a species require to use the <strong>control</strong> facet:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: fsm {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: fsm {
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="state">State</h3>
 
@@ -3600,7 +3598,7 @@ function closeRightMenu() {
 
 <p>For example, consider the following example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: fsm {       
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: fsm {       
 	state state1 initial: true { 
 		write string(cycle) + ":" + name + "-&gt;" + "state1";
 		transition to: state2 when: flip(0.5) {
@@ -3627,14 +3625,13 @@ function closeRightMenu() {
 		transition to: state2 when: flip(0.2)  ;
 	}   
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>the dummy agents start at <em>state1</em>. At each simulation step they have a probability of 0.5 to change their state to <em>state2</em>. If they do not change their state to <em>state2</em>, they have a probability of 0.2 to change their state to <em>state3</em>. In <em>state2</em>, at each simulation step, they have a probability of 0.5 to change their state to <em>state1</em>. At last, in <em>step3</em>, at each simulation step they have a probability of 0.5 to change their state to <em>state1</em>. If they do not change their state to <em>state1</em>, they have a probability of 0.2 to change their state to <em>state2</em>.</p>
 
 <p>Here a possible result that can be obtained with one dummy agent:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>0:dummy0-&gt;state1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0:dummy0-&gt;state1
 0:dummy0-&gt;transition to state1
 1:dummy0-&gt;state2
 2:dummy0-&gt;state2
@@ -3649,8 +3646,7 @@ function closeRightMenu() {
 6:dummy0-&gt;state1
 7:dummy0-&gt;state3
 8:dummy0-&gt;state2
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="task-based">Task Based</h2>
 
@@ -3666,23 +3662,20 @@ function closeRightMenu() {
 
 <p>Using the Task architectures for a species require to use the <strong>control</strong> facet:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: weighted_tasks {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: weighted_tasks {
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: sorted_tasks {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: sorted_tasks {
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: probabilistic_tasks {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: probabilistic_tasks {
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="task">Task</h3>
 
@@ -3696,7 +3689,7 @@ function closeRightMenu() {
 <p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
 
 <p>For example, consider the following example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species dummy control: weighted_tasks {   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species dummy control: weighted_tasks {   
 	task task1 weight: cycle mod 3 { 
 		write string(cycle) + ":" + name + "-&gt;" + "task1";
 	}
@@ -3704,32 +3697,29 @@ function closeRightMenu() {
 		write string(cycle) + ":" + name + "-&gt;" + "task2";
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As the <strong>weighted_tasks</strong> control architecture was chosen, at each simulation step, the dummy agents execute only the task with the highest behavior. Thus,  when <em>cycle modulo 3</em> is higher to 2, task1 is executed; when <em>cycle modulo 3</em> is lower than 2, task2 is executed. In case when <em>cycle modulo 3</em> is equal 2 (at cycle 2, 5, …), the only the first task defined (here task1) is executed.</p>
 
 <p>Here the result obtained with one dummy agent:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>0:dummy0-&gt;task2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0:dummy0-&gt;task2
 1:dummy0-&gt;task2
 2:dummy0-&gt;task1
 3:dummy0-&gt;task2
 4:dummy0-&gt;task2
 5:dummy0-&gt;task1
 6:dummy0-&gt;task2
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="user-control-architecture">User Control Architecture</h2>
 
 <h3 id="user_only-user_first-user_last">user_only, user_first, user_last</h3>
 
 <p>A specific type of control architecture has been introduced to allow users to take control over an agent during the course of the simulation. It can be invoked using three different keywords: <code class="highlighter-rouge">user_only</code>, <code class="highlighter-rouge">user_first</code>, <code class="highlighter-rouge">user_last</code>.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species user control: user_only {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species user control: user_only {
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If the control chosen is <code class="highlighter-rouge">user_first</code>, it means that the user controlled panel is opened first, and then the agent has a chance to run its “own” behaviors (reflexes, essentially, or “init” in the case of a “user_init” panel).
 If the control chosen is <code class="highlighter-rouge">user_last</code>, it is the contrary.</p>
@@ -3750,7 +3740,7 @@ If the control chosen is <code class="highlighter-rouge">user_last</code>, it is
 
 <p>Follows a simple example, where, every 10 steps, and depending on the value of an attribute called “advanced”, either the basic or the advanced panel is proposed.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species user control:user_only {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species user control:user_only {
    user_panel default initial: true {
       transition to: "Basic Control" when: every (10) and !advanced_user_control;
       transition to: "Advanced Control" when: every(10) and advanced_user_control;
@@ -3781,8 +3771,7 @@ If the control chosen is <code class="highlighter-rouge">user_last</code>, it is
       transition to: default when: true;
    }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The panel marked with the “<em>initial: true</em>” facet will be the one run first when the agent is supposed to run. If none is marked, the first panel (in their definition order) is chosen.</p>
 

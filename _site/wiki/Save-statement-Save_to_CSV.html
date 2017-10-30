@@ -3500,55 +3500,54 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SavetoCSV
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SavetoCSV</span>
 
-global {
-	init {
-		//Create all the agents
-		create bug number: 50;
-	}
-	//Save the agents bug when the cycle is equals to 100
-	reflex save_bug_attribute when: cycle = 100{
-		ask bug {
-			// save the values of the variables name, speed and size to the csv file
-			save [name,speed, size] to: "../results/bug.csv" type:"csv";
-		}
-		//Pause the model as the data are saved
-		do pause;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">all</span> <span class="n">the</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">bug</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Save</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">bug</span> <span class="n">when</span> <span class="n">the</span> <span class="n">cycle</span> <span class="n">is</span> <span class="n">equals</span> <span class="k">to</span> <span class="m">100</span>
+	<span class="n">reflex</span> <span class="n">save_bug_attribute</span> <span class="n">when</span><span class="p">:</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">100</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">bug</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">save</span> <span class="n">the</span> <span class="n">values</span> <span class="k">of</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">name</span><span class="p">,</span> <span class="n">speed</span> <span class="k">and</span> <span class="n">size</span> <span class="k">to</span> <span class="n">the</span> <span class="n">csv</span> <span class="n">file</span>
+			<span class="n">save</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span><span class="n">speed</span><span class="p">,</span> <span class="n">size</span><span class="p">]</span> <span class="k">to</span><span class="p">:</span> <span class="s2">"../results/bug.csv"</span> <span class="n">type</span><span class="p">:</span><span class="s2">"csv"</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Pause</span> <span class="n">the</span> <span class="k">model</span> <span class="k">as</span> <span class="n">the</span> <span class="n">data</span> <span class="n">are</span> <span class="n">saved</span>
+		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-//Species that will be saved
-species bug skills:[moving]{
-	float size &lt;- 1.0 + rnd(4) min: 1.0 max: 5.0;
-	float speed &lt;- 1.0 + rnd(4.0);
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span>
+<span class="n">species</span> <span class="n">bug</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">5.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4.0</span><span class="p">);</span>
 	
-	reflex update_size {
-		int nb_neigh &lt;- length(bug at_distance 20.0);
-		if (nb_neigh &gt; 5) {
-			size &lt;- size + 1;
-		} else {
-			size &lt;- size - 1;
-		}
-	} 	
-	reflex move {
-		do wander;
-	}
+	<span class="n">reflex</span> <span class="n">update_size</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">nb_neigh</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">bug</span> <span class="n">at_distance</span> <span class="m">20.0</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">nb_neigh</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span> 	
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	aspect default {
-		draw circle(size) color: #red;
-	}
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main type: gui {
-	output {
-		display map {
-			species bug;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">bug</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

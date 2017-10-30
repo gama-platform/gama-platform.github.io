@@ -3500,55 +3500,54 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model DB2agentMySQL
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">DB2agentMySQL</span>
 
-global {
-	map&lt;string,string&gt; BOUNDS &lt;- [	//'srid'::'32648', // optinal
-									'host'::'localhost',
-									'dbtype'::'MySQL',
-									'database'::'spatial_DB',
-									'port'::'8889',
-									'user'::'root',
-									'passwd'::'root',
-								  	"select"::"SELECT geom FROM bounds;" ];
-	map&lt;string,string&gt; PARAMS &lt;- [	//'srid'::'32648', // optinal
-									'host'::'localhost',
-									'dbtype'::'MySQL',
-									'database'::'spatial_DB',
-									'port'::'8889',
-									'user'::'root',
-									'passwd'::'root'];
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span>	<span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
+									<span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
+									<span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span>
+									<span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
+									<span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span>
+									<span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span>
+									<span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span>
+								  	<span class="s2">"select"</span><span class="p">::</span><span class="s2">"SELECT geom FROM bounds;"</span> <span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span>	<span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
+									<span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
+									<span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span>
+									<span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
+									<span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span>
+									<span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span>
+									<span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
 	
-	string QUERY &lt;- "SELECT name, type, geom FROM buildings ;";
-	geometry shape &lt;- envelope(BOUNDS);		  	
+	<span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, geom FROM buildings ;"</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>		  	
 	 	
-	init {
-		create DB_accessor {
-			create buildings from: list(self select [params:: PARAMS, select:: QUERY]) 
-							 with:[ 'name'::"name",'type'::"type", 'shape':: geometry("geom")];
-		 }
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
+							 <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
+		 <span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-species DB_accessor skills: [SQLSKILL];
+<span class="n">species</span> <span class="n">DB_accessor</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">];</span>
 
-species buildings {
-	string type;
-	aspect default {
-		draw shape color: #gray ;
-	}	
-}	
+<span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>	
 
-experiment DB2agentSQLite type: gui {
-	output {
-		display fullView {
-			species buildings aspect: default;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">DB2agentSQLite</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

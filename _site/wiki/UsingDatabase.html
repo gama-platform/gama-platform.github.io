@@ -3547,11 +3547,10 @@ All the actions can be used independently from the chosen DBMS. Only the connect
 
 <p>Example of declaration:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species toto skills: [SQLSKILL] {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: [SQLSKILL] {
 	//insert your descriptions here
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Agents with such a skill can use additional actions (defined in the skill)</p>
 
@@ -3572,7 +3571,7 @@ All the actions can be used independently from the chosen DBMS. Only the connect
 
 <p><strong>Example</strong>: Definitions of connection parameter</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// POSTGRES connection parameter
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// POSTGRES connection parameter
 map &lt;string, string&gt;  POSTGRES &lt;- [
      'host'::'localhost',
      'dbtype'::'postgres',
@@ -3603,8 +3602,7 @@ map &lt;string, string&gt;  MySQL &lt;- [
     'port'::'3306',
     'user'::'root',
     'passwd'::'abc'];
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="test-a-connection-to-database">Test a connection to database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3629,14 +3627,13 @@ The action tests the connection to a given database.</p>
 
 <p><strong>Example</strong>: Check a connection to MySQL</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (self testConnection(params:MySQL)){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MySQL)){
 	write "Connection is OK" ;
 }else{
 	write "Connection is false" ;
 }	
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="select-data-from-database">Select data from database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3664,20 +3661,18 @@ The action creates a connection to a DBMS and executes the select statement. If 
 
 <p><strong>Example</strong>: select data from table points</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
 list&lt;list&gt; t &lt;- list&lt;list&gt; (self select(params:PARAMS, 
 		                 select:"SELECT * FROM points ;"));
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Example</strong>: select data from table point with question marks from table points</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
 list&lt;list&gt; t &lt;- list&lt;list&gt; (self select(params: PARAMS, 
                                            select: "SELECT temp_min FROM points where (day&gt;? and day&lt;?);"
                                            values: [10,20] ));
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="insert-data-into-database">Insert data into database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3697,7 +3692,7 @@ If the insertion succeeds, it returns a number of records inserted by the insert
 
 <p><strong>Example</strong>: Insert data into table registration</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 
 do insert (params: PARAMS, 
                into: "registration", 
@@ -3712,8 +3707,7 @@ int n &lt;- insert (params: PARAMS,
                         into: "registration", 
                        columns: ["id", "first", "last"], 
                        values: [104, 'Bill', 'Clark']);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="execution-update-commands">Execution update commands</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3736,7 +3730,7 @@ The action executeUpdate executes an update command (create/insert/delete/drop) 
 
 <p><strong>Examples</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
 // Create table
 do executeUpdate (params: PARAMS, 
                               updateComm: "CREATE TABLE registration" 
@@ -3767,22 +3761,20 @@ int n &lt;- executeUpdate (params: PARAMS,
 
 // Drop table
 do executeUpdate (params: PARAMS, updateComm: "DROP TABLE registration");
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="mdxskill">MDXSKILL</h2>
 <p>MDXSKILL plays the role of an OLAP tool using select to query data from OLAP server to GAMA environment and then species can use the queried data for any analysis purposes.</p>
 <h3 id="define-a-species-that-uses-the-mdxskill-skill">Define a species that uses the MDXSKILL skill</h3>
 <p>Example of declaration:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	species olap skills: [MDXSKILL]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	species olap skills: [MDXSKILL]
 	 {  
 		//insert your descriptions here
 		
 	 } 
       ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Agents with such a skill can use additional actions (defined in the skill)</p>
 
@@ -3845,7 +3837,7 @@ do executeUpdate (params: PARAMS, updateComm: "DROP TABLE registration");
 
 <p><strong>Example</strong>: Definitions of OLAP connection parameter</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>//Connect SQL Server Analysis Services via XMLA
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//Connect SQL Server Analysis Services via XMLA
 	map&lt;string,string&gt; SSAS &lt;- [
 				'olaptype'::'SSAS/XMLA',
 				'dbtype'::'sqlserver',
@@ -3876,8 +3868,7 @@ do executeUpdate (params: PARAMS, updateComm: "DROP TABLE registration");
 				'catalog'::'../includes/FoodMart.xml',
 				'user'::'test',
                                 'passwd'::'abc'];
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="test-a-connection-to-olap-database">Test a connection to OLAP database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3902,13 +3893,12 @@ The action tests the connection to a given OLAP database.</p>
 
 <p><strong>Example</strong>: Check a connection to MySQL</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (self testConnection(params:MONDIRANXMLA)){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MONDIRANXMLA)){
 	write "Connection is OK";
 }else{
 	write "Connection is false";
 }	
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="select-data-from-olap-database">Select data from OLAP database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -3939,7 +3929,7 @@ The action creates a connection to an OLAP database and executes the select stat
 
 <p><strong>Example</strong>: select data from SQL Server Analysis Service via XMLA</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (self testConnection[ params::SSAS]){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection[ params::SSAS]){
 	list l1  &lt;- list(self select (params: SSAS ,
 		onColumns: " { [Measures].[Quantity], [Measures].[Price] }",
 		onRows:" { { { [Time].[Year].[All].CHILDREN } * "
@@ -3952,12 +3942,11 @@ The action creates a connection to an OLAP database and executes the select stat
 }else {
 	write "Connect error";
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Example</strong>: select data from Mondrian via XMLA with question marks in selection</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (self testConnection(params:MONDRIANXMLA)){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MONDRIANXMLA)){
 	list&lt;list&gt; l2  &lt;- list&lt;list&gt; (self select(params: MONDRIANXMLA, 
 	onColumns:" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} ",
 	onRows:"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"
@@ -3975,8 +3964,7 @@ The action creates a connection to an OLAP database and executes the select stat
 }else {
 	write "Connect error";
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="agentdb">AgentDB</h2>
 
@@ -3984,11 +3972,10 @@ The action creates a connection to an OLAP database and executes the select stat
 <h3 id="define-a-species-that-is-an-inheritance-of-agentdb">Define a species that is an inheritance of agentDB</h3>
 <p>Example of declaration:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species agentDB parent: AgentDB {  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species agentDB parent: AgentDB {  
 	//insert your descriptions here
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="connect-to-database">Connect to database</h3>
 
@@ -4009,7 +3996,7 @@ This action makes a connection to DBMS. If a connection is established then it w
   </ul>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// POSTGRES connection parameter
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// POSTGRES connection parameter
 map &lt;string, string&gt;  POSTGRES &lt;- [
                                         'host'::'localhost',
                                         'dbtype'::'postgres',
@@ -4020,8 +4007,7 @@ map &lt;string, string&gt;  POSTGRES &lt;- [
 ask agentDB {
       do connect (params: POSTGRES);
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="check-agent-connected-a-database-or-not">Check agent connected a database or not</h3>
 
@@ -4042,15 +4028,14 @@ This action checks if an agent is connecting to database or not.</p>
 
 <p><strong>Example</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask agentDB {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
 	if (self isConnected){
               write "It already has a connection";
 	}else{
               do connect (params: POSTGRES);
         } 
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="close-the-current-connection">Close the current connection</h3>
 
@@ -4067,13 +4052,12 @@ If the current connection of species is close then the action return null value;
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask agentDB {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
 	if (self isConnected){
 	      do close;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="get-connection-parameter">Get connection parameter</h3>
 
@@ -4089,13 +4073,12 @@ This action returns the connection parameter of species.</p>
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask agentDB {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
 	if (self isConnected){
 		write "the connection parameter: " +(self getParameter);
         }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="set-connection-parameter">Set connection parameter</h3>
 
@@ -4117,21 +4100,20 @@ This action sets the new values for connection parameter and closes the current 
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask agentDB {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
 	if (self isConnected){
              do setParameter(params: MySQL);
              do connect(params: (self getParameter));
         }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="retrieve-data-from-database-by-using-agentdb">Retrieve data from database by using AgentDB</h3>
 <p>Because of the connection to database of AgentDB is kept alive then AgentDB can execute several SQL queries with only one connection. Hence AgentDB can do actions such as <strong>select</strong>, <strong>insert</strong>, <strong>executeUpdate</strong> with the same parameters of those actions of SQLSKILL <em>except <strong>params</strong> parameter is always absent</em>.</p>
 
 <p><strong>Examples</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 ask agentDB {
    do connect (params: PARAMS);
    // Create table
@@ -4158,8 +4140,7 @@ ask agentDB {
      // Drop table
       do executeUpdate (updateComm: "DROP TABLE registration");
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="using-database-features-to-define-environment-or-create-species">Using database features to define environment or create species</h2>
 
@@ -4226,7 +4207,7 @@ ask agentDB {
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>map&lt;string,string&gt; BOUNDS &lt;- [	
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string,string&gt; BOUNDS &lt;- [	
 	//'srid'::'32648',
 	'host'::'localhost',								
         'dbtype'::'postgres',
@@ -4235,16 +4216,14 @@ ask agentDB {
         'user'::'postgres',
 	'passwd'::'tmt',
 	'select'::'SELECT ST_AsBinary(geom) as geom FROM bounds;' ];
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Step 2</strong>: define boundary of environment by using the map object in first step.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>geometry shape &lt;- envelope(BOUNDS);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry shape &lt;- envelope(BOUNDS);
+</code></pre></div></div>
 
 <p>Note: We can do the same way if we work with MySQL, SQLite, or SQLServer and we must convert Geometry format in GIS database to binary format.</p>
 
@@ -4256,30 +4235,28 @@ ask agentDB {
   <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species toto skills: SQLSKILL {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: SQLSKILL {
 	//insert your descriptions here	
 }	
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Step 2</strong>: Define a connection and selection parameters</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	map&lt;string,string&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
 	string location &lt;- 'select ID_4, Name_4, ST_AsBinary(geometry) as geom from vnm_adm4 
                                       where id_2=38253 or id_2=38254;';
 	...
 }      
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Step 3</strong>: Create species by using selected results</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>init {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>init {
    create toto { 
 	  create locations from: list(self select (params: PARAMS, 
 		                                                   select: LOCATIONS)) 
@@ -4287,8 +4264,7 @@ ask agentDB {
 	}
    ...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="save-geometry-data-to-database">Save Geometry data to database</h3>
 <p>If we are familiar with how to create agents from a shapefile then it becomes very simple to create agents from select result. We can do as below:</p>
@@ -4297,17 +4273,16 @@ ask agentDB {
   <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species toto skills: SQLSKILL {  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: SQLSKILL {  
 	//insert your descriptions here
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Step 2</strong>: Define a connection and create GIS database and tables</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	map&lt;string,string&gt; PARAMS &lt;-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
                                                             'port'::'5433', 'user'::'postgres', 'passwd'::'tmt'];
 
@@ -4334,14 +4309,13 @@ ask agentDB {
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Step 3</strong>: Insert geometry data to GIS database</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask building {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask building {
    ask DB_Accessor {
 	do insert(params: PARAMS, 
                         into: "buildings",
@@ -4349,8 +4323,7 @@ ask agentDB {
 			values: [myself.name,myself.type,myself.shape];
    }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

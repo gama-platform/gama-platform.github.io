@@ -3500,14 +3500,14 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model model4 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model4</span> 
 
-global {
-	//Shapefile for the roads
-	file roads_shapefile &lt;- shape_file("../includes/road.shp");
-	//Shapefile for the buildings
-	file buildings_shapefile &lt;- file("../includes/building.shp");
-	//The world bounds are now the shapefile roads 's boundss
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">world</span> <span class="n">bounds</span> <span class="n">are</span> <span class="n">now</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">roads</span> <span class="s1">'s boundss
 	geometry shape &lt;- envelope(roads_shapefile);
 	//The graph of roads on which people will move
 	graph road_network;
@@ -3540,44 +3540,43 @@ species people skills:[moving]{
 			target &lt;- any_location_in(one_of(buildings));
 		}
 	}
-	//Reflex to check if we are infected if we aren't already and infected people are nearby
-	reflex infect when: is_infected{
-		ask people at_distance 10 {
-			if flip(0.01) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw sphere(5) color:is_infected ? #red : #green;
-	}
-}
+	//Reflex to check if we are infected if we aren'</span><span class="n">t</span> <span class="n">already</span> <span class="k">and</span> <span class="n">infected</span> <span class="n">people</span> <span class="n">are</span> <span class="n">nearby</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species roads {
-	aspect geom {
-		draw shape color: #black;
-	}
-}
+<span class="n">species</span> <span class="n">roads</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species buildings {
-	float height &lt;- 10.0+ rnd(10);
-	aspect geom {
-		draw shape color: #gray depth: height;
-	}
-}
+<span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	output {
-		//Type opengl to display in 3D
-		display map type: opengl {
-			species roads aspect:geom;
-			species buildings aspect:geom;
-			species people aspect:circle;			
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Type</span> <span class="n">opengl</span> <span class="k">to</span> <span class="n">display</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

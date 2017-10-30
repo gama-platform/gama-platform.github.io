@@ -3500,20 +3500,20 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model SpatialGraph
-//Import the model Common Bug Species model
-import '../includes/Common Bug Species.gaml'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">SpatialGraph</span>
+<span class="p">//</span><span class="n">Import</span> <span class="n">the</span> <span class="k">model</span> <span class="n">Common</span> <span class="n">Bug</span> <span class="n">Species</span> <span class="k">model</span>
+<span class="n">import</span> <span class="s1">'../includes/Common Bug Species.gaml'</span>
 
 
-global { 
-	//Graph that will be computed at each step linking the bug agents according to their distance
-	graph myGraph;
-	//Minimal distance to consider two nodes agents (ie the bug) as connected
-	float distance parameter: 'Distance' min: 1.0 &lt;- 10.0 category: 'Model';
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="n">Graph</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">computed</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span> <span class="n">linking</span> <span class="n">the</span> <span class="n">bug</span> <span class="n">agents</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">distance</span>
+	<span class="n">graph</span> <span class="n">myGraph</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Minimal</span> <span class="n">distance</span> <span class="k">to</span> <span class="n">consider</span> <span class="n">two</span> <span class="n">nodes</span> <span class="n">agents</span> <span class="p">(</span><span class="n">ie</span> <span class="n">the</span> <span class="n">bug</span><span class="p">)</span> <span class="k">as</span> <span class="n">connected</span>
+	<span class="n">float</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Distance'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="p">&lt;-</span> <span class="m">10.0</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span><span class="p">;</span>
 	
-	//Reflex to update the graph when cycle is greater than 0. Important because the mirroring has one step late from
-	//the original species, and at step 0, the mirroring species aren't created
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">when</span> <span class="n">cycle</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="m">0.</span> <span class="n">Important</span> <span class="n">because</span> <span class="n">the</span> <span class="n">mirroring</span> <span class="n">has</span> <span class="n">one</span> <span class="n">step</span> <span class="n">late</span> <span class="k">from</span>
+	<span class="p">//</span><span class="n">the</span> <span class="n">original</span> <span class="n">species</span><span class="p">,</span> <span class="k">and</span> <span class="n">at</span> <span class="n">step</span> <span class="m">0</span><span class="p">,</span> <span class="n">the</span> <span class="n">mirroring</span> <span class="n">species</span> <span class="n">aren</span><span class="s1">'t created
 	reflex updateGraph when:(cycle&gt;0){
 		//Kill all the edge agent to create a new graph
 		ask edge_agent {
@@ -3547,8 +3547,7 @@ experiment spatialGraph type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

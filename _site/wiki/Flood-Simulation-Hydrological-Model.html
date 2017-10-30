@@ -3500,126 +3500,126 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model hydro
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">hydro</span>
 
-global {
-   //Shapefile for the river
-   file river_shapefile &lt;- file("../includes/RedRiver.shp");
-   //Shapefile for the dykes
-   file dykes_shapefile &lt;- file("../includes/Dykes.shp");
-   //Shapefile for the buildings
-   file buildings_shapefile &lt;- file("../includes/Building.shp");
+<span class="n">global</span> <span class="p">{</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">river</span>
+   <span class="n">file</span> <span class="n">river_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/RedRiver.shp"</span><span class="p">);</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">dykes</span>
+   <span class="n">file</span> <span class="n">dykes_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/Dykes.shp"</span><span class="p">);</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
+   <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/Building.shp"</span><span class="p">);</span>
    
-   //Data elevation file
-   file dem_file &lt;- file("../includes/mnt50.asc");  
-   //Diffusion rate
-   float diffusion_rate &lt;- 0.6;
-   //Height of the dykes
-   float dyke_height &lt;- 15.0;
-   //Width of the dyke
-   float dyke_width &lt;- 15.0;
+   <span class="p">//</span><span class="n">Data</span> <span class="n">elevation</span> <span class="n">file</span>
+   <span class="n">file</span> <span class="n">dem_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/mnt50.asc"</span><span class="p">);</span>  
+   <span class="p">//</span><span class="n">Diffusion</span> <span class="n">rate</span>
+   <span class="n">float</span> <span class="n">diffusion_rate</span> <span class="p">&lt;-</span> <span class="m">0.6</span><span class="p">;</span>
+   <span class="p">//</span><span class="n">Height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">dykes</span>
+   <span class="n">float</span> <span class="n">dyke_height</span> <span class="p">&lt;-</span> <span class="m">15.0</span><span class="p">;</span>
+   <span class="p">//</span><span class="n">Width</span> <span class="k">of</span> <span class="n">the</span> <span class="n">dyke</span>
+   <span class="n">float</span> <span class="n">dyke_width</span> <span class="p">&lt;-</span> <span class="m">15.0</span><span class="p">;</span>
     
-   //Shape of the environment using the dem file
-   geometry shape &lt;- envelope(dem_file);
+   <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">using</span> <span class="n">the</span> <span class="n">dem</span> <span class="n">file</span>
+   <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">dem_file</span><span class="p">);</span>
    
-   //List of the drain and river cells
-   list&lt;cell&gt; drain_cells;
-   list&lt;cell&gt; river_cells;
+   <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">drain</span> <span class="k">and</span> <span class="n">river</span> <span class="n">cells</span>
+   <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">drain_cells</span><span class="p">;</span>
+   <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">river_cells</span><span class="p">;</span>
    
    
   
-   float step &lt;- 1°h;
+   <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="err">°</span><span class="n">h</span><span class="p">;</span>
    
-   init {
-   	 //Initialization of the cells
-      do init_cells;
-     //Initialization of the water cells
-      do init_water;
-     //Initialization of the river cells
-     river_cells &lt;- cell where (each.is_river);
-     //Initialization of the drain cells
-      drain_cells &lt;- cell where (each.is_drain);
-     //Initialization of the obstacles (buildings and dykes)
-      do init_obstacles;
-      //Set the height of each cell
-      ask cell {
-         obstacle_height &lt;- compute_highest_obstacle();
-         do update_color;
-      }
-   }
-   //Action to initialize the altitude value of the cell according to the dem file
-   action init_cells {
-      ask cell {
-         altitude &lt;- grid_value;
-         neighbour_cells &lt;- (self neighbors_at 1) ;
-      }
-   }
-   //action to initialize the water cells according to the river shape file and the drain
-   action init_water {
-      geometry river &lt;- geometry(river_shapefile);
-      ask cell overlapping river {
-         water_height &lt;- 10.0;
-         is_river &lt;- true;
-         is_drain &lt;- grid_y = matrix(cell).rows - 1;
-      }
-   }
-   //initialization of the obstacles (the buildings and the dykes)
-   action init_obstacles{
-      create buildings from: buildings_shapefile  {
-         do update_cells;
-      }
-      create dyke from: dykes_shapefile;
-      ask dyke {
-          shape &lt;-  shape + dyke_width;
-            do update_cells;
-      }
-   }
-   //Reflex to add water among the water cells
-   reflex adding_input_water {
-   	  float water_input &lt;- rnd(100)/100;
-      ask river_cells {
-         water_height &lt;- water_height + water_input;
-      }
-   }
-   //Reflex to flow the water according to the altitute and the obstacle
-   reflex flowing {
-      ask cell {already &lt;- false;}
-      ask (cell sort_by ((each.altitude + each.water_height + each.obstacle_height))) {
-         do flow;
-      }
-   }
-   //Reflex to update the color of the cell
-   reflex update_cell_color {
-      ask cell {
-         do update_color;
-      }
-   }
-   //Reflex for the drain cells to drain water
-   reflex draining {
-      ask drain_cells {
-         water_height &lt;- 0.0;
-      }
-   }
+   <span class="n">init</span> <span class="p">{</span>
+   	 <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span>
+      <span class="k">do</span> <span class="n">init_cells</span><span class="p">;</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span>
+      <span class="k">do</span> <span class="n">init_water</span><span class="p">;</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">river</span> <span class="n">cells</span>
+     <span class="n">river_cells</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_river</span><span class="p">);</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">drain</span> <span class="n">cells</span>
+      <span class="n">drain_cells</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_drain</span><span class="p">);</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacles</span> <span class="p">(</span><span class="n">buildings</span> <span class="k">and</span> <span class="n">dykes</span><span class="p">)</span>
+      <span class="k">do</span> <span class="n">init_obstacles</span><span class="p">;</span>
+      <span class="p">//</span><span class="k">Set</span> <span class="n">the</span> <span class="n">height</span> <span class="k">of</span> <span class="n">each</span> <span class="n">cell</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="n">obstacle_height</span> <span class="p">&lt;-</span> <span class="n">compute_highest_obstacle</span><span class="p">();</span>
+         <span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">altitude</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">dem</span> <span class="n">file</span>
+   <span class="n">action</span> <span class="n">init_cells</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="n">altitude</span> <span class="p">&lt;-</span> <span class="n">grid_value</span><span class="p">;</span>
+         <span class="n">neighbour_cells</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">)</span> <span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">river</span> <span class="n">shape</span> <span class="n">file</span> <span class="k">and</span> <span class="n">the</span> <span class="n">drain</span>
+   <span class="n">action</span> <span class="n">init_water</span> <span class="p">{</span>
+      <span class="n">geometry</span> <span class="n">river</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">river_shapefile</span><span class="p">);</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">river</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+         <span class="n">is_river</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+         <span class="n">is_drain</span> <span class="p">&lt;-</span> <span class="n">grid_y</span> <span class="p">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">cell</span><span class="p">).</span><span class="n">rows</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacles</span> <span class="p">(</span><span class="n">the</span> <span class="n">buildings</span> <span class="k">and</span> <span class="n">the</span> <span class="n">dykes</span><span class="p">)</span>
+   <span class="n">action</span> <span class="n">init_obstacles</span><span class="p">{</span>
+      <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span>  <span class="p">{</span>
+         <span class="k">do</span> <span class="n">update_cells</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nb">create</span> <span class="n">dyke</span> <span class="k">from</span><span class="p">:</span> <span class="n">dykes_shapefile</span><span class="p">;</span>
+      <span class="n">ask</span> <span class="n">dyke</span> <span class="p">{</span>
+          <span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">shape</span> <span class="p">+</span> <span class="n">dyke_width</span><span class="p">;</span>
+            <span class="k">do</span> <span class="n">update_cells</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">add</span> <span class="n">water</span> <span class="n">among</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span>
+   <span class="n">reflex</span> <span class="n">adding_input_water</span> <span class="p">{</span>
+   	  <span class="n">float</span> <span class="n">water_input</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">;</span>
+      <span class="n">ask</span> <span class="n">river_cells</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="n">water_height</span> <span class="p">+</span> <span class="n">water_input</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">flow</span> <span class="n">the</span> <span class="n">water</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">altitute</span> <span class="k">and</span> <span class="n">the</span> <span class="n">obstacle</span>
+   <span class="n">reflex</span> <span class="n">flowing</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span><span class="n">already</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;}</span>
+      <span class="n">ask</span> <span class="p">(</span><span class="n">cell</span> <span class="n">sort_by</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">altitude</span> <span class="p">+</span> <span class="n">each</span><span class="p">.</span><span class="n">water_height</span> <span class="p">+</span> <span class="n">each</span><span class="p">.</span><span class="n">obstacle_height</span><span class="p">)))</span> <span class="p">{</span>
+         <span class="k">do</span> <span class="n">flow</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+   <span class="n">reflex</span> <span class="n">update_cell_color</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="n">for</span> <span class="n">the</span> <span class="n">drain</span> <span class="n">cells</span> <span class="k">to</span> <span class="n">drain</span> <span class="n">water</span>
+   <span class="n">reflex</span> <span class="n">draining</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">drain_cells</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
    
-}
-//Species which represent the obstacle
-   species obstacle {
-   	  //height of the obstacle
-      float height min: 0.0;
-      //Color of the obstacle
-      rgb color;
-      //Pressure of the water
-      float water_pressure update: compute_water_pressure();
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">obstacle</span>
+   <span class="n">species</span> <span class="n">obstacle</span> <span class="p">{</span>
+   	  <span class="p">//</span><span class="n">height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacle</span>
+      <span class="n">float</span> <span class="n">height</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span><span class="p">;</span>
+      <span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacle</span>
+      <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+      <span class="p">//</span><span class="n">Pressure</span> <span class="k">of</span> <span class="n">the</span> <span class="n">water</span>
+      <span class="n">float</span> <span class="n">water_pressure</span> <span class="n">update</span><span class="p">:</span> <span class="n">compute_water_pressure</span><span class="p">();</span>
       
-      //List of cells concerned
-      list&lt;cell&gt; cells_concerned ;
-      //List of cells in the neighbourhood 
-      list&lt;cell&gt; cells_neighbours;
+      <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">cells</span> <span class="n">concerned</span>
+      <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">cells_concerned</span> <span class="p">;</span>
+      <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">cells</span> <span class="k">in</span> <span class="n">the</span> <span class="n">neighbourhood</span> 
+      <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">cells_neighbours</span><span class="p">;</span>
       
-      //Action to compute the water pressure
-      float compute_water_pressure {
-      	//If the obstacle doesn't have height, then there will be no pressure
+      <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">water</span> <span class="n">pressure</span>
+      <span class="n">float</span> <span class="n">compute_water_pressure</span> <span class="p">{</span>
+      	<span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">obstacle</span> <span class="n">doesn</span><span class="s1">'t have height, then there will be no pressure
          if (height = 0.0) {
             return 0.0;
          } else {
@@ -3788,8 +3788,7 @@ experiment main_gui type: gui {
       }
    }
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

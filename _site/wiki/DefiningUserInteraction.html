@@ -3519,13 +3519,12 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">action</code></strong> (identifier) : Specify the name of the global action to call.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>event mouse_down action: my_action;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event mouse_down action: my_action;
+</code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">event</code> statement has to be defined in the <code class="highlighter-rouge">experiment</code>/<code class="highlighter-rouge">output</code>/<code class="highlighter-rouge">display</code> scope. Once the event is triggered, the global action linked will be called. The action linked has to have 2 arguments : the location of the click (type <code class="highlighter-rouge">point</code>) and the list of agents which are displayed at this position.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
 	action my_action (point loc, list&lt;my_species&gt; selected_agents)
 	{
@@ -3549,8 +3548,7 @@ experiment my_experiment type: gui
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="define-user-command">Define User command</h2>
 
@@ -3558,27 +3556,25 @@ experiment my_experiment type: gui
 
 <p>Their syntax can be (depending of the modeler needs) either:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>user_command cmd_name action: action_without_arg_name;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_command cmd_name action: action_without_arg_name;
 //or
 user_command cmd_name action: action_name with: [arg1::val1, arg2::val2];
 //or
 user_command cmd_name {
    // statements
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For instance:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>user_command kill_myself action: die;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_command kill_myself action: die;
 //or
 user_command kill_myself action: some_action with: [arg1::5, arg2::3];
 //or
 user_command kill_myself {
     do die;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="defining-user-command-in-gui-experiment-scope">Defining User command in GUI Experiment scope</h3>
 
@@ -3586,31 +3582,30 @@ user_command kill_myself {
 
 <p>Here is a very short code example :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model quick_user_command_model
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
-global {
-	action createAgent
-	{
-		create my_species;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">action</span> <span class="n">createAgent</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species my_species {
-	aspect base {
-		draw circle(1) color:#blue;
-	}
-}
+<span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment expe type:gui {
-	user_command cmd_inside_experiment action:createAgent;
-	output {
-		display my_display {
-			species my_species aspect:base;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
+	<span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">createAgent</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>And here is screenshots of the execution :</p>
 
@@ -3620,30 +3615,29 @@ experiment expe type:gui {
 
 <p>The user command can also be defined inside a species scope (either global or regular one). Here is a quick example of model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model quick_user_command_model
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
-global {
-	init {
-		create my_species number:10;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">10</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species my_species {
-	user_command cmd_inside_experiment action:die;
-	aspect base {
-		draw circle(1) color:#blue;
-	}
-}
+<span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
+	<span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">die</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment expe type:gui {
-	output {
-		display my_display {
-			species my_species aspect:base;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>During the execution, you have 2 ways to access to the action :</p>
 <ul>
@@ -3669,13 +3663,12 @@ experiment expe type:gui {
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    user_command "Create agents here" {
       create my_species number: 10 with: [location::user_location];
    }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This will allow the user to click on a display, choose the world (always present now), and select the menu item “Create agents here”.</p>
 
@@ -3687,30 +3680,29 @@ experiment expe type:gui {
 
 <p>Here is an example of implementation:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model quick_user_command_model
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
-global {
-   init {
-      map values &lt;- user_input("choose a number of agent to create",["Number" :: 100]);
-      create my_species number : int(values at "Number");
-   }
-}
+<span class="n">global</span> <span class="p">{</span>
+   <span class="n">init</span> <span class="p">{</span>
+      <span class="n">map</span> <span class="n">values</span> <span class="p">&lt;-</span> <span class="n">user_input</span><span class="p">(</span><span class="s2">"choose a number of agent to create"</span><span class="p">,[</span><span class="s2">"Number"</span> <span class="p">::</span> <span class="m">100</span><span class="p">]);</span>
+      <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span> <span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">values</span> <span class="n">at</span> <span class="s2">"Number"</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
 
-species my_species {
-	aspect base {
-		draw circle(1) color:#blue;
-	}
-}
+<span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment expe type:gui {
-	output {
-		display my_display {
-			species my_species aspect:base;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>When running this model, you will first have to input a number:</p>
 

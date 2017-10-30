@@ -3500,43 +3500,42 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model ville
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">ville</span>
 
-global {
-	init {
-		create foyer number: 500;
-	}
-}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">foyer</span> <span class="n">number</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species batiment {
-	string type;
-	int capacite;
-}
+<span class="n">species</span> <span class="n">batiment</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">capacite</span><span class="p">;</span>
+<span class="p">}</span>
 
-species route {
-}
+<span class="n">species</span> <span class="n">route</span> <span class="p">{</span>
+<span class="p">}</span>
 
-species foyer {
-	float revenu &lt;- gauss(1500, 500);
-	bool est_satisfait ;
-	batiment habitation;
-	batiment lieu_travail;
+<span class="n">species</span> <span class="n">foyer</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">revenu</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">1500</span><span class="p">,</span> <span class="m">500</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">est_satisfait</span> <span class="p">;</span>
+	<span class="n">batiment</span> <span class="n">habitation</span><span class="p">;</span>
+	<span class="n">batiment</span> <span class="n">lieu_travail</span><span class="p">;</span>
 	
-	aspect revenu {
-		int val &lt;- int(255 * (revenu / 3000));
-		draw circle(5) color: rgb(255 - val, val, 0);
-	}
-}
+	<span class="n">aspect</span> <span class="n">revenu</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="n">revenu</span> <span class="p">/</span> <span class="m">3000</span><span class="p">));</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span> <span class="p">-</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment ville type: gui { 
-	output {
-		display carte_principale {
-			species foyer aspect: revenu;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">ville</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span> 
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">carte_principale</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">foyer</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">revenu</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

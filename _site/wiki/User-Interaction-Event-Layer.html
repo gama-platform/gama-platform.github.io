@@ -3500,26 +3500,26 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model event_layer_model
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">event_layer_model</span>
 
 
-global
-{
+<span class="n">global</span>
+<span class="p">{</span>
 
-//number of agents to create
-	int nbAgent &lt;- 500;
-	init
-	{
+<span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">agents</span> <span class="k">to</span> <span class="nb">create</span>
+	<span class="n">int</span> <span class="n">nbAgent</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
 
-	//creation of the agents
-		create cell number: nbAgent
-		{
-			color &lt;- °green;
-		}
+	<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">cell</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbAgent</span>
+		<span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">green</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	//Action to change the color of the agents, according to the point to know which agents we're in intersection with the point
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span><span class="p">,</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">point</span> <span class="k">to</span> <span class="n">know</span> <span class="n">which</span> <span class="n">agents</span> <span class="n">we</span><span class="s1">'re in intersection with the point
 	action change_color (point loc, list&lt;cell&gt; selected_agents)
 	{
 
@@ -3531,63 +3531,62 @@ global
 
 	}
 
-	//Action to change the shape of the agents, according to the point to know which agents we're in intersection with the point
-	action change_shape (point loc, list&lt;cell&gt; selected_agents)
-	{
-		ask selected_agents
-		{
+	//Action to change the shape of the agents, according to the point to know which agents we'</span><span class="n">re</span> <span class="k">in</span> <span class="n">intersection</span> <span class="k">with</span> <span class="n">the</span> <span class="n">point</span>
+	<span class="n">action</span> <span class="n">change_shape</span> <span class="p">(</span><span class="n">point</span> <span class="n">loc</span><span class="p">,</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">selected_agents</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="n">selected_agents</span>
+		<span class="p">{</span>
 
-		//change the bool attribute is_square to change the shape in the display
-			is_square &lt;- not (is_square);
-		}
+		<span class="p">//</span><span class="n">change</span> <span class="n">the</span> <span class="n">bool</span> <span class="n">attribute</span> <span class="n">is_square</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">in</span> <span class="n">the</span> <span class="n">display</span>
+			<span class="n">is_square</span> <span class="p">&lt;-</span> <span class="k">not</span> <span class="p">(</span><span class="n">is_square</span><span class="p">);</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-//Species cells moving randomly
-species cell skills: [moving]
-{
-	rgb color;
-	bool is_square &lt;- false;
-	reflex mm
-	{
-		do wander amplitude: 30;
-	}
+<span class="p">//</span><span class="n">Species</span> <span class="n">cells</span> <span class="n">moving</span> <span class="n">randomly</span>
+<span class="n">species</span> <span class="n">cell</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
+<span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_square</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">mm</span>
+	<span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">30</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	aspect default
-	{
-		draw is_square ? square(2) : circle(1) color: color;
-	}
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">is_square</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="p">:</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment Displays type: gui
-{
-	output
-	{
-		display View_change_color
-		{
-			species cell aspect: default;
+<span class="n">experiment</span> <span class="n">Displays</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">View_change_color</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
 
-			//event, launches the action change_color if the event mouse_down (ie. the user clicks on the layer event) is triggered
-			event [mouse_down] action: change_color;
-		}
+			<span class="p">//</span><span class="n">event</span><span class="p">,</span> <span class="n">launches</span> <span class="n">the</span> <span class="n">action</span> <span class="n">change_color</span> <span class="k">if</span> <span class="n">the</span> <span class="n">event</span> <span class="n">mouse_down</span> <span class="p">(</span><span class="n">ie</span><span class="p">.</span> <span class="n">the</span> <span class="n">user</span> <span class="n">clicks</span> <span class="n">on</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">event</span><span class="p">)</span> <span class="n">is</span> <span class="n">triggered</span>
+			<span class="n">event</span> <span class="p">[</span><span class="n">mouse_down</span><span class="p">]</span> <span class="n">action</span><span class="p">:</span> <span class="n">change_color</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		display View_change_shape type: opengl
-		{
-			species cell;
+		<span class="n">display</span> <span class="n">View_change_shape</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">cell</span><span class="p">;</span>
 
-			//event, launches the action change_shape if the event mouse_down (ie. the user clicks on the layer event) is triggered
-			event [mouse_down] action: change_shape;
-		}
+			<span class="p">//</span><span class="n">event</span><span class="p">,</span> <span class="n">launches</span> <span class="n">the</span> <span class="n">action</span> <span class="n">change_shape</span> <span class="k">if</span> <span class="n">the</span> <span class="n">event</span> <span class="n">mouse_down</span> <span class="p">(</span><span class="n">ie</span><span class="p">.</span> <span class="n">the</span> <span class="n">user</span> <span class="n">clicks</span> <span class="n">on</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">event</span><span class="p">)</span> <span class="n">is</span> <span class="n">triggered</span>
+			<span class="n">event</span> <span class="p">[</span><span class="n">mouse_down</span><span class="p">]</span> <span class="n">action</span><span class="p">:</span> <span class="n">change_shape</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

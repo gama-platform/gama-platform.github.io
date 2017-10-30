@@ -3516,16 +3516,14 @@ GAMA is supporting the co-modelling and co-simulation which are suppose to be th
 
 <h3 id="defining-a-micro-model">Defining a micro-model</h3>
 <p>Defining a micro-model of comodel is to import an existing model with an alias name. The syntax is:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>import &lt;path to the GAML model&gt; as &lt;identifier&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import &lt;path to the GAML model&gt; as &lt;identifier&gt;
+</code></pre></div></div>
 <p>The identifier is then become the new name of the micro-model.</p>
 
 <h3 id="instantiate-a-micro-model">Instantiate a micro-model</h3>
 <p>After the importation and giving an identifier, micro-model must be explicitly instantiated. It could be done by create statement.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>create &lt;micro-model identifier&gt; . &lt;experiment name&gt; [optional parameter];
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create &lt;micro-model identifier&gt; . &lt;experiment name&gt; [optional parameter];
+</code></pre></div></div>
 <p>THe <exeperiment name=""> is an expriment inside micro-model. This syntax will generate an experiment agent and attach an implicitly simulation.</exeperiment></p>
 
 <p>Note: Creation of multi-instant is not create multi-simulation, but multi-experiment. Modellers could create a experiment with multi-simulation by explicitly do the init inside the experiment scope.</p>
@@ -3533,19 +3531,17 @@ GAMA is supporting the co-modelling and co-simulation which are suppose to be th
 <h3 id="control-micro-model-life-cycle">Control micro-model life-cycle</h3>
 <p>A micro-model can be control as the normal agent by asking the correspond identifier, and also be destroy by the ‘o die’ statement. As fact, it can be recreate any time we need.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ask (&lt;micro-model identifier&gt; . &lt;experiment name&gt;  at &lt;number&gt; ) . simulation {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask (&lt;micro-model identifier&gt; . &lt;experiment name&gt;  at &lt;number&gt; ) . simulation {
 		...
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="visualize-micro-model">Visualize micro-model</h2>
 
 <p>The micro-model species could display in comodel with the support of agent layer</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>agents "name of layer" value: (&lt;micro-model&gt; . &lt;experiment name&gt; at &lt;number&gt;).&lt;get List of agents&gt;;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agents "name of layer" value: (&lt;micro-model&gt; . &lt;experiment name&gt; at &lt;number&gt;).&lt;get List of agents&gt;;
+</code></pre></div></div>
 
 <h2 id="more-details">More details</h2>
 

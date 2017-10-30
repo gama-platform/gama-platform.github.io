@@ -3500,75 +3500,74 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model date_model 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">date_model</span> 
 
-global {
+<span class="n">global</span> <span class="p">{</span>
 	
-	//definition of the date of begining of the simulation - defining this date will allows to change the normal date management of the simulation by a more realistic one (using calendar) 
-	date starting_date &lt;- date([2011,1,2,1,1,30]);
+	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">date</span> <span class="k">of</span> <span class="n">begining</span> <span class="k">of</span> <span class="n">the</span> <span class="n">simulation</span> <span class="p">-</span> <span class="n">defining</span> <span class="n">this</span> <span class="n">date</span> <span class="n">will</span> <span class="n">allows</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">normal</span> <span class="n">date</span> <span class="n">management</span> <span class="k">of</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">by</span> <span class="n">a</span> <span class="n">more</span> <span class="n">realistic</span> <span class="n">one</span> <span class="p">(</span><span class="n">using</span> <span class="n">calendar</span><span class="p">)</span> 
+	<span class="n">date</span> <span class="n">starting_date</span> <span class="p">&lt;-</span> <span class="n">date</span><span class="p">([</span><span class="m">2011</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">]);</span>
 	
-	//be careful, when real dates are used, modelers should not use the #month and #year values that are not consistent with them
-	float step &lt;- 1#h;
+	<span class="p">//</span><span class="n">be</span> <span class="n">careful</span><span class="p">,</span> <span class="n">when</span> <span class="k">real</span> <span class="n">dates</span> <span class="n">are</span> <span class="n">used</span><span class="p">,</span> <span class="n">modelers</span> <span class="n">should</span> <span class="k">not</span> <span class="n">use</span> <span class="n">the</span> <span class="p">#</span><span class="n">month</span> <span class="k">and</span> <span class="p">#</span><span class="n">year</span> <span class="n">values</span> <span class="n">that</span> <span class="n">are</span> <span class="k">not</span> <span class="n">consistent</span> <span class="k">with</span> <span class="n">them</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">#</span><span class="n">h</span><span class="p">;</span>
 		
-	init {
-		write "starting_date: " + starting_date;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">"starting_date: "</span> <span class="p">+</span> <span class="n">starting_date</span><span class="p">;</span>
 		
-		//there are several ways to define a date.
-		//The simplest consists in using a list of int values: [year,month of the year,day of the month, hour of the day, minute of the hour, second of the minute]
-		date my_date &lt;- date([2010,3,23,17,30,10]); //correspond the 23th of March 2010, at 17:30:10
+		<span class="p">//</span><span class="n">there</span> <span class="n">are</span> <span class="n">several</span> <span class="n">ways</span> <span class="k">to</span> <span class="n">define</span> <span class="n">a</span> <span class="n">date</span><span class="p">.</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">simplest</span> <span class="n">consists</span> <span class="k">in</span> <span class="n">using</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">int</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="n">year</span><span class="p">,</span><span class="n">month</span> <span class="k">of</span> <span class="n">the</span> <span class="n">year</span><span class="p">,</span><span class="n">day</span> <span class="k">of</span> <span class="n">the</span> <span class="n">month</span><span class="p">,</span> <span class="n">hour</span> <span class="k">of</span> <span class="n">the</span> <span class="n">day</span><span class="p">,</span> <span class="n">minute</span> <span class="k">of</span> <span class="n">the</span> <span class="n">hour</span><span class="p">,</span> <span class="n">second</span> <span class="k">of</span> <span class="n">the</span> <span class="n">minute</span><span class="p">]</span>
+		<span class="n">date</span> <span class="n">my_date</span> <span class="p">&lt;-</span> <span class="n">date</span><span class="p">([</span><span class="m">2010</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">17</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">10</span><span class="p">]);</span> <span class="p">//</span><span class="n">correspond</span> <span class="n">the</span> <span class="m">23</span><span class="n">th</span> <span class="k">of</span> <span class="n">March</span> <span class="m">2010</span><span class="p">,</span> <span class="n">at</span> <span class="m">17</span><span class="p">:</span><span class="m">30</span><span class="p">:</span><span class="m">10</span>
 		
-		//It is also possible to define a date through a string:
-		date my_date2 &lt;- date("2010-3-23T17:30:10+07:00"); 
-		write (my_date2);
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">also</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">a</span> <span class="n">date</span> <span class="n">through</span> <span class="n">a</span> <span class="k">string</span><span class="p">:</span>
+		<span class="n">date</span> <span class="n">my_date2</span> <span class="p">&lt;-</span> <span class="n">date</span><span class="p">(</span><span class="s2">"2010-3-23T17:30:10+07:00"</span><span class="p">);</span> 
+		<span class="nb">write</span> <span class="p">(</span><span class="n">my_date2</span><span class="p">);</span>
 	
-		//it is possible to get the current date by using the "now" string:
-		date today &lt;- date("now"); 
-		write (today);
+		<span class="p">//</span><span class="n">it</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">current</span> <span class="n">date</span> <span class="n">by</span> <span class="n">using</span> <span class="n">the</span> <span class="s2">"now"</span> <span class="k">string</span><span class="p">:</span>
+		<span class="n">date</span> <span class="n">today</span> <span class="p">&lt;-</span> <span class="n">date</span><span class="p">(</span><span class="s2">"now"</span><span class="p">);</span> 
+		<span class="nb">write</span> <span class="p">(</span><span class="n">today</span><span class="p">);</span>
 		
-		write "\n ----------------------------------------------- " ;
+		<span class="nb">write</span> <span class="s2">"</span><span class="se">\n</span><span class="s2"> ----------------------------------------------- "</span> <span class="p">;</span>
 		
-		//GAMA provides several operator to manipulate dates:	
+		<span class="p">//</span><span class="n">GAMA</span> <span class="n">provides</span> <span class="n">several</span> <span class="n">operator</span> <span class="k">to</span> <span class="n">manipulate</span> <span class="n">dates</span><span class="p">:</span>	
 			
-		//for instance, it is possible to compute the duration in seconds between 2 dates:
-		float d &lt;- starting_date - my_date;
-		write "duration between " + my_date + " and " + starting_date + " : " + d + "s";
+		<span class="p">//</span><span class="n">for</span> <span class="n">instance</span><span class="p">,</span> <span class="n">it</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">duration</span> <span class="k">in</span> <span class="n">seconds</span> <span class="n">between</span> <span class="m">2</span> <span class="n">dates</span><span class="p">:</span>
+		<span class="n">float</span> <span class="n">d</span> <span class="p">&lt;-</span> <span class="n">starting_date</span> <span class="p">-</span> <span class="n">my_date</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"duration between "</span> <span class="p">+</span> <span class="n">my_date</span> <span class="p">+</span> <span class="s2">" and "</span> <span class="p">+</span> <span class="n">starting_date</span> <span class="p">+</span> <span class="s2">" : "</span> <span class="p">+</span> <span class="n">d</span> <span class="p">+</span> <span class="s2">"s"</span><span class="p">;</span>
 		
-		write "\n ----------------------------------------------- " ;
+		<span class="nb">write</span> <span class="s2">"</span><span class="se">\n</span><span class="s2"> ----------------------------------------------- "</span> <span class="p">;</span>
 		
-		//to add or subtract a duration (in secondes) to a date:
-		 write "my_date2 + 10: " + (my_date2 + 10);
-		 write "my_date2 - 10: " + (my_date2 - 10);
+		<span class="p">//</span><span class="k">to</span> <span class="n">add</span> <span class="k">or</span> <span class="n">subtract</span> <span class="n">a</span> <span class="n">duration</span> <span class="p">(</span><span class="k">in</span> <span class="n">secondes</span><span class="p">)</span> <span class="k">to</span> <span class="n">a</span> <span class="n">date</span><span class="p">:</span>
+		 <span class="nb">write</span> <span class="s2">"my_date2 + 10: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="p">+</span> <span class="m">10</span><span class="p">);</span>
+		 <span class="nb">write</span> <span class="s2">"my_date2 - 10: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="p">-</span> <span class="m">10</span><span class="p">);</span>
 		 
-		 write "\n ----------------------------------------------- " ;
+		 <span class="nb">write</span> <span class="s2">"</span><span class="se">\n</span><span class="s2"> ----------------------------------------------- "</span> <span class="p">;</span>
 		 
 		 
-		 //to add or subtract a duration (in years, months, weeks, days, hours, minutes,  secondes) to a date:
-		  write "my_date2 add_years 1: " + (my_date2 add_years 1);
-		  write "my_date2 add_months 1: " + (my_date2 add_months 1);
-		  write "my_date2 add_weeks 1: " + (my_date2 add_weeks 1);
-		  write "my_date2 add_days 1: " + (my_date2 add_days 1);
-		  write "my_date2 add_hours 1: " + (my_date2 add_hours 1);
-		  write "my_date2 add_minutes 1: " + (my_date2 add_minutes 1);
-		  write "my_date2 add_seconds 1: " + (my_date2 add_seconds 1);
+		 <span class="p">//</span><span class="k">to</span> <span class="n">add</span> <span class="k">or</span> <span class="n">subtract</span> <span class="n">a</span> <span class="n">duration</span> <span class="p">(</span><span class="k">in</span> <span class="n">years</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">weeks</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="n">hours</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span>  <span class="n">secondes</span><span class="p">)</span> <span class="k">to</span> <span class="n">a</span> <span class="n">date</span><span class="p">:</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_years 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_years</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_months 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_months</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_weeks 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_weeks</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_days 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_days</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_hours 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_hours</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_minutes 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_minutes</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 add_seconds 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">add_seconds</span> <span class="m">1</span><span class="p">);</span>
 		  
-		  write "my_date2 subtract_years 1: " + (my_date2 subtract_years 1);
-		  write "my_date2 subtract_months 1: " + (my_date2 subtract_months 1);
-		  write "my_date2 subtract_weeks 1: " + (my_date2 subtract_weeks 1);
-		  write "my_date2 subtract_days 1: " + (my_date2 subtract_days 1);
-		  write "my_date2 subtract_hours 1: " + (my_date2 subtract_hours 1);
-		  write "my_date2 subtract_minutes 1: " + (my_date2 subtract_minutes 1);
-		  write "my_date2 subtract_seconds 1: " + (my_date2 subtract_seconds 1);
-	}
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_years 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_years</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_months 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_months</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_weeks 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_weeks</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_days 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_days</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_hours 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_hours</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_minutes 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_minutes</span> <span class="m">1</span><span class="p">);</span>
+		  <span class="nb">write</span> <span class="s2">"my_date2 subtract_seconds 1: "</span> <span class="p">+</span> <span class="p">(</span><span class="n">my_date2</span> <span class="n">subtract_seconds</span> <span class="m">1</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-	reflex info_date {
-		//at each simulation step, the current_date is updated - its value can be seen in the top-left green info panel.
-		write "current_date at cycle " + cycle + " : " + current_date;
-	}
-}
+	<span class="n">reflex</span> <span class="n">info_date</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">at</span> <span class="n">each</span> <span class="n">simulation</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">current_date</span> <span class="n">is</span> <span class="n">updated</span> <span class="p">-</span> <span class="n">its</span> <span class="n">value</span> <span class="n">can</span> <span class="n">be</span> <span class="n">seen</span> <span class="k">in</span> <span class="n">the</span> <span class="n">top</span><span class="p">-</span><span class="n">left</span> <span class="n">green</span> <span class="n">info</span> <span class="n">panel</span><span class="p">.</span>
+		<span class="nb">write</span> <span class="s2">"current_date at cycle "</span> <span class="p">+</span> <span class="n">cycle</span> <span class="p">+</span> <span class="s2">" : "</span> <span class="p">+</span> <span class="n">current_date</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main type: gui;
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">;</span>
+</code></pre></div></div>
 
     </div>
     </div>

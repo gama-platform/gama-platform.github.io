@@ -3500,142 +3500,141 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Tank
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Tank</span>
 
-global {
+<span class="n">global</span> <span class="p">{</span>
 	
-	//Dimensions of the environment
-	int width_of_environment parameter: 'Dimensions' init: 100;
-	int height_of_environment parameter: 'Dimensions' init: 100;
+	<span class="p">//</span><span class="n">Dimensions</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">width_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
 	
-	//Parameters for the ball species
-	int nb_balls parameter: 'Number of Agents' min: 1 &lt;- 500;
-	int size_of_agents parameter: 'Size of Agents' min: 1 &lt;- 1;
-	
-	
-	int wall_height parameter: 'Wall height' min: 1 &lt;- 25;
-	geometry shape &lt;- rectangle(width_of_environment, height_of_environment);
-	
-	//Physics engine
-	physic_world world2;
+	<span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">species</span>
+	<span class="n">int</span> <span class="n">nb_balls</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">size_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Size of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
 	
 	
-	init {
+	<span class="n">int</span> <span class="n">wall_height</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Wall height'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span> <span class="n">height_of_environment</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="n">Physics</span> <span class="n">engine</span>
+	<span class="n">physic_world</span> <span class="n">world2</span><span class="p">;</span>
+	
+	
+	<span class="n">init</span> <span class="p">{</span>
 		
-		//Creation of the ball agents
-		create ball number: nb_balls {
-			location &lt;- { rnd(width_of_environment - size_of_agents), rnd(height_of_environment - size_of_agents), rnd(height_of_environment - size_of_agents) };
-			radius &lt;- float(size_of_agents);
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">ball</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_balls</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_of_environment</span> <span class="p">-</span> <span class="n">size_of_agents</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">height_of_environment</span> <span class="p">-</span> <span class="n">size_of_agents</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">height_of_environment</span> <span class="p">-</span> <span class="n">size_of_agents</span><span class="p">)</span> <span class="p">};</span>
+			<span class="n">radius</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">size_of_agents</span><span class="p">);</span>
 			
-			//Attributes to know the collision bounds of the agent
-			collisionBound &lt;- ["shape"::"sphere", "radius"::radius];
-		}
+			<span class="p">//</span><span class="n">Attributes</span> <span class="k">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">collision</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"sphere"</span><span class="p">,</span> <span class="s2">"radius"</span><span class="p">::</span><span class="n">radius</span><span class="p">];</span>
+		<span class="p">}</span>
 
-		//Create the ground of the tank
-		create ground {
-			location &lt;- { width_of_environment / 2, height_of_environment / 2, 0 };
-			collisionBound &lt;- ["shape"::"floor", "x"::width_of_environment / 2, "y"::height_of_environment / 2, "z"::0];
-			shape &lt;- rectangle({ width_of_environment, height_of_environment });
-			mass &lt;- 0.0;
-		}
-		//down wall
-		create wall {
-			location &lt;- { width_of_environment / 2, height_of_environment, 0 };
-			shape &lt;- rectangle({ width_of_environment, 2 });
-			collisionBound &lt;- ["shape"::"floor", "x"::width_of_environment / 2, "y"::1, "z"::wall_height];
-			mass &lt;- 0.0;
-		}
-		//upper wall
-		create wall {
-			location &lt;- { width_of_environment / 2, 0, 0 };
-			shape &lt;- rectangle({ width_of_environment, 2 });
-			collisionBound &lt;- ["shape"::"floor", "x"::width_of_environment / 2, "y"::1, "z"::wall_height];
-			mass &lt;- 0.0;
-		}
-		//left wall
-		create wall {
-			location &lt;- { 0, height_of_environment / 2, 0 };
-			shape &lt;- rectangle({ 2, height_of_environment });
-			collisionBound &lt;- ["shape"::"floor", "x"::1, "y"::height_of_environment / 2, "z"::wall_height];
-			mass &lt;- 0.0;
-		}
-		//right wall
-		create wall {
-			location &lt;- { width_of_environment, height_of_environment / 2, 0 };
-			shape &lt;- rectangle({ 2, height_of_environment });
-			collisionBound &lt;- ["shape"::"floor", "x"::1, "y"::height_of_environment / 2, "z"::wall_height];
-			mass &lt;- 0.0;
-		}
-		//Initialisation of the physic engine
-		create physic_world {
-			world2 &lt;- self;
-		}
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">ground</span> <span class="k">of</span> <span class="n">the</span> <span class="n">tank</span>
+		<span class="nb">create</span> <span class="n">ground</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span><span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="m">0</span><span class="p">];</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">({</span> <span class="n">width_of_environment</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">});</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">down</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">height_of_environment</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">({</span> <span class="n">width_of_environment</span><span class="p">,</span> <span class="m">2</span> <span class="p">});</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span><span class="m">1</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">wall_height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">upper</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">({</span> <span class="n">width_of_environment</span><span class="p">,</span> <span class="m">2</span> <span class="p">});</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span><span class="m">1</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">wall_height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">left</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">({</span> <span class="m">2</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">});</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">::</span><span class="m">1</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span><span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">wall_height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">right</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">width_of_environment</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">({</span> <span class="m">2</span><span class="p">,</span> <span class="n">height_of_environment</span> <span class="p">});</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">::</span><span class="m">1</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span><span class="n">height_of_environment</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">wall_height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Initialisation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">physic</span> <span class="n">engine</span>
+		<span class="nb">create</span> <span class="n">physic_world</span> <span class="p">{</span>
+			<span class="n">world2</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		//The physic engine agent gets all the other agents of the world to compute their forces
-		ask world2 {
-			agents &lt;- (ball as list) + (ground as list) + (wall as list);
-		}
+		<span class="p">//</span><span class="n">The</span> <span class="n">physic</span> <span class="n">engine</span> <span class="n">agent</span> <span class="n">gets</span> <span class="n">all</span> <span class="n">the</span> <span class="n">other</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">their</span> <span class="n">forces</span>
+		<span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span>
+			<span class="n">agents</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">ball</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">ground</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">wall</span> <span class="k">as</span> <span class="k">list</span><span class="p">);</span>
+		<span class="p">}</span>
 
-		world2.gravity &lt;- true;
-	}
+		<span class="n">world2</span><span class="p">.</span><span class="n">gravity</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	//Reflex to compute the forces at each step
-	reflex computeForces {
-		ask world2 {
-			do compute_forces step: 1;
-		}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">forces</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span>
+	<span class="n">reflex</span> <span class="n">computeForces</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">compute_forces</span> <span class="n">step</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-//Species that will represent the physic engine, derivated from builti-in species Physical3DWorld
-species physic_world parent: physical_world ;
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">physic</span> <span class="n">engine</span><span class="p">,</span> <span class="n">derivated</span> <span class="k">from</span> <span class="n">builti</span><span class="p">-</span><span class="k">in</span> <span class="n">species</span> <span class="n">Physical3DWorld</span>
+<span class="n">species</span> <span class="n">physic_world</span> <span class="n">parent</span><span class="p">:</span> <span class="n">physical_world</span> <span class="p">;</span>
 
-//Species that will represent the ground of the tank, using the skill physical 3D
-species ground skills: [physics] {
-	aspect default {
-		draw shape color: rgb(60, 60, 60);
-	}
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">ground</span> <span class="k">of</span> <span class="n">the</span> <span class="n">tank</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">physical</span> <span class="m">3</span><span class="n">D</span>
+<span class="n">species</span> <span class="n">ground</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+	<span class="p">}</span>
 
-}
-
-
-//Species that will represent the walls of the tank, using the skill physical 3D
-species wall skills: [physics] {
-	rgb color;
-	aspect default {
-		draw shape color: rgb(40, 40, 40) depth: wall_height;
-	}
-
-}
+<span class="p">}</span>
 
 
-//Species that will represent the balls falling in the tank, using the skill physical 3D
-species ball skills: [physics] {
-	float radius;
-	aspect default {
-		draw sphere(radius) color: rgb(4, 158, 189);
-	}
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">walls</span> <span class="k">of</span> <span class="n">the</span> <span class="n">tank</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">physical</span> <span class="m">3</span><span class="n">D</span>
+<span class="n">species</span> <span class="n">wall</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="m">40</span><span class="p">,</span> <span class="m">40</span><span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">wall_height</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment tank type: gui {
-	init{
-		minimum_cycle_duration &lt;-0.001;
-	}
-	output {
-		display Circle type: opengl background: rgb(230, 230, 230) { 
-			species ground;
-			species wall;
-			species ball;
-		}
-	}
 
-}
+<span class="p">//</span><span class="n">Species</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">balls</span> <span class="n">falling</span> <span class="k">in</span> <span class="n">the</span> <span class="n">tank</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">physical</span> <span class="m">3</span><span class="n">D</span>
+<span class="n">species</span> <span class="n">ball</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">radius</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">158</span><span class="p">,</span> <span class="m">189</span><span class="p">);</span>
+	<span class="p">}</span>
 
-</code></pre>
-</div>
+<span class="p">}</span>
+
+<span class="n">experiment</span> <span class="n">tank</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span><span class="m">0.001</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Circle</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">background</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">230</span><span class="p">,</span> <span class="m">230</span><span class="p">,</span> <span class="m">230</span><span class="p">)</span> <span class="p">{</span> 
+			<span class="n">species</span> <span class="n">ground</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">wall</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">ball</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+</code></pre></div></div>
 
     </div>
     </div>

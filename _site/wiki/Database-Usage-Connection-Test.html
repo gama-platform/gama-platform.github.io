@@ -3500,36 +3500,35 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model test_connection
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">test_connection</span>
 
-global {
-	map&lt;string, string&gt; SQLSERVER &lt;- ['host'::'localhost', 'dbtype'::'sqlserver', 'database'::'', 'port'::'1433', 'user'::'sa', 'passwd'::'tmt'];
-	map&lt;string, string&gt; MySQL &lt;- ['host'::'localhost', 'dbtype'::'MySQL', 'database'::'', 'port'::'8889', 'user'::'root', 'passwd'::'root'];
-	map&lt;string, string&gt; ORACLE &lt;- ['host'::'localhost', 'dbtype'::'Oracle', 'database'::'', 'port'::'1433', 'user'::'sa', 'passwd'::'tmt'];
-	map&lt;string, string&gt; POSTGRES &lt;- ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'bgaudou', 'port'::'5432', 'user'::'bgaudou', 'passwd'::''];
-	map&lt;string, string&gt; SQLITE &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/meteo.db'];
-	init {
-		create DB_connection_tester;
-	}
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">SQLSERVER</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlserver'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'1433'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'sa'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">MySQL</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">ORACLE</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'Oracle'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'1433'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'sa'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">POSTGRES</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'Postgres'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">'bgaudou'</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'5432'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'bgaudou'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">''</span><span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">SQLITE</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlite'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/meteo.db'</span><span class="p">];</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">DB_connection_tester</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-species DB_connection_tester skills: [SQLSKILL] {
-	init {
-		write "Current Time " + self timeStamp [];
-		write "Connection to SQLSERVER is " + self testConnection [params::SQLSERVER];
-		write "Connection to MySQL is " + self testConnection [params::MySQL];
-		write "Connection to SQLITE is " + self testConnection [params::SQLITE];
-		write "Connection to ORACLE is " + self testConnection [params::ORACLE];
-		write "Connection to POSTGRESQL is " + self testConnection [params::POSTGRES];
-	}
+<span class="n">species</span> <span class="n">DB_connection_tester</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">"Current Time "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">timeStamp</span> <span class="p">[];</span>
+		<span class="nb">write</span> <span class="s2">"Connection to SQLSERVER is "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">SQLSERVER</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s2">"Connection to MySQL is "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">MySQL</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s2">"Connection to SQLITE is "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">SQLITE</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s2">"Connection to ORACLE is "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">ORACLE</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s2">"Connection to POSTGRESQL is "</span> <span class="p">+</span> <span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">POSTGRES</span><span class="p">];</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment default_expr type: gui {
-}  
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">default_expr</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+<span class="p">}</span>  
+</code></pre></div></div>
 
     </div>
     </div>

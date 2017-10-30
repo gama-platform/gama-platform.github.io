@@ -3508,17 +3508,15 @@ function closeRightMenu() {
 
 <p>A declaration of skill is done by filling the <code class="highlighter-rouge">skills</code> facet in the species definition:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species skills: [skill1,skill2] {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species skills: [skill1,skill2] {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>A very useful and common skill is the <code class="highlighter-rouge">moving</code> skill.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species skills: [moving] {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species skills: [moving] {
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Once your species has the moving skill, it earns automatically the following attributes: <code class="highlighter-rouge">speed</code>, <code class="highlighter-rouge">heading</code>, <code class="highlighter-rouge">destination</code> and the following actions: <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">goto</code>, <code class="highlighter-rouge">follow</code>, <code class="highlighter-rouge">wander</code> and <code class="highlighter-rouge">wander_3D</code>.</p>
 
@@ -3604,64 +3602,63 @@ Species_red agents wait for a species_green agent to be in a certain range of di
 
 <p>Here is an example of implementation:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model green_and_red_species
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">green_and_red_species</span>
 
-global{
-	float distance_to_intercept &lt;- 10.0;
-	int number_of_green_species &lt;- 50;
-	int number_of_red_species &lt;- 50;
-	init {
-		create speciesA number:number_of_green_species;
-		create speciesB number:number_of_red_species;
-	}
-}
+<span class="n">global</span><span class="p">{</span>
+	<span class="n">float</span> <span class="n">distance_to_intercept</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_green_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_red_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">speciesA</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_green_species</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">speciesB</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_red_species</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species speciesA skills:[moving] {
-	init {
-		speed &lt;- 1.0;
-	}
-	reflex move {
-		do wander amplitude:90;
-	}
-	aspect default {
-		draw circle(1) color:#green;
-	}
-}
+<span class="n">species</span> <span class="n">speciesA</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species speciesB skills:[moving] {
-	speciesA target;
-	init {
-		speed &lt;- 0.0;
-		heading &lt;- 90;
-	}
-	reflex search_target when:target=nil {
-		ask speciesA at_distance(distance_to_intercept) {
-			myself.target &lt;- self;
-		}
-	}
-	reflex follow when:target!=nil {
-		speed &lt;- 0.8;
-		do goto target:target;
-	}
-	aspect default {
-		draw circle(1) color:#red;
-		if (target!=nil) {
-			draw polyline([self.location,target.location]) color:#black;
-		}
-	}
-}
+<span class="n">species</span> <span class="n">speciesB</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
+	<span class="n">speciesA</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">search_target</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="p">=</span><span class="n">nil</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">speciesA</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">distance_to_intercept</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">myself</span><span class="p">.</span><span class="n">target</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">follow</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="c1">!=nil {
+</span>		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.8</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">target</span><span class="c1">!=nil) {
+</span>			<span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment my_experiment type:gui
-{
-	output{
-		display myDisplay {
-			species speciesA aspect:default;
-			species speciesB aspect:default;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span><span class="p">{</span>
+		<span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">speciesA</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">speciesB</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

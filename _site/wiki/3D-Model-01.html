@@ -3500,34 +3500,33 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model Tuto3D
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">Tuto3D</span>
 
-global {
-  int nb_cells &lt;-100;	
-  init { 
-    create cells number: nb_cells { 
-      location &lt;- {rnd(100), rnd(100), rnd(100)};       
-    } 
-  }  
-} 
+<span class="n">global</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>	
+  <span class="n">init</span> <span class="p">{</span> 
+    <span class="nb">create</span> <span class="n">cells</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="p">{</span> 
+      <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)};</span>       
+    <span class="p">}</span> 
+  <span class="p">}</span>  
+<span class="p">}</span> 
   
-species cells{                      
-  aspect default {
-    draw sphere(1) color:#blue;   
-  }
-}
+<span class="n">species</span> <span class="n">cells</span><span class="p">{</span>                      
+  <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+    <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>   
+  <span class="p">}</span>
+<span class="p">}</span>
 
-experiment Tuto3D  type: gui {
-  parameter "Initial number of cells: " var: nb_cells min: 1 max: 1000 category: "Cells" ;	
-  output {
-    display View1 type:opengl {
-      species cells;
-    }
-  }
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">Tuto3D</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+  <span class="n">parameter</span> <span class="s2">"Initial number of cells: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Cells"</span> <span class="p">;</span>	
+  <span class="n">output</span> <span class="p">{</span>
+    <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+      <span class="n">species</span> <span class="n">cells</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

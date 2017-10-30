@@ -3504,10 +3504,9 @@ function closeRightMenu() {
 <ul>
   <li>extends the <code class="highlighter-rouge">GamlAgent</code> class,</li>
   <li>begins by the <a href="DevelopingIndexAnnotations#@species">@species</a>: <code class="highlighter-rouge">@species(name = "name_of_the_species_gaml")</code>,
-    <div class="highlighter-rouge"><pre class="highlight"><code>@species(name = "multicriteria_analyzer")
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@species(name = "multicriteria_analyzer")
 public class MulticriteriaAnalyzer extends GamlAgent {
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -3522,29 +3521,26 @@ public class MulticriteriaAnalyzer extends GamlAgent {
 </ul>
 
 <p>For example, regular species are defined with the following annotation:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@vars({ @var(name = IKeyword.NAME, type = IType.STRING), @var(name = IKeyword.PEERS, type = IType.LIST),
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({ @var(name = IKeyword.NAME, type = IType.STRING), @var(name = IKeyword.PEERS, type = IType.LIST),
 	@var(name = IKeyword.HOST, type = IType.AGENT),
 	@var(name = IKeyword.LOCATION, type = IType.POINT, depends_on = IKeyword.SHAPE),
 	@var(name = IKeyword.SHAPE, type = IType.GEOMETRY) })
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And accessors are defined using:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@getter(IKeyword.NAME)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(IKeyword.NAME)
 public abstract String getName();
 
 @setter(IKeyword.NAME)
 public abstract void setName(String name);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="additional-actions">Additional actions</h3>
 
 <p>An additional action is a method annotated by the <a href="DevelopingIndexAnnotations#@action">@action</a> annotation.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>@action(name = ISpecies.stepActionName)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@action(name = ISpecies.stepActionName)
 public Object _step_(final IScope scope) {
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="annotations">Annotations</h2>
 <h3 id="species">@species</h3>

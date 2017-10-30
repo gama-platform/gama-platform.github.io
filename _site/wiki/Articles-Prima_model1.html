@@ -3500,47 +3500,46 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model SI_city
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">SI_city</span>
 
-global{
-	geometry shape&lt;-envelope(square(500));
+<span class="n">global</span><span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">500</span><span class="p">));</span>
 	
-	//Creation of the people agents
-	init{
-		create people number:1000;
-	}
-}
-//People species with agents moving and can be infected
-species people skills:[moving]{		
-	float speed &lt;- 5.0 + rnd(5);
-	bool is_infected &lt;- flip(0.01);
-	//Make the agent wander at each step with a certain speed.
-	reflex move{
-		do wander;
-	}
-	//Infect the agent if it is not already infected, and according to the infected people in a range
-	reflex infect when: is_infected{
-		ask people at_distance 10 {
-			if flip(0.01) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw circle(5) color:is_infected ? #red : #green;
-	}
-}
+	<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">1000</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">People</span> <span class="n">species</span> <span class="k">with</span> <span class="n">agents</span> <span class="n">moving</span> <span class="k">and</span> <span class="n">can</span> <span class="n">be</span> <span class="n">infected</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">wander</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span> <span class="k">with</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">speed</span><span class="p">.</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Infect</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="k">not</span> <span class="n">already</span> <span class="n">infected</span><span class="p">,</span> <span class="k">and</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">infected</span> <span class="n">people</span> <span class="k">in</span> <span class="n">a</span> <span class="k">range</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	output {
-		display map  {
-			species people aspect:circle;			
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span>  <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

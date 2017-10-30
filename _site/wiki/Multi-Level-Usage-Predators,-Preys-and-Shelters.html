@@ -3500,59 +3500,59 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model preys_predators_shelters
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">preys_predators_shelters</span>
 
-global { 
-	//Parameters for the prey species
-	rgb prey_color &lt;- #green const: true;
-	float prey_perception &lt;- 20.0;
-	float prey_size &lt;- 2.0 const: true;
-	float prey_speed &lt;- 1.0;
-	rgb prey_flee_color &lt;- #orange;
-	float prey_invisible_speed &lt;- 3 * prey_speed;
-	rgb prey_invisible_color &lt;- #black;  
-	int prey_in_shelter_max_time min: 1 init: 200;
-	int prey_invisible_max_time min: 1 max: 100 init: 70; 
-	int number_of_preys min: 1 max: 1000 init: 100;
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">prey</span> <span class="n">species</span>
+	<span class="n">rgb</span> <span class="n">prey_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_perception</span> <span class="p">&lt;-</span> <span class="m">20.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">prey_flee_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">orange</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_invisible_speed</span> <span class="p">&lt;-</span> <span class="m">3</span> <span class="p">*</span> <span class="n">prey_speed</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">prey_invisible_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">prey_in_shelter_max_time</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="n">init</span><span class="p">:</span> <span class="m">200</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">prey_invisible_max_time</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">100</span> <span class="n">init</span><span class="p">:</span> <span class="m">70</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">number_of_preys</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
 	
-	//Parameters for the predator species
-	rgb predator_color &lt;- #red const: true;
-	float predator_perception &lt;- 3.0;
-	float predator_size &lt;- 4.0;
-	float predator_speed &lt;- 1.0;
-	int number_of_predators min: 1 max: 100 init: 30; 
-	geometry shape &lt;- square(400);
+	<span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">predator</span> <span class="n">species</span>
+	<span class="n">rgb</span> <span class="n">predator_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_perception</span> <span class="p">&lt;-</span> <span class="m">3.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_size</span> <span class="p">&lt;-</span> <span class="m">4.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_predators</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">100</span> <span class="n">init</span><span class="p">:</span> <span class="m">30</span><span class="p">;</span> 
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">400</span><span class="p">);</span>
 	
-	rgb predator_in_shelter_color &lt;- #yellow const: true;
+	<span class="n">rgb</span> <span class="n">predator_in_shelter_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
 	 
-	//Parameters for the shelter species
-	rgb shelter_color &lt;- #blue const: true; 
-	float shelter_speed &lt;- 1.5 const: true;
-	geometry shelter_shape &lt;- square (50.0);
-	int number_of_shelter &lt;- 2 const: true;
+	<span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">shelter</span> <span class="n">species</span>
+	<span class="n">rgb</span> <span class="n">shelter_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">shelter_speed</span> <span class="p">&lt;-</span> <span class="m">1.5</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shelter_shape</span> <span class="p">&lt;-</span> <span class="n">square</span> <span class="p">(</span><span class="m">50.0</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">number_of_shelter</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
 	
 	
-	init {
-		create prey number: number_of_preys;
-		create predator number: number_of_predators; 
-		create shelter number: number_of_shelter returns: shelters;
-		(shelters at 0).shape &lt;- shelter_shape at_location {150, 250};
-		(shelters at 1).shape &lt;- shelter_shape at_location {350, 250};
-	}
-}
-//Species prey which can move using the skill moving and its operators
-species prey skills: [moving] control: fsm {
-	geometry shape &lt;- square (prey_size);
-	rgb color &lt;- prey_color;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_preys</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">predator</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_predators</span><span class="p">;</span> 
+		<span class="nb">create</span> <span class="n">shelter</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_shelter</span> <span class="n">returns</span><span class="p">:</span> <span class="n">shelters</span><span class="p">;</span>
+		<span class="p">(</span><span class="n">shelters</span> <span class="n">at</span> <span class="m">0</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shelter_shape</span> <span class="n">at_location</span> <span class="p">{</span><span class="m">150</span><span class="p">,</span> <span class="m">250</span><span class="p">};</span>
+		<span class="p">(</span><span class="n">shelters</span> <span class="n">at</span> <span class="m">1</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shelter_shape</span> <span class="n">at_location</span> <span class="p">{</span><span class="m">350</span><span class="p">,</span> <span class="m">250</span><span class="p">};</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">prey</span> <span class="n">which</span> <span class="n">can</span> <span class="n">move</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span> <span class="k">and</span> <span class="n">its</span> <span class="n">operators</span>
+<span class="n">species</span> <span class="n">prey</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span> <span class="n">fsm</span> <span class="p">{</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span> <span class="p">(</span><span class="n">prey_size</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">prey_color</span><span class="p">;</span>
 	
-	//List of all predators inside the perception of the prey
-	list nearby_predators update: (agents_overlapping (shape + prey_perception)) of_species predator depends_on: shape;
-	int invisible_time min: 1 &lt;- int(time);
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">predators</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">perception</span> <span class="k">of</span> <span class="n">the</span> <span class="n">prey</span>
+	<span class="k">list</span> <span class="n">nearby_predators</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">agents_overlapping</span> <span class="p">(</span><span class="n">shape</span> <span class="p">+</span> <span class="n">prey_perception</span><span class="p">))</span> <span class="n">of_species</span> <span class="n">predator</span> <span class="n">depends_on</span><span class="p">:</span> <span class="n">shape</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">invisible_time</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
 
-	shelter nearest_shelter;		
+	<span class="n">shelter</span> <span class="n">nearest_shelter</span><span class="p">;</span>		
 
-	//State to make the prey move randomly when there isn't any predator, if so, change the state to flee
+	<span class="p">//</span><span class="n">State</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">prey</span> <span class="n">move</span> <span class="n">randomly</span> <span class="n">when</span> <span class="n">there</span> <span class="n">isn</span><span class="s1">'t any predator, if so, change the state to flee
 	state move_around initial: true {
 		enter {
 			speed &lt;- prey_speed;
@@ -3595,10 +3595,10 @@ species predator skills: [moving] schedules: shuffle (list (predator)) {
 	geometry shape &lt;- square (predator_size);
 	prey target_prey update: self choose_target_prey [];
 	
-	//Change the target prey according to the prey who aren't fleeing if it doesn't have any yet
+	//Change the target prey according to the prey who aren'</span><span class="n">t</span> <span class="n">fleeing</span> <span class="k">if</span> <span class="n">it</span> <span class="n">doesn</span><span class="s1">'t have any yet
 	action choose_target_prey type: prey {
 		if ( (target_prey = nil) or (dead (target_prey) ) ) {
-			return one_of ( (list (prey)) where (each.state = 'move_around') );
+			return one_of ( (list (prey)) where (each.state = '</span><span class="n">move_around</span><span class="s1">') );
 		}
 		
 		return target_prey;
@@ -3619,7 +3619,7 @@ species shelter skills: [moving]  frequency: 2 {
 	geometry shape &lt;- (square (50.0)) at_location {250, 250};
 	
 	//List of all preys which are being chased and inside the shelter but not captured yet
-	list&lt;prey&gt; chased_preys update: (prey) where ( (each.shape intersects shape) and (each.state = 'flee_predator') );
+	list&lt;prey&gt; chased_preys update: (prey) where ( (each.shape intersects shape) and (each.state = '</span><span class="n">flee_predator</span><span class="s1">') );
 	
 	reflex move_around {
 		//do wander speed: shelter_speed; 
@@ -3628,7 +3628,7 @@ species shelter skills: [moving]  frequency: 2 {
 	//Capture all the chased preys inside the shelter and change their species to prey_in_shelter
 	reflex capture_chased_preys when: !(empty (chased_preys)) { 
 		capture chased_preys as: prey_in_shelter {
-			state &lt;- 'in_shelter'; 
+			state &lt;- '</span><span class="n">in_shelter</span><span class="s1">'; 
 			shape &lt;- ( triangle (4.0) ) at_location location;
 		}
 	}
@@ -3638,7 +3638,7 @@ species shelter skills: [moving]  frequency: 2 {
 		list&lt;prey_in_shelter&gt; to_be_released &lt;- (prey_in_shelter) where ( (time - each.in_shelter_time) &gt; prey_in_shelter_max_time );
 		 
 		release to_be_released in: world as: prey { 
-			state &lt;- 'invisible';
+			state &lt;- '</span><span class="n">invisible</span><span class="s1">';
 			shape &lt;-  at_location (square (prey_size), self.location);   
 		}
 	} 
@@ -3658,7 +3658,7 @@ species shelter skills: [moving]  frequency: 2 {
 	
 	aspect default {
 		draw shape color: shelter_color;
-		draw 'Members: ' + (string (length ((members)))) color: rgb ('white') size: 6 at: {(location).x - 20, (location).y};
+		draw '</span><span class="n">Members</span><span class="p">:</span> <span class="s1">' + (string (length ((members)))) color: rgb ('</span><span class="n">white</span><span class="s1">') size: 6 at: {(location).x - 20, (location).y};
 	}
 }
 
@@ -3673,8 +3673,7 @@ experiment default_experiment type: gui {
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

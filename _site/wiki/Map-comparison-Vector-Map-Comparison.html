@@ -3506,112 +3506,111 @@ For each comparator, two comparisons are made : one without taking into account 
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model mapcomparison
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">mapcomparison</span>
 
-global {
-	list&lt;string&gt; categories ;
-	map&lt;string,rgb&gt; color_cat ;
-	matrix&lt;float&gt; fuzzy_categories;
-	matrix&lt;float&gt; fuzzy_transitions;
-	list&lt;float&gt; nb_per_cat_obs;
-	list&lt;float&gt; nb_per_cat_sim;
-	file data &lt;- file("../includes/CLC00_06.shp");
+<span class="n">global</span> <span class="p">{</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">categories</span> <span class="p">;</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">color_cat</span> <span class="p">;</span>
+	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_categories</span><span class="p">;</span>
+	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_transitions</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_obs</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_sim</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">data</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/CLC00_06.shp"</span><span class="p">);</span>
 	
-	geometry shape &lt;- envelope(data);
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 	 
-	init {
-		create areaclc from: data with: [init_cover::string(read("CODE_00")),obs_cover::string(read("CODE_06"))] ;
-		ask areaclc {
-			if (not (init_cover in categories)) {categories &lt;&lt; init_cover; }
-			if (not (obs_cover in categories)) {categories &lt;&lt; obs_cover;}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">areaclc</span> <span class="k">from</span><span class="p">:</span> <span class="n">data</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">init_cover</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"CODE_00"</span><span class="p">)),</span><span class="n">obs_cover</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"CODE_06"</span><span class="p">))]</span> <span class="p">;</span>
+		<span class="n">ask</span> <span class="n">areaclc</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">init_cover</span> <span class="k">in</span> <span class="n">categories</span><span class="p">))</span> <span class="p">{</span><span class="n">categories</span> <span class="p">&lt;&lt;</span> <span class="n">init_cover</span><span class="p">;</span> <span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">obs_cover</span> <span class="k">in</span> <span class="n">categories</span><span class="p">))</span> <span class="p">{</span><span class="n">categories</span> <span class="p">&lt;&lt;</span> <span class="n">obs_cover</span><span class="p">;}</span>
 			
-		}
-		loop cat over: categories {
-			color_cat[cat] &lt;- rgb(rnd(255),rnd(255),rnd(255));
-		}
-		ask areaclc {
-			sim_cover &lt;- flip(0.7) ? obs_cover : one_of (categories);
-		}
+		<span class="p">}</span>
+		<span class="n">loop</span> <span class="n">cat</span> <span class="n">over</span><span class="p">:</span> <span class="n">categories</span> <span class="p">{</span>
+			<span class="n">color_cat</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">areaclc</span> <span class="p">{</span>
+			<span class="n">sim_cover</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.7</span><span class="p">)</span> <span class="p">?</span> <span class="n">obs_cover</span> <span class="p">:</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">categories</span><span class="p">);</span>
+		<span class="p">}</span>
 		
-		fuzzy_categories &lt;- 0.0 as_matrix {length(categories),length(categories)};
-		loop i from: 0 to: length(categories) - 1 {
-			fuzzy_categories[i,i] &lt;- 1.0;
-		}
-		fuzzy_transitions &lt;- 0.0 as_matrix {length(categories)*length(categories),length(categories)*length(categories)};
-		loop i from: 0 to: (length(categories) * length(categories)) - 1 {
-			fuzzy_transitions[i,i] &lt;- 1.0;	
-		}
-		list&lt;float&gt; similarity_per_agents ;
-		write "kappa(map observed, map simulation, categories): " + kappa( areaclc collect (each.obs_cover),areaclc collect (each.sim_cover),categories);
-		write "kappa(map observed, map simulation,categories, weights): " + kappa( areaclc collect (each.obs_cover),areaclc collect (each.sim_cover),categories,areaclc collect (each.shape.area));
+		<span class="n">fuzzy_categories</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+			<span class="n">fuzzy_categories</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">fuzzy_transitions</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">*</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+			<span class="n">fuzzy_transitions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>	
+		<span class="p">}</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">similarity_per_agents</span> <span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"kappa(map observed, map simulation, categories): "</span> <span class="p">+</span> <span class="n">kappa</span><span class="p">(</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"kappa(map observed, map simulation,categories, weights): "</span> <span class="p">+</span> <span class="n">kappa</span><span class="p">(</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span><span class="n">categories</span><span class="p">,</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">));</span>
 		
-		write "kappa simulation(map init, map observed, map simulation, categories): " + kappa_sim( areaclc collect (each.init_cover), areaclc collect (each.obs_cover),areaclc collect (each.sim_cover),categories);
-		write "kappa simulation(map init, map observed, map simulation, categories, weights): " + kappa_sim( areaclc collect (each.init_cover), areaclc collect (each.obs_cover),areaclc collect (each.sim_cover),categories,areaclc collect (each.shape.area));
+		<span class="nb">write</span> <span class="s2">"kappa simulation(map init, map observed, map simulation, categories): "</span> <span class="p">+</span> <span class="n">kappa_sim</span><span class="p">(</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">init_cover</span><span class="p">),</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"kappa simulation(map init, map observed, map simulation, categories, weights): "</span> <span class="p">+</span> <span class="n">kappa_sim</span><span class="p">(</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">init_cover</span><span class="p">),</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span><span class="n">categories</span><span class="p">,</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">));</span>
 		
-		write "fuzzy kappa(map observed, map simulation,categories): " + fuzzy_kappa(areaclc, areaclc collect (each.obs_cover),areaclc collect (each.sim_cover), similarity_per_agents,categories,fuzzy_categories, 3000);
-		write "fuzzy kappa(map observed, map simulation,categories,weights): " + fuzzy_kappa(areaclc, areaclc collect (each.obs_cover),areaclc collect (each.sim_cover), similarity_per_agents,categories,fuzzy_categories, 3000,areaclc collect (each.shape.area));
+		<span class="nb">write</span> <span class="s2">"fuzzy kappa(map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa</span><span class="p">(</span><span class="n">areaclc</span><span class="p">,</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_categories</span><span class="p">,</span> <span class="m">3000</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"fuzzy kappa(map observed, map simulation,categories,weights): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa</span><span class="p">(</span><span class="n">areaclc</span><span class="p">,</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_categories</span><span class="p">,</span> <span class="m">3000</span><span class="p">,</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">));</span>
 		
-		write "fuzzy kappa sim(map init, map observed, map simulation,categories): " + fuzzy_kappa_sim(areaclc, areaclc collect (each.init_cover), areaclc collect (each.obs_cover),areaclc collect (each.sim_cover), similarity_per_agents,categories,fuzzy_transitions, 3000);
-		write "fuzzy kappa sim(map init, map observed, map simulation,categories,weights): " + fuzzy_kappa_sim(areaclc, areaclc collect (each.init_cover), areaclc collect (each.obs_cover),areaclc collect (each.sim_cover), similarity_per_agents,categories,fuzzy_transitions, 3000,areaclc collect (each.shape.area));
+		<span class="nb">write</span> <span class="s2">"fuzzy kappa sim(map init, map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa_sim</span><span class="p">(</span><span class="n">areaclc</span><span class="p">,</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">init_cover</span><span class="p">),</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_transitions</span><span class="p">,</span> <span class="m">3000</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"fuzzy kappa sim(map init, map observed, map simulation,categories,weights): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa_sim</span><span class="p">(</span><span class="n">areaclc</span><span class="p">,</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">init_cover</span><span class="p">),</span> <span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span><span class="p">),</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_transitions</span><span class="p">,</span> <span class="m">3000</span><span class="p">,</span><span class="n">areaclc</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">));</span>
 		
-		loop i from: 0 to: length(areaclc) - 1 {
-			int val &lt;- int(255 * similarity_per_agents[i]);
-			ask areaclc[i] {color_fuzzy &lt;- rgb(val, val, val);}
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">areaclc</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+			<span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="n">similarity_per_agents</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+			<span class="n">ask</span> <span class="n">areaclc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">);}</span>
 			
-		}
-		loop c over: categories {
-			list&lt;areaclc&gt; area_c &lt;- areaclc where (each.obs_cover = c);
-			list&lt;float&gt; area_shape_c &lt;- area_c collect (each.shape.area);
-			nb_per_cat_obs &lt;&lt; sum(area_shape_c );
-			nb_per_cat_sim &lt;&lt; sum((areaclc where (each.sim_cover = c)) collect (each.shape.area)); 
-		}
-		write "percent_absolute_deviation : " + percent_absolute_deviation(nb_per_cat_obs,nb_per_cat_sim) + "%";
+		<span class="p">}</span>
+		<span class="n">loop</span> <span class="n">c</span> <span class="n">over</span><span class="p">:</span> <span class="n">categories</span> <span class="p">{</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="n">areaclc</span><span class="p">&gt;</span> <span class="n">area_c</span> <span class="p">&lt;-</span> <span class="n">areaclc</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">obs_cover</span> <span class="p">=</span> <span class="n">c</span><span class="p">);</span>
+			<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">area_shape_c</span> <span class="p">&lt;-</span> <span class="n">area_c</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">);</span>
+			<span class="n">nb_per_cat_obs</span> <span class="p">&lt;&lt;</span> <span class="k">sum</span><span class="p">(</span><span class="n">area_shape_c</span> <span class="p">);</span>
+			<span class="n">nb_per_cat_sim</span> <span class="p">&lt;&lt;</span> <span class="k">sum</span><span class="p">((</span><span class="n">areaclc</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sim_cover</span> <span class="p">=</span> <span class="n">c</span><span class="p">))</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span><span class="p">));</span> 
+		<span class="p">}</span>
+		<span class="nb">write</span> <span class="s2">"percent_absolute_deviation : "</span> <span class="p">+</span> <span class="n">percent_absolute_deviation</span><span class="p">(</span><span class="n">nb_per_cat_obs</span><span class="p">,</span><span class="n">nb_per_cat_sim</span><span class="p">)</span> <span class="p">+</span> <span class="s2">"%"</span><span class="p">;</span>
 		
-	}
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
  
-species areaclc {
-	string init_cover;
-	string obs_cover;
-	string sim_cover;
-	rgb color_fuzzy;
+<span class="n">species</span> <span class="n">areaclc</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">init_cover</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">obs_cover</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">sim_cover</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_fuzzy</span><span class="p">;</span>
 	
-	aspect init {
-		draw shape color: color_cat[init_cover];
-	}
-	aspect simulation {
-		draw shape color: color_cat[sim_cover];
-	}
-	aspect observed {
-		draw shape color: color_cat[obs_cover];
-	}
-	aspect fuzzy_sim {
-		draw shape color: color_fuzzy;
-	}
-}
+	<span class="n">aspect</span> <span class="n">init</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">init_cover</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">simulation</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">sim_cover</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">observed</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">obs_cover</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">fuzzy_sim</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_fuzzy</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment mapcomparison type: gui {
-	output {
-		display map_sim type: opengl{
-			species areaclc aspect: simulation;
-		}
-		display map_observed type: opengl{
-			species areaclc aspect: observed refresh: false;
-		}
-		display map_init type: opengl{
-			species areaclc aspect: init refresh: false;
-		}
-		display map_fuzzy type: opengl background: #pink{
-			species areaclc aspect: fuzzy_sim ;
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">mapcomparison</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map_sim</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">areaclc</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">simulation</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">map_observed</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">areaclc</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">observed</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">map_init</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">areaclc</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">init</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">map_fuzzy</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">pink</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">areaclc</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">fuzzy_sim</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3500,157 +3500,154 @@ function closeRightMenu() {
 
 <p>Imported models :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model M2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M2</span>
 
 
-global
-{
-	int n &lt;- 4;
-	init
-	{
-		create B number: n;
-	}
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">B</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-species B skills: [moving]
-{
-	int IQ &lt;- rnd(100);
-	reflex dolive
-	{
-		write "" + "i'm alive !!";
-		do wander;
-	}
+<span class="n">species</span> <span class="n">B</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">reflex</span> <span class="n">dolive</span>
+	<span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	aspect default
-	{
-		draw square(1) color: # red;
-	}
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment M2_exp type: gui
-{
-	output
-	{
-		display "m2_disp"
-		{
-			species B aspect: default;
-		}
+<span class="n">experiment</span> <span class="n">M2_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"m2_disp"</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">B</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
-
-
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>model M1
+<span class="p">}</span>
 
 
-global
-{
-	int n &lt;- 8;
-	init
-	{
-		create A number: n;
-	}
+</code></pre></div></div>
 
-}
-
-species A skills: [moving]
-{
-	int IQ &lt;- rnd(100);
-	reflex dolive
-	{
-		write "" + "i'm alive !!";
-		do wander;
-	}
-
-	aspect default
-	{
-		draw square(1) color: # green;
-	}
-
-}
-
-experiment M1_exp type: gui
-{
-	output
-	{
-		display "m1_disp"
-		{
-			species A aspect: default;
-		}
-
-	}
-
-}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M1</span>
 
 
-</code></pre>
-</div>
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">A</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">species</span> <span class="n">A</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
+<span class="p">{</span>
+	<span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">reflex</span> <span class="n">dolive</span>
+	<span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">experiment</span> <span class="n">M1_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"m1_disp"</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">A</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+
+</code></pre></div></div>
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Comodel_simple
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Comodel_simple</span>
 
-import "m1.gaml" as micro_model_1
-import "m2.gaml" as micro_model_2
+<span class="n">import</span> <span class="s2">"m1.gaml"</span> <span class="k">as</span> <span class="n">micro_model_1</span>
+<span class="n">import</span> <span class="s2">"m2.gaml"</span> <span class="k">as</span> <span class="n">micro_model_2</span>
 
 
-global
-{
-	init
-	{
-	//micro_model must be instantiated by create statement. We create an experiment inside the micro-model and the simulation will be created implicitly (1 experiment have only 1 simulation).
-		create micro_model_1.M1_exp number: 5;
-		create micro_model_2.M2_exp;
-	}
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+	<span class="p">//</span><span class="n">micro_model</span> <span class="n">must</span> <span class="n">be</span> <span class="n">instantiated</span> <span class="n">by</span> <span class="nb">create</span> <span class="n">statement</span><span class="p">.</span> <span class="n">We</span> <span class="nb">create</span> <span class="n">an</span> <span class="n">experiment</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="k">and</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">will</span> <span class="n">be</span> <span class="n">created</span> <span class="n">implicitly</span> <span class="p">(</span><span class="m">1</span> <span class="n">experiment</span> <span class="n">have</span> <span class="n">only</span> <span class="m">1</span> <span class="n">simulation</span><span class="p">).</span>
+		<span class="nb">create</span> <span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_exp</span> <span class="n">number</span><span class="p">:</span> <span class="m">5</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_exp</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	reflex simulate_micro_models
-	{
+	<span class="n">reflex</span> <span class="n">simulate_micro_models</span>
+	<span class="p">{</span>
 
-	//tell the first experiment of micro_model_1 do 1 step;
-		ask first(micro_model_1.M1_exp).simulation
-		{
-			do _step_;
-		}
+	<span class="p">//</span><span class="n">tell</span> <span class="n">the</span> <span class="n">first</span> <span class="n">experiment</span> <span class="k">of</span> <span class="n">micro_model_1</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_exp</span><span class="p">).</span><span class="n">simulation</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//tell the  experiment at 3 of micro_model_1 do 1 step;
-		ask (micro_model_1.M1_exp at 3).simulation
-		{
-			do _step_;
-		}
+		<span class="p">//</span><span class="n">tell</span> <span class="n">the</span>  <span class="n">experiment</span> <span class="n">at</span> <span class="m">3</span> <span class="k">of</span> <span class="n">micro_model_1</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_exp</span> <span class="n">at</span> <span class="m">3</span><span class="p">).</span><span class="n">simulation</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//tell all experiments of micro_model_1 do 1 step;
-		ask (micro_model_1.M1_exp collect each.simulation)
-		{
-			do _step_;
-		}
+		<span class="p">//</span><span class="n">tell</span> <span class="n">all</span> <span class="n">experiments</span> <span class="k">of</span> <span class="n">micro_model_1</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		//tell all experiments of micro_model_2 do 1 step;
-		ask (micro_model_2.M2_exp collect each.simulation)
-		{
-			do _step_;
-		}
+		<span class="p">//</span><span class="n">tell</span> <span class="n">all</span> <span class="n">experiments</span> <span class="k">of</span> <span class="n">micro_model_2</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		//kill simulation  of micro_model and recreate then
-		ask  (micro_model_2.M2_exp collect each.simulation){
-			do die;
-		}
-		ask (micro_model_2.M2_exp){
-			create simulation{do _init_;}
-		}
-	}
-}
+		<span class="p">//</span><span class="n">kill</span> <span class="n">simulation</span>  <span class="k">of</span> <span class="n">micro_model</span> <span class="k">and</span> <span class="n">recreate</span> <span class="k">then</span>
+		<span class="n">ask</span>  <span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">){</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_exp</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">simulation</span><span class="p">{</span><span class="k">do</span> <span class="n">_init_</span><span class="p">;}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment Comodel_simple_exp type: gui
-{
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">Comodel_simple_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

@@ -3500,284 +3500,282 @@ function closeRightMenu() {
 
 <p>Imported models :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model continuous_move 
-global { 
-	//Shapefile of the buildings
-	file building_shapefile &lt;- file("../includes/building.shp");
-	//Shape of the environment
-	geometry shape &lt;- envelope(building_shapefile);
-	int maximal_turn &lt;- 90; //in degree
-	int cohesion_factor &lt;- 10;
-	//Size of the people
-	float people_size &lt;- 2.0;
-	//Space without buildings
-	geometry free_space;
-	//Number of people agent
-	int nb_people &lt;- 500;
-	//Point to evacuate
-	point target_point &lt;- {world.location.x, 0};
-	init { 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">continuous_move</span> 
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">maximal_turn</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span> <span class="p">//</span><span class="k">in</span> <span class="n">degree</span>
+	<span class="n">int</span> <span class="n">cohesion_factor</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span>
+	<span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Space</span> <span class="n">without</span> <span class="n">buildings</span>
+	<span class="n">geometry</span> <span class="n">free_space</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Point</span> <span class="k">to</span> <span class="n">evacuate</span>
+	<span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+	<span class="n">init</span> <span class="p">{</span> 
 		
-		free_space &lt;- copy(shape);
-		//Creation of the buildinds
-		create building from: building_shapefile {
-			//Creation of the free space by removing the shape of the different buildings existing
-			free_space &lt;- free_space - (shape + people_size);
-		}
-		//Simplification of the free_space to remove sharp edges
-		free_space &lt;- free_space simplification(1.0);
-		//Creation of the people agents
-		create people number: nb_people {
-			//People agents are placed randomly among the free space
-			location &lt;- any_location_in(free_space);
-			target_loc &lt;-  target_point;
-		} 		 	
-	}	
-}
-//Species which represent the building 
-species building {
-	//Height of the buildings
-	float height &lt;- 3.0 + rnd(5);
-	aspect default {
-		draw shape color: #gray depth: height;
-	}
-}
-//Species people which move to the evacuation point using the skill moving
-species people skills:[moving]{
-	//Target point to evacuate
-	point target_loc;
-	//Speed of the agent
-	float speed &lt;- 0.5 + rnd(1000) / 1000;
-	//Velocity of the agent
-	point velocity &lt;- {0,0};
-	//Direction of the agent taking in consideration the maximal turn an agent is able to make
-	int heading max: heading + maximal_turn min: heading - maximal_turn;
+		<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildinds</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span> <span class="n">by</span> <span class="n">removing</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">different</span> <span class="n">buildings</span> <span class="n">existing</span>
+			<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="p">-</span> <span class="p">(</span><span class="n">shape</span> <span class="p">+</span> <span class="n">people_size</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Simplification</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free_space</span> <span class="k">to</span> <span class="n">remove</span> <span class="n">sharp</span> <span class="n">edges</span>
+		<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="n">simplification</span><span class="p">(</span><span class="m">1.0</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">People</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">free_space</span><span class="p">);</span>
+			<span class="n">target_loc</span> <span class="p">&lt;-</span>  <span class="n">target_point</span><span class="p">;</span>
+		<span class="p">}</span> 		 	
+	<span class="p">}</span>	
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">building</span> 
+<span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">3.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">which</span> <span class="n">move</span> <span class="k">to</span> <span class="n">the</span> <span class="n">evacuation</span> <span class="n">point</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
+	<span class="p">//</span><span class="n">Target</span> <span class="n">point</span> <span class="k">to</span> <span class="n">evacuate</span>
+	<span class="n">point</span> <span class="n">target_loc</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+	<span class="p">//</span><span class="n">Direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">taking</span> <span class="k">in</span> <span class="n">consideration</span> <span class="n">the</span> <span class="n">maximal</span> <span class="n">turn</span> <span class="n">an</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">able</span> <span class="k">to</span> <span class="n">make</span>
+	<span class="n">int</span> <span class="n">heading</span> <span class="k">max</span><span class="p">:</span> <span class="n">heading</span> <span class="p">+</span> <span class="n">maximal_turn</span> <span class="k">min</span><span class="p">:</span> <span class="n">heading</span> <span class="p">-</span> <span class="n">maximal_turn</span><span class="p">;</span>
 	
-	//Size of the agent
-	float size &lt;- people_size;
-	rgb color &lt;- rgb(rnd(255),rnd(255),rnd(255));
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">people_size</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
 		
-	//Reflex to kill the agent when it has evacuated the area
-	reflex end when: location distance_to target_loc &lt;= 2 * people_size{
-		write name + " is arrived";
-		do die;
-	}
-	//Reflex to compute the velocity of the agent considering the cohesion factor
-	reflex follow_goal  {
-		velocity &lt;- velocity + ((target_loc - location) / cohesion_factor);
-	}
-	//Reflex to apply separation when people are too close from each other
-	reflex separation {
-		point acc &lt;- {0,0};
-		ask (people at_distance size)  {
-			acc &lt;- acc - (location - myself.location);
-		}  
-		velocity &lt;- velocity + acc;
-	}
-	//Reflex to avoid the different obstacles
-	reflex avoid { 
-		point acc &lt;- {0,0};
-		list&lt;building&gt; nearby_obstacles &lt;- (building at_distance people_size);
-		loop obs over: nearby_obstacles {
-			acc &lt;- acc - (obs.location - location);
-		}
-		velocity &lt;- velocity + acc; 
-	}
-	//Reflex to move the agent considering its location, target and velocity
-	reflex move {
-		point old_location &lt;- copy(location);
-		do goto target: location + velocity ;
-		if (not empty(building overlapping self )) {
-			location &lt;- point((location closest_points_with free_space)[1]);
-		}
-		velocity &lt;- location - old_location;
-	}	
-	aspect default {
-		draw pyramid(size) color: color;
-		draw sphere(size/3) at: {location.x,location.y,size} color: color;
-	}
-}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">kill</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">when</span> <span class="n">it</span> <span class="n">has</span> <span class="n">evacuated</span> <span class="n">the</span> <span class="n">area</span>
+	<span class="n">reflex</span> <span class="k">end</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="n">distance_to</span> <span class="n">target_loc</span> <span class="p">&lt;=</span> <span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s2">" is arrived"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">the</span> <span class="n">cohesion</span> <span class="n">factor</span>
+	<span class="n">reflex</span> <span class="n">follow_goal</span>  <span class="p">{</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">((</span><span class="n">target_loc</span> <span class="p">-</span> <span class="n">location</span><span class="p">)</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">separation</span> <span class="n">when</span> <span class="n">people</span> <span class="n">are</span> <span class="n">too</span> <span class="n">close</span> <span class="k">from</span> <span class="n">each</span> <span class="n">other</span>
+	<span class="n">reflex</span> <span class="n">separation</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">people</span> <span class="n">at_distance</span> <span class="n">size</span><span class="p">)</span>  <span class="p">{</span>
+			<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">location</span> <span class="p">-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+		<span class="p">}</span>  
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">the</span> <span class="n">different</span> <span class="n">obstacles</span>
+	<span class="n">reflex</span> <span class="n">avoid</span> <span class="p">{</span> 
+		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">nearby_obstacles</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">building</span> <span class="n">at_distance</span> <span class="n">people_size</span><span class="p">);</span>
+		<span class="n">loop</span> <span class="n">obs</span> <span class="n">over</span><span class="p">:</span> <span class="n">nearby_obstacles</span> <span class="p">{</span>
+			<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">location</span> <span class="p">-</span> <span class="n">location</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">location</span><span class="p">,</span> <span class="n">target</span> <span class="k">and</span> <span class="n">velocity</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">old_location</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="n">velocity</span> <span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">building</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">))</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">((</span><span class="n">location</span> <span class="n">closest_points_with</span> <span class="n">free_space</span><span class="p">)[</span><span class="m">1</span><span class="p">]);</span>
+		<span class="p">}</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">-</span> <span class="n">old_location</span><span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">pyramid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">size</span><span class="p">/</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main type: gui {
-	parameter "nb people" var: nb_people min: 1 max: 1000;
-	output {
-		display map type: opengl {
-			species building refresh: false;
-			species people;
-			graphics "exit" refresh: false {
-				draw sphere(2 * people_size) at: target_point color: #green;	
-			}
-		}
-	}
-}
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"nb people"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"exit"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target_point</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Evacuation_coupling
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Evacuation_coupling</span>
 
-import "../../../Toy Models/Evacuation/models/Continuous Move.gaml"
-experiment Evacuation_coupling_exp type: gui parent: main
-{
-	point centroid &lt;- { 0, 180 };
-	list&lt;building&gt; getBuilding
-	{
-		return list(building);
-	}
+<span class="n">import</span> <span class="s2">"../../../Toy Models/Evacuation/models/Continuous Move.gaml"</span>
+<span class="n">experiment</span> <span class="n">Evacuation_coupling_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="n">parent</span><span class="p">:</span> <span class="n">main</span>
+<span class="p">{</span>
+	<span class="n">point</span> <span class="n">centroid</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">180</span> <span class="p">};</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">getBuilding</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">building</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	action transform_environement
-	{
-		loop t over: list(building)
-		{
-			t.shape &lt;- t.shape translated_by centroid;
-			t.shape &lt;- t.shape * 10;
-			t.location &lt;- t.location * 8;
-		}
+	<span class="n">action</span> <span class="n">transform_environement</span>
+	<span class="p">{</span>
+		<span class="n">loop</span> <span class="n">t</span> <span class="n">over</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">building</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="n">translated_by</span> <span class="n">centroid</span><span class="p">;</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="p">*</span> <span class="m">10</span><span class="p">;</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">t</span><span class="p">.</span><span class="n">location</span> <span class="p">*</span> <span class="m">8</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		loop t over: list(people)
-		{
-			t.speed &lt;- 10.0;
-			t.size &lt;- 20.0;
-			t.shape &lt;- t.shape translated_by centroid;
-			t.location &lt;- t.location * 8;
-		}
+		<span class="n">loop</span> <span class="n">t</span> <span class="n">over</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">size</span> <span class="p">&lt;-</span> <span class="m">20.0</span><span class="p">;</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">t</span><span class="p">.</span><span class="n">shape</span> <span class="n">translated_by</span> <span class="n">centroid</span><span class="p">;</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">t</span><span class="p">.</span><span class="n">location</span> <span class="p">*</span> <span class="m">8</span><span class="p">;</span>
+		<span class="p">}</span>
 
-		target_point &lt;- point(target_point translated_by centroid);
-	}
+		<span class="n">target_point</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">(</span><span class="n">target_point</span> <span class="n">translated_by</span> <span class="n">centroid</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	list&lt;people&gt; getPeople
-	{
-		return list(people);
-	}
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;</span> <span class="n">getPeople</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	output
-	{
-	}
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model hydro
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">hydro</span>
 
-global {
-   //Shapefile for the river
-   file river_shapefile &lt;- file("../includes/RedRiver.shp");
-   //Shapefile for the dykes
-   file dykes_shapefile &lt;- file("../includes/Dykes.shp");
-   //Shapefile for the buildings
-   file buildings_shapefile &lt;- file("../includes/Building.shp");
+<span class="n">global</span> <span class="p">{</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">river</span>
+   <span class="n">file</span> <span class="n">river_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/RedRiver.shp"</span><span class="p">);</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">dykes</span>
+   <span class="n">file</span> <span class="n">dykes_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/Dykes.shp"</span><span class="p">);</span>
+   <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
+   <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/Building.shp"</span><span class="p">);</span>
    
-   //Data elevation file
-   file dem_file &lt;- file("../includes/mnt50.asc");  
-   //Diffusion rate
-   float diffusion_rate &lt;- 0.6;
-   //Height of the dykes
-   float dyke_height &lt;- 15.0;
-   //Width of the dyke
-   float dyke_width &lt;- 15.0;
+   <span class="p">//</span><span class="n">Data</span> <span class="n">elevation</span> <span class="n">file</span>
+   <span class="n">file</span> <span class="n">dem_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/mnt50.asc"</span><span class="p">);</span>  
+   <span class="p">//</span><span class="n">Diffusion</span> <span class="n">rate</span>
+   <span class="n">float</span> <span class="n">diffusion_rate</span> <span class="p">&lt;-</span> <span class="m">0.6</span><span class="p">;</span>
+   <span class="p">//</span><span class="n">Height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">dykes</span>
+   <span class="n">float</span> <span class="n">dyke_height</span> <span class="p">&lt;-</span> <span class="m">15.0</span><span class="p">;</span>
+   <span class="p">//</span><span class="n">Width</span> <span class="k">of</span> <span class="n">the</span> <span class="n">dyke</span>
+   <span class="n">float</span> <span class="n">dyke_width</span> <span class="p">&lt;-</span> <span class="m">15.0</span><span class="p">;</span>
     
-   //Shape of the environment using the dem file
-   geometry shape &lt;- envelope(dem_file);
+   <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">using</span> <span class="n">the</span> <span class="n">dem</span> <span class="n">file</span>
+   <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">dem_file</span><span class="p">);</span>
    
-   //List of the drain and river cells
-   list&lt;cell&gt; drain_cells;
-   list&lt;cell&gt; river_cells;
+   <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">drain</span> <span class="k">and</span> <span class="n">river</span> <span class="n">cells</span>
+   <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">drain_cells</span><span class="p">;</span>
+   <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">river_cells</span><span class="p">;</span>
    
    
   
-   float step &lt;- 1°h;
+   <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="err">°</span><span class="n">h</span><span class="p">;</span>
    
-   init {
-   	 //Initialization of the cells
-      do init_cells;
-     //Initialization of the water cells
-      do init_water;
-     //Initialization of the river cells
-     river_cells &lt;- cell where (each.is_river);
-     //Initialization of the drain cells
-      drain_cells &lt;- cell where (each.is_drain);
-     //Initialization of the obstacles (buildings and dykes)
-      do init_obstacles;
-      //Set the height of each cell
-      ask cell {
-         obstacle_height &lt;- compute_highest_obstacle();
-         do update_color;
-      }
-   }
-   //Action to initialize the altitude value of the cell according to the dem file
-   action init_cells {
-      ask cell {
-         altitude &lt;- grid_value;
-         neighbour_cells &lt;- (self neighbors_at 1) ;
-      }
-   }
-   //action to initialize the water cells according to the river shape file and the drain
-   action init_water {
-      geometry river &lt;- geometry(river_shapefile);
-      ask cell overlapping river {
-         water_height &lt;- 10.0;
-         is_river &lt;- true;
-         is_drain &lt;- grid_y = matrix(cell).rows - 1;
-      }
-   }
-   //initialization of the obstacles (the buildings and the dykes)
-   action init_obstacles{
-      create buildings from: buildings_shapefile  {
-         do update_cells;
-      }
-      create dyke from: dykes_shapefile;
-      ask dyke {
-          shape &lt;-  shape + dyke_width;
-            do update_cells;
-      }
-   }
-   //Reflex to add water among the water cells
-   reflex adding_input_water {
-   	  float water_input &lt;- rnd(100)/100;
-      ask river_cells {
-         water_height &lt;- water_height + water_input;
-      }
-   }
-   //Reflex to flow the water according to the altitute and the obstacle
-   reflex flowing {
-      ask cell {already &lt;- false;}
-      ask (cell sort_by ((each.altitude + each.water_height + each.obstacle_height))) {
-         do flow;
-      }
-   }
-   //Reflex to update the color of the cell
-   reflex update_cell_color {
-      ask cell {
-         do update_color;
-      }
-   }
-   //Reflex for the drain cells to drain water
-   reflex draining {
-      ask drain_cells {
-         water_height &lt;- 0.0;
-      }
-   }
+   <span class="n">init</span> <span class="p">{</span>
+   	 <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span>
+      <span class="k">do</span> <span class="n">init_cells</span><span class="p">;</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span>
+      <span class="k">do</span> <span class="n">init_water</span><span class="p">;</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">river</span> <span class="n">cells</span>
+     <span class="n">river_cells</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_river</span><span class="p">);</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">drain</span> <span class="n">cells</span>
+      <span class="n">drain_cells</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_drain</span><span class="p">);</span>
+     <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacles</span> <span class="p">(</span><span class="n">buildings</span> <span class="k">and</span> <span class="n">dykes</span><span class="p">)</span>
+      <span class="k">do</span> <span class="n">init_obstacles</span><span class="p">;</span>
+      <span class="p">//</span><span class="k">Set</span> <span class="n">the</span> <span class="n">height</span> <span class="k">of</span> <span class="n">each</span> <span class="n">cell</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="n">obstacle_height</span> <span class="p">&lt;-</span> <span class="n">compute_highest_obstacle</span><span class="p">();</span>
+         <span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">altitude</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">dem</span> <span class="n">file</span>
+   <span class="n">action</span> <span class="n">init_cells</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="n">altitude</span> <span class="p">&lt;-</span> <span class="n">grid_value</span><span class="p">;</span>
+         <span class="n">neighbour_cells</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">)</span> <span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">action</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">river</span> <span class="n">shape</span> <span class="n">file</span> <span class="k">and</span> <span class="n">the</span> <span class="n">drain</span>
+   <span class="n">action</span> <span class="n">init_water</span> <span class="p">{</span>
+      <span class="n">geometry</span> <span class="n">river</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">river_shapefile</span><span class="p">);</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">river</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+         <span class="n">is_river</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+         <span class="n">is_drain</span> <span class="p">&lt;-</span> <span class="n">grid_y</span> <span class="p">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">cell</span><span class="p">).</span><span class="n">rows</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacles</span> <span class="p">(</span><span class="n">the</span> <span class="n">buildings</span> <span class="k">and</span> <span class="n">the</span> <span class="n">dykes</span><span class="p">)</span>
+   <span class="n">action</span> <span class="n">init_obstacles</span><span class="p">{</span>
+      <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span>  <span class="p">{</span>
+         <span class="k">do</span> <span class="n">update_cells</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nb">create</span> <span class="n">dyke</span> <span class="k">from</span><span class="p">:</span> <span class="n">dykes_shapefile</span><span class="p">;</span>
+      <span class="n">ask</span> <span class="n">dyke</span> <span class="p">{</span>
+          <span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">shape</span> <span class="p">+</span> <span class="n">dyke_width</span><span class="p">;</span>
+            <span class="k">do</span> <span class="n">update_cells</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">add</span> <span class="n">water</span> <span class="n">among</span> <span class="n">the</span> <span class="n">water</span> <span class="n">cells</span>
+   <span class="n">reflex</span> <span class="n">adding_input_water</span> <span class="p">{</span>
+   	  <span class="n">float</span> <span class="n">water_input</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">;</span>
+      <span class="n">ask</span> <span class="n">river_cells</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="n">water_height</span> <span class="p">+</span> <span class="n">water_input</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">flow</span> <span class="n">the</span> <span class="n">water</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">altitute</span> <span class="k">and</span> <span class="n">the</span> <span class="n">obstacle</span>
+   <span class="n">reflex</span> <span class="n">flowing</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span><span class="n">already</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;}</span>
+      <span class="n">ask</span> <span class="p">(</span><span class="n">cell</span> <span class="n">sort_by</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">altitude</span> <span class="p">+</span> <span class="n">each</span><span class="p">.</span><span class="n">water_height</span> <span class="p">+</span> <span class="n">each</span><span class="p">.</span><span class="n">obstacle_height</span><span class="p">)))</span> <span class="p">{</span>
+         <span class="k">do</span> <span class="n">flow</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+   <span class="n">reflex</span> <span class="n">update_cell_color</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+         <span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">//</span><span class="n">Reflex</span> <span class="n">for</span> <span class="n">the</span> <span class="n">drain</span> <span class="n">cells</span> <span class="k">to</span> <span class="n">drain</span> <span class="n">water</span>
+   <span class="n">reflex</span> <span class="n">draining</span> <span class="p">{</span>
+      <span class="n">ask</span> <span class="n">drain_cells</span> <span class="p">{</span>
+         <span class="n">water_height</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
    
-}
-//Species which represent the obstacle
-   species obstacle {
-   	  //height of the obstacle
-      float height min: 0.0;
-      //Color of the obstacle
-      rgb color;
-      //Pressure of the water
-      float water_pressure update: compute_water_pressure();
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">obstacle</span>
+   <span class="n">species</span> <span class="n">obstacle</span> <span class="p">{</span>
+   	  <span class="p">//</span><span class="n">height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacle</span>
+      <span class="n">float</span> <span class="n">height</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span><span class="p">;</span>
+      <span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">obstacle</span>
+      <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+      <span class="p">//</span><span class="n">Pressure</span> <span class="k">of</span> <span class="n">the</span> <span class="n">water</span>
+      <span class="n">float</span> <span class="n">water_pressure</span> <span class="n">update</span><span class="p">:</span> <span class="n">compute_water_pressure</span><span class="p">();</span>
       
-      //List of cells concerned
-      list&lt;cell&gt; cells_concerned ;
-      //List of cells in the neighbourhood 
-      list&lt;cell&gt; cells_neighbours;
+      <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">cells</span> <span class="n">concerned</span>
+      <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">cells_concerned</span> <span class="p">;</span>
+      <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">cells</span> <span class="k">in</span> <span class="n">the</span> <span class="n">neighbourhood</span> 
+      <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">cells_neighbours</span><span class="p">;</span>
       
-      //Action to compute the water pressure
-      float compute_water_pressure {
-      	//If the obstacle doesn't have height, then there will be no pressure
+      <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">water</span> <span class="n">pressure</span>
+      <span class="n">float</span> <span class="n">compute_water_pressure</span> <span class="p">{</span>
+      	<span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">obstacle</span> <span class="n">doesn</span><span class="s1">'t have height, then there will be no pressure
          if (height = 0.0) {
             return 0.0;
          } else {
@@ -3946,67 +3944,65 @@ experiment main_gui type: gui {
       }
    }
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model Flood_coupling
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Flood_coupling</span>
 
-import "../../../Toy Models/Flood Simulation/models/Hydrological Model.gaml"
-experiment Flood_coupling_exp type: gui parent: main_gui
-{
-	point newSize &lt;- { 0.07, 0.07 };
-	cell getCellAt (geometry p)
-	{
-		ask simulation
-		{
-			return cell closest_to p;
-		}
+<span class="n">import</span> <span class="s2">"../../../Toy Models/Flood Simulation/models/Hydrological Model.gaml"</span>
+<span class="n">experiment</span> <span class="n">Flood_coupling_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="n">parent</span><span class="p">:</span> <span class="n">main_gui</span>
+<span class="p">{</span>
+	<span class="n">point</span> <span class="n">newSize</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">0.07</span><span class="p">,</span> <span class="m">0.07</span> <span class="p">};</span>
+	<span class="n">cell</span> <span class="n">getCellAt</span> <span class="p">(</span><span class="n">geometry</span> <span class="n">p</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">ask</span> <span class="n">simulation</span>
+		<span class="p">{</span>
+			<span class="n">return</span> <span class="n">cell</span> <span class="n">closest_to</span> <span class="n">p</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-	list&lt;cell&gt; getCell
-	{
-		return list(cell) where (each.grid_value &gt; 8.0);
-	}
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">getCell</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_value</span> <span class="p">&gt;</span> <span class="m">8.0</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	list&lt;buildings&gt; getBuildings
-	{
-		return list(buildings);
-	}
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">buildings</span><span class="p">&gt;</span> <span class="n">getBuildings</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">buildings</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	list&lt;dyke&gt; getDyke
-	{
-		return list(dyke);
-	}
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">dyke</span><span class="p">&gt;</span> <span class="n">getDyke</span>
+	<span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">dyke</span><span class="p">);</span>
+	<span class="p">}</span>
 
-	output
-	{
-	}
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model comodel_Flood_Evacuation
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">comodel_Flood_Evacuation</span>
 
-import "Flood_coupling.gaml" as myFlood
-import "Evacuation_coupling.gaml" as myEvacuation
+<span class="n">import</span> <span class="s2">"Flood_coupling.gaml"</span> <span class="k">as</span> <span class="n">myFlood</span>
+<span class="n">import</span> <span class="s2">"Evacuation_coupling.gaml"</span> <span class="k">as</span> <span class="n">myEvacuation</span>
 
 
-global
-{
-	//set the bound of environment
-	geometry shape &lt;- envelope(file("../../../Toy Models/Flood Simulation/includes/mnt50.asc"));
-	//counting variable of casualty
-	int casualty &lt;- 0;
-	init
-	{
-		//create experiment from micro-model myFlood with corresponding parameters
-		create myFlood.Flood_coupling_exp with:
-		[buildings_shapefile::file("../../../Toy Models/Flood Simulation/includes/Building.shp"), river_shapefile::file("../../../Toy Models/Flood Simulation/includes/RedRiver.shp"), dykes_shapefile::file("../../../Toy Models/Flood Simulation/includes/Dykes.shp"), dem_file::file("../../../Toy Models/Flood Simulation/includes/mnt50.asc")];
-		//create the Evacuation micro-model's experiment
+<span class="n">global</span>
+<span class="p">{</span>
+	<span class="p">//</span><span class="k">set</span> <span class="n">the</span> <span class="n">bound</span> <span class="k">of</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="s2">"../../../Toy Models/Flood Simulation/includes/mnt50.asc"</span><span class="p">));</span>
+	<span class="p">//</span><span class="n">counting</span> <span class="n">variable</span> <span class="k">of</span> <span class="n">casualty</span>
+	<span class="n">int</span> <span class="n">casualty</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">experiment</span> <span class="k">from</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="n">myFlood</span> <span class="k">with</span> <span class="n">corresponding</span> <span class="k">parameters</span>
+		<span class="nb">create</span> <span class="n">myFlood</span><span class="p">.</span><span class="n">Flood_coupling_exp</span> <span class="k">with</span><span class="p">:</span>
+		<span class="p">[</span><span class="n">buildings_shapefile</span><span class="p">::</span><span class="n">file</span><span class="p">(</span><span class="s2">"../../../Toy Models/Flood Simulation/includes/Building.shp"</span><span class="p">),</span> <span class="n">river_shapefile</span><span class="p">::</span><span class="n">file</span><span class="p">(</span><span class="s2">"../../../Toy Models/Flood Simulation/includes/RedRiver.shp"</span><span class="p">),</span> <span class="n">dykes_shapefile</span><span class="p">::</span><span class="n">file</span><span class="p">(</span><span class="s2">"../../../Toy Models/Flood Simulation/includes/Dykes.shp"</span><span class="p">),</span> <span class="n">dem_file</span><span class="p">::</span><span class="n">file</span><span class="p">(</span><span class="s2">"../../../Toy Models/Flood Simulation/includes/mnt50.asc"</span><span class="p">)];</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="n">Evacuation</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span><span class="s1">'s experiment
 		create myEvacuation.Evacuation_coupling_exp with: [nb_people::200, target_point::{ 0, 1580 }, building_shapefile::file("../../../Toy Models/Evacuation/includes/building.shp")]
 		{
 			//transform the environment and the agents to new location (near the river)
@@ -4037,47 +4033,46 @@ global
 		//loop over the population
 		loop thePeople over: first(myEvacuation.Evacuation_coupling_exp).getPeople()
 		{
-			//get the cell at people's location
-			cell theWater &lt;- cell(first(myFlood.Flood_coupling_exp).getCellAt(thePeople));
-			//if the water levele is high than 8 meters and people is overlapped, tell him that he must dead
-			if (theWater.grid_value &gt; 8.0 and theWater overlaps thePeople)
-			{
-				ask thePeople
-				{
-					do die;
-				}
-				//increase the counting variable
-				casualty &lt;- casualty + 1;
-			}
+			//get the cell at people'</span><span class="n">s</span> <span class="n">location</span>
+			<span class="n">cell</span> <span class="n">theWater</span> <span class="p">&lt;-</span> <span class="n">cell</span><span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">myFlood</span><span class="p">.</span><span class="n">Flood_coupling_exp</span><span class="p">).</span><span class="n">getCellAt</span><span class="p">(</span><span class="n">thePeople</span><span class="p">));</span>
+			<span class="p">//</span><span class="k">if</span> <span class="n">the</span> <span class="n">water</span> <span class="n">levele</span> <span class="n">is</span> <span class="n">high</span> <span class="n">than</span> <span class="m">8</span> <span class="n">meters</span> <span class="k">and</span> <span class="n">people</span> <span class="n">is</span> <span class="n">overlapped</span><span class="p">,</span> <span class="n">tell</span> <span class="n">him</span> <span class="n">that</span> <span class="n">he</span> <span class="n">must</span> <span class="n">dead</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">theWater</span><span class="p">.</span><span class="n">grid_value</span> <span class="p">&gt;</span> <span class="m">8.0</span> <span class="k">and</span> <span class="n">theWater</span> <span class="n">overlaps</span> <span class="n">thePeople</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">ask</span> <span class="n">thePeople</span>
+				<span class="p">{</span>
+					<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="p">//</span><span class="n">increase</span> <span class="n">the</span> <span class="n">counting</span> <span class="n">variable</span>
+				<span class="n">casualty</span> <span class="p">&lt;-</span> <span class="n">casualty</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+			<span class="p">}</span>
 
-		}
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-experiment comodel_Flood_Evacuation_exp type: gui
-{
-	output
-	{
-		display "comodel_disp"
-		{
-			agents "building" value: first(myEvacuation.Evacuation_coupling_exp).getBuilding();
-			agents "people" value: first(myEvacuation.Evacuation_coupling_exp).getPeople();
-			agents "cell" value: first(myFlood.Flood_coupling_exp).getCell();
-			agents "dyke" value: first(myFlood.Flood_coupling_exp).getDyke();
-			graphics 'CasualtyView'
-			{
-				draw ('Casualty: ' + casualty) at: { 0, 4000 } font: font("Arial", 18, # bold) color: # red;
-			}
+<span class="n">experiment</span> <span class="n">comodel_Flood_Evacuation_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
+<span class="p">{</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"comodel_disp"</span>
+		<span class="p">{</span>
+			<span class="n">agents</span> <span class="s2">"building"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">myEvacuation</span><span class="p">.</span><span class="n">Evacuation_coupling_exp</span><span class="p">).</span><span class="n">getBuilding</span><span class="p">();</span>
+			<span class="n">agents</span> <span class="s2">"people"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">myEvacuation</span><span class="p">.</span><span class="n">Evacuation_coupling_exp</span><span class="p">).</span><span class="n">getPeople</span><span class="p">();</span>
+			<span class="n">agents</span> <span class="s2">"cell"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">myFlood</span><span class="p">.</span><span class="n">Flood_coupling_exp</span><span class="p">).</span><span class="n">getCell</span><span class="p">();</span>
+			<span class="n">agents</span> <span class="s2">"dyke"</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">myFlood</span><span class="p">.</span><span class="n">Flood_coupling_exp</span><span class="p">).</span><span class="n">getDyke</span><span class="p">();</span>
+			<span class="n">graphics</span> <span class="s1">'CasualtyView'</span>
+			<span class="p">{</span>
+				<span class="n">draw</span> <span class="p">(</span><span class="s1">'Casualty: '</span> <span class="p">+</span> <span class="n">casualty</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">4000</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Arial"</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
 
-		}
+		<span class="p">}</span>
 
-	}
+	<span class="p">}</span>
 
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

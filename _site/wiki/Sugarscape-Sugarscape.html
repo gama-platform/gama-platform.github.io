@@ -3500,108 +3500,108 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model sugarscape
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">sugarscape</span>
 
   
-global {
-	// Parameters 
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="k">Parameters</span> 
 	
-	//Growth rate of the sugar
-	int sugarGrowthRate &lt;- 1;
-	//Minimum age of death
-	int minDeathAge &lt;- 60;
-	//Maximum age of death
-	int maxDeathAge &lt;- 100;
-	//Metabolism maximum
-	int maxMetabolism &lt;- 3;
+	<span class="p">//</span><span class="n">Growth</span> <span class="n">rate</span> <span class="k">of</span> <span class="n">the</span> <span class="n">sugar</span>
+	<span class="n">int</span> <span class="n">sugarGrowthRate</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Minimum</span> <span class="n">age</span> <span class="k">of</span> <span class="n">death</span>
+	<span class="n">int</span> <span class="n">minDeathAge</span> <span class="p">&lt;-</span> <span class="m">60</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Maximum</span> <span class="n">age</span> <span class="k">of</span> <span class="n">death</span>
+	<span class="n">int</span> <span class="n">maxDeathAge</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Metabolism</span> <span class="n">maximum</span>
+	<span class="n">int</span> <span class="n">maxMetabolism</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
 	
-	//Maximum and Minimum initial sugar
-	int maxInitialSugar &lt;- 25 ;
-	int minInitialSugar &lt;- 5;
-	//Maximum range
-	int maxRange &lt;- 6;
-	bool replace &lt;- true;
-	//Number of agents
-	int numberOfAgents &lt;- 400;	
+	<span class="p">//</span><span class="n">Maximum</span> <span class="k">and</span> <span class="n">Minimum</span> <span class="n">initial</span> <span class="n">sugar</span>
+	<span class="n">int</span> <span class="n">maxInitialSugar</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">minInitialSugar</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Maximum</span> <span class="k">range</span>
+	<span class="n">int</span> <span class="n">maxRange</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">replace</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">numberOfAgents</span> <span class="p">&lt;-</span> <span class="m">400</span><span class="p">;</span>	
 	
-	// Environment
-	geometry shape &lt;- rectangle(50, 50);
+	<span class="p">//</span> <span class="n">Environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">50</span><span class="p">);</span>
 		
-	file&lt;int&gt; types  &lt;- file&lt;int&gt;('../images/sugarscape.pgm');
-	rgb FFFFAA const: true &lt;- rgb('#FFFFAA');
-	rgb FFFF55 const: true &lt;- rgb('#FFFF55');
-	rgb dark_yellow const: true &lt;- rgb('#EEB422');
-	rgb less_red const: true &lt;- rgb('#FF5F5F');
+	<span class="n">file</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">types</span>  <span class="p">&lt;-</span> <span class="n">file</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;(</span><span class="s1">'../images/sugarscape.pgm'</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">FFFFAA</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#FFFFAA'</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">FFFF55</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#FFFF55'</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">dark_yellow</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#EEB422'</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">less_red</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#FF5F5F'</span><span class="p">);</span>
 	
-	init {
+	<span class="n">init</span> <span class="p">{</span>
 		
-		//Create the animal
-		create animal number: numberOfAgents;
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">animal</span>
+		<span class="nb">create</span> <span class="n">animal</span> <span class="n">number</span><span class="p">:</span> <span class="n">numberOfAgents</span><span class="p">;</span>
 		
-		//Ask to each sugar cell to set its sugar
-		ask sugar_cell {
-			maxSugar &lt;- (types at {grid_x,grid_y});
-			sugar &lt;- maxSugar;
-			color &lt;- [#white,FFFFAA,FFFF55,#yellow,dark_yellow] at sugar;
-		}
-	}
-}
+		<span class="p">//</span><span class="n">Ask</span> <span class="k">to</span> <span class="n">each</span> <span class="n">sugar</span> <span class="n">cell</span> <span class="k">to</span> <span class="k">set</span> <span class="n">its</span> <span class="n">sugar</span>
+		<span class="n">ask</span> <span class="n">sugar_cell</span> <span class="p">{</span>
+			<span class="n">maxSugar</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">types</span> <span class="n">at</span> <span class="p">{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">});</span>
+			<span class="n">sugar</span> <span class="p">&lt;-</span> <span class="n">maxSugar</span><span class="p">;</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">[#</span><span class="n">white</span><span class="p">,</span><span class="n">FFFFAA</span><span class="p">,</span><span class="n">FFFF55</span><span class="p">,#</span><span class="n">yellow</span><span class="p">,</span><span class="n">dark_yellow</span><span class="p">]</span> <span class="n">at</span> <span class="n">sugar</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-	//Grid species representing the sugar cells
-	grid sugar_cell width: 50 height: 50 neighbors: 4 use_individual_shapes: false use_regular_agents: false{ 
-		//Maximum sugar
-		int maxSugar;
-		//Sugar contained in thecell
-		int sugar update: sugar + sugarGrowthRate max: maxSugar;
-		rgb color update: [#white,FFFFAA,FFFF55,#yellow,dark_yellow] at sugar;
-		map&lt;int,list&lt;sugar_cell&gt;&gt; neighbours;
+	<span class="p">//</span><span class="n">Grid</span> <span class="n">species</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">sugar</span> <span class="n">cells</span>
+	<span class="n">grid</span> <span class="n">sugar_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="n">use_individual_shapes</span><span class="p">:</span> <span class="nb">false</span> <span class="n">use_regular_agents</span><span class="p">:</span> <span class="nb">false</span><span class="p">{</span> 
+		<span class="p">//</span><span class="n">Maximum</span> <span class="n">sugar</span>
+		<span class="n">int</span> <span class="n">maxSugar</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Sugar</span> <span class="n">contained</span> <span class="k">in</span> <span class="n">thecell</span>
+		<span class="n">int</span> <span class="n">sugar</span> <span class="n">update</span><span class="p">:</span> <span class="n">sugar</span> <span class="p">+</span> <span class="n">sugarGrowthRate</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxSugar</span><span class="p">;</span>
+		<span class="n">rgb</span> <span class="n">color</span> <span class="n">update</span><span class="p">:</span> <span class="p">[#</span><span class="n">white</span><span class="p">,</span><span class="n">FFFFAA</span><span class="p">,</span><span class="n">FFFF55</span><span class="p">,#</span><span class="n">yellow</span><span class="p">,</span><span class="n">dark_yellow</span><span class="p">]</span> <span class="n">at</span> <span class="n">sugar</span><span class="p">;</span>
+		<span class="n">map</span><span class="p">&lt;</span><span class="n">int</span><span class="p">,</span><span class="k">list</span><span class="p">&lt;</span><span class="n">sugar_cell</span><span class="p">&gt;&gt;</span> <span class="n">neighbours</span><span class="p">;</span>
 		
-		//Initialization of the neighbours
-		init {
-			loop i from: 1 to: maxRange {
-				neighbours[i] &lt;- self neighbors_at i; 
-			}
-		}
-	}	
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighbours</span>
+		<span class="n">init</span> <span class="p">{</span>
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">1</span> <span class="k">to</span><span class="p">:</span> <span class="n">maxRange</span> <span class="p">{</span>
+				<span class="n">neighbours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="n">i</span><span class="p">;</span> 
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>	
 	
-//Species animal representing the animal agents
-species animal {
-	//Color of the animal
-	rgb color  &lt;- #red;
-	//Speed of the animal
-	float speed  &lt;- 1.0;
-	//Metabolism of the animal
-	int metabolism  min: 1 &lt;- rnd(maxMetabolism);
-	//Perception range of the animal
-	int vision  min: 1 &lt;- rnd(maxRange);
-	//Maximal age of the animal
-	int maxAge  min: minDeathAge max: maxDeathAge &lt;- rnd (maxDeathAge - minDeathAge) + minDeathAge;
-	//Size of the animal
-	float size  &lt;- 0.5;
-	//Sugar of the animal
-	int sugar min: 0 &lt;- (rnd (maxInitialSugar - minInitialSugar)) + minInitialSugar update: sugar - metabolism;
-	//Age of the animal
-	int age max: maxAge &lt;- 0 update: int(age + step);
-	//Place of the animal
-	sugar_cell place ; 
+<span class="p">//</span><span class="n">Species</span> <span class="n">animal</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">animal</span> <span class="n">agents</span>
+<span class="n">species</span> <span class="n">animal</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">rgb</span> <span class="n">color</span>  <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">float</span> <span class="n">speed</span>  <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Metabolism</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">int</span> <span class="n">metabolism</span>  <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="n">maxMetabolism</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Perception</span> <span class="k">range</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">int</span> <span class="n">vision</span>  <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="n">maxRange</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Maximal</span> <span class="n">age</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">int</span> <span class="n">maxAge</span>  <span class="k">min</span><span class="p">:</span> <span class="n">minDeathAge</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxDeathAge</span> <span class="p">&lt;-</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">maxDeathAge</span> <span class="p">-</span> <span class="n">minDeathAge</span><span class="p">)</span> <span class="p">+</span> <span class="n">minDeathAge</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">float</span> <span class="n">size</span>  <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Sugar</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">int</span> <span class="n">sugar</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span> <span class="p">(</span><span class="n">maxInitialSugar</span> <span class="p">-</span> <span class="n">minInitialSugar</span><span class="p">))</span> <span class="p">+</span> <span class="n">minInitialSugar</span> <span class="n">update</span><span class="p">:</span> <span class="n">sugar</span> <span class="p">-</span> <span class="n">metabolism</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Age</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">int</span> <span class="n">age</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxAge</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">age</span> <span class="p">+</span> <span class="n">step</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Place</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span>
+	<span class="n">sugar_cell</span> <span class="n">place</span> <span class="p">;</span> 
 	
-	//Launched at the initialization of the animal agent
-	init {
-		//Set the place as one of the sugar cell
-		place &lt;- one_of(sugar_cell);
-		location &lt;- place.location;
-	}
-	//Move the agent to another place and collect the sugar of the previous place
-	reflex basic_move { 
-		sugar &lt;- sugar + place.sugar;
-		place.sugar &lt;- 0;
-		list&lt;sugar_cell&gt; neighbours &lt;- place.neighbours[vision];
-		list&lt;sugar_cell&gt; poss_targets &lt;- (neighbours) where (each.sugar &gt; 0);
-		//If no sugar is found in the neighbours cells, move randomly
-		place &lt;- empty(poss_targets) ? one_of (neighbours) : one_of (poss_targets);
-		location &lt;- place.location;
-	}
-	//Reflex to kill the animal once it reaches its maximal age or it doesn't have sugar anymore
+	<span class="p">//</span><span class="n">Launched</span> <span class="n">at</span> <span class="n">the</span> <span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">animal</span> <span class="n">agent</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="k">Set</span> <span class="n">the</span> <span class="n">place</span> <span class="k">as</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">sugar</span> <span class="n">cell</span>
+		<span class="n">place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">sugar_cell</span><span class="p">);</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Move</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">another</span> <span class="n">place</span> <span class="k">and</span> <span class="n">collect</span> <span class="n">the</span> <span class="n">sugar</span> <span class="k">of</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">place</span>
+	<span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span> 
+		<span class="n">sugar</span> <span class="p">&lt;-</span> <span class="n">sugar</span> <span class="p">+</span> <span class="n">place</span><span class="p">.</span><span class="n">sugar</span><span class="p">;</span>
+		<span class="n">place</span><span class="p">.</span><span class="n">sugar</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">sugar_cell</span><span class="p">&gt;</span> <span class="n">neighbours</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">neighbours</span><span class="p">[</span><span class="n">vision</span><span class="p">];</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">sugar_cell</span><span class="p">&gt;</span> <span class="n">poss_targets</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">neighbours</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">sugar</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">);</span>
+		<span class="p">//</span><span class="k">If</span> <span class="n">no</span> <span class="n">sugar</span> <span class="n">is</span> <span class="n">found</span> <span class="k">in</span> <span class="n">the</span> <span class="n">neighbours</span> <span class="n">cells</span><span class="p">,</span> <span class="n">move</span> <span class="n">randomly</span>
+		<span class="n">place</span> <span class="p">&lt;-</span> <span class="n">empty</span><span class="p">(</span><span class="n">poss_targets</span><span class="p">)</span> <span class="p">?</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">neighbours</span><span class="p">)</span> <span class="p">:</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">poss_targets</span><span class="p">);</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">kill</span> <span class="n">the</span> <span class="n">animal</span> <span class="n">once</span> <span class="n">it</span> <span class="n">reaches</span> <span class="n">its</span> <span class="n">maximal</span> <span class="n">age</span> <span class="k">or</span> <span class="n">it</span> <span class="n">doesn</span><span class="s1">'t have sugar anymore
 	reflex end_of_life when: (sugar = 0) or (age = maxAge) {
 		if replace {
 			create animal ;
@@ -3614,15 +3614,15 @@ species animal {
 }
 
 experiment sugarscape type: gui{
-	parameter 'Growth rate of sugar:' var: sugarGrowthRate category: 'Environment';
-	parameter 'Minimum age of death:' var: minDeathAge &lt;- 60 category: 'Agents';
-	parameter 'Maximum age of death:' var: maxDeathAge &lt;- 100 category: 'Agents';
-	parameter 'Maximum metabolism:' var: maxMetabolism &lt;- 3 category: 'Agents';
-	parameter 'Maximum initial sugar per cell:'  var: maxInitialSugar &lt;- 25 category: 'Environment';
-	parameter 'Minimum initial sugar per cell:' var: minInitialSugar &lt;- 5 category: 'Environment';
-	parameter 'Maximum range of vision:' var: maxRange &lt;- 6 category: 'Agents';
-	parameter 'Replace dead agents ?' var: replace &lt;- true category: 'Agents';
-	parameter 'Number of agents:' var: numberOfAgents &lt;- 400 category: 'Agents';
+	parameter '</span><span class="n">Growth</span> <span class="n">rate</span> <span class="k">of</span> <span class="n">sugar</span><span class="p">:</span><span class="s1">' var: sugarGrowthRate category: '</span><span class="n">Environment</span><span class="s1">';
+	parameter '</span><span class="n">Minimum</span> <span class="n">age</span> <span class="k">of</span> <span class="n">death</span><span class="p">:</span><span class="s1">' var: minDeathAge &lt;- 60 category: '</span><span class="n">Agents</span><span class="s1">';
+	parameter '</span><span class="n">Maximum</span> <span class="n">age</span> <span class="k">of</span> <span class="n">death</span><span class="p">:</span><span class="s1">' var: maxDeathAge &lt;- 100 category: '</span><span class="n">Agents</span><span class="s1">';
+	parameter '</span><span class="n">Maximum</span> <span class="n">metabolism</span><span class="p">:</span><span class="s1">' var: maxMetabolism &lt;- 3 category: '</span><span class="n">Agents</span><span class="s1">';
+	parameter '</span><span class="n">Maximum</span> <span class="n">initial</span> <span class="n">sugar</span> <span class="n">per</span> <span class="n">cell</span><span class="p">:</span><span class="s1">'  var: maxInitialSugar &lt;- 25 category: '</span><span class="n">Environment</span><span class="s1">';
+	parameter '</span><span class="n">Minimum</span> <span class="n">initial</span> <span class="n">sugar</span> <span class="n">per</span> <span class="n">cell</span><span class="p">:</span><span class="s1">' var: minInitialSugar &lt;- 5 category: '</span><span class="n">Environment</span><span class="s1">';
+	parameter '</span><span class="n">Maximum</span> <span class="k">range</span> <span class="k">of</span> <span class="n">vision</span><span class="p">:</span><span class="s1">' var: maxRange &lt;- 6 category: '</span><span class="n">Agents</span><span class="s1">';
+	parameter '</span><span class="n">Replace</span> <span class="n">dead</span> <span class="n">agents</span> <span class="p">?</span><span class="s1">' var: replace &lt;- true category: '</span><span class="n">Agents</span><span class="s1">';
+	parameter '</span><span class="n">Number</span> <span class="k">of</span> <span class="n">agents</span><span class="p">:</span><span class="s1">' var: numberOfAgents &lt;- 400 category: '</span><span class="n">Agents</span><span class="s1">';
 	
 	output {
 		display grille {
@@ -3630,21 +3630,20 @@ experiment sugarscape type: gui{
 			species animal;
 		}
 		display chart refresh: every(5) {
-			chart 'Energy' type: pie background: #lightgray style: exploded {
+			chart '</span><span class="n">Energy</span><span class="s1">' type: pie background: #lightgray style: exploded {
 				data "strong" value: (animal as list) count (each.sugar &gt; 8) color: #green;
 				data "weak" value: (animal as list) count (each.sugar &lt; 9) color: #red;
 			}
 		}
 		display chart2 refresh: every(5) {
-			chart 'Energy' type: histogram background: #lightgray {
+			chart '</span><span class="n">Energy</span><span class="s1">' type: histogram background: #lightgray {
 				data "strong" value: (animal as list) count (each.sugar &gt; 8)  color: #green;
 				data "weak" value: (animal as list) count (each.sugar &lt; 9)  color: #red;
 			}
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

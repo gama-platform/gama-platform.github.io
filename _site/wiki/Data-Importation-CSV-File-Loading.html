@@ -3500,29 +3500,28 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model CSVfileloading
+<span class="k">model</span> <span class="n">CSVfileloading</span>
 
-global {
-	file my_csv_file &lt;- csv_file("../includes/iris.csv",",");
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">my_csv_file</span> <span class="p">&lt;-</span> <span class="n">csv_file</span><span class="p">(</span><span class="s2">"../includes/iris.csv"</span><span class="p">,</span><span class="s2">","</span><span class="p">);</span>
 	
-	init {
-		//convert the file into a matrix
-		matrix data &lt;- matrix(my_csv_file);
-		//loop on the matrix rows (skip the first header line)
-		loop i from: 1 to: data.rows -1{
-			//loop on the matrix columns
-			loop j from: 0 to: data.columns -1{
-				write "data rows:"+ i +" colums:" + j + " = " + data[j,i];
-			}	
-		}		
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">convert</span> <span class="n">the</span> <span class="n">file</span> <span class="n">into</span> <span class="n">a</span> <span class="n">matrix</span>
+		<span class="n">matrix</span> <span class="n">data</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">my_csv_file</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">loop</span> <span class="n">on</span> <span class="n">the</span> <span class="n">matrix</span> <span class="n">rows</span> <span class="p">(</span><span class="n">skip</span> <span class="n">the</span> <span class="n">first</span> <span class="n">header</span> <span class="n">line</span><span class="p">)</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">1</span> <span class="k">to</span><span class="p">:</span> <span class="n">data</span><span class="p">.</span><span class="n">rows</span> <span class="p">-</span><span class="m">1</span><span class="p">{</span>
+			<span class="p">//</span><span class="n">loop</span> <span class="n">on</span> <span class="n">the</span> <span class="n">matrix</span> <span class="n">columns</span>
+			<span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">data</span><span class="p">.</span><span class="n">columns</span> <span class="p">-</span><span class="m">1</span><span class="p">{</span>
+				<span class="nb">write</span> <span class="s2">"data rows:"</span><span class="p">+</span> <span class="n">i</span> <span class="p">+</span><span class="s2">" colums:"</span> <span class="p">+</span> <span class="n">j</span> <span class="p">+</span> <span class="s2">" = "</span> <span class="p">+</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">];</span>
+			<span class="p">}</span>	
+		<span class="p">}</span>		
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main type: gui;
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">;</span>
+</code></pre></div></div>
 
     </div>
     </div>

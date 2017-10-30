@@ -3515,10 +3515,9 @@ function closeRightMenu() {
 <p>The three main methods to implement are thus:</p>
 <ul>
   <li><code class="highlighter-rouge">public void setChildren(final List&lt;? extends ISymbol&gt; children)</code>: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in <code class="highlighter-rouge">children</code>) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:
-    <div class="highlighter-rouge"><pre class="highlight"><code>for ( final ISymbol c : children ) {
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for ( final ISymbol c : children ) {
    if( IKeyword.INIT.equals(c.getFacet(IKeyword.KEYWORD).literalValue()) ) {
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li><code class="highlighter-rouge">public abstract boolean init(IScope scope) throws GamaRuntimeException</code>: this method is called only once, at the initialization of the agent.</li>
   <li><code class="highlighter-rouge">public Object executeOn(final IScope scope) throws GamaRuntimeException</code>: this method is executed at each simulation step. It should manage the execution of the various embedded behaviors (e.g. their order or choose which one will be executed…)</li>

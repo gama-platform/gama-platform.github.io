@@ -3500,112 +3500,111 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model shape   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">shape</span>   
 
-global {
+<span class="n">global</span> <span class="p">{</span>
 	
-	file gamaRaster &lt;- file('../images/Gama.png');
+	<span class="n">file</span> <span class="n">gamaRaster</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../images/Gama.png'</span><span class="p">);</span>
 	
-	int size &lt;- 10;
-	list&lt;geometry&gt; geometries2D &lt;-[point([0,0]),line ([{0,0},{size,size}]),polyline([{0,0},{size/2,size/2},{0,size}]),circle(size),square(size),rectangle(size,size*1.5),triangle(size),hexagon(size)];
-	list&lt;geometry&gt; texturedGeometries2D &lt;-[point([0,0]),line ([{0,0},{size,size}]),polyline([{0,0},{size/2,size/2},{0,size}]),circle(size),square(size),rectangle(size,size*1.5),triangle(size),hexagon(size)];	
-	list&lt;geometry&gt; geometries3D &lt;-[sphere(size/2),plan ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
-    list&lt;geometry&gt; texturedGeometries &lt;-[sphere(size/2),plan ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
+	<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">geometries2D</span> <span class="p">&lt;-[</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">]),</span><span class="n">line</span> <span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">}]),</span><span class="n">polyline</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="n">size</span><span class="p">}]),</span><span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">rectangle</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">1.5</span><span class="p">),</span><span class="n">triangle</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">hexagon</span><span class="p">(</span><span class="n">size</span><span class="p">)];</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">texturedGeometries2D</span> <span class="p">&lt;-[</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">]),</span><span class="n">line</span> <span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">}]),</span><span class="n">polyline</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="n">size</span><span class="p">}]),</span><span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">rectangle</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">1.5</span><span class="p">),</span><span class="n">triangle</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">hexagon</span><span class="p">(</span><span class="n">size</span><span class="p">)];</span>	
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">geometries3D</span> <span class="p">&lt;-[</span><span class="n">sphere</span><span class="p">(</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">),</span><span class="n">plan</span> <span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">}],</span><span class="n">size</span><span class="p">),</span><span class="n">polyplan</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="n">size</span><span class="p">}],</span><span class="n">size</span><span class="p">),</span><span class="n">cylinder</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">cube</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">box</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">1.5</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">0.5</span><span class="p">),</span><span class="n">pyramid</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">polyhedron</span><span class="p">([{-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">}],</span><span class="n">size</span><span class="p">)];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">texturedGeometries</span> <span class="p">&lt;-[</span><span class="n">sphere</span><span class="p">(</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">),</span><span class="n">plan</span> <span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">}],</span><span class="n">size</span><span class="p">),</span><span class="n">polyplan</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="n">size</span><span class="p">}],</span><span class="n">size</span><span class="p">),</span><span class="n">cylinder</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">cube</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">box</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">1.5</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">0.5</span><span class="p">),</span><span class="n">pyramid</span><span class="p">(</span><span class="n">size</span><span class="p">),</span><span class="n">polyhedron</span><span class="p">([{-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},</span> <span class="p">{</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">},{-</span><span class="m">1</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">,-</span><span class="m">0.5</span><span class="p">*</span><span class="n">size</span><span class="p">/</span><span class="m">2</span><span class="p">}],</span><span class="n">size</span><span class="p">)];</span>
     
    
 	
-	geometry shape &lt;- rectangle(length(geometries3D)*size*2,size*6);
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">geometries3D</span><span class="p">)*</span><span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span><span class="n">size</span><span class="p">*</span><span class="m">6</span><span class="p">);</span>
 
-	init { 
+	<span class="n">init</span> <span class="p">{</span> 
 		
-		int curGeom2D &lt;-0;
-		create Geometry2D number: length(geometries2D){ 
-			location &lt;- {size+curGeom2D*size*2, 0, 0};	
-			myGeometry &lt;- geometries2D[curGeom2D];
-			curGeom2D &lt;- curGeom2D+1;
-		}
+		<span class="n">int</span> <span class="n">curGeom2D</span> <span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Geometry2D</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">geometries2D</span><span class="p">){</span> 
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">size</span><span class="p">+</span><span class="n">curGeom2D</span><span class="p">*</span><span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>	
+			<span class="n">myGeometry</span> <span class="p">&lt;-</span> <span class="n">geometries2D</span><span class="p">[</span><span class="n">curGeom2D</span><span class="p">];</span>
+			<span class="n">curGeom2D</span> <span class="p">&lt;-</span> <span class="n">curGeom2D</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		int curTextGeom2D &lt;-0;
-		create TexturedGeometry2D number: length(texturedGeometries2D){ 
-			location &lt;- {size+curTextGeom2D*size*2, size*2, 0};	
-			myGeometry &lt;- texturedGeometries2D[curTextGeom2D];
-			myTexture &lt;- gamaRaster;
-			curTextGeom2D &lt;- curTextGeom2D+1;		
-		}
+		<span class="n">int</span> <span class="n">curTextGeom2D</span> <span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">TexturedGeometry2D</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">texturedGeometries2D</span><span class="p">){</span> 
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">size</span><span class="p">+</span><span class="n">curTextGeom2D</span><span class="p">*</span><span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>	
+			<span class="n">myGeometry</span> <span class="p">&lt;-</span> <span class="n">texturedGeometries2D</span><span class="p">[</span><span class="n">curTextGeom2D</span><span class="p">];</span>
+			<span class="n">myTexture</span> <span class="p">&lt;-</span> <span class="n">gamaRaster</span><span class="p">;</span>
+			<span class="n">curTextGeom2D</span> <span class="p">&lt;-</span> <span class="n">curTextGeom2D</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>		
+		<span class="p">}</span>
 		
-		int curGeom3D &lt;-0;
-		create Geometry3D number: length(geometries3D){ 
-			location &lt;- {size+curGeom3D*size*2, size*4.0, 0};	
-			myGeometry &lt;- geometries3D[curGeom3D];
-			curGeom3D &lt;- curGeom3D+1;
-		} 
+		<span class="n">int</span> <span class="n">curGeom3D</span> <span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Geometry3D</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">geometries3D</span><span class="p">){</span> 
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">size</span><span class="p">+</span><span class="n">curGeom3D</span><span class="p">*</span><span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="p">*</span><span class="m">4.0</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>	
+			<span class="n">myGeometry</span> <span class="p">&lt;-</span> <span class="n">geometries3D</span><span class="p">[</span><span class="n">curGeom3D</span><span class="p">];</span>
+			<span class="n">curGeom3D</span> <span class="p">&lt;-</span> <span class="n">curGeom3D</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span> 
 		
-		int curTextGeom &lt;-0;
-		create TexturedGeometry3D number: length(texturedGeometries){ 
-			location &lt;- {size+curTextGeom*size*2, size*6.0, 0};	
-			myGeometry &lt;- texturedGeometries[curTextGeom];
-			myTexture &lt;- gamaRaster;
-			curTextGeom &lt;- curTextGeom+1;
-		}
-	}  
-} 
+		<span class="n">int</span> <span class="n">curTextGeom</span> <span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">TexturedGeometry3D</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">texturedGeometries</span><span class="p">){</span> 
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">size</span><span class="p">+</span><span class="n">curTextGeom</span><span class="p">*</span><span class="n">size</span><span class="p">*</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="p">*</span><span class="m">6.0</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>	
+			<span class="n">myGeometry</span> <span class="p">&lt;-</span> <span class="n">texturedGeometries</span><span class="p">[</span><span class="n">curTextGeom</span><span class="p">];</span>
+			<span class="n">myTexture</span> <span class="p">&lt;-</span> <span class="n">gamaRaster</span><span class="p">;</span>
+			<span class="n">curTextGeom</span> <span class="p">&lt;-</span> <span class="n">curTextGeom</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>  
+<span class="p">}</span> 
  
-species Geometry2D{  
+<span class="n">species</span> <span class="n">Geometry2D</span><span class="p">{</span>  
 
-	geometry myGeometry;
+	<span class="n">geometry</span> <span class="n">myGeometry</span><span class="p">;</span>
 	
-	aspect default {
-		draw myGeometry color:°orange at:location border:#red;
-    }
-} 
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">myGeometry</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">orange</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="n">border</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span> 
 
-species TexturedGeometry2D{  
+<span class="n">species</span> <span class="n">TexturedGeometry2D</span><span class="p">{</span>  
 
-	geometry myGeometry;
-	file myTexture;
+	<span class="n">geometry</span> <span class="n">myGeometry</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">myTexture</span><span class="p">;</span>
 	
-	aspect default {
-		draw myGeometry texture:myTexture.path at:location border:#red;
-    }
-} 
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">myGeometry</span> <span class="n">texture</span><span class="p">:</span><span class="n">myTexture</span><span class="p">.</span><span class="n">path</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="n">border</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span> 
     
-species Geometry3D{  
+<span class="n">species</span> <span class="n">Geometry3D</span><span class="p">{</span>  
 
-	geometry myGeometry;
+	<span class="n">geometry</span> <span class="n">myGeometry</span><span class="p">;</span>
 
-	aspect default {
-		draw myGeometry color:°orange at:location border:#red;
-    }
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">myGeometry</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">orange</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="n">border</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-species TexturedGeometry3D{  
+<span class="n">species</span> <span class="n">TexturedGeometry3D</span><span class="p">{</span>  
 
-	geometry myGeometry;
-	file myTexture;
+	<span class="n">geometry</span> <span class="n">myGeometry</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">myTexture</span><span class="p">;</span>
 
-	aspect default {
-		draw myGeometry texture:myTexture.path at:location border:#red;
-    }
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">myGeometry</span> <span class="n">texture</span><span class="p">:</span><span class="n">myTexture</span><span class="p">.</span><span class="n">path</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="n">border</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-experiment Display  type: gui {
-	output {
-		display View1 type:opengl  background:rgb(10,40,55) {
-			species Geometry2D aspect:default;
-			species TexturedGeometry2D aspect:default;
-			species Geometry3D aspect:default;
-			species TexturedGeometry3D aspect:default;
-		}
+<span class="n">experiment</span> <span class="n">Display</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">Geometry2D</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">TexturedGeometry2D</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">Geometry3D</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">TexturedGeometry3D</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
 
-	}
-}
-
-
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-</code></pre>
-</div>
+
+
+</code></pre></div></div>
 
     </div>
     </div>

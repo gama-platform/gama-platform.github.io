@@ -3524,14 +3524,14 @@ Java version is 1.8.0_121 (java version “1.8.0_121”)</p>
 
 <p>The original script looks like this :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#! /bin/bash</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /bin/bash</span>
 <span class="nv">memory</span><span class="o">=</span>2048m
-<span class="nb">declare</span> -i i	
+<span class="nb">declare</span> <span class="nt">-i</span> i	
 
 <span class="nv">i</span><span class="o">=</span>0
 <span class="nb">echo</span> <span class="k">${</span><span class="p">!i</span><span class="k">}</span>	
 
-<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>1;i&lt;<span class="o">=</span><span class="nv">$#;i</span><span class="o">=</span><span class="nv">$i</span>+1<span class="o">))</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span>i&lt;<span class="o">=</span><span class="nv">$#;i</span><span class="o">=</span><span class="nv">$i</span>+1<span class="o">))</span>
 <span class="k">do
 if </span><span class="nb">test</span> <span class="k">${</span><span class="p">!i</span><span class="k">}</span> <span class="o">=</span> <span class="s2">"-m"</span>
 <span class="k">then
@@ -3551,10 +3551,9 @@ done
 <span class="nb">echo</span> <span class="s2">"******************************************************************"</span>
 <span class="nv">passWork</span><span class="o">=</span>.work<span class="nv">$RANDOM</span>	
 
-java -cp ../plugins/org.eclipse.equinox.launcher<span class="k">*</span>.jar -Xms512m -Xmx<span class="nv">$memory</span>  -Djava.awt.headless<span class="o">=</span><span class="nb">true </span>org.eclipse.core.launcher.Main  -application msi.gama.headless.id4 -data <span class="nv">$passWork</span> <span class="nv">$PARAM</span> <span class="nv">$mfull</span> <span class="nv">$outputFile</span>
-rm -rf <span class="nv">$passWork</span>
-</code></pre>
-</div>
+java <span class="nt">-cp</span> ../plugins/org.eclipse.equinox.launcher<span class="k">*</span>.jar <span class="nt">-Xms512m</span> <span class="nt">-Xmx</span><span class="nv">$memory</span>  <span class="nt">-Djava</span>.awt.headless<span class="o">=</span><span class="nb">true </span>org.eclipse.core.launcher.Main  <span class="nt">-application</span> msi.gama.headless.id4 <span class="nt">-data</span> <span class="nv">$passWork</span> <span class="nv">$PARAM</span> <span class="nv">$mfull</span> <span class="nv">$outputFile</span>
+rm <span class="nt">-rf</span> <span class="nv">$passWork</span>
+</code></pre></div></div>
 
 <p>Notice the final command of the script <code class="highlighter-rouge">rm -rf $passWork</code>. It is intended to remove the temporary file used during the execution of the script. For now, we should comment this commmand, in order to check the logs if an error appears : <code class="highlighter-rouge">#rm -rf $passWork</code></p>
 
@@ -3565,7 +3564,7 @@ rm -rf <span class="nv">$passWork</span>
 <p>The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;Experiment_plan&gt;</span>
 <span class="nt">&lt;Simulation</span> <span class="na">id=</span><span class="s">"2"</span> <span class="na">sourcePath=</span><span class="s">"./predatorPrey/predatorPrey.gaml"</span> <span class="na">finalStep=</span><span class="s">"1000"</span> <span class="na">experiment=</span><span class="s">"predPrey"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;Parameters&gt;</span>
@@ -3580,8 +3579,7 @@ rm -rf <span class="nv">$passWork</span>
 	<span class="nt">&lt;/Outputs&gt;</span>
 <span class="nt">&lt;/Simulation&gt;</span>
 <span class="nt">&lt;/Experiment_plan&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As you can see, you need to define 3 things in this minimal example :</p>
 <ul>
@@ -3622,7 +3620,7 @@ Don’t forget the quotes <code class="highlighter-rouge">"</code> around your p
 
 <p>In our case there is only one, called <code class="highlighter-rouge">prey_predator</code> and  it looks like this :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment prey_predator type: gui {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment prey_predator type: gui {
 	parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
 	parameter "Prey max energy: " var: prey_max_energy category: "Prey" ;
 	parameter "Prey max transfert: " var: prey_max_transfert  category: "Prey" ;
@@ -3635,8 +3633,7 @@ Don’t forget the quotes <code class="highlighter-rouge">"</code> around your p
 		monitor "Number of preys" value: nb_preys ;
 	}
 }  
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>So we are now able to constitute the entire Simulation tag :</p>
 
@@ -3655,12 +3652,11 @@ The title of a parameter is the name that comes right after the <code class="hig
 
 <p>The parameters section of the file would look like :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Parameters&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Parameters&gt;
 	&lt;Parameter name="Initial number of preys: " type="INT" value="621" /&gt;
 	&lt;Parameter name="Prey max energy: " type="FLOAT" value="1.0" /&gt;
 &lt;/Parameters&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Any declared parameter can be set this way, yet you don’t have to set all of them, provided they are initialized with a default value in the model (see the global statement part of the model code).</p>
 
@@ -3672,12 +3668,11 @@ The title of a parameter is the name that comes right after the <code class="hig
 
 <p>The outputs section would look like the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Outputs&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Outputs&gt;
 	&lt;Output id="1" name="main_display" framerate="10" /&gt;
 	&lt;Output id="2" name="Number of preys" framerate="1" /&gt;
 &lt;/Outputs&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Outputs must have an id, a name, and a framerate.</p>
 
@@ -3717,15 +3712,14 @@ The title of a parameter is the name that comes right after the <code class="hig
 
 <p>Then type the following command :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
+</code></pre></div></div>
 
 <p>And replace paths by the location of your ExperimentFile and output directory</p>
 
 <p>You should obtain the following output in the terminal :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>******************************************************************
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>******************************************************************
 * GAMA version 1.7.0 V7                                          *
 * http://gama-platform.org                                       *
 * (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC &amp; Partners              *
@@ -3750,8 +3744,7 @@ cpus :8
 Simulation is running...
 ....................................................................................................
 Simulation duration: 7089ms
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="results">Results</h2>
 

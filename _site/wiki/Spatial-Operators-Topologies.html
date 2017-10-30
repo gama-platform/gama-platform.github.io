@@ -3500,240 +3500,239 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model gridfilter
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">gridfilter</span>
 
-global {
-	map&lt;string,map&lt;dummy,rgb&gt;&gt; theDummies;
-	map&lt;string,map&lt;cell,rgb&gt;&gt; theCells;
- 	string parameter_operator &lt;-"closest_to" among:["closest_to","at_distance","neighbors_at","distance_to","path_to","cluster_distance","cluster_hierarchical"];
-	init {
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="n">map</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;&gt;</span> <span class="n">theDummies</span><span class="p">;</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="n">map</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;&gt;</span> <span class="n">theCells</span><span class="p">;</span>
+ 	<span class="k">string</span> <span class="n">parameter_operator</span> <span class="p">&lt;-</span><span class="s2">"closest_to"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"closest_to"</span><span class="p">,</span><span class="s2">"at_distance"</span><span class="p">,</span><span class="s2">"neighbors_at"</span><span class="p">,</span><span class="s2">"distance_to"</span><span class="p">,</span><span class="s2">"path_to"</span><span class="p">,</span><span class="s2">"cluster_distance"</span><span class="p">,</span><span class="s2">"cluster_hierarchical"</span><span class="p">];</span>
+	<span class="n">init</span> <span class="p">{</span>
 		
-		//Create the agents
-		do create_dummy_agents;
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">agents</span>
+		<span class="k">do</span> <span class="n">create_dummy_agents</span><span class="p">;</span>
  
 
-		//Different actions to test the operators
-		do test_agents_at_distance;
-		do test_distance_to;
-		do test_neighbors_at;
-		do test_path_to;
-		do test_simple_clustering_by_distance;
-		do test_hierarchical_clustering;
-		do test_agent_closest_to; 	
-	}  
+		<span class="p">//</span><span class="n">Different</span> <span class="n">actions</span> <span class="k">to</span> <span class="n">test</span> <span class="n">the</span> <span class="n">operators</span>
+		<span class="k">do</span> <span class="n">test_agents_at_distance</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_distance_to</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_neighbors_at</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_path_to</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_simple_clustering_by_distance</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_hierarchical_clustering</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">test_agent_closest_to</span><span class="p">;</span> 	
+	<span class="p">}</span>  
 	
-	action test_agent_closest_to {
-		//It is possible to use the topology of the world (default), the graph or the grid
-		add [dummy(8)::#yellow] at:"closest_to" to:theDummies;
-		add #red at:dummy closest_to (dummy(8)) to:theDummies["closest_to"];
+	<span class="n">action</span> <span class="n">test_agent_closest_to</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">topology</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">or</span> <span class="n">the</span> <span class="n">grid</span>
+		<span class="n">add</span> <span class="p">[</span><span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"closest_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">dummy</span> <span class="n">closest_to</span> <span class="p">(</span><span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">))</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"closest_to"</span><span class="p">];</span>
 		
 		
-		add [cell(40)::#yellow] at:"closest_to" to:theCells;
-		add #red at:cell closest_to (cell(40)) to:theCells["closest_to"];
-	}
-	action test_agents_at_distance {
+		<span class="n">add</span> <span class="p">[</span><span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"closest_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">cell</span> <span class="n">closest_to</span> <span class="p">(</span><span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">))</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">[</span><span class="s2">"closest_to"</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">test_agents_at_distance</span> <span class="p">{</span>
 		
-		//It is possible to use the topology of the world (default), the graph or the grid
-		ask dummy(8)
-		{
-			add [self::#yellow] at:"at_distance" to:theDummies;
-			loop a_dummy over: agents_at_distance(30) of_species dummy
-			{	
-				add #red at:a_dummy to:theDummies["at_distance"];
-			}
-		}
-		ask cell(40)
-		{
-			add [self::#yellow] at:"at_distance" to:theCells;
-			loop a_cell over: agents_at_distance(10) of_species cell
-			{	
-				add #red at:a_cell to:theCells["at_distance"];
-			}
-		}
-	}
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">topology</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">or</span> <span class="n">the</span> <span class="n">grid</span>
+		<span class="n">ask</span> <span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">add</span> <span class="p">[</span><span class="n">self</span><span class="p">::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"at_distance"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+			<span class="n">loop</span> <span class="n">a_dummy</span> <span class="n">over</span><span class="p">:</span> <span class="n">agents_at_distance</span><span class="p">(</span><span class="m">30</span><span class="p">)</span> <span class="n">of_species</span> <span class="n">dummy</span>
+			<span class="p">{</span>	
+				<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"at_distance"</span><span class="p">];</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">add</span> <span class="p">[</span><span class="n">self</span><span class="p">::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"at_distance"</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">;</span>
+			<span class="n">loop</span> <span class="n">a_cell</span> <span class="n">over</span><span class="p">:</span> <span class="n">agents_at_distance</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">of_species</span> <span class="n">cell</span>
+			<span class="p">{</span>	
+				<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">a_cell</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">[</span><span class="s2">"at_distance"</span><span class="p">];</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	action test_neighbors_at {
+	<span class="n">action</span> <span class="n">test_neighbors_at</span> <span class="p">{</span>
 		
-		//It is possible to use the topology of the world (default), the graph or the grid
-		//The operator neighbors_at gives the same results that neighbors_of( an_agent, a_distance )
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">topology</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">or</span> <span class="n">the</span> <span class="n">grid</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">neighbors_at</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">same</span> <span class="n">results</span> <span class="n">that</span> <span class="n">neighbors_of</span><span class="p">(</span> <span class="n">an_agent</span><span class="p">,</span> <span class="n">a_distance</span> <span class="p">)</span>
 		
-		add [dummy(8)::#yellow] at:"neighbors_at" to:theDummies;
-		loop a_dummy over: dummy(8) neighbors_at 30
-		{	
-			add #red at:a_dummy to:theDummies["neighbors_at"];
-		}
-		add [cell(40)::#yellow] at:"neighbors_at" to:theCells;
-		loop a_cell over: cell(40) neighbors_at 20
-		{	
-			add #red at:a_cell to:theCells["neighbors_at"];
-		}
-	}
+		<span class="n">add</span> <span class="p">[</span><span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"neighbors_at"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">a_dummy</span> <span class="n">over</span><span class="p">:</span> <span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)</span> <span class="n">neighbors_at</span> <span class="m">30</span>
+		<span class="p">{</span>	
+			<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"neighbors_at"</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="n">add</span> <span class="p">[</span><span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"neighbors_at"</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">a_cell</span> <span class="n">over</span><span class="p">:</span> <span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)</span> <span class="n">neighbors_at</span> <span class="m">20</span>
+		<span class="p">{</span>	
+			<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">a_cell</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">[</span><span class="s2">"neighbors_at"</span><span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	action test_distance_to {
+	<span class="n">action</span> <span class="n">test_distance_to</span> <span class="p">{</span>
 		
-		//It is possible to use the topology of the world (default), the graph or the grid
-		//The operator distance_to gives the same results that the operator topology distance_between[an_agent_A,an_agent_B]
-		add [dummy(8)::#yellow] at:"distance_to" to:theDummies;
-		add #red at:dummy(5) to:theDummies["distance_to"];
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">topology</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">or</span> <span class="n">the</span> <span class="n">grid</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">distance_to</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">same</span> <span class="n">results</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operator</span> <span class="n">topology</span> <span class="n">distance_between</span><span class="p">[</span><span class="n">an_agent_A</span><span class="p">,</span><span class="n">an_agent_B</span><span class="p">]</span>
+		<span class="n">add</span> <span class="p">[</span><span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"distance_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">dummy</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"distance_to"</span><span class="p">];</span>
 		
-		add [cell(40)::#yellow] at:"distance_to" to:theCells;
-		add #red at:cell(27) to:theCells["distance_to"];
-	}
+		<span class="n">add</span> <span class="p">[</span><span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"distance_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">cell</span><span class="p">(</span><span class="m">27</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">[</span><span class="s2">"distance_to"</span><span class="p">];</span>
+	<span class="p">}</span>
 	
-	action test_path_to {
+	<span class="n">action</span> <span class="n">test_path_to</span> <span class="p">{</span>
 		
-		//It is possible to use the topology of the world (default), the graph or the grid
-		//The operator distance_to gives the same results that the operator topology path_between[an_agent_A,an_agent_B]
-		add [dummy(8)::#yellow] at:"path_to" to:theDummies;
-		add #red at:dummy(9) to:theDummies["path_to"];
+		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">topology</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">or</span> <span class="n">the</span> <span class="n">grid</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">distance_to</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">same</span> <span class="n">results</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operator</span> <span class="n">topology</span> <span class="n">path_between</span><span class="p">[</span><span class="n">an_agent_A</span><span class="p">,</span><span class="n">an_agent_B</span><span class="p">]</span>
+		<span class="n">add</span> <span class="p">[</span><span class="n">dummy</span><span class="p">(</span><span class="m">8</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"path_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">dummy</span><span class="p">(</span><span class="m">9</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"path_to"</span><span class="p">];</span>
 		
-		add [cell(40)::#yellow] at:"path_to" to:theCells;
-		add #red at:cell(28) to:theCells["path_to"];
-	}
-	action test_simple_clustering_by_distance 
-	{
-		//Can be used for other topologies by adding using(topology(cell)) for example
+		<span class="n">add</span> <span class="p">[</span><span class="n">cell</span><span class="p">(</span><span class="m">40</span><span class="p">)::#</span><span class="n">yellow</span><span class="p">]</span> <span class="n">at</span><span class="p">:</span><span class="s2">"path_to"</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">;</span>
+		<span class="n">add</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span><span class="n">cell</span><span class="p">(</span><span class="m">28</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">theCells</span><span class="p">[</span><span class="s2">"path_to"</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">test_simple_clustering_by_distance</span> 
+	<span class="p">{</span>
+		<span class="p">//</span><span class="n">Can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">other</span> <span class="n">topologies</span> <span class="n">by</span> <span class="n">adding</span> <span class="n">using</span><span class="p">(</span><span class="n">topology</span><span class="p">(</span><span class="n">cell</span><span class="p">))</span> <span class="n">for</span> <span class="n">example</span>
 		
-		list&lt;list&lt;dummy&gt;&gt; clusteredDummies &lt;- list&lt;list&lt;dummy&gt;&gt;(dummy simple_clustering_by_distance 30);
-		loop a_list over: clusteredDummies
-		{
-			rgb colorList &lt;- rgb(rnd(255),rnd(255),rnd(255));
-			loop a_dummy over: a_list
-			{
-				if(length(theDummies["cluster_distance"])=0)
-				{
-					add map&lt;dummy,rgb&gt;([a_dummy::colorList]) at:"cluster_distance" to:theDummies;
-				}
-				else
-				{
-					add colorList at:a_dummy to:theDummies["cluster_distance"];
-				}
-			}
-		}
-	}
-	action test_hierarchical_clustering {
-		//Can be used for other topologies by adding using(topology(cell)) for example
-		list&lt;list&lt;dummy&gt;&gt; clusteredDummies &lt;- list&lt;list&lt;dummy&gt;&gt;(dummy hierarchical_clustering 10);
+		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">&gt;&gt;</span> <span class="n">clusteredDummies</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">&gt;&gt;(</span><span class="n">dummy</span> <span class="n">simple_clustering_by_distance</span> <span class="m">30</span><span class="p">);</span>
+		<span class="n">loop</span> <span class="n">a_list</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusteredDummies</span>
+		<span class="p">{</span>
+			<span class="n">rgb</span> <span class="n">colorList</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
+			<span class="n">loop</span> <span class="n">a_dummy</span> <span class="n">over</span><span class="p">:</span> <span class="n">a_list</span>
+			<span class="p">{</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"cluster_distance"</span><span class="p">])=</span><span class="m">0</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">add</span> <span class="n">map</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;([</span><span class="n">a_dummy</span><span class="p">::</span><span class="n">colorList</span><span class="p">])</span> <span class="n">at</span><span class="p">:</span><span class="s2">"cluster_distance"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="k">else</span>
+				<span class="p">{</span>
+					<span class="n">add</span> <span class="n">colorList</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"cluster_distance"</span><span class="p">];</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">test_hierarchical_clustering</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">other</span> <span class="n">topologies</span> <span class="n">by</span> <span class="n">adding</span> <span class="n">using</span><span class="p">(</span><span class="n">topology</span><span class="p">(</span><span class="n">cell</span><span class="p">))</span> <span class="n">for</span> <span class="n">example</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">&gt;&gt;</span> <span class="n">clusteredDummies</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">&gt;&gt;(</span><span class="n">dummy</span> <span class="n">hierarchical_clustering</span> <span class="m">10</span><span class="p">);</span>
 		
-		loop a_list over: clusteredDummies
-		{
-			rgb colorList &lt;- rgb(rnd(255),rnd(255),rnd(255));
-			loop a_dummy over: a_list
-			{
-				if(length(theDummies["cluster_hierarchical"])=0)
-				{
-					add map&lt;dummy,rgb&gt;([a_dummy::colorList]) at:"cluster_hierarchical" to:theDummies;
-				}
-				else
-				{
-					add colorList at:a_dummy to:theDummies["cluster_hierarchical"];
-				}
-			}
-		}
-	}
-	action create_dummy_agents {
-		create dummy with: [location :: {5,5}];
-		create dummy with: [location :: {8,9}];
-		create dummy with: [location :: {14,6}];
-		create dummy with: [location :: {35,55}];
-		create dummy with: [location :: {25,75}];
-		create dummy with: [location :: {56,80}];
-		create dummy with: [location :: {10,70}];
-		create dummy with: [location :: {80,8}];
-		create dummy with: [location :: {34,78}];
-		create dummy with: [location :: {67,32}];
-		loop i from: 0 to: length(dummy) - 1 {
-			ask dummy[i] {id &lt;- string(i);}
-		}
-	}
+		<span class="n">loop</span> <span class="n">a_list</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusteredDummies</span>
+		<span class="p">{</span>
+			<span class="n">rgb</span> <span class="n">colorList</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
+			<span class="n">loop</span> <span class="n">a_dummy</span> <span class="n">over</span><span class="p">:</span> <span class="n">a_list</span>
+			<span class="p">{</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"cluster_hierarchical"</span><span class="p">])=</span><span class="m">0</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">add</span> <span class="n">map</span><span class="p">&lt;</span><span class="n">dummy</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;([</span><span class="n">a_dummy</span><span class="p">::</span><span class="n">colorList</span><span class="p">])</span> <span class="n">at</span><span class="p">:</span><span class="s2">"cluster_hierarchical"</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="k">else</span>
+				<span class="p">{</span>
+					<span class="n">add</span> <span class="n">colorList</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span> <span class="k">to</span><span class="p">:</span><span class="n">theDummies</span><span class="p">[</span><span class="s2">"cluster_hierarchical"</span><span class="p">];</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">create_dummy_agents</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">14</span><span class="p">,</span><span class="m">6</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">35</span><span class="p">,</span><span class="m">55</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">25</span><span class="p">,</span><span class="m">75</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">56</span><span class="p">,</span><span class="m">80</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">70</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">80</span><span class="p">,</span><span class="m">8</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">34</span><span class="p">,</span><span class="m">78</span><span class="p">}];</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span> <span class="p">::</span> <span class="p">{</span><span class="m">67</span><span class="p">,</span><span class="m">32</span><span class="p">}];</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">dummy</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+			<span class="n">ask</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">id</span> <span class="p">&lt;-</span> <span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">);}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-grid cell width: 10 height: 10 neighbors: 4{
-	rgb color &lt;- #green;
-}
+<span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">10</span> <span class="n">height</span><span class="p">:</span> <span class="m">10</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span><span class="p">{</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+<span class="p">}</span>
 
-species dummy {
-	string id;
-	aspect default {
-		draw circle(2) color: #yellow;
-		draw id size: 6 color: #black;
-	}
-}
-experiment topology_test type: gui {
-	/** Insert here the definition of the input and output of the model */
-	parameter "Operator" var: parameter_operator;
-	output {
+<span class="n">species</span> <span class="n">dummy</span> <span class="p">{</span>
+	<span class="k">string</span> <span class="n">id</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">id</span> <span class="n">size</span><span class="p">:</span> <span class="m">6</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">topology_test</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="p">/**</span> <span class="n">Insert</span> <span class="n">here</span> <span class="n">the</span> <span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">input</span> <span class="k">and</span> <span class="n">output</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="p">*/</span>
+	<span class="n">parameter</span> <span class="s2">"Operator"</span> <span class="n">var</span><span class="p">:</span> <span class="n">parameter_operator</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
 		
-		display Continuous_Environment  
-		{
-			graphics cell
-			{
-				loop a_key over: theCells[parameter_operator].pairs {
-					draw a_key.key at:a_key.key.location color: theCells[parameter_operator][a_key.key] ;
-				}
-				loop a_cell over: cell-theCells[parameter_operator].keys
-				{
-					draw a_cell at:a_cell.location color: #green ;
-				}
+		<span class="n">display</span> <span class="n">Continuous_Environment</span>  
+		<span class="p">{</span>
+			<span class="n">graphics</span> <span class="n">cell</span>
+			<span class="p">{</span>
+				<span class="n">loop</span> <span class="n">a_key</span> <span class="n">over</span><span class="p">:</span> <span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">pairs</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">a_key</span><span class="p">.</span><span class="n">key</span> <span class="n">at</span><span class="p">:</span><span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">location</span> <span class="n">color</span><span class="p">:</span> <span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">][</span><span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">]</span> <span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">loop</span> <span class="n">a_cell</span> <span class="n">over</span><span class="p">:</span> <span class="n">cell</span><span class="p">-</span><span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span>
+				<span class="p">{</span>
+					<span class="n">draw</span> <span class="n">a_cell</span> <span class="n">at</span><span class="p">:</span><span class="n">a_cell</span><span class="p">.</span><span class="n">location</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>
+				<span class="p">}</span>
 				
-				//Display a line between the two chosen cell for the distance_to operator
-				if(parameter_operator="distance_to")
-				{
-					geometry aLine &lt;- line([theCells[parameter_operator].keys[0].location,theCells[parameter_operator].keys[1].location]) +1.2;
-					draw (aLine) color:#silver;
-					draw string(distance_to (theCells[parameter_operator].keys[0].location,theCells[parameter_operator].keys[1].location)) at:aLine.location size: 6 color: #silver;	
-				}
-				else
-				{
-					//Display a path between the two chosen cell for the path_to operator
-					if(parameter_operator="path_to")
-					{
-							path aPath &lt;- theCells[parameter_operator].keys[0] path_to theCells[parameter_operator].keys[1].location;
-							loop eg over: aPath.edges
-							{
-								draw (geometry(eg)+1.2) color:#silver;
-							}
-					}
-				}
-			}
-			graphics dummy
-			{
-				loop a_key over: theDummies[parameter_operator].pairs {
-					draw circle(2) at:a_key.key.location color: theDummies[parameter_operator][a_key.key] ;
-					draw a_key.key.id at:a_key.key.location size: 6 color: #black;	
-				}
-				loop a_dummy over: dummy-theDummies[parameter_operator].keys
-				{
-					draw circle(2) at:a_dummy.location color: #grey ;
-					draw a_dummy.id at:a_dummy.location size: 6 color: #black;	
-				}
-				//Display a line between the two chosen dummies for the distance_to operator
-				if(parameter_operator="distance_to")
-				{
-					geometry aLine &lt;- line([theDummies[parameter_operator].keys[0].location,theDummies[parameter_operator].keys[1].location]) +1.2;
-					draw (aLine) color:#pink;
-					draw string(distance_to (theDummies[parameter_operator].keys[0].location,theDummies[parameter_operator].keys[1].location)) at:aLine.location size: 6 color: #pink;	
-				}
-				else
-				{
-					//Display a path between the two chosen dummies for the path_to operator
-					if(parameter_operator="path_to")
-					{
-							path aPath &lt;- theDummies[parameter_operator].keys[0] path_to theDummies[parameter_operator].keys[1].location;
-							loop eg over: aPath.edges
-							{
-								draw (geometry(eg)+1.2) color:#pink;
-							}
-					}
-				}
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+				<span class="p">//</span><span class="n">Display</span> <span class="n">a</span> <span class="n">line</span> <span class="n">between</span> <span class="n">the</span> <span class="n">two</span> <span class="n">chosen</span> <span class="n">cell</span> <span class="n">for</span> <span class="n">the</span> <span class="n">distance_to</span> <span class="n">operator</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">parameter_operator</span><span class="p">=</span><span class="s2">"distance_to"</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">geometry</span> <span class="n">aLine</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">location</span><span class="p">,</span><span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">])</span> <span class="p">+</span><span class="m">1.2</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="p">(</span><span class="n">aLine</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">silver</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">distance_to</span> <span class="p">(</span><span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">location</span><span class="p">,</span><span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">))</span> <span class="n">at</span><span class="p">:</span><span class="n">aLine</span><span class="p">.</span><span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="m">6</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">silver</span><span class="p">;</span>	
+				<span class="p">}</span>
+				<span class="k">else</span>
+				<span class="p">{</span>
+					<span class="p">//</span><span class="n">Display</span> <span class="n">a</span> <span class="n">path</span> <span class="n">between</span> <span class="n">the</span> <span class="n">two</span> <span class="n">chosen</span> <span class="n">cell</span> <span class="n">for</span> <span class="n">the</span> <span class="n">path_to</span> <span class="n">operator</span>
+					<span class="k">if</span><span class="p">(</span><span class="n">parameter_operator</span><span class="p">=</span><span class="s2">"path_to"</span><span class="p">)</span>
+					<span class="p">{</span>
+							<span class="n">path</span> <span class="n">aPath</span> <span class="p">&lt;-</span> <span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="n">path_to</span> <span class="n">theCells</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">;</span>
+							<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">aPath</span><span class="p">.</span><span class="n">edges</span>
+							<span class="p">{</span>
+								<span class="n">draw</span> <span class="p">(</span><span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">)+</span><span class="m">1.2</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">silver</span><span class="p">;</span>
+							<span class="p">}</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+			<span class="n">graphics</span> <span class="n">dummy</span>
+			<span class="p">{</span>
+				<span class="n">loop</span> <span class="n">a_key</span> <span class="n">over</span><span class="p">:</span> <span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">pairs</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span><span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">location</span> <span class="n">color</span><span class="p">:</span> <span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">][</span><span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">]</span> <span class="p">;</span>
+					<span class="n">draw</span> <span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">id</span> <span class="n">at</span><span class="p">:</span><span class="n">a_key</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="m">6</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
+				<span class="p">}</span>
+				<span class="n">loop</span> <span class="n">a_dummy</span> <span class="n">over</span><span class="p">:</span> <span class="n">dummy</span><span class="p">-</span><span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span>
+				<span class="p">{</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span><span class="p">.</span><span class="n">location</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">grey</span> <span class="p">;</span>
+					<span class="n">draw</span> <span class="n">a_dummy</span><span class="p">.</span><span class="n">id</span> <span class="n">at</span><span class="p">:</span><span class="n">a_dummy</span><span class="p">.</span><span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="m">6</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
+				<span class="p">}</span>
+				<span class="p">//</span><span class="n">Display</span> <span class="n">a</span> <span class="n">line</span> <span class="n">between</span> <span class="n">the</span> <span class="n">two</span> <span class="n">chosen</span> <span class="n">dummies</span> <span class="n">for</span> <span class="n">the</span> <span class="n">distance_to</span> <span class="n">operator</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">parameter_operator</span><span class="p">=</span><span class="s2">"distance_to"</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">geometry</span> <span class="n">aLine</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">location</span><span class="p">,</span><span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">])</span> <span class="p">+</span><span class="m">1.2</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="p">(</span><span class="n">aLine</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">pink</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">distance_to</span> <span class="p">(</span><span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">location</span><span class="p">,</span><span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">))</span> <span class="n">at</span><span class="p">:</span><span class="n">aLine</span><span class="p">.</span><span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="m">6</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">pink</span><span class="p">;</span>	
+				<span class="p">}</span>
+				<span class="k">else</span>
+				<span class="p">{</span>
+					<span class="p">//</span><span class="n">Display</span> <span class="n">a</span> <span class="n">path</span> <span class="n">between</span> <span class="n">the</span> <span class="n">two</span> <span class="n">chosen</span> <span class="n">dummies</span> <span class="n">for</span> <span class="n">the</span> <span class="n">path_to</span> <span class="n">operator</span>
+					<span class="k">if</span><span class="p">(</span><span class="n">parameter_operator</span><span class="p">=</span><span class="s2">"path_to"</span><span class="p">)</span>
+					<span class="p">{</span>
+							<span class="n">path</span> <span class="n">aPath</span> <span class="p">&lt;-</span> <span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="n">path_to</span> <span class="n">theDummies</span><span class="p">[</span><span class="n">parameter_operator</span><span class="p">].</span><span class="n">keys</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">location</span><span class="p">;</span>
+							<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">aPath</span><span class="p">.</span><span class="n">edges</span>
+							<span class="p">{</span>
+								<span class="n">draw</span> <span class="p">(</span><span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">)+</span><span class="m">1.2</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">pink</span><span class="p">;</span>
+							<span class="p">}</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

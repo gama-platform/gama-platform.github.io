@@ -3500,60 +3500,59 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-model contour_lines_import
+<span class="k">model</span> <span class="n">contour_lines_import</span>
 
-global {
-	//the contour lines shapefile
-	file shape_file_cl &lt;- file('../includes/contourLines.shp') ;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">the</span> <span class="n">contour</span> <span class="n">lines</span> <span class="n">shapefile</span>
+	<span class="n">file</span> <span class="n">shape_file_cl</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/contourLines.shp'</span><span class="p">)</span> <span class="p">;</span>
 	
-	//define the size of the world from the countour line shapefile
-	geometry shape &lt;- envelope(shape_file_cl);
+	<span class="p">//</span><span class="n">define</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="k">from</span> <span class="n">the</span> <span class="n">countour</span> <span class="n">line</span> <span class="n">shapefile</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_cl</span><span class="p">);</span>
 	
-	init {
-		//create the contour line agents from the shapefile, and init the elevation for each agent
-		create contour_line from: shape_file_cl with: [elevation:: float(read("ELEVATION"))];
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="n">contour</span> <span class="n">line</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">,</span> <span class="k">and</span> <span class="n">init</span> <span class="n">the</span> <span class="n">elevation</span> <span class="n">for</span> <span class="n">each</span> <span class="n">agent</span>
+		<span class="nb">create</span> <span class="n">contour_line</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_cl</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">elevation</span><span class="p">::</span> <span class="n">float</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"ELEVATION"</span><span class="p">))];</span>
 		
-		//triangulate the contour lines
-		list&lt;geometry&gt; triangles  &lt;- triangulate (list(contour_line));
+		<span class="p">//</span><span class="n">triangulate</span> <span class="n">the</span> <span class="n">contour</span> <span class="n">lines</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">triangles</span>  <span class="p">&lt;-</span> <span class="n">triangulate</span> <span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">contour_line</span><span class="p">));</span>
 		
-		//for each triangle geometry, create a triangle_ag agent and compute the elevation of each of its points (and modified their z value)
-		loop tr over: triangles {
-			create triangle_ag {
-				shape &lt;- tr;
-				loop i from: 0 to: length(shape.points) - 1{ 
-					float val &lt;- (contour_line closest_to (shape.points at i)).elevation;
-					shape &lt;- shape set_z (i,val);
-				}
-			}
-		}	
-	}
-}
+		<span class="p">//</span><span class="n">for</span> <span class="n">each</span> <span class="n">triangle</span> <span class="n">geometry</span><span class="p">,</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">triangle_ag</span> <span class="n">agent</span> <span class="k">and</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">elevation</span> <span class="k">of</span> <span class="n">each</span> <span class="k">of</span> <span class="n">its</span> <span class="n">points</span> <span class="p">(</span><span class="k">and</span> <span class="n">modified</span> <span class="n">their</span> <span class="n">z</span> <span class="n">value</span><span class="p">)</span>
+		<span class="n">loop</span> <span class="n">tr</span> <span class="n">over</span><span class="p">:</span> <span class="n">triangles</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">triangle_ag</span> <span class="p">{</span>
+				<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">tr</span><span class="p">;</span>
+				<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">{</span> 
+					<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">contour_line</span> <span class="n">closest_to</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span> <span class="n">at</span> <span class="n">i</span><span class="p">)).</span><span class="n">elevation</span><span class="p">;</span>
+					<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="n">set_z</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">val</span><span class="p">);</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species contour_line {
-	float elevation;
-	aspect default {
-		draw shape + 5.0 color: #red depth: 10 at: {location.x,location.y, elevation}; 
-	}
-}
-species triangle_ag {
-	aspect default {
-		draw shape color: #grey ; 
-	}
-}
+<span class="n">species</span> <span class="n">contour_line</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">elevation</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="m">5.0</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">depth</span><span class="p">:</span> <span class="m">10</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">elevation</span><span class="p">};</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">species</span> <span class="n">triangle_ag</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">grey</span> <span class="p">;</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
-experiment contour_lines_import type: gui {
-	output {
-		display map type: opengl {
-			species triangle_ag refresh: false;
-			species contour_line refresh: false;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">contour_lines_import</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">triangle_ag</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">contour_line</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

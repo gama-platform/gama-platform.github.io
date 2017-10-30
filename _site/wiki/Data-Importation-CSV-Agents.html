@@ -3500,51 +3500,50 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model CSVfileloading
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">CSVfileloading</span>
 
-global {
+<span class="n">global</span> <span class="p">{</span>
 	
-	init {
-		//create iris agents from the CSV file (use of the header of the CSV file), the attributes of the agents are initialized from the CSV files: 
-		//we set the header facet to true to directly read the values corresponding to the right column. If the header was set to false, we could use the index of the columns to initialize the agent attributes
-		create iris from:csv_file( "../includes/iris.csv",true) with:
-			[sepal_length::float(get("sepallength")), 
-				sepal_width::float(get("sepalwidth")), 
-				petal_length::float(get("petallength")),
-				petal_width::float(get("petalwidth")), 
-				type::string(get("type"))
-			];	
-	}
-}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">iris</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">CSV</span> <span class="n">file</span> <span class="p">(</span><span class="n">use</span> <span class="k">of</span> <span class="n">the</span> <span class="n">header</span> <span class="k">of</span> <span class="n">the</span> <span class="n">CSV</span> <span class="n">file</span><span class="p">),</span> <span class="n">the</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">initialized</span> <span class="k">from</span> <span class="n">the</span> <span class="n">CSV</span> <span class="n">files</span><span class="p">:</span> 
+		<span class="p">//</span><span class="n">we</span> <span class="k">set</span> <span class="n">the</span> <span class="n">header</span> <span class="n">facet</span> <span class="k">to</span> <span class="nb">true</span> <span class="k">to</span> <span class="n">directly</span> <span class="nb">read</span> <span class="n">the</span> <span class="n">values</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">the</span> <span class="n">right</span> <span class="n">column</span><span class="p">.</span> <span class="k">If</span> <span class="n">the</span> <span class="n">header</span> <span class="n">was</span> <span class="k">set</span> <span class="k">to</span> <span class="nb">false</span><span class="p">,</span> <span class="n">we</span> <span class="n">could</span> <span class="n">use</span> <span class="n">the</span> <span class="n">index</span> <span class="k">of</span> <span class="n">the</span> <span class="n">columns</span> <span class="k">to</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">attributes</span>
+		<span class="nb">create</span> <span class="n">iris</span> <span class="k">from</span><span class="p">:</span><span class="n">csv_file</span><span class="p">(</span> <span class="s2">"../includes/iris.csv"</span><span class="p">,</span><span class="nb">true</span><span class="p">)</span> <span class="k">with</span><span class="p">:</span>
+			<span class="p">[</span><span class="n">sepal_length</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"sepallength"</span><span class="p">)),</span> 
+				<span class="n">sepal_width</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"sepalwidth"</span><span class="p">)),</span> 
+				<span class="n">petal_length</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"petallength"</span><span class="p">)),</span>
+				<span class="n">petal_width</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"petalwidth"</span><span class="p">)),</span> 
+				<span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">))</span>
+			<span class="p">];</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species iris {
-	float sepal_length;
-	float sepal_width;
-	float petal_length;
-	float petal_width;
-	string type;
-	rgb color ;
+<span class="n">species</span> <span class="n">iris</span> <span class="p">{</span>
+	<span class="n">float</span> <span class="n">sepal_length</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">sepal_width</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">petal_length</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">petal_width</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">;</span>
 	
-	init {
-		color &lt;- type ="Iris-setosa" ? #blue : ((type ="Iris-virginica") ? #red: #yellow);
-	}
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span><span class="s2">"Iris-setosa"</span> <span class="p">?</span> <span class="p">#</span><span class="n">blue</span> <span class="p">:</span> <span class="p">((</span><span class="n">type</span> <span class="p">=</span><span class="s2">"Iris-virginica"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-	aspect default {
-		draw circle(petal_width) color: color; 
-	}
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">petal_width</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main type: gui{
-	output {
-		display map {
-			species iris;
-		}
-	}
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">iris</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-}
-</code></pre>
-</div>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

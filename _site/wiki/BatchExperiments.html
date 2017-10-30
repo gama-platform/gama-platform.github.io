@@ -3498,14 +3498,13 @@ function closeRightMenu() {
 
 <p>A Batch experiment is defined by:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment exp_title type: batch {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment exp_title type: batch {
    [parameter to explore]
    [exploration method]
    [reflex]
    [permanent]
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
@@ -3524,18 +3523,17 @@ function closeRightMenu() {
   <li>keep_seed: (boolean) If true, the same series of random seeds will be used from one parameter configuration to another. Default value is false.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment my_batch_experiment type: batch repeat: 5 keep_seed: true until: time = 300 {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_batch_experiment type: batch repeat: 5 keep_seed: true until: time = 300 {
    [parameter to explore]
    [exploration method]
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="action-_step">Action _step</h2>
 <p>The_step_action of an experiment is called at the end of a simulation. It is possible to override this action to apply a specific action at the end of each simulation. Note that at the experiment level, you have access to all the species and all the global variables._</p>
 
 <p>For instance, the following experiment runs the simulation 5 times, and, at the end of each simulation, saves the people agents in a shapefile.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment 'Run 5 simulations' type: batch repeat: 5 keep_seed: true until: ( time &gt; 1000 ) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment 'Run 5 simulations' type: batch repeat: 5 keep_seed: true until: ( time &gt; 1000 ) {
 	int cpt &lt;- 0;
 	action _step_ {
 		save people type:"shp" to:"people_shape" + cpt + ".shp" with: [is_infected::"INFECTED",is_immune::"IMMUNE"];
@@ -3544,30 +3542,27 @@ function closeRightMenu() {
 }
 
 A second solution to achieve the same result is to use reflexes (see below).
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="reflexes">Reflexes</h2>
 <p>It is possible to write reflexes inside a batch experiment. This reflex will be executed at the end of each simulation. For instance, the following reflex writes at the end of each simulation the value of the variable <em>food_gathered</em>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>reflex info_sim {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex info_sim {
 	write "Running a new simulation " + simulation + " -&gt; " + food_gathered;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="permanent">Permanent</h2>
 <p>The <strong>permanent</strong> section allows to define a output block that will not be re-initialized at the beginning of each simulation but will be filled at the end of each simulation.
 For instance, this <strong>permanent</strong> section will allows to display for each simulation the end value of the <em>food_gathered</em> variable.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>permanent {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permanent {
 	display Ants background: rgb('white') refresh:every(1) {
 		chart "Food Gathered" type: series {
 			data "Food" value: food_gathered;
 		}
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

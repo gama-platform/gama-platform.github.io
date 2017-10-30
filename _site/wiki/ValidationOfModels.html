@@ -3526,9 +3526,8 @@ function closeRightMenu() {
 <p>When syntactic errors are eliminated, the validation enters a so-called semantic phase, during which it ensures that what the modeler has written makes sense with respect to the various rules of the language. To understand the difference between the two phases, take a look at the following example.</p>
 
 <p>This sentence below is <strong>syntactically</strong> correct:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>species my_species parent: my_species;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species parent: my_species;
+</code></pre></div></div>
 <p>But it is <strong>semantically</strong> incorrect because a species cannot be parent of itself. No syntactic errors will be reported here, but the validation will fail with a <strong>semantic</strong> error.</p>
 
 <p><img src="resources/images/editingModels/semantic_error_detail.png" alt="images/semantic_error_detail.png" /></p>

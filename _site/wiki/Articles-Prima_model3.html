@@ -3500,40 +3500,40 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model model3 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model3</span> 
  
-global {
-	//Shapefile for the roads
-	file roads_shapefile &lt;- file("../includes/road.shp");
-	//Shapefile for the buildings
-	file buildings_shapefile &lt;- file("../includes/building.shp");
-	//The bounds of the world are the same as the bounds of the roads shapefile
-	geometry shape &lt;- envelope(roads_shapefile);
-	//We need now a graph on which people will move
-	graph road_network;
-	init {
-		//Create the roads using the shapefiles
-		create roads from: roads_shapefile;
-		//Create the graph using the road agents as edges of the graph
-		road_network &lt;- as_edge_graph(roads);
-		//Create the buildings using the shapefiles
-		create buildings from: buildings_shapefile;
-		//Create the people agents and choose their location and target
-		create people number:1000 {
-			location &lt;- any_location_in(one_of(buildings));
-			target &lt;- any_location_in(one_of(buildings));
-		}
-	}
-}
-//Species people that will move from a location to a target
-species people skills:[moving]{		
-	float speed &lt;- 5.0 + rnd(5);
-	bool is_infected &lt;- flip(0.01);
-	point target;
-	//Reflex to make the agent move to a target
-	reflex move {
-		do goto target:target on: road_network;
-		//Each time the agent is at the target's location, chose an other target
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">are</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">the</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">shapefile</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">We</span> <span class="n">need</span> <span class="n">now</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">on</span> <span class="n">which</span> <span class="n">people</span> <span class="n">will</span> <span class="n">move</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefiles</span>
+		<span class="nb">create</span> <span class="n">roads</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span> <span class="k">as</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">roads</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">buildings</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefiles</span>
+		<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span> <span class="k">and</span> <span class="n">choose</span> <span class="n">their</span> <span class="n">location</span> <span class="k">and</span> <span class="n">target</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">1000</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">that</span> <span class="n">will</span> <span class="n">move</span> <span class="k">from</span> <span class="n">a</span> <span class="n">location</span> <span class="k">to</span> <span class="n">a</span> <span class="n">target</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">to</span> <span class="n">a</span> <span class="n">target</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Each</span> <span class="n">time</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">at</span> <span class="n">the</span> <span class="n">target</span><span class="s1">'s location, chose an other target
 		if (location = target) {
 			target &lt;- any_location_in(one_of(buildings));
 		}
@@ -3572,8 +3572,7 @@ experiment main_experiment type:gui{
 		}
 	}
 }
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
     </div>
     </div>

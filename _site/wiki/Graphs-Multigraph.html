@@ -3500,96 +3500,95 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model multigraph
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">multigraph</span>
 
-global {
-	file shape_file_in &lt;- file('../includes/road.shp') ;
-	file shape_file_bounds &lt;- file('../includes/bounds.shp') ;
-	geometry shape &lt;- envelope(shape_file_bounds);
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">file</span> <span class="n">shape_file_in</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/road.shp'</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/bounds.shp'</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
 	
-	//spatial graph representing the road network
-	graph road_graph; 
+	<span class="p">//</span><span class="n">spatial</span> <span class="n">graph</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span>
+	<span class="n">graph</span> <span class="n">road_graph</span><span class="p">;</span> 
 	
-	//social graph (not spatial) representing the frienship links between people
-	graph friendship_graph &lt;- graph([]);
+	<span class="p">//</span><span class="n">social</span> <span class="n">graph</span> <span class="p">(</span><span class="k">not</span> <span class="n">spatial</span><span class="p">)</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">frienship</span> <span class="n">links</span> <span class="n">between</span> <span class="n">people</span>
+	<span class="n">graph</span> <span class="n">friendship_graph</span> <span class="p">&lt;-</span> <span class="n">graph</span><span class="p">([]);</span>
 	
-	init {
-		create road from: shape_file_in;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_in</span><span class="p">;</span>
 		
-		//creation of th road graph from the road agents
-		road_graph &lt;- as_edge_graph(road);
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">th</span> <span class="n">road</span> <span class="n">graph</span> <span class="k">from</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span>
+		<span class="n">road_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
 		
-		//creation of 50 people agent, and add each people agent as a node in the friendship graph
-		create people number: 50 {
-			add node(self) to: friendship_graph;
-		}
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="m">50</span> <span class="n">people</span> <span class="n">agent</span><span class="p">,</span> <span class="k">and</span> <span class="n">add</span> <span class="n">each</span> <span class="n">people</span> <span class="n">agent</span> <span class="k">as</span> <span class="n">a</span> <span class="n">node</span> <span class="k">in</span> <span class="n">the</span> <span class="n">friendship</span> <span class="n">graph</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
+			<span class="n">add</span> <span class="n">node</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span> <span class="n">friendship_graph</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		//creation of 50 friendship link between people agents
-		loop times: 50 {
-			people p1 &lt;- one_of(people);
-			people p2 &lt;- one_of(list(people) - p1);
-			create friendship_link  {
-				add edge (p1, p2, self) to: friendship_graph;
-				shape &lt;- link(p1,p2);
-			}
-		}
-	}
-}
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="m">50</span> <span class="n">friendship</span> <span class="n">link</span> <span class="n">between</span> <span class="n">people</span> <span class="n">agents</span>
+		<span class="n">loop</span> <span class="n">times</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
+			<span class="n">people</span> <span class="n">p1</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+			<span class="n">people</span> <span class="n">p2</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">people</span><span class="p">)</span> <span class="p">-</span> <span class="n">p1</span><span class="p">);</span>
+			<span class="nb">create</span> <span class="n">friendship_link</span>  <span class="p">{</span>
+				<span class="n">add</span> <span class="n">edge</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span> <span class="n">friendship_graph</span><span class="p">;</span>
+				<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">link</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species people skills: [moving]{
-	point location &lt;- any_location_in(one_of(road));
-	people target_people &lt;- one_of(people);
-	point target &lt;- target_people.location;
-	float size &lt;- 3.0;
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]{</span>
+	<span class="n">point</span> <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>
+	<span class="n">people</span> <span class="n">target_people</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">target_people</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">3.0</span><span class="p">;</span>
 	
-	//action that make recompute the size of the agents as the distance between it and its target people in the friendship graph (the farthest, the biggest)
-	action updateSize {
-		path friendship_path &lt;- path_between(friendship_graph,self,target_people);
-		if (friendship_path != nil) {
-			size &lt;-max([2,length( friendship_path.edges)]) as float;
-		}
-	}
+	<span class="p">//</span><span class="n">action</span> <span class="n">that</span> <span class="n">make</span> <span class="n">recompute</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">as</span> <span class="n">the</span> <span class="n">distance</span> <span class="n">between</span> <span class="n">it</span> <span class="k">and</span> <span class="n">its</span> <span class="n">target</span> <span class="n">people</span> <span class="k">in</span> <span class="n">the</span> <span class="n">friendship</span> <span class="n">graph</span> <span class="p">(</span><span class="n">the</span> <span class="n">farthest</span><span class="p">,</span> <span class="n">the</span> <span class="n">biggest</span><span class="p">)</span>
+	<span class="n">action</span> <span class="n">updateSize</span> <span class="p">{</span>
+		<span class="n">path</span> <span class="n">friendship_path</span> <span class="p">&lt;-</span> <span class="n">path_between</span><span class="p">(</span><span class="n">friendship_graph</span><span class="p">,</span><span class="n">self</span><span class="p">,</span><span class="n">target_people</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">friendship_path</span> <span class="c1">!= nil) {
+</span>			<span class="n">size</span> <span class="p">&lt;-</span><span class="k">max</span><span class="p">([</span><span class="m">2</span><span class="p">,</span><span class="n">length</span><span class="p">(</span> <span class="n">friendship_path</span><span class="p">.</span><span class="n">edges</span><span class="p">)])</span> <span class="k">as</span> <span class="n">float</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	//the agent moves toward its target, when reaching it, it chooses another target as the location of one of the people agent
-	reflex movement {
-		if (location distance_to target &lt; 5.0) {
-			target_people &lt;- one_of(people);
-			target &lt;- target_people.location;
-			do updateSize;
-		}
-		do goto on:road_graph target:target speed:1 + rnd(2);
-	}
-	aspect default {
-		draw circle(size) color: #red;
-	}	
-}
+	<span class="p">//</span><span class="n">the</span> <span class="n">agent</span> <span class="n">moves</span> <span class="n">toward</span> <span class="n">its</span> <span class="n">target</span><span class="p">,</span> <span class="n">when</span> <span class="n">reaching</span> <span class="n">it</span><span class="p">,</span> <span class="n">it</span> <span class="n">chooses</span> <span class="n">another</span> <span class="n">target</span> <span class="k">as</span> <span class="n">the</span> <span class="n">location</span> <span class="k">of</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">reflex</span> <span class="n">movement</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">target</span> <span class="p">&lt;</span> <span class="m">5.0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target_people</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">target_people</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">updateSize</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">on</span><span class="p">:</span><span class="n">road_graph</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">speed</span><span class="p">:</span><span class="m">1</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
 	
-species friendship_link {
+<span class="n">species</span> <span class="n">friendship_link</span> <span class="p">{</span>
 	
-	aspect default {
-		draw shape color: #blue;
-	}
-}
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 	
-species road  {
-	aspect default {
-		draw shape color:#black ;
-	}
-} 
+<span class="n">species</span> <span class="n">road</span>  <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
 
 
-experiment multigraph type: gui {
-	output {
-		display friendship type: opengl{
-			species road ;
-			species friendship_link ;
-			species people;
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">multigraph</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">friendship</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">friendship_link</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

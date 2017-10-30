@@ -3500,232 +3500,231 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  
-model RoadTrafficCity
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
+<span class="k">model</span> <span class="n">RoadTrafficCity</span>
  
    
-global {   
+<span class="n">global</span> <span class="p">{</span>   
 	
-	//Shapefiles for the buildings, the roads and the bounds of the environment
-	file shape_file_roads parameter: "Shapefile for the roads:" category: "GIS" &lt;- file("../includes/ManhattanRoads.shp") ;
-	file shape_file_bounds parameter: "Shapefile for the bounds:" category: "GIS" &lt;- file("../includes/ManhattanBounds.shp") ;
-	file shape_file_buildings parameter: "Shapefile for the buildings:" category: "GIS" &lt;- file("../includes/ManhattanBuildings.shp") ;
-	geometry shape &lt;- envelope(shape_file_bounds);
+	<span class="p">//</span><span class="n">Shapefiles</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span><span class="p">,</span> <span class="n">the</span> <span class="n">roads</span> <span class="k">and</span> <span class="n">the</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">file</span> <span class="n">shape_file_roads</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanRoads.shp"</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanBounds.shp"</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="n">parameter</span><span class="p">:</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/ManhattanBuildings.shp"</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
 	
-	//Stock the number of times agents reached their goal (their house or work place)
-	int nbGoalsAchived &lt;- 0;
+	<span class="p">//</span><span class="n">Stock</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">times</span> <span class="n">agents</span> <span class="n">reached</span> <span class="n">their</span> <span class="n">goal</span> <span class="p">(</span><span class="n">their</span> <span class="n">house</span> <span class="k">or</span> <span class="n">work</span> <span class="n">place</span><span class="p">)</span>
+	<span class="n">int</span> <span class="n">nbGoalsAchived</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
 	
-	//represent the day time for the agent to inform them to go work or home
-	int day_time update: cycle mod 144 ;
+	<span class="p">//</span><span class="n">represent</span> <span class="n">the</span> <span class="n">day</span> <span class="n">time</span> <span class="n">for</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">inform</span> <span class="n">them</span> <span class="k">to</span> <span class="n">go</span> <span class="n">work</span> <span class="k">or</span> <span class="n">home</span>
+	<span class="n">int</span> <span class="n">day_time</span> <span class="n">update</span><span class="p">:</span> <span class="n">cycle</span> <span class="k">mod</span> <span class="m">144</span> <span class="p">;</span>
 	
-	//Variables to manage the minimal and maximal time to start working
-	int min_work_start &lt;- 36;
-	int max_work_start &lt;- 60;
+	<span class="p">//</span><span class="n">Variables</span> <span class="k">to</span> <span class="n">manage</span> <span class="n">the</span> <span class="n">minimal</span> <span class="k">and</span> <span class="n">maximal</span> <span class="n">time</span> <span class="k">to</span> <span class="n">start</span> <span class="n">working</span>
+	<span class="n">int</span> <span class="n">min_work_start</span> <span class="p">&lt;-</span> <span class="m">36</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">max_work_start</span> <span class="p">&lt;-</span> <span class="m">60</span><span class="p">;</span>
 	
-	//Number of people created
-	int nb_people &lt;- 500;
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">created</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
 	
-	//Variables to manage the minimal and maximal time to go home
-	int min_work_end &lt;- 84; 
-	int max_work_end &lt;- 132; 
+	<span class="p">//</span><span class="n">Variables</span> <span class="k">to</span> <span class="n">manage</span> <span class="n">the</span> <span class="n">minimal</span> <span class="k">and</span> <span class="n">maximal</span> <span class="n">time</span> <span class="k">to</span> <span class="n">go</span> <span class="n">home</span>
+	<span class="n">int</span> <span class="n">min_work_end</span> <span class="p">&lt;-</span> <span class="m">84</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">max_work_end</span> <span class="p">&lt;-</span> <span class="m">132</span><span class="p">;</span> 
 	
-	//Manage the speed allowed in the model for the people agents
-	float min_speed &lt;- 50.0;
-	float max_speed &lt;- 100.0; 
+	<span class="p">//</span><span class="n">Manage</span> <span class="n">the</span> <span class="n">speed</span> <span class="n">allowed</span> <span class="k">in</span> <span class="n">the</span> <span class="k">model</span> <span class="n">for</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">float</span> <span class="n">min_speed</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span> 
 	
-	//Graph of the road network
-	graph the_graph;
+	<span class="p">//</span><span class="n">Graph</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">network</span>
+	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
 	
 	 
-	init {  
+	<span class="n">init</span> <span class="p">{</span>  
 		
-		//creation of the agents of road and building species using the shapefile and linking the 
-		create road from: shape_file_roads with:[nbLanes::int(read("lanes"))];
-		create building from: shape_file_buildings;
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">road</span> <span class="k">and</span> <span class="n">building</span> <span class="n">species</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">and</span> <span class="n">linking</span> <span class="n">the</span> 
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="k">with</span><span class="p">:[</span><span class="n">nbLanes</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"lanes"</span><span class="p">))];</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span><span class="p">;</span>
 		
-		//Increase the shape of roads according to the number of lanes it has
-		ask road as list {
-			visu_geom &lt;- shape + (2 * nbLanes);	
-		}
-		//Initliazation of the graph with the road species
-		the_graph &lt;-  (as_edge_graph(road));
+		<span class="p">//</span><span class="n">Increase</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">roads</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">lanes</span> <span class="n">it</span> <span class="n">has</span>
+		<span class="n">ask</span> <span class="n">road</span> <span class="k">as</span> <span class="k">list</span> <span class="p">{</span>
+			<span class="n">visu_geom</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="p">+</span> <span class="p">(</span><span class="m">2</span> <span class="p">*</span> <span class="n">nbLanes</span><span class="p">);</span>	
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Initliazation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">with</span> <span class="n">the</span> <span class="n">road</span> <span class="n">species</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>
 		
-		//Initialization of nb_people agents of people species
-		// and definition of their living and working places
-		create people number: nb_people { 
-			living_space &lt;- 3.0;
-			tolerance &lt;- 0.1;
-			lanes_attribute &lt;- "nbLanes";
-			obstacle_species &lt;- [species(self)]; 
-			speed &lt;- min_speed + rnd (max_speed - min_speed) ;
-			start_work &lt;- min_work_start + rnd (max_work_start - min_work_start) ;
-			end_work &lt;- min_work_end + rnd (max_work_end - min_work_end) ;
-			living_place &lt;- one_of(building) ;
-			working_place &lt;- one_of(building) ;
-			location &lt;- living_place.location; 
-		}   
-	}
+		<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">nb_people</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">people</span> <span class="n">species</span>
+		<span class="p">//</span> <span class="k">and</span> <span class="n">definition</span> <span class="k">of</span> <span class="n">their</span> <span class="n">living</span> <span class="k">and</span> <span class="n">working</span> <span class="n">places</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span> 
+			<span class="n">living_space</span> <span class="p">&lt;-</span> <span class="m">3.0</span><span class="p">;</span>
+			<span class="n">tolerance</span> <span class="p">&lt;-</span> <span class="m">0.1</span><span class="p">;</span>
+			<span class="n">lanes_attribute</span> <span class="p">&lt;-</span> <span class="s2">"nbLanes"</span><span class="p">;</span>
+			<span class="n">obstacle_species</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">species</span><span class="p">(</span><span class="n">self</span><span class="p">)];</span> 
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">min_speed</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_speed</span> <span class="p">-</span> <span class="n">min_speed</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">start_work</span> <span class="p">&lt;-</span> <span class="n">min_work_start</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_start</span> <span class="p">-</span> <span class="n">min_work_start</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">end_work</span> <span class="p">&lt;-</span> <span class="n">min_work_end</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_end</span> <span class="p">-</span> <span class="n">min_work_end</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">living_place</span><span class="p">.</span><span class="n">location</span><span class="p">;</span> 
+		<span class="p">}</span>   
+	<span class="p">}</span>
 	
-	//Update of the graph every 10 Cycles to take into account the traffic jam of the road in the weights of the graph
-	reflex update_graph when:every(10){
-		map&lt;road,float&gt; weights_map &lt;- road as_map (each:: (each.shape.perimeter * each.coeff_traffic));
-		the_graph &lt;- the_graph with_weights weights_map;
-	}
+	<span class="p">//</span><span class="n">Update</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">every</span> <span class="m">10</span> <span class="n">Cycles</span> <span class="k">to</span> <span class="n">take</span> <span class="n">into</span> <span class="n">account</span> <span class="n">the</span> <span class="n">traffic</span> <span class="n">jam</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="k">in</span> <span class="n">the</span> <span class="n">weights</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
+	<span class="n">reflex</span> <span class="n">update_graph</span> <span class="n">when</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">){</span>
+		<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">weights_map</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">*</span> <span class="n">each</span><span class="p">.</span><span class="n">coeff_traffic</span><span class="p">));</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">the_graph</span> <span class="n">with_weights</span> <span class="n">weights_map</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-} 
+<span class="p">}</span> 
 	
-species road  { 
-	int nbLanes;
-	int indexDirection; 
-	bool blocked &lt;- false;
-	rgb color &lt;- #black;
-	float coeff_traffic &lt;- 1.0 update: 1 + (float(length(people at_distance 1.0)) / shape.perimeter * 200 / nbLanes);
-	geometry visu_geom;
+<span class="n">species</span> <span class="n">road</span>  <span class="p">{</span> 
+	<span class="n">int</span> <span class="n">nbLanes</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">indexDirection</span><span class="p">;</span> 
+	<span class="n">bool</span> <span class="n">blocked</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">coeff_traffic</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="n">update</span><span class="p">:</span> <span class="m">1</span> <span class="p">+</span> <span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">people</span> <span class="n">at_distance</span> <span class="m">1.0</span><span class="p">))</span> <span class="p">/</span> <span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">*</span> <span class="m">200</span> <span class="p">/</span> <span class="n">nbLanes</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">visu_geom</span><span class="p">;</span>
 	
-	aspect base { 
-		draw shape color: #black ;
-	} 
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="p">}</span> 
 	
 	
-	//Command that the user can execute to remove or add a road	
-	user_command "Remove a road" action: remove;
-	user_command "Add a road" action: add;
+	<span class="p">//</span><span class="n">Command</span> <span class="n">that</span> <span class="n">the</span> <span class="n">user</span> <span class="n">can</span> <span class="n">execute</span> <span class="k">to</span> <span class="n">remove</span> <span class="k">or</span> <span class="n">add</span> <span class="n">a</span> <span class="n">road</span>	
+	<span class="n">user_command</span> <span class="s2">"Remove a road"</span> <span class="n">action</span><span class="p">:</span> <span class="n">remove</span><span class="p">;</span>
+	<span class="n">user_command</span> <span class="s2">"Add a road"</span> <span class="n">action</span><span class="p">:</span> <span class="n">add</span><span class="p">;</span>
 		 
-	action remove {
-		blocked &lt;- true;
-		the_graph &lt;-  (as_edge_graph(road where (!each.blocked))) ;
-		map&lt;road,float&gt; weights_map &lt;- road as_map (each:: each.coeff_traffic);
-		the_graph &lt;- the_graph  with_weights weights_map;
-		color &lt;- #magenta;
-	}
+	<span class="n">action</span> <span class="n">remove</span> <span class="p">{</span>
+		<span class="n">blocked</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!each.blocked))) ;
+</span>		<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">weights_map</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">coeff_traffic</span><span class="p">);</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">the_graph</span>  <span class="n">with_weights</span> <span class="n">weights_map</span><span class="p">;</span>
+		<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">magenta</span><span class="p">;</span>
+	<span class="p">}</span>
 		
-	action add {
-		blocked &lt;- false;
-		the_graph &lt;-  (as_edge_graph(road where (!each.blocked)));
-		map&lt;road,float&gt; weights_map &lt;- road as_map (each:: each.coeff_traffic);
-		the_graph &lt;- the_graph  with_weights weights_map;
-		color &lt;- #black;
-	}
+	<span class="n">action</span> <span class="n">add</span> <span class="p">{</span>
+		<span class="n">blocked</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!each.blocked)));
+</span>		<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">weights_map</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">coeff_traffic</span><span class="p">);</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">the_graph</span>  <span class="n">with_weights</span> <span class="n">weights_map</span><span class="p">;</span>
+		<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 		
-	aspect road_width {  
-		draw visu_geom color: color ;
-	}
+	<span class="n">aspect</span> <span class="n">road_width</span> <span class="p">{</span>  
+		<span class="n">draw</span> <span class="n">visu_geom</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
 	
-	aspect traffic_jam {  
-		if (coeff_traffic &gt; 0.025) {
-			draw shape + (coeff_traffic / 4.0) color: #red ;
-		}
-	} 		
-}
+	<span class="n">aspect</span> <span class="n">traffic_jam</span> <span class="p">{</span>  
+		<span class="k">if</span> <span class="p">(</span><span class="n">coeff_traffic</span> <span class="p">&gt;</span> <span class="m">0.025</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="p">(</span><span class="n">coeff_traffic</span> <span class="p">/</span> <span class="m">4.0</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span> 		
+<span class="p">}</span>
 	
-species building  { 
-	rgb color &lt;- #gray;
-	aspect base { 
-		draw shape color: color ;
-	}
-}
+<span class="n">species</span> <span class="n">building</span>  <span class="p">{</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 	
-species people skills: [driving]{ 
-	float speed; 
-	rgb color &lt;- rgb([rnd(255),rnd(255),rnd(255)]) ;
-	point targetBis &lt;- nil ; 
-	point previousLoc &lt;- nil;
-	bool normalMove &lt;- true;
-	float evadeDist &lt;- 500.0;
-	building living_place &lt;- nil ;
-	building working_place &lt;- nil ;
-	int start_work ;
-	int end_work  ;
-	string objective ; 
-	point the_target &lt;- nil ;
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">driving</span><span class="p">]{</span> 
+	<span class="n">float</span> <span class="n">speed</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">([</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">)])</span> <span class="p">;</span>
+	<span class="n">point</span> <span class="n">targetBis</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span> 
+	<span class="n">point</span> <span class="n">previousLoc</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">normalMove</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">evadeDist</span> <span class="p">&lt;-</span> <span class="m">500.0</span><span class="p">;</span>
+	<span class="n">building</span> <span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+	<span class="n">building</span> <span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">start_work</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">end_work</span>  <span class="p">;</span>
+	<span class="k">string</span> <span class="n">objective</span> <span class="p">;</span> 
+	<span class="n">point</span> <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
 		
-	//Reflex to make the agent move while it had a target and normalMove equals true
-	reflex move when: the_target != nil and normalMove{
-		previousLoc &lt;- copy(location);
-		do goto_driving target: the_target on: the_graph speed: speed ; 
-		switch location { 
-			match the_target {
-				the_target &lt;- nil;
-				nbGoalsAchived &lt;- nbGoalsAchived +1;
-			}
-			match previousLoc {
-				targetBis &lt;- last((one_of(road where (each distance_to self &lt; evadeDist)).shape).points);
-				normalMove &lt;- false;
-			}
-		}
-	}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">while</span> <span class="n">it</span> <span class="n">had</span> <span class="n">a</span> <span class="n">target</span> <span class="k">and</span> <span class="n">normalMove</span> <span class="n">equals</span> <span class="nb">true</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">the_target</span> <span class="c1">!= nil and normalMove{
+</span>		<span class="n">previousLoc</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+		<span class="k">do</span> <span class="n">goto_driving</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_target</span> <span class="n">on</span><span class="p">:</span> <span class="n">the_graph</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span> <span class="p">;</span> 
+		<span class="n">switch</span> <span class="n">location</span> <span class="p">{</span> 
+			<span class="n">match</span> <span class="n">the_target</span> <span class="p">{</span>
+				<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+				<span class="n">nbGoalsAchived</span> <span class="p">&lt;-</span> <span class="n">nbGoalsAchived</span> <span class="p">+</span><span class="m">1</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">match</span> <span class="n">previousLoc</span> <span class="p">{</span>
+				<span class="n">targetBis</span> <span class="p">&lt;-</span> <span class="n">last</span><span class="p">((</span><span class="n">one_of</span><span class="p">(</span><span class="n">road</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">&lt;</span> <span class="n">evadeDist</span><span class="p">)).</span><span class="n">shape</span><span class="p">).</span><span class="n">points</span><span class="p">);</span>
+				<span class="n">normalMove</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 		
-	//Reflex to make the agent move when it is not normal moving 
-	reflex EvadeMove when: !(normalMove){
-		previousLoc &lt;- copy(location);
-		do goto_driving target: targetBis on: the_graph speed: speed ; 
-		switch location { 
-			match targetBis {
-				normalMove &lt;- true;
-			}
-			match previousLoc {
-				targetBis &lt;- last((one_of(road where (each distance_to self &lt; evadeDist)).shape).points);
-			}
-		}
-	}
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">when</span> <span class="n">it</span> <span class="n">is</span> <span class="k">not</span> <span class="n">normal</span> <span class="n">moving</span> 
+	<span class="n">reflex</span> <span class="n">EvadeMove</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(normalMove){
+</span>		<span class="n">previousLoc</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+		<span class="k">do</span> <span class="n">goto_driving</span> <span class="n">target</span><span class="p">:</span> <span class="n">targetBis</span> <span class="n">on</span><span class="p">:</span> <span class="n">the_graph</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span> <span class="p">;</span> 
+		<span class="n">switch</span> <span class="n">location</span> <span class="p">{</span> 
+			<span class="n">match</span> <span class="n">targetBis</span> <span class="p">{</span>
+				<span class="n">normalMove</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">match</span> <span class="n">previousLoc</span> <span class="p">{</span>
+				<span class="n">targetBis</span> <span class="p">&lt;-</span> <span class="n">last</span><span class="p">((</span><span class="n">one_of</span><span class="p">(</span><span class="n">road</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">&lt;</span> <span class="n">evadeDist</span><span class="p">)).</span><span class="n">shape</span><span class="p">).</span><span class="n">points</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	//Reflex to make the agent go to its working place when it's time to go work
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">go</span> <span class="k">to</span> <span class="n">its</span> <span class="n">working</span> <span class="n">place</span> <span class="n">when</span> <span class="n">it</span><span class="s1">'s time to go work
 	reflex time_to_work when: day_time = start_work {
 		objective &lt;- "working" ;
 		the_target &lt;- any_location_in (working_place);
 	}
 	
-	//Reflex to make the agent go to its living place when it's time to go home
-	reflex time_to_go_home when: day_time = end_work {
-		objective &lt;- "go home" ;
-		the_target &lt;- any_location_in (living_place); 
-	}  
+	//Reflex to make the agent go to its living place when it'</span><span class="n">s</span> <span class="n">time</span> <span class="k">to</span> <span class="n">go</span> <span class="n">home</span>
+	<span class="n">reflex</span> <span class="n">time_to_go_home</span> <span class="n">when</span><span class="p">:</span> <span class="n">day_time</span> <span class="p">=</span> <span class="n">end_work</span> <span class="p">{</span>
+		<span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"go home"</span> <span class="p">;</span>
+		<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">living_place</span><span class="p">);</span> 
+	<span class="p">}</span>  
 	
-	aspect base {
-		draw circle(20) color: color;
-	}
-}
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">20</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment traffic type: gui {
-	parameter "Shapefile for the buildings:" var: shape_file_buildings category: "GIS" ;
-	parameter "Shapefile for the roads:" var: shape_file_roads category: "GIS" ;
-	parameter "Shapefile for the bounds:" var: shape_file_bounds category: "GIS" ;
-	parameter "Number of people agents" var: nb_people category: "People" ;
-	parameter "Earliest hour to start work" var: min_work_start category: "People" ;
-	parameter "Latest hour to start work" var: max_work_start category: "People" ;
-	parameter "Earliest hour to end work" var: min_work_end category: "People" ;
-	parameter "Latest hour to end work" var: max_work_end category: "People" ;
-	parameter "minimal speed" var: min_speed category: "People" ;
-	parameter "maximal speed" var: max_speed category: "People" ;
+<span class="n">experiment</span> <span class="n">traffic</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_bounds</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of people agents"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Earliest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Latest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Earliest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Latest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"minimal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"maximal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
 	
-	output {
-		display city_display {
-			species road aspect: road_width ;
-			species building aspect: base;
-			species people aspect: base;
-		}
-		display traffic_jam_display {
-			species road aspect: base ;
-			species road aspect: traffic_jam ;
-		}
-		display chart_display refresh: every(10) {
-			chart "Traffic jam" type: series size: {0.9, 0.4} position: {0.05, 0.05} {
-				data "Mean road traffic coefficient" value: mean (road collect each.coeff_traffic) style: line color: #green ;
-				data "Max road traffic coefficient" value: road max_of (each.coeff_traffic) style: line color: #red ;
-			}
-			chart "People Objectif" type: pie style: exploded size: {0.9, 0.4} position: {0.05, 0.55} {
-				data "Working" value: length ((people as list) where (each.objective="working")) color: #green ;
-				data "Staying home" value: length ((people as list) where (each.objective="go home")) color: #blue ;
-			}
-		}
-		monitor "Number of goals achieved" value: nbGoalsAchived ;
-	}
-}
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">road_width</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">traffic_jam_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">traffic_jam</span> <span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Traffic jam"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.9</span><span class="p">,</span> <span class="m">0.4</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.05</span><span class="p">,</span> <span class="m">0.05</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"Mean road traffic coefficient"</span> <span class="n">value</span><span class="p">:</span> <span class="n">mean</span> <span class="p">(</span><span class="n">road</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">coeff_traffic</span><span class="p">)</span> <span class="n">style</span><span class="p">:</span> <span class="n">line</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"Max road traffic coefficient"</span> <span class="n">value</span><span class="p">:</span> <span class="n">road</span> <span class="n">max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">coeff_traffic</span><span class="p">)</span> <span class="n">style</span><span class="p">:</span> <span class="n">line</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"People Objectif"</span> <span class="n">type</span><span class="p">:</span> <span class="n">pie</span> <span class="n">style</span><span class="p">:</span> <span class="n">exploded</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.9</span><span class="p">,</span> <span class="m">0.4</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.05</span><span class="p">,</span> <span class="m">0.55</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"Working"</span> <span class="n">value</span><span class="p">:</span> <span class="n">length</span> <span class="p">((</span><span class="n">people</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">objective</span><span class="p">=</span><span class="s2">"working"</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"Staying home"</span> <span class="n">value</span><span class="p">:</span> <span class="n">length</span> <span class="p">((</span><span class="n">people</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">objective</span><span class="p">=</span><span class="s2">"go home"</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">monitor</span> <span class="s2">"Number of goals achieved"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nbGoalsAchived</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

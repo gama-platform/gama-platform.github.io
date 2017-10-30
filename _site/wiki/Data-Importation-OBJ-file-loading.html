@@ -3500,38 +3500,37 @@ function closeRightMenu() {
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model obj_loading   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">obj_loading</span>   
 
-global {
+<span class="n">global</span> <span class="p">{</span>
 
-	init { 
-		create object;
-	}  
-} 
+	<span class="n">init</span> <span class="p">{</span> 
+		<span class="nb">create</span> <span class="n">object</span><span class="p">;</span>
+	<span class="p">}</span>  
+<span class="p">}</span> 
 
-species object skills:[moving]{
+<span class="n">species</span> <span class="n">object</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
 	
-	geometry shape &lt;- obj_file("../includes/teapot.obj") as geometry;
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">obj_file</span><span class="p">(</span><span class="s2">"../includes/teapot.obj"</span><span class="p">)</span> <span class="k">as</span> <span class="n">geometry</span><span class="p">;</span>
 	
-	reflex move{
-		do wander;
-	}
-	aspect obj {
-		draw shape;
-	}
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">obj</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span><span class="p">;</span>
+	<span class="p">}</span>
 			
-}	
+<span class="p">}</span>	
 
-experiment Display  type: gui {
-	output {
-		display complex  background:#gray type: opengl{
-		  species object aspect:obj;				
-		}
-	}
-}
-</code></pre>
-</div>
+<span class="n">experiment</span> <span class="n">Display</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">complex</span>  <span class="n">background</span><span class="p">:#</span><span class="n">gray</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+		  <span class="n">species</span> <span class="n">object</span> <span class="n">aspect</span><span class="p">:</span><span class="n">obj</span><span class="p">;</span>				
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

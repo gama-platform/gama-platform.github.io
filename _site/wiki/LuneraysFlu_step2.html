@@ -3520,15 +3520,14 @@ function closeRightMenu() {
   <li>infected_rate of type <em>float</em> updated at each simulation step by the number of infected people divided by the number of people.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>global{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{
 	//... other attributes
 	int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
 	int nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
 	float infected_rate update: nb_people_infected/nb_people;
 	//... init
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We used the <a href="Operators#count">count</a> operator that allows to count the number of elements of a list for which the left condition is true. The keyword <em>each</em> represents each element of the list.</p>
 
@@ -3537,15 +3536,14 @@ function closeRightMenu() {
 <p>The simplest way to add an ending condition to a model is to add a global reflex that is activated at the end of the simulation that will pause the simulation (use of the <em>pause</em> global action).</p>
 
 <p>In our model, we add a new reflex called <em>end_simulation</em> that will be activated when the infected rate is 1.0 (i.e. all the people agents are infected) and that will apply the <em>pause</em> action.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
 	//.. variable and init definition
 	
 	reflex end_simulation when: infected_rate = 1.0 {
 		do pause;
 	}
 } 
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="experiment">experiment</h3>
 
 <h4 id="monitor">monitor</h4>
@@ -3558,7 +3556,7 @@ function closeRightMenu() {
 </ul>
 
 <p>For our model, we define a monitor to follow the value of the <em>infected_rate</em> variable:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type:gui{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
 	//...parameters
 	output {
 		monitor "Infected people rate" value: infected_rate;
@@ -3566,8 +3564,7 @@ function closeRightMenu() {
                //...display
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="chart">Chart</h4>
 
@@ -3590,7 +3587,7 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 <ul>
   <li>susceptible: the number of people that are not infected (in green)</li>
   <li>infected: the number of people that are infected (in red)
-    <div class="highlighter-rouge"><pre class="highlight"><code>experiment main_experiment type:gui{
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
     //...parameters
     output {
    //...display and monitors
@@ -3603,73 +3600,71 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
    }
     }
 }
-</code></pre>
-    </div>
+</code></pre></div>    </div>
     <h2 id="complete-model">Complete Model</h2>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>model SI_city2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city2</span>
 
-global{ 
-	int nb_people &lt;- 2147;
-	int nb_infected_init &lt;- 5;
-	float step &lt;- 1 #mn;
-	geometry shape&lt;-square(1500 #m);
-	int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-	int nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-	float infected_rate update: nb_people_infected/nb_people;
+<span class="n">global</span><span class="p">{</span> 
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">square</span><span class="p">(</span><span class="m">1500</span> <span class="p">#</span><span class="n">m</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">nb_people</span><span class="p">;</span>
 	
 	
-	init{
-		create people number:nb_people;
-		ask nb_infected_init among people {
-			is_infected &lt;- true;
-		}
-	}
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex end_simulation when: infected_rate = 1.0 {
-		do pause;
-	}
-}
+	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species people skills:[moving]{		
-	float speed &lt;- (2 + rnd(3)) #km/#h;
-	bool is_infected &lt;- false;
-	reflex move{
-		do wander;
-	}
-	reflex infect when: is_infected{
-		ask people at_distance 10 #m {
-			if flip(0.05) {
-				is_infected &lt;- true;
-			}
-		}
-	}
-	aspect circle{
-		draw circle(10) color:is_infected ? #red : #green;
-	}
-}
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">#</span><span class="n">m</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.05</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment main_experiment type:gui{
-	parameter "Nb people infected at init" var: nb_infected_init min: 1 max: 2147;
-	output {
-		monitor "Infected people rate" value: infected_rate;
+<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
 		
-		display map type: opengl{
-			species people aspect:circle;			
-		}
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
 		
-		display chart refresh:every(10) {
-			chart "Disease spreading" type: series {
-				data "susceptible" value: nb_people_not_infected color: #green;
-				data "infected" value: nb_people_infected color: #red;
-			}
-		}
-	}
-}
-</code></pre>
-</div>
+		<span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p><a href="LuneraysFlu_step3">Next step: Importation of GIS data</a></p>
 

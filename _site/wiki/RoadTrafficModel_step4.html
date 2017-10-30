@@ -3507,19 +3507,18 @@ function closeRightMenu() {
 <h3 id="road-agent">road agent</h3>
 <p>We add a <strong>destruction_coeff</strong> variable which initial value is randomly defined between 1 and 2 and that have a max of 2. The color of the agent will depend of this variable. In order to simplify the GAML code, we define a new variable  <strong>colorValue</strong> that represents the value of red color and that will be defined between 0 and 255.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>   species road  {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species road  {
 	float destruction_coeff &lt;- 1 + ((rnd(100))/ 100.0) max: 2.0;
 	int colorValue &lt;- int(255*(destruction_coeff - 1)) update: int(255*(destruction_coeff - 1));
 	rgb color &lt;- rgb(min([255, colorValue]),max ([0, 255 - colorValue]),0)  update: rgb(min([255, colorValue]),max ([0, 255 - colorValue]),0) ;
 
         ...
    }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="weigthed-road-network">weigthed road network</h3>
 <p>In GAMA, adding a weight for a graph is very simple, we use the <strong>as_edge_graph</strong> operator with the graph for left-operand and a weight map for the right-operand. A weight contains the weight of each edge: [edge1::weight1, edge2:: weight2,…]. In this model, the weight will be equal to the length of the road (perimeter of the polyline) **its destruction coefficient.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>    init {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    init {
       ...
       create road from: shape_file_roads ;
       map&lt;road,float&gt; weights_map &lt;- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
@@ -3534,8 +3533,7 @@ function closeRightMenu() {
 
 ## Complete Model
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>model tutorial_gis_city_traffic</p>
 
 <p>global {
@@ -3554,7 +3552,7 @@ function closeRightMenu() {
 	float max_speed &lt;- 5.0 #km / #h; 
 	graph the_graph;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>init {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>init {
 	create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
 		if type="Industrial" {
 			color &lt;- #blue ;
@@ -3577,29 +3575,26 @@ function closeRightMenu() {
 		location &lt;- any_location_in (living_place); 
 	}
 } }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>species building {
 	string type; 
 	rgb color &lt;- #gray  ;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect base {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base {
 	draw shape color: color ;
 } }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>species road  {
 	float destruction_coeff &lt;- 1 + ((rnd(100))/ 100.0) max: 2.0;
 	int colorValue &lt;- int(255<em>(destruction_coeff - 1)) update: int(255</em>(destruction_coeff - 1));
 	rgb color &lt;- rgb(min([255, colorValue]),max ([0, 255 - colorValue]),0)  update: rgb(min([255, colorValue]),max ([0, 255 - colorValue]),0) ;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>aspect base {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base {
 	draw shape color: color ;
 } }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>species people skills:[moving] {
 	rgb color &lt;- #yellow ;
@@ -3610,7 +3605,7 @@ function closeRightMenu() {
 	string objective ; 
 	point the_target &lt;- nil ;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>reflex time_to_work when: current_hour = start_work and objective = "resting"{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex time_to_work when: current_hour = start_work and objective = "resting"{
 	objective &lt;- "working" ;
 	the_target &lt;- any_location_in (working_place);
 }
@@ -3630,8 +3625,7 @@ reflex move when: the_target != nil {
 aspect base {
 	draw circle(10) color: color;
 } }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>experiment road_traffic type: gui {
 	parameter “Shapefile for the buildings:” var: shape_file_buildings category: “GIS” ;
@@ -3645,15 +3639,14 @@ aspect base {
 	parameter “minimal speed” var: min_speed category: “People” min: 0.1 #km/#h ;
 	parameter “maximal speed” var: max_speed category: “People” max: 10 #km/#h;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
 	display city_display type:opengl {
 		species building aspect: base ;
 		species road aspect: base ;
 		species people aspect: base ;
 	}
 } } ```
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>

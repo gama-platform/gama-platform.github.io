@@ -3511,139 +3511,138 @@ Participant4 replies with an inform_result message.</p>
 
 <p>Code of the model :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-model cfp_cfp_2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">model</span> <span class="n">cfp_cfp_2</span>
 
-global {
-	int nbOfParticipants &lt;- 5;
-	participant refuser;
-	list&lt;participant&gt; proposers;
-	participant reject_proposal_participant;
-	list&lt;participant&gt; accept_proposal_participants ;
-	participant failure_participant;
-	participant inform_done_participant;
-	participant inform_result_participant;
+<span class="n">global</span> <span class="p">{</span>
+	<span class="n">int</span> <span class="n">nbOfParticipants</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">participant</span> <span class="n">refuser</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">participant</span><span class="p">&gt;</span> <span class="n">proposers</span><span class="p">;</span>
+	<span class="n">participant</span> <span class="n">reject_proposal_participant</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">participant</span><span class="p">&gt;</span> <span class="n">accept_proposal_participants</span> <span class="p">;</span>
+	<span class="n">participant</span> <span class="n">failure_participant</span><span class="p">;</span>
+	<span class="n">participant</span> <span class="n">inform_done_participant</span><span class="p">;</span>
+	<span class="n">participant</span> <span class="n">inform_result_participant</span><span class="p">;</span>
 	
 	
-	init {
-		create initiator;
-		create participant number: nbOfParticipants returns: ps;
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">initiator</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">participant</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbOfParticipants</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
 		
-		refuser &lt;- ps[0];
+		<span class="n">refuser</span> <span class="p">&lt;-</span> <span class="n">ps</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
 		
-		add ps all: true to: proposers;
-		remove refuser from: proposers;
+		<span class="n">add</span> <span class="n">ps</span> <span class="n">all</span><span class="p">:</span> <span class="nb">true</span> <span class="k">to</span><span class="p">:</span> <span class="n">proposers</span><span class="p">;</span>
+		<span class="n">remove</span> <span class="n">refuser</span> <span class="k">from</span><span class="p">:</span> <span class="n">proposers</span><span class="p">;</span>
 		
-		reject_proposal_participant &lt;- proposers[0];
+		<span class="n">reject_proposal_participant</span> <span class="p">&lt;-</span> <span class="n">proposers</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
 		
-		add proposers all: true to: accept_proposal_participants;
-		remove reject_proposal_participant from: accept_proposal_participants;
+		<span class="n">add</span> <span class="n">proposers</span> <span class="n">all</span><span class="p">:</span> <span class="nb">true</span> <span class="k">to</span><span class="p">:</span> <span class="n">accept_proposal_participants</span><span class="p">;</span>
+		<span class="n">remove</span> <span class="n">reject_proposal_participant</span> <span class="k">from</span><span class="p">:</span> <span class="n">accept_proposal_participants</span><span class="p">;</span>
 		
-		failure_participant &lt;- accept_proposal_participants[0];
-		inform_done_participant &lt;- accept_proposal_participants[1];
-		inform_result_participant &lt;- accept_proposal_participants[2];
+		<span class="n">failure_participant</span> <span class="p">&lt;-</span> <span class="n">accept_proposal_participants</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="n">inform_done_participant</span> <span class="p">&lt;-</span> <span class="n">accept_proposal_participants</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+		<span class="n">inform_result_participant</span> <span class="p">&lt;-</span> <span class="n">accept_proposal_participants</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
 		
-		write 'Please step the simulation to observe the outcome in the console';
-	}
-}
+		<span class="nb">write</span> <span class="s1">'Please step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species initiator skills: [fipa] {
+<span class="n">species</span> <span class="n">initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
 	
-	reflex send_cfp_to_participants when: (time = 1) {
+	<span class="n">reflex</span> <span class="n">send_cfp_to_participants</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
 		
-		write '(Time ' + time + '): ' + name + ' sends a cfp message to all participants';
-		do start_conversation with: [ to :: list(participant), protocol :: 'fipa-contract-net', performative :: 'cfp', contents :: ['Go swimming'] ];
-	}
+		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a cfp message to all participants'</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="k">list</span><span class="p">(</span><span class="n">participant</span><span class="p">),</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-contract-net'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'cfp'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Go swimming'</span><span class="p">]</span> <span class="p">];</span>
+	<span class="p">}</span>
 	
-	reflex receive_refuse_messages when: !empty(refuses) {
-		write '(Time ' + time + '): ' + name + ' receives refuse messages';
+	<span class="n">reflex</span> <span class="n">receive_refuse_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(refuses) {
+</span>		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives refuse messages'</span><span class="p">;</span>
 		
-		loop r over: refuses {
-			write '\t' + name + ' receives a refuse message from ' + agent(r.sender).name + ' with content ' + r.contents ;
-		}
-	}
+		<span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a refuse message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex receive_propose_messages when: !empty(proposes) {
-		write '(Time ' + time + '): ' + name + ' receives propose messages';
+	<span class="n">reflex</span> <span class="n">receive_propose_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(proposes) {
+</span>		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives propose messages'</span><span class="p">;</span>
 		
-		loop p over: proposes {
-			write '\t' + name + ' receives a propose message from ' + agent(p.sender).name + ' with content ' + p.contents ;
+		<span class="n">loop</span> <span class="n">p</span> <span class="n">over</span><span class="p">:</span> <span class="n">proposes</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a propose message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">p</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
 			
-			if (p.sender = reject_proposal_participant) {
-				write '\t' + name + ' sends a reject_proposal message to ' + p.sender;
-				do reject_proposal with: [ message :: p, contents :: ['Not interested in your proposal'] ];
-			} else {
-				write '\t' + name + ' sends a accept_proposal message to ' + p.sender;
-				do accept_proposal with: [ message :: p, contents :: ['Interesting proposal. Go do it'] ];
-			}
-		}
-	}
+			<span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">sender</span> <span class="p">=</span> <span class="n">reject_proposal_participant</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a reject_proposal message to '</span> <span class="p">+</span> <span class="n">p</span><span class="p">.</span><span class="n">sender</span><span class="p">;</span>
+				<span class="k">do</span> <span class="n">reject_proposal</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">p</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Not interested in your proposal'</span><span class="p">]</span> <span class="p">];</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a accept_proposal message to '</span> <span class="p">+</span> <span class="n">p</span><span class="p">.</span><span class="n">sender</span><span class="p">;</span>
+				<span class="k">do</span> <span class="n">accept_proposal</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">p</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Interesting proposal. Go do it'</span><span class="p">]</span> <span class="p">];</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex receive_failure_messages when: !empty(failures) {
-		message f &lt;- failures[0];
-		write '\t' + name + ' receives a failure message from ' + agent(f.sender).name + ' with content ' + f.contents ;
-	}
+	<span class="n">reflex</span> <span class="n">receive_failure_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(failures) {
+</span>		<span class="n">message</span> <span class="n">f</span> <span class="p">&lt;-</span> <span class="n">failures</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a failure message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">f</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
+	<span class="p">}</span>
 	
-	reflex receive_inform_messages when: !empty(informs) {
-		write '(Time ' + time + '): ' + name + ' receives inform messages';
+	<span class="n">reflex</span> <span class="n">receive_inform_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(informs) {
+</span>		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives inform messages'</span><span class="p">;</span>
 		
-		loop i over: informs {
-			write '\t' + name + ' receives a inform message from ' + agent(i.sender).name + ' with content ' + i.contents ;
-		}
-	}
-}
+		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a inform message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">i</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-species participant skills: [fipa] {
+<span class="n">species</span> <span class="n">participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
 	
-	reflex receive_cfp_from_initiator when: !empty(cfps) {
+	<span class="n">reflex</span> <span class="n">receive_cfp_from_initiator</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(cfps) {
+</span>		
+		<span class="n">message</span> <span class="n">proposalFromInitiator</span> <span class="p">&lt;-</span> <span class="n">cfps</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a cfp message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
 		
-		message proposalFromInitiator &lt;- cfps[0];
-		write '(Time ' + time + '): ' + name + ' receives a cfp message from ' + agent(proposalFromInitiator.sender).name + ' with content ' + proposalFromInitiator.contents;
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">refuser</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a refuse message to '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">refuse</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">proposalFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I am busy today'</span><span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
 		
-		if (self = refuser) {
-			write '\t' + name + ' sends a refuse message to ' + agent(proposalFromInitiator.sender).name;
-			do refuse with: [ message :: proposalFromInitiator, contents :: ['I am busy today'] ];
-		}
-		
-		if (self in proposers) {
-			write '\t' + name + ' sends a propose message to ' + agent(proposalFromInitiator.sender).name;
-			do propose with: [ message :: proposalFromInitiator, contents :: ['Ok. That sound interesting'] ];
-		}
-	}
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="k">in</span> <span class="n">proposers</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a propose message to '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">propose</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">proposalFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Ok. That sound interesting'</span><span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 	
-	reflex receive_reject_proposals when: !empty(reject_proposals) {
-		message r &lt;- reject_proposals[0];
-		write '(Time ' + time + '): ' + name + ' receives a reject_proposal message from ' + agent(r.sender).name + ' with content ' + r.contents;
-	}
+	<span class="n">reflex</span> <span class="n">receive_reject_proposals</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(reject_proposals) {
+</span>		<span class="n">message</span> <span class="n">r</span> <span class="p">&lt;-</span> <span class="n">reject_proposals</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a reject_proposal message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	reflex receive_accept_proposals when: !empty(accept_proposals) {
-		message a &lt;- accept_proposals[0];
-		write '(Time ' + time + '): ' + name + ' receives a accept_proposal message from ' + agent(a.sender).name + ' with content ' + a.contents;
+	<span class="n">reflex</span> <span class="n">receive_accept_proposals</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(accept_proposals) {
+</span>		<span class="n">message</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">accept_proposals</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a accept_proposal message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">a</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
 		
-		if (self = failure_participant) {
-			write '\t' + name + ' sends a failure message to ' + agent(a.sender).name;
-			do failure with: [ message :: a, contents :: ['Failure'] ];
-		}
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">failure_participant</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a failure message to '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">failure</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Failure'</span><span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
 		
-		if (self = inform_done_participant) {
-			write '\t' + name + ' sends an inform_done message to ' + agent(a.sender).name;
-			do inform with: [ message :: a, contents :: ['Inform done'] ];
-		}
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">inform_done_participant</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends an inform_done message to '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Inform done'</span><span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
 		
-		if (self = inform_result_participant) {
-			write '\t' + name + ' sends an inform_result message to ' + agent(a.sender).name;
-			do inform with: [ message :: a, contents :: ['Inform result'] ];
-		}
-	}
-}
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">inform_result_participant</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends an inform_result message to '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'Inform result'</span><span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-experiment test type: gui {
-	output {
+<span class="n">experiment</span> <span class="n">test</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
 		
-	}
-}
-</code></pre>
-</div>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </div>
     </div>

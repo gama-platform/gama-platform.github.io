@@ -3498,29 +3498,25 @@ function closeRightMenu() {
 <p>The create statement has been extended in order to let the possibility to create agents of specified species directly from a CSV file.
 An agent is created by line of the CSV file. It is also possible to read the different column of the file using the read operator: <strong>read (column_index) (start at 0)</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>read(1)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>read(1)
+</code></pre></div></div>
 
 <p>For example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read(0), age:: read(1)];
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read(0), age:: read(1)];
+</code></pre></div></div>
 
 <p>It is also possible to specify that the CSV file has a header that can give the name of the different column using the <strong>header</strong> facet (<strong>boolean</strong>). It this case, it is possible to directly use this name to read the column value: <strong>read(“attribute1”)</strong>.</p>
 
 <p>For example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read("SPEED"), age:: read("AGE")] header: true;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read("SPEED"), age:: read("AGE")] header: true;
+</code></pre></div></div>
 
 <h1 id="improving-and-simplifying-the-syntax-of-gaml">Improving and simplifying the syntax of GAML</h1>
 <p>New features:</p>
 <ul>
   <li>Possibility to define 3D points with the <strong>{x,y,z}</strong> syntax:
-    <div class="highlighter-rouge"><pre class="highlight"><code>let pt type: point &lt;- {2, 5, 3};
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let pt type: point &lt;- {2, 5, 3};
+</code></pre></div>    </div>
     <h1 id="documenting-and-enhancing-the-command-line-version">Documenting and enhancing the command line version</h1>
   </li>
 </ul>
@@ -3532,9 +3528,8 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 <p>There is two ways to run a GAMA experiment in headless mode: using command-line launcher or Java command line. These commands take 2 arguments: an experiment file and an output directory.</p>
 
 <p>For the command-line :</p>
-<div class="highlighter-rouge"><pre class="highlight"><code> sh gamaHeadless.sh $1 $2
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sh gamaHeadless.sh $1 $2
+</code></pre></div></div>
 <ul>
   <li>with:
     <ul>
@@ -3550,14 +3545,12 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 <p>It is now possible to use toroidal environment for grid and continuous environments (even with complex GIS geometries).  The only thing to do is to use the <strong>torus</strong> facet.</p>
 
 <p>For a grid:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>grid cell width: 5 height: 5 neighbours: 8 torus: true 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 5 height: 5 neighbours: 8 torus: true 
+</code></pre></div></div>
 
 <p>For the continuous environment:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>environment bounds: {50,50} torus: true;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment bounds: {50,50} torus: true;
+</code></pre></div></div>
 
 <p>Be careful concerning toroidal continuous environment: the computation required by these environment is high, thus they should be used only when they are really necessary.</p>
 
@@ -3575,21 +3568,18 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 <h1 id="hexgonal-geometry-and-grid">Hexgonal geometry and grid</h1>
 <p>It is now possible to create a hexagon of with the given width and height (point) thanks to the operator <strong>hexagon({width, height})</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>hexagon({3,4})
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hexagon({3,4})
+</code></pre></div></div>
 
 <p>In the same way, an operator has been defined in order to decomposed a geometry into a set of hexagons of a given a number of columns and rows. This operator returns a set of hexagons: geometry as_hexagonal_grid({nb_cols, nb_rows})</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>shape as_hexagonal_grid({50, 40})
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shape as_hexagonal_grid({50, 40})
+</code></pre></div></div>
 
 <p>At last, it is now possible to define a hexagonal grid. To do so, the neighbors should is set to <strong>6</strong>. It is possible to use torus environment with hexagonal grid.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grid cell width: 20 height: 20 neighbours: 6 torus: true;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 20 height: 20 neighbours: 6 torus: true;
+</code></pre></div></div>
 
 <p><img src="http://gama-platform.googlecode.com/files/imageHexGrid.png" alt="http://gama-platform.googlecode.com/files/imageHexGrid.png" /></p>
 
@@ -3601,9 +3591,8 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 
 <p>The association of the orientation of agents is enhanced by mapping the orientation of the agent to a hue.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>color hsb_to_rgb ([heading/360,1.0,1.0]);
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>color hsb_to_rgb ([heading/360,1.0,1.0]);
+</code></pre></div></div>
 
 <p>In the following example boids are represented by a triangle with the colors depending on their heading. <a href="http://gama-platform.googlecode.com/files/Dynamic_Color_HSB.mov"><img src="http://gama-platform.googlecode.com/files/HSB_Color.png" alt="" /></a></p>
 
@@ -3625,15 +3614,14 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 
 <p>Events are determine for a display. Thus, they can be play a different behavior</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>event [event_type] action: myAction
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event [event_type] action: myAction
+</code></pre></div></div>
 <ul>
   <li>event_type (mouse_down or mouse_up</li>
   <li>myAction is an action written in the global block. This action have to follow the specification below.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
  global
  {
    ...
@@ -3659,8 +3647,7 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 
 ...
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="driving-skill-in-2d-skill-driving2d">Driving skill in 2D (skill: driving2d)</h1>
 
@@ -3676,9 +3663,8 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 <h2 id="action">Action</h2>
 <p>The action inherits the “goto” action of moving skill.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
+</code></pre></div></div>
 
 <ul>
   <li><strong>target</strong> the goal (in type of location) for agent to go</li>
@@ -3688,7 +3674,7 @@ An agent is created by line of the CSV file. It is also possible to read the dif
   <li><strong>returns</strong> the action returns an integer with the meaning: -1: failed to move; 0: success to move closer and closer to the target; 1: arrive the false target; 2: arrive the target</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
  reflex move_with_vehicle_goto when: target != nil{
 			let moving_status type: int &lt;- -1;
 			do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
@@ -3698,8 +3684,7 @@ An agent is created by line of the CSV file. It is also possible to read the dif
 			}
 			
 		}
-</code></pre>
-</div>
+</code></pre></div></div>
 
     </div>
     </div>
