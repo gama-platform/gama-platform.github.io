@@ -23,62 +23,61 @@ This fifth step illustrates how to define 3D displays
 
 ### species
 
-First, we add a new variable called _display\_shape_ of type _geometry_ for road agent that is a tube of 2m radius built from its geometry. Note that it is possible to get the list of points composing a geometry by using the _points_ variable of the geometry. We define then an aspect called _geom3D_ that draws the previous geometry in black.
+We define a new aspect for the road species called _geom3D_ that draw the road agent that as a black tube of 2m radius built from its geometry. Note that it is possible to get the list of points composing a geometry by using the _points_ variable of the geometry. 
 
 ![images/roads_display.tiff](resources/images/tutorials/roads_display.tiff)
 
 ```
 species road {
-	geometry display_shape <- line(shape.points, 2.0);
-	
 	//....
 	aspect geom3D {
-		draw display_shape color: #black;
+		draw line(shape.points, 2.0) color: #black;
 	}
 }
 ```
 
-Concerning the building species, we add a new variable called _height_ of type _float_ that is initialized by a random value between 20 and 40 meters.
-We define then an aspect called _geom3D_ that draws the shape of the building with a depth of height and with using a texture ("texture.jpg" that is located inside the includes folder).
+Concerning the building species, we define an aspect called _geom3D_ that draws the shape of the building with a depth of 20 meters and with using a texture "texture.jpg" for the face and a texture for the roof "roof\_top.png".
 
 ![images/buildings_display.tiff](resources/images/tutorials/buildings_display.tiff)
 
 ```
 species building {
-	float height <- 20#m + rnd(20) #m;
 	//....
 	aspect geom3D {
-		draw shape depth: height texture:["../includes/texture.jpg"];
+		draw shape depth: 20 #m border: #black texture:["../includes/roof_top.png","../includes/texture.jpg"];
 	}
 }
 ```
-At last, we define a new aspect called _geom3D_ for the people species that draws first a pyramid of 5 meters size, then a sphere of radius 2 meters at a height of 5m (z = 5). Note that it is possible to access the coordinates of a point by using the _x_, _y_ and _z_ variables. In GAMA, a point can be defined by using the format _{x\_value,y\_value,z\_value}_.
+At last, we define a new aspect called _geom3D_ for the people species that displays the agent only if it is on a road (target != nil). In this aspect, we use an obj file that contains a 3D object. The use of the _obj\_file_ operator allows to apply an initial rotation to an obj file. In our case, we add a rotation of -90° along the x axis. We specify with the _size_ facet that we want to draw the 3D object inside a bounding box of 5m. As the location of the 3D object is its centroid and as we want to draw the 3D object on the top of the ground, we use the _at_ facet to put an offset along the z axis. We use also the rotate facet to change the orientation of the 3D object according to the heading of the agent. At last, we choose to draw the 3D object in green if the agent is not infected; in red otherwise.
 
 ![images/people_display.tiff](resources/images/tutorials/people_display.tiff)
 
 ```
 species people skills:[moving]{		
 	//....
-	aspect geom3D{
-		draw pyramid(5) color: is_infected ? #red : #green;
-		draw sphere(2) at: {location.x,location.y,5} color: is_infected ? #red : #green;	
+	aspect geom3D {
+		if target != nil {
+			draw obj_file("../includes/people.obj", 90::{-1,0,0}) size: 5
+			at: location + {0,0,7} rotate: heading - 90 color: is_infected ? #red : #green;
+		}
 	}
 }
 ```
 
 ### output
 
-We define a new display called _map\_3D_ of type _opengl_ with an _ambient\_light_ of 120 that displays first a image ("soil.jpg"), then the road with the _geom3D_ aspect, then the building with the _geom3D_ aspect, and finally the people with the _geom3D_ aspect. All layers except the people's one will not be refreshed (refresh set to false).
+We define a new display called _view3D_ of type _opengl_ with an _ambient\_light_ of 80. Inside this display, we first draw a background image representing the satellite image of the Luneray. Note that GAMA is able to manage world files to georeferenced images. In our case, as a pgw file exists in the includes folder, the satellite image will be well localized in the display. After drawing the background image, we display first the building species with their geom3D aspect, then the road species with their geom3D aspect and finally the people species with their geom3D aspect. Only the people agents will be redrawn at each simulation step.
+
 
 ```
 experiment main_experiment type: gui {
 	output {
 	// monitor and other displays	
-		display map_3D type: opengl ambient_light: 120 {
-			image "../includes/soil.jpg" refresh: false;
-			species road aspect:geom3D refresh: false;
+		display view3D type: opengl ambient_light: 80 {
+			image "../includes/luneray.png" refresh:false; 
 			species building aspect:geom3D refresh: false;
-			species people aspect:geom3D;			
+			species road aspect: geom3D refresh: false;
+			species people aspect: geom3D ; 
 		}
 	}
 }
@@ -86,51 +85,45 @@ experiment main_experiment type: gui {
 ## Complete Model
 
 ```
-model SI_city5
 
-global{ 
+model model4
+
+global {
 	int nb_people <- 2147;
 	int nb_infected_init <- 5;
-	float step <- 1 #mn;
+	float step <- 5 #mn;
 	file roads_shapefile <- file("../includes/roads.shp");
 	file buildings_shapefile <- file("../includes/buildings.shp");
-	geometry shape <- envelope(roads_shapefile);
+	geometry shape <- envelope(roads_shapefile);	
+	graph road_network;
+	
+	
 	int nb_people_infected <- nb_infected_init update: people count (each.is_infected);
 	int nb_people_not_infected <- nb_people - nb_infected_init update: nb_people - nb_people_infected;
 	float infected_rate update: nb_people_infected/nb_people;
 	
-	graph road_network;
 	
 	init{
 		create road from: roads_shapefile;
-		road_network <- as_edge_graph(road);
+		road_network <- as_edge_graph(road);		
 		create building from: buildings_shapefile;
 		create people number:nb_people {
-			my_house <- one_of(building);
-			location <- any_location_in(my_house);
+			location <- any_location_in(one_of(building));				
 		}
 		ask nb_infected_init among people {
 			is_infected <- true;
 		}
-	}
-	
-	reflex end_simulation when: infected_rate = 1.0 {
-		do pause;
 	}
 }
 
 species people skills:[moving]{		
 	float speed <- (2 + rnd(3)) #km/#h;
 	bool is_infected <- false;
-	building my_house;
 	point target;
-	bool in_my_house <- true;
 	
 	reflex stay when: target = nil {
-		if flip(in_my_house ? 0.01 : 0.1) {
-			building bd_target <- in_my_house ? one_of(building) : my_house;
-			target <- any_location_in (bd_target);
-			in_my_house <- not in_my_house;
+		if flip(0.05) {
+			target <- any_location_in (one_of(building));
 		}
 	}
 		
@@ -140,6 +133,7 @@ species people skills:[moving]{
 			target <- nil;
 		} 
 	}
+
 	reflex infect when: is_infected{
 		ask people at_distance 10 #m {
 			if flip(0.05) {
@@ -147,62 +141,63 @@ species people skills:[moving]{
 			}
 		}
 	}
-	aspect circle{
+	
+	aspect circle {
 		draw circle(10) color:is_infected ? #red : #green;
 	}
-	aspect geom3D{
-		draw pyramid(5) color: is_infected ? #red : #green;
-		draw sphere(2) at: {location.x,location.y,5} color: is_infected ? #red : #green;	
+	
+	aspect geom3D {
+		if target != nil {
+			draw obj_file("../includes/people.obj", 90::{-1,0,0}) size: 5
+			at: location + {0,0,7} rotate: heading - 90 color: is_infected ? #red : #green;
+		}
 	}
 	
 }
 
 species road {
-	geometry display_shape <- line(shape.points, 2.0);
-	
 	aspect geom {
 		draw shape color: #black;
 	}
 	aspect geom3D {
-		draw display_shape color: #black;
+		draw line(shape.points, 2.0) color: #black;
 	}
 }
 
 species building {
-	float height <- 20#m + rnd(20) #m;
-	
 	aspect geom {
 		draw shape color: #gray;
 	}
 	aspect geom3D {
-		draw shape depth: height texture:["../includes/texture.jpg"];
+		draw shape depth: 20 #m border: #black texture:["../includes/roof_top.png","../includes/texture.jpg"];
 	}
-	
 }
 
-experiment main_experiment type:gui{
+experiment main type: gui {
 	parameter "Nb people infected at init" var: nb_infected_init min: 1 max: 2147;
+
 	output {
 		monitor "Infected people rate" value: infected_rate;
 		
-		display map type: opengl{
+		display map {
 			species road aspect:geom;
 			species building aspect:geom;
 			species people aspect:circle;			
 		}
 		
-		display map_3D type: opengl ambient_light: 120 {
-			image "../includes/soil.jpg" refresh: false;
-			species road aspect:geom3D refresh: false;
-			species building aspect:geom3D refresh: false;
-			species people aspect:geom3D;			
-		}
-	
-		display chart refresh:every(10) {
+		
+		
+		display chart_display refresh: every(10 #cycle) {
 			chart "Disease spreading" type: series {
 				data "susceptible" value: nb_people_not_infected color: #green;
 				data "infected" value: nb_people_infected color: #red;
 			}
+		}
+		display view3D type: opengl ambient_light: 80 {
+			image "../includes/luneray.png" refresh:false; 
+			species building aspect:geom3D refresh: false;
+			species road aspect: geom3D refresh: false;
+			species people aspect: geom3D ; 
 		}
 	}
 }
