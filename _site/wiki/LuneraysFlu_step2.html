@@ -3592,7 +3592,7 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
     output {
    //...display and monitors
 		
-   display chart_display refresh:every(10) {
+   display chart_display refresh:every(10 #cycle) {
        chart "Disease spreading" type: series {
            data "susceptible" value: nb_people_not_infected color: #green;
            data "infected" value: nb_people_infected color: #red;
@@ -3605,17 +3605,17 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city2</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model2</span>
 
-<span class="n">global</span><span class="p">{</span> 
+<span class="n">global</span> <span class="p">{</span>
 	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
 	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
 	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">square</span><span class="p">(</span><span class="m">1500</span> <span class="p">#</span><span class="n">m</span><span class="p">);</span>
+	
 	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
 	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
 	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">nb_people</span><span class="p">;</span>
-	
 	
 	<span class="n">init</span><span class="p">{</span>
 		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span><span class="p">;</span>
@@ -3623,15 +3623,12 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
-	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
 	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
 	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	
 	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
 		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -3642,21 +3639,23 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 			<span class="p">}</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+	
+	<span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
 		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
+
 	<span class="n">output</span> <span class="p">{</span>
 		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
 		
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>	
 		<span class="p">}</span>
 		
-		<span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span> <span class="p">#</span><span class="n">cycle</span><span class="p">)</span> <span class="p">{</span>
 			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
 				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
 				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
@@ -3664,6 +3663,7 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></div></div>
 
 <p><a href="LuneraysFlu_step3">Next step: Importation of GIS data</a></p>

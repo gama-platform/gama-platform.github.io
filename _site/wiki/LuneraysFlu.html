@@ -3494,9 +3494,9 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="lunerays-flu">Luneray’s flu</h1>
 
-<p>This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species…) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. The pdf of the presentation corresponding to this tutorial is available <a href="https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.pdf">here</a>. All the files related to this tutorial (shapefiles and models) are available <a href="https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.zip">here</a>.</p>
+<p>This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species…) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available <a href="https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.zip">here</a>.</p>
 
-<p>The importation of models is described [here] (https://github.com/gama-platform/gama/wiki/G__ImportingModels)</p>
+<p>The importation of models is described <a href="https://github.com/gama-platform/gama/wiki/G__ImportingModels">here</a></p>
 
 <h2 id="model-overview">Model Overview</h2>
 <p>The model built in this tutorial concerns the spreading of a flu in the city of Luneray (Normandie, France).</p>
@@ -3512,21 +3512,20 @@ function closeRightMenu() {
   <li>The disease - non lethal - is spreading (by air) from people to people</li>
   <li>Time to cure the disease: more than 100 days</li>
   <li>Infection distance: 10 meters</li>
-  <li>Infection probability (when two people are at infection distance) : 0.05/minute</li>
+  <li>Infection probability (when two people are at infection distance) : 0.05/ 5 minutes</li>
 </ul>
 
 <p>From the data collected, we made some modeling choice:</p>
 <ul>
-  <li>Simulation step: 1 minute</li>
+  <li>Simulation step: 5 minutes</li>
   <li>People are moving on the roads from building to building</li>
-  <li>Most of time people are moving to meet their friend then go back home</li>
   <li>People use the shortest path to move between buildings</li>
   <li>All people move at constant speed</li>
-  <li>Each time, people arrived at a building they are staying a certain time : they are staying longer in their home than in their friend houses</li>
+  <li>Each time, people arrived at a building they are staying a certain time</li>
   <li>Infected people are never cured</li>
 </ul>
 
-<p><img src="resources/images/tutorials/Luneray.png" alt="images/Luneray.png" /></p>
+<p><img src="resources/images/tutorials/Luneray_model.png" alt="images/Luneray_model.png" /></p>
 
 <h2 id="step-list">Step List</h2>
 

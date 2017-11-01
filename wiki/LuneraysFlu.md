@@ -7,9 +7,9 @@ wikiPagePath: wiki/LuneraysFlu.md
 # Luneray's flu
 
 
-This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species...) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. The pdf of the presentation corresponding to this tutorial is available [here](https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.pdf). All the files related to this tutorial (shapefiles and models) are available [here](https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.zip). 
+This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species...) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available [here](https://github.com/gama-platform/gama/wiki/images/Tutorials/Luneray's flu/Luneray's flu.zip). 
 
-The importation of models is described [here] (https://github.com/gama-platform/gama/wiki/G__ImportingModels)
+The importation of models is described [here](https://github.com/gama-platform/gama/wiki/G__ImportingModels)
 
 
 ## Model Overview
@@ -25,18 +25,17 @@ Some data collected concerning Luneray and the disease:
 * The disease - non lethal - is spreading (by air) from people to people
 * Time to cure the disease: more than 100 days
 * Infection distance: 10 meters
-* Infection probability (when two people are at infection distance) : 0.05/minute
+* Infection probability (when two people are at infection distance) : 0.05/ 5 minutes
 
 From the data collected, we made some modeling choice:
-* Simulation step: 1 minute
+* Simulation step: 5 minutes
 * People are moving on the roads from building to building 
-* Most of time people are moving to meet their friend then go back home
 * People use the shortest path to move between buildings
 * All people move at constant speed
-* Each time, people arrived at a building they are staying a certain time : they are staying longer in their home than in their friend houses
+* Each time, people arrived at a building they are staying a certain time 
 * Infected people are never cured
 
-![images/Luneray.png](resources/images/tutorials/Luneray.png)
+![images/Luneray_model.png](resources/images/tutorials/Luneray_model.png)
 
 ## Step List
 

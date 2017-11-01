@@ -14,7 +14,7 @@ This first step illustrates how to create simple agents and make them move in th
 
 
 ## Formulation
-  * Set the time duration of a time step to 1 minutes
+  * Set the time duration of a time step to 5 minutes
   * Define the people species with a moving skill
   * Define the move reflex that allow the people agent to move randomly and the infect reflex that allows them to infect other people agents.
   * Define the aspect of the people species
@@ -149,13 +149,13 @@ It allows to initialize simulations (init block): the world is always created an
 In the current model, we define 4 global attributes:
    * nb_people: the number of people that we want to create (init value: 2147)
    * nb_infected_init: the number of people infected at the initialization of the simulation (init value: 5)
-   * step: redefine in order to set the duration of a simulation step to 1 minute.
+   * step: redefine in order to set the duration of a simulation step to 5 minutes.
    * shape: redefine in order to set the geometry of the world to a square of 1500 meters side size. 
 ```
 global {
 	int nb_people <- 2147;
 	int nb_infected_init <- 5;
-	float step <- 1 #mn;
+	float step <- 5 #mn;
 	geometry shape<-square(1500 #m);
 }
 ```
@@ -228,10 +228,9 @@ Each display can include different layers (like in a GIS) :
 
 Note that it is possible to define a [opengl display](G__3DSpecificInstructions) (for 3D display or just to optimize the display) by using the facet **type: opengl**.
 
-In our model, we define an OpenGL display to draw the _people_ agents. 
 ```
 output {
-	display map type: opengl{
+	display map {
 		species people aspect:circle;	
 	}
 }
@@ -241,12 +240,12 @@ output {
 ## Complete Model
 
 ```
-model SI_city1
+model model1
 
-global{ 
+global {
 	int nb_people <- 2147;
 	int nb_infected_init <- 5;
-	float step <- 1 #mn;
+	float step <- 5 #mn;
 	geometry shape<-square(1500 #m);
 	
 	init{
@@ -255,12 +254,12 @@ global{
 			is_infected <- true;
 		}
 	}
-	
 }
 
 species people skills:[moving]{		
 	float speed <- (2 + rnd(3)) #km/#h;
 	bool is_infected <- false;
+	
 	reflex move{
 		do wander;
 	}
@@ -271,16 +270,18 @@ species people skills:[moving]{
 			}
 		}
 	}
-	aspect circle{
+	
+	aspect circle {
 		draw circle(10) color:is_infected ? #red : #green;
 	}
 }
 
-experiment main_experiment type:gui{
+experiment main type: gui {
 	parameter "Nb people infected at init" var: nb_infected_init min: 1 max: 2147;
+
 	output {
-		display map type: opengl{
-			species people aspect:circle;			
+		display map {
+			species people aspect:circle;	
 		}
 	}
 }

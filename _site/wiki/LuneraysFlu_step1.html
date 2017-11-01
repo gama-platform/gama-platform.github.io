@@ -3499,7 +3499,7 @@ function closeRightMenu() {
 
 <h2 id="formulation">Formulation</h2>
 <ul>
-  <li>Set the time duration of a time step to 1 minutes</li>
+  <li>Set the time duration of a time step to 5 minutes</li>
   <li>Define the people species with a moving skill</li>
   <li>Define the move reflex that allow the people agent to move randomly and the infect reflex that allows them to infect other people agents.</li>
   <li>Define the aspect of the people species</li>
@@ -3637,12 +3637,12 @@ It allows to initialize simulations (init block): the world is always created an
 <ul>
   <li>nb_people: the number of people that we want to create (init value: 2147)</li>
   <li>nb_infected_init: the number of people infected at the initialization of the simulation (init value: 5)</li>
-  <li>step: redefine in order to set the duration of a simulation step to 1 minute.</li>
+  <li>step: redefine in order to set the duration of a simulation step to 5 minutes.</li>
   <li>shape: redefine in order to set the geometry of the world to a square of 1500 meters side size.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
     int nb_people &lt;- 2147;
     int nb_infected_init &lt;- 5;
-    float step &lt;- 1 #mn;
+    float step &lt;- 5 #mn;
     geometry shape&lt;-square(1500 #m);
 }
 </code></pre></div>    </div>
@@ -3724,9 +3724,8 @@ It allows to initialize simulations (init block): the world is always created an
 
 <p>Note that it is possible to define a <a href="G__3DSpecificInstructions">opengl display</a> (for 3D display or just to optimize the display) by using the facet <strong>type: opengl</strong>.</p>
 
-<p>In our model, we define an OpenGL display to draw the <em>people</em> agents.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
-	display map type: opengl{
+	display map {
 		species people aspect:circle;	
 	}
 }
@@ -3734,12 +3733,12 @@ It allows to initialize simulations (init block): the world is always created an
 
 <h2 id="complete-model">Complete Model</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city1</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model1</span>
 
-<span class="n">global</span><span class="p">{</span> 
+<span class="n">global</span> <span class="p">{</span>
 	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
 	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
 	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">square</span><span class="p">(</span><span class="m">1500</span> <span class="p">#</span><span class="n">m</span><span class="p">);</span>
 	
 	<span class="n">init</span><span class="p">{</span>
@@ -3748,12 +3747,12 @@ It allows to initialize simulations (init block): the world is always created an
 			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
 	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
 	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	
 	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
 		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -3764,16 +3763,18 @@ It allows to initialize simulations (init block): the world is always created an
 			<span class="p">}</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+	
+	<span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
 		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
+
 	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>	
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">}</span>
