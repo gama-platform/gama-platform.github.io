@@ -3649,7 +3649,7 @@ function closeRightMenu() {
 <hr />
 
 <h3 id="files-related-operators">Files-related operators</h3>
-<p><a href="OperatorsCH#crs">crs</a>, <a href="OperatorsCH#file">file</a>, <a href="OperatorsCH#file_exists">file_exists</a>, <a href="OperatorsCH#folder">folder</a>, <a href="OperatorsCH#get">get</a>, <a href="OperatorsIN#new_folder">new_folder</a>, <a href="OperatorsOS#osm_file">osm_file</a>, <a href="OperatorsOS#read">read</a>, <a href="OperatorsTZ#writable">writable</a>,</p>
+<p><a href="OperatorsCH#crs">crs</a>, <a href="OperatorsCH#evaluate_sub_model">evaluate_sub_model</a>, <a href="OperatorsCH#file">file</a>, <a href="OperatorsCH#file_exists">file_exists</a>, <a href="OperatorsCH#folder">folder</a>, <a href="OperatorsCH#get">get</a>, <a href="OperatorsIN#load_sub_model">load_sub_model</a>, <a href="OperatorsIN#new_folder">new_folder</a>, <a href="OperatorsOS#osm_file">osm_file</a>, <a href="OperatorsOS#read">read</a>, <a href="OperatorsOS#step_sub_model">step_sub_model</a>, <a href="OperatorsTZ#writable">writable</a>,</p>
 
 <hr />
 
@@ -3998,16 +3998,16 @@ map var0 &lt;- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2
 
 <h4 id="possible-use-10">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
 <h4 id="result-10">Result:</h4>
@@ -4019,14 +4019,22 @@ the index of the first occurence of the right operand in the left operand contai
 
 <h4 id="special-cases-2">Special cases:</h4>
 <ul>
-  <li>if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead</li>
   <li>if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped</li>
+  <li>if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead</li>
+  <li>if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+int var1 &lt;-  "abcabcabc" index_of "ca"; // var1 equals 2
+</code></pre></div></div>
+
+<ul>
   <li>if the left operand is a list, index_of returns the index as an integer</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var0 &lt;- [1,2,3,4,5,6] index_of 4; // var0 equals 3 
-int var1 &lt;- [4,2,3,4,5,4] index_of 4; // var1 equals 0
+int var2 &lt;- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
+int var3 &lt;- [4,2,3,4,5,4] index_of 4; // var3 equals 0
 </code></pre></div></div>
 
 <ul>
@@ -4034,20 +4042,12 @@ int var1 &lt;- [4,2,3,4,5,4] index_of 4; // var1 equals 0
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var2 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; // var2 equals {1.0,0.0}
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var3 &lt;-  "abcabcabc" index_of "ca"; // var3 equals 2
+point var4 &lt;- matrix([[1,2,3],[4,5,6]]) index_of 4; // var4 equals {1.0,0.0}
 </code></pre></div></div>
 
 <h4 id="examples-5">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-unknown var4 &lt;- [1::2, 3::4, 5::6] index_of 4; // var4 equals 3
+unknown var0 &lt;- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3
 
 </code></pre></div></div>
 
@@ -4170,18 +4170,18 @@ list var1 &lt;- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32'
 
 <h4 id="possible-use-15">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list&lt;KeyType&gt;</code> —&gt;  <code class="highlighter-rouge">ValueType</code></li>
-  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> , <code class="highlighter-rouge">list&lt;KeyType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> <strong><code class="highlighter-rouge">internal_at</code></strong> <code class="highlighter-rouge">list&lt;KeyType&gt;</code> —&gt;  <code class="highlighter-rouge">ValueType</code></li>
+  <li><strong><code class="highlighter-rouge">internal_at</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> , <code class="highlighter-rouge">list&lt;KeyType&gt;</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
 </ul>
 
 <h4 id="result-15">Result:</h4>
-<p>For internal use only. Corresponds to the implementation of the access to containers with [index]
+<p>For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]</p>
+For internal use only. Corresponds to the implementation of the access to containers with [index]</p>
 
 <h4 id="see-also-6">See also:</h4>
 
@@ -4422,27 +4422,27 @@ bool var1 &lt;- is_finite(#infinity); // var1 equals false
 
 <h4 id="possible-use-31">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">is_number</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-31">Result:</h4>
-<p>Returns whether the argument is a real number or not
-tests whether the operand represents a numerical value</p>
+<p>tests whether the operand represents a numerical value
+Returns whether the argument is a real number or not</p>
 
 <h4 id="comment-4">Comment:</h4>
 <p>Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.</p>
 
 <h4 id="examples-13">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- is_number(4.66); // var0 equals true 
-bool var1 &lt;- is_number(#infinity); // var1 equals true 
-bool var2 &lt;- is_number(#nan); // var2 equals false 
-bool var3 &lt;- is_number("test"); // var3 equals false 
-bool var4 &lt;- is_number("123.56"); // var4 equals true 
-bool var5 &lt;- is_number("-1.2e5"); // var5 equals true 
-bool var6 &lt;- is_number("1,2"); // var6 equals false 
-bool var7 &lt;- is_number("#12FA"); // var7 equals true
+bool var0 &lt;- is_number("test"); // var0 equals false 
+bool var1 &lt;- is_number("123.56"); // var1 equals true 
+bool var2 &lt;- is_number("-1.2e5"); // var2 equals true 
+bool var3 &lt;- is_number("1,2"); // var3 equals false 
+bool var4 &lt;- is_number("#12FA"); // var4 equals true 
+bool var5 &lt;- is_number(4.66); // var5 equals true 
+bool var6 &lt;- is_number(#infinity); // var6 equals true 
+bool var7 &lt;- is_number(#nan); // var7 equals false
 
 </code></pre></div></div>
 
@@ -4653,11 +4653,11 @@ float var3 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
 </ul>
 
 <h4 id="result-47">Result:</h4>
-<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).</p>
+<p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)</p>
 
 <h4 id="examples-16">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3]) kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0]) 
 
 </code></pre></div></div>
 
@@ -4673,8 +4673,8 @@ kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_vals
 </ul>
 
 <h4 id="result-48">Result:</h4>
-<p>returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)
-returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)</p>
+<p>returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
+returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)</p>
 
 <h4 id="special-cases-5">Special cases:</h4>
 <ul>
@@ -4683,8 +4683,8 @@ returns the list of clusters (list of instance indices) computed with the kmeans
 </ul>
 
 <h4 id="examples-17">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;list&gt; var0 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var0 equals []kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10)  
+list&lt;list&gt; var1 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var1 equals []
 
 </code></pre></div></div>
 
@@ -4778,16 +4778,16 @@ string var1 &lt;- last ('abce'); // var1 equals 'e'
 
 <h4 id="possible-use-52">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">last_index_of</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">last_index_of</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-52">Result:</h4>
@@ -4799,11 +4799,12 @@ string var1 &lt;- last ('abce'); // var1 equals 'e'
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
   <li>if the left operand is a species, the last index of an agent is the same as its index</li>
-  <li>if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string</li>
+  <li>if the left operand is a list, last_index_of returns the index as an integer</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var0 &lt;- "abcabcabc" last_index_of "ca"; // var0 equals 5
+int var0 &lt;- [1,2,3,4,5,6] last_index_of 4; // var0 equals 3 
+int var1 &lt;- [4,2,3,4,5,4] last_index_of 4; // var1 equals 5
 </code></pre></div></div>
 
 <ul>
@@ -4811,16 +4812,7 @@ int var0 &lt;- "abcabcabc" last_index_of "ca"; // var0 equals 5
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var1 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var1 equals {1.0,2.0}
-</code></pre></div></div>
-
-<ul>
-  <li>if the left operand is a list, last_index_of returns the index as an integer</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var2 &lt;- [1,2,3,4,5,6] last_index_of 4; // var2 equals 3 
-int var3 &lt;- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
+point var2 &lt;- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var2 equals {1.0,2.0}
 </code></pre></div></div>
 
 <ul>
@@ -4828,7 +4820,15 @@ int var3 &lt;- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-unknown var4 &lt;- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
+unknown var3 &lt;- [1::2, 3::4, 5::4] last_index_of 4; // var3 equals 5
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+int var4 &lt;- "abcabcabc" last_index_of "ca"; // var4 equals 5
 </code></pre></div></div>
 
 <h4 id="see-also-9">See also:</h4>
@@ -4901,8 +4901,8 @@ unknown var3 &lt;- (list(node) last_with (round(node(each).location.x) &gt; 32);
 
 <h4 id="possible-use-55">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">length</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-55">Result:</h4>
@@ -4915,12 +4915,20 @@ unknown var3 &lt;- (list(node) last_with (round(node(each).location.x) &gt; 32);
 <ul>
   <li>if it is a population, length returns number of agents of the population</li>
   <li>if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)</li>
+  <li>if it is a string, length returns the number of characters</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+int var0 &lt;- length ('I am an agent'); // var0 equals 13
+</code></pre></div></div>
+
+<ul>
   <li>if it is a list or a map, length returns the number of elements in the list or map</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var0 &lt;- length([12,13]); // var0 equals 2 
-int var1 &lt;- length([]); // var1 equals 0
+int var1 &lt;- length([12,13]); // var1 equals 2 
+int var2 &lt;- length([]); // var2 equals 0
 </code></pre></div></div>
 
 <ul>
@@ -4928,15 +4936,7 @@ int var1 &lt;- length([]); // var1 equals 0
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var2 &lt;- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals 6
-</code></pre></div></div>
-
-<ul>
-  <li>if it is a string, length returns the number of characters</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var3 &lt;- length ('I am an agent'); // var3 equals 13
+int var3 &lt;- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 equals 6
 </code></pre></div></div>
 
 <hr />
@@ -5051,8 +5051,8 @@ geometry var0 &lt;- link (geom1,geom2); // var0 equals a link geometry between g
 
 <h4 id="possible-use-60">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">ln</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">ln</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">ln</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-60">Result:</h4>
@@ -5065,8 +5065,8 @@ geometry var0 &lt;- link (geom1,geom2); // var0 equals a link geometry between g
 
 <h4 id="examples-22">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- ln(exp(1)); // var0 equals 1.0 
-float var1 &lt;- ln(1); // var1 equals 0.0
+float var0 &lt;- ln(1); // var0 equals 0.0 
+float var1 &lt;- ln(exp(1)); // var1 equals 1.0
 
 </code></pre></div></div>
 
@@ -5081,19 +5081,19 @@ float var1 &lt;- ln(1); // var1 equals 0.0
 <h4 id="possible-use-61">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">load_graph_from_file</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">load_graph_from_file</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">load_graph_from_file</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">load_graph_from_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
 <h4 id="result-61">Result:</h4>
-<p>returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
-loads a graph from a file</p>
+<p>loads a graph from a file
+returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA</p>
 
 <h4 id="comment-11">Comment:</h4>
 <p>Available formats: “pajek”: Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details.”lgl”: LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details.”dot”: DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details.”edge”: This format is a simple text file with numeric vertex ids defining the edges.”gexf”: GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details.”graphml”: GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details.”tlp” or “tulip”: TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. “ncol”: This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: “pajek”: Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details.”lgl”: LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details.”dot”: DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details.”edge”: This format is a simple text file with numeric vertex ids defining the edges.”gexf”: GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details.”graphml”: GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details.”tlp” or “tulip”: TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. “ncol”: This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:</p>
@@ -5108,20 +5108,6 @@ loads a graph from a file</p>
   <li>“filename”: the filename of the file containing the network</li>
   <li>“edges_species”: the species of edges</li>
   <li>“vertices_specy”: the species of vertices</li>
-  <li>“format”: the format of the file, “file”: the file containing the network, “edges_species”: the species of edges, “vertices_specy”: the species of vertices</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
-</code></pre></div></div>
-
-<ul>
-  <li>“format”: the format of the file, “file”: the file containing the network</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
-</code></pre></div></div>
-
-<ul>
   <li>“format”: the format of the file, “filename”: the filename of the file containing the network</li>
 </ul>
 
@@ -5137,6 +5123,20 @@ loads a graph from a file</p>
 
 <ul>
   <li>“file”: the file containing the network</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
+</code></pre></div></div>
+
+<ul>
+  <li>“format”: the format of the file, “file”: the file containing the network, “edges_species”: the species of edges, “vertices_specy”: the species of vertices</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+</code></pre></div></div>
+
+<ul>
+  <li>“format”: the format of the file, “file”: the file containing the network</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -5168,15 +5168,31 @@ graph var0 &lt;- load_shortest_paths(shortest_paths_matrix); // var0 equals retu
 
 <hr />
 
-<h3 id="log"><code class="highlighter-rouge">log</code></h3>
+<h3 id="load_sub_model"><code class="highlighter-rouge">load_sub_model</code></h3>
 
 <h4 id="possible-use-63">Possible use:</h4>
+<ul>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">load_sub_model</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">msi.gama.kernel.experiment.IExperimentAgent</code></li>
+  <li><strong><code class="highlighter-rouge">load_sub_model</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">msi.gama.kernel.experiment.IExperimentAgent</code></li>
+</ul>
+
+<h4 id="result-63">Result:</h4>
+<p>Load a submodel</p>
+
+<h4 id="comment-12">Comment:</h4>
+<p>loaded submodel</p>
+
+<hr />
+
+<h3 id="log"><code class="highlighter-rouge">log</code></h3>
+
+<h4 id="possible-use-64">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">log</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">log</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-63">Result:</h4>
+<h4 id="result-64">Result:</h4>
 <p>Returns the logarithm (base 10) of the operand.</p>
 
 <h4 id="special-cases-15">Special cases:</h4>
@@ -5199,24 +5215,24 @@ float var1 &lt;- log(10); // var1 equals 1.0
 
 <h3 id="log_gamma"><code class="highlighter-rouge">log_gamma</code></h3>
 
-<h4 id="possible-use-64">Possible use:</h4>
+<h4 id="possible-use-65">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">log_gamma</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-64">Result:</h4>
+<h4 id="result-65">Result:</h4>
 <p>Returns the log of the value of the Gamma function at x.</p>
 
 <hr />
 
 <h3 id="lower_case"><code class="highlighter-rouge">lower_case</code></h3>
 
-<h4 id="possible-use-65">Possible use:</h4>
+<h4 id="possible-use-66">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">lower_case</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
-<h4 id="result-65">Result:</h4>
+<h4 id="result-66">Result:</h4>
 <p>Converts all of the characters in the string operand to lower case</p>
 
 <h4 id="examples-26">Examples:</h4>
@@ -5233,12 +5249,12 @@ string var0 &lt;- lower_case("Abc"); // var0 equals 'abc'
 
 <h3 id="main_connected_component"><code class="highlighter-rouge">main_connected_component</code></h3>
 
-<h4 id="possible-use-66">Possible use:</h4>
+<h4 id="possible-use-67">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">main_connected_component</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-66">Result:</h4>
+<h4 id="result-67">Result:</h4>
 <p>returns the sub-graph corresponding to the main connected components of the graph</p>
 
 <h4 id="examples-27">Examples:</h4>
@@ -5255,19 +5271,19 @@ graph var0 &lt;- main_connected_component(my_graph); // var0 equals the sub-grap
 
 <h3 id="map"><code class="highlighter-rouge">map</code></h3>
 
-<h4 id="possible-use-67">Possible use:</h4>
+<h4 id="possible-use-68">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">map</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
 </ul>
 
-<h4 id="result-67">Result:</h4>
+<h4 id="result-68">Result:</h4>
 <p>Casts the operand into the type map</p>
 
 <hr />
 
 <h3 id="masked_by"><code class="highlighter-rouge">masked_by</code></h3>
 
-<h4 id="possible-use-68">Possible use:</h4>
+<h4 id="possible-use-69">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">masked_by</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">masked_by</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
@@ -5285,13 +5301,13 @@ geometry var1 &lt;- perception_geom masked_by obstacle_list; // var1 equals the 
 
 <h3 id="material-1"><code class="highlighter-rouge">material</code></h3>
 
-<h4 id="possible-use-69">Possible use:</h4>
+<h4 id="possible-use-70">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">material</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">msi.gama.util.GamaMaterial</code></li>
   <li><strong><code class="highlighter-rouge">material</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gama.util.GamaMaterial</code></li>
 </ul>
 
-<h4 id="result-68">Result:</h4>
+<h4 id="result-69">Result:</h4>
 <p>Returns</p>
 
 <h4 id="examples-29">Examples:</h4>
@@ -5307,28 +5323,28 @@ geometry var1 &lt;- perception_geom masked_by obstacle_list; // var1 equals the 
 
 <h3 id="matrix"><code class="highlighter-rouge">matrix</code></h3>
 
-<h4 id="possible-use-70">Possible use:</h4>
+<h4 id="possible-use-71">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">matrix</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-69">Result:</h4>
+<h4 id="result-70">Result:</h4>
 <p>Casts the operand into the type matrix</p>
 
 <hr />
 
 <h3 id="matrix_with"><code class="highlighter-rouge">matrix_with</code></h3>
 
-<h4 id="possible-use-71">Possible use:</h4>
+<h4 id="possible-use-72">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">matrix_with</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">matrix_with</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-70">Result:</h4>
+<h4 id="result-71">Result:</h4>
 <p>creates a matrix with a size provided by the first operand, and filled with the second operand</p>
 
-<h4 id="comment-12">Comment:</h4>
+<h4 id="comment-13">Comment:</h4>
 <p>Note that both components of the right operand point should be positive, otherwise an exception is raised.</p>
 
 <h4 id="see-also-19">See also:</h4>
@@ -5339,15 +5355,15 @@ geometry var1 &lt;- perception_geom masked_by obstacle_list; // var1 equals the 
 
 <h3 id="max"><code class="highlighter-rouge">max</code></h3>
 
-<h4 id="possible-use-72">Possible use:</h4>
+<h4 id="possible-use-73">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">max</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-71">Result:</h4>
+<h4 id="result-72">Result:</h4>
 <p>the maximum element found in the operand</p>
 
-<h4 id="comment-13">Comment:</h4>
+<h4 id="comment-14">Comment:</h4>
 <p>the max operator behavior depends on the nature of the operand</p>
 
 <h4 id="special-cases-16">Special cases:</h4>
@@ -5382,16 +5398,16 @@ unknown var1 &lt;- max([{1.0,3.0},{3.0,5.0},{9.0,1.0},{7.0,8.0}]); // var1 equal
 
 <h3 id="max_of"><code class="highlighter-rouge">max_of</code></h3>
 
-<h4 id="possible-use-73">Possible use:</h4>
+<h4 id="possible-use-74">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">max_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">max_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-72">Result:</h4>
+<h4 id="result-73">Result:</h4>
 <p>the maximum value of the right-hand expression evaluated on each of the elements of the left-hand operand</p>
 
-<h4 id="comment-14">Comment:</h4>
+<h4 id="comment-15">Comment:</h4>
 <p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
 <h4 id="special-cases-17">Special cases:</h4>
@@ -5420,12 +5436,12 @@ unknown var3 &lt;- (list(node) max_of (round(node(each).location.x)); // var3 eq
 
 <h3 id="maximal_cliques_of"><code class="highlighter-rouge">maximal_cliques_of</code></h3>
 
-<h4 id="possible-use-74">Possible use:</h4>
+<h4 id="possible-use-75">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">maximal_cliques_of</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">list&lt;list&gt;</code></li>
 </ul>
 
-<h4 id="result-73">Result:</h4>
+<h4 id="result-74">Result:</h4>
 <p>returns the maximal cliques of a graph using the Bron-Kerbosch clique detection algorithm: A clique is maximal if it is impossible to enlarge it by adding another vertex from the graph. Note that a maximal clique is not necessarily the biggest clique in the graph.</p>
 
 <h4 id="examples-31">Examples:</h4>
@@ -5442,15 +5458,15 @@ list&lt;list&gt; var1 &lt;- maximal_cliques_of (my_graph); // var1 equals the li
 
 <h3 id="mean"><code class="highlighter-rouge">mean</code></h3>
 
-<h4 id="possible-use-75">Possible use:</h4>
+<h4 id="possible-use-76">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">mean</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-74">Result:</h4>
+<h4 id="result-75">Result:</h4>
 <p>the mean of all the elements of the operand</p>
 
-<h4 id="comment-15">Comment:</h4>
+<h4 id="comment-16">Comment:</h4>
 <p>the elements of the operand are summed (see sum for more details about the sum of container elements ) and then the sum value is divided by the number of elements.</p>
 
 <h4 id="special-cases-18">Special cases:</h4>
@@ -5472,15 +5488,15 @@ unknown var0 &lt;- mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 5.125
 
 <h3 id="mean_deviation"><code class="highlighter-rouge">mean_deviation</code></h3>
 
-<h4 id="possible-use-76">Possible use:</h4>
+<h4 id="possible-use-77">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">mean_deviation</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-75">Result:</h4>
+<h4 id="result-76">Result:</h4>
 <p>the deviation from the mean of all the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Absolute_deviation">Mean_deviation</a> for more details.</p>
 
-<h4 id="comment-16">Comment:</h4>
+<h4 id="comment-17">Comment:</h4>
 <p>The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.</p>
 
 <h4 id="examples-33">Examples:</h4>
@@ -5497,16 +5513,16 @@ float var0 &lt;- mean_deviation ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.125
 
 <h3 id="mean_of"><code class="highlighter-rouge">mean_of</code></h3>
 
-<h4 id="possible-use-77">Possible use:</h4>
+<h4 id="possible-use-78">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">mean_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">mean_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-76">Result:</h4>
+<h4 id="result-77">Result:</h4>
 <p>the mean of the right-hand expression evaluated on each of the elements of the left-hand operand</p>
 
-<h4 id="comment-17">Comment:</h4>
+<h4 id="comment-18">Comment:</h4>
 <p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
 <h4 id="special-cases-19">Special cases:</h4>
@@ -5532,12 +5548,12 @@ unknown var0 &lt;- [1,2] mean_of (each * 10 ); // var0 equals 15
 
 <h3 id="meanr"><code class="highlighter-rouge">meanR</code></h3>
 
-<h4 id="possible-use-78">Possible use:</h4>
+<h4 id="possible-use-79">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">meanR</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-77">Result:</h4>
+<h4 id="result-78">Result:</h4>
 <p>returns the mean value of given vector (right-hand operand) in given variable  (left-hand operand).</p>
 
 <h4 id="examples-35">Examples:</h4>
@@ -5550,12 +5566,12 @@ int var1 &lt;- meanR(X); // var1 equals 2
 
 <h3 id="median"><code class="highlighter-rouge">median</code></h3>
 
-<h4 id="possible-use-79">Possible use:</h4>
+<h4 id="possible-use-80">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">median</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-78">Result:</h4>
+<h4 id="result-79">Result:</h4>
 <p>the median of all the elements of the operand.</p>
 
 <h4 id="special-cases-20">Special cases:</h4>
@@ -5577,37 +5593,37 @@ unknown var0 &lt;- median ([4.5, 3.5, 5.5, 3.4, 7.0]); // var0 equals 5.0
 
 <h3 id="mental_state"><code class="highlighter-rouge">mental_state</code></h3>
 
-<h4 id="possible-use-80">Possible use:</h4>
+<h4 id="possible-use-81">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-79">Result:</h4>
+<h4 id="result-80">Result:</h4>
 <p>Casts the operand into the type mental_state</p>
 
 <hr />
 
 <h3 id="message"><code class="highlighter-rouge">message</code></h3>
 
-<h4 id="possible-use-81">Possible use:</h4>
+<h4 id="possible-use-82">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">message</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">msi.gama.extensions.messaging.GamaMessage</code></li>
 </ul>
 
-<h4 id="result-80">Result:</h4>
+<h4 id="result-81">Result:</h4>
 <p>to be added</p>
 
 <hr />
 
 <h3 id="milliseconds_between"><code class="highlighter-rouge">milliseconds_between</code></h3>
 
-<h4 id="possible-use-82">Possible use:</h4>
+<h4 id="possible-use-83">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">milliseconds_between</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">milliseconds_between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-81">Result:</h4>
+<h4 id="result-82">Result:</h4>
 <p>Provide the exact number of milliseconds between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 
 <h4 id="examples-37">Examples:</h4>
@@ -5620,15 +5636,15 @@ float var0 &lt;- milliseconds_between(date('2000-01-01'), date('2000-02-01')); /
 
 <h3 id="min"><code class="highlighter-rouge">min</code></h3>
 
-<h4 id="possible-use-83">Possible use:</h4>
+<h4 id="possible-use-84">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">min</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-82">Result:</h4>
+<h4 id="result-83">Result:</h4>
 <p>the minimum element found in the operand.</p>
 
-<h4 id="comment-18">Comment:</h4>
+<h4 id="comment-19">Comment:</h4>
 <p>the min operator behavior depends on the nature of the operand</p>
 
 <h4 id="special-cases-21">Special cases:</h4>
@@ -5656,16 +5672,16 @@ unknown var0 &lt;- min ([100, 23.2, 34.5]); // var0 equals 23.2
 
 <h3 id="min_of"><code class="highlighter-rouge">min_of</code></h3>
 
-<h4 id="possible-use-84">Possible use:</h4>
+<h4 id="possible-use-85">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">min_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">min_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-83">Result:</h4>
+<h4 id="result-84">Result:</h4>
 <p>the minimum value of the right-hand expression evaluated on each of the elements of the left-hand operand</p>
 
-<h4 id="comment-19">Comment:</h4>
+<h4 id="comment-20">Comment:</h4>
 <p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
 <h4 id="special-cases-22">Special cases:</h4>
@@ -5694,13 +5710,13 @@ unknown var3 &lt;- (list(node) min_of (round(node(each).location.x)); // var3 eq
 
 <h3 id="minus_days"><code class="highlighter-rouge">minus_days</code></h3>
 
-<h4 id="possible-use-85">Possible use:</h4>
+<h4 id="possible-use-86">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_days</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_days</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-84">Result:</h4>
+<h4 id="result-85">Result:</h4>
 <p>Subtract a given number of days from a date</p>
 
 <h4 id="examples-39">Examples:</h4>
@@ -5713,13 +5729,13 @@ date var0 &lt;- date('2000-01-01') minus_days 20; // var0 equals date('1999-12-1
 
 <h3 id="minus_hours"><code class="highlighter-rouge">minus_hours</code></h3>
 
-<h4 id="possible-use-86">Possible use:</h4>
+<h4 id="possible-use-87">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_hours</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_hours</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-85">Result:</h4>
+<h4 id="result-86">Result:</h4>
 <p>Remove a given number of hours from a date</p>
 
 <h4 id="examples-40">Examples:</h4>
@@ -5732,13 +5748,13 @@ date var1 &lt;- date('2000-01-01') minus_hours 15 ; // var1 equals date('1999-12
 
 <h3 id="minus_minutes"><code class="highlighter-rouge">minus_minutes</code></h3>
 
-<h4 id="possible-use-87">Possible use:</h4>
+<h4 id="possible-use-88">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_minutes</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_minutes</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-86">Result:</h4>
+<h4 id="result-87">Result:</h4>
 <p>Subtract a given number of minutes from a date</p>
 
 <h4 id="examples-41">Examples:</h4>
@@ -5751,13 +5767,13 @@ date var1 &lt;- date('2000-01-01') minus_minutes 5 ; // var1 equals date('1999-1
 
 <h3 id="minus_months"><code class="highlighter-rouge">minus_months</code></h3>
 
-<h4 id="possible-use-88">Possible use:</h4>
+<h4 id="possible-use-89">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_months</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_months</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-87">Result:</h4>
+<h4 id="result-88">Result:</h4>
 <p>Subtract a given number of months from a date</p>
 
 <h4 id="examples-42">Examples:</h4>
@@ -5770,13 +5786,13 @@ date var0 &lt;- date('2000-01-01') minus_months 5; // var0 equals date('1999-08-
 
 <h3 id="minus_ms"><code class="highlighter-rouge">minus_ms</code></h3>
 
-<h4 id="possible-use-89">Possible use:</h4>
+<h4 id="possible-use-90">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_ms</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_ms</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-88">Result:</h4>
+<h4 id="result-89">Result:</h4>
 <p>Remove a given number of milliseconds from a date</p>
 
 <h4 id="examples-43">Examples:</h4>
@@ -5794,13 +5810,13 @@ date var1 &lt;- date('2000-01-01') minus_ms 1000 ; // var1 equals date('1999-12-
 
 <h3 id="minus_weeks"><code class="highlighter-rouge">minus_weeks</code></h3>
 
-<h4 id="possible-use-90">Possible use:</h4>
+<h4 id="possible-use-91">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_weeks</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_weeks</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-89">Result:</h4>
+<h4 id="result-90">Result:</h4>
 <p>Subtract a given number of weeks from a date</p>
 
 <h4 id="examples-44">Examples:</h4>
@@ -5813,13 +5829,13 @@ date var0 &lt;- date('2000-01-01') minus_weeks 15; // var0 equals date('1999-09-
 
 <h3 id="minus_years"><code class="highlighter-rouge">minus_years</code></h3>
 
-<h4 id="possible-use-91">Possible use:</h4>
+<h4 id="possible-use-92">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">minus_years</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><strong><code class="highlighter-rouge">minus_years</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
 </ul>
 
-<h4 id="result-90">Result:</h4>
+<h4 id="result-91">Result:</h4>
 <p>Subtract a given number of year from a date</p>
 
 <h4 id="examples-45">Examples:</h4>
@@ -5832,13 +5848,13 @@ date var0 &lt;- date('2000-01-01') minus_years 3; // var0 equals date('1997-01-0
 
 <h3 id="mod"><code class="highlighter-rouge">mod</code></h3>
 
-<h4 id="possible-use-92">Possible use:</h4>
+<h4 id="possible-use-93">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">mod</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">mod</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-91">Result:</h4>
+<h4 id="result-92">Result:</h4>
 <p>Returns the remainder of the integer division of the left-hand operand by the right-hand operand.</p>
 
 <h4 id="special-cases-23">Special cases:</h4>
@@ -5861,25 +5877,25 @@ int var0 &lt;- 40 mod 3; // var0 equals 1
 
 <h3 id="moment"><code class="highlighter-rouge">moment</code></h3>
 
-<h4 id="possible-use-93">Possible use:</h4>
+<h4 id="possible-use-94">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">moment</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-92">Result:</h4>
+<h4 id="result-93">Result:</h4>
 <p>Returns the moment of k-th order with constant c of a data sequence</p>
 
 <hr />
 
 <h3 id="months_between"><code class="highlighter-rouge">months_between</code></h3>
 
-<h4 id="possible-use-94">Possible use:</h4>
+<h4 id="possible-use-95">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">months_between</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">months_between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-93">Result:</h4>
+<h4 id="result-94">Result:</h4>
 <p>Provide the exact number of months between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 
 <h4 id="examples-47">Examples:</h4>
@@ -5892,7 +5908,7 @@ int var0 &lt;- months_between(date('2000-01-01'), date('2000-02-01')); // var0 e
 
 <h3 id="moran"><code class="highlighter-rouge">moran</code></h3>
 
-<h4 id="possible-use-95">Possible use:</h4>
+<h4 id="possible-use-96">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">list&lt;float&gt;</code> <strong><code class="highlighter-rouge">moran</code></strong> <code class="highlighter-rouge">matrix&lt;float&gt;</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">moran</code></strong> (<code class="highlighter-rouge">list&lt;float&gt;</code> , <code class="highlighter-rouge">matrix&lt;float&gt;</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
@@ -5911,15 +5927,15 @@ float var0 &lt;- moran([1.0, 0.5, 2.0], weight_matrix); // var0 equals the Moran
 
 <h3 id="mul"><code class="highlighter-rouge">mul</code></h3>
 
-<h4 id="possible-use-96">Possible use:</h4>
+<h4 id="possible-use-97">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">mul</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-94">Result:</h4>
+<h4 id="result-95">Result:</h4>
 <p>the product of all the elements of the operand</p>
 
-<h4 id="comment-20">Comment:</h4>
+<h4 id="comment-21">Comment:</h4>
 <p>the mul operator behavior depends on the nature of the operand</p>
 
 <h4 id="special-cases-25">Special cases:</h4>
@@ -5947,12 +5963,12 @@ unknown var0 &lt;- mul ([100, 23.2, 34.5]); // var0 equals 80040.0
 
 <h3 id="nb_cycles"><code class="highlighter-rouge">nb_cycles</code></h3>
 
-<h4 id="possible-use-97">Possible use:</h4>
+<h4 id="possible-use-98">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">nb_cycles</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-95">Result:</h4>
+<h4 id="result-96">Result:</h4>
 <p>returns the maximum number of independent cycles in a graph. This number (u) is estimated through the number of nodes (v), links (e) and of sub-graphs (p): u = e - v + p.</p>
 
 <h4 id="examples-48">Examples:</h4>
@@ -5969,16 +5985,16 @@ int var1 &lt;- nb_cycles(graphEpidemio); // var1 equals the number of cycles in 
 
 <h3 id="neighbors_at"><code class="highlighter-rouge">neighbors_at</code></h3>
 
-<h4 id="possible-use-98">Possible use:</h4>
+<h4 id="possible-use-99">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">neighbors_at</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">neighbors_at</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-96">Result:</h4>
+<h4 id="result-97">Result:</h4>
 <p>a list, containing all the agents of the same species than the left argument (if it is an agent) located at a distance inferior or equal to the right-hand operand to the left-hand operand (geometry, agent, point).</p>
 
-<h4 id="comment-21">Comment:</h4>
+<h4 id="comment-22">Comment:</h4>
 <p>The topology used to compute the neighborhood  is the one of the left-operand if this one is an agent; otherwise the one of the agent applying the operator.</p>
 
 <h4 id="examples-49">Examples:</h4>
@@ -5995,16 +6011,16 @@ list var0 &lt;- (self neighbors_at (10)); // var0 equals all the agents located 
 
 <h3 id="neighbors_of"><code class="highlighter-rouge">neighbors_of</code></h3>
 
-<h4 id="possible-use-99">Possible use:</h4>
+<h4 id="possible-use-100">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">neighbors_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><strong><code class="highlighter-rouge">neighbors_of</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><code class="highlighter-rouge">topology</code> <strong><code class="highlighter-rouge">neighbors_of</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">neighbors_of</code></strong> (<code class="highlighter-rouge">topology</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">neighbors_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">neighbors_of</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">neighbors_of</code></strong> (<code class="highlighter-rouge">topology</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-97">Result:</h4>
+<h4 id="result-98">Result:</h4>
 <p>a list, containing all the agents of the same species than the argument (if it is an agent) located at a distance inferior or equal to 1 to the right-hand operand agent considering the left-hand operand topology.</p>
 
 <h4 id="special-cases-26">Special cases:</h4>
@@ -6013,60 +6029,60 @@ list var0 &lt;- (self neighbors_at (10)); // var0 equals all the agents located 
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var3 &lt;- neighbors_of (topology(self), self,10); // var3 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
+list var0 &lt;- neighbors_of (topology(self), self,10); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
 </code></pre></div></div>
 
 <h4 id="examples-50">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var0 &lt;- graphEpidemio neighbors_of (node(3)); // var0 equals [node0,node2] 
-list var1 &lt;- graphFromMap neighbors_of node({12,45}); // var1 equals [{1.0,5.0},{34.0,56.0}] 
-list var2 &lt;- topology(self) neighbors_of self; // var2 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
+list var1 &lt;- topology(self) neighbors_of self; // var1 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology. 
+list var2 &lt;- graphEpidemio neighbors_of (node(3)); // var2 equals [node0,node2] 
+list var3 &lt;- graphFromMap neighbors_of node({12,45}); // var3 equals [{1.0,5.0},{34.0,56.0}]
 
 </code></pre></div></div>
 
 <h4 id="see-also-33">See also:</h4>
 
-<p><a href="OperatorsOS#predecessors_of">predecessors_of</a>, <a href="OperatorsOS#successors_of">successors_of</a>, <a href="OperatorsIN#neighbors_at">neighbors_at</a>, <a href="OperatorsCH#closest_to">closest_to</a>, <a href="OperatorsOS#overlapping">overlapping</a>, <a href="OperatorsAB#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAB#agents_inside">agents_inside</a>, <a href="OperatorsAB#agent_closest_to">agent_closest_to</a>,</p>
+<p><a href="OperatorsIN#neighbors_at">neighbors_at</a>, <a href="OperatorsCH#closest_to">closest_to</a>, <a href="OperatorsOS#overlapping">overlapping</a>, <a href="OperatorsAB#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAB#agents_inside">agents_inside</a>, <a href="OperatorsAB#agent_closest_to">agent_closest_to</a>, <a href="OperatorsOS#predecessors_of">predecessors_of</a>, <a href="OperatorsOS#successors_of">successors_of</a>,</p>
 
 <hr />
 
 <h3 id="new_emotion"><code class="highlighter-rouge">new_emotion</code></h3>
 
-<h4 id="possible-use-100">Possible use:</h4>
+<h4 id="possible-use-101">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">predicate</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_emotion</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">new_emotion</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
 </ul>
 
-<h4 id="result-98">Result:</h4>
-<p>a new emotion with the given properties (name, intensity)
+<h4 id="result-99">Result:</h4>
+<p>a new emotion with the given properties (name)
+a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)</p>
+a new emotion with the given properties (name, intensity)</p>
 
 <h4 id="examples-51">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion("joy",12.3) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,eatFood) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy") emotion("joy",12.3) 
 
 </code></pre></div></div>
 
@@ -6074,12 +6090,12 @@ a new emotion with the given properties (name)</p>
 
 <h3 id="new_folder"><code class="highlighter-rouge">new_folder</code></h3>
 
-<h4 id="possible-use-101">Possible use:</h4>
+<h4 id="possible-use-102">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_folder</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-99">Result:</h4>
+<h4 id="result-100">Result:</h4>
 <p>opens an existing repository or create a new folder if it does not exist.</p>
 
 <h4 id="special-cases-27">Special cases:</h4>
@@ -6101,7 +6117,7 @@ a new emotion with the given properties (name)</p>
 
 <h3 id="new_mental_state"><code class="highlighter-rouge">new_mental_state</code></h3>
 
-<h4 id="possible-use-102">Possible use:</h4>
+<h4 id="possible-use-103">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_mental_state</code></strong> <code class="highlighter-rouge">emotion</code> —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
@@ -6110,30 +6126,30 @@ a new emotion with the given properties (name)</p>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_mental_state</code></strong> <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code> —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">predicate</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
-  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
   <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
+  <li><strong><code class="highlighter-rouge">new_mental_state</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">emotion</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.MentalState</code></li>
 </ul>
 
-<h4 id="result-100">Result:</h4>
+<h4 id="result-101">Result:</h4>
 <p>a new mental state
 a new mental state
 a new mental state
@@ -6169,42 +6185,42 @@ a new mental state</p>
 
 <h3 id="new_predicate"><code class="highlighter-rouge">new_predicate</code></h3>
 
-<h4 id="possible-use-103">Possible use:</h4>
+<h4 id="possible-use-104">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">new_predicate</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">new_predicate</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-101">Result:</h4>
-<p>a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, 	agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name)
+<h4 id="result-102">Result:</h4>
+<p>a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime, is_true)
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values)
 a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values)</p>
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given is_true (name, is_true)</p>
 
 <h4 id="examples-54">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true) predicate("hasWater", 10  predicate("people to meet", ["time"::10], agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet") predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", people1 ) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], true) predicate("hasWater", 10  predicate("people to meet") predicate("people to meet", ["time"::10], agentA) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true) predicate("hasWater", true) 
 
 </code></pre></div></div>
 
@@ -6212,18 +6228,18 @@ a new predicate with the given properties (name, values)</p>
 
 <h3 id="new_social_link"><code class="highlighter-rouge">new_social_link</code></h3>
 
-<h4 id="possible-use-104">Possible use:</h4>
+<h4 id="possible-use-105">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">new_social_link</code></strong> (<code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.SocialLink</code></li>
   <li><strong><code class="highlighter-rouge">new_social_link</code></strong> (<code class="highlighter-rouge">agent</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.architecture.simplebdi.SocialLink</code></li>
 </ul>
 
-<h4 id="result-102">Result:</h4>
+<h4 id="result-103">Result:</h4>
 <p>a new social link
 a new social link</p>
 
 <h4 id="examples-55">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_social_link(agentA) new_social_link(agentA,0.0,-0.1,0.2,0.1) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_social_link(agentA,0.0,-0.1,0.2,0.1) new_social_link(agentA) 
 
 </code></pre></div></div>
 
@@ -6231,7 +6247,7 @@ a new social link</p>
 
 <h3 id="node"><code class="highlighter-rouge">node</code></h3>
 
-<h4 id="possible-use-105">Possible use:</h4>
+<h4 id="possible-use-106">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">node</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">node</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
@@ -6242,7 +6258,7 @@ a new social link</p>
 
 <h3 id="nodes"><code class="highlighter-rouge">nodes</code></h3>
 
-<h4 id="possible-use-106">Possible use:</h4>
+<h4 id="possible-use-107">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">nodes</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
 </ul>
@@ -6251,12 +6267,12 @@ a new social link</p>
 
 <h3 id="norm"><code class="highlighter-rouge">norm</code></h3>
 
-<h4 id="possible-use-107">Possible use:</h4>
+<h4 id="possible-use-108">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">norm</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-103">Result:</h4>
+<h4 id="result-104">Result:</h4>
 <p>the norm of the vector with the coordinates of the point operand.</p>
 
 <h4 id="examples-56">Examples:</h4>
@@ -6269,36 +6285,36 @@ float var0 &lt;- norm({3,4}); // var0 equals 5.0
 
 <h3 id="normal_area"><code class="highlighter-rouge">normal_area</code></h3>
 
-<h4 id="possible-use-108">Possible use:</h4>
+<h4 id="possible-use-109">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">normal_area</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-104">Result:</h4>
+<h4 id="result-105">Result:</h4>
 <p>Returns the area to the left of x in the normal distribution with the given mean and standard deviation.</p>
 
 <hr />
 
 <h3 id="normal_density"><code class="highlighter-rouge">normal_density</code></h3>
 
-<h4 id="possible-use-109">Possible use:</h4>
+<h4 id="possible-use-110">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">normal_density</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-105">Result:</h4>
+<h4 id="result-106">Result:</h4>
 <p>Returns the probability of x in the normal distribution with the given mean and standard deviation.</p>
 
 <hr />
 
 <h3 id="normal_inverse"><code class="highlighter-rouge">normal_inverse</code></h3>
 
-<h4 id="possible-use-110">Possible use:</h4>
+<h4 id="possible-use-111">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">normal_inverse</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-106">Result:</h4>
+<h4 id="result-107">Result:</h4>
 <p>Returns the x in the normal distribution with the given mean and standard deviation, to the left of which lies the given area. normal.Inverse returns the value in terms of standard deviations from the mean, so we need to adjust it for the given mean and standard deviation.</p>
 
 <hr />
