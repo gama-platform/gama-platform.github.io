@@ -14,7 +14,7 @@ wikiPagePath: wiki/Statements.md
 
 ## Table of Contents
 <wiki:toc max_depth="2" />
-[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [catch](#catch), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [save](#save), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [start_simulation](#start_simulation), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
+[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [catch](#catch), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [save](#save), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
 
 
 ## Statements by kinds
@@ -32,7 +32,7 @@ wikiPagePath: wiki/Statements.md
   * **Parameter**
     * [parameter](#parameter),  
   * **Sequence of statements or action**
-    * [action](#action),  [ask](#ask),  [benchmark](#benchmark),  [capture](#capture),  [catch](#catch),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [run](#run),  [setup](#setup),  [start_simulation](#start_simulation),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [try](#try),  [user_command](#user_command),  [using](#using),  
+    * [action](#action),  [ask](#ask),  [benchmark](#benchmark),  [capture](#capture),  [catch](#catch),  [create](#create),  [default](#default),  [else](#else),  [enter](#enter),  [equation](#equation),  [exit](#exit),  [if](#if),  [loop](#loop),  [match](#match),  [migrate](#migrate),  [perceive](#perceive),  [release](#release),  [setup](#setup),  [switch](#switch),  [trace](#trace),  [transition](#transition),  [try](#try),  [user_command](#user_command),  [using](#using),  
   * **Single statement**
     * [=](#=),  [add](#add),  [assert](#assert),  [break](#break),  [conscious_contagion](#conscious_contagion),  [data](#data),  [datalist](#datalist),  [diffuse](#diffuse),  [do](#do),  [draw](#draw),  [emotional_contagion](#emotional_contagion),  [error](#error),  [focus](#focus),  [focus_on](#focus_on),  [highlight](#highlight),  [let](#let),  [put](#put),  [remove](#remove),  [return](#return),  [rule](#rule),  [save](#save),  [set](#set),  [simulate](#simulate),  [socialize](#socialize),  [solve](#solve),  [status](#status),  [unconscious_contagion](#unconscious_contagion),  [user_input](#user_input),  [warn](#warn),  [write](#write),  
   * **Species**
@@ -48,7 +48,7 @@ wikiPagePath: wiki/Statements.md
 ## Statements by embedment
 
   * **Behavior**
-    * [add](#add), [ask](#ask), [assert](#assert), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [run](#run), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [start_simulation](#start_simulation), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
+    * [add](#add), [ask](#ask), [assert](#assert), [benchmark](#benchmark), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [diffuse](#diffuse), [do](#do), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Environment**
     * [species](#species), 
   * **Experiment**
@@ -56,13 +56,11 @@ wikiPagePath: wiki/Statements.md
   * **Layer**
     * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [try](#try), [using](#using), [warn](#warn), [write](#write), 
   * **Model**
-    * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [setup](#setup), [species](#species), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Sequence of statements or action**
     * [add](#add), [ask](#ask), [assert](#assert), [assert](#assert), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
-  * **Single statement**
-    * [run](#run), [start_simulation](#start_simulation), 
   * **Species**
-    * [action](#action), [aspect](#aspect), [equation](#equation), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [setup](#setup), [simulate](#simulate), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [aspect](#aspect), [equation](#equation), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [setup](#setup), [simulate](#simulate), [species](#species), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **action**
     * [assert](#assert), [return](#return), 
   * **aspect**
@@ -2516,25 +2514,6 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 
 ----
 
-[//]: # (keyword|statement_run)
-### run 
-#### Facets 
-  
-  * **`name`** (string), (omissible) :   
-  * **`of`** (string): 
-  * `core` (int): 
-  * `end_cycle` (int): 
-  * `seed` (int): 
-  * `with_output` (map): 
-  * `with_param` (map): 
-
-#### Embedments
-* The `run` statement is of type: **Sequence of statements or action**
-* The `run` statement can be embedded into: Behavior, Single statement, Species, Model, 
-* The `run` statement embeds statements: 
-
-----
-
 [//]: # (keyword|statement_save)
 ### save 
 #### Facets 
@@ -2821,22 +2800,6 @@ grid ant_grid file: grid_file neighbors: 8 use_regular_agents: false {  ```
 * The `species` statement is of type: **Species**
 * The `species` statement can be embedded into: Model, Environment, Species, 
 * The `species` statement embeds statements: 
-
-----
-
-[//]: # (keyword|statement_start_simulation)
-### start_simulation 
-#### Facets 
-  
-  * **`name`** (string), (omissible) :   
-  * **`of`** (string): 
-  * `seed` (int): 
-  * `with_param` (map): 
-
-#### Embedments
-* The `start_simulation` statement is of type: **Sequence of statements or action**
-* The `start_simulation` statement can be embedded into: Behavior, Single statement, Species, Model, 
-* The `start_simulation` statement embeds statements: 
 
 ----
 
