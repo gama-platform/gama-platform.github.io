@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 1. Loading of GIS Data
+title: 1. Skeleton model
 wikiPageName: GoldMinerModel_step1
 wikiPagePath: wiki/GoldMinerModel_step1.md
 ---
-# 1. Loading of GIS Data
+# 1. Skeleton model
 This first step consists in defining the skeleton model with the gold mines and the gold market.
 
 
@@ -13,10 +13,6 @@ This first step consists in defining the skeleton model with the gold mines and 
   * Definition of the market species
   * Creation of the gold mine and market agents
   * Definition of a display with the gold mines and the market
-
-
-
-
 
 ## Model Definition
 
@@ -31,9 +27,9 @@ species goldmine {
 	aspect default
 	{
 		if (quantity = 0) {
-			draw triangle(20) color: #gray border: #black;	
+			draw triangle(200) color: #gray border: #black;	
 		} else {
-			draw triangle(20 + quantity * 5) color: #yellow border: #black;	
+			draw triangle(200 + quantity*50) color: #yellow border: #black;	
 		}
 	 
 	}
@@ -43,19 +39,22 @@ species market {
 	int golds;
 	aspect default
 	{
-	  draw square(100) color: #blue ;
+	  draw square(1000) color: #black ;
 	}
 }
 
 ```
 ### global variables
-We define three global variables for the model: one called **nb_mines** that will be used to define the number of mines and that will set to 10. One call **the_market** that will represent the market agent (that will ne unique). At last, we define the shape of the environnement by a square with a side size of 2000 meters.
+We define two global variables for the model: one called **nb_mines** that will be used to define the number of mines and that will set to 10. One call **the_market** that will represent the market agent (that will ne unique). 
+
+In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environnement by a square with a side size of 20 kilometers.
 
 ```
 global {
-   int nb_mines <- 10; 
-   market the_market;
-   geometry shape <- square(2000);
+	int nb_mines <- 10; 
+	market the_market;
+	float step <- 10#mn;
+	geometry shape <- square(20 #km);
 }
 
 ```
@@ -88,10 +87,6 @@ output {
 }
 ```
 
-
-
-
-
 ## Complete Model
 
 ```
@@ -100,8 +95,9 @@ model GoldBdi
 global {
 	int nb_mines <- 10; 
 	market the_market;
+	float step <- 10#mn;
 	
-	geometry shape <- square(2000);
+	geometry shape <- square(20 #km);
 	
 	init
 	{
@@ -117,9 +113,9 @@ species goldmine {
 	aspect default
 	{
 		if (quantity = 0) {
-			draw triangle(20) color: #gray border: #black;	
+			draw triangle(200) color: #gray border: #black;	
 		} else {
-			draw triangle(20 + quantity * 5) color: #yellow border: #black;	
+			draw triangle(200 + quantity*50) color: #yellow border: #black;	
 		}
 	 
 	}
@@ -129,10 +125,9 @@ species market {
 	int golds;
 	aspect default
 	{
-	  draw square(100) color: #blue ;
+	  draw square(1000) color: #black ;
 	}
 }
-
 
 experiment GoldBdi type: gui {
 
@@ -144,5 +139,4 @@ experiment GoldBdi type: gui {
 		}
 	}
 }
-
 ```
