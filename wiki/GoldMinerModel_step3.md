@@ -47,7 +47,7 @@ species miner skills: [moving] control:simple_bdi {
 }
 ```
 
-We modify as well the perceive statement previously defined in order to add the desire to share information with a strength of 5 if the agent finds a gold mine.	
+We also modify the perceive statement previously defined in order to add the desire to share information with a strength of 5 if the agent finds a gold mine.	
 ```
 species miner skills: [moving] control:simple_bdi {
 	...
@@ -254,3 +254,4 @@ experiment GoldBdi type: gui {
 	}
 }
 ```
+  4. [Use of emotions and personality for the miners](GoldMinerModel_step4)

@@ -3538,7 +3538,7 @@ function closeRightMenu() {
 
 <h3 id="species">species</h3>
 <p>In this first model, we have to define two species of agents: the <strong>goldmine</strong> agents and the <strong>market</strong> ones. These agents will not have a particular behavior, they will just be displayed.
-For the goldmine species, we define a new attribute: <strong>quantity</strong> of type <em>int</em>, with for initial value and random integer between 0 and 20. We define as well an aspect called <strong>default</strong> that displays the goldmine as a triangle with a gray color is the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine. 
+For the goldmine species, we define a new attribute: <strong>quantity</strong> of type <em>int</em>, with for initial value a random integer between 0 and 20. We also define aspect called <strong>default</strong> that displays the goldmine as a triangle with a gray color if the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine. 
 Concerning the market species, we define a new attribute: <strong>golds</strong> of type <em>int</em>. We define as well an aspect called <strong>default</strong> that displays the market as a blue square.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species goldmine {
@@ -3564,7 +3564,7 @@ species market {
 
 </code></pre></div></div>
 <h3 id="global-variables">global variables</h3>
-<p>We define two global variables for the model: one called <strong>nb_mines</strong> that will be used to define the number of mines and that will set to 10. One call <strong>the_market</strong> that will represent the market agent (that will ne unique).</p>
+<p>We define two global variables for the model: one called <strong>nb_mines</strong> that will be used to define the number of mines and that will be set to 10. One call <strong>the_market</strong> that will represent the market agent (that will be unique).</p>
 
 <p>In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environnement by a square with a side size of 20 kilometers.</p>
 
@@ -3655,6 +3655,12 @@ species market {
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<ol>
+  <li><a href="GoldMinerModel_step2">Definition of the BDI miners</a></li>
+  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
+  <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
+</ol>
 
     </div>
     </div>

@@ -3565,7 +3565,7 @@ For each of these miner agents, the agents create a new social relation using th
 }
 </code></pre></div></div>
 
-<p>We modify as well the perceive statement previously defined in order to add the desire to share information with a strength of 5 if the agent finds a gold mine.</p>
+<p>We also modify the perceive statement previously defined in order to add the desire to share information with a strength of 5 if the agent finds a gold mine.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
 	...
 	perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
@@ -3768,6 +3768,9 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
+<ol>
+  <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
+</ol>
 
     </div>
     </div>

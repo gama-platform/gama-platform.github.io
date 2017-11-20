@@ -18,7 +18,7 @@ This first step consists in defining the skeleton model with the gold mines and 
 
 ### species
 In this first model, we have to define two species of agents: the **goldmine** agents and the **market** ones. These agents will not have a particular behavior, they will just be displayed.
-For the goldmine species, we define a new attribute: **quantity** of type _int_, with for initial value and random integer between 0 and 20. We define as well an aspect called **default** that displays the goldmine as a triangle with a gray color is the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine. 
+For the goldmine species, we define a new attribute: **quantity** of type _int_, with for initial value a random integer between 0 and 20. We also define aspect called **default** that displays the goldmine as a triangle with a gray color if the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine. 
 Concerning the market species, we define a new attribute: **golds** of type _int_. We define as well an aspect called **default** that displays the market as a blue square.
 
 ```
@@ -45,7 +45,7 @@ species market {
 
 ```
 ### global variables
-We define two global variables for the model: one called **nb_mines** that will be used to define the number of mines and that will set to 10. One call **the_market** that will represent the market agent (that will ne unique). 
+We define two global variables for the model: one called **nb_mines** that will be used to define the number of mines and that will be set to 10. One call **the_market** that will represent the market agent (that will be unique). 
 
 In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environnement by a square with a side size of 20 kilometers.
 
@@ -140,3 +140,7 @@ experiment GoldBdi type: gui {
 	}
 }
 ```
+
+  2. [Definition of the BDI miners](GoldMinerModel_step2)
+  3. [Definition of social relations between miners](GoldMinerModel_step3)
+  4. [Use of emotions and personality for the miners](GoldMinerModel_step4)

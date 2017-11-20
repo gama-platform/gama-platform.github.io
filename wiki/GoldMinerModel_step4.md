@@ -19,12 +19,12 @@ The BDI architecture of GAMA gives the possibility to generate emotions and to u
 * _I_: the intensity of the emotion.
 * _D_: the decay of the emotion’s intensity.
 
-The BDI architecture of GAMA integrates a dynamic creation of emotions processes that will create emotions according to the mental states of the agent. More precisely, twenty emotions can be created: eight emotions related to events, four emotions related to other agents and eight emotions related to actions. 
+The BDI architecture of GAMA integrates a dynamic creation of emotions processe that will create emotions according to the mental states of the agent. More precisely, twenty emotions can be created: eight emotions related to events, four emotions related to other agents and eight emotions related to actions. 
 
 The complete description of these emotions and their creation rules can be found in [(Bourgais et at., 2017)](https://hal.archives-ouvertes.fr/hal-01573384/document).
 
 ## Personality
-In order to facilitate the parametrization of the BDI agents, we add the possibility to define all the parameters related to the BDI architecture through the OCEAN model, which proposes to represent the personality of a person according to five factors (correspoding the 5 variables of the BDI agents):
+In order to facilitate the parametrization of the BDI agents, we add the possibility to define all the parameters related to the BDI architecture through the OCEAN model, which proposes to represent the personality of a person according to five factors (correspoding to the 5 variables of the BDI agents):
 _O_: represents the openness of someone (open-minded/narrow-minded).
 _C_: represents the consciousness  of someone (act with preparations/impulsive).
 _E_: represents the extroversion of someone (extrovert/shy).
@@ -46,7 +46,7 @@ global {
 ```
 
 ### emotions and personality
-To use emotion (and to activate the automatic emotion generation process), we just have to set the value of the built-in variable _use_emotions_architecture_ to true (false by default). In our case, one of the possible desires concerns the predicate _has_gold_, and when an agent fulfill this desire and find a gold nugget (plan _getGold_), it gets the belief _has_gold_, and the emotion engine automatically creates a _joy_ emotion. 
+To use emotions (and to activate the automatic emotion generation process), we just have to set the value of the built-in variable _use_emotions_architecture_ to true (false by default). In our case, one of the possible desires concerns the predicate _has_gold_, and when an agent fulfill this desire and find a gold nugget (plan _getGold_), it gets the belief _has_gold_, and the emotion engine automatically creates a _joy_ emotion. 
 
 To be able to define the parameter of a BDI agent through the OCEAN model, we have to set the value of the built-in variable _use_personality_ to true (false by default). In this model, we chose to use the default value of the _O_, _C_, _E_, _A_ and _N_ variables (default value: 0.5). The interest of using the personality in our case is to allows the emotion engine to give a lifetime to the created emotions (otherwise, the emotions would have a infinite lifetime).
 

@@ -21,7 +21,7 @@ A classic paradigm to formalize the internal architecture of cognitive agents in
 
 The concepts of Belief-Desire-Intention can be summarized as follow for the the Gold Miner: the Miner agent has a general desire to find gold. As it is the only thing it wants at the beginning, it is its initial intention (what it is currently doing). To find gold, it wanders around (its plan is to wander). When it perceives some gold nuggets, it stores this information (it has a new belief about the existence and location of this gold nugget), and it adopts a new desire (it wants to extract the gold). When it perceives a gold nugget, the intention to find gold is put on hold and a new intention is selected (to extract gold). To achieve this intention, the plan has two steps, i.e. two new (sub)intentions: to choose a gold nugget to extract (among its known gold nuggets) and to go and take it. And so on.
 
-We propose in GAMA a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:
+In GAMA, we propose a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:
 * **belief_base** (what it knows): the internal knowledge the agent has about the world or about its internal state, updated during the simulation. A belief can concern any type of information (a quantity, a location, a boolean value, etc).
 * **desire_base** (what it wants): objectives that the agent would like to accomplish, also updated during the simulation. Desires can have hierarchical links (sub/super desires) when a desire is created as an intermediary objective.
 * **intention_base** (what it is doing): what the agent has chosen to do. The current intention will determine the selected plan. Intentions can be put on hold (for example when they require a sub-intention to be achieved).
@@ -41,7 +41,7 @@ To be more precise on the behavior of BDI agents (what the agent is going to do 
 1. _Choose a plan as a new current plan_: The new current plan is selected among the plans compatible with the current intention (and if their activation condition is checked) and with the highest priority.
 1. _Execute the plan_: The current plan is executed.
 1. _Is my plan finished?_: To allow persistent plans, a plan may have a termination condition. If it is not reached, the same plan will be kept for the next iteration.
-1. _Was my plan instantaneous?_: Most multi-agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like "choose a destination". This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.
+1. _Was my plan instantaneous?_: Most agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like "choose a destination". This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.
 
 
 The architecture introduces two new main types of variables related to cognition: 
@@ -104,7 +104,7 @@ species miner skills: [moving] control:simple_bdi {
 ```
 
 ### perception	
-We add a _perceive_ statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to "viewdist". The use of the _focus_ statement allows to add for each detected goldmine to add a belief corresponding to the location of this goldmine. The name of the belief will be "mine_at_location" and the location value of the goldmine will be stored in the _values_ (a map) variable of the belief at the key "location_value". 
+We add a _perceive_ statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to "viewdist". The use of the _focus_ statement allows to add for each detected goldmine a belief corresponding to the location of this goldmine. The name of the belief will be "mine_at_location" and the location value of the goldmine will be stored in the _values_ (a map) variable of the belief at the key "location_value". 
 In addition, we ask the miner agent to remove the intention to find gold, allowing the agent to choose a new intention. The boolean value of the _remove_intention_ action is used to specify if the agent should or not remove the given intention from the desire base as well. In our case, we choose to keep the desire to find golds.
 
 
@@ -184,7 +184,7 @@ species miner skills: [moving] control:simple_bdi {
 }
 ```
 
-The third plan called _choose_closest_goldmine_ is defined to achieve the _choose_goldmine_ intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (_mine_at_location_ beliefs), then removes the gold mines that it knows that they are empty (_empty_mine_location_ beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to _extract_gold_. We use for that the _remove_intention_ action, that remove an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.
+The third plan called _choose_closest_goldmine_ is defined to achieve the _choose_goldmine_ intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (_mine_at_location_ beliefs), then removes the gold mines that it knows that they are empty (_empty_mine_location_ beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to _extract_gold_. We use for that the _remove_intention_ action, that removes an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.
 
 ```
 species miner skills: [moving] control:simple_bdi {
@@ -205,7 +205,7 @@ species miner skills: [moving] control:simple_bdi {
 ```
 
 
-The last plan called _return_to_base_ is defined to achieve the _sell_gold_ intention. The agent moves in direction of the market using the _goto_ action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it remove the intention and the desire to sell golds, at last it increment its _gold_sold_ variable. 
+The last plan called _return_to_base_ is defined to achieve the _sell_gold_ intention. The agent moves in direction of the market using the _goto_ action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it removes the intention and the desire to sell golds, at last it increments its _gold_sold_ variable. 
 
 ```
 species miner skills: [moving] control:simple_bdi {
@@ -411,3 +411,5 @@ experiment GoldBdi type: gui {
 	}
 }
 ```
+  3. [Definition of social relations between miners](GoldMinerModel_step3)
+  4. [Use of emotions and personality for the miners](GoldMinerModel_step4)

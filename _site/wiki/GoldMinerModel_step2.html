@@ -3541,7 +3541,7 @@ function closeRightMenu() {
 
 <p>The concepts of Belief-Desire-Intention can be summarized as follow for the the Gold Miner: the Miner agent has a general desire to find gold. As it is the only thing it wants at the beginning, it is its initial intention (what it is currently doing). To find gold, it wanders around (its plan is to wander). When it perceives some gold nuggets, it stores this information (it has a new belief about the existence and location of this gold nugget), and it adopts a new desire (it wants to extract the gold). When it perceives a gold nugget, the intention to find gold is put on hold and a new intention is selected (to extract gold). To achieve this intention, the plan has two steps, i.e. two new (sub)intentions: to choose a gold nugget to extract (among its known gold nuggets) and to go and take it. And so on.</p>
 
-<p>We propose in GAMA a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:</p>
+<p>In GAMA, we propose a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:</p>
 <ul>
   <li><strong>belief_base</strong> (what it knows): the internal knowledge the agent has about the world or about its internal state, updated during the simulation. A belief can concern any type of information (a quantity, a location, a boolean value, etc).</li>
   <li><strong>desire_base</strong> (what it wants): objectives that the agent would like to accomplish, also updated during the simulation. Desires can have hierarchical links (sub/super desires) when a desire is created as an intermediary objective.</li>
@@ -3566,7 +3566,7 @@ function closeRightMenu() {
   <li><em>Choose a plan as a new current plan</em>: The new current plan is selected among the plans compatible with the current intention (and if their activation condition is checked) and with the highest priority.</li>
   <li><em>Execute the plan</em>: The current plan is executed.</li>
   <li><em>Is my plan finished?</em>: To allow persistent plans, a plan may have a termination condition. If it is not reached, the same plan will be kept for the next iteration.</li>
-  <li><em>Was my plan instantaneous?</em>: Most multi-agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like “choose a destination”. This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.</li>
+  <li><em>Was my plan instantaneous?</em>: Most agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like “choose a destination”. This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.</li>
 </ol>
 
 <p>The architecture introduces two new main types of variables related to cognition:</p>
@@ -3636,7 +3636,7 @@ function closeRightMenu() {
 </code></pre></div></div>
 
 <h3 id="perception">perception</h3>
-<p>We add a <em>perceive</em> statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to “viewdist”. The use of the <em>focus</em> statement allows to add for each detected goldmine to add a belief corresponding to the location of this goldmine. The name of the belief will be “mine_at_location” and the location value of the goldmine will be stored in the <em>values</em> (a map) variable of the belief at the key “location_value”. 
+<p>We add a <em>perceive</em> statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to “viewdist”. The use of the <em>focus</em> statement allows to add for each detected goldmine a belief corresponding to the location of this goldmine. The name of the belief will be “mine_at_location” and the location value of the goldmine will be stored in the <em>values</em> (a map) variable of the belief at the key “location_value”. 
 In addition, we ask the miner agent to remove the intention to find gold, allowing the agent to choose a new intention. The boolean value of the <em>remove_intention</em> action is used to specify if the agent should or not remove the given intention from the desire base as well. In our case, we choose to keep the desire to find golds.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
@@ -3711,7 +3711,7 @@ If the agent has already a target, it moves toward this target using the <em>got
 }
 </code></pre></div></div>
 
-<p>The third plan called <em>choose_closest_goldmine</em> is defined to achieve the <em>choose_goldmine</em> intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (<em>mine_at_location</em> beliefs), then removes the gold mines that it knows that they are empty (<em>empty_mine_location</em> beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to <em>extract_gold</em>. We use for that the <em>remove_intention</em> action, that remove an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.</p>
+<p>The third plan called <em>choose_closest_goldmine</em> is defined to achieve the <em>choose_goldmine</em> intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (<em>mine_at_location</em> beliefs), then removes the gold mines that it knows that they are empty (<em>empty_mine_location</em> beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to <em>extract_gold</em>. We use for that the <em>remove_intention</em> action, that removes an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
         ...
@@ -3730,7 +3730,7 @@ If the agent has already a target, it moves toward this target using the <em>got
 }
 </code></pre></div></div>
 
-<p>The last plan called <em>return_to_base</em> is defined to achieve the <em>sell_gold</em> intention. The agent moves in direction of the market using the <em>goto</em> action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it remove the intention and the desire to sell golds, at last it increment its <em>gold_sold</em> variable.</p>
+<p>The last plan called <em>return_to_base</em> is defined to achieve the <em>sell_gold</em> intention. The agent moves in direction of the market using the <em>goto</em> action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it removes the intention and the desire to sell golds, at last it increments its <em>gold_sold</em> variable.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
         ...
@@ -3934,6 +3934,10 @@ If the agent has already a target, it moves toward this target using the <em>got
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
+<ol>
+  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
+  <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
+</ol>
 
     </div>
     </div>
