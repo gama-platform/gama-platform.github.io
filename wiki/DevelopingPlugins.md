@@ -47,7 +47,7 @@ Your plug-in has been created.
     * Overview pane:
       * check « This plug-in is a singleton »
     * Dependencies pane:
-      * add (at least minimum) the three plug-ins "msi.gama.core", "msi.gama.ext" and "msi.gama.processor" in the "Required Plug-ins". When you click on "Add", a new window will appear without any plug-in. Just write the beginning of the plug-in name in the text field under "Select a plug-in".
+      * add (at least minimum) the two plug-ins "msi.gama.core" and "msi.gama.ext" in the "Required Plug-ins". When you click on "Add", a new window will appear without any plug-in. Just write the beginning of the plug-in name in the text field under "Select a plug-in".
     * Runtime pane:
       * In exported Packages: nothing (but when you will have implemented new packages in the plug-in you should add them there)
       * Add in the classpath all the additional libraries (.jar files) used in the project.

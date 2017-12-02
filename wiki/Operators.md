@@ -97,7 +97,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Arithmetic operators
-[-](#-), [/](#/), [^](#^), [*](#*), [+](#+), [abs](#abs), [acos](#acos), [asin](#asin), [atan](#atan), [atan2](#atan2), [ceil](#ceil), [cos](#cos), [cos_rad](#cos_rad), [div](#div), [even](#even), [exp](#exp), [fact](#fact), [floor](#floor), [hypot](#hypot), [is_finite](#is_finite), [is_number](#is_number), [ln](#ln), [log](#log), [mod](#mod), [round](#round), [signum](#signum), [sin](#sin), [sin_rad](#sin_rad), [sqrt](#sqrt), [tan](#tan), [tan_rad](#tan_rad), [tanh](#tanh), [with_precision](#with_precision), 
+[-](#-), [/](#/), <a href="#%5E">^</a>, <a href="#%2A">*</a>, [+](#+), [abs](#abs), [acos](#acos), [asin](#asin), [atan](#atan), [atan2](#atan2), [ceil](#ceil), [cos](#cos), [cos_rad](#cos_rad), [div](#div), [even](#even), [exp](#exp), [fact](#fact), [floor](#floor), [hypot](#hypot), [is_finite](#is_finite), [is_number](#is_number), [ln](#ln), [log](#log), [mod](#mod), [round](#round), [signum](#signum), [sin](#sin), [sin_rad](#sin_rad), [sqrt](#sqrt), [tan](#tan), [tan_rad](#tan_rad), [tanh](#tanh), [with_precision](#with_precision), 
 
 ----
 
@@ -112,7 +112,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Color-related operators
-[-](#-), [/](#/), [*](#*), [+](#+), [blend](#blend), [brewer_colors](#brewer_colors), [brewer_palettes](#brewer_palettes), [grayscale](#grayscale), [hsb](#hsb), [mean](#mean), [median](#median), [rgb](#rgb), [rnd_color](#rnd_color), [sum](#sum), 
+[-](#-), [/](#/), <a href="#%2A">*</a>, [+](#+), [blend](#blend), [brewer_colors](#brewer_colors), [brewer_palettes](#brewer_palettes), [grayscale](#grayscale), [hsb](#hsb), [mean](#mean), [median](#median), [rgb](#rgb), [rnd_color](#rnd_color), [sum](#sum), 
 
 ----
 
@@ -217,7 +217,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Matrix-related operators
-[-](#-), [/](#/), [.](#.), [*](#*), [+](#+), [append_horizontally](#append_horizontally), [append_vertically](#append_vertically), [column_at](#column_at), [columns_list](#columns_list), [determinant](#determinant), [eigenvalues](#eigenvalues), [index_of](#index_of), [inverse](#inverse), [last_index_of](#last_index_of), [row_at](#row_at), [rows_list](#rows_list), [shuffle](#shuffle), [trace](#trace), [transpose](#transpose), 
+[-](#-), [/](#/), [.](#.), <a href="#%2A">*</a>, [+](#+), [append_horizontally](#append_horizontally), [append_vertically](#append_vertically), [column_at](#column_at), [columns_list](#columns_list), [determinant](#determinant), [eigenvalues](#eigenvalues), [index_of](#index_of), [inverse](#inverse), [last_index_of](#last_index_of), [row_at](#row_at), [rows_list](#rows_list), [shuffle](#shuffle), [trace](#trace), [transpose](#transpose), 
 
 ----
 
@@ -232,7 +232,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Points-related operators
-[-](#-), [/](#/), [*](#*), [+](#+), [<](#<), [<=](#<=), [>](#>), [>=](#>=), [add_point](#add_point), [angle_between](#angle_between), [any_location_in](#any_location_in), [centroid](#centroid), [closest_points_with](#closest_points_with), [farthest_point_to](#farthest_point_to), [grid_at](#grid_at), [norm](#norm), [point](#point), [points_along](#points_along), [points_at](#points_at), [points_on](#points_on), 
+[-](#-), [/](#/), <a href="#%2A">*</a>, [+](#+), [<](#<), [<=](#<=), [>](#>), [>=](#>=), [add_point](#add_point), [angle_between](#angle_between), [any_location_in](#any_location_in), [centroid](#centroid), [closest_points_with](#closest_points_with), [farthest_point_to](#farthest_point_to), [grid_at](#grid_at), [norm](#norm), [point](#point), [points_along](#points_along), [points_at](#points_at), [points_on](#points_on), 
 
 ----
 
@@ -252,7 +252,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](#-), [*](#*), [+](#+), [add_point](#add_point), [agent_closest_to](#agent_closest_to), [agent_farthest_to](#agent_farthest_to), [agents_at_distance](#agents_at_distance), [agents_inside](#agents_inside), [agents_overlapping](#agents_overlapping), [angle_between](#angle_between), [any_location_in](#any_location_in), [arc](#arc), [around](#around), [as_4_grid](#as_4_grid), [as_grid](#as_grid), [as_hexagonal_grid](#as_hexagonal_grid), [at_distance](#at_distance), [at_location](#at_location), [box](#box), [centroid](#centroid), [circle](#circle), [clean](#clean), [closest_points_with](#closest_points_with), [closest_to](#closest_to), [cone](#cone), [cone3D](#cone3d), [convex_hull](#convex_hull), [covers](#covers), [cross](#cross), [crosses](#crosses), [crs](#crs), [CRS_transform](#crs_transform), [cube](#cube), [curve](#curve), [cylinder](#cylinder), [dem](#dem), [direction_between](#direction_between), [disjoint_from](#disjoint_from), [distance_between](#distance_between), [distance_to](#distance_to), [ellipse](#ellipse), [envelope](#envelope), [farthest_point_to](#farthest_point_to), [farthest_to](#farthest_to), [geometry_collection](#geometry_collection), [gini](#gini), [hexagon](#hexagon), [hierarchical_clustering](#hierarchical_clustering), [IDW](#idw), [inside](#inside), [inter](#inter), [intersects](#intersects), [line](#line), [link](#link), [masked_by](#masked_by), [moran](#moran), [neighbors_at](#neighbors_at), [neighbors_of](#neighbors_of), [overlapping](#overlapping), [overlaps](#overlaps), [partially_overlaps](#partially_overlaps), [path_between](#path_between), [path_to](#path_to), [plan](#plan), [points_along](#points_along), [points_at](#points_at), [points_on](#points_on), [polygon](#polygon), [polyhedron](#polyhedron), [pyramid](#pyramid), [rectangle](#rectangle), [rgb_to_xyz](#rgb_to_xyz), [rotated_by](#rotated_by), [round](#round), [scaled_to](#scaled_to), [set_z](#set_z), [simple_clustering_by_distance](#simple_clustering_by_distance), [simplification](#simplification), [skeletonize](#skeletonize), [smooth](#smooth), [sphere](#sphere), [split_at](#split_at), [split_geometry](#split_geometry), [split_lines](#split_lines), [square](#square), [squircle](#squircle), [teapot](#teapot), [to_GAMA_CRS](#to_gama_crs), [to_rectangles](#to_rectangles), [to_squares](#to_squares), [touches](#touches), [towards](#towards), [transformed_by](#transformed_by), [translated_by](#translated_by), [triangle](#triangle), [triangulate](#triangulate), [union](#union), [using](#using), [voronoi](#voronoi), [with_precision](#with_precision), [without_holes](#without_holes), 
+[-](#-), <a href="#%2A">*</a>, [+](#+), [add_point](#add_point), [agent_closest_to](#agent_closest_to), [agent_farthest_to](#agent_farthest_to), [agents_at_distance](#agents_at_distance), [agents_inside](#agents_inside), [agents_overlapping](#agents_overlapping), [angle_between](#angle_between), [any_location_in](#any_location_in), [arc](#arc), [around](#around), [as_4_grid](#as_4_grid), [as_grid](#as_grid), [as_hexagonal_grid](#as_hexagonal_grid), [at_distance](#at_distance), [at_location](#at_location), [box](#box), [centroid](#centroid), [circle](#circle), [clean](#clean), [closest_points_with](#closest_points_with), [closest_to](#closest_to), [cone](#cone), [cone3D](#cone3d), [convex_hull](#convex_hull), [covers](#covers), [cross](#cross), [crosses](#crosses), [crs](#crs), [CRS_transform](#crs_transform), [cube](#cube), [curve](#curve), [cylinder](#cylinder), [dem](#dem), [direction_between](#direction_between), [disjoint_from](#disjoint_from), [distance_between](#distance_between), [distance_to](#distance_to), [ellipse](#ellipse), [envelope](#envelope), [farthest_point_to](#farthest_point_to), [farthest_to](#farthest_to), [geometry_collection](#geometry_collection), [gini](#gini), [hexagon](#hexagon), [hierarchical_clustering](#hierarchical_clustering), [IDW](#idw), [inside](#inside), [inter](#inter), [intersects](#intersects), [line](#line), [link](#link), [masked_by](#masked_by), [moran](#moran), [neighbors_at](#neighbors_at), [neighbors_of](#neighbors_of), [overlapping](#overlapping), [overlaps](#overlaps), [partially_overlaps](#partially_overlaps), [path_between](#path_between), [path_to](#path_to), [plan](#plan), [points_along](#points_along), [points_at](#points_at), [points_on](#points_on), [polygon](#polygon), [polyhedron](#polyhedron), [pyramid](#pyramid), [rectangle](#rectangle), [rgb_to_xyz](#rgb_to_xyz), [rotated_by](#rotated_by), [round](#round), [scaled_to](#scaled_to), [set_z](#set_z), [simple_clustering_by_distance](#simple_clustering_by_distance), [simplification](#simplification), [skeletonize](#skeletonize), [smooth](#smooth), [sphere](#sphere), [split_at](#split_at), [split_geometry](#split_geometry), [split_lines](#split_lines), [square](#square), [squircle](#squircle), [teapot](#teapot), [to_GAMA_CRS](#to_gama_crs), [to_rectangles](#to_rectangles), [to_squares](#to_squares), [touches](#touches), [towards](#towards), [transformed_by](#transformed_by), [translated_by](#translated_by), [triangle](#triangle), [triangulate](#triangulate), [union](#union), [using](#using), [voronoi](#voronoi), [with_precision](#with_precision), [without_holes](#without_holes), 
 
 ----
 
@@ -277,7 +277,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](#-), [*](#*), [+](#+), [as_4_grid](#as_4_grid), [as_grid](#as_grid), [as_hexagonal_grid](#as_hexagonal_grid), [at_location](#at_location), [clean](#clean), [convex_hull](#convex_hull), [CRS_transform](#crs_transform), [rotated_by](#rotated_by), [scaled_to](#scaled_to), [simplification](#simplification), [skeletonize](#skeletonize), [smooth](#smooth), [split_geometry](#split_geometry), [split_lines](#split_lines), [to_GAMA_CRS](#to_gama_crs), [to_rectangles](#to_rectangles), [to_squares](#to_squares), [transformed_by](#transformed_by), [translated_by](#translated_by), [triangulate](#triangulate), [voronoi](#voronoi), [with_precision](#with_precision), [without_holes](#without_holes), 
+[-](#-), <a href="#%2A">*</a>, [+](#+), [as_4_grid](#as_4_grid), [as_grid](#as_grid), [as_hexagonal_grid](#as_hexagonal_grid), [at_location](#at_location), [clean](#clean), [convex_hull](#convex_hull), [CRS_transform](#crs_transform), [rotated_by](#rotated_by), [scaled_to](#scaled_to), [simplification](#simplification), [skeletonize](#skeletonize), [smooth](#smooth), [split_geometry](#split_geometry), [split_lines](#split_lines), [to_GAMA_CRS](#to_gama_crs), [to_rectangles](#to_rectangles), [to_squares](#to_squares), [transformed_by](#transformed_by), [translated_by](#translated_by), [triangulate](#triangulate), [voronoi](#voronoi), [with_precision](#with_precision), [without_holes](#without_holes), 
 
 ----
 
@@ -1364,7 +1364,7 @@ map var25 <- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var25 equals ['a'::1]
 			
 
 				#### See also:
-				[milliseconds_between](#milliseconds_between), [+](#+), [-](#-), [*](#*), [/](#/), 
+				[milliseconds_between](#milliseconds_between), [+](#+), [-](#-), <a href="#%2A">*</a>, [/](#/), 
 
 			----
 
@@ -2198,7 +2198,7 @@ point var4 <- {2,5} / 4; // var4 equals {0.5,1.25}
 				
 
 				#### See also:
-				[*](#*), [+](#+), [-](#-), 
+				<a href="#%2A">*</a>, [+](#+), [-](#-), 
 
 			----
 
@@ -2477,7 +2477,7 @@ float var0 <- 4.84 ^ 0.5; // var0 equals 2.2
 			
 
 				#### See also:
-				[*](#*), [sqrt](#sqrt), 
+				<a href="#%2A">*</a>, [sqrt](#sqrt), 
 
 			----
 
@@ -4160,7 +4160,7 @@ map var22 <- ['a'::1,'b'::2] + ('c'::3); // var22 equals ['a'::1,'b'::2,'c'::3]
 			
 
 				#### See also:
-				[-](#-), [*](#*), [/](#/), 
+				[-](#-), <a href="#%2A">*</a>, [/](#/), 
 
 			----
 
@@ -29919,7 +29919,7 @@ list var1 <- sample([2,10,1],2,false); // var1 equals [1,2]
 [//]: # (keyword|operator_scaled_by)
 			###
 			`scaled_by`
-Same signification as [*](#*)
+Same signification as <a href="#%2A">*</a>
 
 			----
 
