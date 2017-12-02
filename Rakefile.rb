@@ -188,12 +188,6 @@ def findPages(folder,index)
 	  fileContent = fileContent.gsub(/\[\^\]\(\#\^\)/,'<a href="#%5E">^</a>')
 	  fileContent = fileContent.gsub(/\[\*\]\(\#\*\)/,'<a href="#%2A">*</a>')
           fileHTML=Kramdown::Document.new(fileContent).to_html
-          if(File.basename(aFile)=="Operators.md")
-            File.write("/Users/damienphilippon/Desktop/outputHTML.html",fileHTML)
-            puts "----------------------------------------------"
-            File.write("/Users/damienphilippon/Desktop/outputMD.md",fileContent)
-          end
-          
           doc = Nokogiri::HTML(fileHTML)
           text = doc.xpath("//text()").text.to_s
           text = text.encode('UTF-8', :invalid => :replace, :undef => :replace)
