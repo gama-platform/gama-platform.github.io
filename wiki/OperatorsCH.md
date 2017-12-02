@@ -164,7 +164,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [writable](OperatorsTZ#writable), 
 
 ----
 
@@ -424,8 +424,8 @@ Returns the area under the right hand tail (from x to infinity) of the Chi squar
   *  **`circle`** (`float` , `point`) --->  `geometry` 
 
 #### Result: 
-A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
-A circle geometry which radius is equal to the operand.  
+A circle geometry which radius is equal to the operand.
+A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.  
 
 #### Comment: 
 the center of the circle is by default the location of the current agent in which has been called this operator.
@@ -437,8 +437,8 @@ the center of the circle is by default the location of the current agent in whic
 #### Examples: 
 ```
  
-geometry var0 <- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}. 
-geometry var1 <- circle(10); // var1 equals a geometry as a circle of radius 10.
+geometry var0 <- circle(10); // var0 equals a geometry as a circle of radius 10. 
+geometry var1 <- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
 
 ```
       
@@ -618,9 +618,9 @@ list<list> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","e
   *  **`command`** (`string`, `string`, `msi.gama.util.GamaMap<java.lang.String,java.lang.String>`) --->  `string` 
 
 #### Result: 
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
     	
 ----
 
@@ -646,8 +646,8 @@ the center of the cone is by default the location of the current agent in which 
 #### Examples: 
 ```
  
-geometry var0 <- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 <- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 <- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 <- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 ```
       
@@ -699,14 +699,14 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
   *  **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
 
 #### Result: 
-returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.
+returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
 
 #### Examples: 
 ```
-graph my_graph2 <- graph([]);  
-list<list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as listgraph my_graph <- graph([]);  
-list<list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
+graph my_graph <- graph([]);  
+list<list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph2 <- graph([]);  
+list<list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 
 ```
       
@@ -847,10 +847,10 @@ bool var3 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
 ### `contains_any`
 
 #### Possible use: 
-  * `string` **`contains_any`** `list` --->  `bool`
-  *  **`contains_any`** (`string` , `list`) --->  `bool`
   * `container` **`contains_any`** `container` --->  `bool`
-  *  **`contains_any`** (`container` , `container`) --->  `bool` 
+  *  **`contains_any`** (`container` , `container`) --->  `bool`
+  * `string` **`contains_any`** `list` --->  `bool`
+  *  **`contains_any`** (`string` , `list`) --->  `bool` 
 
 #### Result: 
 true if the left operand contains one of the elements of the right operand, false otherwise  
@@ -864,11 +864,11 @@ the definition of contains depends on the container
 #### Examples: 
 ```
  
-bool var0 <- "abcabcabc" contains_any ["ca","xy"]; // var0 equals true 
-bool var1 <- [1,2,3,4,5,6] contains_any [2,4]; // var1 equals true  
-bool var2 <- [1,2,3,4,5,6] contains_any [2,8]; // var2 equals true 
-bool var3 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var3 equals false 
-bool var4 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
+bool var0 <- [1,2,3,4,5,6] contains_any [2,4]; // var0 equals true  
+bool var1 <- [1,2,3,4,5,6] contains_any [2,8]; // var1 equals true 
+bool var2 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var2 equals false 
+bool var3 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var3 equals true 
+bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 
 ```
       
@@ -988,8 +988,8 @@ returns a copy of the operand.
 ### `copy_between`
 
 #### Possible use: 
-  *  **`copy_between`** (`list`, `int`, `int`) --->  `list`
-  *  **`copy_between`** (`string`, `int`, `int`) --->  `string` 
+  *  **`copy_between`** (`string`, `int`, `int`) --->  `string`
+  *  **`copy_between`** (`list`, `int`, `int`) --->  `list` 
 
 #### Result: 
 Returns a copy of the first operand between the indexes determined by the second (inclusive) and third operands (exclusive)
@@ -1002,8 +1002,8 @@ Returns a copy of the first operand between the indexes determined by the second
 #### Examples: 
 ```
  
-list var0 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
-string var1 <- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
+string var0 <- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
+list var1 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
 
 ```
   
@@ -1049,8 +1049,8 @@ Returns the correlation of two data sequences
 ### `cos`
 
 #### Possible use: 
-  *  **`cos`** (`float`) --->  `float`
-  *  **`cos`** (`int`) --->  `float` 
+  *  **`cos`** (`int`) --->  `float`
+  *  **`cos`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
@@ -1323,25 +1323,25 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 
 #### Result: 
 A cubic Bezier curve geometry built from the four given points composed of a given number of points.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the four given points composed of 10 points.
 A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 
 #### Special cases:     
   * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil
+  * if the last operand (number of points) is inferior to 2, returns nil    
+  * if the operand is nil, returns nil
 
 #### Examples: 
 ```
  
 geometry var0 <- curve({0,0}, {0,10}, {10,10}); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var2 <- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var3 <- curve({0,0}, {0,10}, {10,10}, 20); // var3 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.
+geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var2 <- curve({0,0}, {0,10}, {10,10}, 20); // var2 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var3 <- curve({0,0}, {0,10}, {10,10}); // var3 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
 
 ```
       
@@ -1474,10 +1474,10 @@ int var1 <- graphFromMap degree_of (node(3)); // var1 equals 3
 
 #### Possible use: 
   *  **`dem`** (`file`) --->  `geometry`
-  * `file` **`dem`** `float` --->  `geometry`
-  *  **`dem`** (`file` , `float`) --->  `geometry`
   * `file` **`dem`** `file` --->  `geometry`
   *  **`dem`** (`file` , `file`) --->  `geometry`
+  * `file` **`dem`** `float` --->  `geometry`
+  *  **`dem`** (`file` , `float`) --->  `geometry`
   *  **`dem`** (`file`, `file`, `float`) --->  `geometry` 
 
 #### Result: 
@@ -1486,10 +1486,10 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem,texture,z_factor); // var0 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var1 <- dem(dem,z_factor); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var2 <- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var3 <- dem(dem,texture); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var0 <- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var1 <- dem(dem,texture); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var2 <- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 <- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.
 
 ```
   
@@ -1727,8 +1727,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 #### Examples: 
 ```
  
-map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -1756,8 +1756,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
  
-map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -1774,14 +1774,14 @@ map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1
 ### `div`
 
 #### Possible use: 
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int`
-  * `float` **`div`** `int` --->  `int`
-  *  **`div`** (`float` , `int`) --->  `int`
   * `float` **`div`** `float` --->  `int`
   *  **`div`** (`float` , `float`) --->  `int`
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
   * `int` **`div`** `int` --->  `int`
-  *  **`div`** (`int` , `int`) --->  `int` 
+  *  **`div`** (`int` , `int`) --->  `int`
+  * `float` **`div`** `int` --->  `int`
+  *  **`div`** (`float` , `int`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -1794,10 +1794,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 #### Examples: 
 ```
  
-int var0 <- 40 div 4.1; // var0 equals 9 
-int var1 <- 40.5 div 3; // var1 equals 13 
-int var2 <- 40.1 div 4.5; // var2 equals 8 
-int var3 <- 40 div 3; // var3 equals 13
+int var0 <- 40.1 div 4.5; // var0 equals 8 
+int var1 <- 40 div 4.1; // var1 equals 9 
+int var2 <- 40 div 3; // var2 equals 13 
+int var3 <- 40.5 div 3; // var3 equals 13
 
 ```
       
@@ -1864,17 +1864,17 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`pair`) --->  `unknown`
   *  **`edge`** (`unknown`) --->  `unknown`
+  *  **`edge`** (`pair`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
     	
 ----
@@ -2023,8 +2023,8 @@ Casts the operand into the type emotion
 ### `empty`
 
 #### Possible use: 
-  *  **`empty`** (`string`) --->  `bool`
-  *  **`empty`** (`container<KeyType,ValueType>`) --->  `bool` 
+  *  **`empty`** (`container<KeyType,ValueType>`) --->  `bool`
+  *  **`empty`** (`string`) --->  `bool` 
 
 #### Result: 
 true if the operand is empty, false otherwise.  
@@ -2039,19 +2039,19 @@ the empty operator behavior depends on the nature of the operand
   * if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise    
   * if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise    
   * if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise    
-  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
-  
-```
- 
-bool var0 <- empty ('abced'); // var0 equals false
-``` 
-
-    
   * if it is a list, empty returns true if there is no element in the list, and false otherwise 
   
 ```
  
-bool var1 <- empty([]); // var1 equals true
+bool var0 <- empty([]); // var0 equals true
+``` 
+
+    
+  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
+  
+```
+ 
+bool var1 <- empty ('abced'); // var1 equals false
 ``` 
 
 
@@ -2112,21 +2112,6 @@ eval_when(plan1)
     	
 ----
 
-[//]: # (keyword|operator_evaluate_sub_model)
-### `evaluate_sub_model`
-
-#### Possible use: 
-  * `msi.gama.kernel.experiment.IExperimentAgent` **`evaluate_sub_model`** `string` --->  `unknown`
-  *  **`evaluate_sub_model`** (`msi.gama.kernel.experiment.IExperimentAgent` , `string`) --->  `unknown` 
-
-#### Result: 
-Load a submodel  
-
-#### Comment: 
-loaded submodel
-    	
-----
-
 [//]: # (keyword|operator_even)
 ### `even`
 
@@ -2157,23 +2142,23 @@ bool var1 <- even(-12); // var1 equals true
 #### Possible use: 
   *  **`every`** (`int`) --->  `bool`
   *  **`every`** (`any expression`) --->  `bool`
-  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
   * `list` **`every`** `int` --->  `list`
-  *  **`every`** (`list` , `int`) --->  `list` 
+  *  **`every`** (`list` , `int`) --->  `list`
+  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
-applies a step to an interval of dates defined by 'date1 to date2'
 true every operand * cycle, false otherwise
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency  
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+applies a step to an interval of dates defined by 'date1 to date2'  
 
 #### Comment: 
 the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
 
 #### Examples: 
 ```
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
+if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
 
 ```
       
@@ -2181,7 +2166,7 @@ the value of the every operator depends on the cycle. It can be used to do somet
 
 #### See also: 
 
-[to](OperatorsTZ#to), [since](OperatorsOS#since), [after](OperatorsAB#after), 
+[since](OperatorsOS#since), [after](OperatorsAB#after), [to](OperatorsTZ#to), 
     	
 ----
 
@@ -2225,8 +2210,8 @@ int var0 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"uti
 ### `exp`
 
 #### Possible use: 
-  *  **`exp`** (`int`) --->  `float`
-  *  **`exp`** (`float`) --->  `float` 
+  *  **`exp`** (`float`) --->  `float`
+  *  **`exp`** (`int`) --->  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -2334,11 +2319,11 @@ geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the far
   *  **`file`** (`string` , `container`) --->  `file` 
 
 #### Result: 
-Creates a file in read/write mode, setting its contents to the container passed in parameter
-opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.  
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
+Creates a file in read/write mode, setting its contents to the container passed in parameter  
 
 #### Comment: 
-The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.
+The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
 
 #### Special cases:     
   * If the specified string does not refer to an existing file, an exception is risen when the variable is used.
@@ -2372,8 +2357,8 @@ Test whether the parameter is the path to an existing file.
 ### `first`
 
 #### Possible use: 
-  *  **`first`** (`string`) --->  `string`
   *  **`first`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`first`** (`string`) --->  `string`
   * `int` **`first`** `container` --->  `list`
   *  **`first`** (`int` , `container`) --->  `list` 
 
@@ -2391,19 +2376,19 @@ the first operator behavior depends on the nature of the operand
   * if it is a matrix, first returns the element at {0,0} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a string, first returns a string composed of its first character 
-  
-```
- 
-string var0 <- first ('abce'); // var0 equals 'a'
-``` 
-
-    
   * if it is a list, first returns the first element of the list, or nil if the list is empty 
   
 ```
  
-int var1 <- first ([1, 2, 3]); // var1 equals 1
+int var0 <- first ([1, 2, 3]); // var0 equals 1
+``` 
+
+    
+  * if it is a string, first returns a string composed of its first character 
+  
+```
+ 
+string var1 <- first ('abce'); // var1 equals 'a'
 ``` 
 
     
@@ -2658,12 +2643,12 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
   *  **`fuzzy_kappa_sim`** (`list<agent>`, `list`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 #### Examples: 
 ```
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 ```
   
@@ -2811,12 +2796,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -2824,7 +2809,7 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 
 #### Examples: 
 ```
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 ```
       
@@ -2841,8 +2826,8 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		
 
 #### Possible use: 
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2855,13 +2840,6 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
@@ -2870,11 +2848,18 @@ Arguments should include following elements:Arguments should include following e
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
 
 ```
       
@@ -3006,6 +2991,7 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 [//]: # (keyword|operator_get)
 ### `get`
+Same signification as [read](OperatorsOS#read)
 
 #### Possible use: 
   * `agent` **`get`** `string` --->  `unknown`
@@ -3166,8 +3152,8 @@ emotion set_intensity 12
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`predicate`) --->  `int`
-  *  **`get_lifetime`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `int` 
+  *  **`get_lifetime`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `int`
+  *  **`get_lifetime`** (`predicate`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -3512,8 +3498,8 @@ the center of the hexagon is by default the location of the current agent in whi
 ```
  
 geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 <- hexagon(10); // var1 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
 
 ```
       
@@ -3558,8 +3544,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  
