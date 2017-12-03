@@ -185,10 +185,6 @@ def findPages(folder,index)
             end
           end 
           fileContent      = File.read(aFile)
-          if(File.basename(aFile)=="Operators.md")
-              fileContent = fileContent.gsub(/\[\^\]\(\#\^\)/,'<a href="#%5E">^</a>')
-              fileContent = fileContent.gsub(/\[\*\]\(\#\*\)/,'<a href="#%2A">*</a>')
-          end
           fileHTML=Kramdown::Document.new(fileContent).to_html
           doc = Nokogiri::HTML(fileHTML)
           text = doc.xpath("//text()").text.to_s
