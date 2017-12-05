@@ -3680,7 +3680,7 @@ function closeRightMenu() {
 <hr />
 
 <h3 id="files-related-operators">Files-related operators</h3>
-<p><a href="OperatorsCH#crs">crs</a>, <a href="OperatorsCH#file">file</a>, <a href="OperatorsCH#file_exists">file_exists</a>, <a href="OperatorsCH#folder">folder</a>, <a href="OperatorsCH#get">get</a>, <a href="OperatorsIN#new_folder">new_folder</a>, <a href="OperatorsOS#osm_file">osm_file</a>, <a href="OperatorsOS#read">read</a>, <a href="OperatorsTZ#writable">writable</a>,</p>
+<p><a href="OperatorsCH#crs">crs</a>, <a href="OperatorsCH#evaluate_sub_model">evaluate_sub_model</a>, <a href="OperatorsCH#file">file</a>, <a href="OperatorsCH#file_exists">file_exists</a>, <a href="OperatorsCH#folder">folder</a>, <a href="OperatorsCH#get">get</a>, <a href="OperatorsIN#load_sub_model">load_sub_model</a>, <a href="OperatorsIN#new_folder">new_folder</a>, <a href="OperatorsOS#osm_file">osm_file</a>, <a href="OperatorsOS#read">read</a>, <a href="OperatorsOS#step_sub_model">step_sub_model</a>, <a href="OperatorsTZ#writable">writable</a>,</p>
 
 <hr />
 
@@ -3760,6 +3760,7 @@ function closeRightMenu() {
 <hr />
 
 <h3 id="reverseoperators">ReverseOperators</h3>
+<p><a href="OperatorsOS#savesimulation">saveSimulation</a>, <a href="OperatorsOS#serialize">serialize</a>, <a href="OperatorsOS#serializeagent">serializeAgent</a>, <a href="OperatorsTZ#unserializesimulation">unSerializeSimulation</a>, <a href="OperatorsTZ#unserializesimulationfromfile">unSerializeSimulationFromFile</a>,</p>
 
 <hr />
 
@@ -3892,8 +3893,8 @@ float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
 
 <h4 id="possible-use-2">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-2">Result:</h4>
@@ -3992,6 +3993,7 @@ geometry var0 &lt;- teapot(10); // var0 equals a geometry as a circle of radius 
 <hr />
 
 <h3 id="to"><code class="highlighter-rouge">to</code></h3>
+<p>Same signification as <a href="OperatorsTZ#until">until</a></p>
 
 <h4 id="possible-use-7">Possible use:</h4>
 <ul>
@@ -4074,6 +4076,7 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 <hr />
 
 <h3 id="to_rectangles"><code class="highlighter-rouge">to_rectangles</code></h3>
+<p>Same signification as <a href="OperatorsOS#split_geometry">split_geometry</a></p>
 
 <h4 id="possible-use-10">Possible use:</h4>
 <ul>
@@ -4082,13 +4085,13 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 </ul>
 
 <h4 id="result-9">Result:</h4>
-<p>A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry</p>
+<p>A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry</p>
 
 <h4 id="examples-6">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list&lt;geometry&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 </code></pre></div></div>
 
@@ -4104,14 +4107,14 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1
 </ul>
 
 <h4 id="result-10">Result:</h4>
-<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
 
 <h4 id="examples-7">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 </code></pre></div></div>
@@ -4366,8 +4369,8 @@ list&lt;geometry&gt; var1 &lt;- triangulate(self); // var1 equals the list of ge
 
 <h4 id="possible-use-21">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-20">Result:</h4>
@@ -4375,15 +4378,15 @@ list&lt;geometry&gt; var1 &lt;- triangulate(self); // var1 equals the list of ge
 
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
-  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
   <li>if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]</li>
   <li>when truncated_gauss is called with a list of only one element mean, it will always return 0.0</li>
+  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
 </ul>
 
 <h4 id="examples-17">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- truncated_gauss ({0, 0.3}); // var0 equals a float between -0.3 and 0.3 
-float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
+float var0 &lt;- truncated_gauss ([0.5, 0.0]); // var0 equals 0.5 
+float var1 &lt;- truncated_gauss ({0, 0.3}); // var1 equals a float between -0.3 and 0.3
 
 </code></pre></div></div>
 
@@ -4425,6 +4428,7 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 <hr />
 
 <h3 id="union"><code class="highlighter-rouge">union</code></h3>
+<p>Same signification as <a href="OperatorsAB#+">+</a></p>
 
 <h4 id="possible-use-24">Possible use:</h4>
 <ul>
@@ -4438,16 +4442,16 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 
 <h4 id="special-cases-9">Special cases:</h4>
 <ul>
-  <li>if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries</li>
   <li>if the left or right operand is nil, union throws an error</li>
+  <li>if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries</li>
 </ul>
 
 <h4 id="examples-18">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
-list var1 &lt;- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
-list var2 &lt;- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
-list var3 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
+list var0 &lt;- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
+list var1 &lt;- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
+list var2 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
+geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
 
 </code></pre></div></div>
 
@@ -4469,16 +4473,37 @@ list var3 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0
 
 <hr />
 
-<h3 id="until"><code class="highlighter-rouge">until</code></h3>
+<h3 id="unserializesimulation"><code class="highlighter-rouge">unSerializeSimulation</code></h3>
 
 <h4 id="possible-use-26">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">unSerializeSimulation</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+</ul>
+
+<h4 id="result-25">Result:</h4>
+<p>unSerializeSimulation</p>
+
+<hr />
+
+<h3 id="unserializesimulationfromfile"><code class="highlighter-rouge">unSerializeSimulationFromFile</code></h3>
+
+<h4 id="possible-use-27">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">unSerializeSimulationFromFile</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+</ul>
+
+<hr />
+
+<h3 id="until"><code class="highlighter-rouge">until</code></h3>
+
+<h4 id="possible-use-28">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">until</code></strong> (<code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">any expression</code> <strong><code class="highlighter-rouge">until</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">until</code></strong> (<code class="highlighter-rouge">any expression</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-25">Result:</h4>
+<h4 id="result-26">Result:</h4>
 <p>Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of ‘current_date &lt;= argument’</p>
 
 <h4 id="examples-19">Examples:</h4>
@@ -4490,12 +4515,12 @@ list var3 &lt;- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0
 
 <h3 id="upper_case"><code class="highlighter-rouge">upper_case</code></h3>
 
-<h4 id="possible-use-27">Possible use:</h4>
+<h4 id="possible-use-29">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">upper_case</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
-<h4 id="result-26">Result:</h4>
+<h4 id="result-27">Result:</h4>
 <p>Converts all of the characters in the string operand to upper case</p>
 
 <h4 id="examples-20">Examples:</h4>
@@ -4512,13 +4537,13 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 
 <h3 id="use_cache"><code class="highlighter-rouge">use_cache</code></h3>
 
-<h4 id="possible-use-28">Possible use:</h4>
+<h4 id="possible-use-30">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">use_cache</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">use_cache</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-27">Result:</h4>
+<h4 id="result-28">Result:</h4>
 <p>if the second operand is true, the operand graph will store in a cache all the previously computed shortest path (the cache be cleared if the graph is modified).</p>
 
 <h4 id="comment-5">Comment:</h4>
@@ -4532,14 +4557,14 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 
 <h3 id="user_input"><code class="highlighter-rouge">user_input</code></h3>
 
-<h4 id="possible-use-29">Possible use:</h4>
+<h4 id="possible-use-31">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">user_input</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">user_input</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
   <li><strong><code class="highlighter-rouge">user_input</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map&lt;string,unknown&gt;</code></li>
 </ul>
 
-<h4 id="result-28">Result:</h4>
+<h4 id="result-29">Result:</h4>
 <p>asks the user for some values (not defined as parameters). Takes a string (optional) and a map as arguments. The string is used to specify the message of the dialog box. The map is to specify the parameters you want the user to change before the simulation starts, with the name of the parameter in string key, and the default value as value.</p>
 
 <h4 id="comment-6">Comment:</h4>
@@ -4554,13 +4579,13 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 
 <h3 id="using"><code class="highlighter-rouge">using</code></h3>
 
-<h4 id="possible-use-30">Possible use:</h4>
+<h4 id="possible-use-32">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">any expression</code> <strong><code class="highlighter-rouge">using</code></strong> <code class="highlighter-rouge">topology</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">using</code></strong> (<code class="highlighter-rouge">any expression</code> , <code class="highlighter-rouge">topology</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-29">Result:</h4>
+<h4 id="result-30">Result:</h4>
 <p>Allows to specify in which topology a spatial computation should take place.</p>
 
 <h4 id="special-cases-10">Special cases:</h4>
@@ -4578,12 +4603,12 @@ unknown var0 &lt;- (agents closest_to self) using topology(world); // var0 equal
 
 <h3 id="variance"><code class="highlighter-rouge">variance</code></h3>
 
-<h4 id="possible-use-31">Possible use:</h4>
+<h4 id="possible-use-33">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-30">Result:</h4>
+<h4 id="result-31">Result:</h4>
 <p>the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.</p>
 
 <h4 id="comment-7">Comment:</h4>
@@ -4603,13 +4628,13 @@ float var0 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
 
 <h3 id="variance-1"><code class="highlighter-rouge">variance</code></h3>
 
-<h4 id="possible-use-32">Possible use:</h4>
+<h4 id="possible-use-34">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-31">Result:</h4>
+<h4 id="result-32">Result:</h4>
 <p>Returns the variance from a standard deviation.
 Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
 
@@ -4617,13 +4642,13 @@ Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / siz
 
 <h3 id="variance_of"><code class="highlighter-rouge">variance_of</code></h3>
 
-<h4 id="possible-use-33">Possible use:</h4>
+<h4 id="possible-use-35">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">variance_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">variance_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-32">Result:</h4>
+<h4 id="result-33">Result:</h4>
 <p>the variance of the right-hand expression evaluated on each of the elements of the left-hand operand</p>
 
 <h4 id="comment-8">Comment:</h4>
@@ -4637,14 +4662,14 @@ Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / siz
 
 <h3 id="voronoi"><code class="highlighter-rouge">voronoi</code></h3>
 
-<h4 id="possible-use-34">Possible use:</h4>
+<h4 id="possible-use-36">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">voronoi</code></strong> (<code class="highlighter-rouge">list&lt;point&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><code class="highlighter-rouge">list&lt;point&gt;</code> <strong><code class="highlighter-rouge">voronoi</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">voronoi</code></strong> (<code class="highlighter-rouge">list&lt;point&gt;</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
-<h4 id="result-33">Result:</h4>
+<h4 id="result-34">Result:</h4>
 <p>A list of geometries corresponding to the Voronoi diagram built from the list of points
 A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip</p>
 
@@ -4659,13 +4684,13 @@ list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}
 
 <h3 id="weight_of"><code class="highlighter-rouge">weight_of</code></h3>
 
-<h4 id="possible-use-35">Possible use:</h4>
+<h4 id="possible-use-37">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">weight_of</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">weight_of</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-34">Result:</h4>
+<h4 id="result-35">Result:</h4>
 <p>returns the weight of the given edge (right-hand operand) contained in the graph given in right-hand operand.</p>
 
 <h4 id="comment-9">Comment:</h4>
@@ -4688,13 +4713,13 @@ float var1 &lt;- graphFromMap weight_of(link({1,5},{12,45})); // var1 equals 1.0
 
 <h3 id="weighted_means_dm"><code class="highlighter-rouge">weighted_means_DM</code></h3>
 
-<h4 id="possible-use-36">Possible use:</h4>
+<h4 id="possible-use-38">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">msi.gama.util.IList&lt;java.util.List&gt;</code> <strong><code class="highlighter-rouge">weighted_means_DM</code></strong> <code class="highlighter-rouge">msi.gama.util.IList&lt;java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">weighted_means_DM</code></strong> (<code class="highlighter-rouge">msi.gama.util.IList&lt;java.util.List&gt;</code> , <code class="highlighter-rouge">msi.gama.util.IList&lt;java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-35">Result:</h4>
+<h4 id="result-36">Result:</h4>
 <p>The index of the candidate that maximizes the weighted mean of its criterion values. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of map)</p>
 
 <h4 id="special-cases-12">Special cases:</h4>
@@ -4716,13 +4741,13 @@ int var0 &lt;- weighted_means_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"u
 
 <h3 id="where"><code class="highlighter-rouge">where</code></h3>
 
-<h4 id="possible-use-37">Possible use:</h4>
+<h4 id="possible-use-39">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">where</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">where</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-36">Result:</h4>
+<h4 id="result-37">Result:</h4>
 <p>a list containing all the elements of the left-hand operand that make the right-hand operand evaluate to true.</p>
 
 <h4 id="comment-10">Comment:</h4>
@@ -4754,13 +4779,13 @@ list var3 &lt;- (list(node) where (round(node(each).location.x) &gt; 32); // var
 
 <h3 id="with_lifetime"><code class="highlighter-rouge">with_lifetime</code></h3>
 
-<h4 id="possible-use-38">Possible use:</h4>
+<h4 id="possible-use-40">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">with_lifetime</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">with_lifetime</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-37">Result:</h4>
+<h4 id="result-38">Result:</h4>
 <p>change the parameters of the given predicate</p>
 
 <h4 id="examples-28">Examples:</h4>
@@ -4772,13 +4797,13 @@ list var3 &lt;- (list(node) where (round(node(each).location.x) &gt; 32); // var
 
 <h3 id="with_max_of"><code class="highlighter-rouge">with_max_of</code></h3>
 
-<h4 id="possible-use-39">Possible use:</h4>
+<h4 id="possible-use-41">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">with_max_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">with_max_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-38">Result:</h4>
+<h4 id="result-39">Result:</h4>
 <p>one of elements of the left-hand operand that maximizes the value of the right-hand operand</p>
 
 <h4 id="comment-11">Comment:</h4>
@@ -4806,13 +4831,13 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_max_of (each); // var4 equals 6
 
 <h3 id="with_min_of"><code class="highlighter-rouge">with_min_of</code></h3>
 
-<h4 id="possible-use-40">Possible use:</h4>
+<h4 id="possible-use-42">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">with_min_of</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">with_min_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-39">Result:</h4>
+<h4 id="result-40">Result:</h4>
 <p>one of elements of the left-hand operand that minimizes the value of the right-hand operand</p>
 
 <h4 id="comment-12">Comment:</h4>
@@ -4840,13 +4865,13 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 
 <h3 id="with_optimizer_type"><code class="highlighter-rouge">with_optimizer_type</code></h3>
 
-<h4 id="possible-use-41">Possible use:</h4>
+<h4 id="possible-use-43">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_optimizer_type</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">with_optimizer_type</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-40">Result:</h4>
+<h4 id="result-41">Result:</h4>
 <p>changes the shortest path computation method of the given graph</p>
 
 <h4 id="comment-13">Comment:</h4>
@@ -4865,27 +4890,27 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 
 <h3 id="with_precision"><code class="highlighter-rouge">with_precision</code></h3>
 
-<h4 id="possible-use-42">Possible use:</h4>
+<h4 id="possible-use-44">Possible use:</h4>
 <ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-41">Result:</h4>
-<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.</p>
+<h4 id="result-42">Result:</h4>
+<p>A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand</p>
 
 <h4 id="examples-32">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 12345.78943 with_precision 2; // var0 equals 12345.79 
-float var1 &lt;- 123 with_precision 2; // var1 equals 123.00 
-point var2 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
-geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+geometry var0 &lt;- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+float var1 &lt;- 12345.78943 with_precision 2; // var1 equals 12345.79 
+float var2 &lt;- 123 with_precision 2; // var2 equals 123.00 
+point var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
 
 </code></pre></div></div>
 
@@ -4897,13 +4922,13 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 
 <h3 id="with_values"><code class="highlighter-rouge">with_values</code></h3>
 
-<h4 id="possible-use-43">Possible use:</h4>
+<h4 id="possible-use-45">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">with_values</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">with_values</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-42">Result:</h4>
+<h4 id="result-43">Result:</h4>
 <p>change the parameters of the given predicate</p>
 
 <h4 id="examples-33">Examples:</h4>
@@ -4915,15 +4940,15 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 
 <h3 id="with_weights"><code class="highlighter-rouge">with_weights</code></h3>
 
-<h4 id="possible-use-44">Possible use:</h4>
+<h4 id="possible-use-46">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-43">Result:</h4>
+<h4 id="result-44">Result:</h4>
 <p>returns the graph (left-hand operand) with weight given in the map (right-hand operand).</p>
 
 <h4 id="comment-14">Comment:</h4>
@@ -4942,12 +4967,12 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 
 <h3 id="without_holes"><code class="highlighter-rouge">without_holes</code></h3>
 
-<h4 id="possible-use-45">Possible use:</h4>
+<h4 id="possible-use-47">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">without_holes</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-44">Result:</h4>
+<h4 id="result-45">Result:</h4>
 <p>A geometry corresponding to the operand geometry (geometry, agent, point) without its holes</p>
 
 <h4 id="examples-34">Examples:</h4>
@@ -4960,13 +4985,13 @@ geometry var0 &lt;- solid(self); // var0 equals the geometry corresponding to th
 
 <h3 id="writable"><code class="highlighter-rouge">writable</code></h3>
 
-<h4 id="possible-use-46">Possible use:</h4>
+<h4 id="possible-use-48">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">writable</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">file</code></li>
   <li><strong><code class="highlighter-rouge">writable</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-45">Result:</h4>
+<h4 id="result-46">Result:</h4>
 <p>Marks the file as read-only or not, depending on the second boolean argument, and returns the first argument</p>
 
 <h4 id="comment-15">Comment:</h4>
@@ -4986,25 +5011,25 @@ file var0 &lt;- shape_file("../images/point_eau.shp") writable false; // var0 eq
 
 <h3 id="xml_file"><code class="highlighter-rouge">xml_file</code></h3>
 
-<h4 id="possible-use-47">Possible use:</h4>
+<h4 id="possible-use-49">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">xml_file</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-46">Result:</h4>
+<h4 id="result-47">Result:</h4>
 <p>Constructs a file of type xml. Allowed extensions are limited to xml</p>
 
 <hr />
 
 <h3 id="xor"><code class="highlighter-rouge">xor</code></h3>
 
-<h4 id="possible-use-48">Possible use:</h4>
+<h4 id="possible-use-50">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">bool</code> <strong><code class="highlighter-rouge">xor</code></strong> <code class="highlighter-rouge">bool</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">xor</code></strong> (<code class="highlighter-rouge">bool</code> , <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-47">Result:</h4>
+<h4 id="result-48">Result:</h4>
 <p>a bool value, equal to the logical xor between the left-hand operand and the right-hand operand. False when they are equal</p>
 
 <h4 id="comment-16">Comment:</h4>
@@ -5018,13 +5043,13 @@ file var0 &lt;- shape_file("../images/point_eau.shp") writable false; // var0 eq
 
 <h3 id="years_between"><code class="highlighter-rouge">years_between</code></h3>
 
-<h4 id="possible-use-49">Possible use:</h4>
+<h4 id="possible-use-51">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">years_between</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">years_between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-48">Result:</h4>
+<h4 id="result-49">Result:</h4>
 <p>Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 
 <h4 id="examples-36">Examples:</h4>
