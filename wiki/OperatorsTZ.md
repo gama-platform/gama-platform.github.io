@@ -128,6 +128,11 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ----
 
+### Containers-related operators
+[-](OperatorsAB#-), [::](OperatorsAB#::), [+](OperatorsAB#+), [accumulate](OperatorsAB#accumulate), [among](OperatorsAB#among), [at](OperatorsAB#at), [collect](OperatorsCH#collect), [contains](OperatorsCH#contains), [contains_all](OperatorsCH#contains_all), [contains_any](OperatorsCH#contains_any), [count](OperatorsCH#count), [distinct](OperatorsCH#distinct), [empty](OperatorsCH#empty), [every](OperatorsCH#every), [first](OperatorsCH#first), [first_with](OperatorsCH#first_with), [get](OperatorsCH#get), [group_by](OperatorsCH#group_by), [in](OperatorsIN#in), [index_by](OperatorsIN#index_by), [inter](OperatorsIN#inter), [interleave](OperatorsIN#interleave), [internal_at](OperatorsIN#internal_at), [internal_integrated_value](OperatorsIN#internal_integrated_value), [last](OperatorsIN#last), [last_with](OperatorsIN#last_with), [length](OperatorsIN#length), [max](OperatorsIN#max), [max_of](OperatorsIN#max_of), [mean](OperatorsIN#mean), [mean_of](OperatorsIN#mean_of), [median](OperatorsIN#median), [min](OperatorsIN#min), [min_of](OperatorsIN#min_of), [mul](OperatorsIN#mul), [one_of](OperatorsOS#one_of), [product_of](OperatorsOS#product_of), [range](OperatorsOS#range), [reverse](OperatorsOS#reverse), [shuffle](OperatorsOS#shuffle), [sort_by](OperatorsOS#sort_by), [split](OperatorsOS#split), [split_in](OperatorsOS#split_in), [split_using](OperatorsOS#split_using), [sum](OperatorsOS#sum), [sum_of](OperatorsOS#sum_of), [union](OperatorsTZ#union), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
 ### Date-related operators
 [-](OperatorsAB#-), [!=](OperatorsAB#!=), [+](OperatorsAB#+), [<](OperatorsAB#<), [<=](OperatorsAB#<=), [=](OperatorsAB#=), [>](OperatorsAB#>), [>=](OperatorsAB#>=), [after](OperatorsAB#after), [before](OperatorsAB#before), [between](OperatorsAB#between), [every](OperatorsCH#every), [milliseconds_between](OperatorsIN#milliseconds_between), [minus_days](OperatorsIN#minus_days), [minus_hours](OperatorsIN#minus_hours), [minus_minutes](OperatorsIN#minus_minutes), [minus_months](OperatorsIN#minus_months), [minus_ms](OperatorsIN#minus_ms), [minus_weeks](OperatorsIN#minus_weeks), [minus_years](OperatorsIN#minus_years), [months_between](OperatorsIN#months_between), [plus_days](OperatorsOS#plus_days), [plus_hours](OperatorsOS#plus_hours), [plus_minutes](OperatorsOS#plus_minutes), [plus_months](OperatorsOS#plus_months), [plus_ms](OperatorsOS#plus_ms), [plus_weeks](OperatorsOS#plus_weeks), [plus_years](OperatorsOS#plus_years), [since](OperatorsOS#since), [to](OperatorsTZ#to), [until](OperatorsTZ#until), [years_between](OperatorsTZ#years_between), 
 
@@ -164,7 +169,12 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [writable](OperatorsTZ#writable), 
+
+----
+
+### FIPA-related operators
+[conversation](OperatorsCH#conversation), [message](OperatorsIN#message), 
 
 ----
 
@@ -185,6 +195,101 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### Grid-related operators
 [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [grid_at](OperatorsCH#grid_at), [path_between](OperatorsOS#path_between), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+
+----
+
+### Iterator operators
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
@@ -327,8 +432,8 @@ Note that due to the fact that actions are written by modelers, the general func
 ### `tan`
 
 #### Possible use: 
-  *  **`tan`** (`float`) --->  `float`
-  *  **`tan`** (`int`) --->  `float` 
+  *  **`tan`** (`int`) --->  `float`
+  *  **`tan`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
@@ -377,8 +482,8 @@ Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in de
 ### `tanh`
 
 #### Possible use: 
-  *  **`tanh`** (`int`) --->  `float`
-  *  **`tanh`** (`float`) --->  `float` 
+  *  **`tanh`** (`float`) --->  `float`
+  *  **`tanh`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
@@ -512,19 +617,19 @@ date('2000-01-01') to date('2010-01-01') // builds an interval between these two
   *  **`to_GAMA_CRS`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
-  
-```
- 
-geometry var0 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- to_GAMA_CRS({121,14}); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+geometry var0 <- to_GAMA_CRS({121,14}); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
+  
+```
+ 
+geometry var1 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
 ``` 
 
 
@@ -593,15 +698,15 @@ list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list
   *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var0 <- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list<geometry> var2 <- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
@@ -928,7 +1033,6 @@ the operator alters the operand graph, it does not create a new one.
 
 [//]: # (keyword|operator_union)
 ### `union`
-Same signification as [+](OperatorsAB#+)
 
 #### Possible use: 
   *  **`union`** (`container<geometry>`) --->  `geometry`
@@ -939,16 +1043,16 @@ Same signification as [+](OperatorsAB#+)
 returns a new list containing all the elements of both containers without duplicated elements.
 
 #### Special cases:     
-  * if the left or right operand is nil, union throws an error    
-  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
+  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries    
+  * if the left or right operand is nil, union throws an error
 
 #### Examples: 
 ```
  
-list var0 <- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
-list var1 <- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
-list var2 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
-geometry var3 <- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
+geometry var0 <- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
+list var1 <- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
+list var2 <- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
+list var3 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
 
 ```
       
@@ -1070,7 +1174,7 @@ This operator takes a map [string::value] as argument, displays a dialog asking 
 
 #### Examples: 
 ```
-map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; 
+map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 
 ```
   
@@ -1135,8 +1239,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance from a standard deviation.
 Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+Returns the variance from a standard deviation.
     	
 ----
 
@@ -1398,25 +1502,25 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 ### `with_precision`
 
 #### Possible use: 
-  * `geometry` **`with_precision`** `int` --->  `geometry`
-  *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
-  * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point` 
+  * `geometry` **`with_precision`** `int` --->  `geometry`
+  *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
-A geometry corresponding to the rounding of points of the operand considering a given precison.
-Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
-geometry var0 <- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+point var0 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var0 equals {12345.79, 12345.79, 12345.79} 
 float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
 float var2 <- 123 with_precision 2; // var2 equals 123.00 
-point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
+geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 
 ```
       
@@ -1451,10 +1555,10 @@ predicate with_values ["time"::10]
 ### `with_weights`
 
 #### Possible use: 
-  * `graph` **`with_weights`** `list` --->  `graph`
-  *  **`with_weights`** (`graph` , `list`) --->  `graph`
   * `graph` **`with_weights`** `map` --->  `graph`
-  *  **`with_weights`** (`graph` , `map`) --->  `graph` 
+  *  **`with_weights`** (`graph` , `map`) --->  `graph`
+  * `graph` **`with_weights`** `list` --->  `graph`
+  *  **`with_weights`** (`graph` , `list`) --->  `graph` 
 
 #### Result: 
 returns the graph (left-hand operand) with weight given in the map (right-hand operand).  
