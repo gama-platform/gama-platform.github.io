@@ -665,22 +665,28 @@ This statement cannot be used alone
   * `tick_font` (string): Tick font face
   * `tick_font_size` (int): Tick font size
   * `tick_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display ticks
+  * `tick_line_color` (rgb): the tick lines color
   * `title_font` (string): Title font face
   * `title_font_size` (int): Title font size
   * `title_font_style` (an identifier), takes values in: {plain, bold, italic}: the style used to display titles
+  * `title_visible` (boolean): chart title visible
   * `type` (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.
   * `x_label` (string): the title for the X axis
   * `x_log_scale` (boolean): use Log Scale for X axis
   * `x_range` (any type in [float, int, point, list]): range of the x-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
   * `x_serie` (any type in [list, float, int]): for series charts, change the default common x serie (simulation cycle) for an other value (list or numerical).
   * `x_serie_labels` (any type in [list, float, int, a label]): change the default common x series labels (replace x value or categories) for an other value (string or numerical).
+  * `x_tick_line_visible` (boolean): X tick line visible
   * `x_tick_unit` (float): the tick unit for the y-axis (distance between horyzontal lines and values on the left of the axis).
+  * `x_tick_values_visible` (boolean): X tick values visible
   * `y_label` (string): the title for the Y axis
   * `y_log_scale` (boolean): use Log Scale for Y axis
   * `y_range` (any type in [float, int, point, list]): range of the y-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis).
   * `y_serie_labels` (any type in [list, float, int, a label]): for heatmaps/3d charts, change the default y serie for an other value (string or numerical in a list or cumulative).
+  * `y_tick_line_visible` (boolean): Y tick line visible
   * `y_tick_unit` (float): the tick unit for the x-axis (distance between vertical lines and values bellow the axis).
   * `y_tick_unit` (float): the tick unit for the x-axis (distance between vertical lines and values bellow the axis).
+  * `y_tick_values_visible` (boolean): Y tick values visible
   * `y2_label` (string): the title for the second Y axis
   * `y2_log_scale` (boolean): use Log Scale for second Y axis
   * `y2_range` (any type in [float, int, point, list]): range of the second y-axis. Can be a number (which will set the axis total range) or a point (which will set the min and max of the axis). 
