@@ -8322,38 +8322,38 @@ list var3 <- graphFromMap neighbors_of node({12,45}); // var3 equals [{1.0,5.0},
 
 #### Possible use: 
   *  **`new_emotion`** (`string`) --->  `emotion`
-  * `string` **`new_emotion`** `agent` --->  `emotion`
-  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
   * `string` **`new_emotion`** `float` --->  `emotion`
   *  **`new_emotion`** (`string` , `float`) --->  `emotion`
   * `string` **`new_emotion`** `predicate` --->  `emotion`
   *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
+  * `string` **`new_emotion`** `agent` --->  `emotion`
+  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion`
 
 #### Result:
-a new emotion with the given properties (name)
-a new emotion with the given properties (name,intensity,about)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name, intensity)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
+a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name)
 
 #### Examples:
 ```
-emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) 
+emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) 
 
 ```
   
@@ -8392,31 +8392,31 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
   *  **`new_mental_state`** (`string`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   * `string` **`new_mental_state`** `emotion` --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string` , `emotion`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  * `string` **`new_mental_state`** `msi.gaml.architecture.simplebdi.MentalState` --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string` , `msi.gaml.architecture.simplebdi.MentalState`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   * `string` **`new_mental_state`** `predicate` --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string` , `predicate`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  * `string` **`new_mental_state`** `msi.gaml.architecture.simplebdi.MentalState` --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string` , `msi.gaml.architecture.simplebdi.MentalState`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `emotion`, `float`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
   *  **`new_mental_state`** (`string`, `msi.gaml.architecture.simplebdi.MentalState`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `msi.gaml.architecture.simplebdi.MentalState`
 
 #### Result:
 a new mental state
@@ -8459,39 +8459,39 @@ new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_m
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `bool` --->  `predicate`
-  *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
-  * `string` **`new_predicate`** `map` --->  `predicate`
-  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
   * `string` **`new_predicate`** `int` --->  `predicate`
   *  **`new_predicate`** (`string` , `int`) --->  `predicate`
+  * `string` **`new_predicate`** `map` --->  `predicate`
+  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
+  * `string` **`new_predicate`** `bool` --->  `predicate`
+  *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
   * `string` **`new_predicate`** `agent` --->  `predicate`
   *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate`
 
 #### Result:
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name, values)
 a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime, is_true)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name)
 
 #### Examples:
 ```
-predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true, agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", people1 ) predicate("hasWater", 10  predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet") predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) 
+predicate("hasWater", 10  predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10, agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet") 
 
 ```
   
@@ -10370,18 +10370,18 @@ social_link set_agent agentA
 ### `set_agent_cause`
 
 #### Possible use: 
-  * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
-  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion`
   * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
   *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate`
+  * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
+  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion`
 
 #### Result:
-change the agentCause value of the given emotion
 change the agentCause value of the given predicate
+change the agentCause value of the given emotion
 
 #### Examples:
 ```
-emotion set_agent_cause agentA predicate set_agent_cause agentA 
+predicate set_agent_cause agentA emotion set_agent_cause agentA 
 
 ```
   
@@ -10850,8 +10850,8 @@ list<geometry> var0 <- skeletonize(self); // var0 equals the list of geometries 
   *  **`skew`** (`float` , `float`) --->  `float`
 
 #### Result:
-Returns the skew of a data sequence.
 Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+Returns the skew of a data sequence.
 
 ----
 
@@ -12349,8 +12349,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float`
 
 #### Result:
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 
 ----
 
