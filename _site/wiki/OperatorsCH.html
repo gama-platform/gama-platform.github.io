@@ -4048,8 +4048,8 @@ string var0 &lt;- char (34); // var0 equals '"'
 </ul>
 
 <h4 id="result-4">Result:</h4>
-<p>A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
-A circle geometry which radius is equal to the operand.</p>
+<p>A circle geometry which radius is equal to the operand.
+A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.</p>
 
 <h4 id="comment">Comment:</h4>
 <p>the center of the circle is by default the location of the current agent in which has been called this operator.</p>
@@ -4062,8 +4062,8 @@ A circle geometry which radius is equal to the operand.</p>
 
 <h4 id="examples-2">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}. 
-geometry var1 &lt;- circle(10); // var1 equals a geometry as a circle of radius 10.
+geometry var0 &lt;- circle(10); // var0 equals a geometry as a circle of radius 10. 
+geometry var1 &lt;- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
 
 </code></pre></div></div>
 
@@ -4233,9 +4233,9 @@ list&lt;list&gt; var0 &lt;- columns_list(matrix([["el11","el12","el13"],["el21",
 </ul>
 
 <h4 id="result-11">Result:</h4>
-<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
+<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string</p>
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.</p>
 
 <hr />
 
@@ -4263,8 +4263,8 @@ A cone geometry which min and max angles are given by the operands.</p>
 
 <h4 id="examples-9">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 &lt;- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 &lt;- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 </code></pre></div></div>
 
@@ -4412,10 +4412,10 @@ bool var0 &lt;- 'abcded' contains 'bc'; // var0 equals true
 
 <h4 id="possible-use-19">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-18">Result:</h4>
@@ -4431,15 +4431,15 @@ bool var0 &lt;- 'abcded' contains 'bc'; // var0 equals true
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- "abcabcabc" contains_all ["ca","xy"]; // var0 equals false
+bool var4 &lt;- "abcabcabc" contains_all ["ca","xy"]; // var4 equals false
 </code></pre></div></div>
 
 <h4 id="examples-14">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var1 &lt;- [1,2,3,4,5,6] contains_all [2,4]; // var1 equals true  
-bool var2 &lt;- [1,2,3,4,5,6] contains_all [2,8]; // var2 equals false 
-bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [1,3]; // var3 equals false  
-bool var4 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
+bool var0 &lt;- [1,2,3,4,5,6] contains_all [2,4]; // var0 equals true  
+bool var1 &lt;- [1,2,3,4,5,6] contains_all [2,8]; // var1 equals false 
+bool var2 &lt;- [1::2, 3::4, 5::6] contains_all [1,3]; // var2 equals false  
+bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
 
 </code></pre></div></div>
 
@@ -4490,10 +4490,10 @@ bool var4 &lt;- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 
 <h4 id="possible-use-21">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-20">Result:</h4>
@@ -4506,12 +4506,12 @@ bool var4 &lt;- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var2 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
+bool var0 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
 </code></pre></div></div>
 
 <h4 id="examples-16">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
-bool var1 &lt;- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
+bool var2 &lt;- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
 
 </code></pre></div></div>
 
@@ -4592,8 +4592,8 @@ geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geo
 
 <h4 id="possible-use-26">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
 <h4 id="result-24">Result:</h4>
@@ -4608,8 +4608,8 @@ geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geo
 
 <h4 id="examples-19">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var0 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
-string var1 &lt;- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
+string var0 &lt;- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
+list var1 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
 
 </code></pre></div></div>
 
@@ -4932,16 +4932,16 @@ geometry var0 &lt;- cube(10); // var0 equals a geometry as a square of side size
 </ul>
 
 <h4 id="result-38">Result:</h4>
-<p>A cubic Bezier curve geometry built from the four given points composed of 10 points.
+<p>A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
 A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
 A quadratic Bezier curve geometry built from the three given points composed of 10 points.</p>
 
 <h4 id="special-cases-19">Special cases:</h4>
 <ul>
   <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
   <li>if the operand is nil, returns nil</li>
@@ -4950,8 +4950,8 @@ A quadratic Bezier curve geometry built from the three given points composed of 
 <h4 id="examples-29">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var1 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var2 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
 geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
 
 </code></pre></div></div>
@@ -5080,10 +5080,10 @@ int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3
 <h4 id="possible-use-46">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
@@ -5092,10 +5092,10 @@ int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3
 
 <h4 id="examples-35">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var0 &lt;- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var1 &lt;- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
 geometry var2 &lt;- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var3 &lt;- dem(dem,texture); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var3 &lt;- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
 
 </code></pre></div></div>
 
@@ -5323,8 +5323,8 @@ list var0 &lt;- remove_duplicates([3,2,5,1,2,3,5,5,5]); // var0 equals [3,2,5,1]
 
 <h4 id="examples-42">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 &lt;- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 &lt;- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 </code></pre></div></div>
@@ -5350,8 +5350,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1
 
 <h4 id="examples-43">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-map var0 &lt;- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 &lt;- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 </code></pre></div></div>
@@ -5370,10 +5370,10 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
 <h4 id="result-56">Result:</h4>
@@ -5390,8 +5390,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- 40.5 div 3; // var0 equals 13 
 int var1 &lt;- 40.1 div 4.5; // var1 equals 8 
-int var2 &lt;- 40 div 3; // var2 equals 13 
-int var3 &lt;- 40 div 4.1; // var3 equals 9
+int var2 &lt;- 40 div 4.1; // var2 equals 9 
+int var3 &lt;- 40 div 3; // var3 equals 13
 
 </code></pre></div></div>
 
@@ -5456,16 +5456,16 @@ float var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 
 
 <h4 id="possible-use-62">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
@@ -5614,8 +5614,8 @@ geometry var0 &lt;- ellipse(10, 10); // var0 equals a geometry as an ellipse of 
 
 <h4 id="possible-use-70">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-66">Result:</h4>
@@ -5632,19 +5632,19 @@ geometry var0 &lt;- ellipse(10, 10); // var0 equals a geometry as an ellipse of 
   <li>if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise</li>
   <li>if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise</li>
   <li>if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise</li>
-  <li>if it is a list, empty returns true if there is no element in the list, and false otherwise</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- empty([]); // var0 equals true
-</code></pre></div></div>
-
-<ul>
   <li>if it is a string, empty returns true if the string does not contain any character, and false otherwise</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var1 &lt;- empty ('abced'); // var1 equals false
+bool var0 &lt;- empty ('abced'); // var0 equals false
+</code></pre></div></div>
+
+<ul>
+  <li>if it is a list, empty returns true if there is no element in the list, and false otherwise</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var1 &lt;- empty([]); // var1 equals true
 </code></pre></div></div>
 
 <hr />
@@ -5730,8 +5730,8 @@ bool var1 &lt;- even(-12); // var1 equals true
 
 <h4 id="possible-use-75">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">msi.gama.util.GamaDateInterval</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">msi.gama.util.GamaDateInterval</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;</code></li>
   <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">list</code></li>
@@ -5739,16 +5739,16 @@ bool var1 &lt;- even(-12); // var1 equals true
 </ul>
 
 <h4 id="result-71">Result:</h4>
-<p>true every operand * cycle, false otherwise
-applies a step to an interval of dates defined by ‘date1 to date2’
+<p>applies a step to an interval of dates defined by ‘date1 to date2’
+Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero
 expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero</p>
+true every operand * cycle, false otherwise</p>
 
 <h4 id="comment-15">Comment:</h4>
-<p>the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point</p>
+<p>Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.</p>
 
 <h4 id="examples-54">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
 
 </code></pre></div></div>
 
@@ -5797,8 +5797,8 @@ int var0 &lt;- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"
 
 <h4 id="possible-use-77">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-73">Result:</h4>
@@ -6218,11 +6218,11 @@ fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,
 </ul>
 
 <h4 id="result-89">Result:</h4>
-<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
 <h4 id="examples-69">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 </code></pre></div></div>
 
@@ -6372,12 +6372,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 
 <h4 id="special-cases-39">Special cases:</h4>
 <ul>
-  <li>“vertices_specy”: the species of vertices</li>
+  <li>“agents”: list of existing node agents</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes</li>
   <li>“m”: the number of edges added per novel node</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
+  <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes</li>
   <li>“m”: the number of edges added per novel node</li>
@@ -6385,7 +6385,7 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 </ul>
 
 <h4 id="examples-73">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph&lt;yourNodeSpecy,yourEdgeSpecy&gt; graphEpidemio &lt;- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 </code></pre></div></div>
 
@@ -6425,17 +6425,17 @@ returns a fully connected graph.</p>
   <li>“size”: the graph will contain size nodes.</li>
   <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 
 <h4 id="examples-74">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
 
 </code></pre></div></div>
 
@@ -6462,21 +6462,21 @@ returns a random small-world network (following Watts-Strogatz model).</p>
 
 <h4 id="special-cases-41">Special cases:</h4>
 <ul>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
+  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
+  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes. Size must be greater than k.</li>
   <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
   <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
-  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
-  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 
 <h4 id="examples-75">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
 
 </code></pre></div></div>
 
@@ -6564,7 +6564,6 @@ geometry var0 &lt;- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // va
 <hr />
 
 <h3 id="get"><code class="highlighter-rouge">get</code></h3>
-<p>Same signification as <a href="OperatorsOS#read">read</a></p>
 
 <h4 id="possible-use-108">Possible use:</h4>
 <ul>
@@ -6633,8 +6632,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 
 <h4 id="possible-use-111">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
   <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
+  <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
 <h4 id="result-107">Result:</h4>
@@ -7103,8 +7102,8 @@ list var0 &lt;- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 
 <h4 id="possible-use-136">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
 </ul>
 
 <h4 id="result-129">Result:</h4>
