@@ -5134,7 +5134,7 @@ The statement makes the agent output an error dialog (if the simulation contains
 <ul>
   <li><strong><code class="highlighter-rouge">name</code></strong> (an identifier), (omissible) : the type of event captured: can be  “mouse_up”, “mouse_down”, “mouse_move”, “mouse_exit”, “mouse_enter” or a character</li>
   <li><strong><code class="highlighter-rouge">action</code></strong> (26): Either a block of statements to execute in the context of the simulation or the identifier of the action to be executed. This action needs to be defined in ‘global’ or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location</li>
-  <li><code class="highlighter-rouge">type</code> (string): Type of peripheric</li>
+  <li><code class="highlighter-rouge">type</code> (string): Type of peripheric used to generate events. Defaults to ‘default’, which encompasses keyboard and mouse</li>
   <li><code class="highlighter-rouge">unused</code> (an identifier), takes values in: {mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit}: an unused facet that serves only for the purpose of declaring the string values</li>
 </ul>
 
