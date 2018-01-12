@@ -6,7 +6,7 @@ wikiPagePath: wiki/Displays.md
 ---
 # Displays
 
-GAMA allows modelers to [define several and several kinds of displays](DefiningDisplaysGeneralities) in a [GUI experiment](DefiningGUIExperiment):
+GAMA allows modelers to [define several kinds of displays](DefiningDisplaysGeneralities) in a [GUI experiment](DefiningGUIExperiment):
   * java 2D displays
   * OpenGL displays
 
