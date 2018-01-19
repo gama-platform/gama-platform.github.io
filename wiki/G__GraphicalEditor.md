@@ -42,7 +42,7 @@ Using the graphical editor requires to install the graphical modeling plug-in. S
 The graphical editor plug-in is called **Graphical\_modeling** and is directly available from the GAMA update site **http://updates.gama-platform.org/graphical_modeling**
 
 
-![install](resources/images/graphicalEditor/installing_graphical_editor.png)
+![install](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/installing_graphical_editor.png)
 
 
 Note that the graphical editor is still under development. Updates of the plug-in will be add to the GAMA website. After installing the plug-in (and periodically), check for updates for this plug-in: in the "Help" menu, choose "Check for Updates" and install the proposed updates for the graphical modeling plug-in.
@@ -54,11 +54,11 @@ Note that the graphical editor is still under development. Updates of the plug-i
 
 A new diagram can be created in a new GAMA project. First, right click on a project, then select "New" on the contextual menu.
 In the New Wizard, select "GAMA -> Model Diagram", then "Next>"
-![images/graphical_editor/newDiagram.png](resources/images/graphicalEditor/newDiagram.png)
+![images/graphical_editor/newDiagram.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/newDiagram.png)
 
 In the next Wizard dialog, select the type of diagram (Empty, Skeleton or Example) then the name of the file and the author.
 
-![images/graphical_editor/modeldiagramNew.png](resources/images/graphicalEditor/modeldiagramNew.png) 
+![images/graphical_editor/modeldiagramNew.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/modeldiagramNew.png) 
 
 Skeleton and Example diagram types allow to add to the diagram some basic features.
 
@@ -83,7 +83,7 @@ Experiment buttons are updated in real-time to reflect what's in your code. If m
 ## Diagram definition framework
 
 The following figure presents the editing framework:
-![images/graphical_editor/framework.png](resources/images/graphicalEditor/framework.png)
+![images/graphical_editor/framework.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/framework.png)
 
 
 
@@ -94,26 +94,25 @@ The following figure presents the editing framework:
 ### agents
 #### species
 
-![images/graphical_editor/species.png](resources/images/graphicalEditor/species.png)
+![images/graphical_editor/species.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/species.png)
 
 The species feature allows to define a species with a continuous topology. A species is always a micro-species of another species. The top level (macro-species of all species) is the world species.
 
   * **source**: a species (macro-species)
   * **target**: -
-![images/graphical_editor/Frame_Speciesdef1.png](resources/images/graphicalEditor/Frame_Speciesdef1.png)
+![images/graphical_editor/Frame_Speciesdef1.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_species.png)
 
-![images/graphical_editor/Frame_Speciesdef2.png](resources/images/graphicalEditor/Frame_Speciesdef2.png)
 
 #### grid
 
-![images/graphical_editor/grid.png](resources/images/graphical_editor/grid.png)
+![images/graphical_editor/grid.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/grid.png)
 
 The grid feature allows to define a [species](Species151) with a [grid topology](Sections151#environment). A grid is always a micro-species of another species.
 
   * **source**: a species (macro-species)
   * **target**: -
 
-![images/graphical_editor/Frame_grid.png](resources/images/graphicalEditor/Frame_grid.png)
+![images/graphical_editor/Frame_grid.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_grid.png)
 
 #### Inheriting link
 The inheriting link feature allows to define an inheriting link between two species.
@@ -121,80 +120,80 @@ The inheriting link feature allows to define an inheriting link between two spec
   * **source**: a species (parent)
   * **target**: a species (child)
 
-![images/graphical_editor/inhereting_link.png](resources/images/graphicalEditor/inhereting_link.png)
+![images/graphical_editor/inhereting_link.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/inhereting_link.png)
 
 
 #### world
 
-![images/graphical_editor/world.png](resources/images/graphicalEditor/world.png)
+![images/graphical_editor/world.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/world.png)
 
 When a model is created, a world species is always defined. It represent the global part of the model. The world species, which is unique, is the top level species. All other species are micro-species of the world species.
 
-![images/graphical_editor/Frame_world.png](resources/images/graphicalEditor/Frame_world.png)
+![images/graphical_editor/Frame_world.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_world.png)
 
 ### agent features
 
 #### action
-![images/graphical_editor/action.png](resources/images/graphicalEditor/action.png)
+![images/graphical_editor/action.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/action.png)
 
 The action feature allows to define an action for a species.
 
   * **source**: a species (owner of the action)
   * **target**: -
 
-![images/graphical_editor/Frame_action.png](resources/images/graphicalEditor/Frame_action.png)
+![images/graphical_editor/Frame_action.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_action.png)
 
 #### reflex
-![images/graphical_editor/reflex.png](resources/images/graphicalEditor/reflex.png)
+![images/graphical_editor/reflex.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/reflex.png)
 
 The reflex feature allows to define a reflex for a species.
 
   * **source**: a species (owner of the reflex)
   * **target**: -
 
-![images/graphical_editor/Frame_reflex.png](resources/images/graphicalEditor/Frame_reflex.png)
+![images/graphical_editor/Frame_reflex.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_reflex.png)
 
 #### aspect
-![images/graphical_editor/aspect.png](resources/images/graphicalEditor/aspect.png)
+![images/graphical_editor/aspect.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/aspect.png)
 
 The aspect feature allows to define an aspect for a species.
 
   * **source**: a species (owner of the aspect)
   * **target**: -
 
-![images/graphical_editor/Frame_aspect.png](resources/images/graphicalEditor/Frame_aspect.png)
+![images/graphical_editor/Frame_aspect.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_aspect.png)
 
 
-![images/graphical_editor/Frame_Aspect_layer.png](resources/images/graphicalEditor/Frame_Aspect_layer.png)
+![images/graphical_editor/Frame_Aspect_layer.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_Aspect_layer.png)
 ### experiment
 #### GUI experiment
 
-![images/graphical_editor/guiXP.png](resources/images/graphicalEditor/guiXP.png)
+![images/graphical_editor/guiXP.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/guiXP.png)
 
 The GUI Experiment feature allows to define a GUI experiment.
 
   * **source**: world species
   * **target**: -
 
-![images/graphical_editor/Frame_Experiment.png](resources/images/graphicalEditor/Frame_Experiment.png)
+![images/graphical_editor/Frame_Experiment.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_Experiment.png)
 
 #### display
 
-![images/graphical_editor/display.png](resources/images/graphicalEditor/display.png)
+![images/graphical_editor/display.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/display.png)
 
 The display feature allows to define a display.
 
   * **source**: GUI experiment
   * **target**: -
 
-![images/graphical_editor/Frame_display.png](resources/images/graphicalEditor/Frame_display.png)
+![images/graphical_editor/Frame_display.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_display.png)
 
 
-![images/graphical_editor/Frame_layer_display.png](resources/images/graphicalEditor/Frame_layer_display.png)
+![images/graphical_editor/Frame_layer_display.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_layer_display.png)
 
 #### batch experiment
 
-![images/graphical_editor/batchxp.png](resources/images/graphicalEditor/batchxp.png)
+![images/graphical_editor/batchxp.png](https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/batchxp.png)
 
 The Batch Experiment feature allows to define a Batch experiment.
 
