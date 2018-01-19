@@ -18,6 +18,8 @@ Unpack it and launch it. Please refer to this [link](http://help.eclipse.org/mar
 
 **One important step** required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, "General", then "Workspace", then "Text file encoding" and choosing "UTF-8" in the drop-down menu available in "Other:".
 
+If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.9.1 (see [here](http://www.eclipse.org/Xtext/download.html) to obtain it).
+
 ## Install GAMA source code
 
 The source is to be downloaded from GitHub in two steps: by creating a local clone of the GitHub repository and then importing the different projects that constitute GAMA into the Eclipse workspace.

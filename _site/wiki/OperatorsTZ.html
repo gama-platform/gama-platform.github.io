@@ -3952,8 +3952,8 @@ function closeRightMenu() {
 
 <h4 id="possible-use">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result">Result:</h4>
@@ -4004,8 +4004,8 @@ float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
 
 <h4 id="possible-use-2">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tanh</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-2">Result:</h4>
@@ -4104,7 +4104,6 @@ geometry var0 &lt;- teapot(10); // var0 equals a geometry as a circle of radius 
 <hr />
 
 <h3 id="to"><code class="highlighter-rouge">to</code></h3>
-<p>Same signification as <a href="OperatorsTZ#until">until</a></p>
 
 <h4 id="possible-use-7">Possible use:</h4>
 <ul>
@@ -4208,6 +4207,7 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1
 <hr />
 
 <h3 id="to_squares"><code class="highlighter-rouge">to_squares</code></h3>
+<p>Same signification as <a href="OperatorsOS#split_geometry">split_geometry</a></p>
 
 <h4 id="possible-use-11">Possible use:</h4>
 <ul>
@@ -4217,15 +4217,15 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1
 </ul>
 
 <h4 id="result-10">Result:</h4>
-<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
+<p>A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0</p>
 
 <h4 id="examples-7">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_squares(self, 10.0, true); // var1 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var2 &lt;- to_squares(self, 10, true); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list&lt;geometry&gt; var0 &lt;- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var2 &lt;- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 </code></pre></div></div>
 
@@ -4479,8 +4479,8 @@ list&lt;geometry&gt; var1 &lt;- triangulate(self); // var1 equals the list of ge
 
 <h4 id="possible-use-21">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-20">Result:</h4>
@@ -4488,15 +4488,15 @@ list&lt;geometry&gt; var1 &lt;- triangulate(self); // var1 equals the list of ge
 
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
+  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
   <li>if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]</li>
   <li>when truncated_gauss is called with a list of only one element mean, it will always return 0.0</li>
-  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
 </ul>
 
 <h4 id="examples-17">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- truncated_gauss ([0.5, 0.0]); // var0 equals 0.5 
-float var1 &lt;- truncated_gauss ({0, 0.3}); // var1 equals a float between -0.3 and 0.3
+float var0 &lt;- truncated_gauss ({0, 0.3}); // var0 equals a float between -0.3 and 0.3 
+float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 
 </code></pre></div></div>
 
@@ -4780,13 +4780,13 @@ Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / siz
 </ul>
 
 <h4 id="result-34">Result:</h4>
-<p>A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
-A list of geometries corresponding to the Voronoi diagram built from the list of points</p>
+<p>A list of geometries corresponding to the Voronoi diagram built from the list of points
+A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip</p>
 
 <h4 id="examples-24">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
-list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
+list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
 
 </code></pre></div></div>
 
@@ -5052,10 +5052,10 @@ point var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // v
 
 <h4 id="possible-use-46">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
 <h4 id="result-44">Result:</h4>
