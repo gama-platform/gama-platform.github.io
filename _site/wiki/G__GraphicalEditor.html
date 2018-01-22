@@ -3703,6 +3703,19 @@ In the New Wizard, select “GAMA -&gt; Model Diagram”, then “Next&gt;”
 <p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_aspect.png" alt="images/graphical_editor/Frame_aspect.png" /></p>
 
 <p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_Aspect_layer.png" alt="images/graphical_editor/Frame_Aspect_layer.png" /></p>
+
+<h4 id="equation">equation</h4>
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/equation.png" alt="images/graphical_editor/equation.png" /></p>
+
+<p>The equation feature allows to define an equation for a species.</p>
+
+<ul>
+  <li><strong>source</strong>: a species (owner of the equation)</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_Equation.png" alt="images/graphical_editor/Frame_Equation.png" /></p>
+
 <h3 id="experiment">experiment</h3>
 <h4 id="gui-experiment">GUI experiment</h4>
 
@@ -3742,6 +3755,74 @@ In the New Wizard, select “GAMA -&gt; Model Diagram”, then “Next&gt;”
   <li><strong>source</strong>: world species</li>
   <li><strong>target</strong>: -</li>
 </ul>
+
+<h3 id="bdi-architecture">BDI Architecture</h3>
+<h4 id="plan">Plan</h4>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/plan.png" alt="images/graphical_editor/plan.png" /></p>
+
+<p>The Plan feature allows to define a plan for a BDI species, i.e. a sequence of statements that will be executed in order to fulfill a particular intention.</p>
+
+<ul>
+  <li><strong>source</strong>:  a species with a BDI architecture</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_plan.png" alt="images/graphical_editor/Frame_plan.png" /></p>
+
+<h4 id="rule">Rule</h4>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/rule.png" alt="images/graphical_editor/rule.png" /></p>
+
+<p>The Rule feature allows to define a rule for a BDI species, i.e. a function executed at each iteration to infer new desires or beliefs from the agent’s current beliefs and desires.</p>
+
+<ul>
+  <li><strong>source</strong>:  a species with a BDI architecture</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_rule.png" alt="images/graphical_editor/Frame_rule.png" /></p>
+
+<h4 id="perception">Perception</h4>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/perception.png" alt="images/graphical_editor/perception.png" /></p>
+
+<p>The Perception feature allows to define a perception for a BDI species, i.e. a function executed at each iteration that updates the agent’s Belief base according to the agent perception.</p>
+
+<ul>
+  <li><strong>source</strong>:  a species with a BDI architecture</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_perception.png" alt="images/graphical_editor/Frame_perception.png" /></p>
+
+<h3 id="finite-state-machine-architecture">Finite State Machine Architecture</h3>
+<h4 id="state">State</h4>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/state.png" alt="images/graphical_editor/state.png" /></p>
+
+<p>The State feature allows to define a state for a FSM species, i.e. sequence of statements that will be executed if the agent is in this state (an agent has a unique state at a time).</p>
+
+<ul>
+  <li><strong>source</strong>:  a species with a finite state machine architecture</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_state.png" alt="images/graphical_editor/Frame_state.png" /></p>
+
+<h3 id="task-based-architecture">Task-based Architecture</h3>
+<h4 id="task">Task</h4>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/task.png" alt="images/graphical_editor/task.png" /></p>
+
+<p>The Task feature allows to define a task for a Tasked-based species, i.e. sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
+
+<ul>
+  <li><strong>source</strong>:  a species with a task-based architecture</li>
+  <li><strong>target</strong>: -</li>
+</ul>
+
+<p><img src="https://github.com/gama-platform/gama-platform.github.io/blob/master/resources/images/graphicalEditor/Frame_task.png" alt="images/graphical_editor/Frame_task.png" /></p>
 
 <h2 id="pictogram-color-modification">Pictogram color modification</h2>
 <p>It is possible to change the color of a pictogram.</p>
