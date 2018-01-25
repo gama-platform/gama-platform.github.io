@@ -154,6 +154,8 @@ species miner skills: [moving] control:simple_bdi {
 	rgb mycolor<-rnd_color(255);
 	point target;
 	int gold_sold;
+
+        bool use_social_architecture <- true;
 	
 	init
 	{

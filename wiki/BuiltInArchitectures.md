@@ -81,6 +81,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
 * **`neurotism`** (float):    
+* **`obligation_base`** (list):    
 * **`openness`** (float):    
 * **`plan_base`** (list):    
 * **`plan_persistence`** (float): plan persistence   
@@ -150,21 +151,21 @@ add the emotion to the emotion base.
 add a predicate in the ideal base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_ideal_emotion`**
 add a predicate in the ideal base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_ideal_mental_state`**
 add a predicate in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_intention`**
@@ -187,6 +188,13 @@ check if the predicates is in the desire base.
 * **`mental_state`** (546708): predicate to add as an intention 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_obligation`**
+add a predicate in the ideal base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to add as an obligation 			
+* **`strength`** (float): the strength value of the obligation 			
+* **`lifetime`** (int): the lifetime of the obligation  
 	 
 #### **`add_social_link`**
 add the social link to the social link base.
@@ -239,6 +247,10 @@ clear the ideal base
 	 
 #### **`clear_intentions`**
 clear the intention base
+* returns: bool  
+	 
+#### **`clear_obligations`**
+clear the obligation base
 * returns: bool  
 	 
 #### **`clear_social_links`**
@@ -372,6 +384,11 @@ get the list of predicates is in the belief base with the given name.
 * returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState> 			
 * **`name`** (string): name of the predicates to check  
 	 
+#### **`get_obligation`**
+get the predicates in the obligation base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`predicate`** (546704): predicate to return  
+	 
 #### **`get_plan`**
 get the first plan with the given name
 * returns: BDIPlan 			
@@ -430,6 +447,11 @@ check if the predicates is in the ideal base.
 check if the mental state is in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
+	 
+#### **`has_obligation`**
+check if the predicates is in the obligation base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to check  
 	 
 #### **`has_social_link`**
 check if the social link base.
@@ -512,6 +534,11 @@ removes the mental state from the intention base.
 * returns: bool 			
 * **`mental_state`** (546708): intention's mental state to remove 			
 * **`desire_also`** (boolean): removes also desire  
+	 
+#### **`remove_obligation`**
+removes the predicates from the obligation base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to remove  
 	 
 #### **`remove_social_link`**
 removes the social link from the social relation base.
