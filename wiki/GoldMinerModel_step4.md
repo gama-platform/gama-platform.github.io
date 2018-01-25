@@ -140,6 +140,7 @@ species miner skills: [moving] control:simple_bdi {
 	point target;
 	int gold_sold;
 	
+        bool use_social_architecture <- true;
 	bool use_emotions_architecture <- true;
 	bool use_personality <- true;
 	
