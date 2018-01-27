@@ -81,6 +81,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
 * **`neurotism`** (float):    
+* **`obedience`** (float):    
 * **`obligation_base`** (list):    
 * **`openness`** (float):    
 * **`plan_base`** (list):    
@@ -91,6 +92,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`thinking`** (list):    
 * **`uncertainty_base`** (list):    
 * **`use_emotions_architecture`** (boolean):    
+* **`use_norms`** (boolean):    
 * **`use_personality`** (boolean):    
 * **`use_social_architecture`** (boolean):  
  	
