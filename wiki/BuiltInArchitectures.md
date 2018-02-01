@@ -81,6 +81,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
 * **`neurotism`** (float):    
+* **`norm_base`** (list):    
 * **`obedience`** (float):    
 * **`obligation_base`** (list):    
 * **`openness`** (float):    
