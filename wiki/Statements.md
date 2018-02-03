@@ -1276,9 +1276,10 @@ emotional_contagion emotion_detected:fearConfirmed; emotional_contagion emotion_
 #### Facets 
 
   * `name` (an identifier), (omissible) : the identifier of the enforcement
-  * `norm` (546710): The norm to enforce
-  * `reward` (546711): The positive sanction to apply if the norm has been followed
-  * `sanction` (546711): The sanction to apply if the norm is violated
+  * `norm` (string): The norm to enforce
+  * `obligation` (546704): The obligation to enforce
+  * `reward` (string): The positive sanction to apply if the norm has been followed
+  * `sanction` (string): The sanction to apply if the norm is violated
   * `when` (boolean): A boolean value to enforce only with a certain condition 
  	
 #### Definition
@@ -2109,6 +2110,7 @@ monitor "nb preys" value: length(prey as list) refresh_every: 5;   ```
   * `finished_when` (boolean): 
   * `instantaneous` (boolean): 
   * `intention` (546704): 
+  * `lifetime` (int): 
   * `obligation` (546704): 
   * `priority` (float): 
   * `threshold` (float): 

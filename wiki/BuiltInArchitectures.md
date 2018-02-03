@@ -73,6 +73,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`belief_base`** (list):    
 * **`charisma`** (float):    
 * **`conscientiousness`** (float):    
+* **`current_norm`** (any type):    
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
@@ -89,6 +90,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`plan_persistence`** (float): plan persistence   
 * **`probabilistic_choice`** (boolean):    
 * **`receptivity`** (float):    
+* **`sanction_base`** (list):    
 * **`social_link_base`** (list):    
 * **`thinking`** (list):    
 * **`uncertainty_base`** (list):    
