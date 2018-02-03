@@ -2,6 +2,7 @@ notifications:
   email:
     on_success: always
     on_error: always
+sudo: required
 rvm:
 - 2.4.0
 bundler_args: --without deployment
