@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2018/02/05 02:26:17_
+______________ _last update : 2018/02/05 02:34:21_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -406,7 +406,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | autosave | 2 | _ | _ | 2 |
 | background | 1 | _ | _ | 1 |
 | batch | 3 | 154 | 4 | 161 |
-| bdi | 1 | 1474 | 0 | 1475 |
+| bdi | 1 | 1298 | 0 | 1299 |
 | behavior | 3 | 154 | _ | 157 |
 | camera | 1 | 22 | 2 | 25 |
 | cast | 1 | 374 | 1 | 376 |
@@ -529,7 +529,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | torus | 1 | _ | _ | 1 |
 | transport | 1 | 110 | 6 | 117 |
 | txt | 0 | 0 | 1 | 1 |
-| type | 0 | 1298 | _ | 1298 |
+| type | 0 | 1210 | _ | 1210 |
 | update | 1 | _ | _ | 1 |
 | volume_unit | 0 | 110 | _ | 110 |
 | weight_unit | 0 | 176 | _ | 176 |
