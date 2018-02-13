@@ -378,11 +378,11 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2018/02/08 02:38:13_
+______________ _last update : 2018/02/13 02:31:49_
 
 **List of concepts to use for model library (except Syntax):**
 
-3d, agent_location, agent_movement, algorithm, architecture, asc, batch, bdi, camera, chart, clustering, color, communication, comodel, comparison, csv, database, date, dem, dgs, diffusion, dxf, edge, elevation, equation, fipa, fsm, geometry, gis, graph, graph_weight, graphic, grid, gui, headless, hydrology, image, inheritance, inspector, light, load_file, math, mirror, monitor, multi_criteria, multi_level, multi_simulation, neighbors, network, nil, node, obj, obstacle, osm, overlay, physics_engine, r, raster, regression, save_file, scheduler, serialize, shape, shapefile, shortest_path, skill, sound, spatial_computation, spatial_relation, spatial_transformation, sport, statistic, svg, system, task_based, test, text, texture, tif, topology, transport, txt, xml
+3d, agent_location, agent_movement, algorithm, architecture, asc, batch, bdi, camera, chart, clustering, color, communication, comodel, comparison, csv, database, date, dem, dgs, diffusion, dxf, edge, elevation, equation, fipa, fsm, geometry, gis, gml, graph, graph_weight, graphic, grid, gui, headless, hydrology, image, inheritance, inspector, light, load_file, math, mirror, monitor, multi_criteria, multi_level, multi_simulation, neighbors, network, nil, node, obj, obstacle, osm, overlay, physics_engine, r, raster, regression, save_file, scheduler, serialize, shape, shapefile, shortest_path, skill, sound, spatial_computation, spatial_relation, spatial_transformation, sport, statistic, svg, system, task_based, test, text, texture, tif, topology, transport, txt, xml
 
 **List of concepts to use exclusively in Syntax models:**
 
@@ -390,7 +390,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 
 **List of concepts to use for GAML worlds:**
 
-3d, action, agent_location, agent_movement, algorithm, architecture, arithmetic, asc, attribute, batch, bdi, behavior, camera, cast, chart, clustering, color, communication, comodel, comparison, condition, constant, container, csv, cycle, database, date, dem, dgs, diffusion, dimension, display, dxf, edge, elevation, equation, experiment, file, filter, fipa, fsm, geometry, gis, graph, graph_weight, graphic, graphic_unit, grid, gui, headless, hydrology, image, inspector, length_unit, light, list, load_file, logical, loop, map, math, matrix, mirror, monitor, multi_criteria, multi_level, multi_simulation, neighbors, network, nil, node, obj, obstacle, optimization, osm, overlay, parameter, physics_engine, point, r, random, random_operator, raster, regression, save_file, scheduler, serialize, shape, shapefile, shortest_path, skill, sound, spatial_computation, spatial_relation, spatial_transformation, species, statistic, string, surface_unit, svg, system, task_based, ternary, test, text, texture, tif, time, time_unit, topology, transport, txt, type, volume_unit, weight_unit, xml
+3d, action, agent_location, agent_movement, algorithm, architecture, arithmetic, asc, attribute, batch, bdi, behavior, camera, cast, chart, clustering, color, communication, comodel, comparison, condition, constant, container, csv, cycle, database, date, dem, dgs, diffusion, dimension, display, dxf, edge, elevation, equation, experiment, file, filter, fipa, fsm, geometry, gis, gml, graph, graph_weight, graphic, graphic_unit, grid, gui, headless, hydrology, image, inspector, length_unit, light, list, load_file, logical, loop, map, math, matrix, mirror, monitor, multi_criteria, multi_level, multi_simulation, neighbors, network, nil, node, obj, obstacle, optimization, osm, overlay, parameter, physics_engine, point, r, random, random_operator, raster, regression, save_file, scheduler, serialize, shape, shapefile, shortest_path, skill, sound, spatial_computation, spatial_relation, spatial_transformation, species, statistic, string, surface_unit, svg, system, task_based, ternary, test, text, texture, tif, time, time_unit, topology, transport, txt, type, volume_unit, weight_unit, xml
 
 | **Concept name** | **in Doc** | **in GAML Ref** | **in Model Lib** | **TOTAL** |
 |:----------------------------|:-------------|:-------------|:-------------|:-------------|
@@ -406,7 +406,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | autosave | 2 | _ | _ | 2 |
 | background | 1 | _ | _ | 1 |
 | batch | 3 | 154 | 4 | 161 |
-| bdi | 1 | 1298 | 0 | 1299 |
+| bdi | 1 | 1474 | 0 | 1475 |
 | behavior | 3 | 154 | _ | 157 |
 | camera | 1 | 22 | 2 | 25 |
 | cast | 1 | 374 | 1 | 376 |
@@ -436,13 +436,14 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | equation | 2 | 154 | 15 | 171 |
 | experiment | 2 | 44 | _ | 46 |
 | facet | 1 | _ | _ | 1 |
-| file | 1 | 924 | _ | 927 |
+| file | 1 | 968 | _ | 971 |
 | filter | 1 | 264 | 0 | 265 |
 | fipa | 1 | 88 | 11 | 100 |
 | fsm | 1 | 0 | 0 | 1 |
 | geometry | 2 | 2134 | 0 | 2136 |
 | gis | 0 | 110 | 24 | 134 |
 | global | 1 | _ | _ | 1 |
+| gml | 0 | 44 | 0 | 44 |
 | graph | 1 | 1232 | 32 | 1265 |
 | graph_weight | 1 | 66 | 0 | 67 |
 | graphic | 1 | 220 | 1 | 222 |
@@ -450,7 +451,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | grid | 4 | 198 | 33 | 235 |
 | gui | 3 | 198 | 24 | 225 |
 | halt | 1 | _ | _ | 1 |
-| headless | 0 | 0 | 0 | 0 |
+| headless | 0 | 110 | 0 | 110 |
 | hydrology | 0 | 0 | 1 | 1 |
 | image | 0 | 88 | 0 | 88 |
 | import | 1 | _ | _ | 1 |
@@ -529,7 +530,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | torus | 1 | _ | _ | 1 |
 | transport | 1 | 110 | 6 | 117 |
 | txt | 0 | 0 | 1 | 1 |
-| type | 0 | 1210 | _ | 1210 |
+| type | 0 | 1298 | _ | 1298 |
 | update | 1 | _ | _ | 1 |
 | volume_unit | 0 | 110 | _ | 110 |
 | weight_unit | 0 | 176 | _ | 176 |
