@@ -25,11 +25,11 @@ The complete description of these emotions and their creation rules can be found
 
 ## Personality
 In order to facilitate the parametrization of the BDI agents, we add the possibility to define all the parameters related to the BDI architecture through the OCEAN model, which proposes to represent the personality of a person according to five factors (correspoding to the 5 variables of the BDI agents):
-_O_: represents the openness of someone (open-minded/narrow-minded).
-_C_: represents the consciousness  of someone (act with preparations/impulsive).
-_E_: represents the extroversion of someone (extrovert/shy).
-_A_: represents the amicability of someone (friendly/hostile).
-_N_: represent the degree of control someone has on its emotions (calm/neurotic)
+* _O_: represents the openness of someone (open-minded/narrow-minded).
+* _C_: represents the consciousness  of someone (act with preparations/impulsive).
+* _E_: represents the extroversion of someone (extrovert/shy).
+* _A_: represents the agreeableness of someone (friendly/hostile).
+* _N_: represent the degree of control someone has on its emotions (calm/neurotic)
 \end{itemize}
 
 Each of these variables has a value between 0 and 1. 0.5 represents the neutral value, below 0.5, the value is considered negatively and above 0.5, it is considered positively. For example, someone with a value of 1 for _N_ is considered as calm and someone with a value of 0 for _A_ is considered as hostile.
@@ -242,3 +242,7 @@ experiment GoldBdi type: gui {
 	}
 }
 ```
+[Back to the start of the tutorial](BDIAgents)
+  1. [Creation of the basic model: gold mines and market](GoldMinerModel_step1)
+  2. [Definition of the BDI miners](GoldMinerModel_step2)
+  3. [Definition of social relations between miners](GoldMinerModel_step3)

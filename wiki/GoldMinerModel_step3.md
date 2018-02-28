@@ -256,4 +256,7 @@ experiment GoldBdi type: gui {
 	}
 }
 ```
+[Back to the start of the tutorial](BDIAgents)
+  1. [Creation of the basic model: gold mines and market](GoldMinerModel_step1)
+  2. [Definition of the BDI miners](GoldMinerModel_step2)
   4. [Use of emotions and personality for the miners](GoldMinerModel_step4)
