@@ -5,7 +5,7 @@ wikiPageName: GoldMinerModel_step3
 wikiPagePath: wiki/GoldMinerModel_step3.md
 ---
 # 3. Social relation
-This second step consists in adding social relation between agents and the possibility to share information about the known gold mines.
+This third step consists in adding social relation between agents and the possibility to share information about the known gold mines.
 
 ## Formulation
   * Definition of global predicates
@@ -261,3 +261,4 @@ experiment GoldBdi type: gui {
   1. [Creation of the basic model: gold mines and market](GoldMinerModel_step1)
   2. [Definition of the BDI miners](GoldMinerModel_step2)
   4. [Use of emotions and personality for the miners](GoldMinerModel_step4)
+  5. [Adding norms, obligations and enforcement](GoldMinerModel_step5)
