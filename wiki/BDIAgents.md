@@ -23,3 +23,4 @@ This tutorial is composed of 4 steps corresponding to 4 models. For each step we
   1. [Definition of the BDI miners](GoldMinerModel_step2)
   1. [Definition of social relations between miners](GoldMinerModel_step3)
   1. [Use of emotions and personality for the miners](GoldMinerModel_step4)
+  1. [Adding norms, obligations and enforcement](GoldMinerModel_step5)

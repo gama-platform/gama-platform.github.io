@@ -415,3 +415,4 @@ experiment GoldBdi type: gui {
   1. [Creation of the basic model: gold mines and market](GoldMinerModel_step1)
   3. [Definition of social relations between miners](GoldMinerModel_step3)
   4. [Use of emotions and personality for the miners](GoldMinerModel_step4)
+  5. [Adding norms, obligations and enforcement](GoldMinerModel_step5)
