@@ -12,19 +12,19 @@ This last step consists in adding social norms, obligations and enforcement into
   * Definition of the policeman species
   * Definition of the enforcement done by policeman species
   * Definition of the law agents have to follow
-  * Definition of a gold miner norms to fulfill its obligation and its social norms
+  * Definition of a gold miner norm to fulfill its obligation and its social norms
   * Definition of the enforcement done by gold miners
 
 
-## Norms, obligations and enforcement
-The BDI architecture of GAMA allows to define explicit social norms, laws that lead to obligations and an enforcement process to sanction or reward the other agent depending on their behavior toward norms. 
-A social norm is a set of actions executed under certain conditions which is known by the people has the right things to do in that conditions. As it is, it can be assimilated with a plan. However, a norm can be violated which mean an agent chose to disobey and do not execute it while it should. To do this, each agent has an obedient value, between 0 and 1 ad computed from its personality and each norm has a threshold. If the obedient value of the agent is above the threshold, the norm is executed.
+## Norms, obligations, and enforcement
+The BDI architecture of GAMA allows defining explicit social norms, laws that lead to obligations and an enforcement process to sanction or reward the other agent depending on their behavior toward norms. 
+A social norm is a set of actions executed under certain conditions which are known by the people has the right things to do in that conditions. As it is, it can be assimilated into a plan. However, a norm can be violated which mean an agent chose to disobey and do not execute it while it should. To do this, each agent has an obedient value, between 0 and 1 ad computed from its personality and each norm has a threshold. If the obedient value of the agent is above the threshold, the norm is executed.
 An obligation is a mental state that can be assimilated with a desire. It is created by a law that indicates under which conditions the agent has to follow a particular obligation. Once again, the law can have a threshold value to be activated or not depending on the obedient value of the agent. If an agent has an obligation, it will give up its current intention and current plan to get this obligation as its intention. Then, it will choose a specific norm to answer this obligation, once again with a threshold on the obedient value.
-Finally, an enforcement mechanism can be defined during the perception process. Norms, laws and obligation can be enforced. If a violation is detected, a sanction can be executed. If the norm/law/obligation is fulfilled, a reward can be executed.
+Finally, an enforcement mechanism can be defined during the perception process. Norms, laws, and obligation can be enforced. If a violation is detected, a sanction can be executed. If the norm/law/obligation is fulfilled, a reward can be executed.
 
 ## Model Definition
 ### law
-We add a law to the gold miner species that will create the obligation to get a gold if a gold nugget is perceived. This law replaces a rule and express the fact that miners are working or not, depending on their obedience value.
+We add a law to the gold miner species that will create the obligation to get a gold if a gold nugget is perceived. This law replaces a rule and expresses the fact that miners are working or not, depending on their obedience value.
 ```
 species miner skills: [moving] control:simple_bdi {
 	...
@@ -36,7 +36,7 @@ species miner skills: [moving] control:simple_bdi {
 ```
 
 ### norms
-The miners will have two norms. A first one to answer the obligation to collect gold. This norms replaces the previous plan created for this purpose. However, a new plan is declared to get 3 pieces of gold at each time. This plan will be  considered illegal by the policeman species.
+The miners will have two norms. A first one to answer the obligation to collect gold. This norms replaces the previous plan created for this purpose. However, a new plan is declared to get 3 pieces of gold at each time. This plan will be considered illegal by the policeman species.
 ```
 species miner skills: [moving] control:simple_bdi {
 	...
@@ -63,7 +63,7 @@ species miner skills: [moving] control:simple_bdi {
 }
 ```
 
-The second norm  is a social norm to communicate the listt of known mines to one's friends. It replaces the previous plan that did this action, while a new plan is added to give a wrong list of mines to one's friend.
+The second norm is a social norm to communicate the list of known mines to one's friends. It replaces the previous plan that did this action, while a new plan is added to give a wrong list of mines to one's friend.
 ```
 species miner skills: [moving] control:simple_bdi {
 	...
@@ -85,7 +85,7 @@ species miner skills: [moving] control:simple_bdi {
 ```
 
 ### enforcement of the social norm
-Finaly for the gold-miner agent, an enforcement is defined about the social norm to communicate the location of mines to other agents. A sanction and a reward are declared to change the liking value with the agent controlled, depending if the norm is violated or fulfilled.
+Finally for the gold-miner agent, an enforcement is defined about the social norm to communicate the location of mines to other agents. A sanction and a reward are declared to change the liking value with the agent controlled, depending if the norm is violated or fulfilled.
 
 ```
 species miner skills: [moving] control:simple_bdi {
@@ -105,8 +105,8 @@ species miner skills: [moving] control:simple_bdi {
 }
 ```
 
-###Definition of policeman species
-Finaly, we define a policeman species that will wander throught the map and enforce the miners about the law and the obligation. The sanctions will be a fine collected by policemen.
+### Definition of policeman species
+Finally, we define a policeman species that will wander through the map and enforce the miners about the law and the obligation. The sanctions will be a fine collected by policemen.
 
 
 ```
