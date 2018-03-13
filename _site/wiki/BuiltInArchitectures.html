@@ -3598,11 +3598,10 @@ function closeRightMenu() {
 <h3 id="variables-4">Variables</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">agreeableness</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">amicability</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">belief_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">charisma</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">conscientiousness</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">current_norm</code></strong> (any type):</li>
   <li><strong><code class="highlighter-rouge">current_plan</code></strong> (any type):</li>
   <li><strong><code class="highlighter-rouge">desire_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">emotion_base</code></strong> (list):</li>
@@ -3611,20 +3610,15 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">intention_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">intention_persistence</code></strong> (float): intention persistence</li>
   <li><strong><code class="highlighter-rouge">neurotism</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">norm_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">obedience</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">obligation_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">openness</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">plan_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">plan_persistence</code></strong> (float): plan persistence</li>
   <li><strong><code class="highlighter-rouge">probabilistic_choice</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">receptivity</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">sanction_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">social_link_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">thinking</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">uncertainty_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">use_emotions_architecture</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">use_norms</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">use_personality</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">use_social_architecture</code></strong> (boolean):</li>
 </ul>
@@ -3700,7 +3694,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3709,7 +3703,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3718,7 +3712,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3747,15 +3741,6 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): predicate to add as an intention</li>
   <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
-</ul>
-
-<h4 id="add_obligation"><strong><code class="highlighter-rouge">add_obligation</code></strong></h4>
-<p>add a predicate in the ideal base.</p>
-<ul>
-  <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an obligation</li>
-  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the strength value of the obligation</li>
-  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the obligation</li>
 </ul>
 
 <h4 id="add_social_link"><strong><code class="highlighter-rouge">add_social_link</code></strong></h4>
@@ -3827,12 +3812,6 @@ function closeRightMenu() {
 
 <h4 id="clear_intentions"><strong><code class="highlighter-rouge">clear_intentions</code></strong></h4>
 <p>clear the intention base</p>
-<ul>
-  <li>returns: bool</li>
-</ul>
-
-<h4 id="clear_obligations"><strong><code class="highlighter-rouge">clear_obligations</code></strong></h4>
-<p>clear the obligation base</p>
 <ul>
   <li>returns: bool</li>
 </ul>
@@ -4022,13 +4001,6 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicates to check</li>
 </ul>
 
-<h4 id="get_obligation"><strong><code class="highlighter-rouge">get_obligation</code></strong></h4>
-<p>get the predicates in the obligation base (if several, returns the first one).</p>
-<ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
-</ul>
-
 <h4 id="get_plan"><strong><code class="highlighter-rouge">get_plan</code></strong></h4>
 <p>get the first plan with the given name</p>
 <ul>
@@ -4110,13 +4082,6 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
-</ul>
-
-<h4 id="has_obligation"><strong><code class="highlighter-rouge">has_obligation</code></strong></h4>
-<p>check if the predicates is in the obligation base.</p>
-<ul>
-  <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
 <h4 id="has_social_link"><strong><code class="highlighter-rouge">has_social_link</code></strong></h4>
@@ -4231,13 +4196,6 @@ function closeRightMenu() {
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): intention’s mental state to remove</li>
   <li><strong><code class="highlighter-rouge">desire_also</code></strong> (boolean): removes also desire</li>
-</ul>
-
-<h4 id="remove_obligation"><strong><code class="highlighter-rouge">remove_obligation</code></strong></h4>
-<p>removes the predicates from the obligation base.</p>
-<ul>
-  <li>returns: bool</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
 </ul>
 
 <h4 id="remove_social_link"><strong><code class="highlighter-rouge">remove_social_link</code></strong></h4>
