@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2018/03/13 23:35:08_
+______________ _last update : 2018/03/14 02:20:23_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -450,7 +450,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | grid | 4 | 198 | 33 | 235 |
 | gui | 3 | 198 | 24 | 225 |
 | halt | 1 | _ | _ | 1 |
-| headless | 0 | 110 | 0 | 110 |
+| headless | 0 | 0 | 0 | 0 |
 | hydrology | 0 | 0 | 1 | 1 |
 | image | 0 | 88 | 0 | 88 |
 | import | 1 | _ | _ | 1 |
