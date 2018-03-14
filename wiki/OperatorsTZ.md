@@ -104,7 +104,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### BDI
-[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_decay](OperatorsCH#get_decay), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_intensity](OperatorsCH#get_intensity), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_truth](OperatorsCH#get_truth), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
+[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_decay](OperatorsCH#get_decay), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_intensity](OperatorsCH#get_intensity), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_trust](OperatorsCH#get_trust), [get_truth](OperatorsCH#get_truth), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_trust](OperatorsOS#set_trust), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
 
 ----
 
@@ -169,7 +169,12 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsCH#crs), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
+
+----
+
+### Files-related operators
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
 
 ----
 
@@ -482,8 +487,8 @@ Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in de
 ### `tanh`
 
 #### Possible use: 
-  *  **`tanh`** (`int`) --->  `float`
-  *  **`tanh`** (`float`) --->  `float` 
+  *  **`tanh`** (`float`) --->  `float`
+  *  **`tanh`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
@@ -582,7 +587,6 @@ Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
 
 [//]: # (keyword|operator_to)
 ### `to`
-Same signification as [until](OperatorsTZ#until)
 
 #### Possible use: 
   * `date` **`to`** `date` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
@@ -617,19 +621,19 @@ date('2000-01-01') to date('2010-01-01') // builds an interval between these two
   *  **`to_GAMA_CRS`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one 
-  
-```
- 
-geometry var0 <- to_GAMA_CRS({121,14}); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
   
 ```
  
-geometry var1 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+geometry var0 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one 
+  
+```
+ 
+geometry var1 <- to_GAMA_CRS({121,14}); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
 ``` 
 
 
@@ -668,20 +672,21 @@ string var11 <- to_gaml(node1); // var11 equals  1 as node
 
 [//]: # (keyword|operator_to_rectangles)
 ### `to_rectangles`
+Same signification as [split_geometry](OperatorsOS#split_geometry)
 
 #### Possible use: 
   *  **`to_rectangles`** (`geometry`, `point`, `bool`) --->  `list<geometry>`
   *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list<geometry> var0 <- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 ```
   
@@ -690,23 +695,24 @@ list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list
 
 [//]: # (keyword|operator_to_squares)
 ### `to_squares`
+Same signification as [split_geometry](OperatorsOS#split_geometry)
 
 #### Possible use: 
-  *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
+  *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var0 <- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list<geometry> var1 <- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var2 <- to_squares(self, 10, true); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var2 <- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
   
@@ -952,8 +958,8 @@ geometry var0 <- triangle(5); // var0 equals a geometry as a triangle with side_
 ### `triangulate`
 
 #### Possible use: 
-  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
-  *  **`triangulate`** (`geometry`) --->  `list<geometry>` 
+  *  **`triangulate`** (`geometry`) --->  `list<geometry>`
+  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>` 
 
 #### Result: 
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
@@ -973,22 +979,22 @@ list<geometry> var1 <- triangulate(self); // var1 equals the list of geometries 
 ### `truncated_gauss`
 
 #### Possible use: 
-  *  **`truncated_gauss`** (`point`) --->  `float`
-  *  **`truncated_gauss`** (`list`) --->  `float` 
+  *  **`truncated_gauss`** (`list`) --->  `float`
+  *  **`truncated_gauss`** (`point`) --->  `float` 
 
 #### Result: 
 A random value from a normally distributed random variable in the interval ]mean - standardDeviation; mean + standardDeviation[.
 
 #### Special cases:     
-  * when the operand is a point, it is read as {mean, standardDeviation}    
   * if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]    
-  * when truncated_gauss is called with a list of only one element mean, it will always return 0.0
+  * when truncated_gauss is called with a list of only one element mean, it will always return 0.0    
+  * when the operand is a point, it is read as {mean, standardDeviation}
 
 #### Examples: 
 ```
  
-float var0 <- truncated_gauss ({0, 0.3}); // var0 equals a float between -0.3 and 0.3 
-float var1 <- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
+float var0 <- truncated_gauss ([0.5, 0.0]); // var0 equals 0.5 
+float var1 <- truncated_gauss ({0, 0.3}); // var1 equals a float between -0.3 and 0.3
 
 ```
       
@@ -1032,6 +1038,7 @@ the operator alters the operand graph, it does not create a new one.
 
 [//]: # (keyword|operator_union)
 ### `union`
+Same signification as [+](OperatorsAB#+)
 
 #### Possible use: 
   *  **`union`** (`container<geometry>`) --->  `geometry`
@@ -1272,14 +1279,14 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
   *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
 A list of geometries corresponding to the Voronoi diagram built from the list of points
+A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
 
 ```
   
@@ -1501,25 +1508,25 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 ### `with_precision`
 
 #### Possible use: 
+  * `geometry` **`with_precision`** `int` --->  `geometry`
+  *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
   * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point`
-  * `geometry` **`with_precision`** `int` --->  `geometry`
-  *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
+  *  **`with_precision`** (`point` , `int`) --->  `point` 
 
 #### Result: 
+A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
-float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
-float var1 <- 123 with_precision 2; // var1 equals 123.00 
-point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
-geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+geometry var0 <- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
+float var2 <- 123 with_precision 2; // var2 equals 123.00 
+point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
 
 ```
       

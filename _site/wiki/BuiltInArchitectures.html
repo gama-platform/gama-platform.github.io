@@ -3598,10 +3598,11 @@ function closeRightMenu() {
 <h3 id="variables-4">Variables</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">amicability</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">agreeableness</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">belief_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">charisma</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">conscientiousness</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">current_norm</code></strong> (any type):</li>
   <li><strong><code class="highlighter-rouge">current_plan</code></strong> (any type):</li>
   <li><strong><code class="highlighter-rouge">desire_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">emotion_base</code></strong> (list):</li>
@@ -3609,16 +3610,23 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">ideal_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">intention_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">intention_persistence</code></strong> (float): intention persistence</li>
+  <li><strong><code class="highlighter-rouge">law_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">neurotism</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">norm_base</code></strong> (list):</li>
+  <li><strong><code class="highlighter-rouge">obedience</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">obligation_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">openness</code></strong> (float):</li>
   <li><strong><code class="highlighter-rouge">plan_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">plan_persistence</code></strong> (float): plan persistence</li>
   <li><strong><code class="highlighter-rouge">probabilistic_choice</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">receptivity</code></strong> (float):</li>
+  <li><strong><code class="highlighter-rouge">sanction_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">social_link_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">thinking</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">uncertainty_base</code></strong> (list):</li>
   <li><strong><code class="highlighter-rouge">use_emotions_architecture</code></strong> (boolean):</li>
+  <li><strong><code class="highlighter-rouge">use_norms</code></strong> (boolean):</li>
+  <li><strong><code class="highlighter-rouge">use_persistence</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">use_personality</code></strong> (boolean):</li>
   <li><strong><code class="highlighter-rouge">use_social_architecture</code></strong> (boolean):</li>
 </ul>
@@ -3694,7 +3702,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3703,7 +3711,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3712,7 +3720,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to add as an ideal</li>
-  <li><strong><code class="highlighter-rouge">praiseworthyness</code></strong> (float): the praiseworthiness value of the ideal</li>
+  <li><strong><code class="highlighter-rouge">praiseworthiness</code></strong> (float): the praiseworthiness value of the ideal</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the ideal</li>
 </ul>
 
@@ -3741,6 +3749,15 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): predicate to add as an intention</li>
   <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the stregth of the belief</li>
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
+</ul>
+
+<h4 id="add_obligation"><strong><code class="highlighter-rouge">add_obligation</code></strong></h4>
+<p>add a predicate in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to add as an obligation</li>
+  <li><strong><code class="highlighter-rouge">strength</code></strong> (float): the strength value of the obligation</li>
+  <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the obligation</li>
 </ul>
 
 <h4 id="add_social_link"><strong><code class="highlighter-rouge">add_social_link</code></strong></h4>
@@ -3786,6 +3803,46 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">lifetime</code></strong> (int): the lifetime of the belief</li>
 </ul>
 
+<h4 id="change_dominance"><strong><code class="highlighter-rouge">change_dominance</code></strong></h4>
+<p>changes the dominance value of the social relation with the agent specified.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
+  <li><strong><code class="highlighter-rouge">dominance</code></strong> (float): a value to change the dominance value</li>
+</ul>
+
+<h4 id="change_familiarity"><strong><code class="highlighter-rouge">change_familiarity</code></strong></h4>
+<p>changes the familiarity value of the social relation with the agent specified.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
+  <li><strong><code class="highlighter-rouge">familiarity</code></strong> (float): a value to change the familiarity value</li>
+</ul>
+
+<h4 id="change_liking"><strong><code class="highlighter-rouge">change_liking</code></strong></h4>
+<p>changes the liking value of the social relation with the agent specified.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
+  <li><strong><code class="highlighter-rouge">liking</code></strong> (float): a value to change the liking value</li>
+</ul>
+
+<h4 id="change_solidarity"><strong><code class="highlighter-rouge">change_solidarity</code></strong></h4>
+<p>changes the solidarity value of the social relation with the agent specified.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
+  <li><strong><code class="highlighter-rouge">solidarity</code></strong> (float): a value to change the solidarity value</li>
+</ul>
+
+<h4 id="change_trust"><strong><code class="highlighter-rouge">change_trust</code></strong></h4>
+<p>changes the trust value of the social relation with the agent specified.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
+  <li><strong><code class="highlighter-rouge">trust</code></strong> (float): a value to change the trust value</li>
+</ul>
+
 <h4 id="clear_beliefs"><strong><code class="highlighter-rouge">clear_beliefs</code></strong></h4>
 <p>clear the belief base</p>
 <ul>
@@ -3812,6 +3869,12 @@ function closeRightMenu() {
 
 <h4 id="clear_intentions"><strong><code class="highlighter-rouge">clear_intentions</code></strong></h4>
 <p>clear the intention base</p>
+<ul>
+  <li>returns: bool</li>
+</ul>
+
+<h4 id="clear_obligations"><strong><code class="highlighter-rouge">clear_obligations</code></strong></h4>
+<p>clear the obligation base</p>
 <ul>
   <li>returns: bool</li>
 </ul>
@@ -4001,6 +4064,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicates to check</li>
 </ul>
 
+<h4 id="get_obligation"><strong><code class="highlighter-rouge">get_obligation</code></strong></h4>
+<p>get the predicates in the obligation base (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
+</ul>
+
 <h4 id="get_plan"><strong><code class="highlighter-rouge">get_plan</code></strong></h4>
 <p>get the first plan with the given name</p>
 <ul>
@@ -4015,10 +4085,17 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="get_social_link"><strong><code class="highlighter-rouge">get_social_link</code></strong></h4>
-<p>get the social linke (if several, returns the first one).</p>
+<p>get the social link (if several, returns the first one).</p>
 <ul>
   <li>returns: msi.gaml.architecture.simplebdi.SocialLink</li>
   <li><strong><code class="highlighter-rouge">social_link</code></strong> (546707): social link to check</li>
+</ul>
+
+<h4 id="get_social_link_with_agent"><strong><code class="highlighter-rouge">get_social_link_with_agent</code></strong></h4>
+<p>get the social link with the agent concerned (if several, returns the first one).</p>
+<ul>
+  <li>returns: msi.gaml.architecture.simplebdi.SocialLink</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get a social link</li>
 </ul>
 
 <h4 id="get_uncertainty"><strong><code class="highlighter-rouge">get_uncertainty</code></strong></h4>
@@ -4084,11 +4161,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
+<h4 id="has_obligation"><strong><code class="highlighter-rouge">has_obligation</code></strong></h4>
+<p>check if the predicates is in the obligation base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
+</ul>
+
 <h4 id="has_social_link"><strong><code class="highlighter-rouge">has_social_link</code></strong></h4>
 <p>check if the social link base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">social_link</code></strong> (546707): social link to check</li>
+</ul>
+
+<h4 id="has_social_link_with_agent"><strong><code class="highlighter-rouge">has_social_link_with_agent</code></strong></h4>
+<p>check if the social link base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I want to check if I have a social link</li>
 </ul>
 
 <h4 id="has_uncertainty"><strong><code class="highlighter-rouge">has_uncertainty</code></strong></h4>
@@ -4198,11 +4289,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">desire_also</code></strong> (boolean): removes also desire</li>
 </ul>
 
+<h4 id="remove_obligation"><strong><code class="highlighter-rouge">remove_obligation</code></strong></h4>
+<p>removes the predicates from the obligation base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to remove</li>
+</ul>
+
 <h4 id="remove_social_link"><strong><code class="highlighter-rouge">remove_social_link</code></strong></h4>
 <p>removes the social link from the social relation base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">social_link</code></strong> (546707): social link to remove</li>
+</ul>
+
+<h4 id="remove_social_link_with_agent"><strong><code class="highlighter-rouge">remove_social_link_with_agent</code></strong></h4>
+<p>removes the social link from the social relation base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">agent</code></strong> (agent): an agent with who I get the social link to remove</li>
 </ul>
 
 <h4 id="remove_uncertainty"><strong><code class="highlighter-rouge">remove_uncertainty</code></strong></h4>
