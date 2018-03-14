@@ -69,10 +69,11 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 ## simple_bdi 
 ### Variables
 	   
-* **`amicability`** (float):    
+* **`agreeableness`** (float):    
 * **`belief_base`** (list):    
 * **`charisma`** (float):    
 * **`conscientiousness`** (float):    
+* **`current_norm`** (any type):    
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
@@ -80,16 +81,23 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`ideal_base`** (list):    
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
+* **`law_base`** (list):    
 * **`neurotism`** (float):    
+* **`norm_base`** (list):    
+* **`obedience`** (float):    
+* **`obligation_base`** (list):    
 * **`openness`** (float):    
 * **`plan_base`** (list):    
 * **`plan_persistence`** (float): plan persistence   
 * **`probabilistic_choice`** (boolean):    
 * **`receptivity`** (float):    
+* **`sanction_base`** (list):    
 * **`social_link_base`** (list):    
 * **`thinking`** (list):    
 * **`uncertainty_base`** (list):    
 * **`use_emotions_architecture`** (boolean):    
+* **`use_norms`** (boolean):    
+* **`use_persistence`** (boolean):    
 * **`use_personality`** (boolean):    
 * **`use_social_architecture`** (boolean):  
  	
@@ -150,21 +158,21 @@ add the emotion to the emotion base.
 add a predicate in the ideal base.
 * returns: bool 			
 * **`predicate`** (546704): predicate to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_ideal_emotion`**
 add a predicate in the ideal base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_ideal_mental_state`**
 add a predicate in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to add as an ideal 			
-* **`praiseworthyness`** (float): the praiseworthiness value of the ideal 			
+* **`praiseworthiness`** (float): the praiseworthiness value of the ideal 			
 * **`lifetime`** (int): the lifetime of the ideal  
 	 
 #### **`add_intention`**
@@ -187,6 +195,13 @@ check if the predicates is in the desire base.
 * **`mental_state`** (546708): predicate to add as an intention 			
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
+	 
+#### **`add_obligation`**
+add a predicate in the ideal base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to add as an obligation 			
+* **`strength`** (float): the strength value of the obligation 			
+* **`lifetime`** (int): the lifetime of the obligation  
 	 
 #### **`add_social_link`**
 add the social link to the social link base.
@@ -221,6 +236,36 @@ add a predicate in the uncertainty base.
 * **`strength`** (float): the stregth of the belief 			
 * **`lifetime`** (int): the lifetime of the belief  
 	 
+#### **`change_dominance`**
+changes the dominance value of the social relation with the agent specified.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get a social link 			
+* **`dominance`** (float): a value to change the dominance value  
+	 
+#### **`change_familiarity`**
+changes the familiarity value of the social relation with the agent specified.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get a social link 			
+* **`familiarity`** (float): a value to change the familiarity value  
+	 
+#### **`change_liking`**
+changes the liking value of the social relation with the agent specified.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get a social link 			
+* **`liking`** (float): a value to change the liking value  
+	 
+#### **`change_solidarity`**
+changes the solidarity value of the social relation with the agent specified.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get a social link 			
+* **`solidarity`** (float): a value to change the solidarity value  
+	 
+#### **`change_trust`**
+changes the trust value of the social relation with the agent specified.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get a social link 			
+* **`trust`** (float): a value to change the trust value  
+	 
 #### **`clear_beliefs`**
 clear the belief base
 * returns: bool  
@@ -239,6 +284,10 @@ clear the ideal base
 	 
 #### **`clear_intentions`**
 clear the intention base
+* returns: bool  
+	 
+#### **`clear_obligations`**
+clear the obligation base
 * returns: bool  
 	 
 #### **`clear_social_links`**
@@ -372,6 +421,11 @@ get the list of predicates is in the belief base with the given name.
 * returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState> 			
 * **`name`** (string): name of the predicates to check  
 	 
+#### **`get_obligation`**
+get the predicates in the obligation base (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* **`predicate`** (546704): predicate to return  
+	 
 #### **`get_plan`**
 get the first plan with the given name
 * returns: BDIPlan 			
@@ -382,9 +436,14 @@ get the list of plans.
 * returns: java.util.List<msi.gaml.architecture.simplebdi.BDIPlan>  
 	 
 #### **`get_social_link`**
-get the social linke (if several, returns the first one).
+get the social link (if several, returns the first one).
 * returns: msi.gaml.architecture.simplebdi.SocialLink 			
 * **`social_link`** (546707): social link to check  
+	 
+#### **`get_social_link_with_agent`**
+get the social link with the agent concerned (if several, returns the first one).
+* returns: msi.gaml.architecture.simplebdi.SocialLink 			
+* **`agent`** (agent): an agent with who I get a social link  
 	 
 #### **`get_uncertainty`**
 get the predicates is in the uncertainty base (if several, returns the first one).
@@ -431,10 +490,20 @@ check if the mental state is in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
 	 
+#### **`has_obligation`**
+check if the predicates is in the obligation base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to check  
+	 
 #### **`has_social_link`**
 check if the social link base.
 * returns: bool 			
 * **`social_link`** (546707): social link to check  
+	 
+#### **`has_social_link_with_agent`**
+check if the social link base.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I want to check if I have a social link  
 	 
 #### **`has_uncertainty`**
 check if the predicates is in the uncertainty base.
@@ -513,10 +582,20 @@ removes the mental state from the intention base.
 * **`mental_state`** (546708): intention's mental state to remove 			
 * **`desire_also`** (boolean): removes also desire  
 	 
+#### **`remove_obligation`**
+removes the predicates from the obligation base.
+* returns: bool 			
+* **`predicate`** (546704): predicate to remove  
+	 
 #### **`remove_social_link`**
 removes the social link from the social relation base.
 * returns: bool 			
 * **`social_link`** (546707): social link to remove  
+	 
+#### **`remove_social_link_with_agent`**
+removes the social link from the social relation base.
+* returns: bool 			
+* **`agent`** (agent): an agent with who I get the social link to remove  
 	 
 #### **`remove_uncertainty`**
 removes the predicates from the uncertainty base.
