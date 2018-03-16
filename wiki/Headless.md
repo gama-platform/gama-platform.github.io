@@ -49,16 +49,16 @@ It can be found in the `headless` directory located inside `Gama`. Its name is `
 		* -v : verbose mode. trace are displayed in the console 
 
 
-* For example (using the provided sample), navigate in your terminal to the GAMA root folder and type :
+* For example (using the provided sample), navigate in your terminal to the `headless` folder inside your GAMA root folder and type:
 
 ```
-sh headless/gama-headless.sh headless/samples/predatorPrey.xml outputHeadLess
+sh gama-headless.sh samples/predatorPrey.xml outputHeadLess
 ```
 
-As specified in **predatorPrey.xml**, this command runs the prey - predator model for 1000 steps and record a screenshot of the main display every 5 steps. The screenshots are recorded in the directory outputHeadLess (under the GAMA root folder).
+As specified in **predatorPrey.xml**, this command runs the prey - predator model for 1000 steps and record a screenshot of the main display every 5 steps. The screenshots are recorded in the directory `outputHeadLess` (under the GAMA root folder).
 
 
-Not that the current directory to run gama-headless command must be $GAMA\_PATH/headless
+Note that the current directory to run gama-headless command must be $GAMA\_PATH/headless
 
 ### Java Command
 
