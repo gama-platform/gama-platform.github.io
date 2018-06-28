@@ -449,7 +449,7 @@ The moving skill is intended to define the minimal set of behaviours required fo
   * **`current_edge`** (`geometry`): Represents the agent/geometry on which the agent is located (only used with a graph)   
   * **`current_path`** (`path`): Represents the path on which the agent is moving on (goto action on a graph)   
   * **`destination`** (`point`): Represents the next location of the agent if it keeps its current speed and heading (read-only)   
-  * **`heading`** (`int`): Represents the absolute heading of the agent in degrees.   
+  * **`heading`** (`float`): Represents the absolute heading of the agent in degrees.   
   * **`location`** (`point`): Represents the current position of the agent   
   * **`real_speed`** (`float`): Represents the actual speed of the agent (in meter/second)   
   * **`speed`** (`float`): Represents the speed of the agent (in meter/second) 
@@ -482,7 +482,7 @@ moves the agent forward, the distance being computed with respect to its speed a
 
 * returns: path 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`heading`** (int): the angle (in degree) of the target direction. 			
+* **`heading`** (float): the angle (in degree) of the target direction. 			
 * **`bounds`** (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry  
 	 
 #### **`wander`**
@@ -490,7 +490,7 @@ Moves the agent towards a random location at the maximum distance (with respect 
 
 * returns: void 			
 * **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`amplitude`** (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2) 			
+* **`amplitude`** (float): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2) 			
 * **`bounds`** (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry) 			
 * **`on`** (graph): the graph that restrains this move (the agent moves on the graph 			
 * **`proba_edges`** (map): When the agent moves on a graph, the probability to choose another edge. If not defined, each edge has the same probability to be chosen
