@@ -4039,7 +4039,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">current_edge</code></strong> (<code class="highlighter-rouge">geometry</code>): Represents the agent/geometry on which the agent is located (only used with a graph)</li>
   <li><strong><code class="highlighter-rouge">current_path</code></strong> (<code class="highlighter-rouge">path</code>): Represents the path on which the agent is moving on (goto action on a graph)</li>
   <li><strong><code class="highlighter-rouge">destination</code></strong> (<code class="highlighter-rouge">point</code>): Represents the next location of the agent if it keeps its current speed and heading (read-only)</li>
-  <li><strong><code class="highlighter-rouge">heading</code></strong> (<code class="highlighter-rouge">int</code>): Represents the absolute heading of the agent in degrees.</li>
+  <li><strong><code class="highlighter-rouge">heading</code></strong> (<code class="highlighter-rouge">float</code>): Represents the absolute heading of the agent in degrees.</li>
   <li><strong><code class="highlighter-rouge">location</code></strong> (<code class="highlighter-rouge">point</code>): Represents the current position of the agent</li>
   <li><strong><code class="highlighter-rouge">real_speed</code></strong> (<code class="highlighter-rouge">float</code>): Represents the actual speed of the agent (in meter/second)</li>
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): Represents the speed of the agent (in meter/second)</li>
@@ -4077,7 +4077,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: path</li>
   <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">heading</code></strong> (int): the angle (in degree) of the target direction.</li>
+  <li><strong><code class="highlighter-rouge">heading</code></strong> (float): the angle (in degree) of the target direction.</li>
   <li><strong><code class="highlighter-rouge">bounds</code></strong> (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry</li>
 </ul>
 
@@ -4087,7 +4087,7 @@ function closeRightMenu() {
 <ul>
   <li>returns: void</li>
   <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">amplitude</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)</li>
+  <li><strong><code class="highlighter-rouge">amplitude</code></strong> (float): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)</li>
   <li><strong><code class="highlighter-rouge">bounds</code></strong> (geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry)</li>
   <li><strong><code class="highlighter-rouge">on</code></strong> (graph): the graph that restrains this move (the agent moves on the graph</li>
   <li><strong><code class="highlighter-rouge">proba_edges</code></strong> (map): When the agent moves on a graph, the probability to choose another edge. If not defined, each edge has the same probability to be chosen</li>
