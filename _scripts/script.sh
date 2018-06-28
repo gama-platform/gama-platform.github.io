@@ -12,6 +12,7 @@ setup_git() {
 commit_website_files() {
   echo "Commiting GIT"
   git add -A
+  git rm --cached Gemfile.lock
   echo "commit "
   
   git commit -q --message "[ci skip] Travis build $(date)"
