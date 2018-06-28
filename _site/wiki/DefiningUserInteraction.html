@@ -1993,6 +1993,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/InstallingGitVersionMars17.html": {
+         "title": "Installing the GIT version",
+         "url": "/wiki/InstallingGitVersionMars17.html"
+       }
+        ,
+      
        "/wiki/InstallingPlugins.html": {
          "title": "Installing Plugins",
          "url": "/wiki/InstallingPlugins.html"
@@ -3564,18 +3570,18 @@ function closeRightMenu() {
 
 <p>You can catch mouse event during the simulation using the statement <code class="highlighter-rouge">event</code>. This statement has 2 required facets:</p>
 <ul>
-  <li><strong><code class="highlighter-rouge">name</code></strong> (identifier) : Specify which event do you want to trigger (among the following values : <code class="highlighter-rouge">mouse_down</code>, <code class="highlighter-rouge">mouse_down</code>, <code class="highlighter-rouge">mouse_move</code>, <code class="highlighter-rouge">mouse_enter</code>, <code class="highlighter-rouge">mouse_exit</code>).</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (identifier) : Specify which event do you want to trigger (among the following values : <code class="highlighter-rouge">mouse_down</code>, <code class="highlighter-rouge">mouse_up</code>, <code class="highlighter-rouge">mouse_move</code>, <code class="highlighter-rouge">mouse_enter</code>, <code class="highlighter-rouge">mouse_exit</code> or any alphanumeric symbol/key of the keyboard, such as, <code class="highlighter-rouge">'a'</code>, <code class="highlighter-rouge">'b'</code>…).</li>
   <li><strong><code class="highlighter-rouge">action</code></strong> (identifier) : Specify the name of the global action to call.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event mouse_down action: my_action;
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">event</code> statement has to be defined in the <code class="highlighter-rouge">experiment</code>/<code class="highlighter-rouge">output</code>/<code class="highlighter-rouge">display</code> scope. Once the event is triggered, the global action linked will be called. The action linked has to have 2 arguments : the location of the click (type <code class="highlighter-rouge">point</code>) and the list of agents which are displayed at this position.</p>
+<p>The <code class="highlighter-rouge">event</code> statement has to be defined in the <code class="highlighter-rouge">experiment</code>/<code class="highlighter-rouge">output</code>/<code class="highlighter-rouge">display</code> scope. Once the event is triggered, the global action linked will be called. The action linked cannot have arguments. To get the location of the mouse click, the <code class="highlighter-rouge">#user_location</code> can be used; to get the agents on which the mouse has clicked, you can use spatial query (e.g. <code class="highlighter-rouge">my_species overlapping #user_location</code>).</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-	action my_action (point loc, list&lt;my_species&gt; selected_agents)
+	action my_action
 	{
 		write "do action";
 	}

@@ -104,7 +104,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### BDI
-[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_decay](OperatorsCH#get_decay), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_intensity](OperatorsCH#get_intensity), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_trust](OperatorsCH#get_trust), [get_truth](OperatorsCH#get_truth), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_trust](OperatorsOS#set_trust), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
+[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_belief_op](OperatorsCH#get_belief_op), [get_belief_with_name_op](OperatorsCH#get_belief_with_name_op), [get_beliefs_op](OperatorsCH#get_beliefs_op), [get_beliefs_with_name_op](OperatorsCH#get_beliefs_with_name_op), [get_current_intention_op](OperatorsCH#get_current_intention_op), [get_decay](OperatorsCH#get_decay), [get_desire_op](OperatorsCH#get_desire_op), [get_desire_with_name_op](OperatorsCH#get_desire_with_name_op), [get_desires_op](OperatorsCH#get_desires_op), [get_desires_with_name_op](OperatorsCH#get_desires_with_name_op), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_ideal_op](OperatorsCH#get_ideal_op), [get_ideal_with_name_op](OperatorsCH#get_ideal_with_name_op), [get_ideals_op](OperatorsCH#get_ideals_op), [get_ideals_with_name_op](OperatorsCH#get_ideals_with_name_op), [get_intensity](OperatorsCH#get_intensity), [get_intention_op](OperatorsCH#get_intention_op), [get_intention_with_name_op](OperatorsCH#get_intention_with_name_op), [get_intentions_op](OperatorsCH#get_intentions_op), [get_intentions_with_name_op](OperatorsCH#get_intentions_with_name_op), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_obligation_op](OperatorsCH#get_obligation_op), [get_obligation_with_name_op](OperatorsCH#get_obligation_with_name_op), [get_obligations_op](OperatorsCH#get_obligations_op), [get_obligations_with_name_op](OperatorsCH#get_obligations_with_name_op), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_trust](OperatorsCH#get_trust), [get_truth](OperatorsCH#get_truth), [get_uncertainties_op](OperatorsCH#get_uncertainties_op), [get_uncertainties_with_name_op](OperatorsCH#get_uncertainties_with_name_op), [get_uncertainty_op](OperatorsCH#get_uncertainty_op), [get_uncertainty_with_name_op](OperatorsCH#get_uncertainty_with_name_op), [has_belief_op](OperatorsCH#has_belief_op), [has_belief_with_name_op](OperatorsCH#has_belief_with_name_op), [has_desire_op](OperatorsCH#has_desire_op), [has_desire_with_name_op](OperatorsCH#has_desire_with_name_op), [has_ideal_op](OperatorsCH#has_ideal_op), [has_ideal_with_name_op](OperatorsCH#has_ideal_with_name_op), [has_intention_op](OperatorsCH#has_intention_op), [has_intention_with_name_op](OperatorsCH#has_intention_with_name_op), [has_obligation_op](OperatorsCH#has_obligation_op), [has_obligation_with_name_op](OperatorsCH#has_obligation_with_name_op), [has_uncertainty_op](OperatorsCH#has_uncertainty_op), [has_uncertainty_with_name_op](OperatorsCH#has_uncertainty_with_name_op), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_trust](OperatorsOS#set_trust), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
 
 ----
 
@@ -169,7 +169,12 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsCH#crs), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
+
+----
+
+### Files-related operators
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
 
 ----
 
@@ -189,7 +194,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Graphs-related operators
-[add_edge](OperatorsAB#add_edge), [add_node](OperatorsAB#add_node), [adjacency](OperatorsAB#adjacency), [agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [alpha_index](OperatorsAB#alpha_index), [as_distance_graph](OperatorsAB#as_distance_graph), [as_edge_graph](OperatorsAB#as_edge_graph), [as_intersection_graph](OperatorsAB#as_intersection_graph), [as_path](OperatorsAB#as_path), [beta_index](OperatorsAB#beta_index), [betweenness_centrality](OperatorsAB#betweenness_centrality), [biggest_cliques_of](OperatorsAB#biggest_cliques_of), [connected_components_of](OperatorsCH#connected_components_of), [connectivity_index](OperatorsCH#connectivity_index), [contains_edge](OperatorsCH#contains_edge), [contains_vertex](OperatorsCH#contains_vertex), [degree_of](OperatorsCH#degree_of), [directed](OperatorsCH#directed), [edge](OperatorsCH#edge), [edge_between](OperatorsCH#edge_between), [edge_betweenness](OperatorsCH#edge_betweenness), [edges](OperatorsCH#edges), [gamma_index](OperatorsCH#gamma_index), [generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_complete_graph](OperatorsCH#generate_complete_graph), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsCH#grid_cells_to_graph), [in_degree_of](OperatorsIN#in_degree_of), [in_edges_of](OperatorsIN#in_edges_of), [layout](OperatorsIN#layout), [load_graph_from_file](OperatorsIN#load_graph_from_file), [load_shortest_paths](OperatorsIN#load_shortest_paths), [main_connected_component](OperatorsIN#main_connected_component), [maximal_cliques_of](OperatorsIN#maximal_cliques_of), [nb_cycles](OperatorsIN#nb_cycles), [neighbors_of](OperatorsIN#neighbors_of), [node](OperatorsIN#node), [nodes](OperatorsIN#nodes), [out_degree_of](OperatorsOS#out_degree_of), [out_edges_of](OperatorsOS#out_edges_of), [path_between](OperatorsOS#path_between), [paths_between](OperatorsOS#paths_between), [predecessors_of](OperatorsOS#predecessors_of), [remove_node_from](OperatorsOS#remove_node_from), [rewire_n](OperatorsOS#rewire_n), [source_of](OperatorsOS#source_of), [spatial_graph](OperatorsOS#spatial_graph), [strahler](OperatorsOS#strahler), [successors_of](OperatorsOS#successors_of), [sum](OperatorsOS#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
+[add_edge](OperatorsAB#add_edge), [add_node](OperatorsAB#add_node), [adjacency](OperatorsAB#adjacency), [agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [alpha_index](OperatorsAB#alpha_index), [as_distance_graph](OperatorsAB#as_distance_graph), [as_edge_graph](OperatorsAB#as_edge_graph), [as_intersection_graph](OperatorsAB#as_intersection_graph), [as_path](OperatorsAB#as_path), [beta_index](OperatorsAB#beta_index), [betweenness_centrality](OperatorsAB#betweenness_centrality), [biggest_cliques_of](OperatorsAB#biggest_cliques_of), [connected_components_of](OperatorsCH#connected_components_of), [connectivity_index](OperatorsCH#connectivity_index), [contains_edge](OperatorsCH#contains_edge), [contains_vertex](OperatorsCH#contains_vertex), [degree_of](OperatorsCH#degree_of), [directed](OperatorsCH#directed), [edge](OperatorsCH#edge), [edge_between](OperatorsCH#edge_between), [edge_betweenness](OperatorsCH#edge_betweenness), [edges](OperatorsCH#edges), [gamma_index](OperatorsCH#gamma_index), [generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_complete_graph](OperatorsCH#generate_complete_graph), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsCH#grid_cells_to_graph), [in_degree_of](OperatorsIN#in_degree_of), [in_edges_of](OperatorsIN#in_edges_of), [layout](OperatorsIN#layout), [load_graph_from_file](OperatorsIN#load_graph_from_file), [load_shortest_paths](OperatorsIN#load_shortest_paths), [main_connected_component](OperatorsIN#main_connected_component), [max_flow_between](OperatorsIN#max_flow_between), [maximal_cliques_of](OperatorsIN#maximal_cliques_of), [nb_cycles](OperatorsIN#nb_cycles), [neighbors_of](OperatorsIN#neighbors_of), [node](OperatorsIN#node), [nodes](OperatorsIN#nodes), [out_degree_of](OperatorsOS#out_degree_of), [out_edges_of](OperatorsOS#out_edges_of), [path_between](OperatorsOS#path_between), [paths_between](OperatorsOS#paths_between), [predecessors_of](OperatorsOS#predecessors_of), [remove_node_from](OperatorsOS#remove_node_from), [rewire_n](OperatorsOS#rewire_n), [source_of](OperatorsOS#source_of), [spatial_graph](OperatorsOS#spatial_graph), [strahler](OperatorsOS#strahler), [successors_of](OperatorsOS#successors_of), [sum](OperatorsOS#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
 
 ----
 
@@ -199,102 +204,102 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
@@ -334,7 +339,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Path-related operators
-[agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [as_path](OperatorsAB#as_path), [load_shortest_paths](OperatorsIN#load_shortest_paths), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [paths_between](OperatorsOS#paths_between), [use_cache](OperatorsTZ#use_cache), 
+[agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [as_path](OperatorsAB#as_path), [load_shortest_paths](OperatorsIN#load_shortest_paths), [max_flow_between](OperatorsIN#max_flow_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [paths_between](OperatorsOS#paths_between), [use_cache](OperatorsTZ#use_cache), 
 
 ----
 
@@ -359,7 +364,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [add_point](OperatorsAB#add_point), [agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [arc](OperatorsAB#arc), [around](OperatorsAB#around), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_distance](OperatorsAB#at_distance), [at_location](OperatorsAB#at_location), [box](OperatorsAB#box), [centroid](OperatorsCH#centroid), [circle](OperatorsCH#circle), [clean](OperatorsCH#clean), [closest_points_with](OperatorsCH#closest_points_with), [closest_to](OperatorsCH#closest_to), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [convex_hull](OperatorsCH#convex_hull), [covers](OperatorsCH#covers), [cross](OperatorsCH#cross), [crosses](OperatorsCH#crosses), [crs](OperatorsCH#crs), [CRS_transform](OperatorsAB#crs_transform), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [direction_between](OperatorsCH#direction_between), [disjoint_from](OperatorsCH#disjoint_from), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [farthest_point_to](OperatorsCH#farthest_point_to), [farthest_to](OperatorsCH#farthest_to), [geometry_collection](OperatorsCH#geometry_collection), [gini](OperatorsCH#gini), [hexagon](OperatorsCH#hexagon), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [IDW](OperatorsAB#idw), [inside](OperatorsIN#inside), [inter](OperatorsIN#inter), [intersects](OperatorsIN#intersects), [line](OperatorsIN#line), [link](OperatorsIN#link), [masked_by](OperatorsIN#masked_by), [moran](OperatorsIN#moran), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [plan](OperatorsOS#plan), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [rotated_by](OperatorsOS#rotated_by), [round](OperatorsOS#round), [scaled_to](OperatorsOS#scaled_to), [set_z](OperatorsOS#set_z), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [sphere](OperatorsOS#sphere), [split_at](OperatorsOS#split_at), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [add_point](OperatorsAB#add_point), [agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [arc](OperatorsAB#arc), [around](OperatorsAB#around), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_distance](OperatorsAB#at_distance), [at_location](OperatorsAB#at_location), [box](OperatorsAB#box), [centroid](OperatorsCH#centroid), [circle](OperatorsCH#circle), [clean](OperatorsCH#clean), [clean_network](OperatorsCH#clean_network), [closest_points_with](OperatorsCH#closest_points_with), [closest_to](OperatorsCH#closest_to), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [convex_hull](OperatorsCH#convex_hull), [covers](OperatorsCH#covers), [cross](OperatorsCH#cross), [crosses](OperatorsCH#crosses), [crs](OperatorsCH#crs), [CRS_transform](OperatorsAB#crs_transform), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [direction_between](OperatorsCH#direction_between), [disjoint_from](OperatorsCH#disjoint_from), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [farthest_point_to](OperatorsCH#farthest_point_to), [farthest_to](OperatorsCH#farthest_to), [geometry_collection](OperatorsCH#geometry_collection), [gini](OperatorsCH#gini), [hexagon](OperatorsCH#hexagon), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [IDW](OperatorsAB#idw), [inside](OperatorsIN#inside), [inter](OperatorsIN#inter), [intersects](OperatorsIN#intersects), [line](OperatorsIN#line), [link](OperatorsIN#link), [masked_by](OperatorsIN#masked_by), [moran](OperatorsIN#moran), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [plan](OperatorsOS#plan), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [rotated_by](OperatorsOS#rotated_by), [round](OperatorsOS#round), [scaled_to](OperatorsOS#scaled_to), [set_z](OperatorsOS#set_z), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [sphere](OperatorsOS#sphere), [split_at](OperatorsOS#split_at), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [to_sub_geometries](OperatorsTZ#to_sub_geometries), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
@@ -384,7 +389,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_location](OperatorsAB#at_location), [clean](OperatorsCH#clean), [convex_hull](OperatorsCH#convex_hull), [CRS_transform](OperatorsAB#crs_transform), [rotated_by](OperatorsOS#rotated_by), [scaled_to](OperatorsOS#scaled_to), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_location](OperatorsAB#at_location), [clean](OperatorsCH#clean), [clean_network](OperatorsCH#clean_network), [convex_hull](OperatorsCH#convex_hull), [CRS_transform](OperatorsAB#crs_transform), [rotated_by](OperatorsOS#rotated_by), [scaled_to](OperatorsOS#scaled_to), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [to_sub_geometries](OperatorsTZ#to_sub_geometries), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
@@ -571,6 +576,28 @@ The cleaning corresponds to a buffer with a distance of 0.0
 ```
  
 geometry var0 <- clean(self); // var0 equals returns the geometry resulting from the cleaning of the geometry of the agent applying the operator.
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_clean_network)
+### `clean_network`
+
+#### Possible use: 
+  *  **`clean_network`** (`list<geometry>`, `float`, `bool`, `bool`) --->  `list<geometry>` 
+
+#### Result: 
+A list of polylines corresponding to the cleaning of the first operand (list of polyline geometry or agents), considering the tolerance distance given by the second operand; the third operator is used to define if the operator should as well split the lines at their intersections(true to split the lines); the last operandis used to specify if the operator should as well keep only the main connected component of the network. Usage: clean_network(lines:list of geometries or agents, tolerance: float, split_lines: bool, keepMainConnectedComponent: bool)  
+
+#### Comment: 
+The cleaned set of polylines
+
+#### Examples: 
+```
+ 
+list<geometry> var0 <- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections.
 
 ```
   
@@ -804,14 +831,14 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
   *  **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
 
 #### Result: 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
-returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
+returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.
 
 #### Examples: 
 ```
-graph my_graph <- graph([]);  
-list<list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph2 <- graph([]);  
-list<list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
+graph my_graph2 <- graph([]);  
+list<list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as listgraph my_graph <- graph([]);  
+list<list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
 
 ```
       
@@ -989,10 +1016,10 @@ bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 ### `contains_edge`
 
 #### Possible use: 
-  * `graph` **`contains_edge`** `pair` --->  `bool`
-  *  **`contains_edge`** (`graph` , `pair`) --->  `bool`
   * `graph` **`contains_edge`** `unknown` --->  `bool`
-  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool` 
+  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool`
+  * `graph` **`contains_edge`** `pair` --->  `bool`
+  *  **`contains_edge`** (`graph` , `pair`) --->  `bool` 
 
 #### Result: 
 returns true if the graph(left-hand operand) contains the given edge (righ-hand operand), false otherwise
@@ -1003,7 +1030,7 @@ returns true if the graph(left-hand operand) contains the given edge (righ-hand 
   
 ```
  
-bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
+bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 ``` 
 
 
@@ -1011,7 +1038,7 @@ bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
 #### Examples: 
 ```
 graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
-bool var2 <- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
+bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
 
 ```
       
@@ -1154,8 +1181,8 @@ Returns the correlation of two data sequences
 ### `cos`
 
 #### Possible use: 
-  *  **`cos`** (`int`) --->  `float`
-  *  **`cos`** (`float`) --->  `float` 
+  *  **`cos`** (`float`) --->  `float`
+  *  **`cos`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
@@ -1424,24 +1451,32 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
   *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry` 
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
 
 #### Result: 
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the four given points composed of a given number of points.
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
 A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
 
 #### Special cases:     
   * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
+  * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
@@ -1450,19 +1485,23 @@ A quadratic Bezier curve geometry built from the three given points composed of 
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil
+  * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil
 
 #### Examples: 
 ```
  
 geometry var0 <- curve({0,0},{10,10}, 0.5, false); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
-geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var2 <- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var3 <- curve({0,0}, {0,10}, {10,10}); // var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var4 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var5 <- curve({0,0},{10,10}, 0.5); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var6 <- curve({0,0},{10,10}, 0.5, false, 100); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var7 <- curve({0,0}, {0,10}, {10,10}, 20); // var7 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.
+geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var2 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var3 <- curve({0,0}, {0,10}, {10,10}, 20); // var3 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var5 <- curve({0,0},{10,10}, 0.5, false, 100); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var6 <- curve({0,0},{10,10}, 0.5, 100, 90); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var7 <- curve({0,0},{10,10}, 0.5, 90); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var8 <- curve({0,0}, {0,10}, {10,10}); // var8 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var9 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var10 <- curve({0,0},{10,10}, 0.5); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1.
 
 ```
       
@@ -1510,14 +1549,16 @@ geometry var0 <- cylinder(10,10); // var0 equals a geometry as a circle of radiu
 
 #### Possible use: 
   * `string` **`date`** `string` --->  `date`
-  *  **`date`** (`string` , `string`) --->  `date` 
+  *  **`date`** (`string` , `string`) --->  `date`
+  *  **`date`** (`string`, `string`, `string`) --->  `date` 
 
 #### Result: 
-converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences 
+converts a string to a date following a custom pattern and a specific locale (e.g. 'fr', 'en'...). The pattern can use "%Y %M %N %D %E %h %m %s %z" for parsing years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 
 #### Examples: 
 ```
-date d <- date("1999-12-30", 'yyyy-MM-dd'); 
+date den <- date("1999-12-30", 'yyyy-MM-dd'); date d <- date("1999-january-30", 'yyyy-MMMM-dd', 'en'); 
 
 ```
   
@@ -1607,10 +1648,10 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 <- dem(dem,z_factor); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var2 <- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var3 <- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.
+geometry var0 <- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var1 <- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var2 <- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
 
 ```
   
@@ -1849,8 +1890,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 ```
  
 map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -1877,8 +1918,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
  
-map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -1897,12 +1938,12 @@ map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1
 #### Possible use: 
   * `int` **`div`** `int` --->  `int`
   *  **`div`** (`int` , `int`) --->  `int`
-  * `float` **`div`** `float` --->  `int`
-  *  **`div`** (`float` , `float`) --->  `int`
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
   * `float` **`div`** `int` --->  `int`
   *  **`div`** (`float` , `int`) --->  `int`
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int` 
+  * `float` **`div`** `float` --->  `int`
+  *  **`div`** (`float` , `float`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -1916,9 +1957,9 @@ Returns the truncation of the division of the left-hand operand by the right-han
 ```
  
 int var0 <- 40 div 3; // var0 equals 13 
-int var1 <- 40.1 div 4.5; // var1 equals 8 
+int var1 <- 40 div 4.1; // var1 equals 9 
 int var2 <- 40.5 div 3; // var2 equals 13 
-int var3 <- 40 div 4.1; // var3 equals 9
+int var3 <- 40.1 div 4.5; // var3 equals 8
 
 ```
       
@@ -1945,14 +1986,14 @@ Same signification as [normal_density](OperatorsIN#normal_density)
   *  **`dtw`** (`list`, `list`, `int`) --->  `float` 
 
 #### Result: 
-returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 returns the dynamic time warping between the two series of value
+returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 
 #### Examples: 
 ```
  
-float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 2.0 
-float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var1 equals 2
+float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var0 equals 2 
+float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 2.0
 
 ```
   
@@ -1987,14 +2028,14 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 #### Possible use: 
   *  **`edge`** (`unknown`) --->  `unknown`
   *  **`edge`** (`pair`) --->  `unknown`
+  * `pair` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`pair` , `float`) --->  `unknown`
   * `unknown` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`unknown` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
-  * `pair` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`pair` , `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
     	
@@ -2144,8 +2185,8 @@ Casts the operand into the type emotion
 ### `empty`
 
 #### Possible use: 
-  *  **`empty`** (`string`) --->  `bool`
-  *  **`empty`** (`container<KeyType,ValueType>`) --->  `bool` 
+  *  **`empty`** (`container<KeyType,ValueType>`) --->  `bool`
+  *  **`empty`** (`string`) --->  `bool` 
 
 #### Result: 
 true if the operand is empty, false otherwise.  
@@ -2160,19 +2201,19 @@ the empty operator behavior depends on the nature of the operand
   * if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise    
   * if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise    
   * if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise    
-  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
-  
-```
- 
-bool var0 <- empty ('abced'); // var0 equals false
-``` 
-
-    
   * if it is a list, empty returns true if there is no element in the list, and false otherwise 
   
 ```
  
-bool var1 <- empty([]); // var1 equals true
+bool var0 <- empty([]); // var0 equals true
+``` 
+
+    
+  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
+  
+```
+ 
+bool var1 <- empty ('abced'); // var1 equals false
 ``` 
 
 
@@ -2233,6 +2274,21 @@ eval_when(plan1)
     	
 ----
 
+[//]: # (keyword|operator_evaluate_sub_model)
+### `evaluate_sub_model`
+
+#### Possible use: 
+  * `msi.gama.kernel.experiment.IExperimentAgent` **`evaluate_sub_model`** `string` --->  `unknown`
+  *  **`evaluate_sub_model`** (`msi.gama.kernel.experiment.IExperimentAgent` , `string`) --->  `unknown` 
+
+#### Result: 
+Load a submodel  
+
+#### Comment: 
+loaded submodel
+    	
+----
+
 [//]: # (keyword|operator_even)
 ### `even`
 
@@ -2269,17 +2325,17 @@ bool var1 <- even(-12); // var1 equals true
   *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
-Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-applies a step to an interval of dates defined by 'date1 to date2'
 expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-true every operand * cycle, false otherwise  
+true every operand * cycle, false otherwise
+Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
+applies a step to an interval of dates defined by 'date1 to date2'  
 
 #### Comment: 
 Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
 
 #### Examples: 
 ```
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
+reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
 
 ```
       
@@ -2287,7 +2343,7 @@ Used to do something at regular intervals of time. Can be used in conjunction wi
 
 #### See also: 
 
-[to](OperatorsTZ#to), [since](OperatorsOS#since), [after](OperatorsAB#after), 
+[since](OperatorsOS#since), [after](OperatorsAB#after), [to](OperatorsTZ#to), 
     	
 ----
 
@@ -2460,6 +2516,17 @@ let fileT type: file value: file("../includes/Stupid_Cell.Data");  			// fileT r
 #### See also: 
 
 [folder](OperatorsCH#folder), [new_folder](OperatorsIN#new_folder), 
+    	
+----
+
+[//]: # (keyword|operator_file)
+### `file`
+
+#### Possible use: 
+  *  **`file`** (`any`) --->  `file` 
+
+#### Result: 
+Casts the operand into the type file
     	
 ----
 
@@ -2744,12 +2811,12 @@ int var0 <- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "pri
   *  **`fuzzy_kappa`** (`list<agent>`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 
 #### Examples: 
 ```
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
 
 ```
   
@@ -2764,12 +2831,12 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
   *  **`fuzzy_kappa_sim`** (`list<agent>`, `list`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 #### Examples: 
 ```
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 ```
   
@@ -2887,10 +2954,10 @@ A value from a normally distributed random variable with expected value (mean) a
 #### Examples: 
 ```
  
-float var0 <- gauss(0,0.3); // var0 equals 0.22354 
-float var1 <- gauss(0,0.3); // var1 equals -0.1357 
-float var2 <- gauss({0,0.3}); // var2 equals 0.22354 
-float var3 <- gauss({0,0.3}); // var3 equals -0.1357
+float var0 <- gauss({0,0.3}); // var0 equals 0.22354 
+float var1 <- gauss({0,0.3}); // var1 equals -0.1357 
+float var2 <- gauss(0,0.3); // var2 equals 0.22354 
+float var3 <- gauss(0,0.3); // var3 equals -0.1357
 
 ```
       
@@ -2898,7 +2965,7 @@ float var3 <- gauss({0,0.3}); // var3 equals -0.1357
 
 #### See also: 
 
-[skew_gauss](OperatorsOS#skew_gauss), [truncated_gauss](OperatorsTZ#truncated_gauss), [poisson](OperatorsOS#poisson), 
+[truncated_gauss](OperatorsTZ#truncated_gauss), [poisson](OperatorsOS#poisson), [skew_gauss](OperatorsOS#skew_gauss), 
     	
 ----
 
@@ -2947,8 +3014,8 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		
 
 #### Possible use: 
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2961,26 +3028,26 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
-  * "edges_species": the species of edges    
-  * "size": the graph will contain size nodes.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "vertices_specy": the species of vertices    
+  * "edges_species": the species of edges    
+  * "size": the graph will contain size nodes.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
 
 ```
       
@@ -3114,27 +3181,27 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 ### `get`
 
 #### Possible use: 
-  * `geometry` **`get`** `string` --->  `unknown`
-  *  **`get`** (`geometry` , `string`) --->  `unknown`
   * `agent` **`get`** `string` --->  `unknown`
-  *  **`get`** (`agent` , `string`) --->  `unknown` 
+  *  **`get`** (`agent` , `string`) --->  `unknown`
+  * `geometry` **`get`** `string` --->  `unknown`
+  *  **`get`** (`geometry` , `string`) --->  `unknown` 
 
 #### Result: 
-Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 
 #### Special cases:     
-  * Reading the attribute of a geometry 
-  
-```
-string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
-``` 
-
-    
   * Reading the attribute of another agent 
   
 ```
 string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
+``` 
+
+    
+  * Reading the attribute of a geometry 
+  
+```
+string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
 ``` 
 
 
@@ -3196,6 +3263,100 @@ get_agent_cause(emotion)
     	
 ----
 
+[//]: # (keyword|operator_get_belief_op)
+### `get_belief_op`
+
+#### Possible use: 
+  * `agent` **`get_belief_op`** `predicate` --->  `mental_state`
+  *  **`get_belief_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the belief in the belief base with the given predicate.
+
+#### Examples: 
+```
+get_belief_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_belief_with_name_op)
+### `get_belief_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_belief_with_name_op`** `string` --->  `mental_state`
+  *  **`get_belief_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the belief in the belief base with the given name.
+
+#### Examples: 
+```
+get_belief_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_beliefs_op)
+### `get_beliefs_op`
+
+#### Possible use: 
+  * `agent` **`get_beliefs_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_beliefs_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the beliefs in the belief base with the given predicate.
+
+#### Examples: 
+```
+get_beliefs_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_beliefs_with_name_op)
+### `get_beliefs_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_beliefs_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_beliefs_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of beliefs in the belief base which predicate has the given name.
+
+#### Examples: 
+```
+get_beliefs_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_current_intention_op)
+### `get_current_intention_op`
+
+#### Possible use: 
+  *  **`get_current_intention_op`** (`agent`) --->  `mental_state` 
+
+#### Result: 
+get the current intention.
+
+#### Examples: 
+```
+get_current_intention_op(self,has_water) 
+
+```
+  
+    	
+----
+
 [//]: # (keyword|operator_get_decay)
 ### `get_decay`
 
@@ -3208,6 +3369,83 @@ get the decay value of the given emotion
 #### Examples: 
 ```
 get_decay(emotion) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_desire_op)
+### `get_desire_op`
+
+#### Possible use: 
+  * `agent` **`get_desire_op`** `predicate` --->  `mental_state`
+  *  **`get_desire_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the desire in the desire base with the given predicate.
+
+#### Examples: 
+```
+get_belief_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_desire_with_name_op)
+### `get_desire_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_desire_with_name_op`** `string` --->  `mental_state`
+  *  **`get_desire_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the desire in the desire base with the given name.
+
+#### Examples: 
+```
+ 
+mental_state var0 <- get_desire_with_name_op(self,"has_water"); // var0 equals nil
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_desires_op)
+### `get_desires_op`
+
+#### Possible use: 
+  * `agent` **`get_desires_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_desires_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the desires in the desire base with the given predicate.
+
+#### Examples: 
+```
+get_desires_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_desires_with_name_op)
+### `get_desires_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_desires_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_desires_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of desires in the desire base which predicate has the given name.
+
+#### Examples: 
+```
+get_desires_with_name_op(self,"has_water") 
 
 ```
   
@@ -3250,6 +3488,82 @@ get_familiarity(social_link1)
     	
 ----
 
+[//]: # (keyword|operator_get_ideal_op)
+### `get_ideal_op`
+
+#### Possible use: 
+  * `agent` **`get_ideal_op`** `predicate` --->  `mental_state`
+  *  **`get_ideal_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the ideal in the ideal base with the given name.
+
+#### Examples: 
+```
+get_ideal_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_ideal_with_name_op)
+### `get_ideal_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_ideal_with_name_op`** `string` --->  `mental_state`
+  *  **`get_ideal_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the ideal in the ideal base with the given name.
+
+#### Examples: 
+```
+get_ideal_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_ideals_op)
+### `get_ideals_op`
+
+#### Possible use: 
+  * `agent` **`get_ideals_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_ideals_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the ideal in the ideal base with the given name.
+
+#### Examples: 
+```
+get_ideals_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_ideals_with_name_op)
+### `get_ideals_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_ideals_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_ideals_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of ideals in the ideal base which predicate has the given name.
+
+#### Examples: 
+```
+get_ideals_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
 [//]: # (keyword|operator_get_intensity)
 ### `get_intensity`
 
@@ -3268,12 +3582,88 @@ emotion set_intensity 12
     	
 ----
 
+[//]: # (keyword|operator_get_intention_op)
+### `get_intention_op`
+
+#### Possible use: 
+  * `agent` **`get_intention_op`** `predicate` --->  `mental_state`
+  *  **`get_intention_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the intention in the intention base with the given predicate.
+
+#### Examples: 
+```
+get_intention_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_intention_with_name_op)
+### `get_intention_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_intention_with_name_op`** `string` --->  `mental_state`
+  *  **`get_intention_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the intention in the intention base with the given name.
+
+#### Examples: 
+```
+get_intention_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_intentions_op)
+### `get_intentions_op`
+
+#### Possible use: 
+  * `agent` **`get_intentions_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_intentions_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the intentions in the intention base with the given predicate.
+
+#### Examples: 
+```
+get_intentions_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_intentions_with_name_op)
+### `get_intentions_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_intentions_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_intentions_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of intentions in the intention base which predicate has the given name.
+
+#### Examples: 
+```
+get_intentions_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
 [//]: # (keyword|operator_get_lifetime)
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`predicate`) --->  `int`
-  *  **`get_lifetime`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `int` 
+  *  **`get_lifetime`** (`mental_state`) --->  `int`
+  *  **`get_lifetime`** (`predicate`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -3309,7 +3699,7 @@ get_liking(social_link1)
 ### `get_modality`
 
 #### Possible use: 
-  *  **`get_modality`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `string` 
+  *  **`get_modality`** (`mental_state`) --->  `string` 
 
 #### Result: 
 get the modality value of the given mental state
@@ -3317,6 +3707,82 @@ get the modality value of the given mental state
 #### Examples: 
 ```
 get_modality(mental_state1) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_obligation_op)
+### `get_obligation_op`
+
+#### Possible use: 
+  * `agent` **`get_obligation_op`** `predicate` --->  `mental_state`
+  *  **`get_obligation_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the obligation in the obligation base with the given predicate.
+
+#### Examples: 
+```
+get_obligation_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_obligation_with_name_op)
+### `get_obligation_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_obligation_with_name_op`** `string` --->  `mental_state`
+  *  **`get_obligation_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the obligation in the obligation base with the given name.
+
+#### Examples: 
+```
+get_obligation_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_obligations_op)
+### `get_obligations_op`
+
+#### Possible use: 
+  * `agent` **`get_obligations_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_obligations_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the obligations in the obligation base with the given predicate.
+
+#### Examples: 
+```
+get_obligations_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_obligations_with_name_op)
+### `get_obligations_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_obligations_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_obligations_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of obligations in the obligation base which predicate has the given name.
+
+#### Examples: 
+```
+get_obligations_with_name_op(self,"has_water") 
 
 ```
   
@@ -3345,7 +3811,7 @@ get_plan_name(agent.current_plan)
 ### `get_predicate`
 
 #### Possible use: 
-  *  **`get_predicate`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `predicate` 
+  *  **`get_predicate`** (`mental_state`) --->  `predicate` 
 
 #### Result: 
 get the predicate value of the given mental state
@@ -3381,7 +3847,7 @@ get_solidarity(social_link1)
 ### `get_strength`
 
 #### Possible use: 
-  *  **`get_strength`** (`msi.gaml.architecture.simplebdi.MentalState`) --->  `float` 
+  *  **`get_strength`** (`mental_state`) --->  `float` 
 
 #### Result: 
 get the strength value of the given mental state
@@ -3399,7 +3865,7 @@ get_strength(mental_state1)
 ### `get_super_intention`
 
 #### Possible use: 
-  *  **`get_super_intention`** (`predicate`) --->  `msi.gaml.architecture.simplebdi.MentalState`
+  *  **`get_super_intention`** (`predicate`) --->  `mental_state`
     	
 ----
 
@@ -3426,6 +3892,82 @@ get_familiarity(social_link1)
 
 #### Possible use: 
   *  **`get_truth`** (`predicate`) --->  `bool`
+    	
+----
+
+[//]: # (keyword|operator_get_uncertainties_op)
+### `get_uncertainties_op`
+
+#### Possible use: 
+  * `agent` **`get_uncertainties_op`** `predicate` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_uncertainties_op`** (`agent` , `predicate`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the uncertainties in the uncertainty base with the given predicate.
+
+#### Examples: 
+```
+get_uncertinties_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_uncertainties_with_name_op)
+### `get_uncertainties_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_uncertainties_with_name_op`** `string` --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>`
+  *  **`get_uncertainties_with_name_op`** (`agent` , `string`) --->  `msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState>` 
+
+#### Result: 
+get the list of uncertainties in the uncertainty base which predicate has the given name.
+
+#### Examples: 
+```
+get_uncertainties_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_uncertainty_op)
+### `get_uncertainty_op`
+
+#### Possible use: 
+  * `agent` **`get_uncertainty_op`** `predicate` --->  `mental_state`
+  *  **`get_uncertainty_op`** (`agent` , `predicate`) --->  `mental_state` 
+
+#### Result: 
+get the uncertainty in the uncertainty base with the given predicate.
+
+#### Examples: 
+```
+get_uncertainty_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_get_uncertainty_with_name_op)
+### `get_uncertainty_with_name_op`
+
+#### Possible use: 
+  * `agent` **`get_uncertainty_with_name_op`** `string` --->  `mental_state`
+  *  **`get_uncertainty_with_name_op`** (`agent` , `string`) --->  `mental_state` 
+
+#### Result: 
+get the uncertainty in the uncertainty base with the given name.
+
+#### Examples: 
+```
+get_uncertainty_with_name_op(self,"has_water") 
+
+```
+  
     	
 ----
 
@@ -3623,12 +4165,240 @@ float var0 <- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944540
     	
 ----
 
+[//]: # (keyword|operator_has_belief_op)
+### `has_belief_op`
+
+#### Possible use: 
+  * `agent` **`has_belief_op`** `predicate` --->  `bool`
+  *  **`has_belief_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is a belief about the given predicate.
+
+#### Examples: 
+```
+has_belief_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_belief_with_name_op)
+### `has_belief_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_belief_with_name_op`** `string` --->  `bool`
+  *  **`has_belief_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is a belief about the given name.
+
+#### Examples: 
+```
+has_belief_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_desire_op)
+### `has_desire_op`
+
+#### Possible use: 
+  * `agent` **`has_desire_op`** `predicate` --->  `bool`
+  *  **`has_desire_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is a desire about the given predicate.
+
+#### Examples: 
+```
+has_desire_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_desire_with_name_op)
+### `has_desire_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_desire_with_name_op`** `string` --->  `bool`
+  *  **`has_desire_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is a desire about the given name.
+
+#### Examples: 
+```
+has_desire_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_ideal_op)
+### `has_ideal_op`
+
+#### Possible use: 
+  * `agent` **`has_ideal_op`** `predicate` --->  `bool`
+  *  **`has_ideal_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an ideal about the given predicate.
+
+#### Examples: 
+```
+has_ideal_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_ideal_with_name_op)
+### `has_ideal_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_ideal_with_name_op`** `string` --->  `bool`
+  *  **`has_ideal_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an ideal about the given name.
+
+#### Examples: 
+```
+has_ideal_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_intention_op)
+### `has_intention_op`
+
+#### Possible use: 
+  * `agent` **`has_intention_op`** `predicate` --->  `bool`
+  *  **`has_intention_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an intention about the given predicate.
+
+#### Examples: 
+```
+has_intention_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_intention_with_name_op)
+### `has_intention_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_intention_with_name_op`** `string` --->  `bool`
+  *  **`has_intention_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an intention about the given name.
+
+#### Examples: 
+```
+has_intention_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_obligation_op)
+### `has_obligation_op`
+
+#### Possible use: 
+  * `agent` **`has_obligation_op`** `predicate` --->  `bool`
+  *  **`has_obligation_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an obligation about the given predicate.
+
+#### Examples: 
+```
+has_obligation_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_obligation_with_name_op)
+### `has_obligation_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_obligation_with_name_op`** `string` --->  `bool`
+  *  **`has_obligation_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an obligation about the given name.
+
+#### Examples: 
+```
+has_obligation_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_uncertainty_op)
+### `has_uncertainty_op`
+
+#### Possible use: 
+  * `agent` **`has_uncertainty_op`** `predicate` --->  `bool`
+  *  **`has_uncertainty_op`** (`agent` , `predicate`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an uncertainty about the given predicate.
+
+#### Examples: 
+```
+has_uncertainty_op(self,has_water) 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_has_uncertainty_with_name_op)
+### `has_uncertainty_with_name_op`
+
+#### Possible use: 
+  * `agent` **`has_uncertainty_with_name_op`** `string` --->  `bool`
+  *  **`has_uncertainty_with_name_op`** (`agent` , `string`) --->  `bool` 
+
+#### Result: 
+indicates if there already is an uncertainty about the given name.
+
+#### Examples: 
+```
+has_uncertainty_with_name_op(self,"has_water") 
+
+```
+  
+    	
+----
+
 [//]: # (keyword|operator_hexagon)
 ### `hexagon`
 
 #### Possible use: 
-  *  **`hexagon`** (`float`) --->  `geometry`
   *  **`hexagon`** (`point`) --->  `geometry`
+  *  **`hexagon`** (`float`) --->  `geometry`
   * `float` **`hexagon`** `float` --->  `geometry`
   *  **`hexagon`** (`float` , `float`) --->  `geometry` 
 
@@ -3646,9 +4416,9 @@ the center of the hexagon is by default the location of the current agent in whi
 #### Examples: 
 ```
  
-geometry var0 <- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
 
 ```
       
@@ -3693,8 +4463,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  

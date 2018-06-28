@@ -23,19 +23,19 @@ During the simulation, GAML provides you the possibility to define some function
 
 [//]: # (keyword|statement_event)
 You can catch mouse event during the simulation using the statement `event`. This statement has 2 required facets:
-* **`name`** (identifier) : Specify which event do you want to trigger (among the following values : `mouse_down`, `mouse_down`, `mouse_move`, `mouse_enter`, `mouse_exit`).
+* **`name`** (identifier) : Specify which event do you want to trigger (among the following values : `mouse_down`, `mouse_up`, `mouse_move`, `mouse_enter`, `mouse_exit` or any alphanumeric symbol/key of the keyboard, such as, `'a'`, `'b'`...).
 * **`action`** (identifier) : Specify the name of the global action to call.
 
 ```
 event mouse_down action: my_action;
 ```
 
-The `event` statement has to be defined in the `experiment`/`output`/`display` scope. Once the event is triggered, the global action linked will be called. The action linked has to have 2 arguments : the location of the click (type `point`) and the list of agents which are displayed at this position.
+The `event` statement has to be defined in the `experiment`/`output`/`display` scope. Once the event is triggered, the global action linked will be called. The action linked cannot have arguments. To get the location of the mouse click, the `#user_location` can be used; to get the agents on which the mouse has clicked, you can use spatial query (e.g. `my_species overlapping #user_location`).
 
 ```
 global
 {
-	action my_action (point loc, list<my_species> selected_agents)
+	action my_action
 	{
 		write "do action";
 	}

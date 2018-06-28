@@ -5,7 +5,7 @@ wikiPageName: GoldMinerModel_step4
 wikiPagePath: wiki/GoldMinerModel_step4.md
 ---
 # 4. Emotions and Personality
-This last step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.
+This fourth step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.
 
 ## Formulation
   * Definition of global emotions
@@ -154,7 +154,7 @@ species miner skills: [moving] control:simple_bdi {
 	}
 		
 	perceive target:goldmine where (each.quantity > 0) in:viewdist {
-		focus mine_at_location var:location;
+		focus id:mine_at_location var:location;
 		ask myself {
 			if (has_emotion(joy)) {do add_desire(predicate:share_information, strength: 5.0);}
 			do remove_intention(find_gold, false);

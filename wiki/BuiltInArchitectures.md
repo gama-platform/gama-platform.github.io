@@ -149,6 +149,26 @@ adds the mental state is in the desire base.
 * **`lifetime`** (int): the lifetime of the desire 			
 * **`todo`** (546704): add the desire as a subintention of this parameter  
 	 
+#### **`add_directly_belief`**
+add the belief in the belief base.
+* returns: bool 			
+* **`belief`** (546708): belief to add in th belief base  
+	 
+#### **`add_directly_desire`**
+add the desire in the desire base.
+* returns: bool 			
+* **`desire`** (546708): desire to add in th belief base  
+	 
+#### **`add_directly_ideal`**
+add the ideal in the ideal base.
+* returns: bool 			
+* **`ideal`** (546708): ideal to add in the ideal base  
+	 
+#### **`add_directly_uncertainty`**
+add the uncertainty in the uncertainty base.
+* returns: bool 			
+* **`uncertainty`** (546708): uncertainty to add in the uncertainty base  
+	 
 #### **`add_emotion`**
 add the emotion to the emotion base.
 * returns: bool 			
@@ -305,22 +325,22 @@ puts the current intention on hold until the specified condition is reached or a
 	 
 #### **`get_belief`**
 return the belief about the predicate in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`predicate`** (546704): predicate to get  
 	 
 #### **`get_belief_emotion`**
 return the belief about the emotion in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`emotion`** (546706): emotion about which the belief to get is  
 	 
 #### **`get_belief_mental_state`**
 return the belief about the mental state in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`mental_state`** (546708): mental state to get  
 	 
 #### **`get_belief_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_beliefs`**
@@ -340,7 +360,7 @@ get the list of predicates is in the belief base with the given name.
 	 
 #### **`get_current_intention`**
 returns the current intention (last entry of intention base).
-* returns: msi.gaml.architecture.simplebdi.MentalState  
+* returns: mental_state  
 	 
 #### **`get_current_plan`**
 get the current plan.
@@ -348,17 +368,17 @@ get the current plan.
 	 
 #### **`get_desire`**
 get the predicates is in the desire base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`predicate`** (546704): predicate to check  
 	 
 #### **`get_desire_mental_state`**
 get the mental state is in the desire base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_desire_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_desires`**
@@ -381,29 +401,34 @@ get the emotion in the emotion base (if several, returns the first one).
 * returns: emotion 			
 * **`emotion`** (546706): emotion to get  
 	 
+#### **`get_emotion_with_name`**
+get the emotion is in the emotion base (if several, returns the first one).
+* returns: emotion 			
+* **`name`** (string): name of the emotion to check  
+	 
 #### **`get_ideal`**
-get the predicates in the ideal base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
-* **`predicate`** (546704): predicate to return  
+get the ideal about the predicate in the ideal base (if several, returns the first one).
+* returns: mental_state 			
+* **`predicate`** (546704): predicate to check ad an ideal  
 	 
 #### **`get_ideal_mental_state`**
 get the mental state in the ideal base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`mental_state`** (546708): mental state to return  
 	 
 #### **`get_intention`**
 get the predicates in the intention base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`predicate`** (546704): predicate to check  
 	 
 #### **`get_intention_mental_state`**
 get the mental state is in the intention base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_intention_with_name`**
 get the predicates is in the belief base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`name`** (string): name of the predicate to check  
 	 
 #### **`get_intentions`**
@@ -423,7 +448,7 @@ get the list of predicates is in the belief base with the given name.
 	 
 #### **`get_obligation`**
 get the predicates in the obligation base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`predicate`** (546704): predicate to return  
 	 
 #### **`get_plan`**
@@ -447,12 +472,12 @@ get the social link with the agent concerned (if several, returns the first one)
 	 
 #### **`get_uncertainty`**
 get the predicates is in the uncertainty base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`predicate`** (546704): predicate to return  
 	 
 #### **`get_uncertainty_mental_state`**
 get the mental state is in the uncertainty base (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.MentalState 			
+* returns: mental_state 			
 * **`mental_state`** (546708): mental state to return  
 	 
 #### **`has_belief`**
@@ -465,6 +490,11 @@ check if the mental state is in the belief base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
 	 
+#### **`has_belief_with_name`**
+check if the predicate is in the belief base.
+* returns: bool 			
+* **`name`** (string): name of the predicate to check  
+	 
 #### **`has_desire`**
 check if the predicates is in the desire base.
 * returns: bool 			
@@ -475,10 +505,20 @@ check if the mental state is in the desire base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
 	 
+#### **`has_desire_with_name`**
+check if the prediate is in the desire base.
+* returns: bool 			
+* **`name`** (string): name of the predicate to check  
+	 
 #### **`has_emotion`**
 check if the emotion is in the belief base.
 * returns: bool 			
 * **`emotion`** (546706): emotion to check  
+	 
+#### **`has_emotion_with_name`**
+check if the emotion is in the emotion base.
+* returns: bool 			
+* **`name`** (string): name of the emotion to check  
 	 
 #### **`has_ideal`**
 check if the predicates is in the ideal base.
@@ -489,6 +529,11 @@ check if the predicates is in the ideal base.
 check if the mental state is in the ideal base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
+	 
+#### **`has_ideal_with_name`**
+check if the predicate is in the ideal base.
+* returns: bool 			
+* **`name`** (string): name of the predicate to check  
 	 
 #### **`has_obligation`**
 check if the predicates is in the obligation base.
@@ -514,6 +559,11 @@ check if the predicates is in the uncertainty base.
 check if the mental state is in the uncertainty base.
 * returns: bool 			
 * **`mental_state`** (546708): mental state to check  
+	 
+#### **`has_uncertainty_with_name`**
+check if the predicate is in the uncertainty base.
+* returns: bool 			
+* **`name`** (string): name of the uncertainty to check  
 	 
 #### **`is_current_intention`**
 check if the predicates is the current intention (last entry of intention base).

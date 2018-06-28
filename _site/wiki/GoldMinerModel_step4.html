@@ -1993,6 +1993,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/InstallingGitVersionMars17.html": {
+         "title": "Installing the GIT version",
+         "url": "/wiki/InstallingGitVersionMars17.html"
+       }
+        ,
+      
        "/wiki/InstallingPlugins.html": {
          "title": "Installing Plugins",
          "url": "/wiki/InstallingPlugins.html"
@@ -3542,7 +3548,7 @@ function closeRightMenu() {
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="4-emotions-and-personality">4. Emotions and Personality</h1>
-<p>This last step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.</p>
+<p>This fourth step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.</p>
 
 <h2 id="formulation">Formulation</h2>
 <ul>
@@ -3694,7 +3700,7 @@ function closeRightMenu() {
 	<span class="p">}</span>
 		
 	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">focus</span> <span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
 		<span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
 			<span class="k">if</span> <span class="p">(</span><span class="n">has_emotion</span><span class="p">(</span><span class="n">joy</span><span class="p">))</span> <span class="p">{</span><span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span><span class="n">share_information</span><span class="p">,</span> <span class="n">strength</span><span class="p">:</span> <span class="m">5.0</span><span class="p">);}</span>
 			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
