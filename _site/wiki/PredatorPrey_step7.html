@@ -1993,6 +1993,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/InstallingGitVersionMars17.html": {
+         "title": "Installing the GIT version",
+         "url": "/wiki/InstallingGitVersionMars17.html"
+       }
+        ,
+      
        "/wiki/InstallingPlugins.html": {
          "title": "Installing Plugins",
          "url": "/wiki/InstallingPlugins.html"
@@ -3559,7 +3565,7 @@ function closeRightMenu() {
 
 <h3 id="parent-species">parent species</h3>
 
-<p>We add a new variable of type <em>file</em> called <strong>my_icon</strong> to the <strong>generic_species</strong>.
+<p>We add a new variable of type <em>image_file</em> (a particular kind of <em>file</em>) called <strong>my_icon</strong> to the <strong>generic_species</strong>.
 We define as well two new aspects:</p>
 <ul>
   <li><strong>icon</strong> : draw the image given by the variable <strong>icon</strong></li>
@@ -3568,7 +3574,7 @@ We define as well two new aspects:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species generic_species {
       ...
-      file my_icon;
+      image_file my_icon;
       ...
       aspect base {
          draw circle(size) color: color ;
@@ -3615,7 +3621,7 @@ We define as well two new aspects:</p>
 
 <p>The image file is here: <img src="resources/images/tutorials/predator_prey_wolf.png" alt="images/predator_prey_wolf.png" /></p>
 
-<p>You have to copy it in your project folder: images</p>
+<p>You have to copy it in your project folder: images/</p>
 
 <h3 id="display">display</h3>
 <p>We change the default aspect of the prey and predator agents to <strong>icon</strong> aspect.</p>
@@ -3675,7 +3681,7 @@ We define as well two new aspects:</p>
 	<span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">nb_max_offsprings</span><span class="p">;</span>
 	<span class="n">float</span> <span class="n">energy_reproduce</span><span class="p">;</span>
-	<span class="n">file</span> <span class="n">my_icon</span><span class="p">;</span>
+	<span class="n">image_file</span> <span class="n">my_icon</span><span class="p">;</span>
 	<span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">energy</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="n">max_energy</span>  <span class="n">update</span><span class="p">:</span> <span class="n">energy</span> <span class="p">-</span> <span class="n">energy_consum</span> <span class="k">max</span><span class="p">:</span> <span class="n">max_energy</span> <span class="p">;</span>
 	

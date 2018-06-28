@@ -1993,6 +1993,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/InstallingGitVersionMars17.html": {
+         "title": "Installing the GIT version",
+         "url": "/wiki/InstallingGitVersionMars17.html"
+       }
+        ,
+      
        "/wiki/InstallingPlugins.html": {
          "title": "Installing Plugins",
          "url": "/wiki/InstallingPlugins.html"
@@ -3690,6 +3696,34 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">todo</code></strong> (546704): add the desire as a subintention of this parameter</li>
 </ul>
 
+<h4 id="add_directly_belief"><strong><code class="highlighter-rouge">add_directly_belief</code></strong></h4>
+<p>add the belief in the belief base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">belief</code></strong> (546708): belief to add in th belief base</li>
+</ul>
+
+<h4 id="add_directly_desire"><strong><code class="highlighter-rouge">add_directly_desire</code></strong></h4>
+<p>add the desire in the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">desire</code></strong> (546708): desire to add in th belief base</li>
+</ul>
+
+<h4 id="add_directly_ideal"><strong><code class="highlighter-rouge">add_directly_ideal</code></strong></h4>
+<p>add the ideal in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">ideal</code></strong> (546708): ideal to add in the ideal base</li>
+</ul>
+
+<h4 id="add_directly_uncertainty"><strong><code class="highlighter-rouge">add_directly_uncertainty</code></strong></h4>
+<p>add the uncertainty in the uncertainty base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">uncertainty</code></strong> (546708): uncertainty to add in the uncertainty base</li>
+</ul>
+
 <h4 id="add_emotion"><strong><code class="highlighter-rouge">add_emotion</code></strong></h4>
 <p>add the emotion to the emotion base.</p>
 <ul>
@@ -3901,28 +3935,28 @@ function closeRightMenu() {
 <h4 id="get_belief"><strong><code class="highlighter-rouge">get_belief</code></strong></h4>
 <p>return the belief about the predicate in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to get</li>
 </ul>
 
 <h4 id="get_belief_emotion"><strong><code class="highlighter-rouge">get_belief_emotion</code></strong></h4>
 <p>return the belief about the emotion in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion about which the belief to get is</li>
 </ul>
 
 <h4 id="get_belief_mental_state"><strong><code class="highlighter-rouge">get_belief_mental_state</code></strong></h4>
 <p>return the belief about the mental state in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to get</li>
 </ul>
 
 <h4 id="get_belief_with_name"><strong><code class="highlighter-rouge">get_belief_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
@@ -3950,7 +3984,7 @@ function closeRightMenu() {
 <h4 id="get_current_intention"><strong><code class="highlighter-rouge">get_current_intention</code></strong></h4>
 <p>returns the current intention (last entry of intention base).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
 </ul>
 
 <h4 id="get_current_plan"><strong><code class="highlighter-rouge">get_current_plan</code></strong></h4>
@@ -3962,21 +3996,21 @@ function closeRightMenu() {
 <h4 id="get_desire"><strong><code class="highlighter-rouge">get_desire</code></strong></h4>
 <p>get the predicates is in the desire base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
 <h4 id="get_desire_mental_state"><strong><code class="highlighter-rouge">get_desire_mental_state</code></strong></h4>
 <p>get the mental state is in the desire base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="get_desire_with_name"><strong><code class="highlighter-rouge">get_desire_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
@@ -4008,38 +4042,45 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to get</li>
 </ul>
 
-<h4 id="get_ideal"><strong><code class="highlighter-rouge">get_ideal</code></strong></h4>
-<p>get the predicates in the ideal base (if several, returns the first one).</p>
+<h4 id="get_emotion_with_name"><strong><code class="highlighter-rouge">get_emotion_with_name</code></strong></h4>
+<p>get the emotion is in the emotion base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
-  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
+  <li>returns: emotion</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the emotion to check</li>
+</ul>
+
+<h4 id="get_ideal"><strong><code class="highlighter-rouge">get_ideal</code></strong></h4>
+<p>get the ideal about the predicate in the ideal base (if several, returns the first one).</p>
+<ul>
+  <li>returns: mental_state</li>
+  <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check ad an ideal</li>
 </ul>
 
 <h4 id="get_ideal_mental_state"><strong><code class="highlighter-rouge">get_ideal_mental_state</code></strong></h4>
 <p>get the mental state in the ideal base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to return</li>
 </ul>
 
 <h4 id="get_intention"><strong><code class="highlighter-rouge">get_intention</code></strong></h4>
 <p>get the predicates in the intention base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to check</li>
 </ul>
 
 <h4 id="get_intention_mental_state"><strong><code class="highlighter-rouge">get_intention_mental_state</code></strong></h4>
 <p>get the mental state is in the intention base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
 <h4 id="get_intention_with_name"><strong><code class="highlighter-rouge">get_intention_with_name</code></strong></h4>
 <p>get the predicates is in the belief base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
@@ -4067,7 +4108,7 @@ function closeRightMenu() {
 <h4 id="get_obligation"><strong><code class="highlighter-rouge">get_obligation</code></strong></h4>
 <p>get the predicates in the obligation base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
 </ul>
 
@@ -4101,14 +4142,14 @@ function closeRightMenu() {
 <h4 id="get_uncertainty"><strong><code class="highlighter-rouge">get_uncertainty</code></strong></h4>
 <p>get the predicates is in the uncertainty base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">predicate</code></strong> (546704): predicate to return</li>
 </ul>
 
 <h4 id="get_uncertainty_mental_state"><strong><code class="highlighter-rouge">get_uncertainty_mental_state</code></strong></h4>
 <p>get the mental state is in the uncertainty base (if several, returns the first one).</p>
 <ul>
-  <li>returns: msi.gaml.architecture.simplebdi.MentalState</li>
+  <li>returns: mental_state</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to return</li>
 </ul>
 
@@ -4126,6 +4167,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
+<h4 id="has_belief_with_name"><strong><code class="highlighter-rouge">has_belief_with_name</code></strong></h4>
+<p>check if the predicate is in the belief base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
+</ul>
+
 <h4 id="has_desire"><strong><code class="highlighter-rouge">has_desire</code></strong></h4>
 <p>check if the predicates is in the desire base.</p>
 <ul>
@@ -4140,11 +4188,25 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
 </ul>
 
+<h4 id="has_desire_with_name"><strong><code class="highlighter-rouge">has_desire_with_name</code></strong></h4>
+<p>check if the prediate is in the desire base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
+</ul>
+
 <h4 id="has_emotion"><strong><code class="highlighter-rouge">has_emotion</code></strong></h4>
 <p>check if the emotion is in the belief base.</p>
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (546706): emotion to check</li>
+</ul>
+
+<h4 id="has_emotion_with_name"><strong><code class="highlighter-rouge">has_emotion_with_name</code></strong></h4>
+<p>check if the emotion is in the emotion base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the emotion to check</li>
 </ul>
 
 <h4 id="has_ideal"><strong><code class="highlighter-rouge">has_ideal</code></strong></h4>
@@ -4159,6 +4221,13 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
+<h4 id="has_ideal_with_name"><strong><code class="highlighter-rouge">has_ideal_with_name</code></strong></h4>
+<p>check if the predicate is in the ideal base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the predicate to check</li>
 </ul>
 
 <h4 id="has_obligation"><strong><code class="highlighter-rouge">has_obligation</code></strong></h4>
@@ -4194,6 +4263,13 @@ function closeRightMenu() {
 <ul>
   <li>returns: bool</li>
   <li><strong><code class="highlighter-rouge">mental_state</code></strong> (546708): mental state to check</li>
+</ul>
+
+<h4 id="has_uncertainty_with_name"><strong><code class="highlighter-rouge">has_uncertainty_with_name</code></strong></h4>
+<p>check if the predicate is in the uncertainty base.</p>
+<ul>
+  <li>returns: bool</li>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (string): name of the uncertainty to check</li>
 </ul>
 
 <h4 id="is_current_intention"><strong><code class="highlighter-rouge">is_current_intention</code></strong></h4>

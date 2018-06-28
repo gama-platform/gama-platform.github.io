@@ -43,7 +43,7 @@ In order to detail how to access these new attributes (if needed), developers ha
 If no getter (and setter) is defined, the attribute can nevertheless be set and get, using implicit by default getter and setter. But as soon as a getter and/or a setter is defined, they replace the implicit default ones.
 For example:
 ```
-@getter(var = IKeyword.SPEED)
+@getter(IKeyword.SPEED)
 public double getSpeed(final IAgent agent) {
     return (Double) agent.getAttribute(IKeyword.SPEED);
 }

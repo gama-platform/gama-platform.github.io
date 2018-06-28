@@ -23,7 +23,7 @@ You can then download the right version from the [Downloads page](http://vps2261
 
 ## System Requirements
 
-GAMA 1.7 requires that **Java 1.8** be installed on your machine, approximately 200MB of disk space and a minimum of 4GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#Memory_problems)).
+GAMA 1.7/1.8 requires that **Java 1.8** be installed on your machine, approximately 200MB of disk space and a minimum of 4GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#Memory_problems)). **Please note that GAMA is not considered as compatible with Java 1.9 and Java 1.10** as it has not been tested under these environments.
 
 ### MacOS 
 
@@ -42,7 +42,7 @@ From now on, Gama should be fully functional.
 
 ## Installation of Java
 
-On all environments, the recommended Java Virtual Machine under which GAMA has been tested is the one distributed by Oracle ([http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk)). 
+On all environments, the recommended Java Virtual Machine under which GAMA has been tested is the one distributed by Oracle ([http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)). 
 **Please make sure to install the JDK (Java Development Kit) and not the JRE (Java Runtime Environment)**.
 GAMA may work with the standard JRE, although it will be slower and may even crash (esp. under MacOS X).
 

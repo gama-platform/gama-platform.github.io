@@ -112,7 +112,7 @@ In addition, we ask the miner agent to remove the intention to find gold, allowi
 species miner skills: [moving] control:simple_bdi {
 	...	
 	perceive target:goldmine where (each.quantity > 0) in:viewdist {
-		focus mine_at_location var:location;
+		focus id:mine_at_location var:location;
 		ask myself {
 			do remove_intention(find_gold, false);
 		}
@@ -339,7 +339,7 @@ species miner skills: [moving] control:simple_bdi {
 	}
 		
 	perceive target:goldmine where (each.quantity > 0) in:viewdist {
-		focus mine_at_location var:location;
+		focus id:mine_at_location var:location;
 		ask myself {
 			do remove_intention(find_gold, false);
 		}

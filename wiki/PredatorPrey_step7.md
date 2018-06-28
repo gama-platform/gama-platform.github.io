@@ -28,7 +28,7 @@ In this seventh step we will focus on the display and more specifically the aspe
 
 ### parent species
 
-We add a new variable of type _file_ called **my\_icon** to the **generic\_species**.
+We add a new variable of type _image\_file_ (a particular kind of _file_) called **my\_icon** to the **generic\_species**.
 We define as well two new aspects:
   * **icon** : draw the image given by the variable **icon**
   * **info** : draw a square of side size **size** and color **color**; draw as a text the energy of the agent (with a precision of 2)
@@ -36,7 +36,7 @@ We define as well two new aspects:
 ```
    species generic_species {
       ...
-      file my_icon;
+      image_file my_icon;
       ...
       aspect base {
          draw circle(size) color: color ;
@@ -80,7 +80,7 @@ As done for the **prey** species, we specialize the **predator** species from th
 
 The image file is here: ![images/predator_prey_wolf.png](resources/images/tutorials/predator_prey_wolf.png)
 
-You have to copy it in your project folder: images
+You have to copy it in your project folder: images/
 
 ### display
 We change the default aspect of the prey and predator agents to **icon** aspect.
@@ -146,7 +146,7 @@ species generic_species {
 	float proba_reproduce ;
 	float nb_max_offsprings;
 	float energy_reproduce;
-	file my_icon;
+	image_file my_icon;
 	vegetation_cell myCell <- one_of (vegetation_cell) ;
 	float energy <- (rnd(1000) / 1000) * max_energy  update: energy - energy_consum max: max_energy ;
 	

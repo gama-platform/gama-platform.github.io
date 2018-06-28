@@ -6,9 +6,9 @@ wikiPagePath: wiki/NewVersionChanges.md
 ---
 # Java version
 
-Due to changes in the libraries used by GAMA 1.7, this version now **requires JDK/JVM 1.8** to run.
+Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now **requires JDK/JVM 1.8** to run. Please note that GAMA **has not been tested with JDK 1.9 and 1.10**.
 
-# Changes between 1.6.1 and 1.7 that can influence the dynamics of models
+# Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models
 
 * Initialization order between the initialization of variables and the execution of the `init` block in grids
 init -> vars in 1.6.1 / vars -> init in 1.7
@@ -34,7 +34,7 @@ gives examples
 * #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.
 * `as_time`, `as_system_time`, `as_date` and `as_system_date` have been removed
 
-# Enhancements in 1.7
+# Enhancements in 1.7/1.8
 
 ## Simulations
  * simulations can now be run in parallel withing an experiment (with their outputs, displays, etc.)

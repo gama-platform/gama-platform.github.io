@@ -168,7 +168,7 @@ species miner skills: [moving] control:simple_bdi {
 	}
 		
 	perceive target:goldmine where (each.quantity > 0) in:viewdist {
-		focus mine_at_location var:location;
+		focus id: mine_at_location var:location;
 		ask myself {
 			do add_desire(predicate:share_information, strength: 5.0);
 			do remove_intention(find_gold, false);

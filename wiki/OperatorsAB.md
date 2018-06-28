@@ -104,7 +104,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### BDI
-[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_decay](OperatorsCH#get_decay), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_intensity](OperatorsCH#get_intensity), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_trust](OperatorsCH#get_trust), [get_truth](OperatorsCH#get_truth), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_trust](OperatorsOS#set_trust), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
+[and](OperatorsAB#and), [eval_when](OperatorsCH#eval_when), [get_about](OperatorsCH#get_about), [get_agent](OperatorsCH#get_agent), [get_agent_cause](OperatorsCH#get_agent_cause), [get_belief_op](OperatorsCH#get_belief_op), [get_belief_with_name_op](OperatorsCH#get_belief_with_name_op), [get_beliefs_op](OperatorsCH#get_beliefs_op), [get_beliefs_with_name_op](OperatorsCH#get_beliefs_with_name_op), [get_current_intention_op](OperatorsCH#get_current_intention_op), [get_decay](OperatorsCH#get_decay), [get_desire_op](OperatorsCH#get_desire_op), [get_desire_with_name_op](OperatorsCH#get_desire_with_name_op), [get_desires_op](OperatorsCH#get_desires_op), [get_desires_with_name_op](OperatorsCH#get_desires_with_name_op), [get_dominance](OperatorsCH#get_dominance), [get_familiarity](OperatorsCH#get_familiarity), [get_ideal_op](OperatorsCH#get_ideal_op), [get_ideal_with_name_op](OperatorsCH#get_ideal_with_name_op), [get_ideals_op](OperatorsCH#get_ideals_op), [get_ideals_with_name_op](OperatorsCH#get_ideals_with_name_op), [get_intensity](OperatorsCH#get_intensity), [get_intention_op](OperatorsCH#get_intention_op), [get_intention_with_name_op](OperatorsCH#get_intention_with_name_op), [get_intentions_op](OperatorsCH#get_intentions_op), [get_intentions_with_name_op](OperatorsCH#get_intentions_with_name_op), [get_lifetime](OperatorsCH#get_lifetime), [get_liking](OperatorsCH#get_liking), [get_modality](OperatorsCH#get_modality), [get_obligation_op](OperatorsCH#get_obligation_op), [get_obligation_with_name_op](OperatorsCH#get_obligation_with_name_op), [get_obligations_op](OperatorsCH#get_obligations_op), [get_obligations_with_name_op](OperatorsCH#get_obligations_with_name_op), [get_plan_name](OperatorsCH#get_plan_name), [get_predicate](OperatorsCH#get_predicate), [get_solidarity](OperatorsCH#get_solidarity), [get_strength](OperatorsCH#get_strength), [get_super_intention](OperatorsCH#get_super_intention), [get_trust](OperatorsCH#get_trust), [get_truth](OperatorsCH#get_truth), [get_uncertainties_op](OperatorsCH#get_uncertainties_op), [get_uncertainties_with_name_op](OperatorsCH#get_uncertainties_with_name_op), [get_uncertainty_op](OperatorsCH#get_uncertainty_op), [get_uncertainty_with_name_op](OperatorsCH#get_uncertainty_with_name_op), [has_belief_op](OperatorsCH#has_belief_op), [has_belief_with_name_op](OperatorsCH#has_belief_with_name_op), [has_desire_op](OperatorsCH#has_desire_op), [has_desire_with_name_op](OperatorsCH#has_desire_with_name_op), [has_ideal_op](OperatorsCH#has_ideal_op), [has_ideal_with_name_op](OperatorsCH#has_ideal_with_name_op), [has_intention_op](OperatorsCH#has_intention_op), [has_intention_with_name_op](OperatorsCH#has_intention_with_name_op), [has_obligation_op](OperatorsCH#has_obligation_op), [has_obligation_with_name_op](OperatorsCH#has_obligation_with_name_op), [has_uncertainty_op](OperatorsCH#has_uncertainty_op), [has_uncertainty_with_name_op](OperatorsCH#has_uncertainty_with_name_op), [new_emotion](OperatorsIN#new_emotion), [new_mental_state](OperatorsIN#new_mental_state), [new_predicate](OperatorsIN#new_predicate), [new_social_link](OperatorsIN#new_social_link), [or](OperatorsOS#or), [set_about](OperatorsOS#set_about), [set_agent](OperatorsOS#set_agent), [set_agent_cause](OperatorsOS#set_agent_cause), [set_decay](OperatorsOS#set_decay), [set_dominance](OperatorsOS#set_dominance), [set_familiarity](OperatorsOS#set_familiarity), [set_intensity](OperatorsOS#set_intensity), [set_lifetime](OperatorsOS#set_lifetime), [set_liking](OperatorsOS#set_liking), [set_modality](OperatorsOS#set_modality), [set_predicate](OperatorsOS#set_predicate), [set_solidarity](OperatorsOS#set_solidarity), [set_strength](OperatorsOS#set_strength), [set_trust](OperatorsOS#set_trust), [set_truth](OperatorsOS#set_truth), [with_lifetime](OperatorsTZ#with_lifetime), [with_values](OperatorsTZ#with_values), 
 
 ----
 
@@ -169,7 +169,12 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsCH#crs), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [writable](OperatorsTZ#writable), 
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
+
+----
+
+### Files-related operators
+[crs](OperatorsCH#crs), [evaluate_sub_model](OperatorsCH#evaluate_sub_model), [file](OperatorsCH#file), [file_exists](OperatorsCH#file_exists), [folder](OperatorsCH#folder), [get](OperatorsCH#get), [load_sub_model](OperatorsIN#load_sub_model), [new_folder](OperatorsIN#new_folder), [osm_file](OperatorsOS#osm_file), [read](OperatorsOS#read), [step_sub_model](OperatorsOS#step_sub_model), [writable](OperatorsTZ#writable), 
 
 ----
 
@@ -189,7 +194,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Graphs-related operators
-[add_edge](OperatorsAB#add_edge), [add_node](OperatorsAB#add_node), [adjacency](OperatorsAB#adjacency), [agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [alpha_index](OperatorsAB#alpha_index), [as_distance_graph](OperatorsAB#as_distance_graph), [as_edge_graph](OperatorsAB#as_edge_graph), [as_intersection_graph](OperatorsAB#as_intersection_graph), [as_path](OperatorsAB#as_path), [beta_index](OperatorsAB#beta_index), [betweenness_centrality](OperatorsAB#betweenness_centrality), [biggest_cliques_of](OperatorsAB#biggest_cliques_of), [connected_components_of](OperatorsCH#connected_components_of), [connectivity_index](OperatorsCH#connectivity_index), [contains_edge](OperatorsCH#contains_edge), [contains_vertex](OperatorsCH#contains_vertex), [degree_of](OperatorsCH#degree_of), [directed](OperatorsCH#directed), [edge](OperatorsCH#edge), [edge_between](OperatorsCH#edge_between), [edge_betweenness](OperatorsCH#edge_betweenness), [edges](OperatorsCH#edges), [gamma_index](OperatorsCH#gamma_index), [generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_complete_graph](OperatorsCH#generate_complete_graph), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsCH#grid_cells_to_graph), [in_degree_of](OperatorsIN#in_degree_of), [in_edges_of](OperatorsIN#in_edges_of), [layout](OperatorsIN#layout), [load_graph_from_file](OperatorsIN#load_graph_from_file), [load_shortest_paths](OperatorsIN#load_shortest_paths), [main_connected_component](OperatorsIN#main_connected_component), [maximal_cliques_of](OperatorsIN#maximal_cliques_of), [nb_cycles](OperatorsIN#nb_cycles), [neighbors_of](OperatorsIN#neighbors_of), [node](OperatorsIN#node), [nodes](OperatorsIN#nodes), [out_degree_of](OperatorsOS#out_degree_of), [out_edges_of](OperatorsOS#out_edges_of), [path_between](OperatorsOS#path_between), [paths_between](OperatorsOS#paths_between), [predecessors_of](OperatorsOS#predecessors_of), [remove_node_from](OperatorsOS#remove_node_from), [rewire_n](OperatorsOS#rewire_n), [source_of](OperatorsOS#source_of), [spatial_graph](OperatorsOS#spatial_graph), [strahler](OperatorsOS#strahler), [successors_of](OperatorsOS#successors_of), [sum](OperatorsOS#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
+[add_edge](OperatorsAB#add_edge), [add_node](OperatorsAB#add_node), [adjacency](OperatorsAB#adjacency), [agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [alpha_index](OperatorsAB#alpha_index), [as_distance_graph](OperatorsAB#as_distance_graph), [as_edge_graph](OperatorsAB#as_edge_graph), [as_intersection_graph](OperatorsAB#as_intersection_graph), [as_path](OperatorsAB#as_path), [beta_index](OperatorsAB#beta_index), [betweenness_centrality](OperatorsAB#betweenness_centrality), [biggest_cliques_of](OperatorsAB#biggest_cliques_of), [connected_components_of](OperatorsCH#connected_components_of), [connectivity_index](OperatorsCH#connectivity_index), [contains_edge](OperatorsCH#contains_edge), [contains_vertex](OperatorsCH#contains_vertex), [degree_of](OperatorsCH#degree_of), [directed](OperatorsCH#directed), [edge](OperatorsCH#edge), [edge_between](OperatorsCH#edge_between), [edge_betweenness](OperatorsCH#edge_betweenness), [edges](OperatorsCH#edges), [gamma_index](OperatorsCH#gamma_index), [generate_barabasi_albert](OperatorsCH#generate_barabasi_albert), [generate_complete_graph](OperatorsCH#generate_complete_graph), [generate_watts_strogatz](OperatorsCH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsCH#grid_cells_to_graph), [in_degree_of](OperatorsIN#in_degree_of), [in_edges_of](OperatorsIN#in_edges_of), [layout](OperatorsIN#layout), [load_graph_from_file](OperatorsIN#load_graph_from_file), [load_shortest_paths](OperatorsIN#load_shortest_paths), [main_connected_component](OperatorsIN#main_connected_component), [max_flow_between](OperatorsIN#max_flow_between), [maximal_cliques_of](OperatorsIN#maximal_cliques_of), [nb_cycles](OperatorsIN#nb_cycles), [neighbors_of](OperatorsIN#neighbors_of), [node](OperatorsIN#node), [nodes](OperatorsIN#nodes), [out_degree_of](OperatorsOS#out_degree_of), [out_edges_of](OperatorsOS#out_edges_of), [path_between](OperatorsOS#path_between), [paths_between](OperatorsOS#paths_between), [predecessors_of](OperatorsOS#predecessors_of), [remove_node_from](OperatorsOS#remove_node_from), [rewire_n](OperatorsOS#rewire_n), [source_of](OperatorsOS#source_of), [spatial_graph](OperatorsOS#spatial_graph), [strahler](OperatorsOS#strahler), [successors_of](OperatorsOS#successors_of), [sum](OperatorsOS#sum), [target_of](OperatorsTZ#target_of), [undirected](OperatorsTZ#undirected), [use_cache](OperatorsTZ#use_cache), [weight_of](OperatorsTZ#weight_of), [with_optimizer_type](OperatorsTZ#with_optimizer_type), [with_weights](OperatorsTZ#with_weights), 
 
 ----
 
@@ -199,102 +204,102 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
 ### Iterator operators
-[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
+[accumulate](OperatorsAB#accumulate), [as_map](OperatorsAB#as_map), [collect](OperatorsCH#collect), [count](OperatorsCH#count), [create_map](OperatorsCH#create_map), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution_of](OperatorsCH#distribution_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [distribution2d_of](OperatorsCH#distribution2d_of), [first_with](OperatorsCH#first_with), [frequency_of](OperatorsCH#frequency_of), [group_by](OperatorsCH#group_by), [index_by](OperatorsIN#index_by), [last_with](OperatorsIN#last_with), [max_of](OperatorsIN#max_of), [mean_of](OperatorsIN#mean_of), [min_of](OperatorsIN#min_of), [product_of](OperatorsOS#product_of), [sort_by](OperatorsOS#sort_by), [sum_of](OperatorsOS#sum_of), [variance_of](OperatorsTZ#variance_of), [where](OperatorsTZ#where), [with_max_of](OperatorsTZ#with_max_of), [with_min_of](OperatorsTZ#with_min_of), 
 
 ----
 
@@ -334,7 +339,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Path-related operators
-[agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [as_path](OperatorsAB#as_path), [load_shortest_paths](OperatorsIN#load_shortest_paths), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [paths_between](OperatorsOS#paths_between), [use_cache](OperatorsTZ#use_cache), 
+[agent_from_geometry](OperatorsAB#agent_from_geometry), [all_pairs_shortest_path](OperatorsAB#all_pairs_shortest_path), [as_path](OperatorsAB#as_path), [load_shortest_paths](OperatorsIN#load_shortest_paths), [max_flow_between](OperatorsIN#max_flow_between), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [paths_between](OperatorsOS#paths_between), [use_cache](OperatorsTZ#use_cache), 
 
 ----
 
@@ -359,7 +364,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [add_point](OperatorsAB#add_point), [agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [arc](OperatorsAB#arc), [around](OperatorsAB#around), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_distance](OperatorsAB#at_distance), [at_location](OperatorsAB#at_location), [box](OperatorsAB#box), [centroid](OperatorsCH#centroid), [circle](OperatorsCH#circle), [clean](OperatorsCH#clean), [closest_points_with](OperatorsCH#closest_points_with), [closest_to](OperatorsCH#closest_to), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [convex_hull](OperatorsCH#convex_hull), [covers](OperatorsCH#covers), [cross](OperatorsCH#cross), [crosses](OperatorsCH#crosses), [crs](OperatorsCH#crs), [CRS_transform](OperatorsAB#crs_transform), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [direction_between](OperatorsCH#direction_between), [disjoint_from](OperatorsCH#disjoint_from), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [farthest_point_to](OperatorsCH#farthest_point_to), [farthest_to](OperatorsCH#farthest_to), [geometry_collection](OperatorsCH#geometry_collection), [gini](OperatorsCH#gini), [hexagon](OperatorsCH#hexagon), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [IDW](OperatorsAB#idw), [inside](OperatorsIN#inside), [inter](OperatorsIN#inter), [intersects](OperatorsIN#intersects), [line](OperatorsIN#line), [link](OperatorsIN#link), [masked_by](OperatorsIN#masked_by), [moran](OperatorsIN#moran), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [plan](OperatorsOS#plan), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [rotated_by](OperatorsOS#rotated_by), [round](OperatorsOS#round), [scaled_to](OperatorsOS#scaled_to), [set_z](OperatorsOS#set_z), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [sphere](OperatorsOS#sphere), [split_at](OperatorsOS#split_at), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [add_point](OperatorsAB#add_point), [agent_closest_to](OperatorsAB#agent_closest_to), [agent_farthest_to](OperatorsAB#agent_farthest_to), [agents_at_distance](OperatorsAB#agents_at_distance), [agents_inside](OperatorsAB#agents_inside), [agents_overlapping](OperatorsAB#agents_overlapping), [angle_between](OperatorsAB#angle_between), [any_location_in](OperatorsAB#any_location_in), [arc](OperatorsAB#arc), [around](OperatorsAB#around), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_distance](OperatorsAB#at_distance), [at_location](OperatorsAB#at_location), [box](OperatorsAB#box), [centroid](OperatorsCH#centroid), [circle](OperatorsCH#circle), [clean](OperatorsCH#clean), [clean_network](OperatorsCH#clean_network), [closest_points_with](OperatorsCH#closest_points_with), [closest_to](OperatorsCH#closest_to), [cone](OperatorsCH#cone), [cone3D](OperatorsCH#cone3d), [convex_hull](OperatorsCH#convex_hull), [covers](OperatorsCH#covers), [cross](OperatorsCH#cross), [crosses](OperatorsCH#crosses), [crs](OperatorsCH#crs), [CRS_transform](OperatorsAB#crs_transform), [cube](OperatorsCH#cube), [curve](OperatorsCH#curve), [cylinder](OperatorsCH#cylinder), [dem](OperatorsCH#dem), [direction_between](OperatorsCH#direction_between), [disjoint_from](OperatorsCH#disjoint_from), [distance_between](OperatorsCH#distance_between), [distance_to](OperatorsCH#distance_to), [ellipse](OperatorsCH#ellipse), [envelope](OperatorsCH#envelope), [farthest_point_to](OperatorsCH#farthest_point_to), [farthest_to](OperatorsCH#farthest_to), [geometry_collection](OperatorsCH#geometry_collection), [gini](OperatorsCH#gini), [hexagon](OperatorsCH#hexagon), [hierarchical_clustering](OperatorsCH#hierarchical_clustering), [IDW](OperatorsAB#idw), [inside](OperatorsIN#inside), [inter](OperatorsIN#inter), [intersects](OperatorsIN#intersects), [line](OperatorsIN#line), [link](OperatorsIN#link), [masked_by](OperatorsIN#masked_by), [moran](OperatorsIN#moran), [neighbors_at](OperatorsIN#neighbors_at), [neighbors_of](OperatorsIN#neighbors_of), [overlapping](OperatorsOS#overlapping), [overlaps](OperatorsOS#overlaps), [partially_overlaps](OperatorsOS#partially_overlaps), [path_between](OperatorsOS#path_between), [path_to](OperatorsOS#path_to), [plan](OperatorsOS#plan), [points_along](OperatorsOS#points_along), [points_at](OperatorsOS#points_at), [points_on](OperatorsOS#points_on), [polygon](OperatorsOS#polygon), [polyhedron](OperatorsOS#polyhedron), [pyramid](OperatorsOS#pyramid), [rectangle](OperatorsOS#rectangle), [rgb_to_xyz](OperatorsOS#rgb_to_xyz), [rotated_by](OperatorsOS#rotated_by), [round](OperatorsOS#round), [scaled_to](OperatorsOS#scaled_to), [set_z](OperatorsOS#set_z), [simple_clustering_by_distance](OperatorsOS#simple_clustering_by_distance), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [sphere](OperatorsOS#sphere), [split_at](OperatorsOS#split_at), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [square](OperatorsOS#square), [squircle](OperatorsOS#squircle), [teapot](OperatorsTZ#teapot), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [to_sub_geometries](OperatorsTZ#to_sub_geometries), [touches](OperatorsTZ#touches), [towards](OperatorsTZ#towards), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangle](OperatorsTZ#triangle), [triangulate](OperatorsTZ#triangulate), [union](OperatorsTZ#union), [using](OperatorsTZ#using), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
@@ -384,7 +389,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_location](OperatorsAB#at_location), [clean](OperatorsCH#clean), [convex_hull](OperatorsCH#convex_hull), [CRS_transform](OperatorsAB#crs_transform), [rotated_by](OperatorsOS#rotated_by), [scaled_to](OperatorsOS#scaled_to), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
+[-](OperatorsAB#-), [*](OperatorsAB#*), [+](OperatorsAB#+), [as_4_grid](OperatorsAB#as_4_grid), [as_grid](OperatorsAB#as_grid), [as_hexagonal_grid](OperatorsAB#as_hexagonal_grid), [at_location](OperatorsAB#at_location), [clean](OperatorsCH#clean), [clean_network](OperatorsCH#clean_network), [convex_hull](OperatorsCH#convex_hull), [CRS_transform](OperatorsAB#crs_transform), [rotated_by](OperatorsOS#rotated_by), [scaled_to](OperatorsOS#scaled_to), [simplification](OperatorsOS#simplification), [skeletonize](OperatorsOS#skeletonize), [smooth](OperatorsOS#smooth), [split_geometry](OperatorsOS#split_geometry), [split_lines](OperatorsOS#split_lines), [to_GAMA_CRS](OperatorsTZ#to_gama_crs), [to_rectangles](OperatorsTZ#to_rectangles), [to_squares](OperatorsTZ#to_squares), [to_sub_geometries](OperatorsTZ#to_sub_geometries), [transformed_by](OperatorsTZ#transformed_by), [translated_by](OperatorsTZ#translated_by), [triangulate](OperatorsTZ#triangulate), [voronoi](OperatorsTZ#voronoi), [with_precision](OperatorsTZ#with_precision), [without_holes](OperatorsTZ#without_holes), 
 
 ----
 
@@ -432,63 +437,63 @@ Note that due to the fact that actions are written by modelers, the general func
 ### `-`
 
 #### Possible use: 
+  *  **`-`** (`float`) --->  `float`
   *  **`-`** (`int`) --->  `int`
   *  **`-`** (`point`) --->  `point`
-  *  **`-`** (`float`) --->  `float`
-  * `date` **`-`** `date` --->  `float`
-  *  **`-`** (`date` , `date`) --->  `float`
-  * `matrix` **`-`** `float` --->  `matrix`
-  *  **`-`** (`matrix` , `float`) --->  `matrix`
-  * `point` **`-`** `float` --->  `point`
-  *  **`-`** (`point` , `float`) --->  `point`
-  * `float` **`-`** `float` --->  `float`
-  *  **`-`** (`float` , `float`) --->  `float`
-  * `date` **`-`** `int` --->  `date`
-  *  **`-`** (`date` , `int`) --->  `date`
-  * `map` **`-`** `map` --->  `map`
-  *  **`-`** (`map` , `map`) --->  `map`
-  * `matrix` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`matrix` , `matrix`) --->  `matrix`
-  * `int` **`-`** `float` --->  `float`
-  *  **`-`** (`int` , `float`) --->  `float`
-  * `rgb` **`-`** `int` --->  `rgb`
-  *  **`-`** (`rgb` , `int`) --->  `rgb`
-  * `float` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`float` , `matrix`) --->  `matrix`
-  * `point` **`-`** `int` --->  `point`
-  *  **`-`** (`point` , `int`) --->  `point`
-  * `matrix` **`-`** `int` --->  `matrix`
-  *  **`-`** (`matrix` , `int`) --->  `matrix`
-  * `float` **`-`** `int` --->  `float`
-  *  **`-`** (`float` , `int`) --->  `float`
   * `species` **`-`** `agent` --->  `list`
   *  **`-`** (`species` , `agent`) --->  `list`
-  * `rgb` **`-`** `rgb` --->  `rgb`
-  *  **`-`** (`rgb` , `rgb`) --->  `rgb`
+  * `matrix` **`-`** `int` --->  `matrix`
+  *  **`-`** (`matrix` , `int`) --->  `matrix`
+  * `point` **`-`** `int` --->  `point`
+  *  **`-`** (`point` , `int`) --->  `point`
+  * `geometry` **`-`** `geometry` --->  `geometry`
+  *  **`-`** (`geometry` , `geometry`) --->  `geometry`
+  * `matrix` **`-`** `float` --->  `matrix`
+  *  **`-`** (`matrix` , `float`) --->  `matrix`
   * `container` **`-`** `container` --->  `list`
   *  **`-`** (`container` , `container`) --->  `list`
-  * `geometry` **`-`** `container<geometry>` --->  `geometry`
-  *  **`-`** (`geometry` , `container<geometry>`) --->  `geometry`
-  * `point` **`-`** `point` --->  `point`
-  *  **`-`** (`point` , `point`) --->  `point`
-  * `geometry` **`-`** `float` --->  `geometry`
-  *  **`-`** (`geometry` , `float`) --->  `geometry`
   * `int` **`-`** `matrix` --->  `matrix`
   *  **`-`** (`int` , `matrix`) --->  `matrix`
+  * `matrix` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`matrix` , `matrix`) --->  `matrix`
   * `map` **`-`** `pair` --->  `map`
   *  **`-`** (`map` , `pair`) --->  `map`
+  * `point` **`-`** `float` --->  `point`
+  *  **`-`** (`point` , `float`) --->  `point`
+  * `geometry` **`-`** `container<geometry>` --->  `geometry`
+  *  **`-`** (`geometry` , `container<geometry>`) --->  `geometry`
+  * `date` **`-`** `date` --->  `float`
+  *  **`-`** (`date` , `date`) --->  `float`
+  * `int` **`-`** `float` --->  `float`
+  *  **`-`** (`int` , `float`) --->  `float`
   * `date` **`-`** `float` --->  `date`
   *  **`-`** (`date` , `float`) --->  `date`
   * `int` **`-`** `int` --->  `int`
   *  **`-`** (`int` , `int`) --->  `int`
-  * `geometry` **`-`** `geometry` --->  `geometry`
-  *  **`-`** (`geometry` , `geometry`) --->  `geometry`
+  * `date` **`-`** `int` --->  `date`
+  *  **`-`** (`date` , `int`) --->  `date`
+  * `float` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`float` , `matrix`) --->  `matrix`
+  * `float` **`-`** `float` --->  `float`
+  *  **`-`** (`float` , `float`) --->  `float`
+  * `geometry` **`-`** `float` --->  `geometry`
+  *  **`-`** (`geometry` , `float`) --->  `geometry`
+  * `rgb` **`-`** `rgb` --->  `rgb`
+  *  **`-`** (`rgb` , `rgb`) --->  `rgb`
+  * `rgb` **`-`** `int` --->  `rgb`
+  *  **`-`** (`rgb` , `int`) --->  `rgb`
+  * `map` **`-`** `map` --->  `map`
+  *  **`-`** (`map` , `map`) --->  `map`
+  * `point` **`-`** `point` --->  `point`
+  *  **`-`** (`point` , `point`) --->  `point`
+  * `float` **`-`** `int` --->  `float`
+  *  **`-`** (`float` , `int`) --->  `float`
   * `list` **`-`** `unknown` --->  `list`
   *  **`-`** (`list` , `unknown`) --->  `list` 
 
 #### Result: 
-If it is used as an unary operator, it returns the opposite of the operand.
-Returns the difference of the two operands.  
+Returns the difference of the two operands.
+If it is used as an unary operator, it returns the opposite of the operand.  
 
 #### Comment: 
 The behavior of the operator depends on the type of the operands.
@@ -496,44 +501,11 @@ The behavior of the operator depends on the type of the operands.
 #### Special cases:     
   * if the left operand is a species and the right operand is an agent of the species, - returns a list containing all the agents of the species minus this agent    
   * if both operands are containers and the right operand is empty, - returns the left operand    
-  * if both operands are dates, returns the duration in seconds between date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2) 
+  * if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries 
   
 ```
  
-float var10 <- date('2000-01-01') - date('2010-01-02'); // var10 equals 86400
-``` 
-
-    
-  * if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number. 
-  
-```
- 
-point var11 <- {1, 2} - 4.5; // var11 equals {-3.5, -2.5, -4.5} 
-point var12 <- {1, 2} - 4; // var12 equals {-3.0,-2.0,-4.0}
-``` 
-
-    
-  * if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds) 
-  
-```
- 
-date var13 <- date('2000-01-01') - 200; // var13 equals date('2000-01-01')
-``` 
-
-    
-  * if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand 
-  
-```
- 
-rgb var14 <- rgb([255, 128, 32]) - 3; // var14 equals rgb([252,125,29])
-``` 
-
-    
-  * if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component 
-  
-```
- 
-rgb var15 <- rgb([255, 128, 32]) - rgb('red'); // var15 equals rgb([0,128,32])
+geometry var10 <- geom1 - geom2; // var10 equals a geometry corresponding to difference between geom1 and geom2
 ``` 
 
     
@@ -541,8 +513,25 @@ rgb var15 <- rgb([255, 128, 32]) - rgb('red'); // var15 equals rgb([0,128,32])
   
 ```
  
-list<int> var16 <- [1,2,3,4,5,6] - [2,4,9]; // var16 equals [1,3,5,6] 
-list<int> var17 <- [1,2,3,4,5,6] - [0,8]; // var17 equals [1,2,3,4,5,6]
+list<int> var11 <- [1,2,3,4,5,6] - [2,4,9]; // var11 equals [1,3,5,6] 
+list<int> var12 <- [1,2,3,4,5,6] - [0,8]; // var12 equals [1,2,3,4,5,6]
+``` 
+
+    
+  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float. 
+  
+```
+ 
+matrix var13 <- 3.5 - matrix([[2,5],[3,4]]); // var13 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+``` 
+
+    
+  * if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number. 
+  
+```
+ 
+point var14 <- {1, 2} - 4.5; // var14 equals {-3.5, -2.5, -4.5} 
+point var15 <- {1, 2} - 4; // var15 equals {-3.0,-2.0,-4.0}
 ``` 
 
     
@@ -550,15 +539,31 @@ list<int> var17 <- [1,2,3,4,5,6] - [0,8]; // var17 equals [1,2,3,4,5,6]
   
 ```
  
-geometry var18 <- rectangle(10,10) - [circle(2), square(2)]; // var18 equals rectangle(10,10) - (circle(2) + square(2))
+geometry var16 <- rectangle(10,10) - [circle(2), square(2)]; // var16 equals rectangle(10,10) - (circle(2) + square(2))
 ``` 
 
     
-  * if both operands are points, returns their difference (coordinates per coordinates). 
+  * if both operands are dates, returns the duration in seconds between date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2) 
   
 ```
  
-point var19 <- {1, 2} - {4, 5}; // var19 equals {-3.0, -3.0}
+float var17 <- date('2000-01-02') - date('2000-01-01'); // var17 equals 86400
+``` 
+
+    
+  * if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float. 
+  
+```
+ 
+int var18 <- 1 - 1; // var18 equals 0
+``` 
+
+    
+  * if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds) 
+  
+```
+ 
+date var19 <- date('2000-01-01') - 86400; // var19 equals date('1999-12-31')
 ``` 
 
     
@@ -570,27 +575,27 @@ geometry var20 <- shape - 5; // var20 equals a geometry corresponding to the geo
 ``` 
 
     
-  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float. 
+  * if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component 
   
 ```
  
-matrix var21 <- 3.5 - matrix([[2,5],[3,4]]); // var21 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+rgb var21 <- rgb([255, 128, 32]) - rgb('red'); // var21 equals rgb([0,128,32])
 ``` 
 
     
-  * if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float. 
+  * if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand 
   
 ```
  
-int var22 <- 1 - 1; // var22 equals 0
+rgb var22 <- rgb([255, 128, 32]) - 3; // var22 equals rgb([252,125,29])
 ``` 
 
     
-  * if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries 
+  * if both operands are points, returns their difference (coordinates per coordinates). 
   
 ```
  
-geometry var23 <- geom1 - geom2; // var23 equals a geometry corresponding to difference between geom1 and geom2
+point var23 <- {1, 2} - {4, 5}; // var23 equals {-3.0, -3.0}
 ``` 
 
     
@@ -607,16 +612,16 @@ list<int> var25 <- [1,2,3,4,5,6] - 0; // var25 equals [1,2,3,4,5,6]
 #### Examples: 
 ```
  
-map var0 <- ['a'::1,'b'::2] - ['b'::2]; // var0 equals ['a'::1] 
-map var1 <- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var1 equals ['a'::1] 
-int var2 <- - (-56); // var2 equals 56 
-float var3 <- 1.0 - 1; // var3 equals 0.0 
-float var4 <- 3.7 - 1.2; // var4 equals 2.5 
-float var5 <- 3 - 1.2; // var5 equals 1.8 
-point var6 <- -{3.0,5.0}; // var6 equals {-3.0,-5.0} 
-point var7 <- -{1.0,6.0,7.0}; // var7 equals {-1.0,-6.0,-7.0} 
-map var8 <- ['a'::1,'b'::2] - ('b'::2); // var8 equals ['a'::1] 
-map var9 <- ['a'::1,'b'::2] - ('c'::3); // var9 equals ['a'::1,'b'::2]
+map var0 <- ['a'::1,'b'::2] - ('b'::2); // var0 equals ['a'::1] 
+map var1 <- ['a'::1,'b'::2] - ('c'::3); // var1 equals ['a'::1,'b'::2] 
+map var2 <- ['a'::1,'b'::2] - ['b'::2]; // var2 equals ['a'::1] 
+map var3 <- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var3 equals ['a'::1] 
+int var4 <- - (-56); // var4 equals 56 
+point var5 <- -{3.0,5.0}; // var5 equals {-3.0,-5.0} 
+point var6 <- -{1.0,6.0,7.0}; // var6 equals {-1.0,-6.0,-7.0} 
+float var7 <- 1.0 - 1; // var7 equals 0.0 
+float var8 <- 3.7 - 1.2; // var8 equals 2.5 
+float var9 <- 3 - 1.2; // var9 equals 1.8
 
 ```
       
@@ -624,7 +629,7 @@ map var9 <- ['a'::1,'b'::2] - ('c'::3); // var9 equals ['a'::1,'b'::2]
 
 #### See also: 
 
-[milliseconds_between](OperatorsIN#milliseconds_between), [-](OperatorsAB#-), [+](OperatorsAB#+), [*](OperatorsAB#*), [/](OperatorsAB#/), 
+[+](OperatorsAB#+), [-](OperatorsAB#-), [milliseconds_between](OperatorsIN#milliseconds_between), [*](OperatorsAB#*), [/](OperatorsAB#/), 
     	
 ----
 
@@ -688,16 +693,16 @@ bool var0 <- ! (true); // var0 equals false
 ### `!=`
 
 #### Possible use: 
-  * `int` **`!=`** `float` --->  `bool`
-  *  **`!=`** (`int` , `float`) --->  `bool`
-  * `float` **`!=`** `float` --->  `bool`
-  *  **`!=`** (`float` , `float`) --->  `bool`
-  * `unknown` **`!=`** `unknown` --->  `bool`
-  *  **`!=`** (`unknown` , `unknown`) --->  `bool`
   * `date` **`!=`** `date` --->  `bool`
   *  **`!=`** (`date` , `date`) --->  `bool`
   * `float` **`!=`** `int` --->  `bool`
-  *  **`!=`** (`float` , `int`) --->  `bool` 
+  *  **`!=`** (`float` , `int`) --->  `bool`
+  * `unknown` **`!=`** `unknown` --->  `bool`
+  *  **`!=`** (`unknown` , `unknown`) --->  `bool`
+  * `float` **`!=`** `float` --->  `bool`
+  *  **`!=`** (`float` , `float`) --->  `bool`
+  * `int` **`!=`** `float` --->  `bool`
+  *  **`!=`** (`int` , `float`) --->  `bool` 
 
 #### Result: 
 true if both operands are different, false otherwise
@@ -705,15 +710,15 @@ true if both operands are different, false otherwise
 #### Examples: 
 ```
  
-bool var0 <- 3 != 3.0; // var0 equals false 
-bool var1 <- 4 != 4.7; // var1 equals true 
-bool var2 <- 3.0 != 3.0; // var2 equals false 
-bool var3 <- 4.0 != 4.7; // var3 equals true 
-bool var4 <- [2,3] != [2,3]; // var4 equals false 
-bool var5 <- [2,4] != [2,3]; // var5 equals true 
-bool var6 <- #now != #now minus_hours 1; // var6 equals true 
-bool var7 <- 3.0 != 3; // var7 equals false 
-bool var8 <- 4.7 != 4; // var8 equals true
+bool var0 <- #now != #now minus_hours 1; // var0 equals true 
+bool var1 <- 3.0 != 3; // var1 equals false 
+bool var2 <- 4.7 != 4; // var2 equals true 
+bool var3 <- [2,3] != [2,3]; // var3 equals false 
+bool var4 <- [2,4] != [2,3]; // var4 equals true 
+bool var5 <- 3.0 != 3.0; // var5 equals false 
+bool var6 <- 4.0 != 4.7; // var6 equals true 
+bool var7 <- 3 != 3.0; // var7 equals false 
+bool var8 <- 4 != 4.7; // var8 equals true
 
 ```
       
@@ -757,39 +762,39 @@ list<string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'b
 ### `/`
 
 #### Possible use: 
-  * `int` **`/`** `int` --->  `float`
-  *  **`/`** (`int` , `int`) --->  `float`
-  * `point` **`/`** `float` --->  `point`
-  *  **`/`** (`point` , `float`) --->  `point`
-  * `rgb` **`/`** `int` --->  `rgb`
-  *  **`/`** (`rgb` , `int`) --->  `rgb`
-  * `matrix` **`/`** `float` --->  `matrix`
-  *  **`/`** (`matrix` , `float`) --->  `matrix`
-  * `int` **`/`** `float` --->  `float`
-  *  **`/`** (`int` , `float`) --->  `float`
-  * `float` **`/`** `int` --->  `float`
-  *  **`/`** (`float` , `int`) --->  `float`
+  * `matrix` **`/`** `int` --->  `matrix`
+  *  **`/`** (`matrix` , `int`) --->  `matrix`
   * `point` **`/`** `int` --->  `point`
   *  **`/`** (`point` , `int`) --->  `point`
+  * `int` **`/`** `float` --->  `float`
+  *  **`/`** (`int` , `float`) --->  `float`
+  * `matrix` **`/`** `float` --->  `matrix`
+  *  **`/`** (`matrix` , `float`) --->  `matrix`
+  * `rgb` **`/`** `int` --->  `rgb`
+  *  **`/`** (`rgb` , `int`) --->  `rgb`
+  * `point` **`/`** `float` --->  `point`
+  *  **`/`** (`point` , `float`) --->  `point`
   * `rgb` **`/`** `float` --->  `rgb`
   *  **`/`** (`rgb` , `float`) --->  `rgb`
+  * `int` **`/`** `int` --->  `float`
+  *  **`/`** (`int` , `int`) --->  `float`
+  * `float` **`/`** `int` --->  `float`
+  *  **`/`** (`float` , `int`) --->  `float`
   * `float` **`/`** `float` --->  `float`
   *  **`/`** (`float` , `float`) --->  `float`
   * `matrix` **`/`** `matrix` --->  `matrix`
-  *  **`/`** (`matrix` , `matrix`) --->  `matrix`
-  * `matrix` **`/`** `int` --->  `matrix`
-  *  **`/`** (`matrix` , `int`) --->  `matrix` 
+  *  **`/`** (`matrix` , `matrix`) --->  `matrix` 
 
 #### Result: 
 Returns the division of the two operands.
 
 #### Special cases:     
   * if the right-hand operand is equal to zero, raises a "Division by zero" exception    
-  * if both operands are numbers (float or int), performs a normal arithmetic division and returns a float. 
+  * if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand 
   
 ```
  
-float var0 <- 3 / 5.0; // var0 equals 0.6
+rgb var0 <- rgb([255, 128, 32]) / 2; // var0 equals rgb([127,64,16])
 ``` 
 
     
@@ -802,19 +807,19 @@ point var2 <- {2,5} / 4; // var2 equals {0.5,1.25}
 ``` 
 
     
-  * if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand 
-  
-```
- 
-rgb var3 <- rgb([255, 128, 32]) / 2; // var3 equals rgb([127,64,16])
-``` 
-
-    
   * if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated. 
   
 ```
  
-rgb var4 <- rgb([255, 128, 32]) / 2.5; // var4 equals rgb([102,51,13])
+rgb var3 <- rgb([255, 128, 32]) / 2.5; // var3 equals rgb([102,51,13])
+``` 
+
+    
+  * if both operands are numbers (float or int), performs a normal arithmetic division and returns a float. 
+  
+```
+ 
+float var4 <- 3 / 5.0; // var4 equals 0.6
 ``` 
 
     
@@ -822,7 +827,7 @@ rgb var4 <- rgb([255, 128, 32]) / 2.5; // var4 equals rgb([102,51,13])
 
 #### See also: 
 
-[+](OperatorsAB#+), [-](OperatorsAB#-), [*](OperatorsAB#*), 
+[*](OperatorsAB#*), [+](OperatorsAB#+), [-](OperatorsAB#-), 
     	
 ----
 
@@ -863,14 +868,14 @@ unknown var1 <- agent1.location; // var1 equals the location of the agent agent1
 ### `^`
 
 #### Possible use: 
+  * `int` **`^`** `float` --->  `float`
+  *  **`^`** (`int` , `float`) --->  `float`
   * `float` **`^`** `int` --->  `float`
   *  **`^`** (`float` , `int`) --->  `float`
-  * `float` **`^`** `float` --->  `float`
-  *  **`^`** (`float` , `float`) --->  `float`
   * `int` **`^`** `int` --->  `float`
   *  **`^`** (`int` , `int`) --->  `float`
-  * `int` **`^`** `float` --->  `float`
-  *  **`^`** (`int` , `float`) --->  `float` 
+  * `float` **`^`** `float` --->  `float`
+  *  **`^`** (`float` , `float`) --->  `float` 
 
 #### Result: 
 Returns the value (always a float) of the left operand raised to the power of the right operand.
@@ -882,7 +887,7 @@ Returns the value (always a float) of the left operand raised to the power of th
   
 ```
  
-float var1 <- 2 ^ 3; // var1 equals 8.0
+float var0 <- 2 ^ 3; // var0 equals 8.0
 ``` 
 
 
@@ -890,7 +895,7 @@ float var1 <- 2 ^ 3; // var1 equals 8.0
 #### Examples: 
 ```
  
-float var0 <- 4.84 ^ 0.5; // var0 equals 2.2
+float var1 <- 4.84 ^ 0.5; // var1 equals 2.2
 
 ```
       
@@ -912,46 +917,64 @@ Same signification as [at](OperatorsAB#at)
 ### `*`
 
 #### Possible use: 
-  * `matrix` **`*`** `int` --->  `matrix`
-  *  **`*`** (`matrix` , `int`) --->  `matrix`
-  * `rgb` **`*`** `int` --->  `rgb`
-  *  **`*`** (`rgb` , `int`) --->  `rgb`
-  * `matrix` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`matrix` , `matrix`) --->  `matrix`
-  * `int` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`int` , `matrix`) --->  `matrix`
-  * `point` **`*`** `int` --->  `point`
-  *  **`*`** (`point` , `int`) --->  `point`
-  * `float` **`*`** `int` --->  `float`
-  *  **`*`** (`float` , `int`) --->  `float`
+  * `point` **`*`** `float` --->  `point`
+  *  **`*`** (`point` , `float`) --->  `point`
+  * `matrix` **`*`** `float` --->  `matrix`
+  *  **`*`** (`matrix` , `float`) --->  `matrix`
+  * `geometry` **`*`** `float` --->  `geometry`
+  *  **`*`** (`geometry` , `float`) --->  `geometry`
   * `point` **`*`** `point` --->  `float`
   *  **`*`** (`point` , `point`) --->  `float`
+  * `rgb` **`*`** `int` --->  `rgb`
+  *  **`*`** (`rgb` , `int`) --->  `rgb`
+  * `int` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`int` , `matrix`) --->  `matrix`
+  * `float` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`float` , `matrix`) --->  `matrix`
+  * `matrix` **`*`** `int` --->  `matrix`
+  *  **`*`** (`matrix` , `int`) --->  `matrix`
+  * `point` **`*`** `int` --->  `point`
+  *  **`*`** (`point` , `int`) --->  `point`
+  * `float` **`*`** `float` --->  `float`
+  *  **`*`** (`float` , `float`) --->  `float`
+  * `matrix` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`matrix` , `matrix`) --->  `matrix`
+  * `float` **`*`** `int` --->  `float`
+  *  **`*`** (`float` , `int`) --->  `float`
   * `geometry` **`*`** `point` --->  `geometry`
   *  **`*`** (`geometry` , `point`) --->  `geometry`
   * `int` **`*`** `int` --->  `int`
   *  **`*`** (`int` , `int`) --->  `int`
-  * `point` **`*`** `float` --->  `point`
-  *  **`*`** (`point` , `float`) --->  `point`
-  * `float` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`float` , `matrix`) --->  `matrix`
-  * `matrix` **`*`** `float` --->  `matrix`
-  *  **`*`** (`matrix` , `float`) --->  `matrix`
   * `int` **`*`** `float` --->  `float`
-  *  **`*`** (`int` , `float`) --->  `float`
-  * `geometry` **`*`** `float` --->  `geometry`
-  *  **`*`** (`geometry` , `float`) --->  `geometry`
-  * `float` **`*`** `float` --->  `float`
-  *  **`*`** (`float` , `float`) --->  `float` 
+  *  **`*`** (`int` , `float`) --->  `float` 
 
 #### Result: 
 Returns the product of the two operands.
 
 #### Special cases:     
+  * if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient 
+  
+```
+ 
+geometry var1 <- circle(10) * 2; // var1 equals circle(20) 
+geometry var2 <- (circle(10) * 2).location with_precision 9; // var2 equals (circle(20)).location with_precision 9 
+float var3 <- (circle(10) * 2).height with_precision 9; // var3 equals (circle(20)).height with_precision 9
+``` 
+
+    
+  * if both operands are points, returns their scalar product 
+  
+```
+ 
+float var4 <- {2,5} * {4.5, 5}; // var4 equals 34.0
+``` 
+
+    
   * if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255) 
   
 ```
  
-rgb var1 <- rgb([255, 128, 32]) * 2; // var1 equals rgb([255,255,64])
+rgb var5 <- rgb([255, 128, 32]) * 2; // var5 equals rgb([255,255,64])
 ``` 
 
     
@@ -966,16 +989,8 @@ matrix<float> m <- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],
   
 ```
  
-point var3 <- {2,5} * 4; // var3 equals {8.0, 20.0} 
-point var4 <- {2, 4} * 2.5; // var4 equals {5.0, 10.0}
-``` 
-
-    
-  * if both operands are points, returns their scalar product 
-  
-```
- 
-float var5 <- {2,5} * {4.5, 5}; // var5 equals 34.0
+point var7 <- {2,5} * 4; // var7 equals {8.0, 20.0} 
+point var8 <- {2, 4} * 2.5; // var8 equals {5.0, 10.0}
 ``` 
 
     
@@ -983,7 +998,7 @@ float var5 <- {2,5} * {4.5, 5}; // var5 equals 34.0
   
 ```
  
-geometry var6 <- shape * {0.5,0.5,2}; // var6 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
+geometry var9 <- shape * {0.5,0.5,2}; // var9 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
 ``` 
 
     
@@ -991,15 +1006,7 @@ geometry var6 <- shape * {0.5,0.5,2}; // var6 equals a geometry corresponding to
   
 ```
  
-int var7 <- 1 * 1; // var7 equals 1
-``` 
-
-    
-  * if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient 
-  
-```
- 
-geometry var8 <- circle(10) * 2; // var8 equals circle(20)
+int var10 <- 1 * 1; // var10 equals 1
 ``` 
 
 
@@ -1023,56 +1030,56 @@ float var0 <- 2.5 * 2; // var0 equals 5.0
 ### `+`
 
 #### Possible use: 
-  * `matrix` **`+`** `int` --->  `matrix`
-  *  **`+`** (`matrix` , `int`) --->  `matrix`
-  * `geometry` **`+`** `geometry` --->  `geometry`
-  *  **`+`** (`geometry` , `geometry`) --->  `geometry`
-  * `point` **`+`** `point` --->  `point`
-  *  **`+`** (`point` , `point`) --->  `point`
-  * `point` **`+`** `float` --->  `point`
-  *  **`+`** (`point` , `float`) --->  `point`
-  * `date` **`+`** `float` --->  `date`
-  *  **`+`** (`date` , `float`) --->  `date`
-  * `float` **`+`** `int` --->  `float`
-  *  **`+`** (`float` , `int`) --->  `float`
-  * `int` **`+`** `float` --->  `float`
-  *  **`+`** (`int` , `float`) --->  `float`
-  * `container` **`+`** `container` --->  `container`
-  *  **`+`** (`container` , `container`) --->  `container`
+  * `map` **`+`** `map` --->  `map`
+  *  **`+`** (`map` , `map`) --->  `map`
   * `string` **`+`** `unknown` --->  `string`
   *  **`+`** (`string` , `unknown`) --->  `string`
-  * `rgb` **`+`** `rgb` --->  `rgb`
-  *  **`+`** (`rgb` , `rgb`) --->  `rgb`
+  * `container` **`+`** `unknown` --->  `list`
+  *  **`+`** (`container` , `unknown`) --->  `list`
+  * `map` **`+`** `pair` --->  `map`
+  *  **`+`** (`map` , `pair`) --->  `map`
+  * `matrix` **`+`** `float` --->  `matrix`
+  *  **`+`** (`matrix` , `float`) --->  `matrix`
+  * `container` **`+`** `container` --->  `container`
+  *  **`+`** (`container` , `container`) --->  `container`
+  * `point` **`+`** `float` --->  `point`
+  *  **`+`** (`point` , `float`) --->  `point`
+  * `date` **`+`** `string` --->  `string`
+  *  **`+`** (`date` , `string`) --->  `string`
+  * `matrix` **`+`** `matrix` --->  `matrix`
+  *  **`+`** (`matrix` , `matrix`) --->  `matrix`
+  * `date` **`+`** `int` --->  `date`
+  *  **`+`** (`date` , `int`) --->  `date`
+  * `int` **`+`** `float` --->  `float`
+  *  **`+`** (`int` , `float`) --->  `float`
   * `rgb` **`+`** `int` --->  `rgb`
   *  **`+`** (`rgb` , `int`) --->  `rgb`
+  * `date` **`+`** `float` --->  `date`
+  *  **`+`** (`date` , `float`) --->  `date`
+  * `point` **`+`** `int` --->  `point`
+  *  **`+`** (`point` , `int`) --->  `point`
+  * `float` **`+`** `int` --->  `float`
+  *  **`+`** (`float` , `int`) --->  `float`
+  * `point` **`+`** `point` --->  `point`
+  *  **`+`** (`point` , `point`) --->  `point`
+  * `matrix` **`+`** `int` --->  `matrix`
+  *  **`+`** (`matrix` , `int`) --->  `matrix`
+  * `rgb` **`+`** `rgb` --->  `rgb`
+  *  **`+`** (`rgb` , `rgb`) --->  `rgb`
+  * `geometry` **`+`** `geometry` --->  `geometry`
+  *  **`+`** (`geometry` , `geometry`) --->  `geometry`
   * `float` **`+`** `float` --->  `float`
   *  **`+`** (`float` , `float`) --->  `float`
+  * `geometry` **`+`** `float` --->  `geometry`
+  *  **`+`** (`geometry` , `float`) --->  `geometry`
   * `string` **`+`** `string` --->  `string`
   *  **`+`** (`string` , `string`) --->  `string`
   * `float` **`+`** `matrix` --->  `matrix`
   *  **`+`** (`float` , `matrix`) --->  `matrix`
-  * `int` **`+`** `matrix` --->  `matrix`
-  *  **`+`** (`int` , `matrix`) --->  `matrix`
-  * `container` **`+`** `unknown` --->  `list`
-  *  **`+`** (`container` , `unknown`) --->  `list`
-  * `matrix` **`+`** `float` --->  `matrix`
-  *  **`+`** (`matrix` , `float`) --->  `matrix`
-  * `date` **`+`** `string` --->  `string`
-  *  **`+`** (`date` , `string`) --->  `string`
-  * `point` **`+`** `int` --->  `point`
-  *  **`+`** (`point` , `int`) --->  `point`
-  * `date` **`+`** `int` --->  `date`
-  *  **`+`** (`date` , `int`) --->  `date`
-  * `map` **`+`** `pair` --->  `map`
-  *  **`+`** (`map` , `pair`) --->  `map`
-  * `map` **`+`** `map` --->  `map`
-  *  **`+`** (`map` , `map`) --->  `map`
-  * `geometry` **`+`** `float` --->  `geometry`
-  *  **`+`** (`geometry` , `float`) --->  `geometry`
-  * `matrix` **`+`** `matrix` --->  `matrix`
-  *  **`+`** (`matrix` , `matrix`) --->  `matrix`
   * `int` **`+`** `int` --->  `int`
   *  **`+`** (`int` , `int`) --->  `int`
+  * `int` **`+`** `matrix` --->  `matrix`
+  *  **`+`** (`int` , `matrix`) --->  `matrix`
   *  **`+`** (`geometry`, `float`, `int`) --->  `geometry`
   *  **`+`** (`geometry`, `float`, `int`, `int`) --->  `geometry` 
 
@@ -1082,28 +1089,28 @@ Returns the sum, union or concatenation of the two operands.
 #### Special cases:     
   * if one of the operands is nil, + throws an error    
   * if both operands are species, returns a special type of list called meta-population    
-  * if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries 
+  * if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand 
   
 ```
  
-geometry var6 <- geom1 + geom2; // var6 equals a geometry corresponding to union between geom1 and geom2
+geometry var6 <- circle(5) + (5,32); // var6 equals circle(10)
 ``` 
 
     
-  * if both operands are points, returns their sum. 
+  * if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string) 
   
 ```
  
-point var7 <- {1, 2} + {4, 5}; // var7 equals {5.0, 7.0}
+string var7 <- "hello " + 12; // var7 equals "hello 12"
 ``` 
 
     
-  * if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number. 
+  * if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added 
   
 ```
  
-point var8 <- {1, 2} + 4; // var8 equals {5.0, 6.0,4.0} 
-point var9 <- {1, 2} + 4.5; // var9 equals {5.5, 6.5,4.5}
+list<int> var8 <- [1,2,3,4,5,6] + 2; // var8 equals [1,2,3,4,5,6,2] 
+list<int> var9 <- [1,2,3,4,5,6] + 0; // var9 equals [1,2,3,4,5,6,0]
 ``` 
 
     
@@ -1116,52 +1123,12 @@ list<int> var11 <- [1,2,3,4,5,6] + [0,8]; // var11 equals [1,2,3,4,5,6,0,8]
 ``` 
 
     
-  * if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string) 
+  * if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number. 
   
 ```
  
-string var12 <- "hello " + 12; // var12 equals "hello 12"
-``` 
-
-    
-  * if both operands are colors, returns a new color resulting from the sum of the two operands, component by component 
-  
-```
- 
-rgb var13 <- rgb([255, 128, 32]) + rgb('red'); // var13 equals rgb([255,128,32])
-``` 
-
-    
-  * if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand 
-  
-```
- 
-rgb var14 <- rgb([255, 128, 32]) + 3; // var14 equals rgb([255,131,35])
-``` 
-
-    
-  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float. 
-  
-```
- 
-matrix var15 <- 3.5 + matrix([[2,5],[3,4]]); // var15 equals matrix([[5.5,8.5],[6.5,7.5]])
-``` 
-
-    
-  * if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added 
-  
-```
- 
-list<int> var16 <- [1,2,3,4,5,6] + 2; // var16 equals [1,2,3,4,5,6,2] 
-list<int> var17 <- [1,2,3,4,5,6] + 0; // var17 equals [1,2,3,4,5,6,0]
-``` 
-
-    
-  * if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds) 
-  
-```
- 
-date var18 <- date('2000-01-01') + 200; // var18 equals date('2000-01-01')
+point var12 <- {1, 2} + 4; // var12 equals {5.0, 6.0,4.0} 
+point var13 <- {1, 2} + 4.5; // var13 equals {5.5, 6.5,4.5}
 ``` 
 
     
@@ -1169,7 +1136,47 @@ date var18 <- date('2000-01-01') + 200; // var18 equals date('2000-01-01')
   
 ```
  
-geometry var19 <- circle(5) + (5,32,#round); // var19 equals circle(10)
+geometry var14 <- circle(5) + (5,32,#round); // var14 equals circle(10)
+``` 
+
+    
+  * if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds) 
+  
+```
+ 
+date var15 <- date('2000-01-01') + 86400; // var15 equals date('2000-01-02')
+``` 
+
+    
+  * if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand 
+  
+```
+ 
+rgb var16 <- rgb([255, 128, 32]) + 3; // var16 equals rgb([255,131,35])
+``` 
+
+    
+  * if both operands are points, returns their sum. 
+  
+```
+ 
+point var17 <- {1, 2} + {4, 5}; // var17 equals {5.0, 7.0}
+``` 
+
+    
+  * if both operands are colors, returns a new color resulting from the sum of the two operands, component by component 
+  
+```
+ 
+rgb var18 <- rgb([255, 128, 32]) + rgb('red'); // var18 equals rgb([255,128,32])
+``` 
+
+    
+  * if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries 
+  
+```
+ 
+geometry var19 <- geom1 + geom2; // var19 equals a geometry corresponding to union between geom1 and geom2
 ``` 
 
     
@@ -1181,19 +1188,19 @@ geometry var20 <- circle(5) + 5; // var20 equals circle(10)
 ``` 
 
     
-  * if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand 
-  
-```
- 
-geometry var21 <- circle(5) + (5,32); // var21 equals circle(10)
-``` 
-
-    
   * if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float. 
   
 ```
  
-int var22 <- 1 + 1; // var22 equals 2
+int var21 <- 1 + 1; // var21 equals 2
+``` 
+
+    
+  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float. 
+  
+```
+ 
+matrix var22 <- 3.5 + matrix([[2,5],[3,4]]); // var22 equals matrix([[5.5,8.5],[6.5,7.5]])
 ``` 
 
 
@@ -1201,12 +1208,12 @@ int var22 <- 1 + 1; // var22 equals 2
 #### Examples: 
 ```
  
-float var0 <- 1.0 + 1; // var0 equals 2.0 
-float var1 <- 1.0 + 2.5; // var1 equals 3.5 
+map var0 <- ['a'::1,'b'::2] + ['c'::3]; // var0 equals ['a'::1,'b'::2,'c'::3] 
+map var1 <- ['a'::1,'b'::2] + [5::3.0]; // var1 equals ['a'::1,'b'::2,5::3.0] 
 map var2 <- ['a'::1,'b'::2] + ('c'::3); // var2 equals ['a'::1,'b'::2,'c'::3] 
 map var3 <- ['a'::1,'b'::2] + ('c'::3); // var3 equals ['a'::1,'b'::2,'c'::3] 
-map var4 <- ['a'::1,'b'::2] + ['c'::3]; // var4 equals ['a'::1,'b'::2,'c'::3] 
-map var5 <- ['a'::1,'b'::2] + [5::3.0]; // var5 equals ['a'::1.0,'b'::2.0,5::3.0]
+float var4 <- 1.0 + 1; // var4 equals 2.0 
+float var5 <- 1.0 + 2.5; // var5 equals 3.5
 
 ```
       
@@ -1222,20 +1229,20 @@ map var5 <- ['a'::1,'b'::2] + [5::3.0]; // var5 equals ['a'::1.0,'b'::2.0,5::3.0
 ### `<`
 
 #### Possible use: 
-  * `float` **`<`** `int` --->  `bool`
-  *  **`<`** (`float` , `int`) --->  `bool`
-  * `float` **`<`** `float` --->  `bool`
-  *  **`<`** (`float` , `float`) --->  `bool`
-  * `point` **`<`** `point` --->  `bool`
-  *  **`<`** (`point` , `point`) --->  `bool`
-  * `date` **`<`** `date` --->  `bool`
-  *  **`<`** (`date` , `date`) --->  `bool`
-  * `string` **`<`** `string` --->  `bool`
-  *  **`<`** (`string` , `string`) --->  `bool`
+  * `int` **`<`** `int` --->  `bool`
+  *  **`<`** (`int` , `int`) --->  `bool`
   * `int` **`<`** `float` --->  `bool`
   *  **`<`** (`int` , `float`) --->  `bool`
-  * `int` **`<`** `int` --->  `bool`
-  *  **`<`** (`int` , `int`) --->  `bool` 
+  * `float` **`<`** `float` --->  `bool`
+  *  **`<`** (`float` , `float`) --->  `bool`
+  * `date` **`<`** `date` --->  `bool`
+  *  **`<`** (`date` , `date`) --->  `bool`
+  * `point` **`<`** `point` --->  `bool`
+  *  **`<`** (`point` , `point`) --->  `bool`
+  * `float` **`<`** `int` --->  `bool`
+  *  **`<`** (`float` , `int`) --->  `bool`
+  * `string` **`<`** `string` --->  `bool`
+  *  **`<`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is less than the right-hand operand, false otherwise.
@@ -1246,8 +1253,8 @@ true if the left-hand operand is less than the right-hand operand, false otherwi
   
 ```
  
-bool var0 <- {5,7} < {4,6}; // var0 equals false 
-bool var1 <- {5,7} < {4,8}; // var1 equals false
+bool var5 <- {5,7} < {4,6}; // var5 equals false 
+bool var6 <- {5,7} < {4,8}; // var6 equals false
 ``` 
 
     
@@ -1255,7 +1262,7 @@ bool var1 <- {5,7} < {4,8}; // var1 equals false
   
 ```
  
-bool var2 <- 'abc' < 'aeb'; // var2 equals true
+bool var7 <- 'abc' < 'aeb'; // var7 equals true
 ``` 
 
 
@@ -1263,11 +1270,11 @@ bool var2 <- 'abc' < 'aeb'; // var2 equals true
 #### Examples: 
 ```
  
-bool var3 <- 3.5 < 7; // var3 equals true 
-bool var4 <- 3.5 < 7.6; // var4 equals true 
-bool var5 <- #now < #now minus_hours 1; // var5 equals false 
-bool var6 <- 3 < 2.5; // var6 equals false 
-bool var7 <- 3 < 7; // var7 equals true
+bool var0 <- 3 < 7; // var0 equals true 
+bool var1 <- 3 < 2.5; // var1 equals false 
+bool var2 <- 3.5 < 7.6; // var2 equals true 
+bool var3 <- #now < #now minus_hours 1; // var3 equals false 
+bool var4 <- 3.5 < 7; // var4 equals true
 
 ```
       
@@ -1283,40 +1290,40 @@ bool var7 <- 3 < 7; // var7 equals true
 ### `<=`
 
 #### Possible use: 
-  * `point` **`<=`** `point` --->  `bool`
-  *  **`<=`** (`point` , `point`) --->  `bool`
-  * `float` **`<=`** `float` --->  `bool`
-  *  **`<=`** (`float` , `float`) --->  `bool`
   * `string` **`<=`** `string` --->  `bool`
   *  **`<=`** (`string` , `string`) --->  `bool`
-  * `float` **`<=`** `int` --->  `bool`
-  *  **`<=`** (`float` , `int`) --->  `bool`
-  * `date` **`<=`** `date` --->  `bool`
-  *  **`<=`** (`date` , `date`) --->  `bool`
   * `int` **`<=`** `float` --->  `bool`
   *  **`<=`** (`int` , `float`) --->  `bool`
+  * `date` **`<=`** `date` --->  `bool`
+  *  **`<=`** (`date` , `date`) --->  `bool`
+  * `point` **`<=`** `point` --->  `bool`
+  *  **`<=`** (`point` , `point`) --->  `bool`
   * `int` **`<=`** `int` --->  `bool`
-  *  **`<=`** (`int` , `int`) --->  `bool` 
+  *  **`<=`** (`int` , `int`) --->  `bool`
+  * `float` **`<=`** `int` --->  `bool`
+  *  **`<=`** (`float` , `int`) --->  `bool`
+  * `float` **`<=`** `float` --->  `bool`
+  *  **`<=`** (`float` , `float`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is less or equal than the right-hand operand, false otherwise.
 
 #### Special cases:     
   * if one of the operands is nil, returns false    
-  * if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one. 
-  
-```
- 
-bool var0 <- {5,7} <= {4,6}; // var0 equals false 
-bool var1 <- {5,7} <= {4,8}; // var1 equals false
-``` 
-
-    
   * if both operands are String, uses a lexicographic comparison of two strings 
   
 ```
  
-bool var2 <- 'abc' <= 'aeb'; // var2 equals true
+bool var0 <- 'abc' <= 'aeb'; // var0 equals true
+``` 
+
+    
+  * if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one. 
+  
+```
+ 
+bool var1 <- {5,7} <= {4,6}; // var1 equals false 
+bool var2 <- {5,7} <= {4,8}; // var2 equals false
 ``` 
 
 
@@ -1324,11 +1331,11 @@ bool var2 <- 'abc' <= 'aeb'; // var2 equals true
 #### Examples: 
 ```
  
-bool var3 <- 3.5 <= 3.5; // var3 equals true 
-bool var4 <- 7.0 <= 7; // var4 equals true 
-bool var5 <- #now <= #now minus_hours 1; // var5 equals false 
-bool var6 <- 3 <= 2.5; // var6 equals false 
-bool var7 <- 3 <= 7; // var7 equals true
+bool var3 <- 3 <= 2.5; // var3 equals false 
+bool var4 <- #now <= #now minus_hours 1; // var4 equals false 
+bool var5 <- 3 <= 7; // var5 equals true 
+bool var6 <- 7.0 <= 7; // var6 equals true 
+bool var7 <- 3.5 <= 3.5; // var7 equals true
 
 ```
       
@@ -1350,14 +1357,14 @@ Same signification as [!=](OperatorsAB#!=)
 ### `=`
 
 #### Possible use: 
-  * `int` **`=`** `float` --->  `bool`
-  *  **`=`** (`int` , `float`) --->  `bool`
-  * `float` **`=`** `float` --->  `bool`
-  *  **`=`** (`float` , `float`) --->  `bool`
   * `int` **`=`** `int` --->  `bool`
   *  **`=`** (`int` , `int`) --->  `bool`
+  * `float` **`=`** `float` --->  `bool`
+  *  **`=`** (`float` , `float`) --->  `bool`
   * `unknown` **`=`** `unknown` --->  `bool`
   *  **`=`** (`unknown` , `unknown`) --->  `bool`
+  * `int` **`=`** `float` --->  `bool`
+  *  **`=`** (`int` , `float`) --->  `bool`
   * `date` **`=`** `date` --->  `bool`
   *  **`=`** (`date` , `date`) --->  `bool`
   * `float` **`=`** `int` --->  `bool`
@@ -1380,10 +1387,10 @@ bool var0 <- [2,3] = [2,3]; // var0 equals true
 #### Examples: 
 ```
  
-bool var1 <- 3 = 3.0; // var1 equals true 
-bool var2 <- 4 = 4.7; // var2 equals false 
-bool var3 <- 4.5 = 4.7; // var3 equals false 
-bool var4 <- 4 = 5; // var4 equals false 
+bool var1 <- 4 = 5; // var1 equals false 
+bool var2 <- 4.5 = 4.7; // var2 equals false 
+bool var3 <- 3 = 3.0; // var3 equals true 
+bool var4 <- 4 = 4.7; // var4 equals false 
 bool var5 <- #now = #now minus_hours 1; // var5 equals false 
 bool var6 <- 4.7 = 4; // var6 equals false
 
@@ -1401,20 +1408,20 @@ bool var6 <- 4.7 = 4; // var6 equals false
 ### `>`
 
 #### Possible use: 
-  * `int` **`>`** `float` --->  `bool`
-  *  **`>`** (`int` , `float`) --->  `bool`
-  * `float` **`>`** `float` --->  `bool`
-  *  **`>`** (`float` , `float`) --->  `bool`
-  * `string` **`>`** `string` --->  `bool`
-  *  **`>`** (`string` , `string`) --->  `bool`
   * `int` **`>`** `int` --->  `bool`
   *  **`>`** (`int` , `int`) --->  `bool`
   * `date` **`>`** `date` --->  `bool`
   *  **`>`** (`date` , `date`) --->  `bool`
-  * `point` **`>`** `point` --->  `bool`
-  *  **`>`** (`point` , `point`) --->  `bool`
   * `float` **`>`** `int` --->  `bool`
-  *  **`>`** (`float` , `int`) --->  `bool` 
+  *  **`>`** (`float` , `int`) --->  `bool`
+  * `int` **`>`** `float` --->  `bool`
+  *  **`>`** (`int` , `float`) --->  `bool`
+  * `string` **`>`** `string` --->  `bool`
+  *  **`>`** (`string` , `string`) --->  `bool`
+  * `float` **`>`** `float` --->  `bool`
+  *  **`>`** (`float` , `float`) --->  `bool`
+  * `point` **`>`** `point` --->  `bool`
+  *  **`>`** (`point` , `point`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is greater than the right-hand operand, false otherwise.
@@ -1425,7 +1432,7 @@ true if the left-hand operand is greater than the right-hand operand, false othe
   
 ```
  
-bool var0 <- 'abc' > 'aeb'; // var0 equals false
+bool var5 <- 'abc' > 'aeb'; // var5 equals false
 ``` 
 
     
@@ -1433,8 +1440,8 @@ bool var0 <- 'abc' > 'aeb'; // var0 equals false
   
 ```
  
-bool var1 <- {5,7} > {4,6}; // var1 equals true 
-bool var2 <- {5,7} > {4,8}; // var2 equals false
+bool var6 <- {5,7} > {4,6}; // var6 equals true 
+bool var7 <- {5,7} > {4,8}; // var7 equals false
 ``` 
 
 
@@ -1442,11 +1449,11 @@ bool var2 <- {5,7} > {4,8}; // var2 equals false
 #### Examples: 
 ```
  
+bool var0 <- 3 > 7; // var0 equals false 
+bool var1 <- #now > #now minus_hours 1; // var1 equals true 
+bool var2 <- 3.5 > 7; // var2 equals false 
 bool var3 <- 3 > 2.5; // var3 equals true 
-bool var4 <- 3.5 > 7.6; // var4 equals false 
-bool var5 <- 3 > 7; // var5 equals false 
-bool var6 <- #now > #now minus_hours 1; // var6 equals true 
-bool var7 <- 3.5 > 7; // var7 equals false
+bool var4 <- 3.5 > 7.6; // var4 equals false
 
 ```
       
@@ -1462,20 +1469,20 @@ bool var7 <- 3.5 > 7; // var7 equals false
 ### `>=`
 
 #### Possible use: 
-  * `int` **`>=`** `float` --->  `bool`
-  *  **`>=`** (`int` , `float`) --->  `bool`
-  * `point` **`>=`** `point` --->  `bool`
-  *  **`>=`** (`point` , `point`) --->  `bool`
-  * `date` **`>=`** `date` --->  `bool`
-  *  **`>=`** (`date` , `date`) --->  `bool`
-  * `string` **`>=`** `string` --->  `bool`
-  *  **`>=`** (`string` , `string`) --->  `bool`
-  * `float` **`>=`** `int` --->  `bool`
-  *  **`>=`** (`float` , `int`) --->  `bool`
   * `int` **`>=`** `int` --->  `bool`
   *  **`>=`** (`int` , `int`) --->  `bool`
   * `float` **`>=`** `float` --->  `bool`
-  *  **`>=`** (`float` , `float`) --->  `bool` 
+  *  **`>=`** (`float` , `float`) --->  `bool`
+  * `date` **`>=`** `date` --->  `bool`
+  *  **`>=`** (`date` , `date`) --->  `bool`
+  * `int` **`>=`** `float` --->  `bool`
+  *  **`>=`** (`int` , `float`) --->  `bool`
+  * `float` **`>=`** `int` --->  `bool`
+  *  **`>=`** (`float` , `int`) --->  `bool`
+  * `point` **`>=`** `point` --->  `bool`
+  *  **`>=`** (`point` , `point`) --->  `bool`
+  * `string` **`>=`** `string` --->  `bool`
+  *  **`>=`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is greater or equal than the right-hand operand, false otherwise.
@@ -1486,8 +1493,8 @@ true if the left-hand operand is greater or equal than the right-hand operand, f
   
 ```
  
-bool var0 <- {5,7} >= {4,6}; // var0 equals true 
-bool var1 <- {5,7} >= {4,8}; // var1 equals false
+bool var5 <- {5,7} >= {4,6}; // var5 equals true 
+bool var6 <- {5,7} >= {4,8}; // var6 equals false
 ``` 
 
     
@@ -1495,8 +1502,8 @@ bool var1 <- {5,7} >= {4,8}; // var1 equals false
   
 ```
  
-bool var2 <- 'abc' >= 'aeb'; // var2 equals false 
-bool var3 <- 'abc' >= 'abc'; // var3 equals true
+bool var7 <- 'abc' >= 'aeb'; // var7 equals false 
+bool var8 <- 'abc' >= 'abc'; // var8 equals true
 ``` 
 
 
@@ -1504,11 +1511,11 @@ bool var3 <- 'abc' >= 'abc'; // var3 equals true
 #### Examples: 
 ```
  
-bool var4 <- 3 >= 2.5; // var4 equals true 
-bool var5 <- #now >= #now minus_hours 1; // var5 equals true 
-bool var6 <- 3.5 >= 7; // var6 equals false 
-bool var7 <- 3 >= 7; // var7 equals false 
-bool var8 <- 3.5 >= 3.5; // var8 equals true
+bool var0 <- 3 >= 7; // var0 equals false 
+bool var1 <- 3.5 >= 3.5; // var1 equals true 
+bool var2 <- #now >= #now minus_hours 1; // var2 equals true 
+bool var3 <- 3 >= 2.5; // var3 equals true 
+bool var4 <- 3.5 >= 7; // var4 equals false
 
 ```
       
@@ -2302,8 +2309,8 @@ as_driving_graph(road,node)  --:  build a graph while using the road agents as e
 ### `as_edge_graph`
 
 #### Possible use: 
-  *  **`as_edge_graph`** (`container`) --->  `graph`
   *  **`as_edge_graph`** (`map`) --->  `graph`
+  *  **`as_edge_graph`** (`container`) --->  `graph`
   * `container` **`as_edge_graph`** `float` --->  `graph`
   *  **`as_edge_graph`** (`container` , `float`) --->  `graph` 
 
@@ -2311,19 +2318,11 @@ as_driving_graph(road,node)  --:  build a graph while using the road agents as e
 creates a graph from the list/map of edges given as operand
 
 #### Special cases:     
-  * if the operand is a list, the graph will be built with elements of the list as edges 
-  
-```
- 
-graph var0 <- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var0 equals a graph with two edges and three vertices
-``` 
-
-    
   * if the operand is a list and a tolerance (max distance in meters to consider that 2 points are the same node) is given, the graph will be built with elements of the list as edges and two edges will be connected by a node if the distance between their extremity (first or last points) are at distance lower or equal to the tolerance 
   
 ```
  
-graph var1 <- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var1 equals a graph with two edges and three vertices
+graph var0 <- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var0 equals a graph with two edges and three vertices
 ``` 
 
     
@@ -2331,7 +2330,15 @@ graph var1 <- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); 
   
 ```
  
-graph var2 <- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var2 equals a graph with these three vertices and two edges
+graph var1 <- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var1 equals a graph with these three vertices and two edges
+``` 
+
+    
+  * if the operand is a list, the graph will be built with elements of the list as edges 
+  
+```
+ 
+graph var2 <- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var2 equals a graph with two edges and three vertices
 ``` 
 
     
@@ -2556,10 +2563,10 @@ float var1 <- asin (0); // var1 equals 0.0
 ### `at`
 
 #### Possible use: 
-  * `container<KeyType,ValueType>` **`at`** `KeyType` --->  `ValueType`
-  *  **`at`** (`container<KeyType,ValueType>` , `KeyType`) --->  `ValueType`
   * `string` **`at`** `int` --->  `string`
-  *  **`at`** (`string` , `int`) --->  `string` 
+  *  **`at`** (`string` , `int`) --->  `string`
+  * `container<KeyType,ValueType>` **`at`** `KeyType` --->  `ValueType`
+  *  **`at`** (`container<KeyType,ValueType>` , `KeyType`) --->  `ValueType` 
 
 #### Result: 
 the element at the right operand index of the container  
@@ -2577,8 +2584,8 @@ The first element of the container is located at the index 0. In addition, if th
   
 ```
  
-int var0 <- [1, 2, 3] at 2; // var0 equals 3 
-point var1 <- [{1,2}, {3,4}, {5,6}] at 0; // var1 equals {1.0,2.0}
+int var1 <- [1, 2, 3] at 2; // var1 equals 3 
+point var2 <- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 ``` 
 
 
@@ -2586,7 +2593,7 @@ point var1 <- [{1,2}, {3,4}, {5,6}] at 0; // var1 equals {1.0,2.0}
 #### Examples: 
 ```
  
-string var2 <- 'abcdef' at 0; // var2 equals 'a'
+string var0 <- 'abcdef' at 0; // var0 equals 'a'
 
 ```
       
@@ -2647,8 +2654,8 @@ geometry var0 <- self at_location {10, 20}; // var0 equals the geometry resultin
 ### `atan`
 
 #### Possible use: 
-  *  **`atan`** (`int`) --->  `float`
-  *  **`atan`** (`float`) --->  `float` 
+  *  **`atan`** (`float`) --->  `float`
+  *  **`atan`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-90,90], in decimal degrees) of the arctan of the operand (which can be any real number).
@@ -2792,29 +2799,29 @@ float var1 <- beta_index(graphEpidemio); // var1 equals the beta index of the gr
 #### Possible use: 
   * `date` **`between`** `date` --->  `bool`
   *  **`between`** (`date` , `date`) --->  `bool`
-  *  **`between`** (`any expression`, `date`, `date`) --->  `bool`
-  *  **`between`** (`date`, `date`, `date`) --->  `bool`
   *  **`between`** (`float`, `float`, `float`) --->  `bool`
-  *  **`between`** (`int`, `int`, `int`) --->  `bool` 
+  *  **`between`** (`int`, `int`, `int`) --->  `bool`
+  *  **`between`** (`any expression`, `date`, `date`) --->  `bool`
+  *  **`between`** (`date`, `date`, `date`) --->  `bool` 
 
 #### Result: 
 returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
 returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 
 #### Special cases:     
-  * returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates 
-  
-```
- 
-bool var2 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
-``` 
-
-    
   * returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others 
   
 ```
  
-bool var5 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
+bool var2 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
+``` 
+
+    
+  * returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates 
+  
+```
+ 
+bool var5 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var5 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
 ``` 
 
 
@@ -3002,8 +3009,8 @@ the center of the box is by default the location of the current agent in which h
 #### Examples: 
 ```
  
-geometry var0 <- box({10, 5 , 5}); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
-geometry var1 <- box(10, 5 , 5); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
+geometry var0 <- box(10, 5 , 5); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
+geometry var1 <- box({10, 5 , 5}); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
 
 ```
       
@@ -3024,14 +3031,14 @@ geometry var1 <- box(10, 5 , 5); // var1 equals a geometry as a rectangle with w
   *  **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
 
 #### Result: 
-Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
 Build a list of colors of a given type (see website http://colorbrewer2.org/)
+Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
 
 #### Examples: 
 ```
  
-list<rgb> var0 <- list<rgb> colors <- brewer_colors("Pastel1", 10);; // var0 equals a list of 10 sequential colors 
-list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
+list<rgb> var0 <- list<rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
+list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 10);; // var1 equals a list of 10 sequential colors
 
 ```
       
@@ -3058,8 +3065,8 @@ returns the list a palette with a given min number of classes and max number of 
 #### Examples: 
 ```
  
-list<string> var0 <- list<rgb> colors <- brewer_palettes();; // var0 equals a list of palettes that are composed of a min of 5 colors 
-list<string> var1 <- list<rgb> colors <- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
+list<string> var0 <- list<rgb> colors <- brewer_palettes(5,10);; // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
+list<string> var1 <- list<rgb> colors <- brewer_palettes();; // var1 equals a list of palettes that are composed of a min of 5 colors
 
 ```
       
@@ -3107,19 +3114,19 @@ build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") matrix([[1,2,3,4],[2,3,4,2]])
   *  **`CRS_transform`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
-  
-```
- 
-geometry var0 <- shape CRS_transform("EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
+  
+```
+ 
+geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 ``` 
 
 

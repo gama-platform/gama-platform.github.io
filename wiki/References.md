@@ -56,6 +56,11 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 ## Research papers that use GAMA as modeling/simulation support
 
+**2018**
+
+* J. Humann and E. Spero. (2018) "Modeling and Simulation of multi-UAV, multi-Operator Surveillance Systems", 2018 Annual IEEE International Systems Conference (SysCon), Vancouver, BC.
+
+
 **2016**
 
 * Bhamidipati, S., van der Lei, T., & Herder, P. (2016). A layered approach to model interconnected infrastructure and its significance for asset management. EJTIR, 16(1), 254-272.
