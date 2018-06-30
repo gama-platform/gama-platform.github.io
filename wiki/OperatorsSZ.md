@@ -559,18 +559,18 @@ social_link set_agent agentA
 ### `set_agent_cause`
 
 #### Possible use: 
-  * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
-  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion`
   * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
-  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate` 
+  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate`
+  * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
+  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion` 
 
 #### Result: 
-change the agentCause value of the given emotion
 change the agentCause value of the given predicate
+change the agentCause value of the given emotion
 
 #### Examples: 
 ```
-emotion set_agent_cause agentA predicate set_agent_cause agentA 
+predicate set_agent_cause agentA emotion set_agent_cause agentA 
 
 ```
   
@@ -1069,8 +1069,8 @@ list<geometry> var2 <- skeletonize(self); // var2 equals the list of geometries 
   *  **`skew`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-Returns the skew of a data sequence.
 Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+Returns the skew of a data sequence.
     	
 ----
 
@@ -2669,8 +2669,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
     	
 ----
 

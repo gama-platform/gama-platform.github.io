@@ -3525,11 +3525,12 @@ function closeRightMenu() {
    <div style='padding-left:3em'><a href="/wiki/UnitsAndConstants" class="wiki_menu" >Units and Constants</a></div>
    <div style='padding-left:3em'><a href="/wiki/PseudoVariables" class="wiki_menu" >Pseudo Variables</a></div>
    <div style='padding-left:3em'><a href="/wiki/VariablesAndAttributes" class="wiki_menu" >Variables And Attributes</a></div>
-   <div style='padding-left:3em'><a href="/wiki/OperatorsAB" class="wiki_menu" >Operators [A-B]</a></div>
-   <div style='padding-left:3em'><a href="/wiki/OperatorsCH" class="wiki_menu" >Operators [C-H]</a></div>
-   <div style='padding-left:3em'><a href="/wiki/OperatorsIN" class="wiki_menu" >Operators [I-N]</a></div>
-   <div style='padding-left:3em'><a href="/wiki/OperatorsOS" class="wiki_menu" >Operators [O-S]</a></div>
-   <div style='padding-left:3em'><a href="/wiki/OperatorsTZ" class="wiki_menu" >Operators [T-Z]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsAA" class="wiki_menu" >Operators [A-A]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsBC" class="wiki_menu" >Operators [B-C]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsDH" class="wiki_menu" >Operators [D-H]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsIM" class="wiki_menu" >Operators [I-M]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsNR" class="wiki_menu" >Operators [N-R]</a></div>
+   <div style='padding-left:3em'><a href="/wiki/OperatorsSZ" class="wiki_menu" >Operators [S-Z]</a></div>
  <div style='padding-left:1em'><a href="/wiki/Index" class="wiki_menu" >Index</a></div>
 <div style='padding-left:0em'></div>
 </div>      <div id='sub' class='w3-bar-block w3-small'>
@@ -4130,18 +4131,18 @@ geometry var0 &lt;- shape scaled_to {10,10}; // var0 equals a geometry correspon
 
 <h4 id="possible-use-7">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
 </ul>
 
 <h4 id="result-5">Result:</h4>
-<p>change the agentCause value of the given emotion
-change the agentCause value of the given predicate</p>
+<p>change the agentCause value of the given predicate
+change the agentCause value of the given emotion</p>
 
 <h4 id="examples-4">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion set_agent_cause agentA predicate set_agent_cause agentA 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate set_agent_cause agentA emotion set_agent_cause agentA 
 
 </code></pre></div></div>
 
@@ -4618,8 +4619,8 @@ list&lt;geometry&gt; var2 &lt;- skeletonize(self); // var2 equals the list of ge
 </ul>
 
 <h4 id="result-29">Result:</h4>
-<p>Returns the skew of a data sequence.
-Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3</p>
+<p>Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+Returns the skew of a data sequence.</p>
 
 <hr />
 
@@ -6187,8 +6188,8 @@ float var0 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
 </ul>
 
 <h4 id="result-94">Result:</h4>
-<p>Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
-Returns the variance from a standard deviation.</p>
+<p>Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
 
 <hr />
 
