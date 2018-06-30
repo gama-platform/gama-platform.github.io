@@ -13,7 +13,7 @@ commit_website_files() {
   echo "Commiting GIT"
   git add -A
   git rm --cached Gemfile.lock
-  git rm --cached _wiki
+  git rm --cached _wiki -f
   echo "commit "
   
   git commit -q --message "[ci skip] Travis build $(date)"
