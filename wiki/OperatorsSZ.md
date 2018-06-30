@@ -840,9 +840,9 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
-  *  **`shuffle`** (`container`) --->  `list`
   *  **`shuffle`** (`string`) --->  `string`
-  *  **`shuffle`** (`matrix`) --->  `matrix` 
+  *  **`shuffle`** (`matrix`) --->  `matrix`
+  *  **`shuffle`** (`container`) --->  `list` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -853,9 +853,9 @@ The elements of the operand in random order.
 #### Examples: 
 ```
  
-list var0 <- shuffle ([12, 13, 14]); // var0 equals [14,12,13] (for example) 
-string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
-matrix var2 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)
+string var0 <- shuffle ('abc'); // var0 equals 'bac' (for example) 
+matrix var1 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
+list var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
 
 ```
       
@@ -1044,9 +1044,9 @@ reflex when: since(starting_date) {}  	// this reflex will always be run every(2
   *  **`skeletonize`** (`geometry`, `float`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
 
 #### Examples: 
 ```
@@ -1411,8 +1411,8 @@ Splits a list of numbers into n bins defined by n-1 bounds between the minimum a
   *  **`split_lines`** (`container<geometry>` , `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries resulting after cutting the lines at their intersections.
 A list of geometries resulting after cutting the lines at their intersections. if the last boolean operand is set to true, the split lines will import the attributes of the initial lines
+A list of geometries resulting after cutting the lines at their intersections.
 
 #### Examples: 
 ```
@@ -1453,8 +1453,8 @@ Splits a list of numbers into n+1 bins using a set of n bounds passed as the sec
   *  **`split_with`** (`string`, `string`, `bool`) --->  `list` 
 
 #### Result: 
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.  
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).  
 
 #### Comment: 
 Delimiters themselves are excluded from the resulting list.Delimiters themselves are excluded from the resulting list.
@@ -1462,8 +1462,8 @@ Delimiters themselves are excluded from the resulting list.Delimiters themselves
 #### Examples: 
 ```
  
-list var0 <- 'aa::bb:cc' split_with ('::', true); // var0 equals ['aa','bb:cc'] 
-list var1 <- 'to be or not to be,that is the question' split_with ' ,'; // var1 equals ['to','be','or','not','to','be','that','is','the','question']
+list var0 <- 'to be or not to be,that is the question' split_with ' ,'; // var0 equals ['to','be','or','not','to','be','that','is','the','question'] 
+list var1 <- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc']
 
 ```
   
@@ -1474,8 +1474,8 @@ list var1 <- 'to be or not to be,that is the question' split_with ' ,'; // var1 
 ### `sqrt`
 
 #### Possible use: 
-  *  **`sqrt`** (`float`) --->  `float`
-  *  **`sqrt`** (`int`) --->  `float` 
+  *  **`sqrt`** (`int`) --->  `float`
+  *  **`sqrt`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the square root of the operand.
@@ -1970,6 +1970,7 @@ Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
 
 [//]: # (keyword|operator_to)
 ### `to`
+   Same signification as [range](OperatorsNR#range)
 
 #### Possible use: 
   * `date` **`to`** `date` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
@@ -2055,20 +2056,21 @@ string var11 <- to_gaml(node1); // var11 equals  1 as node
 
 [//]: # (keyword|operator_to_rectangles)
 ### `to_rectangles`
+   Same signification as [split_geometry](OperatorsSZ#split_geometry)
 
 #### Possible use: 
   *  **`to_rectangles`** (`geometry`, `point`, `bool`) --->  `list<geometry>`
   *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 ```
   
@@ -2471,16 +2473,16 @@ the operator alters the operand graph, it does not create a new one.
 returns a new list containing all the elements of both containers without duplicated elements.
 
 #### Special cases:     
-  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries    
-  * if the left or right operand is nil, union throws an error
+  * if the left or right operand is nil, union throws an error    
+  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
 
 #### Examples: 
 ```
  
-geometry var0 <- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
-list var1 <- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
-list var2 <- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
-list var3 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
+list var0 <- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
+list var1 <- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
+list var2 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
+geometry var3 <- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
 
 ```
       
@@ -2701,14 +2703,14 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
   *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries corresponding to the Voronoi diagram built from the list of points
 A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 
 ```
   
@@ -2930,24 +2932,24 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 ### `with_precision`
 
 #### Possible use: 
-  * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `geometry` **`with_precision`** `int` --->  `geometry`
   *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
-Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
-point var0 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var0 equals {12345.79, 12345.79, 12345.79} 
-float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
-float var2 <- 123 with_precision 2; // var2 equals 123.00 
+float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
+float var1 <- 123 with_precision 2; // var1 equals 123.00 
+point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
 geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 
 ```

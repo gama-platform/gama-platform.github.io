@@ -467,10 +467,10 @@ float var0 <- improved_generator(2,3,4,253); // var0 equals 10.2
 ### `in`
 
 #### Possible use: 
-  * `unknown` **`in`** `container` --->  `bool`
-  *  **`in`** (`unknown` , `container`) --->  `bool`
   * `string` **`in`** `string` --->  `bool`
-  *  **`in`** (`string` , `string`) --->  `bool` 
+  *  **`in`** (`string` , `string`) --->  `bool`
+  * `unknown` **`in`** `container` --->  `bool`
+  *  **`in`** (`unknown` , `container`) --->  `bool` 
 
 #### Result: 
 true if the right operand contains the left operand, false otherwise  
@@ -479,17 +479,17 @@ true if the right operand contains the left operand, false otherwise
 the definition of in depends on the container
 
 #### Special cases:     
-  * if the right operand is nil or empty, in returns false    
-  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
+  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;    
+  * if the right operand is nil or empty, in returns false
 
 #### Examples: 
 ```
  
-bool var0 <- 2 in [1,2,3,4,5,6]; // var0 equals true 
-bool var1 <- 7 in [1,2,3,4,5,6]; // var1 equals false 
-bool var2 <- 3 in [1::2, 3::4, 5::6]; // var2 equals false 
-bool var3 <- 6 in [1::2, 3::4, 5::6]; // var3 equals true 
-bool var4 <-  'bc' in 'abcded'; // var4 equals true
+bool var0 <-  'bc' in 'abcded'; // var0 equals true 
+bool var1 <- 2 in [1,2,3,4,5,6]; // var1 equals true 
+bool var2 <- 7 in [1,2,3,4,5,6]; // var2 equals false 
+bool var3 <- 3 in [1::2, 3::4, 5::6]; // var3 equals false 
+bool var4 <- 6 in [1::2, 3::4, 5::6]; // var4 equals true
 
 ```
       
@@ -625,16 +625,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
+  * `map` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
   * `species` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`species` , `unknown`) --->  `int`
   * `string` **`index_of`** `string` --->  `int`
   *  **`index_of`** (`string` , `string`) --->  `int`
   * `list` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`list` , `unknown`) --->  `int`
-  * `map` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point` 
+  *  **`index_of`** (`list` , `unknown`) --->  `int` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -644,13 +644,21 @@ the index of the first occurence of the right operand in the left operand contai
 The definition of index_of and the type of the index depend on the container
 
 #### Special cases:     
-  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
+  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
+  * if the left operand is a matrix, index_of returns the index as a point 
+  
+```
+ 
+point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
+``` 
+
+    
   * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
   
 ```
  
-int var1 <-  "abcabcabc" index_of "ca"; // var1 equals 2
+int var2 <-  "abcabcabc" index_of "ca"; // var2 equals 2
 ``` 
 
     
@@ -658,16 +666,8 @@ int var1 <-  "abcabcabc" index_of "ca"; // var1 equals 2
   
 ```
  
-int var2 <- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
-int var3 <- [4,2,3,4,5,4] index_of 4; // var3 equals 0
-``` 
-
-    
-  * if the left operand is a matrix, index_of returns the index as a point 
-  
-```
- 
-point var4 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var4 equals {1.0,0.0}
+int var3 <- [1,2,3,4,5,6] index_of 4; // var3 equals 3 
+int var4 <- [4,2,3,4,5,4] index_of 4; // var4 equals 0
 ``` 
 
 
@@ -807,15 +807,15 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 #### Possible use: 
   * `agent` **`internal_at`** `list` --->  `unknown`
   *  **`internal_at`** (`agent` , `list`) --->  `unknown`
-  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
-  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType`
   * `geometry` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `list`) --->  `unknown` 
+  *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
+  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
+  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType` 
 
 #### Result: 
 For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
-For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]    
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation of the access to containers with [index]    
 
 
 #### See also: 
@@ -1062,12 +1062,12 @@ Tests whether the operand is a json file.
 ### `is_number`
 
 #### Possible use: 
-  *  **`is_number`** (`float`) --->  `bool`
-  *  **`is_number`** (`string`) --->  `bool` 
+  *  **`is_number`** (`string`) --->  `bool`
+  *  **`is_number`** (`float`) --->  `bool` 
 
 #### Result: 
-Returns whether the argument is a real number or not
-tests whether the operand represents a numerical value  
+tests whether the operand represents a numerical value
+Returns whether the argument is a real number or not  
 
 #### Comment: 
 Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
@@ -1075,14 +1075,14 @@ Note that the symbol . should be used for a float value (a string with , will no
 #### Examples: 
 ```
  
-bool var0 <- is_number(4.66); // var0 equals true 
-bool var1 <- is_number(#infinity); // var1 equals true 
-bool var2 <- is_number(#nan); // var2 equals false 
-bool var3 <- is_number("test"); // var3 equals false 
-bool var4 <- is_number("123.56"); // var4 equals true 
-bool var5 <- is_number("-1.2e5"); // var5 equals true 
-bool var6 <- is_number("1,2"); // var6 equals false 
-bool var7 <- is_number("#12FA"); // var7 equals true
+bool var0 <- is_number("test"); // var0 equals false 
+bool var1 <- is_number("123.56"); // var1 equals true 
+bool var2 <- is_number("-1.2e5"); // var2 equals true 
+bool var3 <- is_number("1,2"); // var3 equals false 
+bool var4 <- is_number("#12FA"); // var4 equals true 
+bool var5 <- is_number(4.66); // var5 equals true 
+bool var6 <- is_number(#infinity); // var6 equals true 
+bool var7 <- is_number(#nan); // var7 equals false
 
 ```
   
@@ -1360,8 +1360,8 @@ Returns the kurtosis (aka excess) of a data sequence
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`string`) --->  `string`
   *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`last`** (`string`) --->  `string`
   * `int` **`last`** `container` --->  `list`
   *  **`last`** (`int` , `container`) --->  `list` 
 
@@ -1379,19 +1379,19 @@ the last operator behavior depends on the nature of the operand
   * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
-  
-```
- 
-string var0 <- last ('abce'); // var0 equals 'e'
-``` 
-
-    
   * if it is a list, last returns the last element of the list, or nil if the list is empty 
   
 ```
  
-int var1 <- last ([1, 2, 3]); // var1 equals 3
+int var0 <- last ([1, 2, 3]); // var0 equals 3
+``` 
+
+    
+  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
+  
+```
+ 
+string var1 <- last ('abce'); // var1 equals 'e'
 ``` 
 
     
@@ -1407,16 +1407,16 @@ int var1 <- last ([1, 2, 3]); // var1 equals 3
 ### `last_index_of`
 
 #### Possible use: 
+  * `string` **`last_index_of`** `string` --->  `int`
+  *  **`last_index_of`** (`string` , `string`) --->  `int`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
+  * `map` **`last_index_of`** `unknown` --->  `unknown`
+  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int`
   * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
-  * `string` **`last_index_of`** `string` --->  `int`
-  *  **`last_index_of`** (`string` , `string`) --->  `int`
-  * `map` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown` 
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -1426,28 +1426,11 @@ The definition of last_index_of and the type of the index depend on the containe
 
 #### Special cases:     
   * if the left operand is a species, the last index of an agent is the same as its index    
-  * if the left operand is a list, last_index_of returns the index as an integer 
-  
-```
- 
-int var0 <- [1,2,3,4,5,6] last_index_of 4; // var0 equals 3 
-int var1 <- [4,2,3,4,5,4] last_index_of 4; // var1 equals 5
-``` 
-
-    
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var2 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var2 equals {1.0,2.0}
-``` 
-
-    
   * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
   
 ```
  
-int var3 <- "abcabcabc" last_index_of "ca"; // var3 equals 5
+int var0 <- "abcabcabc" last_index_of "ca"; // var0 equals 5
 ``` 
 
     
@@ -1455,7 +1438,24 @@ int var3 <- "abcabcabc" last_index_of "ca"; // var3 equals 5
   
 ```
  
-unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
+unknown var1 <- [1::2, 3::4, 5::4] last_index_of 4; // var1 equals 5
+``` 
+
+    
+  * if the left operand is a list, last_index_of returns the index as an integer 
+  
+```
+ 
+int var2 <- [1,2,3,4,5,6] last_index_of 4; // var2 equals 3 
+int var3 <- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+ 
+point var4 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var4 equals {1.0,2.0}
 ``` 
 
     
@@ -1463,7 +1463,7 @@ unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
 
 #### See also: 
 
-[at](OperatorsAA#at), [last_index_of](OperatorsIM#last_index_of), [index_of](OperatorsIM#index_of), 
+[at](OperatorsAA#at), [index_of](OperatorsIM#index_of), [last_index_of](OperatorsIM#last_index_of), 
     	
 ----
 
@@ -1534,8 +1534,8 @@ layouts a GAMA graph.
 ### `length`
 
 #### Possible use: 
-  *  **`length`** (`container<KeyType,ValueType>`) --->  `int`
-  *  **`length`** (`string`) --->  `int` 
+  *  **`length`** (`string`) --->  `int`
+  *  **`length`** (`container<KeyType,ValueType>`) --->  `int` 
 
 #### Result: 
 the number of elements contained in the operand  
@@ -1546,12 +1546,20 @@ the length operator behavior depends on the nature of the operand
 #### Special cases:     
   * if it is a population, length returns number of agents of the population    
   * if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)    
+  * if it is a string, length returns the number of characters 
+  
+```
+ 
+int var0 <- length ('I am an agent'); // var0 equals 13
+``` 
+
+    
   * if it is a list or a map, length returns the number of elements in the list or map 
   
 ```
  
-int var0 <- length([12,13]); // var0 equals 2 
-int var1 <- length([]); // var1 equals 0
+int var1 <- length([12,13]); // var1 equals 2 
+int var2 <- length([]); // var2 equals 0
 ``` 
 
     
@@ -1559,15 +1567,7 @@ int var1 <- length([]); // var1 equals 0
   
 ```
  
-int var2 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals 6
-``` 
-
-    
-  * if it is a string, length returns the number of characters 
-  
-```
- 
-int var3 <- length ('I am an agent'); // var3 equals 13
+int var3 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 equals 6
 ``` 
 
 
@@ -1687,8 +1687,8 @@ Note that the right operand  should be positive, and that the second one is eval
 ### `ln`
 
 #### Possible use: 
-  *  **`ln`** (`int`) --->  `float`
-  *  **`ln`** (`float`) --->  `float` 
+  *  **`ln`** (`float`) --->  `float`
+  *  **`ln`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the natural logarithm (base e) of the operand.
@@ -1699,8 +1699,8 @@ Returns the natural logarithm (base e) of the operand.
 #### Examples: 
 ```
  
-float var0 <- ln(1); // var0 equals 0.0 
-float var1 <- ln(exp(1)); // var1 equals 1.0
+float var0 <- ln(exp(1)); // var0 equals 1.0 
+float var1 <- ln(1); // var1 equals 0.0
 
 ```
       
@@ -1717,18 +1717,18 @@ float var1 <- ln(exp(1)); // var1 equals 1.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `file` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
-returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
-loads a graph from a file  
+loads a graph from a file
+returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA  
 
 #### Comment: 
 Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
@@ -1742,7 +1742,21 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
+  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+``` 
+
+    
   * "file": the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
+``` 
+
+    
+  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -1760,20 +1774,6 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
-``` 
-
-    
-  * "format": the format of the file, "filename": the filename of the file containing the network 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
-``` 
-
-    
-  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
 ``` 
 
 
