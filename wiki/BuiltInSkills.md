@@ -448,7 +448,7 @@ The moving skill is intended to define the minimal set of behaviours required fo
 	   
   * **`current_edge`** (`geometry`): Represents the agent/geometry on which the agent is located (only used with a graph)   
   * **`current_path`** (`path`): Represents the path on which the agent is moving on (goto action on a graph)   
-  * **`destination`** (`point`): Represents the next location of the agent if it keeps its current speed and heading (read-only)   
+  * **`destination`** (`point`): Represents the next location of the agent if it keeps its current speed and heading (read-only). ** Only correct in continuous topologies and may return nil values if the destination is outside the environment **   
   * **`heading`** (`float`): Represents the absolute heading of the agent in degrees.   
   * **`location`** (`point`): Represents the current position of the agent   
   * **`real_speed`** (`float`): Represents the actual speed of the agent (in meter/second)   
