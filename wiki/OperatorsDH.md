@@ -128,11 +128,6 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ----
 
-### Containers-related operators
-[-](OperatorsAA#-), [::](OperatorsAA#::), [+](OperatorsAA#+), [accumulate](OperatorsAA#accumulate), [among](OperatorsAA#among), [at](OperatorsAA#at), [collect](OperatorsBC#collect), [contains](OperatorsBC#contains), [contains_all](OperatorsBC#contains_all), [contains_any](OperatorsBC#contains_any), [count](OperatorsBC#count), [distinct](OperatorsDH#distinct), [empty](OperatorsDH#empty), [every](OperatorsDH#every), [first](OperatorsDH#first), [first_with](OperatorsDH#first_with), [get](OperatorsDH#get), [group_by](OperatorsDH#group_by), [in](OperatorsIM#in), [index_by](OperatorsIM#index_by), [inter](OperatorsIM#inter), [interleave](OperatorsIM#interleave), [internal_at](OperatorsIM#internal_at), [internal_integrated_value](OperatorsIM#internal_integrated_value), [last](OperatorsIM#last), [last_with](OperatorsIM#last_with), [length](OperatorsIM#length), [max](OperatorsIM#max), [max_of](OperatorsIM#max_of), [mean](OperatorsIM#mean), [mean_of](OperatorsIM#mean_of), [median](OperatorsIM#median), [min](OperatorsIM#min), [min_of](OperatorsIM#min_of), [mul](OperatorsIM#mul), [one_of](OperatorsNR#one_of), [product_of](OperatorsNR#product_of), [range](OperatorsNR#range), [reverse](OperatorsNR#reverse), [shuffle](OperatorsSZ#shuffle), [sort_by](OperatorsSZ#sort_by), [split](OperatorsSZ#split), [split_in](OperatorsSZ#split_in), [split_using](OperatorsSZ#split_using), [sum](OperatorsSZ#sum), [sum_of](OperatorsSZ#sum_of), [union](OperatorsSZ#union), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
 ### Date-related operators
 [-](OperatorsAA#-), [!=](OperatorsAA#!=), [+](OperatorsAA#+), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [after](OperatorsAA#after), [before](OperatorsBC#before), [between](OperatorsBC#between), [every](OperatorsDH#every), [milliseconds_between](OperatorsIM#milliseconds_between), [minus_days](OperatorsIM#minus_days), [minus_hours](OperatorsIM#minus_hours), [minus_minutes](OperatorsIM#minus_minutes), [minus_months](OperatorsIM#minus_months), [minus_ms](OperatorsIM#minus_ms), [minus_weeks](OperatorsIM#minus_weeks), [minus_years](OperatorsIM#minus_years), [months_between](OperatorsIM#months_between), [plus_days](OperatorsNR#plus_days), [plus_hours](OperatorsNR#plus_hours), [plus_minutes](OperatorsNR#plus_minutes), [plus_months](OperatorsNR#plus_months), [plus_ms](OperatorsNR#plus_ms), [plus_weeks](OperatorsNR#plus_weeks), [plus_years](OperatorsNR#plus_years), [since](OperatorsSZ#since), [to](OperatorsSZ#to), [until](OperatorsSZ#until), [years_between](OperatorsSZ#years_between), 
 
@@ -173,16 +168,6 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ----
 
-### Files-related operators
-[crs](OperatorsBC#crs), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [get](OperatorsDH#get), [load_sub_model](OperatorsIM#load_sub_model), [new_folder](OperatorsNR#new_folder), [osm_file](OperatorsNR#osm_file), [read](OperatorsNR#read), [step_sub_model](OperatorsSZ#step_sub_model), [writable](OperatorsSZ#writable), 
-
-----
-
-### FIPA-related operators
-[conversation](OperatorsBC#conversation), [message](OperatorsIM#message), 
-
-----
-
 ### FIPA-related operators
 [conversation](OperatorsBC#conversation), [message](OperatorsIM#message), 
 
@@ -200,101 +185,6 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### Grid-related operators
 [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [grid_at](OperatorsDH#grid_at), [path_between](OperatorsNR#path_between), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
-
-----
-
-### Iterator operators
-[accumulate](OperatorsAA#accumulate), [as_map](OperatorsAA#as_map), [collect](OperatorsBC#collect), [count](OperatorsBC#count), [create_map](OperatorsBC#create_map), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [distribution2d_of](OperatorsDH#distribution2d_of), [first_with](OperatorsDH#first_with), [frequency_of](OperatorsDH#frequency_of), [group_by](OperatorsDH#group_by), [index_by](OperatorsIM#index_by), [last_with](OperatorsIM#last_with), [max_of](OperatorsIM#max_of), [mean_of](OperatorsIM#mean_of), [min_of](OperatorsIM#min_of), [product_of](OperatorsNR#product_of), [sort_by](OperatorsSZ#sort_by), [sum_of](OperatorsSZ#sum_of), [variance_of](OperatorsSZ#variance_of), [where](OperatorsSZ#where), [with_max_of](OperatorsSZ#with_max_of), [with_min_of](OperatorsSZ#with_min_of), 
 
 ----
 
@@ -537,8 +427,8 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var1 <- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var0 <- dem(dem,texture,z_factor); // var0 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var1 <- dem(dem); // var1 equals returns a geometry as a rectangle of width and height equal to the texture. 
 geometry var2 <- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
 
@@ -807,8 +697,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
  
-map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -827,10 +717,10 @@ map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1
 #### Possible use: 
   * `float` **`div`** `int` --->  `int`
   *  **`div`** (`float` , `int`) --->  `int`
-  * `int` **`div`** `int` --->  `int`
-  *  **`div`** (`int` , `int`) --->  `int`
   * `float` **`div`** `float` --->  `int`
   *  **`div`** (`float` , `float`) --->  `int`
+  * `int` **`div`** `int` --->  `int`
+  *  **`div`** (`int` , `int`) --->  `int`
   * `int` **`div`** `float` --->  `int`
   *  **`div`** (`int` , `float`) --->  `int` 
 
@@ -846,8 +736,8 @@ Returns the truncation of the division of the left-hand operand by the right-han
 ```
  
 int var0 <- 40.5 div 3; // var0 equals 13 
-int var1 <- 40 div 3; // var1 equals 13 
-int var2 <- 40.1 div 4.5; // var2 equals 8 
+int var1 <- 40.1 div 4.5; // var1 equals 8 
+int var2 <- 40 div 3; // var2 equals 13 
 int var3 <- 40 div 4.1; // var3 equals 9
 
 ```
@@ -915,17 +805,17 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`pair`) --->  `unknown`
   *  **`edge`** (`unknown`) --->  `unknown`
+  *  **`edge`** (`pair`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
-  *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
     	
 ----
@@ -1206,25 +1096,25 @@ bool var1 <- even(-12); // var1 equals true
 ### `every`
 
 #### Possible use: 
-  *  **`every`** (`int`) --->  `bool`
   *  **`every`** (`any expression`) --->  `bool`
-  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`int`) --->  `bool`
   * `list` **`every`** `int` --->  `list`
-  *  **`every`** (`list` , `int`) --->  `list` 
+  *  **`every`** (`list` , `int`) --->  `list`
+  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
-applies a step to an interval of dates defined by 'date1 to date2'
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-true every operand * cycle, false otherwise
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency  
+applies a step to an interval of dates defined by 'date1 to date2'
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+true every operand * cycle, false otherwise  
 
 #### Comment: 
-the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
+Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
 
 #### Examples: 
 ```
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
+(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
 
 ```
       
@@ -1254,8 +1144,8 @@ the value of the every operator depends on the cycle. It can be used to do somet
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
 
 #### Special cases:     
-  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true    
-  * returns -1 is the list of candidates is nil or empty
+  * returns -1 is the list of candidates is nil or empty    
+  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true
 
 #### Examples: 
 ```
@@ -1720,12 +1610,12 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
   *  **`fuzzy_kappa_sim`** (`list<agent>`, `list`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 #### Examples: 
 ```
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 ```
   
@@ -1873,12 +1763,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -1886,7 +1776,7 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 
 #### Examples: 
 ```
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 ```
       
@@ -1903,8 +1793,8 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		
 
 #### Possible use: 
   *  **`generate_complete_graph`** (`container<agent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container<agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1917,10 +1807,6 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
@@ -1932,11 +1818,15 @@ Arguments should include following elements:Arguments should include following e
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
 
 ```
       
@@ -1963,21 +1853,21 @@ returns a random small-world network (following Watts-Strogatz model).
 The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
-  * "size": the graph will contain (size + 1) nodes. Size must be greater than k.    
   * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
   * "k": the base degree of each node. k must be greater than 2 and even.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
+  * "size": the graph will contain (size + 1) nodes. Size must be greater than k.    
   * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
   * "k": the base degree of each node. k must be greater than 2 and even.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
 
 ```
       
@@ -2070,27 +1960,27 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 ### `get`
 
 #### Possible use: 
-  * `geometry` **`get`** `string` --->  `unknown`
-  *  **`get`** (`geometry` , `string`) --->  `unknown`
   * `agent` **`get`** `string` --->  `unknown`
-  *  **`get`** (`agent` , `string`) --->  `unknown` 
+  *  **`get`** (`agent` , `string`) --->  `unknown`
+  * `geometry` **`get`** `string` --->  `unknown`
+  *  **`get`** (`geometry` , `string`) --->  `unknown` 
 
 #### Result: 
-Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 
 #### Special cases:     
-  * Reading the attribute of a geometry 
-  
-```
-string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
-``` 
-
-    
   * Reading the attribute of another agent 
   
 ```
 string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
+``` 
+
+    
+  * Reading the attribute of a geometry 
+  
+```
+string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
 ``` 
 
 
@@ -2551,8 +2441,8 @@ get_intentions_with_name_op(self,"has_water")
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`mental_state`) --->  `int`
-  *  **`get_lifetime`** (`predicate`) --->  `int` 
+  *  **`get_lifetime`** (`predicate`) --->  `int`
+  *  **`get_lifetime`** (`mental_state`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -3286,8 +3176,8 @@ has_uncertainty_with_name_op(self,"has_water")
 ### `hexagon`
 
 #### Possible use: 
-  *  **`hexagon`** (`point`) --->  `geometry`
   *  **`hexagon`** (`float`) --->  `geometry`
+  *  **`hexagon`** (`point`) --->  `geometry`
   * `float` **`hexagon`** `float` --->  `geometry`
   *  **`hexagon`** (`float` , `float`) --->  `geometry` 
 
@@ -3305,9 +3195,9 @@ the center of the hexagon is by default the location of the current agent in whi
 #### Examples: 
 ```
  
-geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
+geometry var0 <- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
+geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
 
 ```
       
@@ -3352,8 +3242,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  
