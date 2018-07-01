@@ -14,7 +14,7 @@ wikiPagePath: wiki/Statements.md
 
 ## Table of Contents
 <wiki:toc max_depth="2" />
-[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [catch](#catch), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enforcement](#enforcement), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [law](#law), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [norm](#norm), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [sanction](#sanction), [save](#save), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [start_simulation](#start_simulation), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
+[=](#=), [action](#action), [add](#add), [agents](#agents), [annealing](#annealing), [ask](#ask), [aspect](#aspect), [assert](#assert), [benchmark](#benchmark), [break](#break), [camera](#camera), [capture](#capture), [catch](#catch), [chart](#chart), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [default](#default), [diffuse](#diffuse), [display](#display), [display_grid](#display_grid), [display_population](#display_population), [do](#do), [draw](#draw), [else](#else), [emotional_contagion](#emotional_contagion), [enforcement](#enforcement), [enter](#enter), [equation](#equation), [error](#error), [event](#event), [exhaustive](#exhaustive), [exit](#exit), [experiment](#experiment), [focus](#focus), [focus_on](#focus_on), [genetic](#genetic), [graphics](#graphics), [highlight](#highlight), [hill_climbing](#hill_climbing), [if](#if), [image](#image), [inspect](#inspect), [law](#law), [layout](#layout), [let](#let), [light](#light), [loop](#loop), [match](#match), [migrate](#migrate), [monitor](#monitor), [norm](#norm), [output](#output), [output_file](#output_file), [overlay](#overlay), [parameter](#parameter), [perceive](#perceive), [permanent](#permanent), [plan](#plan), [put](#put), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [release](#release), [remove](#remove), [return](#return), [rule](#rule), [run](#run), [sanction](#sanction), [save](#save), [set](#set), [setup](#setup), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [species](#species), [start_simulation](#start_simulation), [state](#state), [status](#status), [switch](#switch), [tabu](#tabu), [task](#task), [test](#test), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [user_command](#user_command), [user_init](#user_init), [user_input](#user_input), [user_panel](#user_panel), [using](#using), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), [warn](#warn), [write](#write), 
 
 
 ## Statements by kinds
@@ -30,7 +30,7 @@ wikiPagePath: wiki/Statements.md
   * **Layer**
     * [agents](#agents),  [camera](#camera),  [chart](#chart),  [display_grid](#display_grid),  [display_population](#display_population),  [event](#event),  [graphics](#graphics),  [image](#image),  [light](#light),  [overlay](#overlay),  
   * **Output**
-    * [display](#display),  [inspect](#inspect),  [monitor](#monitor),  [output](#output),  [output_file](#output_file),  [permanent](#permanent),  
+    * [display](#display),  [inspect](#inspect),  [layout](#layout),  [monitor](#monitor),  [output](#output),  [output_file](#output_file),  [permanent](#permanent),  
   * **Parameter**
     * [parameter](#parameter),  
   * **Sequence of statements or action**
@@ -74,9 +74,9 @@ wikiPagePath: wiki/Statements.md
   * **Environment**
     * [species](#species), 
   * **Experiment**
-    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [layout](#layout), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Experiment**
-    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [layout](#layout), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Layer**
     * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [try](#try), [using](#using), [warn](#warn), [write](#write), 
   * **Model**
@@ -1888,6 +1888,34 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 
 ----
 
+[//]: # (keyword|statement_layout)
+### layout 
+#### Facets 
+
+  * `value` (any type), (omissible) : Either #none, to indicate that no layout will be imposed, or one of the four possible predefined layouts: #stack, #split, #horizontal or #vertical. This layout will be applied to both experiment and simulation display views. In addition, it is possible to define a custom layout using the horizontal() and vertical() operators
+  * `tabs` (boolean): Whether the displays should show their tab or not
+  * `toolbars` (boolean): Whether the displays should show their toolbar or not 
+ 	
+#### Definition
+
+Represents the layout of the display views of simulations and experiments
+
+#### Usages
+
+* For instance, this layout statement will allow to split the screen occupied by displays in four equal parts, with no tabs. Pairs of display::weight represent the number of the display in their order of definition and their respective weight within a horizontal and vertical section
+
+```
+layout horizontal([vertical([0::5000,1::5000])::5000,vertical([2::5000,3::5000])::5000]) tabs: false; ```
+
+
+
+#### Embedments
+* The `layout` statement is of type: **Output**
+* The `layout` statement can be embedded into: Experiment, 
+* The `layout` statement embeds statements: 
+
+----
+
 [//]: # (keyword|statement_let)
 ### let 
 #### Facets 
@@ -2307,7 +2335,9 @@ perceive name_of-perception target: the_agents_you_want_to_perceive in: a_distan
 ### permanent 
 #### Facets 
 
-  * `layout` (int), (omissible) : Either #none, to indicate that no layout will be imposed, or one of the four possible predefined layouts: #stack, #split, #horizontal or #vertical. This layout will be applied to both experiment and simulation display views 
+  * `layout` (any type), (omissible) : Either #none, to indicate that no layout will be imposed, or one of the four possible predefined layouts: #stack, #split, #horizontal or #vertical. This layout will be applied to both experiment and simulation display views. In addition, it is possible to define a custom layout using the horizontal() and vertical() operators
+  * `tabs` (boolean): Whether the displays should show their tab or not
+  * `toolbars` (boolean): Whether the displays should show their toolbar or not 
  	
 #### Definition
 

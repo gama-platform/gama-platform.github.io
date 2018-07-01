@@ -143,6 +143,11 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ----
 
+### Displays
+[horizontal](OperatorsDH#horizontal), [stack](OperatorsSZ#stack), [vertical](OperatorsSZ#vertical), 
+
+----
+
 ### Distributions
 [binomial_coeff](OperatorsBC#binomial_coeff), [binomial_complemented](OperatorsBC#binomial_complemented), [binomial_sum](OperatorsBC#binomial_sum), [chi_square](OperatorsBC#chi_square), [chi_square_complemented](OperatorsBC#chi_square_complemented), [gamma_distribution](OperatorsDH#gamma_distribution), [gamma_distribution_complemented](OperatorsDH#gamma_distribution_complemented), [normal_area](OperatorsNR#normal_area), [normal_density](OperatorsNR#normal_density), [normal_inverse](OperatorsNR#normal_inverse), [pValue_for_fStat](OperatorsNR#pvalue_for_fstat), [pValue_for_tStat](OperatorsNR#pvalue_for_tstat), [student_area](OperatorsSZ#student_area), [student_t_inverse](OperatorsSZ#student_t_inverse), 
 
@@ -254,7 +259,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsAA#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsAA#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -279,7 +284,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsAA#crs_transform), [rotated_by](OperatorsNR#rotated_by), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsBC#crs_transform), [rotated_by](OperatorsNR#rotated_by), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -393,7 +398,7 @@ a list, containing all the agents of the same species than the argument (if it i
   
 ```
  
-list var3 <- neighbors_of (topology(self), self,10); // var3 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
+list var0 <- neighbors_of (topology(self), self,10); // var0 equals all the agents located at a distance lower or equal to 10 to the agent applying the operator considering its topology.
 ``` 
 
 
@@ -401,9 +406,9 @@ list var3 <- neighbors_of (topology(self), self,10); // var3 equals all the agen
 #### Examples: 
 ```
  
-list var0 <- graphEpidemio neighbors_of (node(3)); // var0 equals [node0,node2] 
-list var1 <- graphFromMap neighbors_of node({12,45}); // var1 equals [{1.0,5.0},{34.0,56.0}] 
-list var2 <- topology(self) neighbors_of self; // var2 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
+list var1 <- graphEpidemio neighbors_of (node(3)); // var1 equals [node0,node2] 
+list var2 <- graphFromMap neighbors_of node({12,45}); // var2 equals [{1.0,5.0},{34.0,56.0}] 
+list var3 <- topology(self) neighbors_of self; // var3 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.
 
 ```
       
@@ -420,38 +425,38 @@ list var2 <- topology(self) neighbors_of self; // var2 equals returns all the ag
 
 #### Possible use: 
   *  **`new_emotion`** (`string`) --->  `emotion`
-  * `string` **`new_emotion`** `agent` --->  `emotion`
-  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
   * `string` **`new_emotion`** `float` --->  `emotion`
   *  **`new_emotion`** (`string` , `float`) --->  `emotion`
   * `string` **`new_emotion`** `predicate` --->  `emotion`
   *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
+  * `string` **`new_emotion`** `agent` --->  `emotion`
+  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
   *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
 #### Result: 
+a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name, intensity)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name,about)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name,intensity,about)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name, intensity)
-a new emotion with the given properties (name,about)
 
 #### Examples: 
 ```
-emotion("joy") emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",eatFood) 
+emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) 
 
 ```
   
@@ -490,33 +495,33 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
 
 #### Possible use: 
   *  **`new_mental_state`** (`string`) --->  `mental_state`
-  * `string` **`new_mental_state`** `emotion` --->  `mental_state`
-  *  **`new_mental_state`** (`string` , `emotion`) --->  `mental_state`
   * `string` **`new_mental_state`** `mental_state` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `mental_state`) --->  `mental_state`
+  * `string` **`new_mental_state`** `emotion` --->  `mental_state`
+  *  **`new_mental_state`** (`string` , `emotion`) --->  `mental_state`
   * `string` **`new_mental_state`** `predicate` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `predicate`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state` 
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`, `agent`) --->  `mental_state` 
 
 #### Result: 
 a new mental state
@@ -559,39 +564,39 @@ new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_m
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `map` --->  `predicate`
-  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
-  * `string` **`new_predicate`** `bool` --->  `predicate`
-  *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
-  * `string` **`new_predicate`** `int` --->  `predicate`
-  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
   * `string` **`new_predicate`** `agent` --->  `predicate`
   *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
+  * `string` **`new_predicate`** `map` --->  `predicate`
+  *  **`new_predicate`** (`string` , `map`) --->  `predicate`
+  * `string` **`new_predicate`** `int` --->  `predicate`
+  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
+  * `string` **`new_predicate`** `bool` --->  `predicate`
+  *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate` 
 
 #### Result: 
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, 	agentCause)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, lifetime, is_true)
 a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
 a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, lifetime, is_true)
+a new predicate with the given properties (name, values, is_true, agentCause)
+a new predicate with the given is_true (name, lifetime)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, 	agentCause)
 
 #### Examples: 
 ```
-predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], true, agentA) predicate("hasWater", true) predicate("hasWater", 10  predicate("people to meet") predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10,true) 
+predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet") predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true, agentA) predicate("hasWater", 10  predicate("hasWater", true) predicate("people to meet", ["time"::10], agentA) 
 
 ```
   
@@ -611,7 +616,7 @@ a new social link
 
 #### Examples: 
 ```
-new_social_link(agentA,0.0,-0.1,0.2,0.1) new_social_link(agentA) 
+new_social_link(agentA) new_social_link(agentA,0.0,-0.1,0.2,0.1) 
 
 ```
   
@@ -652,6 +657,17 @@ float var0 <- norm({3,4}); // var0 equals 5.0
 
 ```
   
+    	
+----
+
+[//]: # (keyword|operator_Norm)
+### `Norm`
+
+#### Possible use: 
+  *  **`Norm`** (`any`) --->  `Norm` 
+
+#### Result: 
+Casts the operand into the type Norm
     	
 ----
 
@@ -888,8 +904,8 @@ predicate1 or predicate2
   *  **`osm_file`** (`string`, `map<string,list>`, `int`) --->  `file` 
 
 #### Result: 
-opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.
-opens a file that a is a kind of OSM file with some filtering.  
+opens a file that a is a kind of OSM file with some filtering.
+opens a file that a is a kind of OSM file with some filtering, forcing the initial CRS to be the one indicated by the second int parameter (see http://spatialreference.org/ref/epsg/). If this int parameter is equal to 0, the data is considered as already projected.  
 
 #### Comment: 
 The file should have a OSM file extension, cf. file type definition for supported file extensions.The file should have a OSM file extension, cf. file type definition for supported file extensions.
@@ -900,7 +916,7 @@ The file should have a OSM file extension, cf. file type definition for supporte
 
 #### Examples: 
 ```
-file myOSMfile2 <- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); 
+file myOSMfile <- osm_file("../includes/rouen.osm", ["highway"::["primary","motorway"]]); file myOSMfile2 <- osm_file("../includes/rouen.osm",["highway"::["primary","motorway"]], 0); 
 
 ```
       
@@ -1095,28 +1111,28 @@ Casts the operand into the type path
   *  **`path_between`** (`topology` , `container<geometry>`) --->  `path`
   * `msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>` **`path_between`** `container<geometry>` --->  `path`
   *  **`path_between`** (`msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>` , `container<geometry>`) --->  `path`
-  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path`
   *  **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path`
-  *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path` 
+  *  **`path_between`** (`msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path` 
 
 #### Result: 
 The shortest path between several objects according to set of cells
-The shortest path between two objects according to set of cells
-The shortest path between two objects according to set of cells with corresponding weights
 The shortest path between a list of two objects in a graph
+The shortest path between two objects according to set of cells with corresponding weights
 The shortest path between several objects according to set of cells with corresponding weights
+The shortest path between two objects according to set of cells
 
 #### Examples: 
 ```
  
-path var0 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var0 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
-path var1 <- path_between (cell_grid where each.is_free, ag1, ag2); // var1 equals A path between ag1 and ag2 passing through the given cell_grid agents 
-path var2 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var2 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
+path var0 <- my_topology path_between (ag1, ag2); // var0 equals A path between ag1 and ag2 
+path var1 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var1 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
+path var2 <- my_topology path_between [ag1, ag2]; // var2 equals A path between ag1 and ag2 
 path var3 <- path_between (my_graph, ag1, ag2); // var3 equals A path between ag1 and ag2 
-path var4 <- my_topology path_between [ag1, ag2]; // var4 equals A path between ag1 and ag2 
+path var4 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var4 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
 path var5 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
-path var6 <- my_topology path_between (ag1, ag2); // var6 equals A path between ag1 and ag2
+path var6 <- path_between (cell_grid where each.is_free, ag1, ag2); // var6 equals A path between ag1 and ag2 passing through the given cell_grid agents
 
 ```
       
@@ -1132,10 +1148,10 @@ path var6 <- my_topology path_between (ag1, ag2); // var6 equals A path between 
 ### `path_to`
 
 #### Possible use: 
-  * `point` **`path_to`** `point` --->  `path`
-  *  **`path_to`** (`point` , `point`) --->  `path`
   * `geometry` **`path_to`** `geometry` --->  `path`
-  *  **`path_to`** (`geometry` , `geometry`) --->  `path` 
+  *  **`path_to`** (`geometry` , `geometry`) --->  `path`
+  * `point` **`path_to`** `point` --->  `path`
+  *  **`path_to`** (`point` , `point`) --->  `path` 
 
 #### Result: 
 A path between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -1413,34 +1429,34 @@ date var0 <- date('2000-01-01') plus_years 15; // var0 equals date('2015-01-01')
 ### `point`
 
 #### Possible use: 
-  * `float` **`point`** `int` --->  `point`
-  *  **`point`** (`float` , `int`) --->  `point`
   * `float` **`point`** `float` --->  `point`
   *  **`point`** (`float` , `float`) --->  `point`
   * `int` **`point`** `int` --->  `point`
   *  **`point`** (`int` , `int`) --->  `point`
   * `int` **`point`** `float` --->  `point`
   *  **`point`** (`int` , `float`) --->  `point`
-  *  **`point`** (`float`, `float`, `int`) --->  `point`
+  * `float` **`point`** `int` --->  `point`
+  *  **`point`** (`float` , `int`) --->  `point`
+  *  **`point`** (`float`, `int`, `float`) --->  `point`
+  *  **`point`** (`int`, `int`, `float`) --->  `point`
   *  **`point`** (`float`, `int`, `int`) --->  `point`
-  *  **`point`** (`float`, `float`, `float`) --->  `point`
   *  **`point`** (`int`, `int`, `int`) --->  `point`
   *  **`point`** (`int`, `float`, `float`) --->  `point`
-  *  **`point`** (`int`, `int`, `float`) --->  `point`
-  *  **`point`** (`float`, `int`, `float`) --->  `point` 
+  *  **`point`** (`float`, `float`, `float`) --->  `point`
+  *  **`point`** (`float`, `float`, `int`) --->  `point` 
 
 #### Result: 
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y, z} instead.
-internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y} instead.
-internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y} instead.
 internal use only. Use the standard construction {x,y, z} instead.
 internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y, z} instead.
+internal use only. Use the standard construction {x,y} instead.
     	
 ----
 
@@ -1833,6 +1849,29 @@ Returns how many percent of the elements contained in the receiver are <= elemen
     	
 ----
 
+[//]: # (keyword|operator_R_correlation)
+### `R_correlation`
+   Same signification as [corR](OperatorsBC#corR)
+    	
+----
+
+[//]: # (keyword|operator_R_file)
+### `R_file`
+
+#### Possible use: 
+  *  **`R_file`** (`string`) --->  `file` 
+
+#### Result: 
+Constructs a file of type R. Allowed extensions are limited to r
+    	
+----
+
+[//]: # (keyword|operator_R_mean)
+### `R_mean`
+   Same signification as [meanR](OperatorsIM#meanR)
+    	
+----
+
 [//]: # (keyword|operator_range)
 ### `range`
 
@@ -2016,9 +2055,9 @@ string var0 <- replace_regex("colour, color", "colou?r", "col"); // var0 equals 
 ### `reverse`
 
 #### Possible use: 
-  *  **`reverse`** (`string`) --->  `string`
+  *  **`reverse`** (`container<KeyType,ValueType>`) --->  `container`
   *  **`reverse`** (`msi.gama.util.GamaMap<K,V>`) --->  `container`
-  *  **`reverse`** (`container<KeyType,ValueType>`) --->  `container` 
+  *  **`reverse`** (`string`) --->  `string` 
 
 #### Result: 
 the operand elements in the reversed order in a copy of the operand.  
@@ -2030,19 +2069,11 @@ the reverse operator behavior depends on the nature of the operand
   * if it is a file, reverse returns a copy of the file with a reversed content    
   * if it is a population, reverse returns a copy of the population with elements in the reversed order    
   * if it is a graph, reverse returns a copy of the graph (with all edges and vertexes), with all of the edges reversed    
-  * if it is a string, reverse returns a new string with characters in the reversed order 
-  
-```
- 
-string var0 <- reverse ('abcd'); // var0 equals 'dcba'
-``` 
-
-    
   * if it is a list, reverse returns a copy of the operand list with elements in the reversed order 
   
 ```
  
-container var1 <- reverse ([10,12,14]); // var1 equals [14, 12, 10]
+container var0 <- reverse ([10,12,14]); // var0 equals [14, 12, 10]
 ``` 
 
     
@@ -2050,7 +2081,7 @@ container var1 <- reverse ([10,12,14]); // var1 equals [14, 12, 10]
   
 ```
  
-map<int,string> var2 <- reverse (['k1'::44, 'k2'::32, 'k3'::12]); // var2 equals [44::'k1', 32::'k2', 12::'k3']
+map<int,string> var1 <- reverse (['k1'::44, 'k2'::32, 'k3'::12]); // var1 equals [44::'k1', 32::'k2', 12::'k3']
 ``` 
 
     
@@ -2058,7 +2089,15 @@ map<int,string> var2 <- reverse (['k1'::44, 'k2'::32, 'k3'::12]); // var2 equals
   
 ```
  
-container var3 <- reverse(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])
+container var2 <- reverse(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])
+``` 
+
+    
+  * if it is a string, reverse returns a new string with characters in the reversed order 
+  
+```
+ 
+string var3 <- reverse ('abcd'); // var3 equals 'dcba'
 ``` 
 
 
@@ -2179,9 +2218,9 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 ### `rnd`
 
 #### Possible use: 
-  *  **`rnd`** (`float`) --->  `float`
-  *  **`rnd`** (`int`) --->  `int`
   *  **`rnd`** (`point`) --->  `point`
+  *  **`rnd`** (`int`) --->  `int`
+  *  **`rnd`** (`float`) --->  `float`
   * `float` **`rnd`** `float` --->  `float`
   *  **`rnd`** (`float` , `float`) --->  `float`
   * `point` **`rnd`** `point` --->  `point`
@@ -2189,8 +2228,8 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
   * `int` **`rnd`** `int` --->  `int`
   *  **`rnd`** (`int` , `int`) --->  `int`
   *  **`rnd`** (`int`, `int`, `int`) --->  `int`
-  *  **`rnd`** (`float`, `float`, `float`) --->  `float`
-  *  **`rnd`** (`point`, `point`, `float`) --->  `point` 
+  *  **`rnd`** (`point`, `point`, `float`) --->  `point`
+  *  **`rnd`** (`float`, `float`, `float`) --->  `float` 
 
 #### Result: 
 a random integer in the interval [0, operand]  
@@ -2199,22 +2238,22 @@ a random integer in the interval [0, operand]
 to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n is used to indicate the precision
 
 #### Special cases:     
-  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]    
-  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]
+  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]    
+  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
 
 #### Examples: 
 ```
  
-float var0 <- rnd(3.4); // var0 equals a random float between 0.0 and 3.4 
-float var1 <- rnd (2.0, 4.0); // var1 equals a float number between 2.0 and 4.0 
-int var2 <- rnd (2, 12, 4); // var2 equals 2, 6 or 10 
-point var3 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var3 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
-int var4 <- rnd (2, 4); // var4 equals 2, 3 or 4 
-int var5 <- rnd (2); // var5 equals 0, 1 or 2 
-float var6 <- rnd (1000) / 1000; // var6 equals a float between 0 and 1 with a precision of 0.001 
-point var7 <- rnd ({2.5,3, 0.0}); // var7 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
-float var8 <- rnd (2.0, 4.0, 0.5); // var8 equals a float number between 2.0 and 4.0 every 0.5 
-point var9 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var9 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
+point var0 <- rnd ({2.5,3, 0.0}); // var0 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
+int var1 <- rnd (2); // var1 equals 0, 1 or 2 
+float var2 <- rnd (1000) / 1000; // var2 equals a float between 0 and 1 with a precision of 0.001 
+int var3 <- rnd (2, 12, 4); // var3 equals 2, 6 or 10 
+point var4 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var4 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
+float var5 <- rnd (2.0, 4.0); // var5 equals a float number between 2.0 and 4.0 
+point var6 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var6 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
+float var7 <- rnd (2.0, 4.0, 0.5); // var7 equals a float number between 2.0 and 4.0 every 0.5 
+float var8 <- rnd(3.4); // var8 equals a random float between 0.0 and 3.4 
+int var9 <- rnd (2, 4); // var9 equals 2, 3 or 4
 
 ```
       
@@ -2314,9 +2353,9 @@ geometry var1 <- self rotated_by 45; // var1 equals the geometry resulting from 
 ### `round`
 
 #### Possible use: 
-  *  **`round`** (`float`) --->  `int`
   *  **`round`** (`point`) --->  `point`
-  *  **`round`** (`int`) --->  `int` 
+  *  **`round`** (`int`) --->  `int`
+  *  **`round`** (`float`) --->  `int` 
 
 #### Result: 
 Returns the rounded value of the operand.
@@ -2327,10 +2366,10 @@ Returns the rounded value of the operand.
 #### Examples: 
 ```
  
-int var0 <- round (0.51); // var0 equals 1 
-int var1 <- round (100.2); // var1 equals 100 
-int var2 <- round(-0.51); // var2 equals -1 
-point var3 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3 equals {12345.79,12345.79,12345.79}
+point var0 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var0 equals {12345.79,12345.79,12345.79} 
+int var1 <- round (0.51); // var1 equals 1 
+int var2 <- round (100.2); // var2 equals 100 
+int var3 <- round(-0.51); // var3 equals -1
 
 ```
       
@@ -2338,7 +2377,7 @@ point var3 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3
 
 #### See also: 
 
-[int](OperatorsIM#int), [with_precision](OperatorsSZ#with_precision), [round](OperatorsNR#round), 
+[round](OperatorsNR#round), [int](OperatorsIM#int), [with_precision](OperatorsSZ#with_precision), 
     	
 ----
 
