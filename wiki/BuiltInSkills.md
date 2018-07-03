@@ -504,9 +504,9 @@ The moving skill 3D is intended to define the minimal set of behaviours required
 ### Variables
 	   
   * **`destination`** (`point`): continuously updated destination of the agent with respect to its speed and heading (read-only)   
-  * **`heading`** (`int`): the absolute heading of the agent in degrees (in the range 0-359)   
-  * **`pitch`** (`int`): the absolute pitch of the agent in degrees (in the range 0-359)   
-  * **`roll`** (`int`): the absolute roll of the agent in degrees (in the range 0-359)   
+  * **`heading`** (`float`): the absolute heading of the agent in degrees (in the range 0-359)   
+  * **`pitch`** (`float`): the absolute pitch of the agent in degrees (in the range 0-359)   
+  * **`roll`** (`float`): the absolute roll of the agent in degrees (in the range 0-359)   
   * **`speed`** (`float`): the speed of the agent (in meter/second) 
  	
 ### Actions
