@@ -27,7 +27,7 @@ You may have to perform some adjustments (such as paths definition) according to
 ## GAMA version
 
 Headless mode is frequently updated by GAMA developers, so you have to get the very latest build version of GAMA. You can download it here  [https://github.com/gama-platform/gama/releases](https://github.com/gama-platform/gama/releases) Be sure to pick the ** Continuous build **  version (The name looks like `GAMA1.7_Linux_64_02.26.17_da33f5b.zip`) and ** not ** the major release, e.g. `GAMA1.7_Linux_64.zip`.
-
+Big note on Windows OS (maybe on others), GAMA must be placed outside of several sensible folders (Program Files, Program Filesx64, Windows).  RECOMMENED: Place GAMA in Users Folder of windows OS.
 
 ## gama-headless.sh script setup
 
