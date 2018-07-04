@@ -655,7 +655,7 @@ This statement cannot be used alone
 ### chart 
 #### Facets 
   
-  * **`name`** (a label), (omissible) : the identifier of the chart layer
+  * **`name`** (string), (omissible) : the identifier of the chart layer
   * `axes` (rgb): the axis color
   * `background` (rgb): the background color
   * `color` (rgb): Text color
