@@ -4,9 +4,7 @@ title: Multiple application domains
 wikiPageName: Home
 wikiPagePath: wiki/Home.md
 ---
-**The new website of GAMA is now available at this address : [gama-platform.org](http://gama-platform.org/)**
-
-<div style="text-align:center"><img src ="https://github.com/gama-platform/gama/wiki/resources/images/general/GamaPlatform.png" width="500"/></div>
+<div style="text-align:center"><img src ="https://github.com/gama-platform/gama/wiki/resources/images/general/GamaPlatform.png" width="100"/></div>
 
 GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations. 
 

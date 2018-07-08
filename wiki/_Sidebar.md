@@ -6,7 +6,7 @@ wikiPagePath: wiki/_Sidebar.md
 ---
 ## [Home](Home)
 ## [Introduction](Overview)
-## [Changes from 1.6.1 to 1.7](NewVersionChanges)
+## [Changes from 1.6.1 to 1.8](NewVersionChanges)
 ## [Platform](PlatformDocumentation)
 1. [Installation and Launching](InstallationAndLaunching)
   1. [Installation](Installation)
