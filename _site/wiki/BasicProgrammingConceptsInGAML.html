@@ -3922,7 +3922,7 @@ loop i over:exampleOfList {
 
 <p>When you will implement your model, you will have to manipulate some random values quite often.</p>
 
-<p>To get a random value in a range of value, use the operator <a href="OperatorsSplitted#rnd"><code class="highlighter-rouge">rnd</code></a>. You can use this operator in many ways:</p>
+<p>To get a random value in a range of value, use the operator <a href="Operators#rnd"><code class="highlighter-rouge">rnd</code></a>. You can use this operator in many ways:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int var0 &lt;- rnd (2);    // var0 equals 0, 1 or 2
 float var1 &lt;- rnd (1000) / 1000;    // var1 equals a float between 0 and 1 with a precision of 0.001
@@ -3936,18 +3936,18 @@ point var8 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0});   // var8 equals a point wi
 float var9 &lt;- rnd (2.0, 4.0);   // var9 equals a float number between 2.0 and 4.0
 </code></pre></div></div>
 
-<p>Use the operator <a href="OperatorsSplitted#flip"><code class="highlighter-rouge">flip</code></a> if you want to pick a boolean value with a certain probability:</p>
+<p>Use the operator <a href="Operators#flip"><code class="highlighter-rouge">flip</code></a> if you want to pick a boolean value with a certain probability:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool result &lt;- flip(0.2); // result will have 20% of chance to be true
 </code></pre></div></div>
 
-<p>You can use randomness in list, by using the operator <a href="OperatorsSplitted#shuffle"><code class="highlighter-rouge">shuffle</code></a>, or also by using the operator <a href="OperatorsSplitted#among"><code class="highlighter-rouge">among</code></a> to pick randomly one (or several) element of your list:</p>
+<p>You can use randomness in list, by using the operator <a href="Operators#shuffle"><code class="highlighter-rouge">shuffle</code></a>, or also by using the operator <a href="Operators#among"><code class="highlighter-rouge">among</code></a> to pick randomly one (or several) element of your list:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list TwoRandomValuesFromTheList &lt;- 2 among [5,4,9,8];
 // the list will be for example [5,9].
 </code></pre></div></div>
 
-<p>You can use probabilistic laws, using operators such as <a href="OperatorsSplitted#gauss"><code class="highlighter-rouge">gauss</code></a>, <a href="OperatorsSplitted#poisson"><code class="highlighter-rouge">poisson</code></a>, <a href="OperatorsSplitted#binomial"><code class="highlighter-rouge">binomial</code></a>, or <a href="OperatorsSplitted#truncated_gauss"><code class="highlighter-rouge">truncated_gauss</code></a> (we invite you to read the documentation for those operators).</p>
+<p>You can use probabilistic laws, using operators such as <a href="Operators#gauss"><code class="highlighter-rouge">gauss</code></a>, <a href="Operators#poisson"><code class="highlighter-rouge">poisson</code></a>, <a href="Operators#binomial"><code class="highlighter-rouge">binomial</code></a>, or <a href="Operators#truncated_gauss"><code class="highlighter-rouge">truncated_gauss</code></a> (we invite you to read the documentation for those operators).</p>
 
 <table>
   <tbody>
