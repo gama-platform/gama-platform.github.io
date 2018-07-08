@@ -458,7 +458,7 @@ Here are some other operators which can be useful to manipulate lists: `sort`, `
 When you will implement your model, you will have to manipulate some random values quite often. 
 
 [//]: # (keyword|operator_rnd)
-To get a random value in a range of value, use the operator [`rnd`](Operators#rnd). You can use this operator in many ways:
+To get a random value in a range of value, use the operator [`rnd`](OperatorsSplitted#rnd). You can use this operator in many ways:
 
 ```
 int var0 <- rnd (2);    // var0 equals 0, 1 or 2
@@ -474,14 +474,14 @@ float var9 <- rnd (2.0, 4.0);   // var9 equals a float number between 2.0 and 4.
 ```
 
 [//]: # (keyword|operator_flip)
-Use the operator [`flip`](Operators#flip) if you want to pick a boolean value with a certain probability:
+Use the operator [`flip`](OperatorsSplitted#flip) if you want to pick a boolean value with a certain probability:
 
 ```
 bool result <- flip(0.2); // result will have 20% of chance to be true
 ```
 
 [//]: # (keyword|operator_shuffle)
-You can use randomness in list, by using the operator [`shuffle`](Operators#shuffle), or also by using the operator [`among`](Operators#among) to pick randomly one (or several) element of your list:
+You can use randomness in list, by using the operator [`shuffle`](OperatorsSplitted#shuffle), or also by using the operator [`among`](OperatorsSplitted#among) to pick randomly one (or several) element of your list:
 
 ```
 list TwoRandomValuesFromTheList <- 2 among [5,4,9,8];
@@ -489,6 +489,6 @@ list TwoRandomValuesFromTheList <- 2 among [5,4,9,8];
 ```
 
 [//]: # (keyword|concept_distribution)
-You can use probabilistic laws, using operators such as [`gauss`](Operators#gauss), [`poisson`](Operators#poisson), [`binomial`](Operators#binomial), or [`truncated_gauss`](Operators#truncated_gauss) (we invite you to read the documentation for those operators).
+You can use probabilistic laws, using operators such as [`gauss`](OperatorsSplitted#gauss), [`poisson`](OperatorsSplitted#poisson), [`binomial`](OperatorsSplitted#binomial), or [`truncated_gauss`](OperatorsSplitted#truncated_gauss) (we invite you to read the documentation for those operators).
 
 [//]: # (endConcept|programming_basis)

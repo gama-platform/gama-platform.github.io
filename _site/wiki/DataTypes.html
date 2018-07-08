@@ -3638,7 +3638,7 @@ There are 4 categories of types:</p>
   <li><strong>Comments:</strong> this datatype is internally backed up by the Java String class. However, contrary to Java, strings are considered as a primitive type, which means they do not contain character objects. This can be seen when casting a string to a list using the list operator: the result is a list of one-character strings, not a list of characters.</li>
   <li><strong>Litteral declaration:</strong> a sequence of characters enclosed in quotes, like ‘this is a string’ . If one wants to literally declare strings that contain quotes, one has to double these quotes in the declaration. Strings accept escape characters like <code class="highlighter-rouge">\n</code> (newline), <code class="highlighter-rouge">\r</code> (carriage return), <code class="highlighter-rouge">\t</code> (tabulation), as well as any Unicode character (<code class="highlighter-rouge">\uXXXX</code>).</li>
   <li><strong>Other declarations:</strong> see string</li>
-  <li><strong>Example:</strong> see <a href="Operators#strings-related-operators">string operators</a>.</li>
+  <li><strong>Example:</strong> see <a href="OperatorsSplitted#strings-related-operators">string operators</a>.</li>
 </ul>
 
 <p><a href="#table-of-contents">Top of the page</a></p>
@@ -3667,7 +3667,7 @@ bool fileTextReadable &lt;- fileText.readable;
 <ul>
   <li><strong>Definition:</strong> a generic datatype that represents a collection of data.</li>
   <li><strong>Comments:</strong>  a container variable can be a list, a matrix, a map… Conversely each list, matrix and map is a kind of container. In consequence every container can be used in container-related operators.</li>
-  <li><strong>See also:</strong> <a href="Operators#containers-related-operators">Container operators</a></li>
+  <li><strong>See also:</strong> <a href="OperatorsSplitted#containers-related-operators">Container operators</a></li>
   <li><strong>Declaration:</strong>
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>container c  &lt;- [1,2,3];
 container c  &lt;- matrix [[1,2,3],[4,5,6]];
@@ -3703,7 +3703,7 @@ container c  &lt;- list species1;
     </ul>
   </li>
   <li><strong>Remark:</strong> Files are also a particular kind of container and can thus be read, written or iterated using the container operators and commands.</li>
-  <li><strong>See also:</strong> <a href="Operators#files-related-operators">File operators</a></li>
+  <li><strong>See also:</strong> <a href="OperatorsSplitted#files-related-operators">File operators</a></li>
   <li><strong>Declaration:</strong> a file can be created using the generic <code class="highlighter-rouge">file</code> (that opens a file in read only mode and tries to determine its contents), <code class="highlighter-rouge">folder</code> or the <code class="highlighter-rouge">new_folder</code> (to open an existing folder or create a new one) unary operators. But things can be specialized with the combination of the <code class="highlighter-rouge">read</code>/<code class="highlighter-rouge">write</code> and <code class="highlighter-rouge">image</code>/<code class="highlighter-rouge">text</code>/<code class="highlighter-rouge">shapefile</code>/<code class="highlighter-rouge">properties</code> unary operators.</li>
 </ul>
 
@@ -3742,7 +3742,7 @@ write(properties(a_string)) // returns a property file which is available for wr
       <li>Otherwise, it is a Polygon whose points are (minx, miny), (maxx, miny), (maxx, maxy), (minx, maxy), (minx, miny).</li>
     </ul>
   </li>
-  <li><strong>See also:</strong> <a href="Operators#spatial-operators">Spatial operators</a></li>
+  <li><strong>See also:</strong> <a href="OperatorsSplitted#spatial-operators">Spatial operators</a></li>
   <li><strong>Declaration:</strong> geometries can be built from a point, a list of points or by using specific operators (circle, square, triangle…).</li>
 </ul>
 
@@ -3771,7 +3771,7 @@ geometry polygonGeom &lt;- polygon([{3,5}, {5,6},{1,4}]);
       <li>The computation of the spanning tree uses an implementation of  the Kruskal’s minimum spanning tree algorithm. If the given graph is connected it computes the minimum spanning tree, otherwise it computes the minimum spanning forest.</li>
     </ul>
   </li>
-  <li><strong>See also:</strong> <a href="Operators#graph-related-operators">Graph operators</a></li>
+  <li><strong>See also:</strong> <a href="OperatorsSplitted#graph-related-operators">Graph operators</a></li>
   <li><strong>Declaration:</strong> graphs can be built from a list of vertices (agents or geometries) or from a list of edges (agents or geometries) by using specific operators. They are often used to deal with a road network and are built from a shapefile.</li>
 </ul>
 
