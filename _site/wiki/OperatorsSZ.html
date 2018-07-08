@@ -3878,13 +3878,13 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="result">Result:</h4>
-<p>takes a sample of the specified size from the elements of x using either with or without replacement with given weights
-takes a sample of the specified size from the elements of x using either with or without replacement</p>
+<p>takes a sample of the specified size from the elements of x using either with or without replacement
+takes a sample of the specified size from the elements of x using either with or without replacement with given weights</p>
 
 <h4 id="examples">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var0 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var0 equals [10,2] 
-list var1 &lt;- sample([2,10,1],2,false); // var1 equals [1,2]
+list var0 &lt;- sample([2,10,1],2,false); // var0 equals [1,2] 
+list var1 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var1 equals [10,2]
 
 </code></pre></div></div>
 
@@ -4269,8 +4269,8 @@ change the agentCause value of the given predicate</p>
 
 <h4 id="possible-use-23">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
@@ -4284,8 +4284,8 @@ change the agentCause value of the given predicate</p>
 
 <h4 id="examples-18">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-matrix var0 &lt;- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-list var1 &lt;- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
+list var0 &lt;- shuffle ([12, 13, 14]); // var0 equals [14,12,13] (for example) 
+matrix var1 &lt;- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
 string var2 &lt;- shuffle ('abc'); // var2 equals 'bac' (for example)
 
 </code></pre></div></div>
@@ -4388,8 +4388,8 @@ geometry var0 &lt;- self simplification 0.1; // var0 equals the geometry resulti
 
 <h4 id="possible-use-28">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sin</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-26">Result:</h4>
@@ -4402,8 +4402,8 @@ geometry var0 &lt;- self simplification 0.1; // var0 equals the geometry resulti
 
 <h4 id="examples-23">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- sin (0); // var0 equals 0.0 
-float var1 &lt;- sin(360) with_precision 10 with_precision 10; // var1 equals 0.0
+float var0 &lt;- sin(360) with_precision 10 with_precision 10; // var0 equals 0.0 
+float var1 &lt;- sin (0); // var1 equals 0.0
 
 </code></pre></div></div>
 
@@ -4465,9 +4465,9 @@ float var0 &lt;- sin_rad(#pi); // var0 equals 0.0
 </ul>
 
 <h4 id="result-29">Result:</h4>
-<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping</p>
+<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation</p>
 
 <h4 id="examples-26">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
@@ -4787,15 +4787,15 @@ list&lt;geometry&gt; var0 &lt;- polyline([{1,2},{4,6}]) split_at {7,6}; // var0 
 </ul>
 
 <h4 id="result-43">Result:</h4>
-<p>A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
-A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
-A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)</p>
+<p>A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
+A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
+A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)</p>
 
 <h4 id="examples-35">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 10,20); // var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
-list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
-list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
+list&lt;geometry&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
+list&lt;geometry&gt; var1 &lt;- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
+list&lt;geometry&gt; var2 &lt;- to_rectangles(self, 10,20); // var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
 
 </code></pre></div></div>
 
@@ -4852,8 +4852,8 @@ list&lt;geometry&gt; var1 &lt;- split_lines([line([{0,10}, {20,10}]), line([{0,1
 </ul>
 
 <h4 id="result-46">Result:</h4>
-<p>Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound</p>
+<p>Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound</p>
 
 <h4 id="see-also-11">See also:</h4>
 
@@ -4890,8 +4890,8 @@ list var1 &lt;- 'to be or not to be,that is the question' split_with ' ,'; // va
 
 <h4 id="possible-use-50">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-48">Result:</h4>
@@ -5043,8 +5043,8 @@ float var0 &lt;- standard_deviation ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.293
 </ul>
 
 <h4 id="result-54">Result:</h4>
-<p>converts a date to astring following a custom pattern. The pattern can use “%Y %M %N %D %E %h %m %s %z” for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
-converts a date to astring following a custom pattern and using a specific locale (e.g.: ‘fr’, ‘en’, etc.). The pattern can use “%Y %M %N %D %E %h %m %s %z” for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences</p>
+<p>converts a date to astring following a custom pattern and using a specific locale (e.g.: ‘fr’, ‘en’, etc.). The pattern can use “%Y %M %N %D %E %h %m %s %z” for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a date to astring following a custom pattern. The pattern can use “%Y %M %N %D %E %h %m %s %z” for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences</p>
 
 <h4 id="examples-42">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>format(#now, 'yyyy-MM-dd') format(#now, 'yyyy-MM-dd') 
@@ -5147,8 +5147,8 @@ list var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals []
 
 <h4 id="possible-use-61">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-58">Result:</h4>
@@ -5472,6 +5472,7 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 <hr />
 
 <h3 id="to_rectangles"><code class="highlighter-rouge">to_rectangles</code></h3>
+<p>Same signification as <a href="OperatorsSZ#split_geometry">split_geometry</a></p>
 
 <h4 id="possible-use-74">Possible use:</h4>
 <ul>
@@ -5496,21 +5497,21 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, 5, 20, true); // var1 equals
 
 <h4 id="possible-use-75">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
 <h4 id="result-71">Result:</h4>
-<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+<p>A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
 
 <h4 id="examples-52">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var0 &lt;- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list&lt;geometry&gt; var2 &lt;- to_squares(self, 10, true); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 </code></pre></div></div>
 
@@ -5778,25 +5779,25 @@ geometry var0 &lt;- triangle(5); // var0 equals a geometry as a triangle with si
 
 <h4 id="possible-use-86">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">list&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">list&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">triangulate</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">triangulate</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
 <h4 id="result-82">Result:</h4>
-<p>A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
-A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)</p>
+<p>A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
+A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines</p>
 
 <h4 id="examples-62">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- triangulate(self,0.1, 1.0); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list&lt;geometry&gt; var1 &lt;- triangulate(self, 0.1); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list&lt;geometry&gt; var2 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list&lt;geometry&gt; var3 &lt;- triangulate(self); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list&lt;geometry&gt; var0 &lt;- triangulate(self, 0.1); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list&lt;geometry&gt; var1 &lt;- triangulate(self,0.1, 1.0); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list&lt;geometry&gt; var2 &lt;- triangulate(self); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list&lt;geometry&gt; var3 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
 </code></pre></div></div>
 
@@ -5862,6 +5863,7 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 <hr />
 
 <h3 id="union"><code class="highlighter-rouge">union</code></h3>
+<p>Same signification as <a href="OperatorsAA#+">+</a></p>
 
 <h4 id="possible-use-90">Possible use:</h4>
 <ul>
@@ -6080,8 +6082,8 @@ float var0 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
 </ul>
 
 <h4 id="result-95">Result:</h4>
-<p>Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
-Returns the variance from a standard deviation.</p>
+<p>Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
 
 <hr />
 
@@ -6124,13 +6126,13 @@ Returns the variance from a standard deviation.</p>
 </ul>
 
 <h4 id="result-97">Result:</h4>
-<p>A list of geometries corresponding to the Voronoi diagram built from the list of points
-A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip</p>
+<p>A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points</p>
 
 <h4 id="examples-70">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
-list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
+list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 
 </code></pre></div></div>
 
