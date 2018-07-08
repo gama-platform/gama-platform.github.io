@@ -160,7 +160,7 @@ The documentation is generate from the Java code thanks to the Java additional p
 
 Most of the annotations can contain a [`@doc`](DevelopingIndexAnnotations#doc) annotation, that can contain the main part of the documentation.
 
-For example, the `inter` ([inter](Operators#inter)) operator is commented using: 
+For example, the `inter` ([inter](OperatorsSplitted#inter)) operator is commented using: 
 ```
 @doc(
   value = "the intersection of the two operands",

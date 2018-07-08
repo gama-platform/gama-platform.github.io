@@ -81,7 +81,7 @@ species people skills:[moving]{
 	bool is_infected <- false;
 }
 ```
-Note we use the [rnd](Operators#rnd) operator to define a random value between 2 and 5 for the speed. In addition, we precise a unit for the speed value by using the # symbol. For more details about units, see [here](UnitsAndConstants).
+Note we use the [rnd](OperatorsSplitted#rnd) operator to define a random value between 2 and 5 for the speed. In addition, we precise a unit for the speed value by using the # symbol. For more details about units, see [here](UnitsAndConstants).
 
 #### Behavior
 GAMA proposes several ways to define the behavior of a species: dynamic variables (update facet), reflexes....
@@ -117,7 +117,7 @@ species people skills:[moving]{
 	}
 }
 ```
-The [ask](Statements#ask) allows an agent to ask another agents to do something (i.e. to execute a sequence of statements). The [at_distance](Operators#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 10m). The [flip](Operators#flip) operator allows to test a probability.
+The [ask](Statements#ask) allows an agent to ask another agents to do something (i.e. to execute a sequence of statements). The [at_distance](OperatorsSplitted#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 10m). The [flip](OperatorsSplitted#flip) operator allows to test a probability.
 
 #### Display
 An agent [aspects](RegularSpecies#the-aspect-statement) have to be defined. An aspect is a way to display the agents of a species : aspect aspect\_name {...}

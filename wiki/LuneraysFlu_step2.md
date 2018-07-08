@@ -45,7 +45,7 @@ global{
 }
 ```
 
-We used the [count](Operators#count) operator that allows to count the number of elements of a list for which the left condition is true. The keyword _each_ represents each element of the list.
+We used the [count](OperatorsSplitted#count) operator that allows to count the number of elements of a list for which the left condition is true. The keyword _each_ represents each element of the list.
 
 #### ending condition
 
