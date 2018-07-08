@@ -222,11 +222,11 @@ def findPages(folder,index)
             newWikiPage.puts "---"
             newWikiPage.puts fileContent
           end
-          if(File.basename(aFile)=="Operators.md")
+          if(File.basename(aFile)=="OperatorsSplitted.md")
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|operator\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"operator_")
-                tmp_index<<{"id"=>strOcc,"title"=>"operator : "+strOcc, "url"=>"/wiki/Operators#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"operator : "+strOcc, "url"=>"/wiki/OperatorsSplitted#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.operators.json","w") do |f|
                 f.write(tmp_index.to_json)
