@@ -81,7 +81,7 @@ global {
 }
 ```
 
-We used here the [one_of](OperatorsSplitted#one_of) operator that returns a random element from a list and the [any_location_in](OperatorsSplitted#any_location_in) operator that returns a random location inside a geometry.
+We used here the [one_of](Operators#one_of) operator that returns a random element from a list and the [any_location_in](Operators#any_location_in) operator that returns a random location inside a geometry.
 
 ### experiment
 
