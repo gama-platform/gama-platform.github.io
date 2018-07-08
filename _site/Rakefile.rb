@@ -222,7 +222,7 @@ def findPages(folder,index)
             newWikiPage.puts "---"
             newWikiPage.puts fileContent
           end
-          if(File.basename(aFile)=="OperatorsSplitted.md")
+          if(File.basename(aFile)=="Operators.md")
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|operator\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"operator_")
