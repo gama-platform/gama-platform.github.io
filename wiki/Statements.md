@@ -1180,7 +1180,7 @@ type_returned_by_action result <- self name_of_action_or_primitive [arg1::expres
 #### Facets 
 
   * `geometry` (any type), (omissible) : any type of data (it can be geometry, image, text)
-  * `anchor` (int): the anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center
+  * `anchor` (point): the anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center
   * `at` (point): location where the shape/text/icon is drawn
   * `begin_arrow` (any type in [int, float]): the size of the arrow, located at the beginning of the drawn geometry
   * `bitmap` (boolean): Whether to render the text in 3D or not
