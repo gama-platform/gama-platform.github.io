@@ -97,13 +97,13 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#bold`**, value= 1, Comment: This constant allows to build a font with a bold face. Can be combined with #italic
 
 [//]: # (keyword|constant_#bottom_center)
-* **`\#bottom_center`**, value= 4, Comment: Represents an anchor situated at the center of the bottom side of the text to draw
+* **`\#bottom_center`**, value= No Default Value, Comment: Represents an anchor situated at the center of the bottom side of the text to draw
 
 [//]: # (keyword|constant_#bottom_left)
-* **`\#bottom_left`**, value= 3, Comment: Represents an anchor situated at the bottom left corner of the text to draw
+* **`\#bottom_left`**, value= No Default Value, Comment: Represents an anchor situated at the bottom left corner of the text to draw
 
 [//]: # (keyword|constant_#bottom_right)
-* **`\#bottom_right`**, value= 5, Comment: Represents an anchor situated at the bottom right corner of the text to draw
+* **`\#bottom_right`**, value= No Default Value, Comment: Represents an anchor situated at the bottom right corner of the text to draw
 
 [//]: # (keyword|constant_#camera_location)
 * **`\#camera_location`**, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current position of the camera as a point
@@ -115,7 +115,7 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#camera_target`**, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current target of the camera as a point
 
 [//]: # (keyword|constant_#center)
-* **`\#center`**, value= 0, Comment: Represents an anchor situated at the center of the text to draw
+* **`\#center`**, value= No Default Value, Comment: Represents an anchor situated at the center of the text to draw
 
 [//]: # (keyword|constant_#display_height)
 * **`\#display_height`**, value= 1.0, Comment: This constant is only accessible in a graphical context: display, graphics...
@@ -133,7 +133,7 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#italic`**, value= 2, Comment: This constant allows to build a font with an italic face. Can be combined with #bold
 
 [//]: # (keyword|constant_#left_center)
-* **`\#left_center`**, value= 2, Comment: Represents an anchor situated at the center of the left side of the text to draw
+* **`\#left_center`**, value= No Default Value, Comment: Represents an anchor situated at the center of the left side of the text to draw
 
 [//]: # (keyword|constant_#none)
 * **`\#none`**, value= 0, Comment: This constant represents the absence of a predefined layout
@@ -145,7 +145,7 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#plain`**, value= 0, Comment: This constant allows to build a font with a plain face
 
 [//]: # (keyword|constant_#right_center)
-* **`\#right_center`**, value= 6, Comment: Represents an anchor situated at the center of the right side of the text to draw
+* **`\#right_center`**, value= No Default Value, Comment: Represents an anchor situated at the center of the right side of the text to draw
 
 [//]: # (keyword|constant_#round)
 * **`\#round`**, value= 1, Comment: This constant represents a round line buffer end cap style
@@ -160,13 +160,13 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`\#stack`**, value= 1, Comment: This constant represents a layout where all display views are stacked
 
 [//]: # (keyword|constant_#top_center)
-* **`\#top_center`**, value= 8, Comment: Represents an anchor situated at the center of the top side of the text to draw
+* **`\#top_center`**, value= No Default Value, Comment: Represents an anchor situated at the center of the top side of the text to draw
 
 [//]: # (keyword|constant_#top_left)
-* **`\#top_left`**, value= 1, Comment: Represents an anchor situated at the top left corner of the text to draw
+* **`\#top_left`**, value= No Default Value, Comment: Represents an anchor situated at the top left corner of the text to draw
 
 [//]: # (keyword|constant_#top_right)
-* **`\#top_right`**, value= 7, Comment: Represents an anchor situated at the top right corner of the text to draw
+* **`\#top_right`**, value= No Default Value, Comment: Represents an anchor situated at the top right corner of the text to draw
 
 [//]: # (keyword|constant_#user_location)
 * **`\#user_location`**, value= No Default Value, Comment: This unit contains in permanence the location of the mouse on the display in which it is situated. The latest location is provided when it is out of a display
