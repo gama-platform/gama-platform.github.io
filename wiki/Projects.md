@@ -23,7 +23,7 @@ If you need to cite GAMA in a paper, we kindly ask you to use this reference:
 
 
 ### Papers about GAMA
-  * [Taillandier, Patrick, Arnaud Grignard, Benoit Gaudou, and Alexis Drogoul. "Des données géographiques à la simulation à base d’agents: application de la plate-forme GAMA." Cybergeo: European Journal of Geography (2014).](http://spi.cybergeo.revues.org/26263)
+  * [Taillandier, Patrick, Arnaud Grignard, Benoit Gaudou, and Alexis Drogoul. "Des données géographiques à la simulation à base d’agents: application de la plate-forme GAMA." Cybergeo: European Journal of Geography (2014).](https://journals.openedition.org/cybergeo/26263)
 
   * [A. Grignard, P. Taillandier, B. Gaudou, D-A. Vo, N-Q. Huynh, A. Drogoul (2013), GAMA 1.6: Advancing the Art of Complex Agent-Based Modeling and Simulation. In ‘PRIMA 2013: Principles and Practice of Multi-Agent Systems', Lecture Notes in Computer Science, Vol. 8291, Springer, pp. 117-131.](http://link.springer.com/chapter/10.1007/978-3-642-44927-7_9)
 
