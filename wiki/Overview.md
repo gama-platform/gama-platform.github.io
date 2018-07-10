@@ -7,12 +7,11 @@ wikiPagePath: wiki/Overview.md
 
 # Introduction
 
-| [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/6m_-UY8UBuk/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=6m_-UY8UBuk) | [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/ycbeYxV2B7M/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=ycbeYxV2B7M) |
-|---|---|
-
-
+[![Demonstration of some of the features of the GAMA Platform](http://img.youtube.com/vi/6m_-UY8UBuk/0.jpg)](http://www.youtube.com/watch?v=6m_-UY8UBuk)
 
 **GAMA** is a simulation platform, which aims at providing field experts, modellers, and computer scientists with a complete modelling and simulation development environment for building spatially explicit multi-agent simulations. It has been first developed by the Vietnamese-French research team MSI (located at IFI, Hanoi, and part of the IRD/UPMC International Research Unit UMMISCO) from 2007 to 2010, and is now developed by a consortium of academic and industrial partners led by UMMISCO, among which the University of Rouen, France, the University of Toulouse 1, France, the University of Orsay, France, the University of Can Tho, Vietnam, the National University of Hanoi, EDF R&D, France, and CEA LISC, France.
+
+[![Gama 1.6 Trailer. Agent-based simulation platform](http://img.youtube.com/vi/ycbeYxV2B7M/0.jpg)](http://www.youtube.com/watch?v=ycbeYxV2B7M)
 
 Some of the features of GAMA are illustrated in the videos above (more can be found [in our Youtube channel](http://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ)).
 
