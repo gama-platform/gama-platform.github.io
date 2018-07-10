@@ -7,7 +7,7 @@ wikiPagePath: wiki/Overview.md
 
 # Introduction
 
-| [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/6m_-UY8UBuk/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=6m_-UY8UBuk) | [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/ycbeYxV2B7M/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=ycbeYxV2B7M) |
+| [![Demonstration of some of the features of the GAMA Platform](http://img.youtube.com/vi/6m_-UY8UBuk/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=6m_-UY8UBuk) | [![Gama 1.6 Trailer. Agent-based simulation platform](http://img.youtube.com/vi/ycbeYxV2B7M/0.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=ycbeYxV2B7M) |
 |---|---|
 
 
