@@ -3546,7 +3546,7 @@ function closeRightMenu() {
 
 <p>Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now <strong>requires JDK/JVM 1.8</strong> to run. Please note that GAMA <strong>has not been tested with JDK 1.9 and 1.10</strong>.</p>
 
-<h1 id="changes-between-161-and-1718-that-can-influence-the-dynamics-of-models">Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models</h1>
+<h2 id="changes-between-161-and-1718-that-can-influence-the-dynamics-of-models">Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models</h2>
 
 <ul>
   <li>Initialization order between the initialization of variables and the execution of the <code class="highlighter-rouge">init</code> block in grids
@@ -3570,7 +3570,7 @@ gives examples</li>
   <li>The actions called by an <code class="highlighter-rouge">event</code> layer do not need anymore to define <code class="highlighter-rouge">point</code> and <code class="highlighter-rouge">list&lt;agent&gt;</code> arguments to receive the mouse location and the list of agents selected. Instead, they can now use <code class="highlighter-rouge">#user_location</code> and they have to compute the selected agents by themselves (using an arbitrary function).</li>
   <li>The random number generators now better handle seeding (larger range), but it can change the series of values previously obtained from a given seed in 1.6.1</li>
   <li>all models now have a starting_date and a current_date. They then dont begin at an hypothetical “zero” date, but at the epoch date defined by ISO 8601 (1970/1/1). It should not change models that dont rely on dates, except that:</li>
-  <li>#year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.</li>
+  <li>the #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.</li>
   <li><code class="highlighter-rouge">as_time</code>, <code class="highlighter-rouge">as_system_time</code>, <code class="highlighter-rouge">as_date</code> and <code class="highlighter-rouge">as_system_date</code> have been removed</li>
 </ul>
 

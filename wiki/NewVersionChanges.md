@@ -8,7 +8,7 @@ wikiPagePath: wiki/NewVersionChanges.md
 
 Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now **requires JDK/JVM 1.8** to run. Please note that GAMA **has not been tested with JDK 1.9 and 1.10**.
 
-# Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models
+## Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models
 
 * Initialization order between the initialization of variables and the execution of the `init` block in grids
 init -> vars in 1.6.1 / vars -> init in 1.7
@@ -31,7 +31,7 @@ gives examples
 * The actions called by an `event` layer do not need anymore to define `point` and `list<agent>` arguments to receive the mouse location and the list of agents selected. Instead, they can now use `#user_location` and they have to compute the selected agents by themselves (using an arbitrary function).
 * The random number generators now better handle seeding (larger range), but it can change the series of values previously obtained from a given seed in 1.6.1
 * all models now have a starting_date and a current_date. They then dont begin at an hypothetical "zero" date, but at the epoch date defined by ISO 8601 (1970/1/1). It should not change models that dont rely on dates, except that:
-* #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.
+* the #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.
 * `as_time`, `as_system_time`, `as_date` and `as_system_date` have been removed
 
 # Enhancements in 1.7/1.8
