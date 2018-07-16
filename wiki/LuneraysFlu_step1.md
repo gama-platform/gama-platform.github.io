@@ -7,11 +7,7 @@ wikiPagePath: wiki/LuneraysFlu_step1.md
 # 1. Creation of a first basic disease spreading model
 This first step illustrates how to create simple agents and make them move in their environment.
 
-
-![images/luneray1.tiff](resources/images/tutorials/luneray1.tiff)
-
-
-
+![images/Luneray.jpg](resources/images/tutorials/luneray1.png)
 
 ## Formulation
   * Set the time duration of a time step to 5 minutes
@@ -286,4 +282,5 @@ experiment main type: gui {
 	}
 }
 ```
+
 [Next step: Definition of monitors and chart outputs](LuneraysFlu_step2)

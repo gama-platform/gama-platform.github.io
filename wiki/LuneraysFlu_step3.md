@@ -7,7 +7,7 @@ wikiPagePath: wiki/LuneraysFlu_step3.md
 # 3. Importation of GIS data
 This third step illustrates how load GIS data and to agentify them.
 
-![images/luneray3.tiff](resources/images/tutorials/luneray3.tiff)
+![images/luneray3.png](resources/images/tutorials/luneray3.png)
 
 
 ## Formulation

@@ -8,7 +8,7 @@ wikiPagePath: wiki/LuneraysFlu_step2.md
 This second step illustrates how to create monitors and charts to follows the evolution of variables and to add an ending condition to the simulation.
 
 
-![images/luneray2.tiff](resources/images/tutorials/luneray2.tiff)
+![images/Luneray.jpg](resources/images/tutorials/luneray2.png)
 
 
 

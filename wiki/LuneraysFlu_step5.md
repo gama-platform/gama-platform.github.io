@@ -8,7 +8,7 @@ wikiPagePath: wiki/LuneraysFlu_step5.md
 This fifth step illustrates how to define 3D displays
 
 
-![images/Luneray_model.png](resources/images/tutorials/Luneray_model.png)
+![images/luneray5.png](resources/images/tutorials/luneray5.png)
 
 
 
