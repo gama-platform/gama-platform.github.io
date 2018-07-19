@@ -1180,7 +1180,7 @@ type_returned_by_action result <- self name_of_action_or_primitive [arg1::expres
 #### Facets 
 
   * `geometry` (any type), (omissible) : any type of data (it can be geometry, image, text)
-  * `anchor` (point): the anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center
+  * `anchor` (point): the anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center; or any point between {0,0} (#bottom_left) and {1,1} (#top_right)
   * `at` (point): location where the shape/text/icon is drawn
   * `begin_arrow` (any type in [int, float]): the size of the arrow, located at the beginning of the drawn geometry
   * `bitmap` (boolean): Whether to render the text in 3D or not
@@ -1787,7 +1787,7 @@ if bool_expr {     [statements] } else if bool_expr2 {     [statements] } else {
  	
 #### Definition
 
-`image` allows modeler to display an image (e.g. as background of a simulation).
+`image` allows modeler to display an image (e.g. as background of a simulation). Note that this image will not be dynamically changed or moved in OpenGL, unless the refresh: facet is set to true.
 
 #### Usages
 
@@ -2752,7 +2752,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
   * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
   * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it. Default is true
   * `to` (string): an expression that evaluates to an string, the path to the file, or directly to a file
-  * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv")
+  * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image, kml, kmz}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv")
   * `with` (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file 
  	
 #### Definition

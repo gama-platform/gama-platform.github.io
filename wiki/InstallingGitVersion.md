@@ -10,27 +10,26 @@ Tested on MacOS X (10.13)
 
 _**Important note:** the current Git version is **not** compatible with the **GAMA 1.6.1 release**: if you plan to create plugins for this release, please download the source at revision r11988 (on Google Code) and [Eclipse following this procedure](InstallingSvnOldVersions). It is **neither** compatible with the **GAMA 1.7RC2 release**: if you plan to create plugins for this release, please [download the source on the branch mars on the GitHub and install Eclipse Mars SR2](InstallingGitVersionMars17)._
 
-## Install Eclipse Oxygen
+## Install Eclipse **Oxygen**
 
-Download the ["Eclipse IDE for Java and DSL Developers"](http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3) version. As Java version, we recommend to install the Java Oracle 1.8 JDK [that can be downloaded here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
+Download the ["Eclipse Oxygen 3A IDE for Java and DSL Developers"](http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3a) version. This is the latest version under which GAMA is certified to work. Regarding Java, we **strongly** recommend to install the Java Oracle 1.8 JDK [that can be downloaded here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
 
 Unpack it and launch it. Please refer to this [link](http://help.eclipse.org/oxygen/index.jsp?nav=%2F0) for more information on running Eclipse.
 
 **One important step** required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, "General", then "Workspace", then "Text file encoding" and choosing "UTF-8" in the drop-down menu available in "Other:".
 
-If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.13.0 (see [here](http://www.eclipse.org/Xtext/download.html) to obtain it).
+If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.14.0 (see [here](http://www.eclipse.org/Xtext/download.html) to obtain it).
 
 ## Install additional required components to Eclipse 
 
-The Xtext plugin provided with the Eclipse release should be updated.
+The Xtext plugin provided with the Eclipse release should be updated to XText 2.14.
 1. Open the install window:
   * Help > Install new softwares
 2. Choose the plugin to install
   * Copy the following address in `Work with` text field: `http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/`
   * Uncheck `Show only the latest versions of available software`
   * In `Xtext`, check:
-    * `Xtext Complete SDK	2.13.0.v20171020-0920`
-    * `Xtend IDE	        2.13.0.v20171020-0920`
+    * `Xtext Complete SDK	2.14.xxx`
   * Next
 3. Accept the licence and restart.
 

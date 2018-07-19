@@ -3744,7 +3744,7 @@ function closeRightMenu() {
 <hr />
 
 <h3 id="logical-operators">Logical operators</h3>
-<p><a href="OperatorsAA#:">:</a>, <a href="OperatorsAA#!">!</a>, <a href="OperatorsAA#?">?</a>, <a href="OperatorsAA#and">and</a>, <a href="OperatorsNR#or">or</a>, <a href="OperatorsSZ#xor">xor</a>,</p>
+<p><a href="OperatorsAA#:">:</a>, <a href="OperatorsAA#!">!</a>, <a href="OperatorsAA#?">?</a>, <a href="OperatorsAA#add_3dmodel">add_3Dmodel</a>, <a href="OperatorsAA#add_geometry">add_geometry</a>, <a href="OperatorsAA#add_icon">add_icon</a>, <a href="OperatorsAA#and">and</a>, <a href="OperatorsNR#or">or</a>, <a href="OperatorsSZ#xor">xor</a>,</p>
 
 <hr />
 
@@ -3870,59 +3870,59 @@ function closeRightMenu() {
 
 <h4 id="possible-use">Possible use:</h4>
 <ul>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">map</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">rgb</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">map</code></li>
-  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">container&lt;geometry&gt;</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">container&lt;geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><code class="highlighter-rouge">species</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">rgb</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">-</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">-</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
 <h4 id="result">Result:</h4>
@@ -3936,60 +3936,11 @@ Returns the difference of the two operands.</p>
 <ul>
   <li>if both operands are containers and the right operand is empty, - returns the left operand</li>
   <li>if the left operand is a species and the right operand is an agent of the species, - returns a list containing all the agents of the species minus this agent</li>
-  <li>if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var10 &lt;- 1 - 1; // var10 equals 0
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;int&gt; var11 &lt;- [1,2,3,4,5,6] - [2,4,9]; // var11 equals [1,3,5,6] 
-list&lt;int&gt; var12 &lt;- [1,2,3,4,5,6] - [0,8]; // var12 equals [1,2,3,4,5,6]
-</code></pre></div></div>
-
-<ul>
-  <li>if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds)</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-date var13 &lt;- date('2000-01-01') - 86400; // var13 equals date('1999-12-31')
-</code></pre></div></div>
-
-<ul>
   <li>if both operands are points, returns their difference (coordinates per coordinates).</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var14 &lt;- {1, 2} - {4, 5}; // var14 equals {-3.0, -3.0}
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var15 &lt;- geom1 - geom2; // var15 equals a geometry corresponding to difference between geom1 and geom2
-</code></pre></div></div>
-
-<ul>
-  <li>if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var16 &lt;- rgb([255, 128, 32]) - 3; // var16 equals rgb([252,125,29])
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) reduced by the right-hand operand distance</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var17 &lt;- shape - 5; // var17 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+point var10 &lt;- {1, 2} - {4, 5}; // var10 equals {-3.0, -3.0}
 </code></pre></div></div>
 
 <ul>
@@ -3997,8 +3948,8 @@ geometry var17 &lt;- shape - 5; // var17 equals a geometry corresponding to the 
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;int&gt; var18 &lt;- [1,2,3,4,5,6] - 2; // var18 equals [1,3,4,5,6] 
-list&lt;int&gt; var19 &lt;- [1,2,3,4,5,6] - 0; // var19 equals [1,2,3,4,5,6]
+list&lt;int&gt; var11 &lt;- [1,2,3,4,5,6] - 2; // var11 equals [1,3,4,5,6] 
+list&lt;int&gt; var12 &lt;- [1,2,3,4,5,6] - 0; // var12 equals [1,2,3,4,5,6]
 </code></pre></div></div>
 
 <ul>
@@ -4006,24 +3957,24 @@ list&lt;int&gt; var19 &lt;- [1,2,3,4,5,6] - 0; // var19 equals [1,2,3,4,5,6]
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var20 &lt;- date('2000-01-02') - date('2000-01-01'); // var20 equals 86400
+float var13 &lt;- date('2000-01-02') - date('2000-01-01'); // var13 equals 86400
 </code></pre></div></div>
 
 <ul>
-  <li>if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component</li>
+  <li>if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var21 &lt;- rgb([255, 128, 32]) - rgb('red'); // var21 equals rgb([0,128,32])
+list&lt;int&gt; var14 &lt;- [1,2,3,4,5,6] - [2,4,9]; // var14 equals [1,3,5,6] 
+list&lt;int&gt; var15 &lt;- [1,2,3,4,5,6] - [0,8]; // var15 equals [1,2,3,4,5,6]
 </code></pre></div></div>
 
 <ul>
-  <li>if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number.</li>
+  <li>if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds)</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var22 &lt;- {1, 2} - 4.5; // var22 equals {-3.5, -2.5, -4.5} 
-point var23 &lt;- {1, 2} - 4; // var23 equals {-3.0,-2.0,-4.0}
+date var16 &lt;- date('2000-01-01') - 86400; // var16 equals date('1999-12-31')
 </code></pre></div></div>
 
 <ul>
@@ -4031,7 +3982,7 @@ point var23 &lt;- {1, 2} - 4; // var23 equals {-3.0,-2.0,-4.0}
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var24 &lt;- rectangle(10,10) - [circle(2), square(2)]; // var24 equals rectangle(10,10) - (circle(2) + square(2))
+geometry var17 &lt;- rectangle(10,10) - [circle(2), square(2)]; // var17 equals rectangle(10,10) - (circle(2) + square(2))
 </code></pre></div></div>
 
 <ul>
@@ -4039,27 +3990,76 @@ geometry var24 &lt;- rectangle(10,10) - [circle(2), square(2)]; // var24 equals 
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-matrix var25 &lt;- 3.5 - matrix([[2,5],[3,4]]); // var25 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+matrix var18 &lt;- 3.5 - matrix([[2,5],[3,4]]); // var18 equals matrix([[1.5,-1.5],[0.5,-0.5]])
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) reduced by the right-hand operand distance</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var19 &lt;- shape - 5; // var19 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+int var20 &lt;- 1 - 1; // var20 equals 0
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var21 &lt;- geom1 - geom2; // var21 equals a geometry corresponding to difference between geom1 and geom2
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+rgb var22 &lt;- rgb([255, 128, 32]) - rgb('red'); // var22 equals rgb([0,128,32])
+</code></pre></div></div>
+
+<ul>
+  <li>if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+rgb var23 &lt;- rgb([255, 128, 32]) - 3; // var23 equals rgb([252,125,29])
+</code></pre></div></div>
+
+<ul>
+  <li>if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+point var24 &lt;- {1, 2} - 4.5; // var24 equals {-3.5, -2.5, -4.5} 
+point var25 &lt;- {1, 2} - 4; // var25 equals {-3.0,-2.0,-4.0}
 </code></pre></div></div>
 
 <h4 id="examples">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 1.0 - 1; // var0 equals 0.0 
-float var1 &lt;- 3.7 - 1.2; // var1 equals 2.5 
-float var2 &lt;- 3 - 1.2; // var2 equals 1.8 
-int var3 &lt;- - (-56); // var3 equals 56 
-map var4 &lt;- ['a'::1,'b'::2] - ['b'::2]; // var4 equals ['a'::1] 
-map var5 &lt;- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var5 equals ['a'::1] 
-point var6 &lt;- -{3.0,5.0}; // var6 equals {-3.0,-5.0} 
-point var7 &lt;- -{1.0,6.0,7.0}; // var7 equals {-1.0,-6.0,-7.0} 
-map var8 &lt;- ['a'::1,'b'::2] - ('b'::2); // var8 equals ['a'::1] 
-map var9 &lt;- ['a'::1,'b'::2] - ('c'::3); // var9 equals ['a'::1,'b'::2]
+point var0 &lt;- -{3.0,5.0}; // var0 equals {-3.0,-5.0} 
+point var1 &lt;- -{1.0,6.0,7.0}; // var1 equals {-1.0,-6.0,-7.0} 
+float var2 &lt;- 1.0 - 1; // var2 equals 0.0 
+float var3 &lt;- 3.7 - 1.2; // var3 equals 2.5 
+float var4 &lt;- 3 - 1.2; // var4 equals 1.8 
+map var5 &lt;- ['a'::1,'b'::2] - ['b'::2]; // var5 equals ['a'::1] 
+map var6 &lt;- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var6 equals ['a'::1] 
+map var7 &lt;- ['a'::1,'b'::2] - ('b'::2); // var7 equals ['a'::1] 
+map var8 &lt;- ['a'::1,'b'::2] - ('c'::3); // var8 equals ['a'::1,'b'::2] 
+int var9 &lt;- - (-56); // var9 equals 56
 
 </code></pre></div></div>
 
 <h4 id="see-also">See also:</h4>
 
-<p><a href="OperatorsAA#+">+</a>, [<em>](OperatorsAA#</em>), <a href="OperatorsAA#/">/</a>, <a href="OperatorsAA#-">-</a>, <a href="OperatorsIM#milliseconds_between">milliseconds_between</a>,</p>
+<p><a href="OperatorsIM#milliseconds_between">milliseconds_between</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>, [<em>](OperatorsAA#</em>), <a href="OperatorsAA#/">/</a>,</p>
 
 <hr />
 
@@ -4126,14 +4126,14 @@ bool var0 &lt;- ! (true); // var0 equals false
 
 <h4 id="possible-use-4">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">!=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">!=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
@@ -4143,13 +4143,13 @@ bool var0 &lt;- ! (true); // var0 equals false
 
 <h4 id="examples-2">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- [2,3] != [2,3]; // var0 equals false 
-bool var1 &lt;- [2,4] != [2,3]; // var1 equals true 
+bool var0 &lt;- 3.0 != 3; // var0 equals false 
+bool var1 &lt;- 4.7 != 4; // var1 equals true 
 bool var2 &lt;- 3 != 3.0; // var2 equals false 
 bool var3 &lt;- 4 != 4.7; // var3 equals true 
-bool var4 &lt;- #now != #now minus_hours 1; // var4 equals true 
-bool var5 &lt;- 3.0 != 3; // var5 equals false 
-bool var6 &lt;- 4.7 != 4; // var6 equals true 
+bool var4 &lt;- [2,3] != [2,3]; // var4 equals false 
+bool var5 &lt;- [2,4] != [2,3]; // var5 equals true 
+bool var6 &lt;- #now != #now minus_hours 1; // var6 equals true 
 bool var7 &lt;- 3.0 != 3.0; // var7 equals false 
 bool var8 &lt;- 4.0 != 4.7; // var8 equals true
 
@@ -4191,28 +4191,28 @@ list&lt;string&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? 
 
 <h4 id="possible-use-6">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">/</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">/</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
 <h4 id="result-5">Result:</h4>
@@ -4221,28 +4221,20 @@ list&lt;string&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? 
 <h4 id="special-cases-3">Special cases:</h4>
 <ul>
   <li>if the right-hand operand is equal to zero, raises a “Division by zero” exception</li>
-  <li>if the left operand is a point, returns a new point with coordinates divided by the right operand</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var0 &lt;- {5, 7.5} / 2.5; // var0 equals {2, 3} 
-point var1 &lt;- {2,5} / 4; // var1 equals {0.5,1.25}
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var2 &lt;- 3 / 5.0; // var2 equals 0.6
-</code></pre></div></div>
-
-<ul>
   <li>if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var3 &lt;- rgb([255, 128, 32]) / 2.5; // var3 equals rgb([102,51,13])
+rgb var0 &lt;- rgb([255, 128, 32]) / 2.5; // var0 equals rgb([102,51,13])
+</code></pre></div></div>
+
+<ul>
+  <li>if the left operand is a point, returns a new point with coordinates divided by the right operand</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+point var1 &lt;- {5, 7.5} / 2.5; // var1 equals {2, 3} 
+point var2 &lt;- {2,5} / 4; // var2 equals {0.5,1.25}
 </code></pre></div></div>
 
 <ul>
@@ -4250,7 +4242,15 @@ rgb var3 &lt;- rgb([255, 128, 32]) / 2.5; // var3 equals rgb([102,51,13])
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var4 &lt;- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
+rgb var3 &lt;- rgb([255, 128, 32]) / 2; // var3 equals rgb([127,64,16])
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+float var4 &lt;- 3 / 5.0; // var4 equals 0.6
 </code></pre></div></div>
 
 <h4 id="see-also-5">See also:</h4>
@@ -4263,10 +4263,10 @@ rgb var4 &lt;- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
 
 <h4 id="possible-use-7">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">.</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">.</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">.</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">.</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">.</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">.</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-6">Result:</h4>
@@ -4275,19 +4275,19 @@ rgb var4 &lt;- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
 <h4 id="special-cases-4">Special cases:</h4>
 <ul>
   <li>if the agent is nil or dead, throws an exception</li>
-  <li>if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-unknown var0 &lt;- agent1.location; // var0 equals the location of the agent agent1
-</code></pre></div></div>
-
-<ul>
   <li>if both operands are matrix, returns the dot product of them</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-matrix var1 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var1 equals matrix([[2,3],[3,5]])
+matrix var0 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var0 equals matrix([[2,3],[3,5]])
+</code></pre></div></div>
+
+<ul>
+  <li>if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+unknown var1 &lt;- agent1.location; // var1 equals the location of the agent agent1
 </code></pre></div></div>
 
 <hr />
@@ -4298,12 +4298,12 @@ matrix var1 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var1 equals 
 <ul>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">^</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">^</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-7">Result:</h4>
@@ -4317,12 +4317,12 @@ matrix var1 &lt;- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var1 equals 
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var1 &lt;- 2 ^ 3; // var1 equals 8.0
+float var0 &lt;- 2 ^ 3; // var0 equals 8.0
 </code></pre></div></div>
 
 <h4 id="examples-4">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 4.84 ^ 0.5; // var0 equals 2.2
+float var1 &lt;- 4.84 ^ 0.5; // var1 equals 2.2
 
 </code></pre></div></div>
 
@@ -4341,42 +4341,68 @@ float var0 &lt;- 4.84 ^ 0.5; // var0 equals 2.2
 
 <h4 id="possible-use-9">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">*</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">*</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-8">Result:</h4>
 <p>Returns the product of the two operands.</p>
 
 <h4 id="special-cases-6">Special cases:</h4>
+<ul>
+  <li>if both operands are points, returns their scalar product</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+float var0 &lt;- {2,5} * {4.5, 5}; // var0 equals 34.0
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var1 &lt;- circle(10) * 2; // var1 equals circle(20) 
+geometry var2 &lt;- (circle(10) * 2).location with_precision 9; // var2 equals (circle(20)).location with_precision 9 
+float var3 &lt;- (circle(10) * 2).height with_precision 9; // var3 equals (circle(20)).height with_precision 9
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+int var4 &lt;- 1 * 1; // var4 equals 1
+</code></pre></div></div>
+
 <ul>
   <li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.</li>
 </ul>
@@ -4385,37 +4411,11 @@ float var0 &lt;- 4.84 ^ 0.5; // var0 equals 2.2
 </code></pre></div></div>
 
 <ul>
-  <li>if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var2 &lt;- 1 * 1; // var2 equals 1
-</code></pre></div></div>
-
-<ul>
-  <li>if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var3 &lt;- rgb([255, 128, 32]) * 2; // var3 equals rgb([255,255,64])
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var4 &lt;- circle(10) * 2; // var4 equals circle(20) 
-geometry var5 &lt;- (circle(10) * 2).location with_precision 9; // var5 equals (circle(20)).location with_precision 9 
-float var6 &lt;- (circle(10) * 2).height with_precision 9; // var6 equals (circle(20)).height with_precision 9
-</code></pre></div></div>
-
-<ul>
   <li>if the left-hand operand is a geometry and the right-hand operand a point, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficients in the 3 dimensions</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var7 &lt;- shape * {0.5,0.5,2}; // var7 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
+geometry var6 &lt;- shape * {0.5,0.5,2}; // var6 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
 </code></pre></div></div>
 
 <ul>
@@ -4423,27 +4423,27 @@ geometry var7 &lt;- shape * {0.5,0.5,2}; // var7 equals a geometry corresponding
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var8 &lt;- {2,5} * 4; // var8 equals {8.0, 20.0} 
-point var9 &lt;- {2, 4} * 2.5; // var9 equals {5.0, 10.0}
+point var7 &lt;- {2,5} * 4; // var7 equals {8.0, 20.0} 
+point var8 &lt;- {2, 4} * 2.5; // var8 equals {5.0, 10.0}
 </code></pre></div></div>
 
 <ul>
-  <li>if both operands are points, returns their scalar product</li>
+  <li>if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var10 &lt;- {2,5} * {4.5, 5}; // var10 equals 34.0
+rgb var9 &lt;- rgb([255, 128, 32]) * 2; // var9 equals rgb([255,255,64])
 </code></pre></div></div>
 
 <h4 id="examples-5">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 2.5 * 2; // var0 equals 5.0
+float var10 &lt;- 2.5 * 2; // var10 equals 5.0
 
 </code></pre></div></div>
 
 <h4 id="see-also-7">See also:</h4>
 
-<p><a href="OperatorsAA#/">/</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>,</p>
+<p><a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>, <a href="OperatorsAA#/">/</a>,</p>
 
 <hr />
 
@@ -4451,56 +4451,56 @@ float var0 &lt;- 2.5 * 2; // var0 equals 5.0
 
 <h4 id="possible-use-10">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">rgb</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">string</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
-  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">map</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">string</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">point</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">container</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">container</code></li>
   <li><code class="highlighter-rouge">map</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">map</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">map</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
+  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">rgb</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">date</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
-  <li><code class="highlighter-rouge">rgb</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">rgb</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">string</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">+</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">+</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
@@ -4512,19 +4512,11 @@ float var0 &lt;- 2.5 * 2; // var0 equals 5.0
 <ul>
   <li>if one of the operands is nil, + throws an error</li>
   <li>if both operands are species, returns a special type of list called meta-population</li>
-  <li>if both operands are points, returns their sum.</li>
+  <li>if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var6 &lt;- {1, 2} + {4, 5}; // var6 equals {5.0, 7.0}
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var7 &lt;- circle(5) + (5,32); // var7 equals circle(10)
+int var6 &lt;- 1 + 1; // var6 equals 2
 </code></pre></div></div>
 
 <ul>
@@ -4532,39 +4524,7 @@ geometry var7 &lt;- circle(5) + (5,32); // var7 equals circle(10)
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-matrix var8 &lt;- 3.5 + matrix([[2,5],[3,4]]); // var8 equals matrix([[5.5,8.5],[6.5,7.5]])
-</code></pre></div></div>
-
-<ul>
-  <li>if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds)</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-date var9 &lt;- date('2000-01-01') + 86400; // var9 equals date('2000-01-02')
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are colors, returns a new color resulting from the sum of the two operands, component by component</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var10 &lt;- rgb([255, 128, 32]) + rgb('red'); // var10 equals rgb([255,128,32])
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var11 &lt;- 1 + 1; // var11 equals 2
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-string var12 &lt;- "hello " + 12; // var12 equals "hello 12"
+matrix var7 &lt;- 3.5 + matrix([[2,5],[3,4]]); // var7 equals matrix([[5.5,8.5],[6.5,7.5]])
 </code></pre></div></div>
 
 <ul>
@@ -4572,50 +4532,7 @@ string var12 &lt;- "hello " + 12; // var12 equals "hello 12"
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var13 &lt;- circle(5) + (5,32,#round); // var13 equals circle(10)
-</code></pre></div></div>
-
-<ul>
-  <li>if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;int&gt; var14 &lt;- [1,2,3,4,5,6] + 2; // var14 equals [1,2,3,4,5,6,2] 
-list&lt;int&gt; var15 &lt;- [1,2,3,4,5,6] + 0; // var15 equals [1,2,3,4,5,6,0]
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-point var16 &lt;- {1, 2} + 4; // var16 equals {5.0, 6.0,4.0} 
-point var17 &lt;- {1, 2} + 4.5; // var17 equals {5.5, 6.5,4.5}
-</code></pre></div></div>
-
-<ul>
-  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the right-hand operand distance. The number of segments used by default is 8 and the end cap style is #round</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var18 &lt;- circle(5) + 5; // var18 equals circle(10)
-</code></pre></div></div>
-
-<ul>
-  <li>if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var19 &lt;- geom1 + geom2; // var19 equals a geometry corresponding to union between geom1 and geom2
-</code></pre></div></div>
-
-<ul>
-  <li>if both operands are list, +returns the concatenation of both lists.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;int&gt; var20 &lt;- [1,2,3,4,5,6] + [2,4,9]; // var20 equals [1,2,3,4,5,6,2,4,9] 
-list&lt;int&gt; var21 &lt;- [1,2,3,4,5,6] + [0,8]; // var21 equals [1,2,3,4,5,6,0,8]
+geometry var8 &lt;- circle(5) + (5,32,#round); // var8 equals circle(10)
 </code></pre></div></div>
 
 <ul>
@@ -4623,15 +4540,98 @@ list&lt;int&gt; var21 &lt;- [1,2,3,4,5,6] + [0,8]; // var21 equals [1,2,3,4,5,6,
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var22 &lt;- rgb([255, 128, 32]) + 3; // var22 equals rgb([255,131,35])
+rgb var9 &lt;- rgb([255, 128, 32]) + 3; // var9 equals rgb([255,131,35])
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are points, returns their sum.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+point var10 &lt;- {1, 2} + {4, 5}; // var10 equals {5.0, 7.0}
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the right-hand operand distance. The number of segments used by default is 8 and the end cap style is #round</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var11 &lt;- circle(5) + 5; // var11 equals circle(10)
+</code></pre></div></div>
+
+<ul>
+  <li>if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+date var12 &lt;- date('2000-01-01') + 86400; // var12 equals date('2000-01-02')
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+point var13 &lt;- {1, 2} + 4; // var13 equals {5.0, 6.0,4.0} 
+point var14 &lt;- {1, 2} + 4.5; // var14 equals {5.5, 6.5,4.5}
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are list, +returns the concatenation of both lists.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+list&lt;int&gt; var15 &lt;- [1,2,3,4,5,6] + [2,4,9]; // var15 equals [1,2,3,4,5,6,2,4,9] 
+list&lt;int&gt; var16 &lt;- [1,2,3,4,5,6] + [0,8]; // var16 equals [1,2,3,4,5,6,0,8]
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are colors, returns a new color resulting from the sum of the two operands, component by component</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+rgb var17 &lt;- rgb([255, 128, 32]) + rgb('red'); // var17 equals rgb([255,128,32])
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var18 &lt;- circle(5) + (5,32); // var18 equals circle(10)
+</code></pre></div></div>
+
+<ul>
+  <li>if the left-hand operand is a string, returns the concatenation of the two operands (the left-hand one beind casted into a string)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+string var19 &lt;- "hello " + 12; // var19 equals "hello 12"
+</code></pre></div></div>
+
+<ul>
+  <li>if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+list&lt;int&gt; var20 &lt;- [1,2,3,4,5,6] + 2; // var20 equals [1,2,3,4,5,6,2] 
+list&lt;int&gt; var21 &lt;- [1,2,3,4,5,6] + 0; // var21 equals [1,2,3,4,5,6,0]
+</code></pre></div></div>
+
+<ul>
+  <li>if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var22 &lt;- geom1 + geom2; // var22 equals a geometry corresponding to union between geom1 and geom2
 </code></pre></div></div>
 
 <h4 id="examples-6">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 1.0 + 1; // var0 equals 2.0 
-float var1 &lt;- 1.0 + 2.5; // var1 equals 3.5 
-map var2 &lt;- ['a'::1,'b'::2] + ('c'::3); // var2 equals ['a'::1,'b'::2,'c'::3] 
-map var3 &lt;- ['a'::1,'b'::2] + ('c'::3); // var3 equals ['a'::1,'b'::2,'c'::3] 
+map var0 &lt;- ['a'::1,'b'::2] + ('c'::3); // var0 equals ['a'::1,'b'::2,'c'::3] 
+map var1 &lt;- ['a'::1,'b'::2] + ('c'::3); // var1 equals ['a'::1,'b'::2,'c'::3] 
+float var2 &lt;- 1.0 + 1; // var2 equals 2.0 
+float var3 &lt;- 1.0 + 2.5; // var3 equals 3.5 
 map var4 &lt;- ['a'::1,'b'::2] + ['c'::3]; // var4 equals ['a'::1,'b'::2,'c'::3] 
 map var5 &lt;- ['a'::1,'b'::2] + [5::3.0]; // var5 equals ['a'::1,'b'::2,5::3.0]
 
@@ -4647,18 +4647,18 @@ map var5 &lt;- ['a'::1,'b'::2] + [5::3.0]; // var5 equals ['a'::1,'b'::2,5::3.0]
 
 <h4 id="possible-use-11">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
@@ -4669,28 +4669,28 @@ map var5 &lt;- ['a'::1,'b'::2] + [5::3.0]; // var5 equals ['a'::1,'b'::2,5::3.0]
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
   <li>if one of the operands is nil, returns false</li>
-  <li>if both operands are String, uses a lexicographic comparison of two strings</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- 'abc' &lt; 'aeb'; // var0 equals true
-</code></pre></div></div>
-
-<ul>
   <li>if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var1 &lt;- {5,7} &lt; {4,6}; // var1 equals false 
-bool var2 &lt;- {5,7} &lt; {4,8}; // var2 equals false
+bool var0 &lt;- {5,7} &lt; {4,6}; // var0 equals false 
+bool var1 &lt;- {5,7} &lt; {4,8}; // var1 equals false
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are String, uses a lexicographic comparison of two strings</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var2 &lt;- 'abc' &lt; 'aeb'; // var2 equals true
 </code></pre></div></div>
 
 <h4 id="examples-7">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var3 &lt;- 3 &lt; 7; // var3 equals true 
-bool var4 &lt;- 3.5 &lt; 7.6; // var4 equals true 
-bool var5 &lt;- 3.5 &lt; 7; // var5 equals true 
-bool var6 &lt;- #now &lt; #now minus_hours 1; // var6 equals false 
+bool var3 &lt;- #now &lt; #now minus_hours 1; // var3 equals false 
+bool var4 &lt;- 3.5 &lt; 7; // var4 equals true 
+bool var5 &lt;- 3.5 &lt; 7.6; // var5 equals true 
+bool var6 &lt;- 3 &lt; 7; // var6 equals true 
 bool var7 &lt;- 3 &lt; 2.5; // var7 equals false
 
 </code></pre></div></div>
@@ -4705,20 +4705,20 @@ bool var7 &lt;- 3 &lt; 2.5; // var7 equals false
 
 <h4 id="possible-use-12">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&lt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&lt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-11">Result:</h4>
@@ -4727,29 +4727,29 @@ bool var7 &lt;- 3 &lt; 2.5; // var7 equals false
 <h4 id="special-cases-9">Special cases:</h4>
 <ul>
   <li>if one of the operands is nil, returns false</li>
-  <li>if both operands are String, uses a lexicographic comparison of two strings</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var5 &lt;- 'abc' &lt;= 'aeb'; // var5 equals true
-</code></pre></div></div>
-
-<ul>
   <li>if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var6 &lt;- {5,7} &lt;= {4,6}; // var6 equals false 
-bool var7 &lt;- {5,7} &lt;= {4,8}; // var7 equals false
+bool var0 &lt;- {5,7} &lt;= {4,6}; // var0 equals false 
+bool var1 &lt;- {5,7} &lt;= {4,8}; // var1 equals false
+</code></pre></div></div>
+
+<ul>
+  <li>if both operands are String, uses a lexicographic comparison of two strings</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var2 &lt;- 'abc' &lt;= 'aeb'; // var2 equals true
 </code></pre></div></div>
 
 <h4 id="examples-8">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- 3.5 &lt;= 3.5; // var0 equals true 
-bool var1 &lt;- 7.0 &lt;= 7; // var1 equals true 
-bool var2 &lt;- 3 &lt;= 7; // var2 equals true 
 bool var3 &lt;- 3 &lt;= 2.5; // var3 equals false 
-bool var4 &lt;- #now &lt;= #now minus_hours 1; // var4 equals false
+bool var4 &lt;- #now &lt;= #now minus_hours 1; // var4 equals false 
+bool var5 &lt;- 7.0 &lt;= 7; // var5 equals true 
+bool var6 &lt;- 3.5 &lt;= 3.5; // var6 equals true 
+bool var7 &lt;- 3 &lt;= 7; // var7 equals true
 
 </code></pre></div></div>
 
@@ -4768,16 +4768,16 @@ bool var4 &lt;- #now &lt;= #now minus_hours 1; // var4 equals false
 
 <h4 id="possible-use-13">Possible use:</h4>
 <ul>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">=</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">=</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
@@ -4797,11 +4797,11 @@ bool var0 &lt;- [2,3] = [2,3]; // var0 equals true
 
 <h4 id="examples-9">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var1 &lt;- 4.7 = 4; // var1 equals false 
-bool var2 &lt;- 4 = 5; // var2 equals false 
-bool var3 &lt;- 4.5 = 4.7; // var3 equals false 
-bool var4 &lt;- 3 = 3.0; // var4 equals true 
-bool var5 &lt;- 4 = 4.7; // var5 equals false 
+bool var1 &lt;- 3 = 3.0; // var1 equals true 
+bool var2 &lt;- 4 = 4.7; // var2 equals false 
+bool var3 &lt;- 4.7 = 4; // var3 equals false 
+bool var4 &lt;- 4 = 5; // var4 equals false 
+bool var5 &lt;- 4.5 = 4.7; // var5 equals false 
 bool var6 &lt;- #now = #now minus_hours 1; // var6 equals false
 
 </code></pre></div></div>
@@ -4816,16 +4816,16 @@ bool var6 &lt;- #now = #now minus_hours 1; // var6 equals false
 
 <h4 id="possible-use-14">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&gt;</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
@@ -4856,9 +4856,9 @@ bool var2 &lt;- 'abc' &gt; 'aeb'; // var2 equals false
 
 <h4 id="examples-10">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var3 &lt;- 3.5 &gt; 7; // var3 equals false 
-bool var4 &lt;- 3.5 &gt; 7.6; // var4 equals false 
-bool var5 &lt;- #now &gt; #now minus_hours 1; // var5 equals true 
+bool var3 &lt;- #now &gt; #now minus_hours 1; // var3 equals true 
+bool var4 &lt;- 3.5 &gt; 7; // var4 equals false 
+bool var5 &lt;- 3.5 &gt; 7.6; // var5 equals false 
 bool var6 &lt;- 3 &gt; 2.5; // var6 equals true 
 bool var7 &lt;- 3 &gt; 7; // var7 equals false
 
@@ -4874,20 +4874,20 @@ bool var7 &lt;- 3 &gt; 7; // var7 equals false
 
 <h4 id="possible-use-15">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">&gt;=</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">&gt;=</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-14">Result:</h4>
@@ -4915,11 +4915,11 @@ bool var3 &lt;- 'abc' &gt;= 'abc'; // var3 equals true
 
 <h4 id="examples-11">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var4 &lt;- 3.5 &gt;= 7; // var4 equals false 
+bool var4 &lt;- 3 &gt;= 2.5; // var4 equals true 
 bool var5 &lt;- 3.5 &gt;= 3.5; // var5 equals true 
-bool var6 &lt;- 3 &gt;= 7; // var6 equals false 
-bool var7 &lt;- #now &gt;= #now minus_hours 1; // var7 equals true 
-bool var8 &lt;- 3 &gt;= 2.5; // var8 equals true
+bool var6 &lt;- 3.5 &gt;= 7; // var6 equals false 
+bool var7 &lt;- 3 &gt;= 7; // var7 equals false 
+bool var8 &lt;- #now &gt;= #now minus_hours 1; // var8 equals true
 
 </code></pre></div></div>
 
@@ -4933,8 +4933,8 @@ bool var8 &lt;- 3 &gt;= 2.5; // var8 equals true
 
 <h4 id="possible-use-16">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">abs</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">abs</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">abs</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-15">Result:</h4>
@@ -4942,9 +4942,9 @@ bool var8 &lt;- 3 &gt;= 2.5; // var8 equals true
 
 <h4 id="examples-12">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- abs (200 * -1 + 0.5); // var0 equals 199.5 
-int var1 &lt;- abs (-10); // var1 equals 10 
-int var2 &lt;- abs (10); // var2 equals 10
+int var0 &lt;- abs (-10); // var0 equals 10 
+int var1 &lt;- abs (10); // var1 equals 10 
+float var3 &lt;- abs (200 * -1 + 0.5); // var3 equals 199.5
 
 </code></pre></div></div>
 
@@ -5018,6 +5018,24 @@ float var0 &lt;- acos (0); // var0 equals 90.0
 
 <hr />
 
+<h3 id="add_3dmodel"><code class="highlighter-rouge">add_3Dmodel</code></h3>
+
+<h4 id="possible-use-20">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">add_3Dmodel</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_3Dmodel</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+</ul>
+
+<h4 id="result-19">Result:</h4>
+<p>the kml export manager with new 3D model: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string), begin date, end date)
+the kml export manager with new 3D model: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string))</p>
+
+<h4 id="see-also-16">See also:</h4>
+
+<p><a href="OperatorsAA#add_geometry">add_geometry</a>, <a href="OperatorsAA#add_icon">add_icon</a>, <a href="OperatorsSZ#add_label">add_label</a>,</p>
+
+<hr />
+
 <h3 id="add_days"><code class="highlighter-rouge">add_days</code></h3>
 <p>Same signification as <a href="OperatorsNR#plus_days">plus_days</a></p>
 
@@ -5025,13 +5043,13 @@ float var0 &lt;- acos (0); // var0 equals 90.0
 
 <h3 id="add_edge"><code class="highlighter-rouge">add_edge</code></h3>
 
-<h4 id="possible-use-20">Possible use:</h4>
+<h4 id="possible-use-21">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">add_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">add_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-19">Result:</h4>
+<h4 id="result-20">Result:</h4>
 <p>add an edge between a source vertex and a target vertex (resp. the left and the right element of the pair operand)</p>
 
 <h4 id="comment-3">Comment:</h4>
@@ -5042,14 +5060,56 @@ float var0 &lt;- acos (0); // var0 equals 90.0
 
 </code></pre></div></div>
 
-<h4 id="see-also-16">See also:</h4>
+<h4 id="see-also-17">See also:</h4>
 
 <p><a href="OperatorsAA#add_node">add_node</a>, <a href="OperatorsDH#graph">graph</a>,</p>
 
 <hr />
 
+<h3 id="add_geometry"><code class="highlighter-rouge">add_geometry</code></h3>
+
+<h4 id="possible-use-22">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">add_geometry</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_geometry</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_geometry</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_geometry</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_geometry</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">rgb</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+</ul>
+
+<h4 id="result-21">Result:</h4>
+<p>the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, color)
+the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor)
+the kml export manager with new geometry: take the following argument: (kml, geometry, linecolor,fillcolor)
+the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor, end date)
+the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor, begin date, end date)</p>
+
+<h4 id="see-also-18">See also:</h4>
+
+<p><a href="OperatorsAA#add_3dmodel">add_3Dmodel</a>, <a href="OperatorsAA#add_icon">add_icon</a>, <a href="OperatorsSZ#add_label">add_label</a>,</p>
+
+<hr />
+
 <h3 id="add_hours"><code class="highlighter-rouge">add_hours</code></h3>
 <p>Same signification as <a href="OperatorsNR#plus_hours">plus_hours</a></p>
+
+<hr />
+
+<h3 id="add_icon"><code class="highlighter-rouge">add_icon</code></h3>
+
+<h4 id="possible-use-23">Possible use:</h4>
+<ul>
+  <li><strong><code class="highlighter-rouge">add_icon</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+  <li><strong><code class="highlighter-rouge">add_icon</code></strong> (<code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">msi.gaml.types.GamaKmlExport</code></li>
+</ul>
+
+<h4 id="result-22">Result:</h4>
+<p>the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string))
+the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string), begin date, end date)</p>
+
+<h4 id="see-also-19">See also:</h4>
+
+<p><a href="OperatorsAA#add_geometry">add_geometry</a>, <a href="OperatorsAA#add_icon">add_icon</a>,</p>
 
 <hr />
 
@@ -5070,13 +5130,13 @@ float var0 &lt;- acos (0); // var0 equals 90.0
 
 <h3 id="add_node"><code class="highlighter-rouge">add_node</code></h3>
 
-<h4 id="possible-use-21">Possible use:</h4>
+<h4 id="possible-use-24">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">add_node</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">add_node</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-20">Result:</h4>
+<h4 id="result-23">Result:</h4>
 <p>adds a node in a graph.</p>
 
 <h4 id="examples-16">Examples:</h4>
@@ -5085,7 +5145,7 @@ graph var0 &lt;- graph add_node node(0) ; // var0 equals the graph with node(0)
 
 </code></pre></div></div>
 
-<h4 id="see-also-17">See also:</h4>
+<h4 id="see-also-20">See also:</h4>
 
 <p><a href="OperatorsAA#add_edge">add_edge</a>, <a href="OperatorsDH#graph">graph</a>,</p>
 
@@ -5093,13 +5153,13 @@ graph var0 &lt;- graph add_node node(0) ; // var0 equals the graph with node(0)
 
 <h3 id="add_point"><code class="highlighter-rouge">add_point</code></h3>
 
-<h4 id="possible-use-22">Possible use:</h4>
+<h4 id="possible-use-25">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">add_point</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">add_point</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-21">Result:</h4>
+<h4 id="result-24">Result:</h4>
 <p>A new geometry resulting from the addition of the right point (coordinate) to the left-hand geometry. Note that adding a point to a line or polyline will always return a closed contour. Also note that the position at which the added point will appear in the geometry is not necessarily the last one, as points are always ordered in a clockwise fashion in geometries</p>
 
 <h4 id="examples-17">Examples:</h4>
@@ -5127,26 +5187,26 @@ geometry var0 &lt;- polygon([{10,10},{10,20},{20,20}]) add_point {20,10}; // var
 
 <h3 id="adjacency"><code class="highlighter-rouge">adjacency</code></h3>
 
-<h4 id="possible-use-23">Possible use:</h4>
+<h4 id="possible-use-26">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">adjacency</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">matrix&lt;float&gt;</code></li>
 </ul>
 
-<h4 id="result-22">Result:</h4>
+<h4 id="result-25">Result:</h4>
 <p>adjacency matrix of the given graph.</p>
 
 <hr />
 
 <h3 id="after"><code class="highlighter-rouge">after</code></h3>
 
-<h4 id="possible-use-24">Possible use:</h4>
+<h4 id="possible-use-27">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">after</code></strong> (<code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">any expression</code> <strong><code class="highlighter-rouge">after</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">after</code></strong> (<code class="highlighter-rouge">any expression</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-23">Result:</h4>
+<h4 id="result-26">Result:</h4>
 <p>Returns true if the current_date of the model is strictly after the date passed in argument. Synonym of ‘current_date &gt; argument’. Can be used in its composed form with 2 arguments to express the lower boundary for the computation of a frequency. Note that only dates strictly after this one will be tested against the frequency</p>
 
 <h4 id="examples-18">Examples:</h4>
@@ -5158,24 +5218,24 @@ geometry var0 &lt;- polygon([{10,10},{10,20},{20,20}]) add_point {20,10}; // var
 
 <h3 id="agent"><code class="highlighter-rouge">agent</code></h3>
 
-<h4 id="possible-use-25">Possible use:</h4>
+<h4 id="possible-use-28">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agent</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-24">Result:</h4>
+<h4 id="result-27">Result:</h4>
 <p>Casts the operand into the type agent</p>
 
 <hr />
 
 <h3 id="agent_closest_to"><code class="highlighter-rouge">agent_closest_to</code></h3>
 
-<h4 id="possible-use-26">Possible use:</h4>
+<h4 id="possible-use-29">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agent_closest_to</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-25">Result:</h4>
+<h4 id="result-28">Result:</h4>
 <p>An agent, the closest to the operand (casted as a geometry).</p>
 
 <h4 id="comment-4">Comment:</h4>
@@ -5187,7 +5247,7 @@ agent var0 &lt;- agent_closest_to(self); // var0 equals the closest agent to the
 
 </code></pre></div></div>
 
-<h4 id="see-also-18">See also:</h4>
+<h4 id="see-also-21">See also:</h4>
 
 <p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsNR#neighbors_of">neighbors_of</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsAA#agents_overlapping">agents_overlapping</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>,</p>
 
@@ -5195,12 +5255,12 @@ agent var0 &lt;- agent_closest_to(self); // var0 equals the closest agent to the
 
 <h3 id="agent_farthest_to"><code class="highlighter-rouge">agent_farthest_to</code></h3>
 
-<h4 id="possible-use-27">Possible use:</h4>
+<h4 id="possible-use-30">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agent_farthest_to</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-26">Result:</h4>
+<h4 id="result-29">Result:</h4>
 <p>An agent, the farthest to the operand (casted as a geometry).</p>
 
 <h4 id="comment-5">Comment:</h4>
@@ -5212,7 +5272,7 @@ agent var0 &lt;- agent_farthest_to(self); // var0 equals the farthest agent to t
 
 </code></pre></div></div>
 
-<h4 id="see-also-19">See also:</h4>
+<h4 id="see-also-22">See also:</h4>
 
 <p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsNR#neighbors_of">neighbors_of</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsAA#agents_overlapping">agents_overlapping</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsDH#farthest_to">farthest_to</a>,</p>
 
@@ -5220,13 +5280,13 @@ agent var0 &lt;- agent_farthest_to(self); // var0 equals the farthest agent to t
 
 <h3 id="agent_from_geometry"><code class="highlighter-rouge">agent_from_geometry</code></h3>
 
-<h4 id="possible-use-28">Possible use:</h4>
+<h4 id="possible-use-31">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">path</code> <strong><code class="highlighter-rouge">agent_from_geometry</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">agent</code></li>
   <li><strong><code class="highlighter-rouge">agent_from_geometry</code></strong> (<code class="highlighter-rouge">path</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-27">Result:</h4>
+<h4 id="result-30">Result:</h4>
 <p>returns the agent corresponding to given geometry (right-hand operand) in the given path (left-hand operand).</p>
 
 <h4 id="special-cases-14">Special cases:</h4>
@@ -5239,7 +5299,7 @@ agent var0 &lt;- agent_farthest_to(self); // var0 equals the farthest agent to t
 
 </code></pre></div></div>
 
-<h4 id="see-also-20">See also:</h4>
+<h4 id="see-also-23">See also:</h4>
 
 <p><a href="OperatorsNR#path">path</a>,</p>
 
@@ -5247,12 +5307,12 @@ agent var0 &lt;- agent_farthest_to(self); // var0 equals the farthest agent to t
 
 <h3 id="agents_at_distance"><code class="highlighter-rouge">agents_at_distance</code></h3>
 
-<h4 id="possible-use-29">Possible use:</h4>
+<h4 id="possible-use-32">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agents_at_distance</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-28">Result:</h4>
+<h4 id="result-31">Result:</h4>
 <p>A list of agents situated at a distance lower than the right argument.</p>
 
 <h4 id="examples-22">Examples:</h4>
@@ -5261,7 +5321,7 @@ list var0 &lt;- agents_at_distance(20); // var0 equals all the agents (excluding
 
 </code></pre></div></div>
 
-<h4 id="see-also-21">See also:</h4>
+<h4 id="see-also-24">See also:</h4>
 
 <p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsNR#neighbors_of">neighbors_of</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>, <a href="OperatorsAA#at_distance">at_distance</a>,</p>
 
@@ -5269,12 +5329,12 @@ list var0 &lt;- agents_at_distance(20); // var0 equals all the agents (excluding
 
 <h3 id="agents_inside"><code class="highlighter-rouge">agents_inside</code></h3>
 
-<h4 id="possible-use-30">Possible use:</h4>
+<h4 id="possible-use-33">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agents_inside</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list&lt;agent&gt;</code></li>
 </ul>
 
-<h4 id="result-29">Result:</h4>
+<h4 id="result-32">Result:</h4>
 <p>A list of agents covered by the operand (casted as a geometry).</p>
 
 <h4 id="examples-23">Examples:</h4>
@@ -5283,7 +5343,7 @@ list&lt;agent&gt; var0 &lt;- agents_inside(self); // var0 equals the agents that
 
 </code></pre></div></div>
 
-<h4 id="see-also-22">See also:</h4>
+<h4 id="see-also-25">See also:</h4>
 
 <p><a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsAA#agents_overlapping">agents_overlapping</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>,</p>
 
@@ -5291,12 +5351,12 @@ list&lt;agent&gt; var0 &lt;- agents_inside(self); // var0 equals the agents that
 
 <h3 id="agents_overlapping"><code class="highlighter-rouge">agents_overlapping</code></h3>
 
-<h4 id="possible-use-31">Possible use:</h4>
+<h4 id="possible-use-34">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">agents_overlapping</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">list&lt;agent&gt;</code></li>
 </ul>
 
-<h4 id="result-30">Result:</h4>
+<h4 id="result-33">Result:</h4>
 <p>A list of agents overlapping the operand (casted as a geometry).</p>
 
 <h4 id="examples-24">Examples:</h4>
@@ -5305,7 +5365,7 @@ list&lt;agent&gt; var0 &lt;- agents_overlapping(self); // var0 equals the agents
 
 </code></pre></div></div>
 
-<h4 id="see-also-23">See also:</h4>
+<h4 id="see-also-26">See also:</h4>
 
 <p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsNR#neighbors_of">neighbors_of</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>, <a href="OperatorsAA#at_distance">at_distance</a>,</p>
 
@@ -5313,12 +5373,12 @@ list&lt;agent&gt; var0 &lt;- agents_overlapping(self); // var0 equals the agents
 
 <h3 id="all_pairs_shortest_path"><code class="highlighter-rouge">all_pairs_shortest_path</code></h3>
 
-<h4 id="possible-use-32">Possible use:</h4>
+<h4 id="possible-use-35">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">all_pairs_shortest_path</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">matrix&lt;int&gt;</code></li>
 </ul>
 
-<h4 id="result-31">Result:</h4>
+<h4 id="result-34">Result:</h4>
 <p>returns the successor matrix of shortest paths between all node pairs (rows: source, columns: target): a cell (i,j) will thus contains the next node in the shortest path between i and j.</p>
 
 <h4 id="examples-25">Examples:</h4>
@@ -5331,12 +5391,12 @@ matrix&lt;int&gt; var0 &lt;- all_pairs_shortest_paths(my_graph); // var0 equals 
 
 <h3 id="alpha_index"><code class="highlighter-rouge">alpha_index</code></h3>
 
-<h4 id="possible-use-33">Possible use:</h4>
+<h4 id="possible-use-36">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">alpha_index</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-32">Result:</h4>
+<h4 id="result-35">Result:</h4>
 <p>returns the alpha index of the graph (measure of connectivity which evaluates the number of cycles in a graph in comparison with the maximum number of cycles. The higher the alpha index, the more a network is connected: alpha = nb_cycles / (2<code class="highlighter-rouge">*</code>S-5) - planar graph)</p>
 
 <h4 id="examples-26">Examples:</h4>
@@ -5345,7 +5405,7 @@ float var1 &lt;- alpha_index(graphEpidemio); // var1 equals the alpha index of t
 
 </code></pre></div></div>
 
-<h4 id="see-also-24">See also:</h4>
+<h4 id="see-also-27">See also:</h4>
 
 <p><a href="OperatorsBC#beta_index">beta_index</a>, <a href="OperatorsDH#gamma_index">gamma_index</a>, <a href="OperatorsNR#nb_cycles">nb_cycles</a>, <a href="OperatorsBC#connectivity_index">connectivity_index</a>,</p>
 
@@ -5353,13 +5413,13 @@ float var1 &lt;- alpha_index(graphEpidemio); // var1 equals the alpha index of t
 
 <h3 id="among"><code class="highlighter-rouge">among</code></h3>
 
-<h4 id="possible-use-34">Possible use:</h4>
+<h4 id="possible-use-37">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">among</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">among</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-33">Result:</h4>
+<h4 id="result-36">Result:</h4>
 <p>Returns a list of length the value of the left-hand operand, containing random elements from the right-hand operand. As of GAMA 1.6, the order in which the elements are returned can be different than the order in which they appear in the right-hand container</p>
 
 <h4 id="special-cases-15">Special cases:</h4>
@@ -5381,19 +5441,19 @@ list&lt;int&gt; var3 &lt;- 1 among [1::2,3::4]; // var3 equals 2 or 4
 
 <h3 id="and"><code class="highlighter-rouge">and</code></h3>
 
-<h4 id="possible-use-35">Possible use:</h4>
+<h4 id="possible-use-38">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">bool</code> <strong><code class="highlighter-rouge">and</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">and</code></strong> (<code class="highlighter-rouge">bool</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-34">Result:</h4>
+<h4 id="result-37">Result:</h4>
 <p>a bool value, equal to the logical and between the left-hand operand and the right-hand operand.</p>
 
 <h4 id="comment-6">Comment:</h4>
 <p>both operands are always casted to bool before applying the operator. Thus, an expression like (1 and 0) is accepted and returns false.</p>
 
-<h4 id="see-also-25">See also:</h4>
+<h4 id="see-also-28">See also:</h4>
 
 <p><a href="OperatorsBC#bool">bool</a>, <a href="OperatorsNR#or">or</a>, <a href="OperatorsAA#!">!</a>,</p>
 
@@ -5401,13 +5461,13 @@ list&lt;int&gt; var3 &lt;- 1 among [1::2,3::4]; // var3 equals 2 or 4
 
 <h3 id="and-1"><code class="highlighter-rouge">and</code></h3>
 
-<h4 id="possible-use-36">Possible use:</h4>
+<h4 id="possible-use-39">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">and</code></strong> <code class="highlighter-rouge">predicate</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">and</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-35">Result:</h4>
+<h4 id="result-38">Result:</h4>
 <p>create a new predicate from two others by including them as subintentions</p>
 
 <h4 id="examples-28">Examples:</h4>
@@ -5419,12 +5479,12 @@ list&lt;int&gt; var3 &lt;- 1 among [1::2,3::4]; // var3 equals 2 or 4
 
 <h3 id="angle_between"><code class="highlighter-rouge">angle_between</code></h3>
 
-<h4 id="possible-use-37">Possible use:</h4>
+<h4 id="possible-use-40">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">angle_between</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-36">Result:</h4>
+<h4 id="result-39">Result:</h4>
 <p>the angle between vectors P0P1 and P0P2 (P0, P1, P2 being the three point operands)</p>
 
 <h4 id="examples-29">Examples:</h4>
@@ -5442,12 +5502,12 @@ float var0 &lt;- angle_between({5,5},{10,5},{5,10}); // var0 equals 90
 
 <h3 id="any_location_in"><code class="highlighter-rouge">any_location_in</code></h3>
 
-<h4 id="possible-use-38">Possible use:</h4>
+<h4 id="possible-use-41">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">any_location_in</code></strong> (<code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
-<h4 id="result-37">Result:</h4>
+<h4 id="result-40">Result:</h4>
 <p>A point inside (or touching) the operand-geometry.</p>
 
 <h4 id="examples-30">Examples:</h4>
@@ -5456,7 +5516,7 @@ point var0 &lt;- any_location_in(square(5)); // var0 equals a point in the squar
 
 </code></pre></div></div>
 
-<h4 id="see-also-26">See also:</h4>
+<h4 id="see-also-29">See also:</h4>
 
 <p><a href="OperatorsBC#closest_points_with">closest_points_with</a>, <a href="OperatorsDH#farthest_point_to">farthest_point_to</a>, <a href="OperatorsNR#points_at">points_at</a>,</p>
 
@@ -5469,7 +5529,7 @@ point var0 &lt;- any_location_in(square(5)); // var0 equals a point in the squar
 
 <h3 id="append_horizontally"><code class="highlighter-rouge">append_horizontally</code></h3>
 
-<h4 id="possible-use-39">Possible use:</h4>
+<h4 id="possible-use-42">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">append_horizontally</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">append_horizontally</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
@@ -5477,7 +5537,7 @@ point var0 &lt;- any_location_in(square(5)); // var0 equals a point in the squar
   <li><strong><code class="highlighter-rouge">append_horizontally</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-38">Result:</h4>
+<h4 id="result-41">Result:</h4>
 <p>A matrix resulting from the concatenation of the rows of the two given matrices. If not both numerical or both object matrices, returns the first matrix.</p>
 
 <h4 id="examples-31">Examples:</h4>
@@ -5490,7 +5550,7 @@ matrix var0 &lt;- matrix([[1.0,2.0],[3.0,4.0]]) append_horizontally matrix([[1,2
 
 <h3 id="append_vertically"><code class="highlighter-rouge">append_vertically</code></h3>
 
-<h4 id="possible-use-40">Possible use:</h4>
+<h4 id="possible-use-43">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">matrix</code> <strong><code class="highlighter-rouge">append_vertically</code></strong> <code class="highlighter-rouge">matrix</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">append_vertically</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
@@ -5498,7 +5558,7 @@ matrix var0 &lt;- matrix([[1.0,2.0],[3.0,4.0]]) append_horizontally matrix([[1,2
   <li><strong><code class="highlighter-rouge">append_vertically</code></strong> (<code class="highlighter-rouge">matrix</code> , <code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-39">Result:</h4>
+<h4 id="result-42">Result:</h4>
 <p>A matrix resulting from the concatenation of the columns  of the two given matrices. If not both numerical or both object matrices, returns the first matrix.</p>
 
 <h4 id="examples-32">Examples:</h4>
@@ -5511,18 +5571,18 @@ matrix var0 &lt;- matrix([[1,2],[3,4]]) append_vertically matrix([[1,2],[3,4]]);
 
 <h3 id="arc"><code class="highlighter-rouge">arc</code></h3>
 
-<h4 id="possible-use-41">Possible use:</h4>
+<h4 id="possible-use-44">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">arc</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">arc</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-40">Result:</h4>
-<p>An arc, which radius is equal to the first operand, heading to the second and amplitude the third
-An arc, which radius is equal to the first operand, heading to the second, amplitude to the third and a boolean indicating whether to return a linestring or a polygon to the fourth</p>
+<h4 id="result-43">Result:</h4>
+<p>An arc, which radius is equal to the first operand, heading to the second, amplitude to the third and a boolean indicating whether to return a linestring or a polygon to the fourth
+An arc, which radius is equal to the first operand, heading to the second and amplitude the third</p>
 
 <h4 id="comment-7">Comment:</h4>
-<p>the center of the arc is by default the location of the current agent in which has been called this operator. This operator returns a polygon by default.the center of the arc is by default the location of the current agent in which has been called this operator.</p>
+<p>the center of the arc is by default the location of the current agent in which has been called this operator.the center of the arc is by default the location of the current agent in which has been called this operator. This operator returns a polygon by default.</p>
 
 <h4 id="special-cases-16">Special cases:</h4>
 <ul>
@@ -5532,12 +5592,12 @@ An arc, which radius is equal to the first operand, heading to the second, ampli
 
 <h4 id="examples-33">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- arc(4,45,90); // var0 equals a geometry as an arc of radius 4, in a direction of 45Â° and an amplitude of 90Â° 
-geometry var1 &lt;- arc(4,45,90, false); // var1 equals a geometry as an arc of radius 4, in a direction of 45Â° and an amplitude of 90Â°, which only contains the points on the arc
+geometry var0 &lt;- arc(4,45,90, false); // var0 equals a geometry as an arc of radius 4, in a direction of 45Â° and an amplitude of 90Â°, which only contains the points on the arc 
+geometry var1 &lt;- arc(4,45,90); // var1 equals a geometry as an arc of radius 4, in a direction of 45Â° and an amplitude of 90Â°
 
 </code></pre></div></div>
 
-<h4 id="see-also-27">See also:</h4>
+<h4 id="see-also-30">See also:</h4>
 
 <p><a href="OperatorsAA#around">around</a>, <a href="OperatorsBC#cone">cone</a>, <a href="OperatorsIM#line">line</a>, <a href="OperatorsIM#link">link</a>, <a href="OperatorsNR#norm">norm</a>, <a href="OperatorsNR#point">point</a>, <a href="OperatorsNR#polygon">polygon</a>, <a href="OperatorsNR#polyline">polyline</a>, <a href="OperatorsSZ#super_ellipse">super_ellipse</a>, <a href="OperatorsNR#rectangle">rectangle</a>, <a href="OperatorsSZ#square">square</a>, <a href="OperatorsBC#circle">circle</a>, <a href="OperatorsDH#ellipse">ellipse</a>, <a href="OperatorsSZ#triangle">triangle</a>,</p>
 
@@ -5545,13 +5605,13 @@ geometry var1 &lt;- arc(4,45,90, false); // var1 equals a geometry as an arc of 
 
 <h3 id="around"><code class="highlighter-rouge">around</code></h3>
 
-<h4 id="possible-use-42">Possible use:</h4>
+<h4 id="possible-use-45">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">around</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">around</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-41">Result:</h4>
+<h4 id="result-44">Result:</h4>
 <p>A geometry resulting from the difference between a buffer around the right-operand casted in geometry at a distance left-operand (right-operand buffer left-operand) and the right-operand casted as geometry.</p>
 
 <h4 id="special-cases-17">Special cases:</h4>
@@ -5565,7 +5625,7 @@ geometry var0 &lt;- 10 around circle(5); // var0 equals the ring geometry betwee
 
 </code></pre></div></div>
 
-<h4 id="see-also-28">See also:</h4>
+<h4 id="see-also-31">See also:</h4>
 
 <p><a href="OperatorsBC#circle">circle</a>, <a href="OperatorsBC#cone">cone</a>, <a href="OperatorsIM#line">line</a>, <a href="OperatorsIM#link">link</a>, <a href="OperatorsNR#norm">norm</a>, <a href="OperatorsNR#point">point</a>, <a href="OperatorsNR#polygon">polygon</a>, <a href="OperatorsNR#polyline">polyline</a>, <a href="OperatorsNR#rectangle">rectangle</a>, <a href="OperatorsSZ#square">square</a>, <a href="OperatorsSZ#triangle">triangle</a>,</p>
 
@@ -5573,13 +5633,13 @@ geometry var0 &lt;- 10 around circle(5); // var0 equals the ring geometry betwee
 
 <h3 id="as"><code class="highlighter-rouge">as</code></h3>
 
-<h4 id="possible-use-43">Possible use:</h4>
+<h4 id="possible-use-46">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">as</code></strong> <code class="highlighter-rouge">msi.gaml.types.IType</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">as</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">msi.gaml.types.IType</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-42">Result:</h4>
+<h4 id="result-45">Result:</h4>
 <p>casting of the first argument into a given type</p>
 
 <h4 id="comment-8">Comment:</h4>
@@ -5595,13 +5655,13 @@ int var0 &lt;- 3.5 as int; // var0 equals int(3.5)
 
 <h3 id="as_4_grid"><code class="highlighter-rouge">as_4_grid</code></h3>
 
-<h4 id="possible-use-44">Possible use:</h4>
+<h4 id="possible-use-47">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">as_4_grid</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">as_4_grid</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-43">Result:</h4>
+<h4 id="result-46">Result:</h4>
 <p>A matrix of square geometries (grid with 4-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)</p>
 
 <h4 id="examples-36">Examples:</h4>
@@ -5610,7 +5670,7 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 </code></pre></div></div>
 
-<h4 id="see-also-29">See also:</h4>
+<h4 id="see-also-32">See also:</h4>
 
 <p><a href="OperatorsAA#as_grid">as_grid</a>, <a href="OperatorsAA#as_hexagonal_grid">as_hexagonal_grid</a>,</p>
 
@@ -5618,16 +5678,16 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 <h3 id="as_distance_graph"><code class="highlighter-rouge">as_distance_graph</code></h3>
 
-<h4 id="possible-use-45">Possible use:</h4>
+<h4 id="possible-use-48">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_distance_graph</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">as_distance_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_distance_graph</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">as_distance_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_distance_graph</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">as_distance_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">as_distance_graph</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">species</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-44">Result:</h4>
+<h4 id="result-47">Result:</h4>
 <p>creates a graph from a list of vertices (left-hand operand). An edge is created between each pair of vertices close enough (less than a distance, right-hand operand).</p>
 
 <h4 id="comment-9">Comment:</h4>
@@ -5638,7 +5698,7 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 </code></pre></div></div>
 
-<h4 id="see-also-30">See also:</h4>
+<h4 id="see-also-33">See also:</h4>
 
 <p><a href="OperatorsAA#as_intersection_graph">as_intersection_graph</a>, <a href="OperatorsAA#as_edge_graph">as_edge_graph</a>,</p>
 
@@ -5646,13 +5706,13 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 <h3 id="as_driving_graph"><code class="highlighter-rouge">as_driving_graph</code></h3>
 
-<h4 id="possible-use-46">Possible use:</h4>
+<h4 id="possible-use-49">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_driving_graph</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">as_driving_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-45">Result:</h4>
+<h4 id="result-48">Result:</h4>
 <p>creates a graph from the list/map of edges given as operand and connect the node to the edge</p>
 
 <h4 id="examples-38">Examples:</h4>
@@ -5660,7 +5720,7 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 </code></pre></div></div>
 
-<h4 id="see-also-31">See also:</h4>
+<h4 id="see-also-34">See also:</h4>
 
 <p><a href="OperatorsAA#as_intersection_graph">as_intersection_graph</a>, <a href="OperatorsAA#as_distance_graph">as_distance_graph</a>, <a href="OperatorsAA#as_edge_graph">as_edge_graph</a>,</p>
 
@@ -5668,7 +5728,7 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
 
 <h3 id="as_edge_graph"><code class="highlighter-rouge">as_edge_graph</code></h3>
 
-<h4 id="possible-use-47">Possible use:</h4>
+<h4 id="possible-use-50">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">as_edge_graph</code></strong> (<code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">as_edge_graph</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
@@ -5676,24 +5736,24 @@ matrix var0 &lt;- self as_4_grid {10, 5}; // var0 equals the matrix of square ge
   <li><strong><code class="highlighter-rouge">as_edge_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-46">Result:</h4>
+<h4 id="result-49">Result:</h4>
 <p>creates a graph from the list/map of edges given as operand</p>
 
 <h4 id="special-cases-18">Special cases:</h4>
-<ul>
-  <li>if the operand is a list and a tolerance (max distance in meters to consider that 2 points are the same node) is given, the graph will be built with elements of the list as edges and two edges will be connected by a node if the distance between their extremity (first or last points) are at distance lower or equal to the tolerance</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-graph var0 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var0 equals a graph with two edges and three vertices
-</code></pre></div></div>
-
 <ul>
   <li>if the operand is a map, the graph will be built by creating edges from pairs of the map</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-graph var1 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var1 equals a graph with these three vertices and two edges
+graph var0 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var0 equals a graph with these three vertices and two edges
+</code></pre></div></div>
+
+<ul>
+  <li>if the operand is a list and a tolerance (max distance in meters to consider that 2 points are the same node) is given, the graph will be built with elements of the list as edges and two edges will be connected by a node if the distance between their extremity (first or last points) are at distance lower or equal to the tolerance</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+graph var1 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var1 equals a graph with two edges and three vertices
 </code></pre></div></div>
 
 <ul>
@@ -5704,7 +5764,7 @@ graph var1 &lt;- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var1 equal
 graph var2 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var2 equals a graph with two edges and three vertices
 </code></pre></div></div>
 
-<h4 id="see-also-32">See also:</h4>
+<h4 id="see-also-35">See also:</h4>
 
 <p><a href="OperatorsAA#as_intersection_graph">as_intersection_graph</a>, <a href="OperatorsAA#as_distance_graph">as_distance_graph</a>,</p>
 
@@ -5712,13 +5772,13 @@ graph var2 &lt;- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]);
 
 <h3 id="as_grid"><code class="highlighter-rouge">as_grid</code></h3>
 
-<h4 id="possible-use-48">Possible use:</h4>
+<h4 id="possible-use-51">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">as_grid</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">as_grid</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-47">Result:</h4>
+<h4 id="result-50">Result:</h4>
 <p>A matrix of square geometries (grid with 8-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)</p>
 
 <h4 id="examples-39">Examples:</h4>
@@ -5727,7 +5787,7 @@ matrix var0 &lt;- self as_grid {10, 5}; // var0 equals a matrix of square geomet
 
 </code></pre></div></div>
 
-<h4 id="see-also-33">See also:</h4>
+<h4 id="see-also-36">See also:</h4>
 
 <p><a href="OperatorsAA#as_4_grid">as_4_grid</a>, <a href="OperatorsAA#as_hexagonal_grid">as_hexagonal_grid</a>,</p>
 
@@ -5735,13 +5795,13 @@ matrix var0 &lt;- self as_grid {10, 5}; // var0 equals a matrix of square geomet
 
 <h3 id="as_hexagonal_grid"><code class="highlighter-rouge">as_hexagonal_grid</code></h3>
 
-<h4 id="possible-use-49">Possible use:</h4>
+<h4 id="possible-use-52">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">as_hexagonal_grid</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">as_hexagonal_grid</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
-<h4 id="result-48">Result:</h4>
+<h4 id="result-51">Result:</h4>
 <p>A list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry</p>
 
 <h4 id="examples-40">Examples:</h4>
@@ -5750,7 +5810,7 @@ list&lt;geometry&gt; var0 &lt;- self as_hexagonal_grid {10, 5}; // var0 equals l
 
 </code></pre></div></div>
 
-<h4 id="see-also-34">See also:</h4>
+<h4 id="see-also-37">See also:</h4>
 
 <p><a href="OperatorsAA#as_4_grid">as_4_grid</a>, <a href="OperatorsAA#as_grid">as_grid</a>,</p>
 
@@ -5758,13 +5818,13 @@ list&lt;geometry&gt; var0 &lt;- self as_hexagonal_grid {10, 5}; // var0 equals l
 
 <h3 id="as_int"><code class="highlighter-rouge">as_int</code></h3>
 
-<h4 id="possible-use-50">Possible use:</h4>
+<h4 id="possible-use-53">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">as_int</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">as_int</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-49">Result:</h4>
+<h4 id="result-52">Result:</h4>
 <p>parses the string argument as a signed integer in the radix specified by the second argument.</p>
 
 <h4 id="special-cases-19">Special cases:</h4>
@@ -5783,7 +5843,7 @@ int var4 &lt;- 'hello' as_int 32; // var4 equals 18306744
 
 </code></pre></div></div>
 
-<h4 id="see-also-35">See also:</h4>
+<h4 id="see-also-38">See also:</h4>
 
 <p><a href="OperatorsIM#int">int</a>,</p>
 
@@ -5791,13 +5851,13 @@ int var4 &lt;- 'hello' as_int 32; // var4 equals 18306744
 
 <h3 id="as_intersection_graph"><code class="highlighter-rouge">as_intersection_graph</code></h3>
 
-<h4 id="possible-use-51">Possible use:</h4>
+<h4 id="possible-use-54">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_intersection_graph</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">as_intersection_graph</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-50">Result:</h4>
+<h4 id="result-53">Result:</h4>
 <p>creates a graph from a list of vertices (left-hand operand). An edge is created between each pair of vertices with an intersection (with a given tolerance).</p>
 
 <h4 id="comment-10">Comment:</h4>
@@ -5808,7 +5868,7 @@ int var4 &lt;- 'hello' as_int 32; // var4 equals 18306744
 
 </code></pre></div></div>
 
-<h4 id="see-also-36">See also:</h4>
+<h4 id="see-also-39">See also:</h4>
 
 <p><a href="OperatorsAA#as_distance_graph">as_distance_graph</a>, <a href="OperatorsAA#as_edge_graph">as_edge_graph</a>,</p>
 
@@ -5816,13 +5876,13 @@ int var4 &lt;- 'hello' as_int 32; // var4 equals 18306744
 
 <h3 id="as_map"><code class="highlighter-rouge">as_map</code></h3>
 
-<h4 id="possible-use-52">Possible use:</h4>
+<h4 id="possible-use-55">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">as_map</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">map</code></li>
   <li><strong><code class="highlighter-rouge">as_map</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
 </ul>
 
-<h4 id="result-51">Result:</h4>
+<h4 id="result-54">Result:</h4>
 <p>produces a new map from the evaluation of the right-hand operand for each element of the left-hand operand</p>
 
 <h4 id="comment-11">Comment:</h4>
@@ -5844,13 +5904,13 @@ map&lt;int,int&gt; var1 &lt;- [1::2,3::4,5::6] as_map (each::(each * 2)); // var
 
 <h3 id="as_matrix"><code class="highlighter-rouge">as_matrix</code></h3>
 
-<h4 id="possible-use-53">Possible use:</h4>
+<h4 id="possible-use-56">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">as_matrix</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">as_matrix</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
 </ul>
 
-<h4 id="result-52">Result:</h4>
+<h4 id="result-55">Result:</h4>
 <p>casts the left operand into a matrix with right operand as preferred size</p>
 
 <h4 id="comment-12">Comment:</h4>
@@ -5861,7 +5921,7 @@ map&lt;int,int&gt; var1 &lt;- [1::2,3::4,5::6] as_map (each::(each * 2)); // var
   <li>if the right operand is nil, as_matrix is equivalent to the matrix operator</li>
 </ul>
 
-<h4 id="see-also-37">See also:</h4>
+<h4 id="see-also-40">See also:</h4>
 
 <p><a href="OperatorsIM#matrix">matrix</a>,</p>
 
@@ -5869,13 +5929,13 @@ map&lt;int,int&gt; var1 &lt;- [1::2,3::4,5::6] as_map (each::(each * 2)); // var
 
 <h3 id="as_path"><code class="highlighter-rouge">as_path</code></h3>
 
-<h4 id="possible-use-54">Possible use:</h4>
+<h4 id="possible-use-57">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">list&lt;geometry&gt;</code> <strong><code class="highlighter-rouge">as_path</code></strong> <code class="highlighter-rouge">graph</code> —&gt;  <code class="highlighter-rouge">path</code></li>
   <li><strong><code class="highlighter-rouge">as_path</code></strong> (<code class="highlighter-rouge">list&lt;geometry&gt;</code> , <code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">path</code></li>
 </ul>
 
-<h4 id="result-53">Result:</h4>
+<h4 id="result-56">Result:</h4>
 <p>create a graph path from the list of shape</p>
 
 <h4 id="examples-44">Examples:</h4>
@@ -5888,13 +5948,13 @@ path var0 &lt;- [road1,road2,road3] as_path my_graph; // var0 equals a path road
 
 <h3 id="asin"><code class="highlighter-rouge">asin</code></h3>
 
-<h4 id="possible-use-55">Possible use:</h4>
+<h4 id="possible-use-58">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">asin</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">asin</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-54">Result:</h4>
+<h4 id="result-57">Result:</h4>
 <p>the arcsin of the operand</p>
 
 <h4 id="special-cases-22">Special cases:</h4>
@@ -5909,7 +5969,7 @@ float var1 &lt;- asin (90); // var1 equals #nan
 
 </code></pre></div></div>
 
-<h4 id="see-also-38">See also:</h4>
+<h4 id="see-also-41">See also:</h4>
 
 <p><a href="OperatorsAA#acos">acos</a>, <a href="OperatorsAA#atan">atan</a>, <a href="OperatorsSZ#sin">sin</a>,</p>
 
@@ -5917,7 +5977,7 @@ float var1 &lt;- asin (90); // var1 equals #nan
 
 <h3 id="at"><code class="highlighter-rouge">at</code></h3>
 
-<h4 id="possible-use-56">Possible use:</h4>
+<h4 id="possible-use-59">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> <strong><code class="highlighter-rouge">at</code></strong> <code class="highlighter-rouge">KeyType</code> —&gt;  <code class="highlighter-rouge">ValueType</code></li>
   <li><strong><code class="highlighter-rouge">at</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code> , <code class="highlighter-rouge">KeyType</code>) —&gt;  <code class="highlighter-rouge">ValueType</code></li>
@@ -5925,7 +5985,7 @@ float var1 &lt;- asin (90); // var1 equals #nan
   <li><strong><code class="highlighter-rouge">at</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
-<h4 id="result-55">Result:</h4>
+<h4 id="result-58">Result:</h4>
 <p>the element at the right operand index of the container</p>
 
 <h4 id="comment-13">Comment:</h4>
@@ -5952,7 +6012,7 @@ string var2 &lt;- 'abcdef' at 0; // var2 equals 'a'
 
 </code></pre></div></div>
 
-<h4 id="see-also-39">See also:</h4>
+<h4 id="see-also-42">See also:</h4>
 
 <p><a href="OperatorsBC#contains_all">contains_all</a>, <a href="OperatorsBC#contains_any">contains_any</a>,</p>
 
@@ -5960,13 +6020,13 @@ string var2 &lt;- 'abcdef' at 0; // var2 equals 'a'
 
 <h3 id="at_distance"><code class="highlighter-rouge">at_distance</code></h3>
 
-<h4 id="possible-use-57">Possible use:</h4>
+<h4 id="possible-use-60">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container&lt;agent&gt;</code> <strong><code class="highlighter-rouge">at_distance</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">at_distance</code></strong> (<code class="highlighter-rouge">container&lt;agent&gt;</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
-<h4 id="result-56">Result:</h4>
+<h4 id="result-59">Result:</h4>
 <p>A list of agents or geometries among the left-operand list that are located at a distance &lt;= the right operand from the caller agent (in its topology)</p>
 
 <h4 id="examples-47">Examples:</h4>
@@ -5975,7 +6035,7 @@ list&lt;geometry&gt; var0 &lt;- [ag1, ag2, ag3] at_distance 20; // var0 equals t
 
 </code></pre></div></div>
 
-<h4 id="see-also-40">See also:</h4>
+<h4 id="see-also-43">See also:</h4>
 
 <p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsNR#neighbors_of">neighbors_of</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsIM#inside">inside</a>, <a href="OperatorsNR#overlapping">overlapping</a>,</p>
 
@@ -5983,13 +6043,13 @@ list&lt;geometry&gt; var0 &lt;- [ag1, ag2, ag3] at_distance 20; // var0 equals t
 
 <h3 id="at_location"><code class="highlighter-rouge">at_location</code></h3>
 
-<h4 id="possible-use-58">Possible use:</h4>
+<h4 id="possible-use-61">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">at_location</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">at_location</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-57">Result:</h4>
+<h4 id="result-60">Result:</h4>
 <p>A geometry resulting from the tran of a translation to the right-hand operand point of the left-hand operand (geometry, agent, point)</p>
 
 <h4 id="examples-48">Examples:</h4>
@@ -6002,13 +6062,13 @@ geometry var0 &lt;- self at_location {10, 20}; // var0 equals the geometry resul
 
 <h3 id="atan"><code class="highlighter-rouge">atan</code></h3>
 
-<h4 id="possible-use-59">Possible use:</h4>
+<h4 id="possible-use-62">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">atan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">atan</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">atan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-58">Result:</h4>
+<h4 id="result-61">Result:</h4>
 <p>Returns the value (in the interval [-90,90], in decimal degrees) of the arctan of the operand (which can be any real number).</p>
 
 <h4 id="examples-49">Examples:</h4>
@@ -6017,7 +6077,7 @@ float var0 &lt;- atan (1); // var0 equals 45.0
 
 </code></pre></div></div>
 
-<h4 id="see-also-41">See also:</h4>
+<h4 id="see-also-44">See also:</h4>
 
 <p><a href="OperatorsAA#acos">acos</a>, <a href="OperatorsAA#asin">asin</a>, <a href="OperatorsSZ#tan">tan</a>,</p>
 
@@ -6025,13 +6085,13 @@ float var0 &lt;- atan (1); // var0 equals 45.0
 
 <h3 id="atan2"><code class="highlighter-rouge">atan2</code></h3>
 
-<h4 id="possible-use-60">Possible use:</h4>
+<h4 id="possible-use-63">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">atan2</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">atan2</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-59">Result:</h4>
+<h4 id="result-62">Result:</h4>
 <p>the atan2 value of the two operands.</p>
 
 <h4 id="comment-14">Comment:</h4>
@@ -6043,7 +6103,7 @@ float var0 &lt;- atan2 (0,0); // var0 equals 0.0
 
 </code></pre></div></div>
 
-<h4 id="see-also-42">See also:</h4>
+<h4 id="see-also-45">See also:</h4>
 
 <p><a href="OperatorsAA#atan">atan</a>, <a href="OperatorsAA#acos">acos</a>, <a href="OperatorsAA#asin">asin</a>,</p>
 
@@ -6051,25 +6111,25 @@ float var0 &lt;- atan2 (0,0); // var0 equals 0.0
 
 <h3 id="attributes"><code class="highlighter-rouge">attributes</code></h3>
 
-<h4 id="possible-use-61">Possible use:</h4>
+<h4 id="possible-use-64">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">attributes</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">attributes</code></li>
 </ul>
 
-<h4 id="result-60">Result:</h4>
+<h4 id="result-63">Result:</h4>
 <p>Casts the operand into the type attributes</p>
 
 <hr />
 
 <h3 id="auto_correlation"><code class="highlighter-rouge">auto_correlation</code></h3>
 
-<h4 id="possible-use-62">Possible use:</h4>
+<h4 id="possible-use-65">Possible use:</h4>
 <ul>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">auto_correlation</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">auto_correlation</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-61">Result:</h4>
+<h4 id="result-64">Result:</h4>
 <p>Returns the auto-correlation of a data sequence</p>
 
     </div>

@@ -3548,19 +3548,19 @@ function closeRightMenu() {
 
 <p><em><strong>Important note:</strong> the current Git version is <strong>not</strong> compatible with the <strong>GAMA 1.6.1 release</strong>: if you plan to create plugins for this release, please download the source at revision r11988 (on Google Code) and <a href="InstallingSvnOldVersions">Eclipse following this procedure</a>. It is <strong>neither</strong> compatible with the <strong>GAMA 1.7RC2 release</strong>: if you plan to create plugins for this release, please <a href="InstallingGitVersionMars17">download the source on the branch mars on the GitHub and install Eclipse Mars SR2</a>.</em></p>
 
-<h2 id="install-eclipse-oxygen">Install Eclipse Oxygen</h2>
+<h2 id="install-eclipse-oxygen">Install Eclipse <strong>Oxygen</strong></h2>
 
-<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3">“Eclipse IDE for Java and DSL Developers”</a> version. As Java version, we recommend to install the Java Oracle 1.8 JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">that can be downloaded here</a>.</p>
+<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3a">“Eclipse Oxygen 3A IDE for Java and DSL Developers”</a> version. This is the latest version under which GAMA is certified to work. Regarding Java, we <strong>strongly</strong> recommend to install the Java Oracle 1.8 JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">that can be downloaded here</a>.</p>
 
 <p>Unpack it and launch it. Please refer to this <a href="http://help.eclipse.org/oxygen/index.jsp?nav=%2F0">link</a> for more information on running Eclipse.</p>
 
 <p><strong>One important step</strong> required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, “General”, then “Workspace”, then “Text file encoding” and choosing “UTF-8” in the drop-down menu available in “Other:”.</p>
 
-<p>If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.13.0 (see <a href="http://www.eclipse.org/Xtext/download.html">here</a> to obtain it).</p>
+<p>If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.14.0 (see <a href="http://www.eclipse.org/Xtext/download.html">here</a> to obtain it).</p>
 
 <h2 id="install-additional-required-components-to-eclipse">Install additional required components to Eclipse</h2>
 
-<p>The Xtext plugin provided with the Eclipse release should be updated.</p>
+<p>The Xtext plugin provided with the Eclipse release should be updated to XText 2.14.</p>
 <ol>
   <li>Open the install window:
     <ul>
@@ -3574,8 +3574,7 @@ function closeRightMenu() {
       <li>In <code class="highlighter-rouge">Xtext</code>, check:</li>
     </ul>
     <ul>
-      <li><code class="highlighter-rouge">Xtext Complete SDK	2.13.0.v20171020-0920</code></li>
-      <li><code class="highlighter-rouge">Xtend IDE	        2.13.0.v20171020-0920</code>
+      <li><code class="highlighter-rouge">Xtext Complete SDK	2.14.xxx</code>
       * Next</li>
     </ul>
   </li>
