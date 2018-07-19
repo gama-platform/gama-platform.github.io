@@ -181,17 +181,20 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 
 ## Length units
 
+[//]: # (keyword|constant_#Âµm)
+* **`#Âµm`** (#micrometer,#micrometers), value= 1.0E-6, Comment: micrometer unit
+
 [//]: # (keyword|constant_#cm)
-* **`#cm`** (#centimeter,#centimeters), value= 0.009999999776482582, Comment: centimeter unit
+* **`#cm`** (#centimeter,#centimeters), value= 0.01, Comment: centimeter unit
 
 [//]: # (keyword|constant_#dm)
-* **`#dm`** (#decimeter,#decimeters), value= 0.10000000149011612, Comment: decimeter unit
+* **`#dm`** (#decimeter,#decimeters), value= 0.1, Comment: decimeter unit
 
 [//]: # (keyword|constant_#foot)
-* **`#foot`** (#feet,#ft), value= 0.3047999931871891, Comment: foot unit
+* **`#foot`** (#feet,#ft), value= 0.3048, Comment: foot unit
 
 [//]: # (keyword|constant_#inch)
-* **`#inch`** (#inches), value= 0.025399999432265757, Comment: inch unit
+* **`#inch`** (#inches), value= 0.025400000000000002, Comment: inch unit
 
 [//]: # (keyword|constant_#km)
 * **`#km`** (#kilometer,#kilometers), value= 1000.0, Comment: kilometer unit
@@ -203,7 +206,10 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`#mile`** (#miles), value= 1609.344, Comment: mile unit
 
 [//]: # (keyword|constant_#mm)
-* **`#mm`** (#milimeter,#milimeters), value= 9.999999776482583E-4, Comment: millimeter unit
+* **`#mm`** (#milimeter,#milimeters), value= 0.001, Comment: millimeter unit
+
+[//]: # (keyword|constant_#nm)
+* **`#nm`** (#nanometer,#nanometers), value= 9.999999999999999E-10, Comment: nanometer unit
 
 [//]: # (keyword|constant_#yard)
 * **`#yard`** (#yards), value= 0.9144, Comment: yard unit
@@ -216,10 +222,10 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`#m2`**, value= 1.0, Comment: square meter: the basic unit for surfaces
 
 [//]: # (keyword|constant_#sqft)
-* **`#sqft`** (#square_foot,#square_feet), value= 0.09290303584691051, Comment: square foot unit
+* **`#sqft`** (#square_foot,#square_feet), value= 0.09290304, Comment: square foot unit
 
 [//]: # (keyword|constant_#sqin)
-* **`#sqin`** (#square_inch,#square_inches), value= 6.451599711591008E-4, Comment: square inch unit
+* **`#sqin`** (#square_inch,#square_inches), value= 6.451600000000001E-4, Comment: square inch unit
 
 [//]: # (keyword|constant_#sqmi)
 * **`#sqmi`** (#square_mile,#square_miles), value= 2589988.110336, Comment: square mile unit
