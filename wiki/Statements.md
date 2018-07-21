@@ -1507,6 +1507,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   * **`title`** (a label):   
   * **`type`** (a label), takes values in: {batch, memorize, gui, test, headless}: the type of the experiment (either 'gui' or 'batch'
   * `autorun` (boolean): whether this experiment should be run automatically when launched (false by default)
+  * `benchmark` (boolean): If true, make GAMA record the number of invocations and running time of the statements and operators of the simulations launched in this experiment. The results are automatically saved in a csv file in a folder called 'benchmarks' when the experiment is closed
   * `control` (an identifier): 
   * `frequency` (int): the execution frequence of the experiment (default value: 1). If frequency: 10, the experiment is executed only each 10 steps.
   * `keep_seed` (boolean): 
