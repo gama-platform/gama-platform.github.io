@@ -65,20 +65,33 @@ gives examples
  * `on_change:` facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes. 
  * `species` and `experiment` now support the `virtual` boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).
  * `experiment` now supports the `auto_run` boolean facet (to run automatically when launched)
+ * `experiment` now supports the `benchmark` boolean facet (to produce a CSV summary of the time spent in the different statements / operators of GAMA)
+ * experiments can now have their own file (`xxx.experiment`) and specify the model they are targeting by providing the path to the model in the new `model:` facet (similar to `import`). 
+ * experiments can sport a new type: `test`, a specialised type of batch experiment that can be run automatically from the GUI or in headless and reports back the result of the tests found in its model
 
 ## Data importation
  * draw of complex shapes through obj file
  * new types fo files are taken into account: geotiff and dxf
  * viewers for common files
- * navigator: better overview of model files and their support files, addition of plugin models 
+ * addition of plugin and test models 
+
+## Navigator
+ * Shapefiles are now copied, pasted and deleted together with their support files
+ * External files are automatically linked from the workspace and the links are filed under an automatically created `external` folder in the project
+ * The "Refresh" command in the navigator pop-up refreshes the files, cleans the metadata and recompiles the models in order to obtain a "fresh" workspace again
+ * A search control allows to instantaneously find models based on their names (not contents)
+ * Wizards for creating `.experiment` file and test experiments 
+ * The new project Wizard now leads by default to the new file wizard
 
 ## Editor
  * doc on built-in elements, templates, shortcuts to common tasks, hyperlinks to files used
  * improvement in time, gathering of infos/todos
  * warnings can be removed from model files
+ * resources / files can be dropped into editors to obtain declaration/import of the corresponding files
 
 ## Headless
  * A new option `-validate path/to/dir` allows to run a complete validation of all the models in the directory
+ * A new option `-test path/to/dir` allows to run all the tests defined in a directory
 
 ## Models library: 
  * New models (make a list)
