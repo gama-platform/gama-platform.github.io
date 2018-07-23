@@ -3608,6 +3608,9 @@ gives examples</li>
   <li><code class="highlighter-rouge">on_change:</code> facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes.</li>
   <li><code class="highlighter-rouge">species</code> and <code class="highlighter-rouge">experiment</code> now support the <code class="highlighter-rouge">virtual</code> boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).</li>
   <li><code class="highlighter-rouge">experiment</code> now supports the <code class="highlighter-rouge">auto_run</code> boolean facet (to run automatically when launched)</li>
+  <li><code class="highlighter-rouge">experiment</code> now supports the <code class="highlighter-rouge">benchmark</code> boolean facet (to produce a CSV summary of the time spent in the different statements / operators of GAMA)</li>
+  <li>experiments can now have their own file (<code class="highlighter-rouge">xxx.experiment</code>) and specify the model they are targeting by providing the path to the model in the new <code class="highlighter-rouge">model:</code> facet (similar to <code class="highlighter-rouge">import</code>).</li>
+  <li>experiments can sport a new type: <code class="highlighter-rouge">test</code>, a specialised type of batch experiment that can be run automatically from the GUI or in headless and reports back the result of the tests found in its model</li>
 </ul>
 
 <h2 id="data-importation">Data importation</h2>
@@ -3615,7 +3618,17 @@ gives examples</li>
   <li>draw of complex shapes through obj file</li>
   <li>new types fo files are taken into account: geotiff and dxf</li>
   <li>viewers for common files</li>
-  <li>navigator: better overview of model files and their support files, addition of plugin models</li>
+  <li>addition of plugin and test models</li>
+</ul>
+
+<h2 id="navigator">Navigator</h2>
+<ul>
+  <li>Shapefiles are now copied, pasted and deleted together with their support files</li>
+  <li>External files are automatically linked from the workspace and the links are filed under an automatically created <code class="highlighter-rouge">external</code> folder in the project</li>
+  <li>The “Refresh” command in the navigator pop-up refreshes the files, cleans the metadata and recompiles the models in order to obtain a “fresh” workspace again</li>
+  <li>A search control allows to instantaneously find models based on their names (not contents)</li>
+  <li>Wizards for creating <code class="highlighter-rouge">.experiment</code> file and test experiments</li>
+  <li>The new project Wizard now leads by default to the new file wizard</li>
 </ul>
 
 <h2 id="editor">Editor</h2>
@@ -3623,11 +3636,13 @@ gives examples</li>
   <li>doc on built-in elements, templates, shortcuts to common tasks, hyperlinks to files used</li>
   <li>improvement in time, gathering of infos/todos</li>
   <li>warnings can be removed from model files</li>
+  <li>resources / files can be dropped into editors to obtain declaration/import of the corresponding files</li>
 </ul>
 
 <h2 id="headless">Headless</h2>
 <ul>
   <li>A new option <code class="highlighter-rouge">-validate path/to/dir</code> allows to run a complete validation of all the models in the directory</li>
+  <li>A new option <code class="highlighter-rouge">-test path/to/dir</code> allows to run all the tests defined in a directory</li>
 </ul>
 
 <h2 id="models-library">Models library:</h2>
