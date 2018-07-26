@@ -599,7 +599,7 @@ leave a group of agent
   * **`agents_on`** (`list`): for each lane of the road, the list of agents for each segment   
   * **`all_agents`** (`list`): the list of agents on the road   
   * **`lanes`** (`int`): the number of lanes   
-  * **`linked_road`** (`-18`): the linked road: the lanes of this linked road will be usable by drivers on the road   
+  * **`linked_road`** (`-199`): the linked road: the lanes of this linked road will be usable by drivers on the road   
   * **`maxspeed`** (`float`): the maximal speed on the road   
   * **`source_node`** (`agent`): the source node of the road   
   * **`target_node`** (`agent`): the target node of the road 
