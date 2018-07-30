@@ -437,8 +437,8 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 <- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var0 <- dem(dem,texture,z_factor); // var0 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var1 <- dem(dem,texture); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var2 <- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var3 <- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
 
@@ -608,10 +608,10 @@ float var0 <- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the d
 ### `distance_to`
 
 #### Possible use: 
-  * `geometry` **`distance_to`** `geometry` --->  `float`
-  *  **`distance_to`** (`geometry` , `geometry`) --->  `float`
   * `point` **`distance_to`** `point` --->  `float`
-  *  **`distance_to`** (`point` , `point`) --->  `float` 
+  *  **`distance_to`** (`point` , `point`) --->  `float`
+  * `geometry` **`distance_to`** `geometry` --->  `float`
+  *  **`distance_to`** (`geometry` , `geometry`) --->  `float` 
 
 #### Result: 
 A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -678,8 +678,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 #### Examples: 
 ```
  
-map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -708,8 +708,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 ```
  
 map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -729,10 +729,10 @@ map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1
   *  **`div`** (`int` , `int`) --->  `int`
   * `int` **`div`** `float` --->  `int`
   *  **`div`** (`int` , `float`) --->  `int`
-  * `float` **`div`** `int` --->  `int`
-  *  **`div`** (`float` , `int`) --->  `int`
   * `float` **`div`** `float` --->  `int`
-  *  **`div`** (`float` , `float`) --->  `int` 
+  *  **`div`** (`float` , `float`) --->  `int`
+  * `float` **`div`** `int` --->  `int`
+  *  **`div`** (`float` , `int`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -747,8 +747,8 @@ Returns the truncation of the division of the left-hand operand by the right-han
  
 int var0 <- 40 div 3; // var0 equals 13 
 int var1 <- 40 div 4.1; // var1 equals 9 
-int var2 <- 40.5 div 3; // var2 equals 13 
-int var3 <- 40.1 div 4.5; // var3 equals 8
+int var2 <- 40.1 div 4.5; // var2 equals 8 
+int var3 <- 40.5 div 3; // var3 equals 13
 
 ```
       
@@ -775,14 +775,14 @@ int var3 <- 40.1 div 4.5; // var3 equals 8
   *  **`dtw`** (`list`, `list`, `int`) --->  `float` 
 
 #### Result: 
-returns the dynamic time warping between the two series of value
 returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
+returns the dynamic time warping between the two series of value
 
 #### Examples: 
 ```
  
-float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var0 equals 2 
-float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 2.0
+float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 2.0 
+float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var1 equals 2
 
 ```
   
@@ -815,8 +815,8 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`pair`) --->  `unknown`
   *  **`edge`** (`unknown`) --->  `unknown`
+  *  **`edge`** (`pair`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
@@ -1106,25 +1106,25 @@ bool var1 <- even(-12); // var1 equals true
 ### `every`
 
 #### Possible use: 
-  *  **`every`** (`int`) --->  `bool`
   *  **`every`** (`any expression`) --->  `bool`
-  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`int`) --->  `bool`
   * `list` **`every`** `int` --->  `list`
-  *  **`every`** (`list` , `int`) --->  `list` 
+  *  **`every`** (`list` , `int`) --->  `list`
+  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
-applies a step to an interval of dates defined by 'date1 to date2'
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-true every operand * cycle, false otherwise
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency  
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+applies a step to an interval of dates defined by 'date1 to date2'
+true every operand * cycle, false otherwise  
 
 #### Comment: 
-the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
+Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
 
 #### Examples: 
 ```
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
+reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
 
 ```
       
@@ -1132,7 +1132,7 @@ the value of the every operator depends on the cycle. It can be used to do somet
 
 #### See also: 
 
-[to](OperatorsSZ#to), [since](OperatorsSZ#since), [after](OperatorsAA#after), 
+[since](OperatorsSZ#since), [after](OperatorsAA#after), [to](OperatorsSZ#to), 
     	
 ----
 
@@ -1154,8 +1154,8 @@ the value of the every operator depends on the cycle. It can be used to do somet
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
 
 #### Special cases:     
-  * returns -1 is the list of candidates is nil or empty    
-  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true
+  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true    
+  * returns -1 is the list of candidates is nil or empty
 
 #### Examples: 
 ```
@@ -1176,8 +1176,8 @@ int var0 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"uti
 ### `exp`
 
 #### Possible use: 
-  *  **`exp`** (`float`) --->  `float`
-  *  **`exp`** (`int`) --->  `float` 
+  *  **`exp`** (`int`) --->  `float`
+  *  **`exp`** (`float`) --->  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -1600,12 +1600,12 @@ int var0 <- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "pri
   *  **`fuzzy_kappa`** (`list<agent>`, `list`, `list`, `list<float>`, `list`, `matrix<float>`, `float`, `list`) --->  `float` 
 
 #### Result: 
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 
 #### Examples: 
 ```
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
 
 ```
   
@@ -1754,10 +1754,10 @@ A value from a normally distributed random variable with expected value (mean) a
 #### Examples: 
 ```
  
-float var0 <- gauss({0,0.3}); // var0 equals 0.22354 
-float var1 <- gauss({0,0.3}); // var1 equals -0.1357 
-float var2 <- gauss(0,0.3); // var2 equals 0.22354 
-float var3 <- gauss(0,0.3); // var3 equals -0.1357
+float var0 <- gauss(0,0.3); // var0 equals 0.22354 
+float var1 <- gauss(0,0.3); // var1 equals -0.1357 
+float var2 <- gauss({0,0.3}); // var2 equals 0.22354 
+float var3 <- gauss({0,0.3}); // var3 equals -0.1357
 
 ```
       
@@ -1765,7 +1765,7 @@ float var3 <- gauss(0,0.3); // var3 equals -0.1357
 
 #### See also: 
 
-[truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), [skew_gauss](OperatorsSZ#skew_gauss), 
+[skew_gauss](OperatorsSZ#skew_gauss), [truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), 
     	
 ----
 
@@ -1784,12 +1784,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -1797,7 +1797,7 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 
 #### Examples: 
 ```
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 ```
       
@@ -1830,7 +1830,6 @@ Arguments should include following elements:Arguments should include following e
 #### Special cases:     
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
@@ -1839,6 +1838,7 @@ Arguments should include following elements:Arguments should include following e
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
@@ -1847,7 +1847,7 @@ Arguments should include following elements:Arguments should include following e
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
 
 ```
       
@@ -1979,30 +1979,29 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 [//]: # (keyword|operator_get)
 ### `get`
-   Same signification as [read](OperatorsNR#read)
 
 #### Possible use: 
-  * `geometry` **`get`** `string` --->  `unknown`
-  *  **`get`** (`geometry` , `string`) --->  `unknown`
   * `agent` **`get`** `string` --->  `unknown`
-  *  **`get`** (`agent` , `string`) --->  `unknown` 
+  *  **`get`** (`agent` , `string`) --->  `unknown`
+  * `geometry` **`get`** `string` --->  `unknown`
+  *  **`get`** (`geometry` , `string`) --->  `unknown` 
 
 #### Result: 
-Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 
 #### Special cases:     
-  * Reading the attribute of a geometry 
-  
-```
-string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
-``` 
-
-    
   * Reading the attribute of another agent 
   
 ```
 string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
+``` 
+
+    
+  * Reading the attribute of a geometry 
+  
+```
+string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
 ``` 
 
 
