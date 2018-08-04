@@ -1190,6 +1190,7 @@ type_returned_by_action result <- self name_of_action_or_primitive [arg1::expres
   * `empty` (boolean): a condition specifying whether the geometry is empty or full
   * `end_arrow` (any type in [int, float]): the size of the arrow, located at the end of the drawn geometry
   * `font` (any type in [19, string]): the font used to draw the text, if any. Applying this facet to geometries or images has no effect. You can construct here your font with the operator "font". ex : font:font("Helvetica", 20 , #plain)
+  * `lighted` (boolean): Whether the object should be lighted or not (only applicable in the context of opengl displays)
   * `material` (25): Set a particular material to the object (only if you are in the "use_shader" mode).
   * `perspective` (boolean): Whether to render the text in perspective or facing the user. Default is true.
   * `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}
