@@ -87,6 +87,8 @@ wikiPagePath: wiki/Statements.md
     * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [law](#law), [norm](#norm), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [sanction](#sanction), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Model**
     * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [law](#law), [norm](#norm), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [sanction](#sanction), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+  * **Output**
+    * [layout](#layout), 
   * **Sequence of statements or action**
     * [add](#add), [ask](#ask), [assert](#assert), [assert](#assert), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [enforcement](#enforcement), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Sequence of statements or action**
@@ -1914,7 +1916,7 @@ layout horizontal([vertical([0::5000,1::5000])::5000,vertical([2::5000,3::5000])
 
 #### Embedments
 * The `layout` statement is of type: **Output**
-* The `layout` statement can be embedded into: Experiment, 
+* The `layout` statement can be embedded into: Experiment, Output, 
 * The `layout` statement embeds statements: 
 
 ----
