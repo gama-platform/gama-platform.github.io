@@ -77,7 +77,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 * **`current_plan`** (any type):    
 * **`desire_base`** (list):    
 * **`emotion_base`** (list):    
-* **`extraversion`** (float):    
+* **`extroversion`** (float):    
 * **`ideal_base`** (list):    
 * **`intention_base`** (list):    
 * **`intention_persistence`** (float): intention persistence   
