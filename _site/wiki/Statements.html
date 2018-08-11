@@ -4834,13 +4834,14 @@ A display refers to a independent and mobile part of the interface that can disp
   * `draw_as_dem` (boolean): 
   * `elevation` (any type in [matrix, float, int, boolean]): Allows to specify the elevation of each cell, if any. Can be a matrix of float (provided it has the same size than the grid), an int or float variable of the grid species, or simply true (in which case, the variable called 'grid_value' is used to compute the elevation of each cell)
   * `grayscale` (boolean): if true, givse a grey value to each polygon depending on its elevation (false by default)
+  * `hexagonal` (boolean): 
   * `lines` (rgb): the color to draw lines (borders of cells)
   * `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
   * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
   * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates &gt; 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
   * `text` (boolean): specify whether the attribute used to compute the elevation is displayed on each cells (false by default)
-  * `texture` (any type in [boolean, file]): Either file  containing the texture image to be applied on the grid or, if true, the use of the image composed by the colors of the cells. If false, no texture is applied
+  * `texture` (file): Either file  containing the texture image to be applied on the grid or, if not specified, the use of the image composed by the colors of the cells
   * `transparency` (float): the transparency rate of the agents (between 0 and 1, 1 means no transparency)
   * `triangulation` (boolean): specifies whther the cells will be triangulated: if it is false, they will be displayed as horizontal squares at a given elevation, whereas if it is true, cells will be triangulated and linked to neighbors in order to have a continuous surface (false by default) 
  	
