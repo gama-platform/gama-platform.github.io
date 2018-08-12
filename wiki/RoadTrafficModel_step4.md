@@ -39,7 +39,7 @@ We add a **destruction\_coeff** variable which initial value is randomly defined
 
 
 ### weigthed road network
-In GAMA, adding a weight for a graph is very simple, we use the **as\_edge\_graph** operator with the graph for left-operand and a weight map for the right-operand. A weight contains the weight of each edge: [edge1::weight1, edge2:: weight2,...]. In this model, the weight will be equal to the length of the road (perimeter of the polyline) **its destruction coefficient.
+In GAMA, adding a weight for a graph is very simple, we use the **as\_edge\_graph** operator with the graph for left-operand and a weight map for the right-operand. A weight contains the weight of each edge: [edge1::weight1, edge2:: weight2,...]. In this model, the weight will be equal to the length of the road (perimeter of the polyline) **its destruction coefficient**.
 ```
     init {
       ...
@@ -48,7 +48,7 @@ In GAMA, adding a weight for a graph is very simple, we use the **as\_edge\_grap
       the_graph <- as_edge_graph(road) with_weights weights_map;
       ...
    }
-```**
+```
 
 
 
