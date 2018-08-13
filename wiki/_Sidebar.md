@@ -85,6 +85,7 @@ wikiPagePath: wiki/_Sidebar.md
 11. [Headless mode](Headless-mode-for-dummies)
 12. [FAQ](FAQ)
 13. [Known Issues](KnownIssues)
+14. [Save and restore Simulations](Save-and-restore-simulations)
 
 ## [GAML References](GamlReference)
 1. [Built-in Species](BuiltInSpecies)
