@@ -2792,6 +2792,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/Save-and-restore-simulations.html": {
+         "title": "",
+         "url": "/wiki/Save-and-restore-simulations.html"
+       }
+        ,
+      
        "/wiki/Save-statement-Save_to_CSV.html": {
          "title": "Save to CSV",
          "url": "/wiki/Save-statement-Save_to_CSV.html"
@@ -3320,52 +3326,90 @@ function search() {
   if (searchTerm) {
      // Initalize lunr with the fields it will be searching on. I've given title
     // a boost of 10 to indicate matches on this field are more important.
-    var idx = lunr.Index.load(json_pages);
-    console.log("FINISHING INDEX");
-    var idx_architectures = lunr.Index.load(json_architectures)
-    console.log("FINISHING INDEX ARCHITECTURES");
-    var idx_constants = lunr.Index.load(json_constants)
-    console.log("FINISHING INDEX CONSTANTS");
-    var idx_literals = lunr.Index.load(json_literals)
-    console.log("FINISHING INDEX LITERALS");
-    var idx_operator = lunr.Index.load(json_operator)
-    console.log("FINISHING INDEX OPERATOR");
-    var idx_skills = lunr.Index.load(json_skills)
-    console.log("FINISHING INDEX SKILLS");
-    var idx_species = lunr.Index.load(json_species)
-    console.log("FINISHING INDEX SPECIES");
-    var idx_statements = lunr.Index.load(json_statements)
-    console.log("FINISHING INDEX STATEMENTS");
-    var idx_types = lunr.Index.load(json_types)
-    console.log("FINISHING INDEX TYPES");
-    var resultsArchitectures = idx_architectures.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH ARCHITECTURES");
-    var resultsConstants = idx_constants.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH CONSTANTS");
-    var resultsLiterals = idx_literals.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH LITERALS");
-    var resultsOperator = idx_operator.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH OPERATOR");
-    var resultsSkills = idx_skills.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH SKILLS");
-    var resultsSpecies = idx_species.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH SPECIES");
-    var resultsStatements = idx_statements.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH STATEMENTS");
-    var resultsTypes = idx_types.search(searchTerm); // Get lunr to perform a search
-    console.log("FINISHING SEARCH TYPES");
-    displaySearchResultsDocumentation(resultsArchitectures,"architecture","BuiltInArchitectures");
-    displaySearchResultsDocumentation(resultsConstants,"constant","UnitsAndConstants");
-    displaySearchResultsDocumentation(resultsLiterals,"literal","Literals");
-    displaySearchResultsDocumentation(resultsOperator,"operator","Operators");
-    displaySearchResultsDocumentation(resultsSkills,"skill","BuiltInSkills");
-    displaySearchResultsDocumentation(resultsSpecies,"species","BuiltInSpecies");
-    displaySearchResultsDocumentation(resultsStatements,"statement","Statements");
-    displaySearchResultsDocumentation(resultsTypes,"type","DataTypes");
+    var idx = null;
+    var idx_architectures = null;
+    var idx_constants = null;
+    var idx_literals = null;
+    var idx_operator = null;
+    var idx_skills = null;
+    var idx_species = null;
+    var idx_statements = null;
+    var idx_types = null;
+
+    if(json_pages!=null)
+    {
+      idx = lunr.Index.load(json_pages);
+      console.log("FINISHING INDEX");
+    }
+    if(json_architectures!=null)
+    {
+      idx_architectures = lunr.Index.load(json_architectures);
+      console.log("FINISHING INDEX ARCHITECTURES");
+      var resultsArchitectures = idx_architectures.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH ARCHITECTURES");
+      displaySearchResultsDocumentation(resultsArchitectures,"architecture","BuiltInArchitectures");
+    }
+    if(json_constants!=null)
+    {
+      idx_constants = lunr.Index.load(json_constants);
+      console.log("FINISHING INDEX CONSTANTS");
+      var resultsConstants = idx_constants.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH CONSTANTS");
+      displaySearchResultsDocumentation(resultsConstants,"constant","UnitsAndConstants");
+    }
+    if(json_literals!=null)
+    {
+      idx_literals = lunr.Index.load(json_literals);
+      console.log("FINISHING INDEX LITERALS");
+      var resultsLiterals = idx_literals.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH LITERALS");
+      displaySearchResultsDocumentation(resultsLiterals,"literal","Literals");
+    }
+    if(json_operator!=null)
+    {
+      idx_operator = lunr.Index.load(json_operator);
+      console.log("FINISHING INDEX OPERATOR");
+      var resultsOperator = idx_operator.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH OPERATOR");
+      displaySearchResultsDocumentation(resultsOperator,"operator","Operators");
+    }
+    if(json_skills!=null)
+    {
+      idx_skills = lunr.Index.load(json_skills);
+      console.log("FINISHING INDEX SKILLS");
+      var resultsSkills = idx_skills.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH SKILLS");
+      displaySearchResultsDocumentation(resultsSkills,"skill","BuiltInSkills");
+    }
+    if(json_species!=null)
+    {
+      idx_species = lunr.Index.load(json_species);
+      console.log("FINISHING INDEX SPECIES");
+      var resultsSpecies = idx_species.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH SPECIES");
+      displaySearchResultsDocumentation(resultsSpecies,"species","BuiltInSpecies");
+    }
+    if(json_statements!=null)
+    {
+      idx_statements = lunr.Index.load(json_statements);
+      console.log("FINISHING INDEX STATEMENTS");
+      var resultsStatements = idx_statements.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH STATEMENTS");
+      displaySearchResultsDocumentation(resultsStatements,"statement","Statements");
+    }
+    if(json_types!=null)
+    {
+      idx_types = lunr.Index.load(json_types);
+      console.log("FINISHING INDEX TYPES");
+      var resultsTypes = idx_types.search(searchTerm); // Get lunr to perform a search
+      console.log("FINISHING SEARCH TYPES");
+      displaySearchResultsDocumentation(resultsTypes,"type","DataTypes");
+    }
+    
     var results = idx.search(searchTerm); // Get lunr to perform a search
     console.log("FINISHING SEARCH IN PAGES");
      displaySearchResults(results,store); // We'll write this in the next section
-     
+
     openRightMenu();
   }
   
