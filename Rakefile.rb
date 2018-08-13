@@ -226,7 +226,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|operator\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"operator_")
-                tmp_index<<{"id"=>strOcc,"title"=>"operator : "+strOcc, "url"=>"/wiki/OperatorsSplitted#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"operator:\s"+strOcc, "url"=>"/wiki/OperatorsSplitted#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.operators.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -236,7 +236,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|architecture\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"architecture_")
-                tmp_index<<{"id"=>strOcc,"title"=>"architecture : "+strOcc, "url"=>"/wiki/BuiltInArchitectures#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"architecture:\s"+strOcc, "url"=>"/wiki/BuiltInArchitectures#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.architectures.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -246,7 +246,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|skill\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"skill_")
-                tmp_index<<{"id"=>strOcc,"title"=>"skill : "+strOcc, "url"=>"/wiki/BuiltInSkills#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"skill:\s"+strOcc, "url"=>"/wiki/BuiltInSkills#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.skills.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -256,7 +256,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|species\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"species_")
-                tmp_index<<{"id"=>strOcc,"title"=>"species : "+strOcc, "url"=>"/wiki/BuiltInSpecies#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"species:\s"+strOcc, "url"=>"/wiki/BuiltInSpecies#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.species.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -266,7 +266,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|type\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"type_")
-                tmp_index<<{"id"=>strOcc,"title"=>"type : "+strOcc, "url"=>"/wiki/DataTypes#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"type:\s"+strOcc, "url"=>"/wiki/DataTypes#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.types.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -276,7 +276,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|concept\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"concept_")
-                tmp_index<<{"id"=>strOcc,"title"=>"concept : "+strOcc, "url"=>"/wiki/Literals#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"concept:\s"+strOcc, "url"=>"/wiki/Literals#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.literals.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -286,7 +286,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|statement\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"statement_")
-                tmp_index<<{"id"=>strOcc,"title"=>"statement : "+strOcc, "url"=>"/wiki/Statements#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"statement:\s"+strOcc, "url"=>"/wiki/Statements#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.statements.json","w") do |f|
                 f.write(tmp_index.to_json)
@@ -296,7 +296,7 @@ def findPages(folder,index)
             tmp_index=[]
             fileContent.scan(/.*(\[\/\/\]:\s\#\s\(keyword\|constant\_.*\))/) do |anOccurence|
                 strOcc = clearFromCharacterForJson(anOccurence,"constant_")
-                tmp_index<<{"id"=>strOcc,"title"=>"constant : "+strOcc, "url"=>"/wiki/UnitsAndConstants#"+strOcc, "content"=>strOcc}
+                tmp_index<<{"id"=>strOcc,"title"=>"constant:\s"+strOcc, "url"=>"/wiki/UnitsAndConstants#"+strOcc, "content"=>strOcc}
             end
             File.open("./indexes/lunr.constants.json","w") do |f|
                 f.write(tmp_index.to_json)
