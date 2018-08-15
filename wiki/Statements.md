@@ -2847,7 +2847,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
   * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
   * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it. Default is true
   * `to` (string): an expression that evaluates to an string, the path to the file, or directly to a file
-  * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image, kml, kmz, gsim}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "gsim", "text" or "csv")
+  * `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image, kml, kmz}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv")
   * `with` (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file 
  	
 #### Definition
