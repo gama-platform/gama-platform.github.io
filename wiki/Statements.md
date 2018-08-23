@@ -1439,7 +1439,7 @@ error 'This is an error raised by ' + self;
 #### Facets 
   
   * **`name`** (an identifier), (omissible) : the type of event captured: can be  "mouse_up", "mouse_down", "mouse_move", "mouse_exit", "mouse_enter" or a character  
-  * **`action`** (26): Either a block of statements to execute in the context of the simulation or the identifier of the action to be executed. This action needs to be defined in 'global' or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location
+  * **`action`** (26): Either a block of statements to execute in the context of the experiment or the identifier of the action to be executed in the context of the simulation. This action needs to be defined in 'global' or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location
   * `type` (string): Type of peripheric used to generate events. Defaults to 'default', which encompasses keyboard and mouse
   * `unused` (an identifier), takes values in: {mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit}: an unused facet that serves only for the purpose of declaring the string values 
  	
