@@ -4823,7 +4823,7 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">synchronized</code> (boolean): Indicates whether the display should be directly synchronized with the simulation</li>
   <li><code class="highlighter-rouge">toolbar</code> (boolean): Indicates whether the top toolbar of the display view should be initially visible or not</li>
   <li><code class="highlighter-rouge">type</code> (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem</li>
-  <li><code class="highlighter-rouge">use_shader</code> (boolean): Under construction…</li>
+  <li><code class="highlighter-rouge">use_shader</code> (boolean): Used to invoke the new OpenGL architecture</li>
   <li><code class="highlighter-rouge">virtual</code> (boolean): Declaring a display as virtual makes it invisible on screen, and only usable for display inheritance</li>
   <li><code class="highlighter-rouge">z_fighting</code> (boolean): Allows to alleviate a problem where agents at the same z would overlap each other in random ways</li>
 </ul>
@@ -5042,7 +5042,7 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">end_arrow</code> (any type in [int, float]): the size of the arrow, located at the end of the drawn geometry</li>
   <li><code class="highlighter-rouge">font</code> (any type in [19, string]): the font used to draw the text, if any. Applying this facet to geometries or images has no effect. You can construct here your font with the operator “font”. ex : font:font(“Helvetica”, 20 , #plain)</li>
   <li><code class="highlighter-rouge">lighted</code> (boolean): Whether the object should be lighted or not (only applicable in the context of opengl displays)</li>
-  <li><code class="highlighter-rouge">material</code> (25): Set a particular material to the object (only if you are in the “use_shader” mode).</li>
+  <li><code class="highlighter-rouge">material</code> (25): Set a particular material to the object (only if you use it in an “opengl2” display).</li>
   <li><code class="highlighter-rouge">perspective</code> (boolean): Whether to render the text in perspective or facing the user. Default is true.</li>
   <li><code class="highlighter-rouge">rotate</code> (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}</li>
   <li><code class="highlighter-rouge">rounded</code> (boolean): specify whether the geometry have to be rounded (e.g. for squares)</li>
