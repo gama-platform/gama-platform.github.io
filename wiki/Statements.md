@@ -1008,7 +1008,7 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
   * `synchronized` (boolean): Indicates whether the display should be directly synchronized with the simulation
   * `toolbar` (boolean): Indicates whether the top toolbar of the display view should be initially visible or not
   * `type` (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem
-  * `use_shader` (boolean): Under construction...
+  * `use_shader` (boolean): Used to invoke the new OpenGL architecture
   * `virtual` (boolean): Declaring a display as virtual makes it invisible on screen, and only usable for display inheritance
   * `z_fighting` (boolean): Allows to alleviate a problem where agents at the same z would overlap each other in random ways 
  	
@@ -1213,7 +1213,7 @@ type_returned_by_action result <- self name_of_action_or_primitive [arg1::expres
   * `end_arrow` (any type in [int, float]): the size of the arrow, located at the end of the drawn geometry
   * `font` (any type in [19, string]): the font used to draw the text, if any. Applying this facet to geometries or images has no effect. You can construct here your font with the operator "font". ex : font:font("Helvetica", 20 , #plain)
   * `lighted` (boolean): Whether the object should be lighted or not (only applicable in the context of opengl displays)
-  * `material` (25): Set a particular material to the object (only if you are in the "use_shader" mode).
+  * `material` (25): Set a particular material to the object (only if you use it in an "opengl2" display).
   * `perspective` (boolean): Whether to render the text in perspective or facing the user. Default is true.
   * `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}
   * `rounded` (boolean): specify whether the geometry have to be rounded (e.g. for squares)
