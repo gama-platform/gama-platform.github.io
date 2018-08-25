@@ -3178,6 +3178,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/UsingNetwork.html": {
+         "title": "Using network",
+         "url": "/wiki/UsingNetwork.html"
+       }
+        ,
+      
        "/wiki/ValidationOfModels.html": {
          "title": "Validation of Models",
          "url": "/wiki/ValidationOfModels.html"
@@ -3516,10 +3522,11 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/ManipulateDates" class="wiki_menu" >Manipulate dates</a></div>
  <div style='padding-left:1em'><a href="/wiki/ManipulateLight" class="wiki_menu" >Manipulate lights</a></div>
  <div style='padding-left:1em'><a href="/wiki/Comodel" class="wiki_menu" >Using comodel</a></div>
+ <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
+ <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
- <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
 <div style='padding-left:0em'></div>
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b><a href="/wiki/GamlReference" class="wiki_menu" >GAML References</a></b><br/>
@@ -4174,27 +4181,29 @@ function closeRightMenu() {
 <hr />
 
 <h2 id="network">network</h2>
+<p>The network skill provides new features to let agents exchange message through network.</p>
 
 <h3 id="variables-8">Variables</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">network_groups</code></strong> (<code class="highlighter-rouge">list</code>): Net ID of the agent</li>
+  <li><strong><code class="highlighter-rouge">network_groups</code></strong> (<code class="highlighter-rouge">list</code>): The set of groups the agent belongs to</li>
   <li><strong><code class="highlighter-rouge">network_name</code></strong> (<code class="highlighter-rouge">string</code>): Net ID of the agent</li>
-  <li><strong><code class="highlighter-rouge">network_server</code></strong> (<code class="highlighter-rouge">list</code>): Net ID of the agent</li>
+  <li><strong><code class="highlighter-rouge">network_server</code></strong> (<code class="highlighter-rouge">list</code>): The list of all the servers to which the agent is connected</li>
 </ul>
 
 <h3 id="actions-8">Actions</h3>
 
 <h4 id="connect"><strong><code class="highlighter-rouge">connect</code></strong></h4>
+<p>Action used by a networking agent to connect to a server or as a server.</p>
 
 <ul>
   <li>returns: void</li>
-  <li><strong><code class="highlighter-rouge">protocol</code></strong> (string): protocol type (udp, tcp, mqqt)</li>
-  <li><strong><code class="highlighter-rouge">port</code></strong> (int): port number</li>
-  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): server nameL</li>
-  <li><strong><code class="highlighter-rouge">login</code></strong> (string): server nameL</li>
-  <li><strong><code class="highlighter-rouge">password</code></strong> (string): server nameL</li>
-  <li><strong><code class="highlighter-rouge">to</code></strong> (string): server URL</li>
+  <li><strong><code class="highlighter-rouge">protocol</code></strong> (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares ‘udp_server’, ‘udp_client’, ‘tcp_server’, ‘tcp_client’, otherwise the MQTT protocol is used.</li>
+  <li><strong><code class="highlighter-rouge">port</code></strong> (int): Port number</li>
+  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): name of the agent on the server</li>
+  <li><strong><code class="highlighter-rouge">login</code></strong> (string): login for the connection to the server</li>
+  <li><strong><code class="highlighter-rouge">password</code></strong> (string): password associated to the login</li>
+  <li><strong><code class="highlighter-rouge">to</code></strong> (string): server URL (localhost or a server URL)</li>
 </ul>
 
 <h4 id="execute"><strong><code class="highlighter-rouge">execute</code></strong></h4>
@@ -4221,7 +4230,7 @@ function closeRightMenu() {
 
 <ul>
   <li>returns: void</li>
-  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): name of the group agent want to leave</li>
+  <li><strong><code class="highlighter-rouge">from</code></strong> (string): name of the group the agent wants to leave</li>
 </ul>
 
 <hr />
