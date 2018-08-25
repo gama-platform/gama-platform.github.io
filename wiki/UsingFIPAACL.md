@@ -11,7 +11,7 @@ wikiPagePath: wiki/UsingFIPAACL.md
 
 The communicating skill offers some actions and built-in variables which enable agents to communicate with each other using the FIPA interaction protocol. This document describes the built-in variables and actions of this skill. Examples are found in the models library bundled with GAMA.
 
-##Variables
+## Variables
 
 * **accept_proposals (list)**: A list of 'accept_proposal' performative messages of the agent's mailbox having .
 * **agrees (list)**: A list of 'accept_proposal' performative messages.
@@ -30,86 +30,86 @@ The communicating skill offers some actions and built-in variables which enable 
 * **subscribes (list)**: A list of 'subscribe' performative messages.
 
 ### Actions
-####accept_proposal
+#### accept_proposal
 Replies a message with an 'accept_proposal' performative message
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####agree
+#### agree
 Replies a message with an 'agree' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####cancel
+#### cancel
 Replies a message with a 'cancel' peformative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####cfp
+#### cfp
 Replies a message with a 'cfp' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####end_conversation
+#### end_conversation
 Replies a message with an 'end_conversation' peprformative message. This message marks the end of a conversation. In a 'no-protocol' conversation, it is the responsible of the modeler to explicitly send this message to mark the end of a conversation/interaction protocol.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####failure
+#### failure
 Replies a message with a 'failure' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####inform
+#### inform
 Replies a message with an 'inform' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####propose
+#### propose
 Replies a message with a 'propose' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####query
+#### query
 Replies a message with a 'query' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####refuse
+#### refuse
 Replies a message with a 'refuse' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####reject_proposal
+#### reject_proposal
 Replies a message with a 'reject_proposal' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####reply
+#### reply
 Replies a message. This action should be only used to reply a message in a 'no-protocol' conversation and with a 'user defined performative'. For performatives supported by GAMA (i.e., standard FIPA performatives), please use the 'action' with the same name of 'performative'. For example, to reply a message with a 'request' performative message, the modeller should use the 'request' action.
 * returns: unknown
 * message (message): The message to be replied
 * performative (string): The performative of the replying message
 * content (list): The content of the replying message
 
-####request
+#### request
 Replies a message with a 'request' performative message.
 * returns: unknown
 * message (message): The message to be replied
 * content (list): The content of the replying message
 
-####send
+#### send
 Starts a conversation/interaction protocol.
 * returns: msi.gaml.extensions.fipa.Message
 * receivers (list): A list of receiver agents
@@ -117,7 +117,7 @@ Starts a conversation/interaction protocol.
 * performative (string): A string, representing the message performative
 * protocol (string): A string representing the name of interaction protocol
 
-####start_conversation
+#### start_conversation
 Starts a conversation/interaction protocol.
 * returns: msi.gaml.extensions.fipa.Message
 * receivers (list): A list of receiver agents
@@ -125,7 +125,7 @@ Starts a conversation/interaction protocol.
 * performative (string): A string, representing the message performative
 * protocol (string): A string representing the name of interaction protocol
 
-####subscribe
+#### subscribe
 Replies a message with a 'subscribe' performative message.
 * returns: unknown
 * message (message): The message to be replied

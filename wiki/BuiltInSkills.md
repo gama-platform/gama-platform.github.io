@@ -526,27 +526,27 @@ moves the agent forward, the distance being computed with respect to its speed a
 
 [//]: # (keyword|skill_network)
 ## network
-
+The network skill provides new features to let agents exchange message through network.
  
 ### Variables
 	   
-  * **`network_groups`** (`list`): Net ID of the agent   
+  * **`network_groups`** (`list`): The set of groups the agent belongs to   
   * **`network_name`** (`string`): Net ID of the agent   
-  * **`network_server`** (`list`): Net ID of the agent 
+  * **`network_server`** (`list`): The list of all the servers to which the agent is connected 
  	
 ### Actions
 	  
 	 
 #### **`connect`**
-
+Action used by a networking agent to connect to a server or as a server.
 
 * returns: void 			
-* **`protocol`** (string): protocol type (udp, tcp, mqqt) 			
-* **`port`** (int): port number 			
-* **`with_name`** (string): server nameL 			
-* **`login`** (string): server nameL 			
-* **`password`** (string): server nameL 			
-* **`to`** (string): server URL  
+* **`protocol`** (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares 'udp_server', 'udp_client', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
+* **`port`** (int): Port number 			
+* **`with_name`** (string): name of the agent on the server 			
+* **`login`** (string): login for the connection to the server 			
+* **`password`** (string): password associated to the login 			
+* **`to`** (string): server URL (localhost or a server URL)  
 	 
 #### **`execute`**
 
@@ -568,7 +568,7 @@ moves the agent forward, the distance being computed with respect to its speed a
 leave a group of agent
 
 * returns: void 			
-* **`with_name`** (string): name of the group agent want to leave
+* **`from`** (string): name of the group the agent wants to leave
     	
 ----
 
