@@ -133,6 +133,11 @@ create cluster_builder returns: clusterer;
 ### Actions
 	  
 	 
+#### **`compact_memory`**
+Forces a 'garbage collect' of the unused objects in GAMA
+* returns: `unknown`
+  
+	 
 #### **`update_outputs`**
 Forces all outputs to refresh, optionally recomputing their values
 * returns: `unknown`
