@@ -490,18 +490,18 @@ social_link set_agent agentA
 ### `set_agent_cause`
 
 #### Possible use: 
-  * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
-  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate`
   * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
-  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion` 
+  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion`
+  * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
+  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate` 
 
 #### Result: 
-change the agentCause value of the given predicate
 change the agentCause value of the given emotion
+change the agentCause value of the given predicate
 
 #### Examples: 
 ```
-predicate set_agent_cause agentA emotion set_agent_cause agentA 
+emotion set_agent_cause agentA predicate set_agent_cause agentA 
 
 ```
   
@@ -749,7 +749,7 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-shape <- triangle(3) set_z [5,10,14]; loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} 
+loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} shape <- triangle(3) set_z [5,10,14]; 
 
 ```
   
@@ -772,8 +772,8 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 
 #### Possible use: 
   *  **`shuffle`** (`matrix`) --->  `matrix`
-  *  **`shuffle`** (`container`) --->  `list`
-  *  **`shuffle`** (`string`) --->  `string` 
+  *  **`shuffle`** (`string`) --->  `string`
+  *  **`shuffle`** (`container`) --->  `list` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -785,8 +785,8 @@ The elements of the operand in random order.
 ```
  
 matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-list var1 <- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
-string var2 <- shuffle ('abc'); // var2 equals 'bac' (for example)
+string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
+list var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
 
 ```
       
@@ -976,9 +976,9 @@ reflex when: since(starting_date) {}  	// this reflex will always be run every(2
   *  **`skeletonize`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 
 #### Examples: 
@@ -1003,8 +1003,8 @@ list<geometry> var3 <- skeletonize(self); // var3 equals the list of geometries 
   *  **`skew`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
 Returns the skew of a data sequence.
+Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
     	
 ----
 
@@ -1326,8 +1326,8 @@ list<geometry> var2 <- to_rectangles(self, {10.0, 15.0}); // var2 equals the lis
   *  **`split_in`** (`list`, `int`, `bool`) --->  `list<list>` 
 
 #### Result: 
-Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound    
+Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound    
 
 
 #### See also: 
@@ -1368,8 +1368,8 @@ list<geometry> var1 <- split_lines([line([{0,10}, {20,10}]), line([{0,10}, {20,1
   *  **`split_using`** (`list`, `msi.gama.util.IList<? extends java.lang.Comparable>`, `bool`) --->  `list<list>` 
 
 #### Result: 
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound    
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound    
 
 
 #### See also: 
@@ -1387,8 +1387,8 @@ Splits a list of numbers into n+1 bins using a set of n bounds passed as the sec
   *  **`split_with`** (`string`, `string`, `bool`) --->  `list` 
 
 #### Result: 
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).  
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.  
 
 #### Comment: 
 Delimiters themselves are excluded from the resulting list.Delimiters themselves are excluded from the resulting list.
@@ -1396,8 +1396,8 @@ Delimiters themselves are excluded from the resulting list.Delimiters themselves
 #### Examples: 
 ```
  
-list var0 <- 'to be or not to be,that is the question' split_with ' ,'; // var0 equals ['to','be','or','not','to','be','that','is','the','question'] 
-list var1 <- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc']
+list var0 <- 'aa::bb:cc' split_with ('::', true); // var0 equals ['aa','bb:cc'] 
+list var1 <- 'to be or not to be,that is the question' split_with ' ,'; // var1 equals ['to','be','or','not','to','be','that','is','the','question']
 
 ```
   
@@ -1408,8 +1408,8 @@ list var1 <- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc']
 ### `sqrt`
 
 #### Possible use: 
-  *  **`sqrt`** (`float`) --->  `float`
-  *  **`sqrt`** (`int`) --->  `float` 
+  *  **`sqrt`** (`int`) --->  `float`
+  *  **`sqrt`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the square root of the operand.
@@ -1672,8 +1672,8 @@ list var2 <- graphEpidemio successors_of node({34,56}); // var2 equals []
 ### `sum`
 
 #### Possible use: 
-  *  **`sum`** (`container`) --->  `unknown`
-  *  **`sum`** (`graph`) --->  `float` 
+  *  **`sum`** (`graph`) --->  `float`
+  *  **`sum`** (`container`) --->  `unknown` 
 
 #### Result: 
 the sum of all the elements of the operand  
@@ -1766,8 +1766,8 @@ Constructs a file of type svg. Allowed extensions are limited to svg
 ### `tan`
 
 #### Possible use: 
-  *  **`tan`** (`float`) --->  `float`
-  *  **`tan`** (`int`) --->  `float` 
+  *  **`tan`** (`int`) --->  `float`
+  *  **`tan`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees).
@@ -1812,8 +1812,8 @@ Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in ra
 ### `tanh`
 
 #### Possible use: 
-  *  **`tanh`** (`float`) --->  `float`
-  *  **`tanh`** (`int`) --->  `float` 
+  *  **`tanh`** (`int`) --->  `float`
+  *  **`tanh`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
@@ -2033,16 +2033,16 @@ list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals t
   *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var2 <- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var0 <- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_squares(self, 10.0, true); // var1 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var2 <- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
   
@@ -2064,8 +2064,8 @@ A list of geometries resulting after spliting the geometry into sub-geometries.
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size 
-list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var1 equals a list of three geometries corresponding to 3 sub-geometries
+list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var0 equals a list of three geometries corresponding to 3 sub-geometries 
+list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size
 
 ```
   
@@ -2322,28 +2322,28 @@ geometry var0 <- triangle(5); // var0 equals a geometry as a triangle with side_
 ### `triangulate`
 
 #### Possible use: 
-  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
   *  **`triangulate`** (`geometry`) --->  `list<geometry>`
+  *  **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
   * `geometry` **`triangulate`** `float` --->  `list<geometry>`
   *  **`triangulate`** (`geometry` , `float`) --->  `list<geometry>`
   *  **`triangulate`** (`geometry`, `float`, `float`) --->  `list<geometry>`
   *  **`triangulate`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
-A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
+A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- triangulate(self,0.1, 1.0); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var1 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var2 <- triangulate(self, 0.1); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var0 <- triangulate(self, 0.1); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var1 <- triangulate(self); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var2 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
 list<geometry> var3 <- triangulate(self,0.1, 1.0); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var4 <- triangulate(self); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list<geometry> var4 <- triangulate(self,0.1, 1.0); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
 ```
   
@@ -2543,7 +2543,7 @@ This operator takes a map [string::value] as argument, displays a dialog asking 
 
 #### Examples: 
 ```
-map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
+map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; 
 
 ```
   
@@ -2608,8 +2608,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance from a standard deviation.
 Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+Returns the variance from a standard deviation.
     	
 ----
 
@@ -2879,24 +2879,24 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 ### `with_precision`
 
 #### Possible use: 
-  * `float` **`with_precision`** `int` --->  `float`
-  *  **`with_precision`** (`float` , `int`) --->  `float`
   * `point` **`with_precision`** `int` --->  `point`
   *  **`with_precision`** (`point` , `int`) --->  `point`
+  * `float` **`with_precision`** `int` --->  `float`
+  *  **`with_precision`** (`float` , `int`) --->  `float`
   * `geometry` **`with_precision`** `int` --->  `geometry`
   *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
-Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
-float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
-float var1 <- 123 with_precision 2; // var1 equals 123.00 
-point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
+point var0 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var0 equals {12345.79, 12345.79, 12345.79} 
+float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
+float var2 <- 123 with_precision 2; // var2 equals 123.00 
 geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 
 ```
@@ -2932,10 +2932,10 @@ predicate with_values ["time"::10]
 ### `with_weights`
 
 #### Possible use: 
-  * `graph` **`with_weights`** `map` --->  `graph`
-  *  **`with_weights`** (`graph` , `map`) --->  `graph`
   * `graph` **`with_weights`** `list` --->  `graph`
-  *  **`with_weights`** (`graph` , `list`) --->  `graph` 
+  *  **`with_weights`** (`graph` , `list`) --->  `graph`
+  * `graph` **`with_weights`** `map` --->  `graph`
+  *  **`with_weights`** (`graph` , `map`) --->  `graph` 
 
 #### Result: 
 returns the graph (left-hand operand) with weight given in the map (right-hand operand).  
