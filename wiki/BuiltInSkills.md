@@ -541,7 +541,7 @@ The network skill provides new features to let agents exchange message through n
 Action used by a networking agent to connect to a server or as a server.
 
 * returns: void 			
-* **`protocol`** (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares 'udp_server', 'udp_client', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
+* **`protocol`** (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares 'udp_server', 'udp_emitter', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
 * **`port`** (int): Port number 			
 * **`with_name`** (string): name of the agent on the server 			
 * **`login`** (string): login for the connection to the server 			
