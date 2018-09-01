@@ -3618,12 +3618,23 @@ function closeRightMenu() {
 
 <h1 id="using-network">Using network</h1>
 
-<p>GAMA provides features to allow agents to communicate with other agents through network and to exchange messages of various types (from simple number to agents). To this purpose, the <code class="highlighter-rouge">network</code> skill should be used on agents intending to use these capabilities.</p>
+<h2 id="introduction">Introduction</h2>
+
+<p>GAMA provides features to allow agents to communicate with other agents (and other applications) through network and to exchange messages of various types (from simple number to agents). To this purpose, the <code class="highlighter-rouge">network</code> skill should be used on agents intending to use these capabilities.</p>
 
 <p>Notice that in this communication, roles are asymetric: the simulations should contain a server and some clients to communicate. Message exchanges are made between agents through this server. 3 protocols are supported (TCP, UDP and MQTT):</p>
 <ul>
   <li><strong>when TCP or UDP protocols are used:</strong> one agent of the simulation is the server and the other ones are the clients.</li>
   <li><strong>when the MQTT protocol is used:</strong> all the agents are clients and the server is an external software. A free solution (ActiveMQ) can be freely downloaded from: http://activemq.apache.org.</li>
+</ul>
+
+<h2 id="which-protocol-to-use-">Which protocol to use ?</h2>
+
+<p>In the GAMA network, 3 kinds of protocol can be used. Each of them has a particular purpose.</p>
+<ul>
+  <li><strong>MQTT</strong>: this is the default protocol that should be used to make agents of various GAMA instances to communicate through a MQTT server (that should be run as an external application, e.g. ActiveMQ that can be downloaded from: http://activemq.apache.org/),</li>
+  <li><strong>UDP</strong>: this protocol should be limited to fast (and unsecured) exchanges of small pieces of data from GAMA to an external application (for example, mouse location from a Processing application to GAMA, c.f. model library),</li>
+  <li><strong>TCP</strong>: this protocol can be used both to communicate between GAMA applications or between GAMA and an external application.</li>
 </ul>
 
 <h2 id="disclaimer">Disclaimer</h2>
@@ -3661,7 +3672,7 @@ As a consequence, when TCP or UDP protocols are used, a model creating a server 
   </li>
   <li><strong>UDP</strong>:
     <ul>
-      <li><strong>protocol</strong>: the 2 possibles keywords are <code class="highlighter-rouge">udp_server</code> or <code class="highlighter-rouge">udp_client</code>, depending on the wanted role of the agent in the communication.</li>
+      <li><strong>protocol</strong>: the 2 possibles keywords are <code class="highlighter-rouge">udp_server</code> or <code class="highlighter-rouge">udp_emitter</code>, depending on the wanted role of the agent in the communication.</li>
       <li><strong>port</strong>: traditionally the port <code class="highlighter-rouge">9876</code> is used.</li>
     </ul>
   </li>
