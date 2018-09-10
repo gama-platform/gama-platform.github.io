@@ -150,7 +150,7 @@ def findResources(folder)
     findResources(File.join(folder,subfolder))
   end
   #copy all the resources files of the folder to the wiki destination folder building the same folder tree 
-  Dir.glob(File.join("#{g('wiki_source')}",folder,"[A-Za-z]*.*")) do |aResource|
+  Dir.glob(File.join("#{g('wiki_source')}",folder,"*.*")) do |aResource|
     FileUtils.chmod(0777, aResource)
     FileUtils.cp_r(aResource,File.join("#{g('wiki_dest')}",folder,File.basename(aResource)))
   end
