@@ -25,18 +25,18 @@ The first one will only check if the existing plugins have any updates available
 
 In general, it is preferable to use the second command, as more options (including that of _desinstalling_ some plugins) are provided. Once invoked, it makes the following dialog appear:
 
-![Window where the user enters the adress of an update site and can choose plugins to install.](resources/images/installationAndLaunching/dialog_install.png)
+![Window where the user enters the address of an update site and can choose plugins to install.](resources/images/installationAndLaunching/dialog_install.png)
 
 GAMA expects the user to enter a so-called _update site_. You can copy and paste the following line (or choose it from the drop-down menu as this address is built inside GAMA):
 ```
 http://updates.gama-platform.org
 ```
 
-GAMA will then scan the entire update site, looking both for new plugins (the example below) and updates to existing plugins. The list available in your installation will of course be different from the one displayed here.
+GAMA will then scan the entire update site, looking both for new plugins (the example below) and updates to existing plugins. The list available in your installation will, of course, be different from the one displayed here.
 
 ![Display of the list of available extensions.](resources/images/installationAndLaunching/dialog_install_2.png)
 
-Choose the ones you want to install (or update) and click "Next...". A summary page will appear, indicating which plugins will actually be installed (since some plugins might require additional plugins to run properly), followed by a license page that you have to accept. GAMA will then proceed to the installation (that can be cancelled any time) of the plugins chosen.
+Choose the ones you want to install (or update) and click "Next...". A summary page will appear, indicating which plugins will actually be installed (since some plugins might require additional plugins to run properly), followed by a license page that you have to accept. GAMA will then proceed to the installation (that can be canceled any time) of the plugins chosen.
 
 During the course of the installation, you might receive the following warning, that you can dismiss by clicking "OK".
 
