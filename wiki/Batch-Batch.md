@@ -24,7 +24,7 @@ A model showing how to use batch experiments to find the best combination of par
 
 Code of the model : 
 
-```
+```php
 
 
 model batch_example
