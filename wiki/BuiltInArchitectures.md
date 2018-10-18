@@ -231,8 +231,8 @@ add the social link to the social link base.
 #### **`add_subintention`**
 adds the predicates is in the desire base.
 * returns: bool 			
-* **`predicate`** (546704): predicate name 			
-* **`subintentions`** (546704): the subintention to add to the predicate 			
+* **`predicate`** (546708): the intention that receives the sub_intention 			
+* **`subintentions`** (546704): the predicate to add as a subintention to the intention 			
 * **`add_as_desire`** (boolean): add the subintention as a desire as well (by default, false)  
 	 
 #### **`add_uncertainty`**
