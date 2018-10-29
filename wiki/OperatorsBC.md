@@ -1169,10 +1169,10 @@ Casts the operand into the type container
 ### `contains`
 
 #### Possible use: 
-  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
-  *  **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool`
   * `string` **`contains`** `string` --->  `bool`
-  *  **`contains`** (`string` , `string`) --->  `bool` 
+  *  **`contains`** (`string` , `string`) --->  `bool`
+  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
+  *  **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
 
 #### Result: 
 true, if the container contains the right operand, false otherwise  
@@ -1181,17 +1181,17 @@ true, if the container contains the right operand, false otherwise
 the contains operator behavior depends on the nature of the operand
 
 #### Special cases:     
+  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a map, contains returns true if the operand is a key of the map    
   * if it is a file, contains returns true it the operand is contained in the file content    
   * if it is a population, contains returns true if the operand is an agent of the population, false otherwise    
   * if it is a graph, contains returns true if the operand is a node or an edge of the graph, false otherwise    
-  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a list or a matrix, contains returns true if the list or matrix contains the right operand 
   
 ```
  
-bool var0 <- [1, 2, 3] contains 2; // var0 equals true 
-bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
+bool var1 <- [1, 2, 3] contains 2; // var1 equals true 
+bool var2 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var2 equals true
 ``` 
 
 
@@ -1199,7 +1199,7 @@ bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
 #### Examples: 
 ```
  
-bool var2 <- 'abcded' contains 'bc'; // var2 equals true
+bool var0 <- 'abcded' contains 'bc'; // var0 equals true
 
 ```
       
@@ -1215,10 +1215,10 @@ bool var2 <- 'abcded' contains 'bc'; // var2 equals true
 ### `contains_all`
 
 #### Possible use: 
-  * `string` **`contains_all`** `list` --->  `bool`
-  *  **`contains_all`** (`string` , `list`) --->  `bool`
   * `container` **`contains_all`** `container` --->  `bool`
-  *  **`contains_all`** (`container` , `container`) --->  `bool` 
+  *  **`contains_all`** (`container` , `container`) --->  `bool`
+  * `string` **`contains_all`** `list` --->  `bool`
+  *  **`contains_all`** (`string` , `list`) --->  `bool` 
 
 #### Result: 
 true if the left operand contains all the elements of the right operand, false otherwise  
@@ -1232,7 +1232,7 @@ the definition of contains depends on the container
   
 ```
  
-bool var0 <- "abcabcabc" contains_all ["ca","xy"]; // var0 equals false
+bool var4 <- "abcabcabc" contains_all ["ca","xy"]; // var4 equals false
 ``` 
 
 
@@ -1240,10 +1240,10 @@ bool var0 <- "abcabcabc" contains_all ["ca","xy"]; // var0 equals false
 #### Examples: 
 ```
  
-bool var1 <- [1,2,3,4,5,6] contains_all [2,4]; // var1 equals true  
-bool var2 <- [1,2,3,4,5,6] contains_all [2,8]; // var2 equals false 
-bool var3 <- [1::2, 3::4, 5::6] contains_all [1,3]; // var3 equals false  
-bool var4 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
+bool var0 <- [1,2,3,4,5,6] contains_all [2,4]; // var0 equals true  
+bool var1 <- [1,2,3,4,5,6] contains_all [2,8]; // var1 equals false 
+bool var2 <- [1::2, 3::4, 5::6] contains_all [1,3]; // var2 equals false  
+bool var3 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
 
 ```
       
