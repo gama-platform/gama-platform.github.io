@@ -1,1 +1,1 @@
-{"version":"2.3.4","fields":["title","content"],"fieldVectors":[["title/nil",[0,2.877,1,1.823]],["content/nil",[1,0.182]]],"invertedIndex":[["concept",{"_index":0,"title":{"nil":{}},"content":{}}],["nil",{"_index":1,"title":{"nil":{}},"content":{"nil":{}}}]],"pipeline":["stemmer"]}
+{"version":"2.3.5","fields":["title","content"],"fieldVectors":[["title/nil",[0,2.877,1,1.823]],["content/nil",[1,0.182]]],"invertedIndex":[["concept",{"_index":0,"title":{"nil":{}},"content":{}}],["nil",{"_index":1,"title":{"nil":{}},"content":{"nil":{}}}]],"pipeline":["stemmer"]}
