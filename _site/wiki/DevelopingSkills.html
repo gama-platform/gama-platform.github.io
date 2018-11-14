@@ -3619,13 +3619,13 @@ function closeRightMenu() {
 
 <h2 id="defining-new-attributes">Defining new attributes</h2>
 
-<p>To add new attributes to the species that declares this skill, developers have to define them before the class using the <a href="DevelopingIndexAnnotations#@vars">@vars</a> and <code class="highlighter-rouge">@var</code> annotations.
-The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@var</code> elements.</p>
+<p>To add new attributes to the species that declares this skill, developers have to define them before the class using the <a href="DevelopingIndexAnnotations#@vars">@vars</a> and <code class="highlighter-rouge">@variable</code> annotations.
+The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@variable</code> elements.</p>
 
-<p>In a <a href="DevelopingIndexAnnotations#@var">@var</a> element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:</p>
+<p>In a <a href="DevelopingIndexAnnotations#@variable">@variable</a> element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({
-  @var(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
-  @var(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
+  @variable(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
+  @variable(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
 })
 </code></pre></div></div>
 
@@ -3692,7 +3692,7 @@ public IPath primGoto(final IScope scope) throws GamaRuntimeException {
   <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the skill</em>.</li>
 </ul>
 
-<h3 id="var">@var</h3>
+<h3 id="variable">@variable</h3>
 <p>This annotations is used to describe a single variable or field.</p>
 
 <p>This annotation contains:</p>

@@ -28,14 +28,14 @@ Note: GAMA annotations are classes defined into the `msi.gama.precompiler.GamlAn
 
 ## Defining new attributes
 
-To add new attributes to the species that declares this skill, developers have to define them before the class using the [@vars](DevelopingIndexAnnotations#@vars) and `@var` annotations.
-The `@vars` annotation contains a set of `@var` elements.
+To add new attributes to the species that declares this skill, developers have to define them before the class using the [@vars](DevelopingIndexAnnotations#@vars) and `@variable` annotations.
+The `@vars` annotation contains a set of `@variable` elements.
 
-In a [@var](DevelopingIndexAnnotations#@var) element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:
+In a [@variable](DevelopingIndexAnnotations#@variable) element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:
 ```
 @vars({
-  @var(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
-  @var(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
+  @variable(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
+  @variable(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
 })
 ```
 
@@ -117,7 +117,7 @@ This annotation contains:
   * **doc** (set of @doc, empty by default): _the documentation associated to the skill_.
 
 
-### @var
+### @variable
 This annotations is used to describe a single variable or field.
 
 This annotation contains:

@@ -257,7 +257,7 @@ It allows to declare a custom validator for Symbols (statements, var declaration
 
 
 
-## @var
+## @variable
 This annotation is used to describe a single variable or field.
 
 This annotation contains:
