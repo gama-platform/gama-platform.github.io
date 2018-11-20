@@ -326,7 +326,7 @@ list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1
   * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
   * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
   * `trace` (any type in [boolean, int]): Allows to aggregate the visualization of agents at each timestep on the display. Default is false. If set to an int value, only the last n-th steps will be visualized. If set to true, no limit of timesteps is applied.
-  * `transparency` (float): the transparency applied to this layer (between 0 and 1, 1 means no transparency) 
+  * `transparency` (float): the transparency applied to this layer between 0 (solid) and 1 (totally transparent) 
  	
 #### Definition
 
