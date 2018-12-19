@@ -73,7 +73,7 @@ Datalist provides you some additional facets you can use. If you want to learn m
 
 As we already said, you can display 3 types of graphs: the histograms, the pies and the series.
 
-The histograms
+The histograms:
 
 
 [TODO]
