@@ -342,12 +342,12 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`date`** (`string`, `string`, `string`) --->  `date` 
 
 #### Result: 
-converts a string to a date following a custom pattern and a specific locale (e.g. 'fr', 'en'...). The pattern can use "%Y %M %N %D %E %h %m %s %z" for parsing years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences 
-converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences 
+converts a string to a date following a custom pattern and a specific locale (e.g. 'fr', 'en'...). The pattern can use "%Y %M %N %D %E %h %m %s %z" for parsing years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 
 #### Examples: 
 ```
-date d <- date("1999-january-30", 'yyyy-MMMM-dd', 'en'); date den <- date("1999-12-30", 'yyyy-MM-dd'); 
+date den <- date("1999-12-30", 'yyyy-MM-dd'); date d <- date("1999-january-30", 'yyyy-MMMM-dd', 'en'); 
 
 ```
   
@@ -425,10 +425,10 @@ int var1 <- graphFromMap degree_of (node(3)); // var1 equals 3
 
 #### Possible use: 
   *  **`dem`** (`file`) --->  `geometry`
-  * `file` **`dem`** `float` --->  `geometry`
-  *  **`dem`** (`file` , `float`) --->  `geometry`
   * `file` **`dem`** `file` --->  `geometry`
   *  **`dem`** (`file` , `file`) --->  `geometry`
+  * `file` **`dem`** `float` --->  `geometry`
+  *  **`dem`** (`file` , `float`) --->  `geometry`
   *  **`dem`** (`file`, `file`, `float`) --->  `geometry` 
 
 #### Result: 
@@ -439,8 +439,8 @@ A polygon that is equivalent to the surface of the texture
  
 geometry var0 <- dem(dem,texture,z_factor); // var0 equals a geometry as a rectangle of width and height equal to the texture. 
 geometry var1 <- dem(dem); // var1 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var2 <- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var3 <- dem(dem,texture); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var2 <- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
 
 ```
   
@@ -608,10 +608,10 @@ float var0 <- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the d
 ### `distance_to`
 
 #### Possible use: 
-  * `point` **`distance_to`** `point` --->  `float`
-  *  **`distance_to`** (`point` , `point`) --->  `float`
   * `geometry` **`distance_to`** `geometry` --->  `float`
-  *  **`distance_to`** (`geometry` , `geometry`) --->  `float` 
+  *  **`distance_to`** (`geometry` , `geometry`) --->  `float`
+  * `point` **`distance_to`** `point` --->  `float`
+  *  **`distance_to`** (`point` , `point`) --->  `float` 
 
 #### Result: 
 A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -725,14 +725,14 @@ map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,
 ### `div`
 
 #### Possible use: 
-  * `float` **`div`** `float` --->  `int`
-  *  **`div`** (`float` , `float`) --->  `int`
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int`
+  * `int` **`div`** `int` --->  `int`
+  *  **`div`** (`int` , `int`) --->  `int`
   * `float` **`div`** `int` --->  `int`
   *  **`div`** (`float` , `int`) --->  `int`
-  * `int` **`div`** `int` --->  `int`
-  *  **`div`** (`int` , `int`) --->  `int` 
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
+  * `float` **`div`** `float` --->  `int`
+  *  **`div`** (`float` , `float`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -745,10 +745,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 #### Examples: 
 ```
  
-int var0 <- 40.1 div 4.5; // var0 equals 8 
-int var1 <- 40 div 4.1; // var1 equals 9 
-int var2 <- 40.5 div 3; // var2 equals 13 
-int var3 <- 40 div 3; // var3 equals 13
+int var0 <- 40 div 3; // var0 equals 13 
+int var1 <- 40.5 div 3; // var1 equals 13 
+int var2 <- 40 div 4.1; // var2 equals 9 
+int var3 <- 40.1 div 4.5; // var3 equals 8
 
 ```
       
@@ -815,14 +815,14 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`unknown`) --->  `unknown`
   *  **`edge`** (`pair`) --->  `unknown`
+  *  **`edge`** (`unknown`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
@@ -1108,15 +1108,15 @@ bool var1 <- even(-12); // var1 equals true
 #### Possible use: 
   *  **`every`** (`any expression`) --->  `bool`
   *  **`every`** (`int`) --->  `bool`
-  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
   * `list` **`every`** `int` --->  `list`
-  *  **`every`** (`list` , `int`) --->  `list` 
+  *  **`every`** (`list` , `int`) --->  `list`
+  * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `msi.gama.util.IList<msi.gama.util.GamaDate>`
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `msi.gama.util.IList<msi.gama.util.GamaDate>` 
 
 #### Result: 
 expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-applies a step to an interval of dates defined by 'date1 to date2'
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
+applies a step to an interval of dates defined by 'date1 to date2'
 true every operand * cycle, false otherwise  
 
 #### Comment: 
@@ -1285,11 +1285,11 @@ geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the far
   *  **`file`** (`string` , `container`) --->  `file` 
 
 #### Result: 
-Creates a file in read/write mode, setting its contents to the container passed in parameter
-opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.  
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
+Creates a file in read/write mode, setting its contents to the container passed in parameter  
 
 #### Comment: 
-The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.
+The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
 
 #### Special cases:     
   * If the specified string does not refer to an existing file, an exception is risen when the variable is used.
@@ -1742,18 +1742,18 @@ gamma_rnd(10.0,5.0)
   *  **`gauss`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-The operator can be used with an operand of type point {meand,standardDeviation}.
 A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.
+The operator can be used with an operand of type point {meand,standardDeviation}.
 
 #### Special cases:     
-  * when the operand is a point, it is read as {mean, standardDeviation}    
-  * when standardDeviation value is 0.0, it always returns the mean value
+  * when standardDeviation value is 0.0, it always returns the mean value    
+  * when the operand is a point, it is read as {mean, standardDeviation}
 
 #### Examples: 
 ```
  
-float var0 <- gauss({0,0.3}); // var0 equals 0.22354 
-float var1 <- gauss(0,0.3); // var1 equals 0.22354
+float var0 <- gauss(0,0.3); // var0 equals 0.22354 
+float var1 <- gauss({0,0.3}); // var1 equals 0.22354
 
 ```
       
@@ -1761,7 +1761,7 @@ float var1 <- gauss(0,0.3); // var1 equals 0.22354
 
 #### See also: 
 
-[truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), [skew_gauss](OperatorsSZ#skew_gauss), 
+[skew_gauss](OperatorsSZ#skew_gauss), [truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), 
     	
 ----
 
@@ -1780,12 +1780,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -1793,7 +1793,7 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 
 #### Examples: 
 ```
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 ```
       
@@ -1831,19 +1831,19 @@ Arguments should include following elements:Arguments should include following e
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); 
 
 ```
       
@@ -1870,21 +1870,21 @@ returns a random small-world network (following Watts-Strogatz model).
 The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
-  * "size": the graph will contain (size + 1) nodes. Size must be greater than k.    
   * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
   * "k": the base degree of each node. k must be greater than 2 and even.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
+  * "size": the graph will contain (size + 1) nodes. Size must be greater than k.    
   * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
   * "k": the base degree of each node. k must be greater than 2 and even.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
 
 ```
       
@@ -1975,7 +1975,6 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 [//]: # (keyword|operator_get)
 ### `get`
-   Same signification as [read](OperatorsNR#read)
 
 #### Possible use: 
   * `geometry` **`get`** `string` --->  `unknown`
@@ -2459,8 +2458,8 @@ get_intentions_with_name_op(self,"has_water")
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`mental_state`) --->  `int`
-  *  **`get_lifetime`** (`predicate`) --->  `int` 
+  *  **`get_lifetime`** (`predicate`) --->  `int`
+  *  **`get_lifetime`** (`mental_state`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -3194,8 +3193,8 @@ has_uncertainty_with_name_op(self,"has_water")
 ### `hexagon`
 
 #### Possible use: 
-  *  **`hexagon`** (`point`) --->  `geometry`
   *  **`hexagon`** (`float`) --->  `geometry`
+  *  **`hexagon`** (`point`) --->  `geometry`
   * `float` **`hexagon`** `float` --->  `geometry`
   *  **`hexagon`** (`float` , `float`) --->  `geometry` 
 
@@ -3213,9 +3212,9 @@ the center of the hexagon is by default the location of the current agent in whi
 #### Examples: 
 ```
  
-geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
+geometry var0 <- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
+geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
 
 ```
       
@@ -3268,8 +3267,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  
@@ -3280,8 +3279,8 @@ h,s and b components should be floating-point values between 0.0 and 1.0 and whe
 #### Examples: 
 ```
  
-rgb var0 <- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0) 
-rgb var1 <- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
+rgb var0 <- hsb (0.0,1.0,1.0); // var0 equals rgb("red") 
+rgb var1 <- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb("cyan",0)
 
 ```
       
