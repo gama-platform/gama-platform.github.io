@@ -1003,8 +1003,8 @@ list<geometry> var3 <- skeletonize(self); // var3 equals the list of geometries 
   *  **`skew`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
 Returns the skew of a data sequence.
+Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
     	
 ----
 
