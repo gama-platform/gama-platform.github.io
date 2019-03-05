@@ -105,6 +105,5 @@ GAMA is developed by several teams under the umbrella of the IRD/UPMC internatio
 * [UMR 5505 IRIT](http://www.irit.fr), CNRS/University of Toulouse 1, France (2010 - 2015)
 * [DREAM Research Team](http://www.cit.ctu.edu.vn), University of Can Tho, Vietnam (2011 - 2015)
 * [UMR 8623 LRI](http://www.lri.fr), CNRS/University Paris-Sud, France (2011 - 2015)
-
   </div>
 </div>
