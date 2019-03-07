@@ -104,4 +104,5 @@ experiment main type: gui {
 Here is the result, with a special colorization of the different elements regarding to the value of the attribute "attrForGama", and an elevation regarding to the value of the attribute "height".
 
 ![images/manipulate_OSM_file_13.png](resources/images/recipes/manipulate_OSM_file_13.png)
+
 [//]: # (endConcept|use_osm_datas)

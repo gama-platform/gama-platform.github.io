@@ -36,8 +36,8 @@ global {
 	float beta <- 0.1; 
 	//Gamma parameter used for the resistance gained by the infectious individuals
 	float gamma <- 0.01;
-	//Size of the neighbours
-	int neighbours_size <- 2;
+	//Size of the neighbors
+	int neighbors_size <- 2;
 	//Total number of individuals
 	int N <- number_S + number_I + number_R;
 	//Number of hosts (for ABM)
@@ -73,7 +73,7 @@ global {
 //Grid that will be used to discretize space
 grid sir_grid width: 50 height: 50 {
 		rgb color <- #black;
-		list<sir_grid> neighbours <- (self neighbors_at neighbours_size) of_species sir_grid;
+		list<sir_grid> neighbors <- (self neighbors_at neighbors_size) of_species sir_grid;
 	}
 	
 //Species host which represents the host of the disease
@@ -90,21 +90,21 @@ species Host {
 	//Location of the agent among the grid
 	sir_grid myPlace;
 	//Count of neighbors infected 
-    int ngb_infected_number function: {self neighbors_at(neighbours_size) count(each.is_infected)};
+    int ngb_infected_number function: {self neighbors_at(neighbors_size) count(each.is_infected)};
 	
 	init {
 		//The location is chosen randomly
 		myPlace <- one_of(sir_grid);
 		location <- myPlace.location;
 	}
-	//Reflex to move the agent in the neighbours cells
+	//Reflex to move the agent in the neighbors cells
 	reflex basic_move {
-		myPlace <- one_of(myPlace.neighbours);
+		myPlace <- one_of(myPlace.neighbors);
 		location <- myPlace.location;
 	}
 	//Reflex to pass the agent to the state infected 
 	reflex become_infected when: is_susceptible {
-			//Probability of being infected according to the number of infected among the neighbours
+			//Probability of being infected according to the number of infected among the neighbors
     		if (flip(1 - (1 - beta)  ^ ngb_infected_number)) {
         		is_susceptible <-  false;
 	            	is_infected <-  true;
@@ -142,7 +142,7 @@ experiment Simulation_ABM_EBM type: gui {
 	parameter 'Number of Removed' type: int var: number_R <- 0 category: "Initial population";
 	parameter 'Beta (S->I)' type: float var: beta <- 0.1 category: "Parameters";
 	parameter 'Gamma (I->R)' type: float var: gamma <- 0.01 category: "Parameters";
-	parameter 'Size of the neighbours' type: int var: neighbours_size <- 1 min: 1 max: 5 category: "Infection";
+	parameter 'Size of the neighbors' type: int var: neighbors_size <- 1 min: 1 max: 5 category: "Infection";
 	output {
 		display sir_display { 
 			grid sir_grid lines: #black;

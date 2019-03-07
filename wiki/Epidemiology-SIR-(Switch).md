@@ -40,7 +40,7 @@ global {
 	
 	int switch_threshold <- 120 ; // threshold for switching models
 	bool local_infection <- true ;
-	int neighbours_range <- 2 ;
+	int neighbors_range <- 2 ;
 	bool local_random_walk <- true ; 
 	
 	
@@ -52,23 +52,23 @@ geometry shape <- square(grid_size);
 
 	float beta_maths;
 	int gridSize <- 1; //size of the grid
-	float neighbourhoodSize <- 1.0; // average size of the neighbourhood (in number of cells)	
+	float neighborhoodSize <- 1.0; // average size of the neighborhood (in number of cells)	
 	float adjust <- 0.721; // to adjust math model to ABM when using random walk
 	bool computeInfectionFromS <- initial_S < initial_I; // if true, use the S list to compute infections. If false, use I list.
 	// the purpose is to minimize the number of evaluation by using the smallest list.
 	
 	init {
 		create new_scheduler;
-		/* determine the size of the neighbourhood and the average count of hosts neighbours */
+		/* determine the size of the neighborhood and the average count of hosts neighbors */
 		gridSize <- length(sir_grid);
 		int nbCells <- 0;
 		
 		loop cell over: sir_grid {
-			nbCells <- nbCells + length(cell.neighbours);
+			nbCells <- nbCells + length(cell.neighbors);
 		}
 
-		neighbourhoodSize <- nbCells / gridSize + 1; // +1 to count itself in the neighbourhood;
-		beta_maths <- beta * neighbourhoodSize * number_Hosts / gridSize * adjust;
+		neighborhoodSize <- nbCells / gridSize + 1; // +1 to count itself in the neighborhood;
+		beta_maths <- beta * neighborhoodSize * number_Hosts / gridSize * adjust;
 		
 		write 'Switch will happen at population sizes around ' +switch_threshold;
 		write 'Basic Reproduction Number (R0): ' + string(beta / delta) + '\n';
@@ -105,14 +105,14 @@ geometry shape <- square(grid_size);
 			self.I <- float(myself.initial_I);
 			self.R <- float(myself.initial_R);
 			self.N <- number_Hosts;
-			self.beta1 <- beta * neighbourhoodSize * (N / gridSize)* adjust;
+			self.beta1 <- beta * neighborhoodSize * (N / gridSize)* adjust;
 			self.alpha <- delta;
 		}
 
 	}
 
 	reflex infection_computation_method {
-	/* computing infection from S has a complexity of S*ngb, where ngb is the size of the neighbourhood.
+	/* computing infection from S has a complexity of S*ngb, where ngb is the size of the neighborhood.
 	 * computing infection from I has a complexity of I*ngb.
 	 * this reflex determine which method has the lowest cost.
 	 * */
@@ -123,7 +123,7 @@ geometry shape <- square(grid_size);
 //Grid which represent the discretized space for the host agents
 	grid sir_grid width: grid_size height: grid_size {
 		rgb color <- #black;
-		list<sir_grid> neighbours <- (self neighbors_at neighbours_range) of_species sir_grid;
+		list<sir_grid> neighbors <- (self neighbors_at neighbors_range) of_species sir_grid;
 	}
 
 
@@ -271,7 +271,7 @@ species Host schedules: [] skills: [moving] {
 	rgb color <- #green;
 	sir_grid myPlace;
 	
-	/* next function computes the number of neighbours of the agent */
+	/* next function computes the number of neighbors of the agent */
 	int ngb_number function: {
 		length(((self) neighbors_at (2)) of_species Host) - 1 // -1 is because the agent counts itself
 	};
@@ -284,8 +284,8 @@ species Host schedules: [] skills: [moving] {
 	//Reflex to move the agents among the cells
 	reflex basic_move {
 		if (!local_random_walk) {
-		/* random walk among neighbours */
-			myPlace <- one_of(myPlace.neighbours);
+		/* random walk among neighbors */
+			myPlace <- one_of(myPlace.neighbors);
 			location <- myPlace.location;
 		} else {
 		/* move agent to a random place anywhere in the grid */
@@ -363,7 +363,7 @@ experiment mysimulation type: gui {
 	parameter 'Delta (I->R)' type: float var: delta <- 0.01 category: "Parameters";	
 	
 	parameter 'Is the infection is computed locally?' type: bool var: local_infection <- true category: "Infection";
-	parameter 'Size of the neighbours' type: int var: neighbours_range <- 2 min:1 max: 5 category: "Infection";
+	parameter 'Size of the neighbors' type: int var: neighbors_range <- 2 min:1 max: 5 category: "Infection";
 
 	parameter 'Local Random Walk' type: bool var: local_random_walk <- true category: "Agents";	
 	

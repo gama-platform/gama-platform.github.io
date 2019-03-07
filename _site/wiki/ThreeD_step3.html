@@ -3617,17 +3617,17 @@ function closeRightMenu() {
 
 <h3 id="cells-update">Cells update</h3>
 
-<p>We add a new reflex to collect the neighbours of the cell that are within a certain distance :</p>
+<p>We add a new reflex to collect the neighbors of the cell that are within a certain distance :</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species cells skills:[moving3D]{
 ...
-reflex computeNeighbours {
-                neighbours &lt;- cells select ((each distance_to self) &lt; 10);
+reflex computeNeighbors {
+                neighbors &lt;- cells select ((each distance_to self) &lt; 10);
         }  	
 }
 </code></pre></div></div>
 
-<p>Then we update the cell aspect as follows. For each elements (cells) of the <strong>neighbours</strong> list we draw a line between this neighbour’s location and the current cell’s location.</p>
+<p>Then we update the cell aspect as follows. For each elements (cells) of the <strong>neighbors</strong> list we draw a line between this neighbor’s location and the current cell’s location.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect default {
   draw sphere(environmentSize*0.01) color:#orange;
   loop pp over: neighbors {

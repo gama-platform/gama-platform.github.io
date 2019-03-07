@@ -77,7 +77,7 @@ species building {
 		draw shape color: #gray depth: height;
 	}
 }
-//Species which represent the people agent moving from one cell to its neighbours
+//Species which represent the people agent moving from one cell to its neighbors
 species people {
 	//Current cell of the agent
 	cell current_cell;

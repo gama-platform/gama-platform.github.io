@@ -3761,8 +3761,8 @@ species speciesC {
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
 	reflex update {
-		list&lt;agent&gt; neighbours &lt;- agents at_distance(5);
-		// neighbours contains the list of all the agents located at a distance &lt;= 5 from the caller agent.
+		list&lt;agent&gt; neighbors &lt;- agents at_distance(5);
+		// neighbors contains the list of all the agents located at a distance &lt;= 5 from the caller agent.
 	}
 }
 </code></pre></div></div>
@@ -3787,11 +3787,11 @@ species other_specie {
 <p>To practice those notions, here is a short basic example. Let’s build a model with a fix number of agents with a circle shape. They can move randomly on the environment, and when they are close enough from another agent, a line is displayed between them. This line is destroyed when the distance between the two agents is too important.
 Hint: use the operator <code class="highlighter-rouge">polyline</code> to construct a line. List the points between angle brackets <code class="highlighter-rouge">[]</code>.</p>
 
-<p><img src="resources/images/manipulateBasicSpecies/connect_the_neighbours.png" alt="images/connect_the_neighbours.png" /></p>
+<p><img src="resources/images/manipulateBasicSpecies/connect_the_neighbors.png" alt="images/connect_the_neighbors.png" /></p>
 
 <p>Here is one example of implementation:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">connect_the_neighbours</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">connect_the_neighbors</span>
 
 <span class="n">global</span><span class="p">{</span>
 	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
@@ -3823,6 +3823,15 @@ Hint: use the operator <code class="highlighter-rouge">polyline</code> to constr
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|operator_polyline)">//</a>: # (endConcept</td>
+      <td>interaction_between_agents)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

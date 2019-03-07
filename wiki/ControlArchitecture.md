@@ -145,6 +145,7 @@ Here a possible result that can be obtained with one dummy agent:
 7:dummy0->state3
 8:dummy0->state2
 ```
+
 [//]: # (endConcept|finite_state_machine)
 
 [//]: # (startConcept|task_based)
@@ -222,6 +223,7 @@ Here the result obtained with one dummy agent:
 5:dummy0->task1
 6:dummy0->task2
 ```
+
 [//]: # (endConcept|task_based)
 
 [//]: # (startConcept|user_control_architecture)
@@ -302,6 +304,7 @@ If no panel is described or if all panels are empty (i.e. no user\_commands), th
 ### user\_controlled
 
 Finally, each agent provided with this architecture inherits a boolean attribute called `user_controlled`. If this attribute becomes false, no panels will be displayed and the agent will run "normally" unless its species is defined with a `user_only` control.
+
 [//]: # (endConcept|user_control_architecture)
 
 ## Other Control Architectures

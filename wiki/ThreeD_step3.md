@@ -28,18 +28,18 @@ In this final step we will display edges between cells that are within a given d
 
 ### Cells update
 
-We add a new reflex to collect the neighbours of the cell that are within a certain distance :
+We add a new reflex to collect the neighbors of the cell that are within a certain distance :
 
 ```
 species cells skills:[moving3D]{
 ...
-reflex computeNeighbours {
-                neighbours <- cells select ((each distance_to self) < 10);
+reflex computeNeighbors {
+                neighbors <- cells select ((each distance_to self) < 10);
         }  	
 }
 ```
 
-Then we update the cell aspect as follows. For each elements (cells) of the **neighbours** list we draw a line between this neighbour's location and the current cell's location.
+Then we update the cell aspect as follows. For each elements (cells) of the **neighbors** list we draw a line between this neighbor's location and the current cell's location.
 ```
 aspect default {
   draw sphere(environmentSize*0.01) color:#orange;

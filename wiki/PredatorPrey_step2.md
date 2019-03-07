@@ -41,7 +41,7 @@ A grid is defined as follows:
 With:
   * width : number of cells along x-axis
   * height : number of cells along y-axis
-  * neighbours : neighborhood type (4 - Von Neumann, 6 - hexagon or 8 - Moore)
+  * neighbors : neighborhood type (4 - Von Neumann, 6 - hexagon or 8 - Moore)
 
 In our model, we define a grid species, called **vegetation\_cell** composed of 50x50 cells and with a Von Neumann neighborhood.
 In order for each grid agents (or cell of the grid) to represent the vegetation, we provide them with four variables:
@@ -52,7 +52,7 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 
 The **update** facet allows to give a behavior to the agents. Indeed, at each simulation step, each agent is activated (by default, in a random order) and first applies for each dynamic variable (in their definition order) its update expression. In the present case, it allows us to link the displayed color of the cell to its food level.
 ```
-   grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+   grid vegetation_cell width: 50 height: 50 neighbors: 4 {
       float maxFood <- 1.0 ;
       float foodProd <- (rnd(1000) / 1000) * 0.01 ;
       float food <- (rnd(1000) / 1000) update: food + foodProd max: maxFood;
@@ -137,7 +137,7 @@ species prey {
 	}
 }
 
-grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+grid vegetation_cell width: 50 height: 50 neighbors: 4 {
 	float maxFood <- 1.0 ;
 	float foodProd <- (rnd(1000) / 1000) * 0.01 ;
 	float food <- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;

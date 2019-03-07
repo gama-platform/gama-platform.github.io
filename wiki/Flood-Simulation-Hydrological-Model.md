@@ -79,7 +79,7 @@ global {
    action init_cells {
       ask cell {
          altitude <- grid_value;
-         neighbour_cells <- (self neighbors_at 1) ;
+         neighbor_cells <- (self neighbors_at 1) ;
       }
    }
    //action to initialize the water cells according to the river shape file and the drain
@@ -141,8 +141,8 @@ global {
       
       //List of cells concerned
       list<cell> cells_concerned ;
-      //List of cells in the neighbourhood 
-      list<cell> cells_neighbours;
+      //List of cells in the neighborhood 
+      list<cell> cells_neighbors;
       
       //Action to compute the water pressure
       float compute_water_pressure {
@@ -150,8 +150,8 @@ global {
          if (height = 0.0) {
             return 0.0;
          } else {
-         	//The leve of the water is equals to the maximul level of water in the neighbours cells
-            float water_level <- cells_neighbours max_of (each.water_height);
+         	//The leve of the water is equals to the maximul level of water in the neighbors cells
+            float water_level <- cells_neighbors max_of (each.water_height);
             //Return the water pressure as the minimal value between 1 and the water level divided by the height
             return min([1.0,water_level / height]);
          } 
@@ -166,8 +166,8 @@ global {
             add myself to: obstacles;
             water_height <- 0.0;
          }
-         //Cells neighbours are all the neighbours cells of the cells concerned
-         cells_neighbours <- cells_concerned + cells_concerned accumulate (each.neighbour_cells);
+         //Cells neighbors are all the neighbors cells of the cells concerned
+         cells_neighbors <- cells_concerned + cells_concerned accumulate (each.neighbor_cells);
          //The height is now computed
       	 do compute_height();
          if (height > 0.0) {   
@@ -229,8 +229,8 @@ global {
       float water_height <- 0.0 min: 0.0;
       //Height of the cell
       float height;
-      //List of the neighbour cells
-      list<cell> neighbour_cells ;
+      //List of the neighbor cells
+      list<cell> neighbor_cells ;
       //Boolean to know if it is a drain cell
       bool is_drain <- false;
       //Boolean to know if it is a river cell
@@ -252,18 +252,18 @@ global {
       }
       //Action to flow the water 
       action flow {
-      	//if the height of the water is higher than 0 then, it can flow among the neighbour cells
+      	//if the height of the water is higher than 0 then, it can flow among the neighbor cells
          if (water_height > 0) {
          	//We get all the cells already done
-            list<cell> neighbour_cells_al <- neighbour_cells where (each.already);
+            list<cell> neighbor_cells_al <- neighbor_cells where (each.already);
             //If there are cells already done then we continue
-            if (!empty(neighbour_cells_al)) {
-               //We compute the height of the neighbours cells according to their altitude, water_height and obstacle_height
-               ask neighbour_cells_al {height <- altitude + water_height + obstacle_height;}
+            if (!empty(neighbor_cells_al)) {
+               //We compute the height of the neighbors cells according to their altitude, water_height and obstacle_height
+               ask neighbor_cells_al {height <- altitude + water_height + obstacle_height;}
                //The height of the cell is equals to its altitude and water height
                height <-  altitude +  water_height;
-               //The water of the cells will flow to the neighbour cells which have a height less than the height of the actual cell
-               list<cell> flow_cells <- (neighbour_cells_al where (height > each.height)) ;
+               //The water of the cells will flow to the neighbor cells which have a height less than the height of the actual cell
+               list<cell> flow_cells <- (neighbor_cells_al where (height > each.height)) ;
                //If there are cells, we compute the water flowing
                if (!empty(flow_cells)) {
                   loop flow_cell over: shuffle(flow_cells) sort_by (each.height){

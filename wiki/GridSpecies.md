@@ -49,7 +49,7 @@ Another facet exists for grid only, very useful. It is the `neighbors` facet, us
 
 ![images/grid_neighbors.png](resources/images/definingAdvancedSpecies/grid_neighbors.png)
 
-A grid can also be provided with specific facets that allows to optimize the computation time and the memory space, such as `use_regular_agents`, `use_indivitual_shapes` and `use_neighbours_cache`. Please refer to the GAML Reference for more explanation about those particular facets.
+A grid can also be provided with specific facets that allows to optimize the computation time and the memory space, such as `use_regular_agents`, `use_indivitual_shapes` and `use_neighbors_cache`. Please refer to the GAML Reference for more explanation about those particular facets.
 
 ## Built-in attributes
 

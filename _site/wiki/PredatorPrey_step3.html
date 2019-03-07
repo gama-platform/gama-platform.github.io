@@ -3639,15 +3639,15 @@ function closeRightMenu() {
 </code></pre></div></div>
 
 <h3 id="vegetation_cell-grid">vegetation_cell grid</h3>
-<p>We add a new variable for the vegetation_cell grid called <strong>neighbours</strong>, that contains for each vegetation cell the list of the neighbor vegetation cells (distance of 2 - Von Neumann neighborhood). We will use these neighbors list for the movement of the prey.</p>
+<p>We add a new variable for the vegetation_cell grid called <strong>neighbors</strong>, that contains for each vegetation cell the list of the neighbor vegetation cells (distance of 2 - Von Neumann neighborhood). We will use these neighbors list for the movement of the prey.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  grid vegetation_cell width: 50 height: 50 neighbors: 4 {
       ...
-      list&lt;vegetation_cell&gt; neighbours &lt;- self neighbours_at 2;
+      list&lt;vegetation_cell&gt; neighbors &lt;- self neighbors_at 2;
    }
 </code></pre></div></div>
 
-<p>Note that the result of the operator <strong>neighbours_at dist</strong> depends on the type of topology of the agent applying this operator:</p>
+<p>Note that the result of the operator <strong>neighbors_at dist</strong> depends on the type of topology of the agent applying this operator:</p>
 <ul>
   <li>For a grid topology (grid species), the operator returns the neighbor cells (with a Von Neumann or Moore neighborhood).</li>
   <li>For a continuous topology, the operator returns the list of agents of which the shape is located at a distance equals or inferior <em>dist</em> meters to the agent shape.</li>
@@ -3685,7 +3685,7 @@ function closeRightMenu() {
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species prey {
    ...
    reflex basic_move { 
-       myCell &lt;- one_of (myCell.neighbours) ;
+       myCell &lt;- one_of (myCell.neighbors) ;
        location &lt;- myCell.location ;
    }
 }
@@ -3763,7 +3763,7 @@ function closeRightMenu() {
 	<span class="p">}</span>
 		
 	<span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span> 
-		<span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">)</span> <span class="p">;</span>
+		<span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="p">;</span>
 		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span>
 	<span class="p">}</span>
 	<span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span> 
@@ -3780,12 +3780,12 @@ function closeRightMenu() {
 	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbours</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
+<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
 	<span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
 	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbours</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbours_at</span> <span class="m">2</span><span class="p">);</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>

@@ -3701,7 +3701,7 @@ For instance, we can have a look at the following example:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>remote_agent.variable
 </code></pre></div></div>
 
-<p>where remote_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighbourhood, the result would be:</p>
+<p>where remote_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighborhood, the result would be:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species animal {
    float energy &lt;- 1000 min: 0 max: 2000 update: energy - 0.001;
@@ -3719,7 +3719,7 @@ For instance, we can have a look at the following example:</p>
        }
    }
    reflex {
-       animal candidates &lt;- agents_overlapping (10 around agent.shape); gathers all the neighbours
+       animal candidates &lt;- agents_overlapping (10 around agent.shape); gathers all the neighbors
        agent_to_feed value: candidates with_min_of (each.energy); //grabs one agent with the lowest energy 
        do feed target: agent_to_feed; // tries to feed it
    }

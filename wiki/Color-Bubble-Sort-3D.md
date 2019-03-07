@@ -89,12 +89,12 @@ species cells{
 	float blue;
 	list<cells> neigbhours update: cells at_distance (1.1);
 	
-	//Update of the neighbours cubes at each cycle of the simulation according to their location
+	//Update of the neighbors cubes at each cycle of the simulation according to their location
 	cells upper_cell_y update: neigbhours first_with (shape.location.y > each.shape.location.y);
 	cells upper_cell_x update: neigbhours first_with (shape.location.x > each.shape.location.x);
 	cells upper_cell_z update: neigbhours first_with (shape.location.z > each.shape.location.z);
 	
-	//We permute the cube agent with its neighbour if its intensity is greater according to the canal related to its axis (z for canal blue, y for green and x for red)
+	//We permute the cube agent with its neighbor if its intensity is greater according to the canal related to its axis (z for canal blue, y for green and x for red)
 	reflex swap_z when: upper_cell_z != nil and blue < upper_cell_z.blue{ 
 		point tmp1Loc <-location;
 		location <- upper_cell_z.location;  

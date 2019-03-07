@@ -125,4 +125,5 @@ species mother {}
 
 species child parent:mother {}
 ```
+
 [//]: # (endConcept|inheritance)

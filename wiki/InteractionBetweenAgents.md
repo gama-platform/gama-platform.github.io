@@ -163,8 +163,8 @@ The operator `at_distance` can be used to know the list of agents that are in a 
 ```
 species my_species {
 	reflex update {
-		list<agent> neighbours <- agents at_distance(5);
-		// neighbours contains the list of all the agents located at a distance <= 5 from the caller agent.
+		list<agent> neighbors <- agents at_distance(5);
+		// neighbors contains the list of all the agents located at a distance <= 5 from the caller agent.
 	}
 }
 ```
@@ -192,12 +192,12 @@ species other_specie {
 To practice those notions, here is a short basic example. Let's build a model with a fix number of agents with a circle shape. They can move randomly on the environment, and when they are close enough from another agent, a line is displayed between them. This line is destroyed when the distance between the two agents is too important.
 Hint: use the operator `polyline` to construct a line. List the points between angle brackets `[]`.
 
-![images/connect_the_neighbours.png](resources/images/manipulateBasicSpecies/connect_the_neighbours.png) 
+![images/connect_the_neighbors.png](resources/images/manipulateBasicSpecies/connect_the_neighbors.png) 
 
 Here is one example of implementation:
 
 ```
-model connect_the_neighbours
+model connect_the_neighbors
 
 global{
 	float speed <- 0.2;
@@ -229,4 +229,5 @@ experiment my_experiment type:gui
 	}
 }
 ```
+
 [//]: # (endConcept|interaction_between_agents)
