@@ -187,6 +187,15 @@ monitor "number of predators" value: nb_predators ;
 ```
 
 
+### display
+Also, do not forget to add the line to display predators in your simulation
+```
+display main_display {
+   ...
+   species predator aspect: icon ;
+}
+```
+
 
 
 
