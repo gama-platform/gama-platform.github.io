@@ -128,4 +128,5 @@ global {} // The world is normally scheduled...
 
 species my_scheduler schedules: [world]; // ... but schedules itself again as a consequence of scheduling the micro-species 'my_scheduler'
 ```
+
 [//]: # (endConcept|runtime_and_schedulers)

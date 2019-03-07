@@ -37,4 +37,5 @@ experiment my_experiment type: gui {
 Other built-ins are available, to learn more about, go to the page **[experiment built-in](ExperimentBuiltIn)**.
 
 In this part, we will focus on the **gui experiments**. We will start with learning how to **[define input parameters](DefiningParameters)**, then we will study the outputs, such as **[displays](DefiningDisplaysGeneralities)**, **[monitors and inspectors](DefiningMonitorsAndInspectors)**, and **[export files](DefiningExportFiles)**. We will finish this part with how to define **[user commands](DefiningUserInteraction)**.
+
 [//]: # (endConcept|gui_experiments)

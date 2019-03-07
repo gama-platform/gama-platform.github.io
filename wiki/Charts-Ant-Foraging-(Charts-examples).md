@@ -107,7 +107,7 @@ species ant skills: [moving] control: fsm {
 		hasFood <- false ;
 		heading <- heading - 180 ;
 	}
-	//Action to chose the best place according to the possible food in the neighbour cells
+	//Action to chose the best place according to the possible food in the neighbor cells
 	action choose_best_place type: ant_grid {
 		list<ant_grid> list_places <- place.neighbors ;
 		if (list_places count (each.food > 0)) > 0  {

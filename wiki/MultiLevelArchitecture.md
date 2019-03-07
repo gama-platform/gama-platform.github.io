@@ -158,6 +158,7 @@ release target:list(micro_species_in_group) as:micro_species in:world;
 
 [//]: # (keyword|statement_migrate)
 The statement `migrate`, less used, permits agents to migrate from one population/species to another population/species and stay in the same host after the migration. Read the GAML Reference to learn more about this statement.
+
 [//]: # (endConcept|multi_level)
 
 ## Example:

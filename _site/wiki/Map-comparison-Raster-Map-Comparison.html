@@ -3630,7 +3630,7 @@ function closeRightMenu() {
 	<span class="n">init</span> <span class="p">{</span>
 		<span class="p">//</span><span class="n">Initialize</span> <span class="n">randomly</span> <span class="n">the</span> <span class="n">category</span> <span class="k">of</span> <span class="n">each</span> <span class="n">cell</span>
 		<span class="n">ask</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">string</span> <span class="n">neigh_cat</span> <span class="p">&lt;-</span><span class="n">one_of</span><span class="p">(</span><span class="n">neighbours</span><span class="p">).</span><span class="n">cat_observed</span><span class="p">;</span>
+			<span class="k">string</span> <span class="n">neigh_cat</span> <span class="p">&lt;-</span><span class="n">one_of</span><span class="p">(</span><span class="n">neighbors</span><span class="p">).</span><span class="n">cat_observed</span><span class="p">;</span>
 			<span class="n">cat_init</span> <span class="p">&lt;-</span> <span class="n">neigh_cat</span> <span class="k">in</span> <span class="n">categories</span> <span class="p">?</span> <span class="n">neigh_cat</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
 			<span class="n">color_init</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat_init</span><span class="p">];</span>
 		<span class="p">}</span>
@@ -3682,7 +3682,7 @@ function closeRightMenu() {
 	<span class="n">rgb</span> <span class="n">color_init</span><span class="p">;</span>
 	<span class="n">rgb</span> <span class="n">color_obs</span><span class="p">;</span>
 	<span class="n">rgb</span> <span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">neighbours</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
 	
 	<span class="n">aspect</span> <span class="n">fuzzy_sim</span> <span class="p">{</span>
 		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_fuzzy</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_fuzzy</span><span class="p">;</span>

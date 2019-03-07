@@ -42,6 +42,7 @@ In the same spirit any attribute of a reference species can be reach using the s
 ```
 int value <- target.attribute1;
 ```
+
 [//]: # (endConcept|mirror_species)
 
 ## Example

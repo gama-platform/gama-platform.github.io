@@ -266,4 +266,5 @@ experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = f
 	method genetic maximize: food_gathered pop_dim: 5 crossover_prob: 0.7 mutation_prob: 0.1 nb_prelim_gen: 1 max_gen: 20; 
 }
 ```
+
 [//]: # (endConcept|exploration_methods)

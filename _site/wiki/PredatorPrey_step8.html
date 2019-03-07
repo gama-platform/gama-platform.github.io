@@ -3657,7 +3657,7 @@ my_var &lt;- action_name (v1, v2);
 </ul>
 
 <h3 id="prey-species">prey species</h3>
-<p>We specialize the <strong>choose_cell</strong> species for the <strong>prey</strong> species: the agent will choose the vegetation cell of the neighborhood (list myCell.neighbours) that maximizes the quantity of food.</p>
+<p>We specialize the <strong>choose_cell</strong> species for the <strong>prey</strong> species: the agent will choose the vegetation cell of the neighborhood (list myCell.neighbors) that maximizes the quantity of food.</p>
 
 <p>Note that GAMA offers numerous operators to manipulate lists and containers:</p>
 <ul>
@@ -3676,18 +3676,18 @@ In the case of binary operators, each element (of the first operand list) can be
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species prey parent: generic_species {
       ...  
       vegetation_cell choose_cell {
-	  return (myCell.neighbours) with_max_of (each.food);
+	  return (myCell.neighbors) with_max_of (each.food);
       }
       ...
    }
 </code></pre></div></div>
 
 <h3 id="predator-species">predator species</h3>
-<p>We specialize the <strong>choose_cell</strong> species for the <strong>predator</strong> species: the agent will choose, if possible, a vegetation cell of the neighborhood (list myCell.neighbours) that contains at least a <strong>prey</strong> agent; otherwise it will choose a random cell.</p>
+<p>We specialize the <strong>choose_cell</strong> species for the <strong>predator</strong> species: the agent will choose, if possible, a vegetation cell of the neighborhood (list myCell.neighbors) that contains at least a <strong>prey</strong> agent; otherwise it will choose a random cell.</p>
 
-<p>We use for this action the <strong>first_with</strong> operator on the list neighbor vegetation cells (myCell.neighbours) with the following condition: the list of <strong>prey</strong> agents contained in the cell is not empty. Note that we use the <strong>shuffle</strong> operator to randomize the order of the list of neighbor cell.</p>
+<p>We use for this action the <strong>first_with</strong> operator on the list neighbor vegetation cells (myCell.neighbors) with the following condition: the list of <strong>prey</strong> agents contained in the cell is not empty. Note that we use the <strong>shuffle</strong> operator to randomize the order of the list of neighbor cell.</p>
 
-<p>If all the neighbor cells are empty (myCell_tmp = nil, <strong>nil</strong> is the null value), then the agent choosse a random cell in the neighborhood (one_of (myCell.neighbours)).</p>
+<p>If all the neighbor cells are empty (myCell_tmp = nil, <strong>nil</strong> is the null value), then the agent choosse a random cell in the neighborhood (one_of (myCell.neighbors)).</p>
 
 <p>GAMA contains statements that allow to execute blocks depending on some conditions:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   if condition1 {...} 
@@ -3702,11 +3702,11 @@ In the case of binary operators, each element (of the first operand list) can be
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species predator parent: generic_species {
       ...
       vegetation_cell choose_cell {
-	  vegetation_cell myCell_tmp &lt;- shuffle(myCell.neighbours) first_with (!(empty (prey inside (each))));
+	  vegetation_cell myCell_tmp &lt;- shuffle(myCell.neighbors) first_with (!(empty (prey inside (each))));
 	  if myCell_tmp != nil {
 		return myCell_tmp;
 	  } else {
-		return one_of (myCell.neighbours);
+		return one_of (myCell.neighbors);
 	  } 
       }
       ...
@@ -3816,7 +3816,7 @@ In the case of binary operators, each element (of the first operand list) can be
 	<span class="p">}</span>
 	
 	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-		<span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
+		<span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 	
@@ -3839,21 +3839,21 @@ In the case of binary operators, each element (of the first operand list) can be
 	<span class="p">}</span>
 	
 	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-		<span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
+		<span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
 </span>		<span class="k">if</span> <span class="n">myCell_tmp</span> <span class="c1">!= nil {
 </span>			<span class="n">return</span> <span class="n">myCell_tmp</span><span class="p">;</span>
 		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">);</span>
+			<span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">);</span>
 		<span class="p">}</span> 
 	<span class="p">}</span>
 <span class="p">}</span>
 	
-<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbours</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
+<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
 	<span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
 	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbours</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbours_at</span> <span class="m">2</span><span class="p">);</span> 
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span> 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>

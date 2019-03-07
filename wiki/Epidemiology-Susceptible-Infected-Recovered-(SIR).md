@@ -39,8 +39,8 @@ global {
 	int numberHosts <- number_S+number_I+number_R;
 	//Boolean to represent if the infection is computed locally
 	bool local_infection <- true parameter: "Is the infection is computed locally?";
-	//Range of the cells considered as neighbours for a cell
-	int neighbours_size <- 2 min:1 max: 5 parameter:"Size of the neighbours";
+	//Range of the cells considered as neighbors for a cell
+	int neighbors_size <- 2 min:1 max: 5 parameter:"Size of the neighbors";
 	
 	float R0 ;
 	geometry shape <- square(50);
@@ -83,7 +83,7 @@ global {
 //Grid used to discretize space 
 grid sir_grid width: 50 height: 50 use_individual_shapes: false use_regular_agents: false frequency: 0{
 	rgb color <- #black;
-	list<sir_grid> neighbours <- (self neighbors_at neighbours_size) ;       
+	list<sir_grid> neighbors <- (self neighbors_at neighbors_size) ;       
 }
 
 //Species host which represent the Host of the disease
@@ -102,7 +102,7 @@ species Host  {
     }     
     //Reflex to make the agent move   
     reflex basic_move {
-    	myPlace <- one_of (myPlace.neighbours) ;
+    	myPlace <- one_of (myPlace.neighbors) ;
         location <- myPlace.location;
     }
     //Reflex to make the agent infected if it is susceptible
@@ -112,7 +112,7 @@ species Host  {
     	if(local_infection) {
     		int nb_hosts  <- 0;
     		int nb_hosts_infected  <- 0;
-    		loop hst over: ((myPlace.neighbours + myPlace) accumulate (Host overlapping each)) {
+    		loop hst over: ((myPlace.neighbors + myPlace) accumulate (Host overlapping each)) {
     			nb_hosts <- nb_hosts + 1;
     			if (hst.is_infected) {nb_hosts_infected <- nb_hosts_infected + 1;}
     		}
@@ -158,7 +158,7 @@ experiment Simulation type: gui {
 	parameter "Mortality" var:nu ;	// The parameter Nu
 	parameter "Delta (I->R)" var: delta; // The parameter Delta
 	parameter "Is the infection is computed locally?" var:local_infection ;
-	parameter "Size of the neighbours" var:neighbours_size ;
+	parameter "Size of the neighbors" var:neighbors_size ;
  	output { 
 	    display sir_display {
 	        grid sir_grid lines: #black;

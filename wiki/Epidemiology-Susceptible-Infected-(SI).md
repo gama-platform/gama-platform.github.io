@@ -31,7 +31,7 @@ global {
 	float nu <- 0.001 ;	// The parameter Nu
 	int numberHosts <- number_S+number_I; //Total number of hosts
 	bool local_infection <- true ; //Infection spread locally or not
-	int neighbours_size <- 2 ; //Size of the neighbourhood
+	int neighbors_size <- 2 ; //Size of the neighborhood
 	geometry shape <- square(50);
 	init { 
 		//Creation of all the susceptible hosts
@@ -58,7 +58,7 @@ global {
 //Grid to discretize space
 grid si_grid width: 50 height: 50 use_individual_shapes: false use_regular_agents: false frequency: 0{
 	rgb color <- #black;
-	list<si_grid> neighbours <- (self neighbors_at neighbours_size) ;       
+	list<si_grid> neighbors <- (self neighbors_at neighbors_size) ;       
 }
 //Species host which represent the possible hosts of a disease
 species Host  {
@@ -75,9 +75,9 @@ species Host  {
     	myPlace <- one_of (si_grid as list);
     	location <- myPlace.location;
     }        
-    //Reflex to move the agents in its neighbourhood
+    //Reflex to move the agents in its neighborhood
     reflex basic_move {
-    	myPlace <- one_of (myPlace.neighbours) ;
+    	myPlace <- one_of (myPlace.neighbors) ;
         location <- myPlace.location;
     }
     //Reflex to infect the agent if it is susceptible and according to the other infected agents
@@ -86,7 +86,7 @@ species Host  {
     	if(local_infection) {
     		int nb_hosts <- 0;
     		int nb_hosts_infected <- 0;
-    		loop hst over: ((myPlace.neighbours + myPlace) accumulate (Host overlapping each)) {
+    		loop hst over: ((myPlace.neighbors + myPlace) accumulate (Host overlapping each)) {
     			nb_hosts <- nb_hosts + 1;
     			if (hst.is_infected) {
     				nb_hosts_infected <- nb_hosts_infected + 1;
@@ -125,7 +125,7 @@ experiment Simulation type: gui {
 	parameter "Beta (S->I)" var:beta; 	// The parameter Beta
 	parameter "Mortality" var:nu ;	// The parameter Nu
 	parameter "Is the infection is computed locally?" var:local_infection ;
-	parameter "Size of the neighbours" var:neighbours_size ;
+	parameter "Size of the neighbors" var:neighbors_size ;
 	
  	output { 
 	    display si_display {

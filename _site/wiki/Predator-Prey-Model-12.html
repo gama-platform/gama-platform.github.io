@@ -3726,7 +3726,7 @@ function closeRightMenu() {
 	<span class="p">}</span>
 	
 	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-		<span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
+		<span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 	
@@ -3749,11 +3749,11 @@ function closeRightMenu() {
 	<span class="p">}</span>
 	
 	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-		<span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
+		<span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
 </span>		<span class="k">if</span> <span class="n">myCell_tmp</span> <span class="c1">!= nil {
 </span>			<span class="n">return</span> <span class="n">myCell_tmp</span><span class="p">;</span>
 		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbours</span><span class="p">);</span>
+			<span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">);</span>
 		<span class="p">}</span> 
 	<span class="p">}</span>
 <span class="p">}</span>
@@ -3763,7 +3763,7 @@ function closeRightMenu() {
 	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
 	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
 	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbours</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span> 
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span> 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>

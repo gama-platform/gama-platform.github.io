@@ -47,16 +47,16 @@ Yet we may allow the user to change it from an experiment to another through the
 ```
 
 ### vegetation\_cell grid
-We add a new variable for the vegetation\_cell grid called **neighbours**, that contains for each vegetation cell the list of the neighbor vegetation cells (distance of 2 - Von Neumann neighborhood). We will use these neighbors list for the movement of the prey.
+We add a new variable for the vegetation\_cell grid called **neighbors**, that contains for each vegetation cell the list of the neighbor vegetation cells (distance of 2 - Von Neumann neighborhood). We will use these neighbors list for the movement of the prey.
 
 ```
-  grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+  grid vegetation_cell width: 50 height: 50 neighbors: 4 {
       ...
-      list<vegetation_cell> neighbours <- self neighbours_at 2;
+      list<vegetation_cell> neighbors <- self neighbors_at 2;
    }
 ```
 
-Note that the result of the operator **neighbours\_at dist** depends on the type of topology of the agent applying this operator:
+Note that the result of the operator **neighbors\_at dist** depends on the type of topology of the agent applying this operator:
   * For a grid topology (grid species), the operator returns the neighbor cells (with a Von Neumann or Moore neighborhood).
   * For a continuous topology, the operator returns the list of agents of which the shape is located at a distance equals or inferior _dist_ meters to the agent shape.
 
@@ -96,7 +96,7 @@ We define a first reflex called **basic\_move** that allows the prey agents to c
 species prey {
    ...
    reflex basic_move { 
-       myCell <- one_of (myCell.neighbours) ;
+       myCell <- one_of (myCell.neighbors) ;
        location <- myCell.location ;
    }
 }
@@ -179,7 +179,7 @@ species prey {
 	}
 		
 	reflex basic_move { 
-		myCell <- one_of (myCell.neighbours) ;
+		myCell <- one_of (myCell.neighbors) ;
 		location <- myCell.location ;
 	}
 	reflex eat when: myCell.food > 0 { 
@@ -196,12 +196,12 @@ species prey {
 	}
 }
 
-grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+grid vegetation_cell width: 50 height: 50 neighbors: 4 {
 	float maxFood <- 1.0 ;
 	float foodProd <- (rnd(1000) / 1000) * 0.01 ;
 	float food <- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;
 	rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 *(1 - food))) ;
-	list<vegetation_cell> neighbours  <- (self neighbours_at 2);
+	list<vegetation_cell> neighbors  <- (self neighbors_at 2);
 }
 
 experiment prey_predator type: gui {

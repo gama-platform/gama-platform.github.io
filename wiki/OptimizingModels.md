@@ -222,4 +222,5 @@ display city_display_opengl type: opengl{
      species people aspect: base;
 }
 ```
+
 [//]: # (endConcept|optimizing_tips)

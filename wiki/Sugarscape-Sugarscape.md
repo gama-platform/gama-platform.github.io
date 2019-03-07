@@ -72,12 +72,12 @@ global {
 		//Sugar contained in thecell
 		int sugar update: sugar + sugarGrowthRate max: maxSugar;
 		rgb color update: [#white,FFFFAA,FFFF55,#yellow,dark_yellow] at sugar;
-		map<int,list<sugar_cell>> neighbours;
+		map<int,list<sugar_cell>> neighbors;
 		
-		//Initialization of the neighbours
+		//Initialization of the neighbors
 		init {
 			loop i from: 1 to: maxRange {
-				neighbours[i] <- self neighbors_at i; 
+				neighbors[i] <- self neighbors_at i; 
 			}
 		}
 	}	
@@ -113,10 +113,10 @@ species animal {
 	reflex basic_move { 
 		sugar <- sugar + place.sugar;
 		place.sugar <- 0;
-		list<sugar_cell> neighbours <- place.neighbours[vision];
-		list<sugar_cell> poss_targets <- (neighbours) where (each.sugar > 0);
-		//If no sugar is found in the neighbours cells, move randomly
-		place <- empty(poss_targets) ? one_of (neighbours) : one_of (poss_targets);
+		list<sugar_cell> neighbors <- place.neighbors[vision];
+		list<sugar_cell> poss_targets <- (neighbors) where (each.sugar > 0);
+		//If no sugar is found in the neighbors cells, move randomly
+		place <- empty(poss_targets) ? one_of (neighbors) : one_of (poss_targets);
 		location <- place.location;
 	}
 	//Reflex to kill the animal once it reaches its maximal age or it doesn't have sugar anymore

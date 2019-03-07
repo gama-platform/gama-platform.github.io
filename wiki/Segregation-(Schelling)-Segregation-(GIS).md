@@ -43,16 +43,16 @@ global {
 	float percent_similar_wanted <- 0.5 min: float (0) max: float (1) parameter: "Desired percentage of similarity:" category: "Population";
 	//Dimension of the grid
 	int dimensions <- 40 max: 400 min: 10 parameter: "Width and height of the environment:" category: "Environment";
-	//Neighbours distance for the perception of the agents
-	int neighbours_distance <- 2 max: 10 min: 1 parameter: "Distance of perception:" category: "Population";
+	//Neighbors distance for the perception of the agents
+	int neighbors_distance <- 2 max: 10 min: 1 parameter: "Distance of perception:" category: "Population";
 	//Number of people agents
 	int number_of_people <- 0;
 	//Number of happy people
 	int sum_happy_people <- 0 update: all_people count (each.is_happy);
-	//Number of similar neighbours
-	int sum_similar_neighbours <- 0 update: sum (all_people collect each.similar_nearby);
-	//Number of neighbours
-	int sum_total_neighbours <- 1 update: sum (all_people collect each.total_nearby) min: 1;
+	//Number of similar neighbors
+	int sum_similar_neighbors <- 0 update: sum (all_people collect each.similar_nearby);
+	//Number of neighbors
+	int sum_total_neighbors <- 1 update: sum (all_people collect each.total_nearby) min: 1;
 	//List of all the places
 	list<agent> all_places;
 	//List of all the people
@@ -61,7 +61,7 @@ global {
 	//Action to write the description of the model in the console
 	action description {
 		write
-		"\\n\\u25B6 Description. \\n\\u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.\\n\\u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbours is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighbourhood that fits their desire. \\n\\u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbours) of the agents to see how it affects the global process. ";
+		"\\n\\u25B6 Description. \\n\\u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.\\n\\u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbors is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighborhood that fits their desire. \\n\\u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbors) of the agents to see how it affects the global process. ";
 	}
 	//Initialization of the model
 	init {
@@ -83,15 +83,15 @@ global {
 //Species base representing the people agents
 species base {
 	rgb color;
-	//List of all the neighbours agents
-	list<base> my_neighbours;
-	//computation of the similar neighbours
+	//List of all the neighbors agents
+	list<base> my_neighbors;
+	//computation of the similar neighbors
 	int similar_nearby -> {
-		(my_neighbours count (each.color = color))
+		(my_neighbors count (each.color = color))
 	};
-	//Computation of the total neighbours nearby
+	//Computation of the total neighbors nearby
 	int total_nearby -> {
-		length (my_neighbours)
+		length (my_neighbors)
 	};
 	//Boolean to know if the agent is happy or not
 	bool is_happy -> {similar_nearby >= (percent_similar_wanted * total_nearby )} ;
@@ -112,8 +112,8 @@ global {
 	list<space> free_places  ;  
 	//List of all the places
 	list<space> all_places ;
-	//Neighbours distance for the perception of an agent
-	int neighbours_distance <- 50 min: 1 parameter: "Distance of perception:" category: "Population" max: 1000;
+	//Neighbors distance for the perception of an agent
+	int neighbors_distance <- 50 min: 1 parameter: "Distance of perception:" category: "Population" max: 1000;
 	//Shapefile to load
 	file shape_file_name <- file("../gis/nha2.shp") parameter: "Shapefile to load:" category: "GIS specific";
 	//Shape of the environment
@@ -151,8 +151,8 @@ species people parent: base {
 	int blue const: true <- (color as list) at 2;  
 	//Building in which the agent lives
 	space current_building <- nil;
-	//List of all the neighbour people agents
-	list<people> my_neighbours -> {people at_distance neighbours_distance}; 
+	//List of all the neighbor people agents
+	list<people> my_neighbors -> {people at_distance neighbors_distance}; 
 	
 	//Action to move to a new place
 	action move_to_new_place {  
@@ -225,7 +225,7 @@ experiment schelling type: gui {
 			}
 			chart "Global happiness and similarity" type: series background: #lightgray axes: #white position: {0,0.5} size: {1.0,0.5} {
 				data "happy" color: #blue value:  ((sum_happy_people * 100) / number_of_people)  style: spline ;
-				data "similarity" color: #red value:  (sum_similar_neighbours / sum_total_neighbours) * 100 style: step ;
+				data "similarity" color: #red value:  (sum_similar_neighbors / sum_total_neighbors) * 100 style: step ;
 			}
 		}
 	}

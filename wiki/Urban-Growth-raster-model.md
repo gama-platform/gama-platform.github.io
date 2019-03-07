@@ -161,9 +161,9 @@ grid plot file: asc_grid use_individual_shapes: false use_regular_agents: false 
 	//Action to compute the constructability of the plot cell
 	float compute_constructability
 	{
-		//Get all the neighbours plots
+		//Get all the neighbors plots
 		list<plot> voisins <- (self neighbors_at density_radius);
-		//Compute the density of all the neighbours plots
+		//Compute the density of all the neighbors plots
 		float densite <- (voisins count (each.grid_value = 1.0)) / length(voisins);
 		return (densite * weight_density + dist_route * weight_road_dist + dist_cv * weight_cc_dist) / (weight_density + weight_road_dist + weight_cc_dist);
 	}			

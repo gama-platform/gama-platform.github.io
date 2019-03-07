@@ -59,7 +59,7 @@ species people skills: [moving] {
 	}
 	
 	reflex move when: location != target{
-		//Neighs contains all the neighbours cells that are reachable by the agent plus the cell where it's located
+		//Neighs contains all the neighbors cells that are reachable by the agent plus the cell where it's located
 		list<cell> neighs <- (cell(location) neighbors_at speed) + cell(location); 
 		
 		//We restrain the movements of the agents only at the grid of cells that are not obstacle using the on facet of the goto operator and we return the path

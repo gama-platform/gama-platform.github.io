@@ -83,7 +83,7 @@ When an expression needs to get access to the attribute of an agent which does n
 remote_agent.variable
 ```
 
-where remote\_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighbourhood, the result would be:
+where remote\_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighborhood, the result would be:
 
 ```
 species animal {
@@ -102,7 +102,7 @@ species animal {
        }
    }
    reflex {
-       animal candidates <- agents_overlapping (10 around agent.shape); gathers all the neighbours
+       animal candidates <- agents_overlapping (10 around agent.shape); gathers all the neighbors
        agent_to_feed value: candidates with_min_of (each.energy); //grabs one agent with the lowest energy 
        do feed target: agent_to_feed; // tries to feed it
    }

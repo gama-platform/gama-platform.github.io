@@ -47,7 +47,7 @@ global {
 	init {
 		//Initialize randomly the category of each cell
 		ask shuffle(cell) {
-			string neigh_cat <-one_of(neighbours).cat_observed;
+			string neigh_cat <-one_of(neighbors).cat_observed;
 			cat_init <- neigh_cat in categories ? neigh_cat : one_of(categories);
 			color_init <- color_cat[cat_init];
 		}
@@ -99,7 +99,7 @@ grid cell width: 50 height: 50 {
 	rgb color_init;
 	rgb color_obs;
 	rgb color_fuzzy <- #white;
-	list<cell> neighbours <- self neighbors_at 1;
+	list<cell> neighbors <- self neighbors_at 1;
 	
 	aspect fuzzy_sim {
 		draw shape color:color_fuzzy border: color_fuzzy;

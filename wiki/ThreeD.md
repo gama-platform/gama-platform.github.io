@@ -27,4 +27,4 @@ This tutorial is composed of 3 steps corresponding to 3 models. For each step we
 
   1. [Basic model](ThreeD_step1)
   1. [Moving cells](ThreeD_step2)
-  1. [Moving cells with neighbours](ThreeD_step3)
+  1. [Moving cells with neighbors](ThreeD_step3)

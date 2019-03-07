@@ -87,4 +87,5 @@ experiment MyExperiment type: gui {
 ```
 
 ![images/parameter3.png](resources/images/definingGUIExperiment/parameter3.png)
+
 [//]: # (endConcept|define_parameters)

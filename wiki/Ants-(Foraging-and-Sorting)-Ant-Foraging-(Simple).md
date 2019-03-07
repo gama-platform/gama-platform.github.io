@@ -81,7 +81,7 @@ global {
 grid ant_grid width: gridsize height: gridsize neighbors: 8 {
 	bool isNestLocation  <- ( self distance_to center ) < 4;
 	bool isFoodLocation <-  types[grid_x , grid_y] = 2;       
-	list<ant_grid> neighbours <- self neighbors_at 1;  
+	list<ant_grid> neighbors <- self neighbors_at 1;  
 	float road <- 0.0 max:240.0 update: (road<=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
 	rgb color <- rgb([ self.road > 15 ? 255 : ( isNestLocation ? 125 : 0 ) , self.road * 30 , self.road > 15 ? 255 : food * 50 ]) update: rgb([ self.road > 15 ? 255 : ( isNestLocation ? 125 : 0 ) ,self.road * 30 , self.road > 15 ? 255 : food * 50 ]); 
 	int food <- isFoodLocation ? 5 : 0; 
@@ -105,7 +105,7 @@ species ant skills: [ moving ] {
 	}
 	//Reflex to search food when the agent has no food nor pheromon road close
 	reflex looking when: ( ! hasFood ) and ( hasRoad ) and ( place . food = 0 ) { 
-		list<ant_grid> list_places <- place . neighbours;
+		list<ant_grid> list_places <- place . neighbors;
 		ant_grid goal <- list_places first_with ( each . food > 0 );
 		if goal != nil {
 			location <- goal.location ; 

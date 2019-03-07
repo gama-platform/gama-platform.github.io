@@ -193,7 +193,7 @@ species prey parent: generic_species {
 	}
 	
 	vegetation_cell choose_cell {
-		return (myCell.neighbours) with_max_of (each.food);
+		return (myCell.neighbors) with_max_of (each.food);
 	}
 }
 	
@@ -216,21 +216,21 @@ species predator parent: generic_species {
 	}
 	
 	vegetation_cell choose_cell {
-		vegetation_cell myCell_tmp <- shuffle(myCell.neighbours) first_with (!(empty (prey inside (each))));
+		vegetation_cell myCell_tmp <- shuffle(myCell.neighbors) first_with (!(empty (prey inside (each))));
 		if myCell_tmp != nil {
 			return myCell_tmp;
 		} else {
-			return one_of (myCell.neighbours);
+			return one_of (myCell.neighbors);
 		} 
 	}
 }
 	
-grid vegetation_cell width: 50 height: 50 neighbours: 4 {
+grid vegetation_cell width: 50 height: 50 neighbors: 4 {
 	float maxFood <- 1.0 ;
 	float foodProd <- (rnd(1000) / 1000) * 0.01 ;
 	float food <- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;
 	rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 *(1 - food))) ;
-	list<vegetation_cell> neighbours  <- (self neighbours_at 2); 
+	list<vegetation_cell> neighbors  <- (self neighbors_at 2); 
 }
 
 experiment prey_predator type: gui {

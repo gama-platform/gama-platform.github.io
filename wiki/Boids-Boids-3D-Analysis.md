@@ -103,43 +103,43 @@ global torus: torus_environment{
 		create aggregatedboids;
 	}
 	
-	//Reflex to create flock of boids considering the neighbours of each boids 
+	//Reflex to create flock of boids considering the neighbors of each boids 
 	 reflex create_flocks {
 	 	if create_flock {
-	 		//Create a map using a boid agent as a key and the list of all its neighbours as the value for the key
-	 		map<boids, list<boids>> potentialBoidsNeighboursMap;
+	 		//Create a map using a boid agent as a key and the list of all its neighbors as the value for the key
+	 		map<boids, list<boids>> potentialBoidsNeighborsMap;
 	 		
 	 		//Search all the boids within the two boids distance from a boid agent and put them in the map
 	 		loop one_boids over: boids {
-	 			list<boids> free_neighbours <- boids overlapping (one_boids.shape + (two_boids_distance));
-	 			remove one_boids from: free_neighbours;  
+	 			list<boids> free_neighbors <- boids overlapping (one_boids.shape + (two_boids_distance));
+	 			remove one_boids from: free_neighbors;  
 
-	 			if !(empty (free_neighbours)) {
-	 				add (one_boids::free_neighbours) to: potentialBoidsNeighboursMap;
+	 			if !(empty (free_neighbors)) {
+	 				add (one_boids::free_neighbors) to: potentialBoidsNeighborsMap;
 	 			} 
 	 		}
 	 		
-	 		//Sorting of all the boids considered as key in the map by the length of their neighbours
-	 		list<boids> sorted_free_boids <- (potentialBoidsNeighboursMap.keys) sort_by (length (potentialBoidsNeighboursMap at each));
-	 		//Removing of all the boids which has been considered as a key of the map, but  which are already included in a bigger list of neighbours by one of them neighbours
+	 		//Sorting of all the boids considered as key in the map by the length of their neighbors
+	 		list<boids> sorted_free_boids <- (potentialBoidsNeighborsMap.keys) sort_by (length (potentialBoidsNeighborsMap at each));
+	 		//Removing of all the boids which has been considered as a key of the map, but  which are already included in a bigger list of neighbors by one of them neighbors
 	 		loop one_boids over: sorted_free_boids {
-	 			list<boids> one_boids_neighbours <- potentialBoidsNeighboursMap at one_boids;
+	 			list<boids> one_boids_neighbors <- potentialBoidsNeighborsMap at one_boids;
 	 			
-	 			if  (one_boids_neighbours != nil) {
-	 				loop one_neighbour over: one_boids_neighbours {
-	 					remove one_neighbour from: potentialBoidsNeighboursMap; 
+	 			if  (one_boids_neighbors != nil) {
+	 				loop one_neighbor over: one_boids_neighbors {
+	 					remove one_neighbor from: potentialBoidsNeighborsMap; 
 	 				}
 	 			}
 	 		}
-	 		//Remove all the duplicates key of potentialBoidsNeighboursMap
-		 	list<boids> boids_neighbours <- (potentialBoidsNeighboursMap.keys);
-		 	loop one_key over: boids_neighbours {
-		 		put (remove_duplicates (( potentialBoidsNeighboursMap at (one_key)) + one_key)) at: one_key in: potentialBoidsNeighboursMap;
+	 		//Remove all the duplicates key of potentialBoidsNeighborsMap
+		 	list<boids> boids_neighbors <- (potentialBoidsNeighborsMap.keys);
+		 	loop one_key over: boids_neighbors {
+		 		put (remove_duplicates (( potentialBoidsNeighborsMap at (one_key)) + one_key)) at: one_key in: potentialBoidsNeighborsMap;
 		 	}
 		 	
-		 	//Create a flock of boids considering the key of potentialBoidsNeighboursMap
-		 	loop one_key over: (potentialBoidsNeighboursMap.keys) {
-		 		list<boids> micro_agents <- potentialBoidsNeighboursMap at one_key;
+		 	//Create a flock of boids considering the key of potentialBoidsNeighborsMap
+		 	loop one_key over: (potentialBoidsNeighborsMap.keys) {
+		 		list<boids> micro_agents <- potentialBoidsNeighborsMap at one_key;
 		 			
 		 		if ( (length (micro_agents)) > 1 ) {
 		 			create flock number: 1 with: [ color::rgb([rnd (255), rnd (255), rnd (255)]) ] { 
@@ -275,16 +275,16 @@ species aggregatedboids{
 species boids skills: [moving] {
 	//Speed of the agent
 	float speed max: maximal_speed <- maximal_speed;
-	//Range of movement for the neighbours
+	//Range of movement for the neighbors
 	float range <- minimal_distance * 2;
 	//Velocity of the agent
 	point velocity <- {0,0};
 	float hue <- rnd(360) / 360;
 	
-	//List of the neighbours boids
+	//List of the neighbors boids
 	list<boids> others update: ((boids overlapping (circle (range)))  - self);
 	
-	//Point of the mass center of the "flock" considered as the neighbours agents
+	//Point of the mass center of the "flock" considered as the neighbors agents
 	point mass_center update:  (length(others) > 0) ? (mean (others collect (each.location)) )  : location;
 	
 	//Reflex to do the separation of the agents with the other boids in the minimal distance

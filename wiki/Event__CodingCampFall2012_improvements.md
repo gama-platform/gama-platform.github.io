@@ -60,7 +60,7 @@ It is now possible to use toroidal environment for grid and continuous environme
 
 For a grid:
 ```
-grid cell width: 5 height: 5 neighbours: 8 torus: true 
+grid cell width: 5 height: 5 neighbors: 8 torus: true 
 ```
 
 For the continuous environment:
@@ -98,7 +98,7 @@ shape as_hexagonal_grid({50, 40})
 At last, it is now possible to define a hexagonal grid. To do so, the neighbors should is set to **6**. It is possible to use torus environment with hexagonal grid.
 
 ```
-grid cell width: 20 height: 20 neighbours: 6 torus: true;
+grid cell width: 20 height: 20 neighbors: 6 torus: true;
 ```
 
 

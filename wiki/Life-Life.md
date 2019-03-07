@@ -11,7 +11,7 @@ wikiPagePath: wiki/Life-Life.md
 
 _Author : _
 
-A model using a cellular automata to represent the Game of Life, the most famous example of cellular automata. Each cell will see if the number of living neighbours meets the condition to emerge or to live.
+A model using a cellular automata to represent the Game of Life, the most famous example of cellular automata. Each cell will see if the number of living neighbors meets the condition to emerge or to live.
 
 
 Code of the model : 
@@ -63,7 +63,7 @@ global torus: torus_environment {
 	//Write the description of the model in the console
 	action description {
 		write
-		'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur: \\n\\t 1.Any live cell with fewer than two live neighbours dies, as if caused by underpopulation. \\n\\t 2.Any live cell with more than three live neighbours dies, as if by overcrowding. \\n\\t 3.Any live cell with two or three live neighbours lives on to the next generation. \\n\\t 4.Any dead cell with exactly three live neighbours becomes a live cell. The initial pattern constitutes the seed of the system. The first(generation) is created by applying the above rules simultaneously to every cell in the seed�births and deaths happen simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the one before). The rules continue to be applied repeatedly to create further generations.';
+		'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur: \\n\\t 1.Any live cell with fewer than two live neighbors dies, as if caused by underpopulation. \\n\\t 2.Any live cell with more than three live neighbors dies, as if by overcrowding. \\n\\t 3.Any live cell with two or three live neighbors lives on to the next generation. \\n\\t 4.Any dead cell with exactly three live neighbors becomes a live cell. The initial pattern constitutes the seed of the system. The first(generation) is created by applying the above rules simultaneously to every cell in the seed�births and deaths happen simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the one before). The rules continue to be applied repeatedly to create further generations.';
 	}
 
 }
@@ -73,17 +73,17 @@ grid life_cell width: environment_width height: environment_height neighbors: 8 
 use_neighbors_cache: false {
 	//Boolean to know if it is the new state of the cell
 	bool new_state;
-	//List of all the neighbours
-	list<life_cell> neighbours <- self neighbors_at 1;
+	//List of all the neighbors
+	list<life_cell> neighbors <- self neighbors_at 1;
 	//Boolean  to know if it is a living or dead cell
 	bool alive <- (rnd(100)) < density;
 	
 	rgb color <- alive ? livingcolor : deadcolor;
 	
-	//Action to evolve the cell considering its neighbours
+	//Action to evolve the cell considering its neighbors
 	action evolve {
-		//Count the number of living neighbours of the cells
-		int living <- neighbours count each.alive;
+		//Count the number of living neighbors of the cells
+		int living <- neighbors count each.alive;
 		if alive {
 			//If the number of living respect the conditions, the cell is still alive
 			new_state <- living in living_conditions;
@@ -108,8 +108,8 @@ experiment "Game of Life" type: gui {
 	parameter 'Height:' var: environment_height category: 'Board';
 	parameter 'Torus?:' var: torus_environment category: 'Board';
 	parameter 'Initial density of live cells:' var: density category: 'Cells';
-	parameter 'Numbers of live neighbours required to stay alive:' var: living_conditions category: 'Cells';
-	parameter 'Numbers of live neighbours required to become alive:' var: birth_conditions category: 'Cells';
+	parameter 'Numbers of live neighbors required to stay alive:' var: living_conditions category: 'Cells';
+	parameter 'Numbers of live neighbors required to become alive:' var: birth_conditions category: 'Cells';
 	parameter 'Color of live cells:' var: livingcolor category: 'Colors';
 	parameter 'Color of dying cells:' var: dyingcolor category: 'Colors';
 	parameter 'Color of emerging cells:' var: emergingcolor category: 'Colors';

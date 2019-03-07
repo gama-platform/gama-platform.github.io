@@ -354,7 +354,7 @@ Exemple :
 * Author: 
 * Description: Model presenting a 3D display of differents shapes (pyramid, cone, cylinder, sphere and a teapot object) to represent the same agents but with
 *       different aspects. Five experiments are possible, one for each of the shapes presented previously. In each experiment, the agents move to create a big circle but flee
-*       from their closest neighbour. 
+*       from their closest neighbor. 
 * Tags: 3d, shape, neighbors
 */
 ```

@@ -253,4 +253,5 @@ global {
 #### Output
 
 `result::[10]`
+
 [//]: # (endConcept|call_r)

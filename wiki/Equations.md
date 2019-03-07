@@ -7,6 +7,7 @@ wikiPagePath: wiki/Equations.md
 [//]: # (startConcept|equation)
 [//]: # (keyword|concept_equation)
 # Using Equations
+
 [//]: # (endConcept|concept_math)
 
 ## Introduction
@@ -354,4 +355,5 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * h = 0.1
 
 ![LV-result.png](resources/images/multiParadigmModeling/LV-result.png)
+
 [//]: # (endConcept|equation)
