@@ -55,7 +55,7 @@ A  grid can be view as spatial matrix: each cell of a grid has two built-in vari
 
 
 ## Conclusion
-Congratulations, you have complete your first GAMA models! Now, you know have enough knowledge to create many models that includes: dynamic grid-based environment, moving and interacting agents and the needed viusalization to make good use of your simulation. Feel free to use this knowledge to create your very own models! Or perhaps you want to continue your study with the more advanced [tutorials](Tutorials)?
+Congratulations, you have complete your first GAMA models! Now, you have enough knowledge to create many models that includes: dynamic grid-based environment, moving and interacting agents and the needed visualization to make good use of your simulation. Feel free to use this knowledge to create your very own models! Or perhaps you want to continue your study with the more advanced [tutorials](Tutorials)?
 
 
 

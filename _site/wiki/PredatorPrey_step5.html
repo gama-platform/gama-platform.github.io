@@ -1714,6 +1714,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/GamlReference.html": {
+         "title": "GAML References",
+         "url": "/wiki/GamlReference.html"
+       }
+        ,
+      
        "/wiki/GamlReferences.html": {
          "title": "Gaml Reference",
          "url": "/wiki/GamlReferences.html"
@@ -3782,6 +3788,14 @@ Use of the ask statement as follows:</p>
 
 <p>Definition of the corresponding monitor:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monitor "number of predators" value: nb_predators ;
+</code></pre></div></div>
+
+<h3 id="display">display</h3>
+<p>Also, do not forget to add the line to display predators in your simulation</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display main_display {
+   ...
+   species predator aspect: icon ;
+}
 </code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
