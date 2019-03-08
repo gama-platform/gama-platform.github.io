@@ -18,8 +18,9 @@ This tutorial introduces the 3D features offered by GAMA.
 
 ## Model Overview
 
-<a href='http://www.youtube.com/watch?feature=player_embedded&v=6ZlBU6xTcfw' target='_blank'><img src='http://img.youtube.com/vi/6ZlBU6xTcfw/0.jpg' width='425' height=344 /></a>
-
+<a href='http://www.youtube.com/watch?feature=player_embedded&v=6ZlBU6xTcfw' target='_blank'>
+<img src="http://img.youtube.com/vi/6ZlBU6xTcfw/0.jpg" width="425" height="344" >
+</a>
 
 ## Step List
 

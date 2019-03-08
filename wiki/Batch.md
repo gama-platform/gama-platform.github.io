@@ -8,5 +8,5 @@ wikiPagePath: wiki/Batch.md
 
 This sub-section is composed of the following models :
 
-* [ Model using Batch mode](references#BatchBatch)
+* [ Model using Batch mode](Batch-Batch)
 

@@ -66,7 +66,7 @@ Inside this display, we define 3 charts: one of type _series_ (i.e. time series 
 To evaluate the value of the data of the two histogram, we use the operator **list count condition" that returns the number of elements of**list**for which the condition is true.**
 
 ```
-display Population_information refresh:every(5) {
+display Population_information refresh:every(5#cycles) {
 	chart "Species evolution" type: series size: {1,0.5} position: {0, 0} {
 		data "number_of_preys" value: nb_preys color: #blue ;
 		data "number_of_predator" value: nb_predators color: #red ;
@@ -260,7 +260,7 @@ experiment prey_predator type: gui {
 			species prey aspect: info ;
 			species predator aspect: info ;
 		}
-		display Population_information refresh:every(5) {
+		display Population_information refresh:every(5#cycles) {
 			chart "Species evolution" type: series size: {1,0.5} position: {0, 0} {
 				data "number_of_preys" value: nb_preys color: #blue ;
 				data "number_of_predator" value: nb_predators color: #red ;

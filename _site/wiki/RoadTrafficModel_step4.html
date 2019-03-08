@@ -3622,7 +3622,7 @@ function closeRightMenu() {
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="road-agent">road agent</h3>
-<p>We add a <strong>destruction_coeff</strong> variable which initial value is randomly defined between 1 and 2 and that have a max of 2. The color of the agent will depend of this variable. In order to simplify the GAML code, we define a new variable  <strong>colorValue</strong> that represents the value of red color and that will be defined between 0 and 255.</p>
+<p>We add a <strong>destruction_coeff</strong> variable which initial value is randomly defined between 1 and 2 and which have a max of 2. The color of the agent will depend of this variable. In order to simplify the GAML code, we define a new variable  <strong>colorValue</strong> that represents the value of red color and that will be defined between 0 and 255.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species road  {
 	float destruction_coeff &lt;- 1 + ((rnd(100))/ 100.0) max: 2.0;

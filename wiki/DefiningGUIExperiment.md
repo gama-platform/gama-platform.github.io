@@ -5,6 +5,7 @@ wikiPageName: DefiningGUIExperiment
 wikiPagePath: wiki/DefiningGUIExperiment.md
 ---
 [//]: # (startConcept|gui_experiments)
+
 # Defining GUI Experiment
 
 When you execute your simulation, you will often need to display some information. For each simulation, you can define some inputs and outputs:

@@ -5,7 +5,7 @@ wikiPageName: RoadTrafficModel_step7
 wikiPagePath: wiki/RoadTrafficModel_step7.md
 ---
 # 7. Automatic Road Repair
-This 7th step illustrates how how to select in a list an element that optimize a given function.
+This 7th step illustrates how to select in a list an element that optimize a given function.
 
 
 
@@ -192,7 +192,7 @@ experiment road_traffic type: gui {
 			species road aspect: base ;
 			species people aspect: base ;
 		}
-		display chart_display refresh:every(10) { 
+		display chart_display refresh:every(10#cycles) { 
 			chart "Road Status" type: series size: {1, 0.5} position: {0, 0} {
 				data "Mean road destruction" value: mean (road collect each.destruction_coeff) style: line color: #green ;
 				data "Max road destruction" value: road max_of each.destruction_coeff style: line color: #red ;
