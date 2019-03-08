@@ -25,7 +25,7 @@ The present model will introduce how to design a road system, or graph, based on
 ## Model Definition
 
 ### road agent
-We add a **destruction\_coeff** variable which initial value is randomly defined between 1 and 2 and that have a max of 2. The color of the agent will depend of this variable. In order to simplify the GAML code, we define a new variable  **colorValue** that represents the value of red color and that will be defined between 0 and 255.
+We add a **destruction\_coeff** variable which initial value is randomly defined between 1 and 2 and which have a max of 2. The color of the agent will depend of this variable. In order to simplify the GAML code, we define a new variable  **colorValue** that represents the value of red color and that will be defined between 0 and 255.
 
 ```
    species road  {

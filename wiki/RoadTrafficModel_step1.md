@@ -63,6 +63,8 @@ global {
 }
 ```
 
+All shapefiles are available in the model library (under Library models -> Tutorials -> Road Traffic) or you can download them by following this [GitHub link](https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/Road%20Traffic/includes).
+
 In the experiment section, we add three parameters to allow the user to change the shapefile used directly through the UI:
 ```
 experiment road_traffic type: gui {

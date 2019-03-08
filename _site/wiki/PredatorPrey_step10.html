@@ -3675,7 +3675,7 @@ Inside this display, we define 3 charts: one of type <em>series</em> (i.e. time 
 
 <p>To evaluate the value of the data of the two histogram, we use the operator <strong>list count condition” that returns the number of elements of</strong>list<strong>for which the condition is true.</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display Population_information refresh:every(5) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display Population_information refresh:every(5#cycles) {
 	chart "Species evolution" type: series size: {1,0.5} position: {0, 0} {
 		data "number_of_preys" value: nb_preys color: #blue ;
 		data "number_of_predator" value: nb_predators color: #red ;
@@ -3864,7 +3864,7 @@ Inside this display, we define 3 charts: one of type <em>series</em> (i.e. time 
 			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
 			<span class="n">species</span> <span class="n">predator</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
 		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">Population_information</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Population_information</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">5</span><span class="p">#</span><span class="n">cycles</span><span class="p">)</span> <span class="p">{</span>
 			<span class="n">chart</span> <span class="s2">"Species evolution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">{</span>
 				<span class="n">data</span> <span class="s2">"number_of_preys"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_preys</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
 				<span class="n">data</span> <span class="s2">"number_of_predator"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_predators</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>

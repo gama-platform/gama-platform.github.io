@@ -27,7 +27,7 @@ First we add a chart of type **series** to display the road destruction evolutio
 
 ```
      output {
-       display chart_display refresh:every(10) {
+       display chart_display refresh:every(10#cycles) {
              chart "Road Status" type: series size: {1, 0.5} position: {0, 0} {
                   data "Mean road destruction" value: mean (road collect each.destruction_coeff) style: line color: #green ;
 		  data "Max road destruction" value: road max_of each.destruction_coeff style: line color: #red ;
@@ -42,7 +42,7 @@ Second, we add a chart of type **pie** to display the activity of the **people**
 ```
     output {
       ...
-      display chart_display refresh:every(10) {
+      display chart_display refresh:every(10#cycles) {
           ...
           chart "People Objectif" type: pie style: exploded size: {1, 0.5} position: {0, 0.5}{
 	       data "Working" value: people count (each.objective="working") color: #magenta ;
@@ -183,7 +183,7 @@ experiment road_traffic type: gui {
 			species road aspect: base ;
 			species people aspect: base ;
 		}
-		display chart_display refresh:every(10) { 
+		display chart_display refresh:every(10#cycles) { 
 			chart "Road Status" type: series size: {1, 0.5} position: {0, 0} {
 				data "Mean road destruction" value: mean (road collect each.destruction_coeff) style: line color: #green ;
 				data "Max road destruction" value: road max_of each.destruction_coeff style: line color: #red ;

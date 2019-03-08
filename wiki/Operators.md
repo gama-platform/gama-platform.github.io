@@ -5956,8 +5956,8 @@ get_agent(social_link1)
 ### `get_agent_cause`
 
 #### Possible use: 
-  *  **`get_agent_cause`** (`predicate`) --->  `agent`
-  *  **`get_agent_cause`** (`emotion`) --->  `agent` 
+  *  **`get_agent_cause`** (`emotion`) --->  `agent`
+  *  **`get_agent_cause`** (`predicate`) --->  `agent` 
 
 #### Result: 
 get the agent cause value of the given emotion
@@ -6370,8 +6370,8 @@ get_intentions_with_name_op(self,"has_water")
 ### `get_lifetime`
 
 #### Possible use: 
-  *  **`get_lifetime`** (`mental_state`) --->  `int`
-  *  **`get_lifetime`** (`predicate`) --->  `int` 
+  *  **`get_lifetime`** (`predicate`) --->  `int`
+  *  **`get_lifetime`** (`mental_state`) --->  `int` 
 
 #### Result: 
 get the lifetime value of the given mental state
@@ -9598,27 +9598,27 @@ list var2 <- graphFromMap neighbors_of node({12,45}); // var2 equals [{1.0,5.0},
   *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
 #### Result: 
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
 a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name, intensity)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 
 #### Examples: 
 ```
-emotion("joy",12.3,4) emotion("joy",12.3,eatFood) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) 
+emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood) emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) 
 
 ```
   
@@ -9657,33 +9657,33 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
 
 #### Possible use: 
   *  **`new_mental_state`** (`string`) --->  `mental_state`
-  * `string` **`new_mental_state`** `emotion` --->  `mental_state`
-  *  **`new_mental_state`** (`string` , `emotion`) --->  `mental_state`
   * `string` **`new_mental_state`** `predicate` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `predicate`) --->  `mental_state`
+  * `string` **`new_mental_state`** `emotion` --->  `mental_state`
+  *  **`new_mental_state`** (`string` , `emotion`) --->  `mental_state`
   * `string` **`new_mental_state`** `mental_state` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `mental_state`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `mental_state` 
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state` 
 
 #### Result: 
 a new mental state
@@ -9726,39 +9726,39 @@ new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_m
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `int` --->  `predicate`
-  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
-  * `string` **`new_predicate`** `agent` --->  `predicate`
-  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
   * `string` **`new_predicate`** `map` --->  `predicate`
   *  **`new_predicate`** (`string` , `map`) --->  `predicate`
   * `string` **`new_predicate`** `bool` --->  `predicate`
   *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  * `string` **`new_predicate`** `agent` --->  `predicate`
+  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
+  * `string` **`new_predicate`** `int` --->  `predicate`
+  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate` 
 
 #### Result: 
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values)
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given properties (name, values, lifetime, is_true)
+a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given is_true (name, lifetime)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, 	agentCause)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, lifetime, is_true)
 a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given is_true (name, is_true)
 
 #### Examples: 
 ```
-predicate("people to meet", ["time"::10], true) predicate("hasWater", 10  predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", people1 ) predicate("people to meet", ["time"::10], agentA) predicate("people to meet") predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], 10, agentA) predicate("hasWater", true) 
+predicate("people to meet") predicate("people to meet", people1 ) predicate("hasWater", true) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("hasWater", 10  predicate("people to meet", ["time"::10], true, agentA) 
 
 ```
   

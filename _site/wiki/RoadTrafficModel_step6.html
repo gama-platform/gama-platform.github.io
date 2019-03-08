@@ -3623,7 +3623,7 @@ function closeRightMenu() {
 <p>First we add a chart of type <strong>series</strong> to display the road destruction evolution. To compute the mean of the <strong>destruction_coeff</strong>, we use the <strong>mean</strong> operator. For the max, we use the <strong>max_of</strong> operator.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     output {
-       display chart_display refresh:every(10) {
+       display chart_display refresh:every(10#cycles) {
              chart "Road Status" type: series size: {1, 0.5} position: {0, 0} {
                   data "Mean road destruction" value: mean (road collect each.destruction_coeff) style: line color: #green ;
 		  data "Max road destruction" value: road max_of each.destruction_coeff style: line color: #red ;
@@ -3637,7 +3637,7 @@ function closeRightMenu() {
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    output {
       ...
-      display chart_display refresh:every(10) {
+      display chart_display refresh:every(10#cycles) {
           ...
           chart "People Objectif" type: pie style: exploded size: {1, 0.5} position: {0, 0.5}{
 	       data "Working" value: people count (each.objective="working") color: #magenta ;
@@ -3773,7 +3773,7 @@ function closeRightMenu() {
 			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
 			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
 		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span> 
+		<span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">#</span><span class="n">cycles</span><span class="p">)</span> <span class="p">{</span> 
 			<span class="n">chart</span> <span class="s2">"Road Status"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">{</span>
 				<span class="n">data</span> <span class="s2">"Mean road destruction"</span> <span class="n">value</span><span class="p">:</span> <span class="n">mean</span> <span class="p">(</span><span class="n">road</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">destruction_coeff</span><span class="p">)</span> <span class="n">style</span><span class="p">:</span> <span class="n">line</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="p">;</span>
 				<span class="n">data</span> <span class="s2">"Max road destruction"</span> <span class="n">value</span><span class="p">:</span> <span class="n">road</span> <span class="n">max_of</span> <span class="n">each</span><span class="p">.</span><span class="n">destruction_coeff</span> <span class="n">style</span><span class="p">:</span> <span class="n">line</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>

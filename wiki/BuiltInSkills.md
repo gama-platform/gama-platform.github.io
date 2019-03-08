@@ -578,10 +578,14 @@ leave a group of agent
  
 ### Variables
 	   
+  * **`ang_damping`** (`float`):    
   * **`collisionBound`** (`map`):    
   * **`density`** (`float`):    
+  * **`friction`** (`float`):    
+  * **`lin_damping`** (`float`):    
   * **`mass`** (`float`):    
   * **`motor`** (`point`):    
+  * **`restitution`** (`float`):    
   * **`space`** (`agent`):    
   * **`velocity`** (`list`):  
  	
