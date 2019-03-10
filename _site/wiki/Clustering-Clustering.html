@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="clustering-of-agents-by-k-means-and-dbscan">Clustering of agents by K Means and DBScan</h1>
@@ -3615,81 +3615,79 @@ function closeRightMenu() {
 
 <p>A model to show how to use clustering operators and two methods of clustering (K Means and DBScan) with the goal of regrouping agents in clusters</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">clustering</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">groups</span> <span class="k">to</span> <span class="nb">create</span> <span class="p">(</span><span class="n">kmeans</span><span class="p">)</span>
-	<span class="n">int</span> <span class="n">k</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">the</span> <span class="n">maximum</span> <span class="n">radius</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighborhood</span> <span class="p">(</span><span class="n">DBscan</span><span class="p">)</span>
-	<span class="n">float</span> <span class="n">eps</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
-	
-	<span class="p">//</span><span class="n">the</span> <span class="n">minimum</span> <span class="n">number</span> <span class="k">of</span> <span class="n">elements</span> <span class="n">needed</span> <span class="n">for</span> <span class="n">a</span> <span class="n">cluster</span> <span class="p">(</span><span class="n">DBscan</span><span class="p">)</span>
-	<span class="n">int</span> <span class="n">minPoints</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="nb">create</span> <span class="n">dummy</span> <span class="n">agents</span>
-		<span class="nb">create</span> <span class="n">dummy</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">cluster_building</span> <span class="p">{</span>
-		<span class="p">//</span><span class="nb">create</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="k">list</span> <span class="n">containing</span> <span class="n">for</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agent</span> <span class="n">a</span> <span class="k">list</span> <span class="n">composed</span> <span class="k">of</span> <span class="n">its</span> <span class="n">x</span> <span class="k">and</span> <span class="n">y</span> <span class="n">values</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">instances</span> <span class="p">&lt;-</span> <span class="n">dummy</span> <span class="n">collect</span> <span class="p">([</span><span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">]);</span>
-		
-		<span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">list</span><span class="p">,</span> <span class="nb">create</span> <span class="n">groups</span> <span class="k">with</span> <span class="n">the</span> <span class="n">eps</span> <span class="k">and</span> <span class="n">minPoints</span> <span class="k">parameters</span> <span class="k">and</span> <span class="n">the</span> <span class="n">DBSCAN</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">https</span><span class="p">://</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">DBSCAN</span><span class="p">)</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">clusters_dbscan</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;(</span><span class="n">dbscan</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span><span class="n">minPoints</span><span class="p">));</span>
-		
-		<span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
+    <span class="p">//</span><span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">groups</span> <span class="k">to</span> <span class="nb">create</span> <span class="p">(</span><span class="n">kmeans</span><span class="p">)</span>
+    <span class="n">int</span> <span class="n">k</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">the</span> <span class="n">maximum</span> <span class="n">radius</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighborhood</span> <span class="p">(</span><span class="n">DBscan</span><span class="p">)</span>
+    <span class="n">float</span> <span class="n">eps</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
+
+    <span class="p">//</span><span class="n">the</span> <span class="n">minimum</span> <span class="n">number</span> <span class="k">of</span> <span class="n">elements</span> <span class="n">needed</span> <span class="n">for</span> <span class="n">a</span> <span class="n">cluster</span> <span class="p">(</span><span class="n">DBscan</span><span class="p">)</span>
+    <span class="n">int</span> <span class="n">minPoints</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="nb">create</span> <span class="n">dummy</span> <span class="n">agents</span>
+        <span class="nb">create</span> <span class="n">dummy</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">cluster_building</span> <span class="p">{</span>
+        <span class="p">//</span><span class="nb">create</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="k">list</span> <span class="n">containing</span> <span class="n">for</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agent</span> <span class="n">a</span> <span class="k">list</span> <span class="n">composed</span> <span class="k">of</span> <span class="n">its</span> <span class="n">x</span> <span class="k">and</span> <span class="n">y</span> <span class="n">values</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">instances</span> <span class="p">&lt;-</span> <span class="n">dummy</span> <span class="n">collect</span> <span class="p">([</span><span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">]);</span>
+
+        <span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">list</span><span class="p">,</span> <span class="nb">create</span> <span class="n">groups</span> <span class="k">with</span> <span class="n">the</span> <span class="n">eps</span> <span class="k">and</span> <span class="n">minPoints</span> <span class="k">parameters</span> <span class="k">and</span> <span class="n">the</span> <span class="n">DBSCAN</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">https</span><span class="p">://</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">DBSCAN</span><span class="p">)</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">clusters_dbscan</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;(</span><span class="n">dbscan</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span><span class="n">minPoints</span><span class="p">));</span>
+
+        <span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
        <span class="n">loop</span> <span class="n">cluster</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusters_dbscan</span> <span class="p">{</span>
-			<span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-			<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">cluster</span> <span class="p">{</span>
-				<span class="n">ask</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_dbscan</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		
-		<span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">list</span><span class="p">,</span> <span class="nb">create</span> <span class="n">k</span> <span class="n">groups</span>  <span class="k">with</span> <span class="n">the</span> <span class="n">Kmeans</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">https</span><span class="p">://</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">K</span><span class="p">-</span><span class="n">means_clustering</span><span class="p">)</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">clusters_kmeans</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;(</span><span class="n">kmeans</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
-		
-		<span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
-		<span class="n">loop</span> <span class="n">cluster</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusters_kmeans</span> <span class="p">{</span>
-			<span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-			<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">cluster</span> <span class="p">{</span>
-				<span class="n">ask</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
+            <span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+            <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">cluster</span> <span class="p">{</span>
+                <span class="n">ask</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_dbscan</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">list</span><span class="p">,</span> <span class="nb">create</span> <span class="n">k</span> <span class="n">groups</span>  <span class="k">with</span> <span class="n">the</span> <span class="n">Kmeans</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">https</span><span class="p">://</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">K</span><span class="p">-</span><span class="n">means_clustering</span><span class="p">)</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">clusters_kmeans</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;(</span><span class="n">kmeans</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
+
+        <span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">dummy</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
+        <span class="n">loop</span> <span class="n">cluster</span> <span class="n">over</span><span class="p">:</span> <span class="n">clusters_kmeans</span> <span class="p">{</span>
+            <span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+            <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">cluster</span> <span class="p">{</span>
+                <span class="n">ask</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">dummy</span> <span class="p">{</span>
-	<span class="n">rgb</span> <span class="n">color_dbscan</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">grey</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">grey</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">dbscan_aspect</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_dbscan</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">kmeans_aspect</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">rgb</span> <span class="n">color_dbscan</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">grey</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">grey</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">dbscan_aspect</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_dbscan</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">kmeans_aspect</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">clustering</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s2">"Maximum radius of the neighborhood to be considered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">eps</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"DBSCAN"</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s2">"Minimum number of points needed for a cluster "</span> <span class="n">var</span><span class="p">:</span> <span class="n">minPoints</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"DBSCAN"</span><span class="p">;</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map_dbscan</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">dummy</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">dbscan_aspect</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">map_kmeans</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">dummy</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s2">"Maximum radius of the neighborhood to be considered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">eps</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"DBSCAN"</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s2">"Minimum number of points needed for a cluster "</span> <span class="n">var</span><span class="p">:</span> <span class="n">minPoints</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"DBSCAN"</span><span class="p">;</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map_dbscan</span><span class="p">{</span>
+            <span class="n">species</span> <span class="n">dummy</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">dbscan_aspect</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="n">map_kmeans</span><span class="p">{</span>
+            <span class="n">species</span> <span class="n">dummy</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

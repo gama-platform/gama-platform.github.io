@@ -3606,18 +3606,20 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="extension">Extension</h1>
 
-<hr />
+<hr>
 
 <p>cenres.gaml.extensions.hydro</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
+
 <h3 id="operators">Operators</h3>
-<p><a href="#water_area_for">water_area_for</a>, <a href="#water_level_for">water_level_for</a>, <a href="#water_polylines_for">water_polylines_for</a>,</p>
+
+<p><a href="#water_area_for">water_area_for</a>, <a href="#water_level_for">water_level_for</a>, <a href="#water_polylines_for">water_polylines_for</a>, </p>
 
 <h3 id="statements">Statements</h3>
 
@@ -3627,83 +3629,85 @@ function closeRightMenu() {
 
 <h3 id="species">Species</h3>
 
-<hr />
+<hr>
 
-<h2 id="operators-1">Operators</h2>
+<h2 id="operators">Operators</h2>
 
-<hr />
+<hr>
 
-<h3 id="water_area_for"><code class="highlighter-rouge">water_area_for</code></h3>
+<h3 id="water_area_for"><code>water_area_for</code></h3>
 
 <h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">water_area_for</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">water_area_for</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>geometry</code> <strong><code>water_area_for</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>water_area_for</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 
 <h4 id="special-cases">Special cases:</h4>
+
 <ul>
-  <li>if the left operand is a polyline and the right operand a float for the water y coordinate, returrns the area of the water (water flow area)</li>
+<li>if the left operand is a polyline and the right operand a float for the water y coordinate, returrns the area of the water (water flow area)</li>
 </ul>
 
 <h4 id="examples">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>waterarea &lt;- my_river_polyline water_area_for my_height_value
-</code></pre></div></div>
+<div class="highlight"><pre><code class="language-" data-lang="">waterarea &lt;- my_river_polyline water_area_for my_height_value
+</code></pre></div>
+<hr>
 
-<hr />
+<h3 id="water_level_for"><code>water_level_for</code></h3>
 
-<h3 id="water_level_for"><code class="highlighter-rouge">water_level_for</code></h3>
+<h4 id="possible-use">Possible use:</h4>
 
-<h4 id="possible-use-1">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">water_level_for</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">water_level_for</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>geometry</code> <strong><code>water_level_for</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>water_level_for</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 
-<h4 id="special-cases-1">Special cases:</h4>
+<h4 id="special-cases">Special cases:</h4>
+
 <ul>
-  <li>if the left operand is a polyline and the right operand a float for the area, returrns the y coordinate of the water (water level)</li>
+<li>if the left operand is a polyline and the right operand a float for the area, returrns the y coordinate of the water (water level)</li>
 </ul>
 
-<h4 id="examples-1">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>waterlevel &lt;- my_river_polyline water_level_for my_area_value
-</code></pre></div></div>
+<h4 id="examples">Examples:</h4>
+<div class="highlight"><pre><code class="language-" data-lang="">waterlevel &lt;- my_river_polyline water_level_for my_area_value
+</code></pre></div>
+<hr>
 
-<hr />
+<h3 id="water_polylines_for"><code>water_polylines_for</code></h3>
 
-<h3 id="water_polylines_for"><code class="highlighter-rouge">water_polylines_for</code></h3>
+<h4 id="possible-use">Possible use:</h4>
 
-<h4 id="possible-use-2">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">water_polylines_for</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.IList&lt;msi.gama.metamodel.shape.GamaPoint&gt;&gt;</code></li>
-  <li><strong><code class="highlighter-rouge">water_polylines_for</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">msi.gama.util.IList&lt;msi.gama.util.IList&lt;msi.gama.metamodel.shape.GamaPoint&gt;&gt;</code></li>
+<li><code>geometry</code> <strong><code>water_polylines_for</code></strong> <code>float</code> ---&gt;  <code>msi.gama.util.IList&lt;msi.gama.util.IList&lt;msi.gama.metamodel.shape.GamaPoint&gt;&gt;</code></li>
+<li> <strong><code>water_polylines_for</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>msi.gama.util.IList&lt;msi.gama.util.IList&lt;msi.gama.metamodel.shape.GamaPoint&gt;&gt;</code></li>
 </ul>
 
-<h4 id="special-cases-2">Special cases:</h4>
+<h4 id="special-cases">Special cases:</h4>
+
 <ul>
-  <li>if the left operand is a polyline and the right operand a float for the water y coordinate, returrns the shapes of the river sections (list of list of points)</li>
+<li>if the left operand is a polyline and the right operand a float for the water y coordinate, returrns the shapes of the river sections (list of list of points)</li>
 </ul>
 
-<h4 id="examples-2">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>waterarea &lt;- my_river_polyline water_area_for my_height_value
-</code></pre></div></div>
+<h4 id="examples">Examples:</h4>
+<div class="highlight"><pre><code class="language-" data-lang="">waterarea &lt;- my_river_polyline water_area_for my_height_value
+</code></pre></div>
+<hr>
 
-<hr />
+<h2 id="skills">Skills</h2>
 
-<h2 id="skills-1">Skills</h2>
+<hr>
 
-<hr />
+<h2 id="statements">Statements</h2>
 
-<h2 id="statements-1">Statements</h2>
+<hr>
 
-<hr />
+<h2 id="species">Species</h2>
 
-<h2 id="species-1">Species</h2>
+<hr>
 
-<hr />
-
-<h2 id="architectures-1">Architectures</h2>
-
+<h2 id="architectures">Architectures</h2>
 
     </div>
     </div>

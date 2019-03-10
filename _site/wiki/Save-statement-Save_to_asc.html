@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="save-to-ascii">Save to Ascii</h1>
@@ -3615,33 +3615,31 @@ function closeRightMenu() {
 
 <p>This is a model that shows how to save a grid inside a ASCII File to reuse it later or to keep it.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">SavetoAsc</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>	
-		<span class="p">//</span><span class="n">save</span> <span class="n">grid</span> <span class="s2">"grid_value"</span> <span class="n">attribute</span> <span class="n">into</span> <span class="n">the</span> <span class="n">asc</span> <span class="n">file</span><span class="p">.</span>
-		<span class="n">save</span> <span class="n">cell</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../results/grid.asc"</span> <span class="n">type</span><span class="p">:</span><span class="s2">"asc"</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>  
+        <span class="p">//</span><span class="n">save</span> <span class="n">grid</span> <span class="s2">"grid_value"</span> <span class="n">attribute</span> <span class="n">into</span> <span class="n">the</span> <span class="n">asc</span> <span class="n">file</span><span class="p">.</span>
+        <span class="n">save</span> <span class="n">cell</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../results/grid.asc"</span> <span class="n">type</span><span class="p">:</span><span class="s2">"asc"</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Grid</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="k">in</span> <span class="n">the</span> <span class="n">ASC</span> <span class="n">File</span>
 <span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">grid_value</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">grid_value</span> <span class="p">/</span> <span class="m">50</span><span class="p">),</span> <span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">float</span> <span class="n">grid_value</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">grid_value</span> <span class="p">/</span> <span class="m">50</span><span class="p">),</span> <span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-			<span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+            <span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

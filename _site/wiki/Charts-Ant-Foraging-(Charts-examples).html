@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="ant-foraging-charts-examples">Ant Foraging (Charts examples)</h1>
@@ -3615,38 +3615,37 @@ function closeRightMenu() {
 
 <p>Toy Model ant using the question of how ants search food and use pheromons to return to their nest once they did find food. In this model, the charts are particularly used.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">ants</span>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">ants</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">ants</span>
-	<span class="n">int</span> <span class="n">ants_number</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2000</span> <span class="p">;</span>
-	<span class="p">//</span><span class="n">Evaporation</span> <span class="n">value</span> <span class="n">per</span> <span class="n">cycle</span> <span class="n">for</span> <span class="n">the</span> <span class="n">pheromons</span>
-	<span class="n">float</span> <span class="n">evaporation_per_cycle</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">240.0</span> <span class="p">;</span>
-	<span class="p">//</span><span class="n">Diffusion</span> <span class="n">rate</span> <span class="n">for</span> <span class="n">the</span> <span class="n">pheromons</span>
-	<span class="n">float</span> <span class="n">diffusion_rate</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span> <span class="p">;</span>
-	<span class="n">bool</span> <span class="n">use_icons</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
-	<span class="n">bool</span> <span class="n">display_state</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
-	<span class="n">int</span> <span class="n">gridsize</span> <span class="p">&lt;-</span> <span class="m">75</span> <span class="p">;</span>
-	<span class="p">//</span><span class="n">Center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">to</span> <span class="n">put</span> <span class="n">the</span> <span class="n">location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">nest</span>
-	<span class="n">point</span> <span class="n">center</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="p">(</span><span class="n">gridsize</span> <span class="p">/</span> <span class="m">2</span><span class="p">),</span>  <span class="p">(</span><span class="n">gridsize</span> <span class="p">/</span> <span class="m">2</span><span class="p">)}</span> <span class="p">;</span>
-	<span class="n">file</span> <span class="n">types</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">pgm_file</span><span class="p">(</span><span class="s1">'../images/environment75x75.pgm'</span><span class="p">))</span> <span class="p">;</span>
-	<span class="k">string</span> <span class="n">ant_shape_empty</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="s1">'../icons/ant.png'</span> <span class="p">;</span>
-	<span class="k">string</span> <span class="n">ant_shape_full</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="s1">'../icons/full_ant.png'</span>  <span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">C00CC00</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#00CC00'</span><span class="p">)</span> <span class="p">;</span>    
-	<span class="n">rgb</span> <span class="n">C009900</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#009900'</span><span class="p">)</span> <span class="p">;</span> 
-	<span class="n">rgb</span> <span class="n">C005500</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#005500'</span><span class="p">)</span> <span class="p">;</span> 
-	<span class="n">int</span> <span class="n">food_gathered</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="p">;</span>   
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">gridsize</span><span class="p">);</span>
-	<span class="n">init</span><span class="p">{</span>  
-		<span class="p">//</span><span class="n">Ant</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="k">in</span> <span class="n">the</span> <span class="n">nest</span>
-		<span class="nb">create</span> <span class="n">ant</span> <span class="n">number</span><span class="p">:</span> <span class="n">ants_number</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span><span class="p">::</span><span class="n">any_location_in</span> <span class="p">(</span><span class="n">ant_grid</span><span class="p">(</span><span class="n">center</span><span class="p">))]</span> <span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">diffuse</span> <span class="n">the</span> <span class="n">road</span> <span class="k">of</span> <span class="n">pheromon</span> <span class="n">on</span> <span class="n">the</span> <span class="n">grid</span>
-	<span class="n">reflex</span> <span class="n">diffuse</span> <span class="p">{</span>
+    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">ants</span>
+    <span class="n">int</span> <span class="n">ants_number</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2000</span> <span class="p">;</span>
+    <span class="p">//</span><span class="n">Evaporation</span> <span class="n">value</span> <span class="n">per</span> <span class="n">cycle</span> <span class="n">for</span> <span class="n">the</span> <span class="n">pheromons</span>
+    <span class="n">float</span> <span class="n">evaporation_per_cycle</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">240.0</span> <span class="p">;</span>
+    <span class="p">//</span><span class="n">Diffusion</span> <span class="n">rate</span> <span class="n">for</span> <span class="n">the</span> <span class="n">pheromons</span>
+    <span class="n">float</span> <span class="n">diffusion_rate</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span> <span class="p">;</span>
+    <span class="n">bool</span> <span class="n">use_icons</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
+    <span class="n">bool</span> <span class="n">display_state</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
+    <span class="n">int</span> <span class="n">gridsize</span> <span class="p">&lt;-</span> <span class="m">75</span> <span class="p">;</span>
+    <span class="p">//</span><span class="n">Center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">to</span> <span class="n">put</span> <span class="n">the</span> <span class="n">location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">nest</span>
+    <span class="n">point</span> <span class="n">center</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="p">(</span><span class="n">gridsize</span> <span class="p">/</span> <span class="m">2</span><span class="p">),</span>  <span class="p">(</span><span class="n">gridsize</span> <span class="p">/</span> <span class="m">2</span><span class="p">)}</span> <span class="p">;</span>
+    <span class="n">file</span> <span class="n">types</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">pgm_file</span><span class="p">(</span><span class="s1">'../images/environment75x75.pgm'</span><span class="p">))</span> <span class="p">;</span>
+    <span class="k">string</span> <span class="n">ant_shape_empty</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="s1">'../icons/ant.png'</span> <span class="p">;</span>
+    <span class="k">string</span> <span class="n">ant_shape_full</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="s1">'../icons/full_ant.png'</span>  <span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">C00CC00</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#00CC00'</span><span class="p">)</span> <span class="p">;</span>    
+    <span class="n">rgb</span> <span class="n">C009900</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#009900'</span><span class="p">)</span> <span class="p">;</span> 
+    <span class="n">rgb</span> <span class="n">C005500</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="s1">'#005500'</span><span class="p">)</span> <span class="p">;</span> 
+    <span class="n">int</span> <span class="n">food_gathered</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="p">;</span>   
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">gridsize</span><span class="p">);</span>
+    <span class="n">init</span><span class="p">{</span>  
+        <span class="p">//</span><span class="n">Ant</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="k">in</span> <span class="n">the</span> <span class="n">nest</span>
+        <span class="nb">create</span> <span class="n">ant</span> <span class="n">number</span><span class="p">:</span> <span class="n">ants_number</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">location</span><span class="p">::</span><span class="n">any_location_in</span> <span class="p">(</span><span class="n">ant_grid</span><span class="p">(</span><span class="n">center</span><span class="p">))]</span> <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">diffuse</span> <span class="n">the</span> <span class="n">road</span> <span class="k">of</span> <span class="n">pheromon</span> <span class="n">on</span> <span class="n">the</span> <span class="n">grid</span>
+    <span class="n">reflex</span> <span class="n">diffuse</span> <span class="p">{</span>
       <span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span><span class="n">road</span> <span class="n">on</span><span class="p">:</span><span class="n">ant_grid</span> <span class="n">proportion</span><span class="p">:</span> <span class="n">diffusion_rate</span> <span class="n">radius</span><span class="p">:</span><span class="m">2</span> <span class="n">propagation</span><span class="p">:</span> <span class="n">gradient</span><span class="p">;</span>
    <span class="p">}</span>
 
@@ -3656,318 +3655,317 @@ function closeRightMenu() {
 
 <span class="p">//</span><span class="n">Grid</span> <span class="k">to</span> <span class="n">discretize</span> <span class="n">space</span> <span class="n">for</span> <span class="n">the</span> <span class="n">food</span> <span class="k">and</span> <span class="n">the</span> <span class="n">nest</span>
 <span class="n">grid</span> <span class="n">ant_grid</span> <span class="n">width</span><span class="p">:</span> <span class="n">gridsize</span> <span class="n">height</span><span class="p">:</span> <span class="n">gridsize</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">8</span> <span class="n">use_regular_agents</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
-	<span class="n">bool</span> <span class="n">multiagent</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">road</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">240.0</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">road</span><span class="p">&lt;=</span><span class="n">evaporation_per_cycle</span><span class="p">)</span> <span class="p">?</span> <span class="m">0.0</span> <span class="p">:</span> <span class="n">road</span><span class="p">-</span><span class="n">evaporation_per_cycle</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">type</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">types</span> <span class="n">at</span> <span class="p">{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">})</span> <span class="p">;</span>
-	<span class="n">bool</span> <span class="n">isNestLocation</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">center</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">4</span> <span class="p">;</span> 
-	<span class="n">bool</span> <span class="n">isFoodLocation</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="m">2</span> <span class="p">;</span> 
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">isNestLocation</span> <span class="p">?</span> <span class="err">°</span><span class="n">violet</span><span class="p">:((</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)?</span> <span class="err">°</span><span class="n">blue</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.001</span><span class="p">)?</span> <span class="n">rgb</span> <span class="p">([</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">2</span><span class="p">)?</span> <span class="err">°</span><span class="n">white</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)?</span> <span class="p">(</span><span class="n">C00CC00</span><span class="p">)</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.2</span><span class="p">)?</span> <span class="p">(</span><span class="n">C009900</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">C005500</span><span class="p">))))))</span> <span class="n">update</span><span class="p">:</span> <span class="n">isNestLocation</span> <span class="p">?</span> <span class="err">°</span><span class="n">violet</span><span class="p">:((</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)?</span> <span class="err">°</span><span class="n">blue</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.001</span><span class="p">)?</span> <span class="n">rgb</span> <span class="p">([</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">2</span><span class="p">)?</span> <span class="err">°</span><span class="n">white</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)?</span> <span class="p">(</span><span class="n">C00CC00</span><span class="p">)</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.2</span><span class="p">)?</span> <span class="p">(</span><span class="n">C009900</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">C005500</span><span class="p">))))))</span> <span class="p">;</span>
-	<span class="n">int</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="n">isFoodLocation</span> <span class="p">?</span> <span class="m">5</span> <span class="p">:</span> <span class="m">0</span> <span class="p">;</span>
-	<span class="n">int</span> <span class="n">nest</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="m">300</span> <span class="p">-</span> <span class="n">int</span><span class="p">(</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">center</span><span class="p">)</span> <span class="p">;</span>
-	
+    <span class="n">bool</span> <span class="n">multiagent</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">road</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">240.0</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">road</span><span class="p">&lt;=</span><span class="n">evaporation_per_cycle</span><span class="p">)</span> <span class="p">?</span> <span class="m">0.0</span> <span class="p">:</span> <span class="n">road</span><span class="p">-</span><span class="n">evaporation_per_cycle</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">type</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">types</span> <span class="n">at</span> <span class="p">{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">})</span> <span class="p">;</span>
+    <span class="n">bool</span> <span class="n">isNestLocation</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">center</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">4</span> <span class="p">;</span> 
+    <span class="n">bool</span> <span class="n">isFoodLocation</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="m">2</span> <span class="p">;</span> 
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">isNestLocation</span> <span class="p">?</span> <span class="err">°</span><span class="n">violet</span><span class="p">:((</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)?</span> <span class="err">°</span><span class="n">blue</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.001</span><span class="p">)?</span> <span class="n">rgb</span> <span class="p">([</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">2</span><span class="p">)?</span> <span class="err">°</span><span class="n">white</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)?</span> <span class="p">(</span><span class="n">C00CC00</span><span class="p">)</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.2</span><span class="p">)?</span> <span class="p">(</span><span class="n">C009900</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">C005500</span><span class="p">))))))</span> <span class="n">update</span><span class="p">:</span> <span class="n">isNestLocation</span> <span class="p">?</span> <span class="err">°</span><span class="n">violet</span><span class="p">:((</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)?</span> <span class="err">°</span><span class="n">blue</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.001</span><span class="p">)?</span> <span class="n">rgb</span> <span class="p">([</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">2</span><span class="p">)?</span> <span class="err">°</span><span class="n">white</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)?</span> <span class="p">(</span><span class="n">C00CC00</span><span class="p">)</span> <span class="p">:</span> <span class="p">((</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.2</span><span class="p">)?</span> <span class="p">(</span><span class="n">C009900</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">C005500</span><span class="p">))))))</span> <span class="p">;</span>
+    <span class="n">int</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="n">isFoodLocation</span> <span class="p">?</span> <span class="m">5</span> <span class="p">:</span> <span class="m">0</span> <span class="p">;</span>
+    <span class="n">int</span> <span class="n">nest</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span> <span class="p">&lt;-</span> <span class="m">300</span> <span class="p">-</span> <span class="n">int</span><span class="p">(</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">center</span><span class="p">)</span> <span class="p">;</span>
+
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">ant</span> <span class="n">that</span> <span class="n">will</span> <span class="n">move</span> <span class="k">and</span> <span class="n">follow</span> <span class="n">a</span> <span class="n">final</span> <span class="n">state</span> <span class="n">machine</span>
 <span class="n">species</span> <span class="n">ant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span> <span class="n">fsm</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">;</span>
-	<span class="n">ant_grid</span> <span class="n">place</span> <span class="n">update</span><span class="p">:</span> <span class="n">ant_grid</span> <span class="p">(</span><span class="n">location</span> <span class="p">);</span> 
-	<span class="k">string</span> <span class="n">im</span> <span class="p">&lt;-</span> <span class="s1">'ant_shape_empty'</span> <span class="p">;</span>
-	<span class="n">bool</span> <span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">;</span>
+    <span class="n">ant_grid</span> <span class="n">place</span> <span class="n">update</span><span class="p">:</span> <span class="n">ant_grid</span> <span class="p">(</span><span class="n">location</span> <span class="p">);</span> 
+    <span class="k">string</span> <span class="n">im</span> <span class="p">&lt;-</span> <span class="s1">'ant_shape_empty'</span> <span class="p">;</span>
+    <span class="n">bool</span> <span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="p">;</span>
 
 
 
-	<span class="n">reflex</span> <span class="n">diffuse_road</span> <span class="n">when</span><span class="p">:</span><span class="n">hasFood</span><span class="p">=</span><span class="nb">true</span><span class="p">{</span>
+    <span class="n">reflex</span> <span class="n">diffuse_road</span> <span class="n">when</span><span class="p">:</span><span class="n">hasFood</span><span class="p">=</span><span class="nb">true</span><span class="p">{</span>
       <span class="n">ant_grid</span><span class="p">(</span><span class="n">location</span><span class="p">).</span><span class="n">road</span> <span class="p">&lt;-</span> <span class="n">ant_grid</span><span class="p">(</span><span class="n">location</span><span class="p">).</span><span class="n">road</span> <span class="p">+</span> <span class="m">100.0</span><span class="p">;</span>
    <span class="p">}</span>
    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">pick</span> <span class="n">food</span>
-	<span class="n">action</span> <span class="n">pick</span> <span class="p">{</span>
-		<span class="n">im</span> <span class="p">&lt;-</span> <span class="n">ant_shape_full</span> <span class="p">;</span>
-		<span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
-		<span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="m">1</span> <span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">drop</span> <span class="n">food</span>
-	<span class="n">action</span> <span class="n">drop</span> <span class="p">{</span>
-		<span class="n">food_gathered</span> <span class="p">&lt;-</span> <span class="n">food_gathered</span> <span class="p">+</span> <span class="m">1</span> <span class="p">;</span>
-		<span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="p">;</span>
-		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">heading</span> <span class="p">-</span> <span class="m">180</span> <span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">chose</span> <span class="n">the</span> <span class="n">best</span> <span class="n">place</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">possible</span> <span class="n">food</span> <span class="k">in</span> <span class="n">the</span> <span class="n">neighbor</span> <span class="n">cells</span>
-	<span class="n">action</span> <span class="n">choose_best_place</span> <span class="n">type</span><span class="p">:</span> <span class="n">ant_grid</span> <span class="p">{</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">ant_grid</span><span class="p">&gt;</span> <span class="n">list_places</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">neighbors</span> <span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">list_places</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="p">&gt;</span> <span class="m">0</span>  <span class="p">{</span>
-			<span class="n">return</span> <span class="p">(</span><span class="n">list_places</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="p">;</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="n">int</span> <span class="n">min_nest</span>  <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">list_places</span> <span class="n">min_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">nest</span><span class="p">))</span> <span class="p">;</span>
-				<span class="n">list_places</span> <span class="p">&lt;-</span> <span class="n">list_places</span> <span class="n">sort</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">nest</span> <span class="p">=</span> <span class="n">min_nest</span><span class="p">)</span> <span class="p">?</span> <span class="n">each</span><span class="p">.</span><span class="n">road</span> <span class="p">:</span>  <span class="m">0.0</span><span class="p">)</span> <span class="p">;</span>
-				<span class="n">return</span> <span class="n">last</span><span class="p">(</span><span class="n">list_places</span><span class="p">)</span> <span class="p">;</span>
-			<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Initial</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ant</span> <span class="p">:</span> <span class="n">wander</span> <span class="k">until</span> <span class="n">it</span> <span class="n">finds</span> <span class="n">food</span> <span class="k">or</span> <span class="n">find</span> <span class="n">a</span> <span class="n">road</span> <span class="k">to</span> <span class="n">follow</span>
-	<span class="n">state</span> <span class="n">wandering</span> <span class="n">initial</span><span class="p">:</span> <span class="nb">true</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">120</span> <span class="p">;</span>
-		<span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">carryingFood</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">pick</span> <span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">followingRoad</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.05</span> <span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">State</span> <span class="k">to</span> <span class="n">carry</span> <span class="n">food</span> <span class="k">to</span> <span class="n">the</span> <span class="n">nest</span> <span class="n">once</span> <span class="n">the</span> <span class="n">food</span> <span class="n">is</span> <span class="n">found</span>
-	<span class="n">state</span> <span class="n">carryingFood</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">center</span> <span class="p">;</span>
-		<span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">wandering</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">isNestLocation</span> <span class="p">{</span> 
-			<span class="k">do</span> <span class="n">drop</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">State</span> <span class="k">to</span> <span class="n">follow</span> <span class="n">a</span> <span class="n">road</span> 
-	<span class="n">state</span> <span class="n">followingRoad</span> <span class="p">{</span>
-		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">choose_best_place</span> <span class="p">[])</span> <span class="k">as</span> <span class="n">point</span> <span class="p">;</span>
-		<span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">carryingFood</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">pick</span> <span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">wandering</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">place</span><span class="p">.</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.05</span><span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">text</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="n">use_icons</span> <span class="p">{</span>
-			<span class="n">draw</span>  <span class="n">hasFood</span> <span class="p">?</span> <span class="n">file</span><span class="p">(</span><span class="n">ant_shape_full</span><span class="p">)</span> <span class="p">:</span> <span class="n">file</span><span class="p">(</span><span class="n">ant_shape_empty</span><span class="p">)</span> <span class="n">rotate</span><span class="p">:</span> <span class="n">heading</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="p">;</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">empty</span><span class="p">:</span> <span class="c1">!hasFood color: rgb ('orange') ;
-</span>		<span class="p">}</span>
-		<span class="k">if</span> <span class="n">display_state</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">state</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="p">{-</span><span class="m">3</span><span class="p">,</span><span class="m">1.5</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">white</span> <span class="n">size</span><span class="p">:</span> <span class="m">0.8</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">empty</span><span class="p">:</span> <span class="c1">!hasFood color: #orange ; 
-</span>	<span class="p">}</span>
+    <span class="n">action</span> <span class="n">pick</span> <span class="p">{</span>
+        <span class="n">im</span> <span class="p">&lt;-</span> <span class="n">ant_shape_full</span> <span class="p">;</span>
+        <span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span>
+        <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="m">1</span> <span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">drop</span> <span class="n">food</span>
+    <span class="n">action</span> <span class="n">drop</span> <span class="p">{</span>
+        <span class="n">food_gathered</span> <span class="p">&lt;-</span> <span class="n">food_gathered</span> <span class="p">+</span> <span class="m">1</span> <span class="p">;</span>
+        <span class="n">hasFood</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="p">;</span>
+        <span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">heading</span> <span class="p">-</span> <span class="m">180</span> <span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">chose</span> <span class="n">the</span> <span class="n">best</span> <span class="n">place</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">possible</span> <span class="n">food</span> <span class="k">in</span> <span class="n">the</span> <span class="n">neighbor</span> <span class="n">cells</span>
+    <span class="n">action</span> <span class="n">choose_best_place</span> <span class="n">type</span><span class="p">:</span> <span class="n">ant_grid</span> <span class="p">{</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">ant_grid</span><span class="p">&gt;</span> <span class="n">list_places</span> <span class="p">&lt;-</span> <span class="n">place</span><span class="p">.</span><span class="n">neighbors</span> <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">list_places</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="p">&gt;</span> <span class="m">0</span>  <span class="p">{</span>
+            <span class="n">return</span> <span class="p">(</span><span class="n">list_places</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">int</span> <span class="n">min_nest</span>  <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">list_places</span> <span class="n">min_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">nest</span><span class="p">))</span> <span class="p">;</span>
+                <span class="n">list_places</span> <span class="p">&lt;-</span> <span class="n">list_places</span> <span class="n">sort</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">nest</span> <span class="p">=</span> <span class="n">min_nest</span><span class="p">)</span> <span class="p">?</span> <span class="n">each</span><span class="p">.</span><span class="n">road</span> <span class="p">:</span>  <span class="m">0.0</span><span class="p">)</span> <span class="p">;</span>
+                <span class="n">return</span> <span class="n">last</span><span class="p">(</span><span class="n">list_places</span><span class="p">)</span> <span class="p">;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Initial</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ant</span> <span class="p">:</span> <span class="n">wander</span> <span class="k">until</span> <span class="n">it</span> <span class="n">finds</span> <span class="n">food</span> <span class="k">or</span> <span class="n">find</span> <span class="n">a</span> <span class="n">road</span> <span class="k">to</span> <span class="n">follow</span>
+    <span class="n">state</span> <span class="n">wandering</span> <span class="n">initial</span><span class="p">:</span> <span class="nb">true</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">120</span> <span class="p">;</span>
+        <span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">carryingFood</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">pick</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">followingRoad</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">road</span> <span class="p">&gt;</span> <span class="m">0.05</span> <span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">State</span> <span class="k">to</span> <span class="n">carry</span> <span class="n">food</span> <span class="k">to</span> <span class="n">the</span> <span class="n">nest</span> <span class="n">once</span> <span class="n">the</span> <span class="n">food</span> <span class="n">is</span> <span class="n">found</span>
+    <span class="n">state</span> <span class="n">carryingFood</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">center</span> <span class="p">;</span>
+        <span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">wandering</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">isNestLocation</span> <span class="p">{</span> 
+            <span class="k">do</span> <span class="n">drop</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">State</span> <span class="k">to</span> <span class="n">follow</span> <span class="n">a</span> <span class="n">road</span> 
+    <span class="n">state</span> <span class="n">followingRoad</span> <span class="p">{</span>
+        <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">choose_best_place</span> <span class="p">[])</span> <span class="k">as</span> <span class="n">point</span> <span class="p">;</span>
+        <span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">carryingFood</span> <span class="n">when</span><span class="p">:</span> <span class="n">place</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">pick</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">transition</span> <span class="k">to</span><span class="p">:</span> <span class="n">wandering</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">place</span><span class="p">.</span><span class="n">road</span> <span class="p">&lt;</span> <span class="m">0.05</span><span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">text</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">use_icons</span> <span class="p">{</span>
+            <span class="n">draw</span>  <span class="n">hasFood</span> <span class="p">?</span> <span class="n">file</span><span class="p">(</span><span class="n">ant_shape_full</span><span class="p">)</span> <span class="p">:</span> <span class="n">file</span><span class="p">(</span><span class="n">ant_shape_empty</span><span class="p">)</span> <span class="n">rotate</span><span class="p">:</span> <span class="n">heading</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">empty</span><span class="p">:</span> <span class="c1">!hasFood color: rgb ('orange') ;
+</span>        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">display_state</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">state</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="p">{-</span><span class="m">3</span><span class="p">,</span><span class="m">1.5</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">white</span> <span class="n">size</span><span class="p">:</span> <span class="m">0.8</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">empty</span><span class="p">:</span> <span class="c1">!hasFood color: #orange ; 
+</span>    <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">experiment</span> <span class="n">Ant</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="p">//</span><span class="k">Parameters</span> <span class="k">to</span> <span class="n">play</span> <span class="k">with</span>  <span class="k">in</span> <span class="n">the</span> <span class="n">gui</span>
-	<span class="n">parameter</span> <span class="s1">'Number of ants:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">ants_number</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Evaporation of the signal (unit/cycle):'</span> <span class="n">var</span><span class="p">:</span> <span class="n">evaporation_per_cycle</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Rate of diffusion of the signal (%/cycle):'</span> <span class="n">var</span><span class="p">:</span> <span class="n">diffusion_rate</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Use icons for the agents:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">use_icons</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Display'</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Display state of agents:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">display_state</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Display'</span> <span class="p">;</span>
+    <span class="p">//</span><span class="k">Parameters</span> <span class="k">to</span> <span class="n">play</span> <span class="k">with</span>  <span class="k">in</span> <span class="n">the</span> <span class="n">gui</span>
+    <span class="n">parameter</span> <span class="s1">'Number of ants:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">ants_number</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Evaporation of the signal (unit/cycle):'</span> <span class="n">var</span><span class="p">:</span> <span class="n">evaporation_per_cycle</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Rate of diffusion of the signal (%/cycle):'</span> <span class="n">var</span><span class="p">:</span> <span class="n">diffusion_rate</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Model'</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Use icons for the agents:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">use_icons</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Display'</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Display state of agents:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">display_state</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Display'</span> <span class="p">;</span>
 
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">nbants</span><span class="p">&lt;-[[</span><span class="m">0</span><span class="p">]];</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">statesnames</span><span class="p">&lt;-[</span><span class="s2">"wandering"</span><span class="p">];</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">categnames</span><span class="p">&lt;-[</span><span class="s2">"empty"</span><span class="p">,</span><span class="s2">"carry"</span><span class="p">];</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">nbantsbydist</span><span class="p">&lt;-[[</span><span class="m">0</span><span class="p">]];</span>
-	<span class="k">list</span> <span class="n">xytestvallist</span><span class="p">&lt;-[[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">],[</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">],[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">]]];</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">xyval</span><span class="p">&lt;-[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">]];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">nbants</span><span class="p">&lt;-[[</span><span class="m">0</span><span class="p">]];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">statesnames</span><span class="p">&lt;-[</span><span class="s2">"wandering"</span><span class="p">];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">categnames</span><span class="p">&lt;-[</span><span class="s2">"empty"</span><span class="p">,</span><span class="s2">"carry"</span><span class="p">];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">nbantsbydist</span><span class="p">&lt;-[[</span><span class="m">0</span><span class="p">]];</span>
+    <span class="k">list</span> <span class="n">xytestvallist</span><span class="p">&lt;-[[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">],[</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">]],[[</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">],[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">]]];</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;&gt;</span> <span class="n">xyval</span><span class="p">&lt;-[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">]];</span>
 
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">charts</span><span class="p">,</span> <span class="n">belonging</span> <span class="k">to</span> <span class="n">the</span> <span class="n">experiment</span> <span class="n">bloc</span> <span class="k">as</span> <span class="n">it</span> <span class="n">will</span> <span class="k">not</span> <span class="n">be</span> <span class="n">used</span> <span class="n">by</span> <span class="n">other</span> <span class="n">experiment</span> <span class="n">which</span> <span class="n">don</span><span class="s1">'t have the charts
-	reflex update_charts
-	{
-		nbants&lt;-list&lt;list&lt;int&gt;&gt;([]);
-		statesnames&lt;-list&lt;string&gt;([]);
-		categnames&lt;-["empty","carry"];
-		nbantsbydist&lt;-list&lt;list&lt;int&gt;&gt;([]);
-		ant x&lt;-one_of(world.ant);
-		loop x over:list(world.ant)
-		{
-			if !(statesnames contains (x.state))
-			{				
-			add [(list(ant) count (each.state=x.state and !each.hasFood)),(list(ant) count (each.state=x.state and each.hasFood))] to: nbants;
-			add (x.state) to:statesnames;				
-			int d&lt;-0;
-			list&lt;int&gt; nl&lt;-list&lt;int&gt;([]);
-			loop d from:0 to:9
-				{
-			add (list(ant) count (each.state=x.state and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) to: nl;
-				}
-			add nl to:nbantsbydist;
-			}
-//			add length((list(world.ant) collect (each.next_place distance_to each.location)) where (each=x)) to:nbants;
-		}
-		//write("nbants"+nbants);
-		//write("nbantsbydist"+nbantsbydist);
-		//write("states"+statesnames);		
-	}
-	
-	//The different displays
-	output {
-		display Ants type: opengl {
-			grid ant_grid ;
-			species ant aspect: text ;
-		}
-		display ProportionCarryFood {
-			chart "Proportions carrying: Pie"  size: {0.5,0.5} position: {0, 0} type:pie
-			{
-				data "empty_ants" value:(list(ant) count (!each.hasFood)) color:°red;
-				data "carry_food_ants" value:(list(ant) count (each.hasFood)) color:°green;
-				
-			}
-			
-			chart "Proportions carrying: Radar"  size: {0.5,0.5} position: {0.5, 0} type:radar
-			axes:#white
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">charts</span><span class="p">,</span> <span class="n">belonging</span> <span class="k">to</span> <span class="n">the</span> <span class="n">experiment</span> <span class="n">bloc</span> <span class="k">as</span> <span class="n">it</span> <span class="n">will</span> <span class="k">not</span> <span class="n">be</span> <span class="n">used</span> <span class="n">by</span> <span class="n">other</span> <span class="n">experiment</span> <span class="n">which</span> <span class="n">don</span><span class="s1">'t have the charts
+    reflex update_charts
+    {
+        nbants&lt;-list&lt;list&lt;int&gt;&gt;([]);
+        statesnames&lt;-list&lt;string&gt;([]);
+        categnames&lt;-["empty","carry"];
+        nbantsbydist&lt;-list&lt;list&lt;int&gt;&gt;([]);
+        ant x&lt;-one_of(world.ant);
+        loop x over:list(world.ant)
+        {
+            if !(statesnames contains (x.state))
+            {               
+            add [(list(ant) count (each.state=x.state and !each.hasFood)),(list(ant) count (each.state=x.state and each.hasFood))] to: nbants;
+            add (x.state) to:statesnames;               
+            int d&lt;-0;
+            list&lt;int&gt; nl&lt;-list&lt;int&gt;([]);
+            loop d from:0 to:9
+                {
+            add (list(ant) count (each.state=x.state and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) to: nl;
+                }
+            add nl to:nbantsbydist;
+            }
+//          add length((list(world.ant) collect (each.next_place distance_to each.location)) where (each=x)) to:nbants;
+        }
+        //write("nbants"+nbants);
+        //write("nbantsbydist"+nbantsbydist);
+        //write("states"+statesnames);      
+    }
 
-			{
-				data "empty" value:(list(ant) count (!each.hasFood)) 
-				accumulate_values:true
-				color:°red;				
-				data "carry" value:(list(ant) count (each.hasFood)) 
-				accumulate_values:true
-				color:°blue;				
-			}
-			
-			chart "Proportion: serie"   size: {1.0,0.5} position: {0, 0.5} type:series 
-			series_label_position: legend
-			style:stack
-			{
-				datalist ["empty","carry"] accumulate_values:true 
-				value:[(list(ant) count (!each.hasFood)),(list(ant) count (each.hasFood))] 
-				color:[°red,°green];				
-			}
-		}
+    //The different displays
+    output {
+        display Ants type: opengl {
+            grid ant_grid ;
+            species ant aspect: text ;
+        }
+        display ProportionCarryFood {
+            chart "Proportions carrying: Pie"  size: {0.5,0.5} position: {0, 0} type:pie
+            {
+                data "empty_ants" value:(list(ant) count (!each.hasFood)) color:°red;
+                data "carry_food_ants" value:(list(ant) count (each.hasFood)) color:°green;
+
+            }
+
+            chart "Proportions carrying: Radar"  size: {0.5,0.5} position: {0.5, 0} type:radar
+            axes:#white
+
+            {
+                data "empty" value:(list(ant) count (!each.hasFood)) 
+                accumulate_values:true
+                color:°red;                
+                data "carry" value:(list(ant) count (each.hasFood)) 
+                accumulate_values:true
+                color:°blue;               
+            }
+
+            chart "Proportion: serie"   size: {1.0,0.5} position: {0, 0.5} type:series 
+            series_label_position: legend
+            style:stack
+            {
+                datalist ["empty","carry"] accumulate_values:true 
+                value:[(list(ant) count (!each.hasFood)),(list(ant) count (each.hasFood))] 
+                color:[°red,°green];              
+            }
+        }
 // idem with stacked bar:
 /* 
-		display ProportionByState {
-			chart "DataListListBar" type:histogram 
-			x_serie_labels: categnames 
-			series_label_position: legend
-			{
-				datalist value:nbants legend:statesnames style:stack;
-			}
-			
-		}
+        display ProportionByState {
+            chart "DataListListBar" type:histogram 
+            x_serie_labels: categnames 
+            series_label_position: legend
+            {
+                datalist value:nbants legend:statesnames style:stack;
+            }
+
+        }
 */
-			// Idem with datalist:
-//		display PositionByState {
-//			chart "Position by state (datalist)" type:scatter
-//			{
-//				datalist ["empty","carry"] value:[((list(ant) where (!each.hasFood))  collect each.location),((list(ant) where (each.hasFood))  collect each.location)] color:[°red,°green] line_visible:false;				
-//			}
-//		}
-		display CentroidPosition {
-			chart "Positions and History of Centroide and size by Carry state" type:scatter
-			{
-				datalist ["avg-carry","avg-empty"] value:[mean((list(ant) where (each.hasFood)) collect each.location),
-					mean((list(ant) where (!each.hasFood)) collect each.location)
-				]
-				marker_size: [length(list(ant) where (each.hasFood))/20,length(list(ant) where (!each.hasFood))/20]
-					 color:[°red,°green] 
-					 fill:false
-					 line_visible:true;				
-				data "empty_ants" value:((list(ant) where (!each.hasFood)) collect each.location) color:°red 
-				accumulate_values:false
-				line_visible:false;
-				data "carry_food_ants" value:((list(ant) where (each.hasFood)) collect each.location) 
-				accumulate_values:false
-				color:°green line_visible:false;
+            // Idem with datalist:
+//      display PositionByState {
+//          chart "Position by state (datalist)" type:scatter
+//          {
+//              datalist ["empty","carry"] value:[((list(ant) where (!each.hasFood))  collect each.location),((list(ant) where (each.hasFood))  collect each.location)] color:[°red,°green] line_visible:false;               
+//          }
+//      }
+        display CentroidPosition {
+            chart "Positions and History of Centroide and size by Carry state" type:scatter
+            {
+                datalist ["avg-carry","avg-empty"] value:[mean((list(ant) where (each.hasFood)) collect each.location),
+                    mean((list(ant) where (!each.hasFood)) collect each.location)
+                ]
+                marker_size: [length(list(ant) where (each.hasFood))/20,length(list(ant) where (!each.hasFood))/20]
+                     color:[°red,°green] 
+                     fill:false
+                     line_visible:true;             
+                data "empty_ants" value:((list(ant) where (!each.hasFood)) collect each.location) color:°red 
+                accumulate_values:false
+                line_visible:false;
+                data "carry_food_ants" value:((list(ant) where (each.hasFood)) collect each.location) 
+                accumulate_values:false
+                color:°green line_visible:false;
 
-			}
-		}	
-		display Distribution2dPosition {
-			chart "Distribution of the X positions"   size: {0.65,0.3} position: {0.05, 0} type:histogram
-			
-			{
-				datalist (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
-					value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
-			}
-			chart "Distribution of the Y positions"   size: {0.3,0.7} position: {0.7, 0.28} type:histogram
-			reverse_axes:true
-			
-			{
-				datalist reverse(distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
-					value:reverse(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
-			}
+            }
+        }   
+        display Distribution2dPosition {
+            chart "Distribution of the X positions"   size: {0.65,0.3} position: {0.05, 0} type:histogram
 
-			chart "Distribution2d of the XvsY positions- heatmap"   size: {0.7,0.7} position: {0, 0.3} type:heatmap
-			x_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendx")
-			y_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendy")
-			series_label_position:none
-			{
-				data  "XYdistrib"
-					value:(distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "values")
-					color:[#red];
-			}
-		}
-		
-		display DistributionPosition {
-			chart "Distribution of the X positions"   size: {0.92,0.3} position: {0, 0} type:histogram
-			
-			{
-				datalist (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
-					value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
-			}
-			chart "Distribution of the X positions- heatmap"   size: {1.0,0.7} position: {0, 0.3} type:heatmap
-			x_serie_labels: (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend")
-			y_range:50
-			{
-				data  "Xdistrib"
-					value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values")
-					color:[#red];
-			}
-		}	
-		}
-	
-	}
-	
+            {
+                datalist (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
+                    value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
+            }
+            chart "Distribution of the Y positions"   size: {0.3,0.7} position: {0.7, 0.28} type:histogram
+            reverse_axes:true
+
+            {
+                datalist reverse(distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
+                    value:reverse(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
+            }
+
+            chart "Distribution2d of the XvsY positions- heatmap"   size: {0.7,0.7} position: {0, 0.3} type:heatmap
+            x_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendx")
+            y_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendy")
+            series_label_position:none
+            {
+                data  "XYdistrib"
+                    value:(distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "values")
+                    color:[#red];
+            }
+        }
+
+        display DistributionPosition {
+            chart "Distribution of the X positions"   size: {0.92,0.3} position: {0, 0} type:histogram
+
+            {
+                datalist (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend") 
+                    value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values");
+            }
+            chart "Distribution of the X positions- heatmap"   size: {1.0,0.7} position: {0, 0.3} type:heatmap
+            x_serie_labels: (distribution_of(list(ant) collect each.location.x,10,0,100) at "legend")
+            y_range:50
+            {
+                data  "Xdistrib"
+                    value:(distribution_of(list(ant) collect each.location.x,10,0,100) at "values")
+                    color:[#red];
+            }
+        }   
+        }
+
+    }
+
 //Experiment with only two display : the grid and the ants, and a chart
 experiment AntOneDisp type: gui {
-	parameter '</span><span class="n">Number</span> <span class="k">of</span> <span class="n">ants</span><span class="p">:</span><span class="s1">' var: ants_number category: '</span><span class="k">Model</span><span class="s1">' ;
-	parameter '</span><span class="n">Evaporation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">signal</span> <span class="n">unit</span><span class="p">/</span><span class="n">cycle</span><span class="p">):</span><span class="s1">' var: evaporation_per_cycle category: '</span><span class="k">Model</span><span class="s1">' ;
-	parameter '</span><span class="n">Rate</span> <span class="k">of</span> <span class="n">diffusion</span> <span class="k">of</span> <span class="n">the</span> <span class="n">signal</span> <span class="p">(%/</span><span class="n">cycle</span><span class="p">):</span><span class="s1">' var: diffusion_rate category: '</span><span class="k">Model</span><span class="s1">' ;
-	parameter '</span><span class="n">Use</span> <span class="n">icons</span> <span class="n">for</span> <span class="n">the</span> <span class="n">agents</span><span class="p">:</span><span class="s1">' var: use_icons category: '</span><span class="n">Display</span><span class="s1">' ;
-	parameter '</span><span class="n">Display</span> <span class="n">state</span> <span class="k">of</span> <span class="n">agents</span><span class="p">:</span><span class="s1">' var: display_state category: '</span><span class="n">Display</span><span class="s1">' ;
+    parameter '</span><span class="n">Number</span> <span class="k">of</span> <span class="n">ants</span><span class="p">:</span><span class="s1">' var: ants_number category: '</span><span class="k">Model</span><span class="s1">' ;
+    parameter '</span><span class="n">Evaporation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">signal</span> <span class="n">unit</span><span class="p">/</span><span class="n">cycle</span><span class="p">):</span><span class="s1">' var: evaporation_per_cycle category: '</span><span class="k">Model</span><span class="s1">' ;
+    parameter '</span><span class="n">Rate</span> <span class="k">of</span> <span class="n">diffusion</span> <span class="k">of</span> <span class="n">the</span> <span class="n">signal</span> <span class="p">(%/</span><span class="n">cycle</span><span class="p">):</span><span class="s1">' var: diffusion_rate category: '</span><span class="k">Model</span><span class="s1">' ;
+    parameter '</span><span class="n">Use</span> <span class="n">icons</span> <span class="n">for</span> <span class="n">the</span> <span class="n">agents</span><span class="p">:</span><span class="s1">' var: use_icons category: '</span><span class="n">Display</span><span class="s1">' ;
+    parameter '</span><span class="n">Display</span> <span class="n">state</span> <span class="k">of</span> <span class="n">agents</span><span class="p">:</span><span class="s1">' var: display_state category: '</span><span class="n">Display</span><span class="s1">' ;
 
-	list&lt;list&lt;int&gt;&gt; nbants&lt;-[[0]];
-	list&lt;string&gt; statesnames&lt;-[""];
-	list&lt;string&gt; categnames&lt;-["empty","carry"];
-	list&lt;list&lt;int&gt;&gt; nbantsbydist&lt;-[[0]];
-	list xytestvallist&lt;-[[[1,1],[2,2],[3,3]],[[1,2],[2,1],[3,4]],[[1,3],[2,3],[0,1]],[[1,4],[2,5],[0,0]]];
-	list&lt;list&lt;int&gt;&gt; xyval&lt;-[[1,1],[2,1],[3,2]];
+    list&lt;list&lt;int&gt;&gt; nbants&lt;-[[0]];
+    list&lt;string&gt; statesnames&lt;-[""];
+    list&lt;string&gt; categnames&lt;-["empty","carry"];
+    list&lt;list&lt;int&gt;&gt; nbantsbydist&lt;-[[0]];
+    list xytestvallist&lt;-[[[1,1],[2,2],[3,3]],[[1,2],[2,1],[3,4]],[[1,3],[2,3],[0,1]],[[1,4],[2,5],[0,0]]];
+    list&lt;list&lt;int&gt;&gt; xyval&lt;-[[1,1],[2,1],[3,2]];
 
-	reflex update_charts
-	{
-		ant x&lt;-one_of(world.ant);
-		nbants&lt;-list&lt;list&lt;int&gt;&gt;([]);
-		statesnames&lt;-list&lt;string&gt;([]);
-		loop x over:list(world.ant)
-		{
-			if !(statesnames contains (x.state))
-			{				
-			add [(list(ant) count (each.state=x.state and !each.hasFood)),(list(ant) count (each.state=x.state and each.hasFood))] to: nbants;
-			add (x.state) to:statesnames;				
-			int d&lt;-0;
-			list&lt;int&gt; nl&lt;-list&lt;int&gt;([]);
-			loop d from:0 to:9
-				{
-			add (list(ant) count (each.state=x.state and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) to: nl;
-				}
-			add nl to:nbantsbydist;
-			}
-		}
-		write("nbants"+nbants);
-		write("nbantsbydist"+nbantsbydist);
-		write("states"+statesnames);		
-	}
-	output {
-		display Ants type: opengl {
-			grid ant_grid ;
-			species ant aspect: text ;
-		}
+    reflex update_charts
+    {
+        ant x&lt;-one_of(world.ant);
+        nbants&lt;-list&lt;list&lt;int&gt;&gt;([]);
+        statesnames&lt;-list&lt;string&gt;([]);
+        loop x over:list(world.ant)
+        {
+            if !(statesnames contains (x.state))
+            {               
+            add [(list(ant) count (each.state=x.state and !each.hasFood)),(list(ant) count (each.state=x.state and each.hasFood))] to: nbants;
+            add (x.state) to:statesnames;               
+            int d&lt;-0;
+            list&lt;int&gt; nl&lt;-list&lt;int&gt;([]);
+            loop d from:0 to:9
+                {
+            add (list(ant) count (each.state=x.state and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) to: nl;
+                }
+            add nl to:nbantsbydist;
+            }
+        }
+        write("nbants"+nbants);
+        write("nbantsbydist"+nbantsbydist);
+        write("states"+statesnames);        
+    }
+    output {
+        display Ants type: opengl {
+            grid ant_grid ;
+            species ant aspect: text ;
+        }
 
-		display ChartScatter {
-			chart "Distribution2d of the XvsY positions- heatmap"   size: {0.7,0.7} position: {0, 0.3} type:heatmap
-			x_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendx")
-			y_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendy")
-			series_label_position:none
-			{
-				data  "XYdistrib"
-					value:(distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "values")
-					color:[#red];
-			}
-			
-			}
-	}
+        display ChartScatter {
+            chart "Distribution2d of the XvsY positions- heatmap"   size: {0.7,0.7} position: {0, 0.3} type:heatmap
+            x_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendx")
+            y_serie_labels: (distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "legendy")
+            series_label_position:none
+            {
+                data  "XYdistrib"
+                    value:(distribution2d_of(list(ant) collect each.location.x,list(ant) collect each.location.y,10,0,100,10,0,100) at "values")
+                    color:[#red];
+            }
+
+            }
+    }
 }
 
 
 
 
 
-</span></code></pre></div></div>
-
+</span></code></pre></div>
     </div>
     </div>
     </div>

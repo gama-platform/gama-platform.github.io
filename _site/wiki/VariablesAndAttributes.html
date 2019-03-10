@@ -3606,37 +3606,35 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="variables-and-attributes">Variables and Attributes</h1>
 
-<p>Variables and attributes represent named data that can be used in an expression. They can be accessed depending on their <em>scope</em>:</p>
-<ul>
-  <li>the scope of attributes declared in a species is itself, its child species and its micro-species.</li>
-  <li>the scope of temporary variables is the one in which they have been declared, and all its sub-scopes.
-Outside its <em>scope</em> of validity, an expression cannot use a variable or an attribute directly. However, attributes can be used in a remote fashion by using a dotted notation on a given agent (see <a href="#Remote_Access">here</a>).</li>
-</ul>
+<p>Variables and attributes represent named data that can be used in an expression. They can be accessed depending on their <em>scope</em>:
+  * the scope of attributes declared in a species is itself, its child species and its micro-species.
+  * the scope of temporary variables is the one in which they have been declared, and all its sub-scopes.
+Outside its <em>scope</em> of validity, an expression cannot use a variable or an attribute directly. However, attributes can be used in a remote fashion by using a dotted notation on a given agent (see <a href="#Remote_Access">here</a>).</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#variables-and-attributes">Variables and Attributes</a>
-    <ul>
-      <li><a href="#direct-access">Direct Access</a></li>
-      <li><a href="#remote-access">Remote Access</a></li>
-    </ul>
-  </li>
+<li><a href="#variables-and-attributes">Variables and Attributes</a>
+
+<ul>
+<li><a href="#direct-access">Direct Access</a></li>
+<li><a href="#remote-access">Remote Access</a></li>
+</ul></li>
 </ul>
 
 <h2 id="direct-access">Direct Access</h2>
+
 <p>When an agent wants to use either one of the variables declared locally, one of the attributes declared in its species (or parent species), one of the attributes declared in the macro-species of its species, it can directly invoke its name and the compiler will do the rest (i.e. finding the variable or attribute in the right scope).
 For instance, we can have a look at the following example:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species animal {
+<div class="highlight"><pre><code class="language-" data-lang="">species animal {
    float energy &lt;- 1000 min: 0 max: 2000 update: energy - 0.001;
    int age_in_years &lt;- 1 update: age_in_years + int (time / 365);
-   
+
    action eat (float amount &lt;- 0) {
        float gain &lt;- amount / age_in_years;
        energy &lt;- energy + gain;
@@ -3648,68 +3646,59 @@ For instance, we can have a look at the following example:</p>
    }
 
 }
-</code></pre></div></div>
+</code></pre></div>
+<ul>
+<li><p><strong>Species declaration</strong></p>
+
+<blockquote>
+<p>Everywhere in the species declaration, we are able to directly name and use:</p>
+</blockquote>
 
 <ul>
-  <li><strong>Species declaration</strong>
-    <blockquote>
-      <p>Everywhere in the species declaration, we are able to directly name and use:</p>
-    </blockquote>
-    <ul>
-      <li><code class="highlighter-rouge">time</code>, a global built-in variable,</li>
-      <li><code class="highlighter-rouge">energy</code> and <code class="highlighter-rouge">age_in_years</code>, the two species attributes.
-        <blockquote>
-          <p>Nevertheless, in the species declaration, but outside of the action <code class="highlighter-rouge">eat</code> and the reflex <code class="highlighter-rouge">feed</code>, we <strong>cannot</strong> name the variables:</p>
-        </blockquote>
-      </li>
-      <li><code class="highlighter-rouge">amount</code>, the argument of <code class="highlighter-rouge">eat</code> action,</li>
-      <li><code class="highlighter-rouge">gain</code>, a local variable defined into the <code class="highlighter-rouge">eat</code> action,</li>
-      <li><code class="highlighter-rouge">food_found</code>, the local variable defined into the <code class="highlighter-rouge">feed</code> reflex.</li>
-    </ul>
-  </li>
-  <li><strong><code class="highlighter-rouge">Eat</code> action declaration</strong>
-    <blockquote>
-      <p>In the <code class="highlighter-rouge">eat</code> action declaration, we can directly name and use:</p>
-    </blockquote>
-    <ul>
-      <li><code class="highlighter-rouge">time</code>, a global built-in variable,</li>
-      <li><code class="highlighter-rouge">energy</code> and <code class="highlighter-rouge">age_in_years</code>, the two species attributes,</li>
-      <li><code class="highlighter-rouge">amount</code>, which is an argument to the action <code class="highlighter-rouge">eat</code>,</li>
-      <li><code class="highlighter-rouge">gain</code>, a temporary variable within the action.
-        <blockquote>
-          <p>We <strong>cannot</strong> name and use the variables:</p>
-        </blockquote>
-      </li>
-      <li><code class="highlighter-rouge">food_found</code>, the local variable defined into the <code class="highlighter-rouge">feed</code> reflex.</li>
-    </ul>
-  </li>
-  <li><strong><code class="highlighter-rouge">feed</code> reflex declaration</strong>
-    <blockquote>
-      <p>Similarly, in the <code class="highlighter-rouge">feed</code> reflex declaration, we can directly name and use:</p>
-    </blockquote>
-    <ul>
-      <li><code class="highlighter-rouge">time</code>, a global built-in variable,</li>
-      <li><code class="highlighter-rouge">energy</code> and <code class="highlighter-rouge">age_in_years</code>, the two species variables,</li>
-      <li><code class="highlighter-rouge">food_found</code>, the local variable defined into the reflex.
-        <blockquote>
-          <p>But we <strong>cannot</strong> access to variables:</p>
-        </blockquote>
-      </li>
-      <li><code class="highlighter-rouge">amount</code>, the argument of <code class="highlighter-rouge">eat</code> action,</li>
-      <li><code class="highlighter-rouge">gain</code>, a local variable defined into the <code class="highlighter-rouge">eat</code> action.</li>
-    </ul>
-  </li>
+<li><code>time</code>, a global built-in variable,</li>
+<li><code>energy</code> and <code>age_in_years</code>, the two species attributes.
+&gt; Nevertheless, in the species declaration, but outside of the action <code>eat</code> and the reflex <code>feed</code>, we <strong>cannot</strong> name the variables:</li>
+<li><code>amount</code>, the argument of <code>eat</code> action,</li>
+<li><code>gain</code>, a local variable defined into the <code>eat</code> action,</li>
+<li><code>food_found</code>, the local variable defined into the <code>feed</code> reflex.</li>
+</ul></li>
+<li><p><strong><code>Eat</code> action declaration</strong></p>
+
+<blockquote>
+<p>In the <code>eat</code> action declaration, we can directly name and use:</p>
+</blockquote>
+
+<ul>
+<li><code>time</code>, a global built-in variable,</li>
+<li><code>energy</code> and <code>age_in_years</code>, the two species attributes,</li>
+<li><code>amount</code>, which is an argument to the action <code>eat</code>,</li>
+<li><code>gain</code>, a temporary variable within the action.
+&gt; We <strong>cannot</strong> name and use the variables:</li>
+<li><code>food_found</code>, the local variable defined into the <code>feed</code> reflex.</li>
+</ul></li>
+<li><p><strong><code>feed</code> reflex declaration</strong></p>
+
+<blockquote>
+<p>Similarly, in the <code>feed</code> reflex declaration, we can directly name and use:</p>
+</blockquote>
+
+<ul>
+<li><code>time</code>, a global built-in variable,</li>
+<li><code>energy</code> and <code>age_in_years</code>, the two species variables,</li>
+<li><code>food_found</code>, the local variable defined into the reflex.
+&gt; But we <strong>cannot</strong> access to variables:</li>
+<li><code>amount</code>, the argument of <code>eat</code> action,</li>
+<li><code>gain</code>, a local variable defined into the <code>eat</code> action.</li>
+</ul></li>
 </ul>
 
 <h2 id="remote-access">Remote Access</h2>
+
 <p>When an expression needs to get access to the attribute of an agent which does not belong to its scope of execution, a special notation (similar to that used in Java) has to be used:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>remote_agent.variable
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">remote_agent.variable
+</code></pre></div>
 <p>where remote_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighborhood, the result would be:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species animal {
+<div class="highlight"><pre><code class="language-" data-lang="">species animal {
    float energy &lt;- 1000 min: 0 max: 2000 update: energy - 0.001;
    int age_in_years &lt;- 1 update: age_in_years + int (time / 365);
    action eat (float amount &lt;- 0.0) {
@@ -3730,18 +3719,15 @@ For instance, we can have a look at the following example:</p>
        do feed target: agent_to_feed; // tries to feed it
    }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>In this example, agent_to_feed.energy, myself.energy and each.energy show different remote accesses to the attribute energy. The dotted notation used here can be employed in assignments as well. For instance, an action allowing two agents to exchange their energy could be defined as:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>action random_exchange {//exchanges our energy with that of the closest agent
+<div class="highlight"><pre><code class="language-" data-lang="">action random_exchange {//exchanges our energy with that of the closest agent
      animal one_agent &lt;- agent_closest_to (self)/&gt;
      float temp  &lt;-one_agent.energy; // temporary storage of the agent's energy
      one_agent.energy &lt;- energy; // assignment of the agent's energy with our energy
      energy &lt;- temp;
 }
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

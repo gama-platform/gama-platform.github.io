@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="moving-cells-with-neighbors">Moving cells with neighbors</h1>
@@ -3615,40 +3615,39 @@ function closeRightMenu() {
 
 <p>Third part of the tutorial : Tuto3D</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">Tuto3D</span>
 
 <span class="n">global</span> <span class="p">{</span>
   <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
   <span class="n">int</span> <span class="n">environmentSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
-  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">);</span>	
+  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">);</span>  
   <span class="n">init</span> <span class="p">{</span> 
     <span class="nb">create</span> <span class="n">cells</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="p">{</span> 
       <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)};</span>       
     <span class="p">}</span> 
   <span class="p">}</span>  
 <span class="p">}</span> 
-    
+
 <span class="n">species</span> <span class="n">cells</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]</span> <span class="p">{</span>  
-	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">neighbors</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">offset</span><span class="p">;</span>
-	
-	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-      <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>	
-	<span class="p">}</span>	
-	
-	<span class="n">reflex</span> <span class="n">computeNeighbors</span> <span class="p">{</span>
+    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">neighbors</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">offset</span><span class="p">;</span>
+
+    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+      <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>    
+    <span class="p">}</span>   
+
+    <span class="n">reflex</span> <span class="n">computeNeighbors</span> <span class="p">{</span>
       <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">cells</span> <span class="n">select</span> <span class="p">((</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">);</span>
     <span class="p">}</span>
-		
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">*</span><span class="m">0.01</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">orange</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">pp</span> <span class="n">over</span><span class="p">:</span> <span class="n">neighbors</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">pp</span><span class="p">.</span><span class="n">location</span><span class="p">]);</span>
-		<span class="p">}</span>	
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">*</span><span class="m">0.01</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">orange</span><span class="p">;</span>
+        <span class="n">loop</span> <span class="n">pp</span> <span class="n">over</span><span class="p">:</span> <span class="n">neighbors</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">pp</span><span class="p">.</span><span class="n">location</span><span class="p">]);</span>
+        <span class="p">}</span>   
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -3658,7 +3657,7 @@ function closeRightMenu() {
   <span class="n">output</span> <span class="p">{</span>
     <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">){</span>
       <span class="n">graphics</span> <span class="s2">"env"</span><span class="p">{</span>
-      	<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>	
+        <span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>    
       <span class="p">}</span>
       <span class="n">species</span> <span class="n">cells</span><span class="p">;</span>
     <span class="p">}</span>
@@ -3666,8 +3665,7 @@ function closeRightMenu() {
 <span class="p">}</span>
 
 
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

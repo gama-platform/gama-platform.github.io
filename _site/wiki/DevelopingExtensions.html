@@ -3606,76 +3606,30 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="developing-extensions">Developing Extensions</h1>
 
-<p>GAMA accepts <em>extensions</em> to the GAML language, defined by external programmers and dynamically loaded by the platform each time it is run. Extensions can represent new built-in species, types, file-types, skills, operators, statements, new control architectures or even types of displays. Other internal structures of GAML will be progressively “opened” to this mechanism in the future: display layers (hardwired for the moment), new types of outputs (hardwired for the moment), scheduling policies (hardwired for the moment), random number generators (hardwired for the moment).
-The extension mechanism relies on two complementary techniques:</p>
-<ul>
-  <li>the first one consists in defining the GAML extensions <a href="DevelopingPlugins">in a plug-in</a> (in the OSGI sense, see <a href="http://www.eclipse.org/equinox/">here</a>) that will be loaded by GAMA at runtime and must “declare” that it is contributing to the platform.</li>
-  <li>the second one is to indicate to GAMA where to look for extensions, using Java annotations that are gathered at compile time (some being also used at runtime) and directly compiled into GAML structures.</li>
-</ul>
+<p>GAMA accepts <em>extensions</em> to the GAML language, defined by external programmers and dynamically loaded by the platform each time it is run. Extensions can represent new built-in species, types, file-types, skills, operators, statements, new control architectures or even types of displays. Other internal structures of GAML will be progressively &quot;opened&quot; to this mechanism in the future: display layers (hardwired for the moment), new types of outputs (hardwired for the moment), scheduling policies (hardwired for the moment), random number generators (hardwired for the moment).
+The extension mechanism relies on two complementary techniques:
+  * the first one consists in defining the GAML extensions <a href="DevelopingPlugins">in a plug-in</a> (in the OSGI sense, see <a href="http://www.eclipse.org/equinox/">here</a>) that will be loaded by GAMA at runtime and must &quot;declare&quot; that it is contributing to the platform.
+  * the second one is to indicate to GAMA where to look for extensions, using Java annotations that are gathered at compile time (some being also used at runtime) and directly compiled into GAML structures.</p>
 
 <p>The following sections describe this extension process.</p>
 
 <ul>
-  <li>
-    <ol>
-      <li><a href="InstallingGitVersion">Installing the GIT version</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="GamaArchitecture">Architecture of GAMA</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingPlugins">Developing a Plugin</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingSkills">Developing a Skill</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingStatements">Developing a Statement</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingOperators">Developing an Operator</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingTypes">Developing a Type</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingSpecies">Developing a Species</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingControlArchitectures">Developing a Control Architecture</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingIndexAnnotations">Index of annotations</a></li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li><a href="DevelopingIScope">IScope</a></li>
-    </ol>
-  </li>
+<li>1. <a href="InstallingGitVersion">Installing the GIT version</a></li>
+<li>2. <a href="GamaArchitecture">Architecture of GAMA</a></li>
+<li>3. <a href="DevelopingPlugins">Developing a Plugin</a></li>
+<li>4. <a href="DevelopingSkills">Developing a Skill</a></li>
+<li>5. <a href="DevelopingStatements">Developing a Statement</a></li>
+<li>6. <a href="DevelopingOperators">Developing an Operator</a></li>
+<li>7. <a href="DevelopingTypes">Developing a Type</a></li>
+<li>8. <a href="DevelopingSpecies">Developing a Species</a></li>
+<li>9. <a href="DevelopingControlArchitectures">Developing a Control Architecture</a></li>
+<li>10. <a href="DevelopingIndexAnnotations">Index of annotations</a></li>
+<li>11. <a href="DevelopingIScope">IScope</a></li>
 </ul>
 
     </div>

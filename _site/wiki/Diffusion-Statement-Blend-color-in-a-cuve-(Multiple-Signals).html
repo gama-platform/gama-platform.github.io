@@ -3606,95 +3606,92 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="blend-color-in-a-cuve">Blend color in a cuve</h1>
 
 <p><em>Author : Julien Mazars</em></p>
 
-<p>This model is used to show how we can diffuse several variables in the same grid. At the cycle 0, 3 different pheromons are emited in 3 of the 4 corners of the cuve (each one associated to a color). Thanks to the diffusion mechanism, all the 3 colors will blend each other. The process is accelerated by using the facet “cycle_length”. The “avoid_mask” facet is used in order to have a constant sum of pheromon.</p>
+<p>This model is used to show how we can diffuse several variables in the same grid. At the cycle 0, 3 different pheromons are emited in 3 of the 4 corners of the cuve (each one associated to a color). Thanks to the diffusion mechanism, all the 3 colors will blend each other. The process is accelerated by using the facet &quot;cycle_length&quot;. The &quot;avoid_mask&quot; facet is used in order to have a constant sum of pheromon. </p>
 
-<p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Blend color in a cuve (Multiple Signals)/a-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Blend color in a cuve (Multiple Signals)/a-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">cycle_length</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">64</span><span class="p">;</span> <span class="p">//</span> <span class="n">better</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">pow</span> <span class="k">of</span> <span class="m">2</span> <span class="n">for</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
-	<span class="n">int</span> <span class="n">cycle_length</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-  	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">));</span>
-  	<span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">top_left_cells</span><span class="p">;</span>
-  	<span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">top_right_cells</span><span class="p">;</span>
-  	<span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">bot_left_cells</span><span class="p">;</span>
-  	<span class="p">//</span> <span class="n">Declare</span> <span class="n">the</span> <span class="n">uniform</span> <span class="n">matrix</span>
-  	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">mat_diff</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">([</span>
-									<span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
-									<span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
-									<span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">]]);</span>
+    <span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">64</span><span class="p">;</span> <span class="p">//</span> <span class="n">better</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">pow</span> <span class="k">of</span> <span class="m">2</span> <span class="n">for</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
+    <span class="n">int</span> <span class="n">cycle_length</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">));</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">top_left_cells</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">top_right_cells</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">bot_left_cells</span><span class="p">;</span>
+    <span class="p">//</span> <span class="n">Declare</span> <span class="n">the</span> <span class="n">uniform</span> <span class="n">matrix</span>
+    <span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">mat_diff</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">([</span>
+                                    <span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">]]);</span>
 
-	<span class="p">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cells</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">top_left_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
-		<span class="p">));</span>
-		<span class="n">top_right_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
-		<span class="p">));</span>
-		<span class="n">bot_left_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span>
-			<span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
-		<span class="p">));</span>
-	<span class="p">}</span>
-	<span class="n">reflex</span> <span class="n">init_value</span> <span class="n">when</span><span class="p">:</span><span class="n">cycle</span><span class="p">=</span><span class="m">0</span> <span class="p">{</span>
-		<span class="n">ask</span><span class="p">(</span><span class="n">top_left_cells</span><span class="p">){</span>
-			<span class="n">phero1</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">ask</span><span class="p">(</span><span class="n">top_right_cells</span><span class="p">){</span>
-			<span class="n">phero2</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">ask</span><span class="p">(</span><span class="n">bot_left_cells</span><span class="p">){</span>
-			<span class="n">phero3</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-		<span class="p">}</span>	
-	<span class="p">}</span>
+    <span class="p">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cells</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">top_left_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
+        <span class="p">));</span>
+        <span class="n">top_right_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
+        <span class="p">));</span>
+        <span class="n">bot_left_cells</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;(</span><span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span>
+            <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">init_value</span> <span class="n">when</span><span class="p">:</span><span class="n">cycle</span><span class="p">=</span><span class="m">0</span> <span class="p">{</span>
+        <span class="n">ask</span><span class="p">(</span><span class="n">top_left_cells</span><span class="p">){</span>
+            <span class="n">phero1</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ask</span><span class="p">(</span><span class="n">top_right_cells</span><span class="p">){</span>
+            <span class="n">phero2</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ask</span><span class="p">(</span><span class="n">bot_left_cells</span><span class="p">){</span>
+            <span class="n">phero3</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+        <span class="p">}</span>   
+    <span class="p">}</span>
 
-	<span class="n">reflex</span> <span class="n">diff</span> <span class="p">{</span>
-		<span class="p">//</span> <span class="n">Declare</span> <span class="n">a</span> <span class="n">diffusion</span> <span class="n">on</span> <span class="n">the</span> <span class="n">grid</span> <span class="s2">"cells"</span> <span class="n">for</span> <span class="n">each</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">pheromons</span><span class="p">.</span> 
-		<span class="p">//</span> <span class="k">In</span> <span class="n">order</span> <span class="k">to</span> <span class="k">not</span> <span class="n">loosing</span> <span class="n">phero</span> <span class="n">value</span><span class="p">,</span> <span class="n">we</span> <span class="n">apply</span> <span class="n">a</span> <span class="n">hand</span> <span class="n">made</span> <span class="n">mask</span> <span class="p">(</span><span class="k">with</span> <span class="n">the</span> <span class="n">operator</span> <span class="s2">"where"</span><span class="p">)</span> <span class="k">and</span> <span class="n">we</span> <span class="n">turn</span> <span class="n">the</span> <span class="s2">"avoid_mask"</span> <span class="n">facet</span> <span class="k">to</span> <span class="nb">true</span><span class="p">.</span>
-		<span class="k">list</span> <span class="n">cells_where_diffuse</span> <span class="p">&lt;-</span> <span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span><span class="p">);</span>
-		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero1</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
-		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero2</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
-		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero3</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">diff</span> <span class="p">{</span>
+        <span class="p">//</span> <span class="n">Declare</span> <span class="n">a</span> <span class="n">diffusion</span> <span class="n">on</span> <span class="n">the</span> <span class="n">grid</span> <span class="s2">"cells"</span> <span class="n">for</span> <span class="n">each</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">pheromons</span><span class="p">.</span> 
+        <span class="p">//</span> <span class="k">In</span> <span class="n">order</span> <span class="k">to</span> <span class="k">not</span> <span class="n">loosing</span> <span class="n">phero</span> <span class="n">value</span><span class="p">,</span> <span class="n">we</span> <span class="n">apply</span> <span class="n">a</span> <span class="n">hand</span> <span class="n">made</span> <span class="n">mask</span> <span class="p">(</span><span class="k">with</span> <span class="n">the</span> <span class="n">operator</span> <span class="s2">"where"</span><span class="p">)</span> <span class="k">and</span> <span class="n">we</span> <span class="n">turn</span> <span class="n">the</span> <span class="s2">"avoid_mask"</span> <span class="n">facet</span> <span class="k">to</span> <span class="nb">true</span><span class="p">.</span>
+        <span class="k">list</span> <span class="n">cells_where_diffuse</span> <span class="p">&lt;-</span> <span class="n">cells</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_x</span> <span class="p">&gt;</span> <span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">-</span><span class="n">cycle_length</span> <span class="k">and</span> <span class="n">each</span><span class="p">.</span><span class="n">grid_y</span> <span class="p">&gt;</span> <span class="n">cycle_length</span><span class="p">);</span>
+        <span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero1</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
+        <span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero2</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
+        <span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero3</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells_where_diffuse</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">mat_diff</span> <span class="n">avoid_mask</span><span class="p">:</span> <span class="nb">true</span> <span class="n">method</span><span class="p">:</span><span class="n">dot_product</span> <span class="n">cycle_length</span><span class="p">:</span><span class="n">cycle_length</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">grid</span> <span class="n">cells</span> <span class="n">height</span><span class="p">:</span> <span class="n">size</span> <span class="n">width</span><span class="p">:</span> <span class="n">size</span> <span class="p">{</span>
-	<span class="p">//</span> <span class="s2">"phero1"</span><span class="p">,</span> <span class="s2">"phero2"</span><span class="p">,</span> <span class="s2">"phero3"</span> <span class="n">are</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
-	<span class="n">float</span> <span class="n">phero1</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">phero2</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">phero3</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-	<span class="p">//</span> <span class="n">The</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">construct</span> <span class="n">using</span> <span class="n">the</span> <span class="m">3</span> <span class="n">pheromons</span><span class="p">.</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">phero1</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero2</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero3</span><span class="p">*</span><span class="m">256</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">phero1</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero2</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero3</span><span class="p">*</span><span class="m">256</span><span class="p">);</span>
+    <span class="p">//</span> <span class="s2">"phero1"</span><span class="p">,</span> <span class="s2">"phero2"</span><span class="p">,</span> <span class="s2">"phero3"</span> <span class="n">are</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
+    <span class="n">float</span> <span class="n">phero1</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">phero2</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">phero3</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+    <span class="p">//</span> <span class="n">The</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">construct</span> <span class="n">using</span> <span class="n">the</span> <span class="m">3</span> <span class="n">pheromons</span><span class="p">.</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">phero1</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero2</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero3</span><span class="p">*</span><span class="m">256</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">phero1</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero2</span><span class="p">*</span><span class="m">256</span><span class="p">,</span><span class="n">phero3</span><span class="p">*</span><span class="m">256</span><span class="p">);</span>
 <span class="p">}</span> 
 
 
 <span class="n">experiment</span> <span class="n">diffusion</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">a</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-			<span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
-			<span class="n">grid</span> <span class="n">cells</span> <span class="n">elevation</span><span class="p">:</span> <span class="p">(</span><span class="n">phero1</span><span class="p">+</span><span class="n">phero2</span><span class="p">+</span><span class="n">phero3</span><span class="p">)*</span><span class="m">10</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">a</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+            <span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
+            <span class="n">grid</span> <span class="n">cells</span> <span class="n">elevation</span><span class="p">:</span> <span class="p">(</span><span class="n">phero1</span><span class="p">+</span><span class="n">phero2</span><span class="p">+</span><span class="n">phero3</span><span class="p">)*</span><span class="m">10</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="exploration-methods">Exploration Methods</h1>
@@ -3616,32 +3616,32 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#the-method-element">The method element</a></li>
-  <li><a href="#exhaustive-exploration-of-the-parameter-space">Exhaustive exploration of the parameter space</a></li>
-  <li><a href="#hill-climbing">Hill Climbing</a></li>
-  <li><a href="#simulated-annealing">Simulated Annealing</a></li>
-  <li><a href="#tabu-search">Tabu Search</a></li>
-  <li><a href="#reactive-tabu-search">Reactive Tabu Search</a></li>
-  <li><a href="#genetic-algorithm">Genetic Algorithm</a></li>
+<li><a href="#the-method-element">The method element</a></li>
+<li><a href="#exhaustive-exploration-of-the-parameter-space">Exhaustive exploration of the parameter space</a></li>
+<li><a href="#hill-climbing">Hill Climbing</a></li>
+<li><a href="#simulated-annealing">Simulated Annealing</a></li>
+<li><a href="#tabu-search">Tabu Search</a></li>
+<li><a href="#reactive-tabu-search">Reactive Tabu Search</a></li>
+<li><a href="#genetic-algorithm">Genetic Algorithm</a></li>
 </ul>
 
 <h2 id="the-method-element">The method element</h2>
+
 <p>The optional method element controls the algorithm which drives the batch.</p>
 
 <p>If this element is omitted, the batch will run in a classical way, changing one parameter value at each step until all the possible combinations of parameter values have been covered. See the Exhaustive exploration of the parameter space for more details.</p>
 
-<p>When used, this element must contain at least a name attribute to specify the algorithm to use. It has theses facets:</p>
-<ul>
-  <li>minimize or a maximize (mandatory for optimization method): a attribute defining the expression to be optimized.</li>
-  <li>aggregation (optional): possible values (“min”, “max”). Each combination of parameter values is tested <strong>repeat</strong> times. The aggregated fitness of one combination is by default the average of fitness values obtained with those repetitions. This facet can be used to tune this aggregation function and to choose to compute the aggregated fitness value as the minimum or the maximum of the obtained fitness values.</li>
-  <li>other parameters linked to exploration method (optional) : see below for a description of these parameters.</li>
-</ul>
+<p>When used, this element must contain at least a name attribute to specify the algorithm to use. It has theses facets:
+* minimize or a maximize (mandatory for optimization method): a attribute defining the expression to be optimized.
+* aggregation (optional): possible values (&quot;min&quot;, &quot;max&quot;). Each combination of parameter values is tested <strong>repeat</strong> times. The aggregated fitness of one combination is by default the average of fitness values obtained with those repetitions. This facet can be used to tune this aggregation function and to choose to compute the aggregated fitness value as the minimum or the maximum of the obtained fitness values.
+* other parameters linked to exploration method (optional) : see below for a description of these parameters.</p>
 
-<p>Exemples of use of the method elements:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>method exhaustive minimize: nb_infected ;
+<p>Exemples of use of the method elements:
+```
+method exhaustive minimize: nb_infected ;</p>
 
-method genetic pop_dim: 3 crossover_prob: 0.7 mutation_prob: 0.1 nb_prelim_gen: 1 max_gen: 5  minimize: nb_infected aggregation: "max";
-</code></pre></div></div>
+<p>method genetic pop_dim: 3 crossover_prob: 0.7 mutation_prob: 0.1 nb_prelim_gen: 1 max_gen: 5  minimize: nb_infected aggregation: &quot;max&quot;;
+```</p>
 
 <h2 id="exhaustive-exploration-of-the-parameter-space">Exhaustive exploration of the parameter space</h2>
 
@@ -3651,32 +3651,26 @@ Parameter type accepted: all.</p>
 <p>This is the standard batch method. The exhaustive mode is defined by default when there is no method element present in the batch section. It explores all the combination of parameter values in a sequential way.</p>
 
 <p>Example (models/ants/batch/ant_exhaustive_batch.xml):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
 }
-</code></pre></div></div>
-
-<p>The order of the simulations depends on the order of the param. In our example, the first combinations will be the followings:</p>
-<ul>
-  <li>evaporation_rate = 0.1, diffusion_rate = 0.1, (2 times)</li>
-  <li>evaporation_rate = 0.1, diffusion_rate = 0.4, (2 times)</li>
-  <li>evaporation_rate = 0.1, diffusion_rate = 0.7, (2 times)</li>
-  <li>evaporation_rate = 0.1, diffusion_rate = 1.0, (2 times)</li>
-  <li>evaporation_rate = 0.2, diffusion_rate = 0.1, (2 times)</li>
-  <li>…</li>
-</ul>
+</code></pre></div>
+<p>The order of the simulations depends on the order of the param. In our example, the first combinations will be the followings:
+* evaporation_rate = 0.1, diffusion_rate = 0.1, (2 times)
+* evaporation_rate = 0.1, diffusion_rate = 0.4, (2 times)
+* evaporation_rate = 0.1, diffusion_rate = 0.7, (2 times)
+* evaporation_rate = 0.1, diffusion_rate = 1.0, (2 times)
+* evaporation_rate = 0.2, diffusion_rate = 0.1, (2 times)
+* ...</p>
 
 <p>Note: this method can also be used for optimization by adding an method element with maximize or a minimize attribute:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method exhaustive maximize: food_gathered;
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method exhaustive maximize: food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="hill-climbing">Hill Climbing</h2>
 
 <p>Name: hill_climbing
@@ -3686,8 +3680,7 @@ Parameter type accepted: all.</p>
 <p>This algorithm is an implementation of the Hill Climbing algorithm. See the wikipedia article.</p>
 
 <p>Algorithm:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Initialization of an initial solution s 
+<div class="highlight"><pre><code class="language-" data-lang=""> Initialization of an initial solution s 
  iter = 0
  While iter &lt;= iter_max, do:
    Choice of the solution s' in the neighborhood of s that maximize the fitness function
@@ -3698,23 +3691,19 @@ Parameter type accepted: all.</p>
    EndIf
    iter = iter + 1
  EndWhile
-</code></pre></div></div>
-
-<p>Method parameters:</p>
-<ul>
-  <li>iter_max: number of iterations</li>
-</ul>
+</code></pre></div>
+<p>Method parameters:
+* iter_max: number of iterations</p>
 
 <p>Example (models/ants/batch/ant_hill_climbing_batch.xml):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method hill_climbing iter_max: 50 maximize : food_gathered;
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method hill_climbing iter_max: 50 maximize : food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="simulated-annealing">Simulated Annealing</h2>
+
 <p>Name: annealing
 Parameter definitions accepted: List with step and Explicit List.
 Parameter type accepted: all.</p>
@@ -3722,8 +3711,7 @@ Parameter type accepted: all.</p>
 <p>This algorithm is an implementation of the Simulated Annealing algorithm. See the wikipedia article.</p>
 
 <p>Algorithm:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Initialization of an initial solution s 
+<div class="highlight"><pre><code class="language-" data-lang=""> Initialization of an initial solution s 
  temp = temp_init
  While temp &gt; temp_end, do:
    iter = 0
@@ -3742,26 +3730,22 @@ Parameter type accepted: all.</p>
    EndWhile
    temp = temp * nb_iter_cst_temp
  EndWhile
-</code></pre></div></div>
-
-<p>Method parameters:</p>
-<ul>
-  <li>temp_init: Initial temperature</li>
-  <li>temp_end: Final temperature</li>
-  <li>temp_decrease: Temperature decrease coefficient</li>
-  <li>nb_iter_cst_temp: Number of iterations per level of temperature</li>
-</ul>
+</code></pre></div>
+<p>Method parameters:
+* temp_init: Initial temperature
+* temp_end: Final temperature
+* temp_decrease: Temperature decrease coefficient
+* nb_iter_cst_temp: Number of iterations per level of temperature</p>
 
 <p>Example (models/ants/batch/ant_simulated_annealing_batch.xml):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method annealing temp_init: 100  temp_end: 1 temp_decrease: 0.5 nb_iter_cst_temp: 5 maximize: food_gathered;
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method annealing temp_init: 100  temp_end: 1 temp_decrease: 0.5 nb_iter_cst_temp: 5 maximize: food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="tabu-search">Tabu Search</h2>
+
 <p>Name: tabu
 Parameter definitions accepted: List with step and Explicit List.
 Parameter type accepted: all.</p>
@@ -3769,8 +3753,7 @@ Parameter type accepted: all.</p>
 <p>This algorithm is an implementation of the Tabu Search algorithm. See the wikipedia article.</p>
 
 <p>Algorithm:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Initialization of an initial solution s 
+<div class="highlight"><pre><code class="language-" data-lang=""> Initialization of an initial solution s 
  tabuList = {}
  iter = 0
  While iter &lt;= iter_max, do:
@@ -3784,21 +3767,16 @@ Parameter type accepted: all.</p>
    tabuList = tabuList + s
    iter = iter + 1
  EndWhile
-</code></pre></div></div>
-
-<p>Method parameters:</p>
-<ul>
-  <li>iter_max: number of iterations</li>
-  <li>tabu_list_size: size of the tabu list</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method tabu iter_max: 50 tabu_list_size: 5 maximize: food_gathered;
+</code></pre></div>
+<p>Method parameters:
+* iter_max: number of iterations
+* tabu_list_size: size of the tabu list</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method tabu iter_max: 50 tabu_list_size: 5 maximize: food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="reactive-tabu-search">Reactive Tabu Search</h2>
 
 <p>Name: reactive_tabu
@@ -3807,41 +3785,34 @@ Parameter type accepted: all.</p>
 
 <p>This algorithm is a simple implementation of the Reactive Tabu Search algorithm ((Battiti et al., 1993)). This Reactive Tabu Search is an enhance version of the Tabu search. It adds two new elements to the classic Tabu Search. The first one concerns the size of the tabu list: in the Reactive Tabu Search, this one is not constant anymore but it dynamically evolves according to the context. Thus, when the exploration process visits too often the same solutions, the tabu list is extended in order to favor the diversification of the search process. On the other hand, when the process has not visited an already known solution for a high number of iterations, the tabu list is shortened in order to favor the intensification of the search process. The second new element concerns the adding of cycle detection capacities. Thus, when a cycle is detected, the process applies random movements in order to break the cycle.</p>
 
-<p>Method parameters:</p>
-<ul>
-  <li>iter_max: number of iterations</li>
-  <li>tabu_list_size_init: initial size of the tabu list</li>
-  <li>tabu_list_size_min: minimal size of the tabu list</li>
-  <li>tabu_list_size_max: maximal size of the tabu list</li>
-  <li>nb_tests_wthout_col_max: number of movements without collision before shortening the tabu list</li>
-  <li>cycle_size_min: minimal size of the considered cycles</li>
-  <li>cycle_size_max: maximal size of the considered cycles</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method reactive_tabu iter_max: 50 tabu_list_size_init: 5 tabu_list_size_min: 2 tabu_list_size_max: 10 nb_tests_wthout_col_max: 20 cycle_size_min: 2 cycle_size_max: 20 maximize: food_gathered;
+<p>Method parameters:
+* iter_max: number of iterations
+* tabu_list_size_init: initial size of the tabu list
+* tabu_list_size_min: minimal size of the tabu list
+* tabu_list_size_max: maximal size of the tabu list
+* nb_tests_wthout_col_max: number of movements without collision before shortening the tabu list
+* cycle_size_min: minimal size of the considered cycles
+* cycle_size_max: maximal size of the considered cycles</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method reactive_tabu iter_max: 50 tabu_list_size_init: 5 tabu_list_size_min: 2 tabu_list_size_max: 10 nb_tests_wthout_col_max: 20 cycle_size_min: 2 cycle_size_max: 20 maximize: food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="genetic-algorithm">Genetic Algorithm</h2>
+
 <p>Name: genetic
 Parameter definitions accepted: List with step and Explicit List.
 Parameter type accepted: all.</p>
 
-<p>This is a simple implementation of Genetic Algorithms (GA). See the wikipedia article. The principle of GA is to search an optimal solution by applying evolution operators on an initial population of solutions There are three types of evolution operators:</p>
-<ul>
-  <li>Crossover: Two solutions are combined in order to produce new solutions</li>
-  <li>Mutation: a solution is modified</li>
-  <li>Selection: only a part of the population is kept. Different techniques can be applied for this selection. Most of them are based on the solution quality (fitness).</li>
-</ul>
+<p>This is a simple implementation of Genetic Algorithms (GA). See the wikipedia article. The principle of GA is to search an optimal solution by applying evolution operators on an initial population of solutions There are three types of evolution operators:
+* Crossover: Two solutions are combined in order to produce new solutions
+* Mutation: a solution is modified
+* Selection: only a part of the population is kept. Different techniques can be applied for this selection. Most of them are based on the solution quality (fitness).</p>
 
-<p>Representation of the solutions:</p>
-<ul>
-  <li>Individual solution: {Param1 = val1; Param2 = val2; …}</li>
-  <li>Gene: Parami = vali</li>
-</ul>
+<p>Representation of the solutions:
+* Individual solution: {Param1 = val1; Param2 = val2; ...}
+* Gene: Parami = vali</p>
 
 <p>Initial population building: the system builds nb_prelim_gen random initial populations composed of pop_dim individual solutions. Then, the best pop_dim solutions are selected to be part of the initial population.</p>
 
@@ -3851,31 +3822,18 @@ Parameter type accepted: all.</p>
 
 <p>Crossover operator: A cut point is randomly selected and two new solutions are built by taking the half of each parent solution. Ex: let {Param1 = 4; Param2 = 1} and {Param1 = 2; Param2 = 3} be two solutions. The crossover operator builds two new solutions: {Param1 = 2; Param2 = 1} and {Param1 = 4; Param2 = 3}.</p>
 
-<p>Method parameters:</p>
-<ul>
-  <li>pop_dim: size of the population (number of individual solutions)</li>
-  <li>crossover_prob: crossover probability between two individual solutions</li>
-  <li>mutation_prob: mutation probability for an individual solution</li>
-  <li>nb_prelim_gen: number of random populations used to build the initial population</li>
-  <li>max_gen: number of generations</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
-	parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
-	parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
-	method genetic maximize: food_gathered pop_dim: 5 crossover_prob: 0.7 mutation_prob: 0.1 nb_prelim_gen: 1 max_gen: 20; 
+<p>Method parameters:
+* pop_dim: size of the population (number of individual solutions)
+* crossover_prob: crossover probability between two individual solutions
+* mutation_prob: mutation probability for an individual solution
+* nb_prelim_gen: number of random populations used to build the initial population
+* max_gen: number of generations</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed ) or ( time &gt; 400 ) {
+    parameter 'Evaporation:' var: evaporation_rate among: [ 0.1 , 0.2 , 0.5 , 0.8 , 1.0 ] unit: 'rate every cycle (1.0 means 100%)';
+    parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+    method genetic maximize: food_gathered pop_dim: 5 crossover_prob: 0.7 mutation_prob: 0.1 nb_prelim_gen: 1 max_gen: 20; 
 }
-</code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_parameter)">//</a>: # (endConcept</td>
-      <td>exploration_methods)</td>
-    </tr>
-  </tbody>
-</table>
-
+</code></pre></div>
     </div>
     </div>
     </div>

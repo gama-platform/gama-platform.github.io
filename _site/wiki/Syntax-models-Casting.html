@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="casting-syntax">Casting Syntax</h1>
@@ -3615,152 +3615,150 @@ function closeRightMenu() {
 
 <p>different ways of transforming objects and agents in GAML.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">Casting</span>
 
 <span class="n">species</span> <span class="n">to_int</span> <span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>             
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">species</span> <span class="n">to_float</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>               
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">species</span> <span class="n">to_string</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>              
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">to_point</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>               
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">species</span> <span class="n">to_list</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>	
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span> 
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>                
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">species</span> <span class="n">to_pair</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">pair</span><span class="p">(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>                
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">species</span> <span class="n">to_map</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">&lt;</span><span class="n">float</span><span class="p">,</span> <span class="n">int</span><span class="p">&gt;(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
-		<span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">&lt;</span><span class="n">int</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;(</span><span class="m">1</span><span class="p">));</span>				
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">&lt;</span><span class="n">float</span><span class="p">,</span> <span class="n">int</span><span class="p">&gt;(</span><span class="err">°</span><span class="n">meter</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="s2">"1"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="err">°</span><span class="n">pink</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">self</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">([</span><span class="m">0</span><span class="p">::</span><span class="m">0</span><span class="p">]));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">(#</span><span class="n">AABBCC</span><span class="p">));</span>
+        <span class="nb">write</span> <span class="n">sample</span><span class="p">(</span><span class="n">map</span><span class="p">&lt;</span><span class="n">int</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;(</span><span class="m">1</span><span class="p">));</span>               
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">experiment</span> <span class="n">Casting</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">{</span>
-	<span class="n">user_command</span> <span class="s2">"to int"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_int</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to float"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_float</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to string"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_string</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to point"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_point</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to list"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_list</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to pair"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_pair</span><span class="p">;}</span>
-	<span class="n">user_command</span> <span class="s2">"to map"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_map</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to int"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_int</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to float"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_float</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to string"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_string</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to point"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_point</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to list"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_list</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to pair"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_pair</span><span class="p">;}</span>
+    <span class="n">user_command</span> <span class="s2">"to map"</span> <span class="p">{</span><span class="nb">create</span> <span class="n">to_map</span><span class="p">;}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

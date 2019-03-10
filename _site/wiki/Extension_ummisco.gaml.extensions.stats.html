@@ -3606,18 +3606,20 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="extension">Extension</h1>
 
-<hr />
+<hr>
 
 <p>ummisco.gaml.extensions.stats</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
+
 <h3 id="operators">Operators</h3>
-<p><a href="#auto_correlation">auto_correlation</a>, <a href="#beta">beta</a>, <a href="#binomial_coeff">binomial_coeff</a>, <a href="#binomial_complemented">binomial_complemented</a>, <a href="#binomial_sum">binomial_sum</a>, <a href="#chi_square">chi_square</a>, <a href="#chi_square_complemented">chi_square_complemented</a>, <a href="#correlation">correlation</a>, <a href="#covariance">covariance</a>, <a href="#dnorm">dnorm</a>, <a href="#durbin_watson">durbin_watson</a>, <a href="#gamma">gamma</a>, <a href="#gamma_distribution">gamma_distribution</a>, <a href="#gamma_distribution_complemented">gamma_distribution_complemented</a>, <a href="#incomplete_beta">incomplete_beta</a>, <a href="#incomplete_gamma">incomplete_gamma</a>, <a href="#incomplete_gamma_complement">incomplete_gamma_complement</a>, <a href="#kurtosis">kurtosis</a>, <a href="#lgamma">lgamma</a>, <a href="#log_gamma">log_gamma</a>, <a href="#moment">moment</a>, <a href="#normal_area">normal_area</a>, <a href="#normal_density">normal_density</a>, <a href="#normal_inverse">normal_inverse</a>, <a href="#pbinom">pbinom</a>, <a href="#pchisq">pchisq</a>, <a href="#percentile">percentile</a>, <a href="#pgamma">pgamma</a>, <a href="#pnorm">pnorm</a>, <a href="#pvalue_for_fstat">pValue_for_fStat</a>, <a href="#pvalue_for_tstat">pValue_for_tStat</a>, <a href="#quantile">quantile</a>, <a href="#quantile_inverse">quantile_inverse</a>, <a href="#rank_interpolated">rank_interpolated</a>, <a href="#rms">rms</a>, <a href="#skew">skew</a>, <a href="#student_area">student_area</a>, <a href="#student_t_inverse">student_t_inverse</a>, <a href="#variance">variance</a>,</p>
+
+<p><a href="#auto_correlation">auto_correlation</a>, <a href="#beta">beta</a>, <a href="#binomial_coeff">binomial_coeff</a>, <a href="#binomial_complemented">binomial_complemented</a>, <a href="#binomial_sum">binomial_sum</a>, <a href="#chi_square">chi_square</a>, <a href="#chi_square_complemented">chi_square_complemented</a>, <a href="#correlation">correlation</a>, <a href="#covariance">covariance</a>, <a href="#dnorm">dnorm</a>, <a href="#durbin_watson">durbin_watson</a>, <a href="#gamma">gamma</a>, <a href="#gamma_distribution">gamma_distribution</a>, <a href="#gamma_distribution_complemented">gamma_distribution_complemented</a>, <a href="#incomplete_beta">incomplete_beta</a>, <a href="#incomplete_gamma">incomplete_gamma</a>, <a href="#incomplete_gamma_complement">incomplete_gamma_complement</a>, <a href="#kurtosis">kurtosis</a>, <a href="#lgamma">lgamma</a>, <a href="#log_gamma">log_gamma</a>, <a href="#moment">moment</a>, <a href="#normal_area">normal_area</a>, <a href="#normal_density">normal_density</a>, <a href="#normal_inverse">normal_inverse</a>, <a href="#pbinom">pbinom</a>, <a href="#pchisq">pchisq</a>, <a href="#percentile">percentile</a>, <a href="#pgamma">pgamma</a>, <a href="#pnorm">pnorm</a>, <a href="#pvalue_for_fstat">pValue_for_fStat</a>, <a href="#pvalue_for_tstat">pValue_for_tStat</a>, <a href="#quantile">quantile</a>, <a href="#quantile_inverse">quantile_inverse</a>, <a href="#rank_interpolated">rank_interpolated</a>, <a href="#rms">rms</a>, <a href="#skew">skew</a>, <a href="#student_area">student_area</a>, <a href="#student_t_inverse">student_t_inverse</a>, <a href="#variance">variance</a>, </p>
 
 <h3 id="statements">Statements</h3>
 
@@ -3627,472 +3629,543 @@ function closeRightMenu() {
 
 <h3 id="species">Species</h3>
 
-<hr />
+<hr>
 
-<h2 id="operators-1">Operators</h2>
+<h2 id="operators">Operators</h2>
 
-<hr />
+<hr>
 
-<h3 id="auto_correlation"><code class="highlighter-rouge">auto_correlation</code></h3>
+<h3 id="auto_correlation"><code>auto_correlation</code></h3>
 
 <h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">auto_correlation</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">auto_correlation</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>auto_correlation</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>auto_correlation</code></strong> (<code>container</code> , <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
 <h4 id="result">Result:</h4>
+
 <p>Returns the auto-correlation of a data sequence</p>
 
-<hr />
+<hr>
 
-<h3 id="beta"><code class="highlighter-rouge">beta</code></h3>
+<h3 id="beta"><code>beta</code></h3>
 
-<h4 id="possible-use-1">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">beta</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">beta</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>beta</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>beta</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-1">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the beta function with arguments a, b.</p>
 
-<hr />
+<hr>
 
-<h3 id="binomial_coeff"><code class="highlighter-rouge">binomial_coeff</code></h3>
+<h3 id="binomial_coeff"><code>binomial_coeff</code></h3>
 
-<h4 id="possible-use-2">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">binomial_coeff</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">binomial_coeff</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>int</code> <strong><code>binomial_coeff</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>binomial_coeff</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-2">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns n choose k as a double. Note the integerization of the double return value.</p>
 
-<hr />
+<hr>
 
-<h3 id="binomial_complemented"><code class="highlighter-rouge">binomial_complemented</code></h3>
+<h3 id="binomial_complemented"><code>binomial_complemented</code></h3>
 
-<h4 id="possible-use-3">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">binomial_complemented</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>binomial_complemented</code></strong> (<code>int</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-3">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the sum of the terms k+1 through n of the Binomial probability density, where n is the number of trials and P is the probability of success in the range 0 to 1.</p>
 
-<hr />
+<hr>
 
-<h3 id="binomial_sum"><code class="highlighter-rouge">binomial_sum</code></h3>
+<h3 id="binomial_sum"><code>binomial_sum</code></h3>
 
-<h4 id="possible-use-4">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">binomial_sum</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>binomial_sum</code></strong> (<code>int</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-4">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the sum of the terms 0 through k of the Binomial probability density, where n is the number of trials and p is the probability of success in the range 0 to 1.</p>
 
-<hr />
+<hr>
 
-<h3 id="chi_square"><code class="highlighter-rouge">chi_square</code></h3>
+<h3 id="chi_square"><code>chi_square</code></h3>
 
-<h4 id="possible-use-5">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">chi_square</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">chi_square</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>chi_square</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>chi_square</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-5">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the area under the left hand tail (from 0 to x) of the Chi square probability density function with df degrees of freedom.</p>
 
-<hr />
+<hr>
 
-<h3 id="chi_square_complemented"><code class="highlighter-rouge">chi_square_complemented</code></h3>
+<h3 id="chi_square_complemented"><code>chi_square_complemented</code></h3>
 
-<h4 id="possible-use-6">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">chi_square_complemented</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">chi_square_complemented</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>chi_square_complemented</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>chi_square_complemented</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-6">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the area under the right hand tail (from x to infinity) of the Chi square probability density function with df degrees of freedom.</p>
 
-<hr />
+<hr>
 
-<h3 id="correlation"><code class="highlighter-rouge">correlation</code></h3>
+<h3 id="correlation"><code>correlation</code></h3>
 
-<h4 id="possible-use-7">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">correlation</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">correlation</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>correlation</code></strong> <code>container</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>correlation</code></strong> (<code>container</code> , <code>container</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-7">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the correlation of two data sequences</p>
 
-<hr />
+<hr>
 
-<h3 id="covariance"><code class="highlighter-rouge">covariance</code></h3>
+<h3 id="covariance"><code>covariance</code></h3>
 
-<h4 id="possible-use-8">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">covariance</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">covariance</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>covariance</code></strong> <code>container</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>covariance</code></strong> (<code>container</code> , <code>container</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-8">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the covariance of two data sequences</p>
 
-<hr />
+<hr>
 
-<h3 id="dnorm"><code class="highlighter-rouge">dnorm</code></h3>
+<h3 id="dnorm"><code>dnorm</code></h3>
+
 <p>Same signification as <a href="#normal_density">normal_density</a></p>
 
-<hr />
+<hr>
 
-<h3 id="durbin_watson"><code class="highlighter-rouge">durbin_watson</code></h3>
+<h3 id="durbin_watson"><code>durbin_watson</code></h3>
 
-<h4 id="possible-use-9">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">durbin_watson</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>durbin_watson</code></strong> (<code>container</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-9">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Durbin-Watson computation</p>
 
-<hr />
+<hr>
 
-<h3 id="gamma"><code class="highlighter-rouge">gamma</code></h3>
+<h3 id="gamma"><code>gamma</code></h3>
 
-<h4 id="possible-use-10">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">gamma</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>gamma</code></strong> (<code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-10">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the value of the Gamma function at x.</p>
 
-<hr />
+<hr>
 
-<h3 id="gamma_distribution"><code class="highlighter-rouge">gamma_distribution</code></h3>
+<h3 id="gamma_distribution"><code>gamma_distribution</code></h3>
 
-<h4 id="possible-use-11">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">gamma_distribution</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>gamma_distribution</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-11">Result:</h4>
-<p>Returns the integral from zero to x of the gamma probability density function.</p>
+<h4 id="result">Result:</h4>
+
+<p>Returns the integral from zero to x of the gamma probability density function.  </p>
 
 <h4 id="comment">Comment:</h4>
+
 <p>incomplete_gamma(a,x) is equal to pgamma(a,1,x).</p>
 
-<hr />
+<hr>
 
-<h3 id="gamma_distribution_complemented"><code class="highlighter-rouge">gamma_distribution_complemented</code></h3>
+<h3 id="gamma_distribution_complemented"><code>gamma_distribution_complemented</code></h3>
 
-<h4 id="possible-use-12">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">gamma_distribution_complemented</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>gamma_distribution_complemented</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-12">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the integral from x to infinity of the gamma probability density function.</p>
 
-<hr />
+<hr>
 
-<h3 id="incomplete_beta"><code class="highlighter-rouge">incomplete_beta</code></h3>
+<h3 id="incomplete_beta"><code>incomplete_beta</code></h3>
 
-<h4 id="possible-use-13">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">incomplete_beta</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>incomplete_beta</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-13">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the regularized integral of the beta function with arguments a and b, from zero to x.</p>
 
-<hr />
+<hr>
 
-<h3 id="incomplete_gamma"><code class="highlighter-rouge">incomplete_gamma</code></h3>
+<h3 id="incomplete_gamma"><code>incomplete_gamma</code></h3>
 
-<h4 id="possible-use-14">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">incomplete_gamma</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">incomplete_gamma</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>incomplete_gamma</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>incomplete_gamma</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-14">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the regularized integral of the Gamma function with argument a to the integration end point x.</p>
 
-<hr />
+<hr>
 
-<h3 id="incomplete_gamma_complement"><code class="highlighter-rouge">incomplete_gamma_complement</code></h3>
+<h3 id="incomplete_gamma_complement"><code>incomplete_gamma_complement</code></h3>
 
-<h4 id="possible-use-15">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">incomplete_gamma_complement</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">incomplete_gamma_complement</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>incomplete_gamma_complement</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>incomplete_gamma_complement</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-15">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the complemented regularized incomplete Gamma function of the argument a and integration start point x.</p>
 
-<hr />
+<hr>
 
-<h3 id="kurtosis"><code class="highlighter-rouge">kurtosis</code></h3>
+<h3 id="kurtosis"><code>kurtosis</code></h3>
 
-<h4 id="possible-use-16">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">kurtosis</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">kurtosis</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">kurtosis</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>kurtosis</code></strong> (<code>container</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>kurtosis</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>kurtosis</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-16">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the kurtosis (aka excess) of a data sequence
 Returns the kurtosis (aka excess) of a data sequence</p>
 
-<hr />
+<hr>
 
-<h3 id="lgamma"><code class="highlighter-rouge">lgamma</code></h3>
+<h3 id="lgamma"><code>lgamma</code></h3>
+
 <p>Same signification as <a href="#log_gamma">log_gamma</a></p>
 
-<hr />
+<hr>
 
-<h3 id="log_gamma"><code class="highlighter-rouge">log_gamma</code></h3>
+<h3 id="log_gamma"><code>log_gamma</code></h3>
 
-<h4 id="possible-use-17">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">log_gamma</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>log_gamma</code></strong> (<code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-17">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the log of the value of the Gamma function at x.</p>
 
-<hr />
+<hr>
 
-<h3 id="moment"><code class="highlighter-rouge">moment</code></h3>
+<h3 id="moment"><code>moment</code></h3>
 
-<h4 id="possible-use-18">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">moment</code></strong> (<code class="highlighter-rouge">container</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>moment</code></strong> (<code>container</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-18">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the moment of k-th order with constant c of a data sequence</p>
 
-<hr />
+<hr>
 
-<h3 id="normal_area"><code class="highlighter-rouge">normal_area</code></h3>
+<h3 id="normal_area"><code>normal_area</code></h3>
 
-<h4 id="possible-use-19">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">normal_area</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>normal_area</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-19">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the area to the left of x in the normal distribution with the given mean and standard deviation.</p>
 
-<hr />
+<hr>
 
-<h3 id="normal_density"><code class="highlighter-rouge">normal_density</code></h3>
+<h3 id="normal_density"><code>normal_density</code></h3>
 
-<h4 id="possible-use-20">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">normal_density</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>normal_density</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-20">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the probability of x in the normal distribution with the given mean and standard deviation.</p>
 
-<hr />
+<hr>
 
-<h3 id="normal_inverse"><code class="highlighter-rouge">normal_inverse</code></h3>
+<h3 id="normal_inverse"><code>normal_inverse</code></h3>
 
-<h4 id="possible-use-21">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">normal_inverse</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>normal_inverse</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-21">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the x in the normal distribution with the given mean and standard deviation, to the left of which lies the given area. normal.Inverse returns the value in terms of standard deviations from the mean, so we need to adjust it for the given mean and standard deviation.</p>
 
-<hr />
+<hr>
 
-<h3 id="pbinom"><code class="highlighter-rouge">pbinom</code></h3>
+<h3 id="pbinom"><code>pbinom</code></h3>
+
 <p>Same signification as <a href="#binomial_sum">binomial_sum</a></p>
 
-<hr />
+<hr>
 
-<h3 id="pchisq"><code class="highlighter-rouge">pchisq</code></h3>
+<h3 id="pchisq"><code>pchisq</code></h3>
+
 <p>Same signification as <a href="#chi_square">chi_square</a></p>
 
-<hr />
+<hr>
 
-<h3 id="percentile"><code class="highlighter-rouge">percentile</code></h3>
+<h3 id="percentile"><code>percentile</code></h3>
+
 <p>Same signification as <a href="#quantile_inverse">quantile_inverse</a></p>
 
-<hr />
+<hr>
 
-<h3 id="pgamma"><code class="highlighter-rouge">pgamma</code></h3>
+<h3 id="pgamma"><code>pgamma</code></h3>
+
 <p>Same signification as <a href="#gamma_distribution">gamma_distribution</a></p>
 
-<hr />
+<hr>
 
-<h3 id="pnorm"><code class="highlighter-rouge">pnorm</code></h3>
+<h3 id="pnorm"><code>pnorm</code></h3>
+
 <p>Same signification as <a href="#normal_area">normal_area</a></p>
 
-<hr />
+<hr>
 
-<h3 id="pvalue_for_fstat"><code class="highlighter-rouge">pValue_for_fStat</code></h3>
+<h3 id="pvalue_for_fstat"><code>pValue_for_fStat</code></h3>
 
-<h4 id="possible-use-22">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">pValue_for_fStat</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>pValue_for_fStat</code></strong> (<code>float</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-22">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the P value of F statistic fstat with numerator degrees of freedom dfn and denominator degress of freedom dfd. Uses the incomplete Beta function.</p>
 
-<hr />
+<hr>
 
-<h3 id="pvalue_for_tstat"><code class="highlighter-rouge">pValue_for_tStat</code></h3>
+<h3 id="pvalue_for_tstat"><code>pValue_for_tStat</code></h3>
 
-<h4 id="possible-use-23">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">pValue_for_tStat</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">pValue_for_tStat</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>pValue_for_tStat</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>pValue_for_tStat</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-23">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the P value of the T statistic tstat with df degrees of freedom. This is a two-tailed test so we just double the right tail which is given by studentT of -|tstat|.</p>
 
-<hr />
+<hr>
 
-<h3 id="quantile"><code class="highlighter-rouge">quantile</code></h3>
+<h3 id="quantile"><code>quantile</code></h3>
 
-<h4 id="possible-use-24">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">quantile</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">quantile</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>quantile</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>quantile</code></strong> (<code>container</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-24">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the phi-quantile; that is, an element elem for which holds that phi percent of data elements are less than elem. The quantile need not necessarily be contained in the data sequence, it can be a linear interpolation.</p>
 
-<hr />
+<hr>
 
-<h3 id="quantile_inverse"><code class="highlighter-rouge">quantile_inverse</code></h3>
+<h3 id="quantile_inverse"><code>quantile_inverse</code></h3>
 
-<h4 id="possible-use-25">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">quantile_inverse</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">quantile_inverse</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>quantile_inverse</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>quantile_inverse</code></strong> (<code>container</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-25">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns how many percent of the elements contained in the receiver are &lt;= element. Does linear interpolation if the element is not contained but lies in between two contained elements.</p>
 
-<hr />
+<hr>
 
-<h3 id="rank_interpolated"><code class="highlighter-rouge">rank_interpolated</code></h3>
+<h3 id="rank_interpolated"><code>rank_interpolated</code></h3>
 
-<h4 id="possible-use-26">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">rank_interpolated</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">rank_interpolated</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>container</code> <strong><code>rank_interpolated</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>rank_interpolated</code></strong> (<code>container</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-26">Result:</h4>
-<p>Returns the linearly interpolated number of elements in a list less or equal to a given element. The rank is the number of elements &lt;= element. Ranks are of the form {0, 1, 2,…, sortedList.size()}. If no element is &lt;= element, then the rank is zero. If the element lies in between two contained elements, then linear interpolation is used and a non integer value is returned.</p>
+<h4 id="result">Result:</h4>
 
-<hr />
+<p>Returns the linearly interpolated number of elements in a list less or equal to a given element. The rank is the number of elements &lt;= element. Ranks are of the form {0, 1, 2,..., sortedList.size()}. If no element is &lt;= element, then the rank is zero. If the element lies in between two contained elements, then linear interpolation is used and a non integer value is returned.</p>
 
-<h3 id="rms"><code class="highlighter-rouge">rms</code></h3>
+<hr>
 
-<h4 id="possible-use-27">Possible use:</h4>
+<h3 id="rms"><code>rms</code></h3>
+
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">rms</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">rms</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>int</code> <strong><code>rms</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>rms</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-27">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence is the square-root of the mean of the squares of the elements in the data sequence. It is a measure of the average size of the elements of a data sequence.</p>
 
-<hr />
+<hr>
 
-<h3 id="skew"><code class="highlighter-rouge">skew</code></h3>
+<h3 id="skew"><code>skew</code></h3>
 
-<h4 id="possible-use-28">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">skew</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">skew</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">skew</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>skew</code></strong> (<code>container</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>skew</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>skew</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-28">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the skew of a data sequence.
 Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3</p>
 
-<hr />
+<hr>
 
-<h3 id="student_area"><code class="highlighter-rouge">student_area</code></h3>
+<h3 id="student_area"><code>student_area</code></h3>
 
-<h4 id="possible-use-29">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">student_area</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">student_area</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>student_area</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>student_area</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-29">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the area to the left of x in the Student T distribution with the given degrees of freedom.</p>
 
-<hr />
+<hr>
 
-<h3 id="student_t_inverse"><code class="highlighter-rouge">student_t_inverse</code></h3>
+<h3 id="student_t_inverse"><code>student_t_inverse</code></h3>
 
-<h4 id="possible-use-30">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">student_t_inverse</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">student_t_inverse</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li><code>float</code> <strong><code>student_t_inverse</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li> <strong><code>student_t_inverse</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-30">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the value, t, for which the area under the Student-t probability density function (integrated from minus infinity to t) is equal to x.</p>
 
-<hr />
+<hr>
 
-<h3 id="variance"><code class="highlighter-rouge">variance</code></h3>
+<h3 id="variance"><code>variance</code></h3>
 
-<h4 id="possible-use-31">Possible use:</h4>
+<h4 id="possible-use">Possible use:</h4>
+
 <ul>
-  <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">variance</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+<li> <strong><code>variance</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li> <strong><code>variance</code></strong> (<code>int</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code> </li>
 </ul>
 
-<h4 id="result-31">Result:</h4>
+<h4 id="result">Result:</h4>
+
 <p>Returns the variance from a standard deviation.
 Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
 
-<hr />
+<hr>
 
-<h2 id="skills-1">Skills</h2>
+<h2 id="skills">Skills</h2>
 
-<hr />
+<hr>
 
-<h2 id="statements-1">Statements</h2>
+<h2 id="statements">Statements</h2>
 
-<hr />
+<hr>
 
-<h2 id="species-1">Species</h2>
+<h2 id="species">Species</h2>
 
-<hr />
+<hr>
 
-<h2 id="architectures-1">Architectures</h2>
-
+<h2 id="architectures">Architectures</h2>
 
     </div>
     </div>

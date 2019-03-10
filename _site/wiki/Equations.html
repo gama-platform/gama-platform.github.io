@@ -3606,19 +3606,10 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="using-equations">Using Equations</h1>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_equation)">//</a>: # (endConcept</td>
-      <td>concept_math)</td>
-    </tr>
-  </tbody>
-</table>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -3626,7 +3617,7 @@ function closeRightMenu() {
 
 <p>A classical example is the SIR epidemic model representing the spreading of a disease in a population. The population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). (see below for the equation)</p>
 
-<p>In general the ODE systems cannot be analytically solved, i.e. it is not possible to find the equation describing the evolution of the number of S, I or R. But these systems can be numerically integrated in order to get the evolution. A numerical integration computes step after step the value of S, I and R. Several integration methods exist (e.g. Euler, Runge-Kutta…), each of them being a compromise between accuracy and computation time. The length of the integration step has also a huge impact on precision. These models are deterministic.</p>
+<p>In general the ODE systems cannot be analytically solved, i.e. it is not possible to find the equation describing the evolution of the number of S, I or R. But these systems can be numerically integrated in order to get the evolution. A numerical integration computes step after step the value of S, I and R. Several integration methods exist (e.g. Euler, Runge-Kutta...), each of them being a compromise between accuracy and computation time. The length of the integration step has also a huge impact on precision. These models are deterministic.</p>
 
 <p>This approach makes a lot of strong hypotheses. The model does not take into account space. The population is considered has infinite and homogeneously mixed, so that any agent can interact with any other one.</p>
 
@@ -3634,27 +3625,25 @@ function closeRightMenu() {
 
 <p>In the SIR model, the population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). This can be represented by the following Forrester diagram: boxes represent stocks (i.e. compartments) and arrows are flows. Arrows hold the rate of a compartment population flowing to another compartment.</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png"></p>
 
 <p>The corresponding ODE system contains one equation per stock. For example, the I compartment evolution is influenced by an inner (so positive) flow from the S compartment and an outer (so negative) flow to the R compartment.</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png"></p>
 
-<p>Integrating this system using the Runge-Kutta 4 method provides the evolution of S, I and R over time. The initial values are:</p>
-<ul>
-  <li>S = 499</li>
-  <li>I = 1</li>
-  <li>R = 0</li>
-  <li>beta = 0.4</li>
-  <li>gamma = 0.1</li>
-  <li>h = 0.1</li>
-</ul>
+<p>Integrating this system using the Runge-Kutta 4 method provides the evolution of S, I and R over time. The initial values are:
+* S = 499
+* I = 1
+* R = 0
+* beta = 0.4
+* gamma = 0.1 
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png"></p>
 
-<h2 id="why-and-when-can-we-use-ode-in-agent-based-models-">Why and when can we use ODE in agent-based models ?</h2>
+<h2 id="why-and-when-can-we-use-ode-in-agent-based-models">Why and when can we use ODE in agent-based models ?</h2>
 
-<p>These hypotheses are very strong and cannot be fulfilled in agent-based models.</p>
+<p>These hypotheses are very strong and cannot be fulfilled in agent-based models. </p>
 
 <p>But in some multi-scale models, some entities can be close. For example if we want to implement a model describing the worldwide epidemic spread and the impact of air traffic on it, we cannot simulate the 7 billions people. But we can represent only cities with airports and airplanes as agents. In this case, cities are entities with a population of millions inhabitants, that will not been spatially located. As we are only interested in the disease spread, we are only interested in the number of infected people in the cities (and susceptibles and recovered too). As a consequence, it appears particularly relevant to describe the evolution of the disease in the city using a ODE system.</p>
 
@@ -3664,132 +3653,125 @@ function closeRightMenu() {
 
 <p>A stereotypical use of ODE in a GAMA agent-based model is to describe species where some agents attributes evolution is described using an ODE system.</p>
 
-<p>As a consequence, the GAML language has been increased by two main concepts (as two statements):</p>
-<ul>
-  <li>equations can be written with the <code class="highlighter-rouge">equation</code> statement. An <code class="highlighter-rouge">equation</code> block is composed of a set of <code class="highlighter-rouge">diff</code> statement describing the evolution of species attributes.</li>
-  <li>an equation can be numerically integrated using the <code class="highlighter-rouge">solve</code> statement</li>
-</ul>
+<p>As a consequence, the GAML language has been increased by two main concepts (as two statements):
+* equations can be written with the <code>equation</code> statement. An <code>equation</code> block is composed of a set of <code>diff</code> statement describing the evolution of species attributes.
+* an equation can be numerically integrated using the <code>solve</code> statement</p>
 
-<h2 id="equation"><code class="highlighter-rouge">equation</code></h2>
+<h2 id="equation"><code>equation</code></h2>
+
 <h3 id="defining-an-ode-system">Defining an ODE system</h3>
-<p>Defining a new ODE system needs to define a new <code class="highlighter-rouge">equation</code> block in a species. As example, the following <code class="highlighter-rouge">eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species userSI {
-	float t ;
-	float I ; 
-	float S ; 
-	int N ;
-	float beta&lt;-0.4 ;
-	float h ;
-	
-	equation eqSI {
-		diff(S,t) = -beta * S * I / N ;
-		diff(I,t) = beta * S * I / N ;
-	}
-}			
-</code></pre></div></div>
-<p>This equation has to be defined in a species with <code class="highlighter-rouge">t</code>, <code class="highlighter-rouge">S</code> and <code class="highlighter-rouge">I</code> attributes. <code class="highlighter-rouge">beta</code> (and other similar parameters) can be defined either in the specific species (if it is specific to each agents) or in the <code class="highlighter-rouge">global</code> if it is a constant.</p>
 
-<p>Note: the <code class="highlighter-rouge">t</code> attribute will be automatically updated using the <code class="highlighter-rouge">solve</code> statement ; it contains the time elapsed in the equation integration.</p>
+<p>Defining a new ODE system needs to define a new <code>equation</code> block in a species. As example, the following <code>eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment: 
+``` 
+species userSI {
+    float t ;
+    float I ; 
+    float S ; 
+    int N ;
+    float beta&lt;-0.4 ;
+    float h ;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">equation eqSI {
+    diff(S,t) = -beta * S * I / N ;
+    diff(I,t) = beta * S * I / N ;
+}
+</code></pre></div>
+<p>}<br>
+`<code>
+This equation has to be defined in a species with</code>t<code>,</code>S<code>and</code>I<code>attributes.</code>beta<code>(and other similar parameters) can be defined either in the specific species (if it is specific to each agents) or in the</code>global`` if it is a constant.</p>
+
+<p>Note: the <code>t</code> attribute will be automatically updated using the <code>solve</code> statement ; it contains the time elapsed in the equation integration.</p>
 
 <h3 id="using-a-built-in-ode-system">Using a built-in ODE system</h3>
-<p>In order to ease the use of very classical ODE system, some built-in systems have been implemented in GAMA. For example, the previous SI system can be written as follows. Three additional facets are used to define the system:</p>
-<ul>
-  <li><code class="highlighter-rouge">type</code>: the identifier of the built-in system (here SI) (the list of all built-in systems are described below),</li>
-  <li><code class="highlighter-rouge">vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,</li>
-  <li><code class="highlighter-rouge">params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
-</code></pre></div>    </div>
-  </li>
-</ul>
+
+<p>In order to ease the use of very classical ODE system, some built-in systems have been implemented in GAMA. For example, the previous SI system can be written as follows. Three additional facets are used to define the system:
+* <code>type</code>: the identifier of the built-in system (here SI) (the list of all built-in systems are described below),
+* <code>vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,
+* <code>params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.
+<code>
+equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
+</code></p>
 
 <h3 id="split-a-system-into-several-agents">Split a system into several agents</h3>
 
-<p>An equation system can be split into several species and each part of the system are synchronized using the <code class="highlighter-rouge">simultaneously</code> facet of <code class="highlighter-rouge">equation</code>. The system split into several agents can be integrated using a single call to the <code class="highlighter-rouge">solve</code> statement. Notice that all the <code class="highlighter-rouge">equation</code> definition must have the same name.</p>
+<p>An equation system can be split into several species and each part of the system are synchronized using the <code>simultaneously</code> facet of <code>equation</code>. The system split into several agents can be integrated using a single call to the <code>solve</code> statement. Notice that all the <code>equation</code> definition must have the same name.</p>
 
-<p>For example the SI system presented above can be defined in two different species <code class="highlighter-rouge">S_agt</code> (containing the equation defining the evolution of the S value) and <code class="highlighter-rouge">I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code class="highlighter-rouge">simultaneously</code> facet of the <code class="highlighter-rouge">equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code class="highlighter-rouge">S_agt</code> agent.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species S_agt {
-	float t ;		
-	float Ssize ;
-	
-	equation evol simultaneously: [ I_agt ] {
-		diff(Ssize, t) = (- sum(I_agt accumulate [each.beta * each.Isize]) * self.Ssize / N);
-	}
-	
-	reflex solving {solve evol method : rk4 step : hKR4 ;}	
+<p>For example the SI system presented above can be defined in two different species <code>S_agt</code> (containing the equation defining the evolution of the S value) and <code>I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code>simultaneously</code> facet of the <code>equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code>S_agt</code> agent.
+```
+species S_agt {
+    float t ;<br>
+    float Ssize ;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">equation evol simultaneously: [ I_agt ] {
+    diff(Ssize, t) = (- sum(I_agt accumulate [each.beta * each.Isize]) * self.Ssize / N);
 }
 
-species I_agt {
-	float t ;
-	float Isize ; // number of infected	
-	float beta ;
+reflex solving {solve evol method : rk4 step : hKR4 ;}  
+</code></pre></div>
+<p>}</p>
 
-	equation evol simultaneously : [ S_agt ] {
-		diff(Isize, t) = (beta * first(S_agt).Ssize * Isize / N);
-	}
+<p>species I_agt {
+    float t ;
+    float Isize ; // number of infected 
+    float beta ;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">equation evol simultaneously : [ S_agt ] {
+    diff(Isize, t) = (beta * first(S_agt).Ssize * Isize / N);
 }
-</code></pre></div></div>
-<p>The interest is that the modeler can create several agents for each compartment, which different values. For example in the SI model, the modeler can choose to create 1 agent <code class="highlighter-rouge">S_agt</code> and 2 agents <code class="highlighter-rouge">I_agt</code>. The <code class="highlighter-rouge">beta</code> attribute will have different values in the two agents, in order to represent 2 different strains.</p>
+</code></pre></div>
+<p>}
+``<code>
+The interest is that the modeler can create several agents for each compartment, which different values. For example in the SI model, the modeler can choose to create 1 agent</code>S_agt<code>and 2 agents</code>I_agt<code>. The</code>beta` attribute will have different values in the two agents, in order to represent 2 different strains.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">global {
+    int number_S &lt;- 495 ; // The number of susceptible
+    int number_I &lt;- 5   ; // The number of infected
+    int nb_I &lt;- 2;
+    float gbeta  &lt;- 0.3  ; // The parameter Beta
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
-	int number_S &lt;- 495 ; // The number of susceptible
-	int number_I &lt;- 5   ; // The number of infected
-	int nb_I &lt;- 2;
-	float gbeta  &lt;- 0.3  ; // The parameter Beta
-	
-	int N &lt;- number_S + nb_I * number_I ;
-	float hKR4 &lt;- 0.1 ;
+    int N &lt;- number_S + nb_I * number_I ;
+    float hKR4 &lt;- 0.1 ;
 
-	init {
-		create S_agt {
-			Ssize &lt;- float(number_S) ;
-		}
-		create I_agt number: nb_I {
-			Isize &lt;- float(number_I) ;
-			self.beta &lt;- myself.gbeta + rnd(0.5) ;
-		}
-	}
+    init {
+        create S_agt {
+            Ssize &lt;- float(number_S) ;
+        }
+        create I_agt number: nb_I {
+            Isize &lt;- float(number_I) ;
+            self.beta &lt;- myself.gbeta + rnd(0.5) ;
+        }
+    }
 }
-</code></pre></div></div>
+</code></pre></div>
+<p>The results are computed using the RK4 method with:
+* number_S = 495 
+* number_I = 5<br>
+* nb_I = 2
+* gbeta = 0.3 
+* hKR4 = 0.1 </p>
 
-<p>The results are computed using the RK4 method with:</p>
-<ul>
-  <li>number_S = 495</li>
-  <li>number_I = 5</li>
-  <li>nb_I = 2</li>
-  <li>gbeta = 0.3</li>
-  <li>hKR4 = 0.1</li>
-</ul>
+<p><img src="resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png" /></p>
+<h2 id="solve-an-equation"><code>solve</code> an equation</h2>
 
-<h2 id="solve-an-equation"><code class="highlighter-rouge">solve</code> an equation</h2>
-<p>The <code class="highlighter-rouge">solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code class="highlighter-rouge">step</code> facet. The <code class="highlighter-rouge">solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code class="highlighter-rouge">method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex solving {
-	solve eqSI method:rk4 step:h;
+<p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code>method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).
+<code>
+reflex solving {
+    solve eqSI method:rk4 step:h;
 }
-</code></pre></div></div>
-<p>With a smaller integration step, the integration will be faster but less accurate.</p>
+</code>
+With a smaller integration step, the integration will be faster but less accurate.</p>
 
 <h2 id="more-details">More details</h2>
 
-<h3 id="details-about-the-solve-statement">Details about the <code class="highlighter-rouge">solve</code> statement</h3>
+<h3 id="details-about-the-solve-statement">Details about the <code>solve</code> statement</h3>
 
-<p>The <code class="highlighter-rouge">solve</code> statement can have a huge set of facets (see [S_Statements#solve] for more details). The basic use of the <code class="highlighter-rouge">solve</code> statement requiers only the equation identifier. By default, the integration method is Runge-Kutta 4 with an integration step of <code class="highlighter-rouge">1</code>, which means that at each simulation step the equation integration is made over 1 unit of time (which is implicitly defined by the system parameter value).</p>
+<p>The <code>solve</code> statement can have a huge set of facets (see [S_Statements#solve] for more details). The basic use of the <code>solve</code> statement requiers only the equation identifier. By default, the integration method is Runge-Kutta 4 with an integration step of <code>1</code>, which means that at each simulation step the equation integration is made over 1 unit of time (which is implicitly defined by the system parameter value).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">solve eqSI ;
+</code></pre></div>
+<p>2 integration methods can be used: 
+* <code>method: rk4</code> will use <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">the Runge-Kutta 4 integration method</a>
+* <code>method: dp853</code> will use <a href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">the Dorman-Prince 8(5,3) integration method</a>. The advantage of this method compared to Runge-Kutta is that it has an evaluation of the error and can use it to adapt the integration step size.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>solve eqSI ;
-</code></pre></div></div>
-
-<p>2 integration methods can be used:</p>
-<ul>
-  <li><code class="highlighter-rouge">method: rk4</code> will use <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">the Runge-Kutta 4 integration method</a></li>
-  <li><code class="highlighter-rouge">method: dp853</code> will use <a href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">the Dorman-Prince 8(5,3) integration method</a>. The advantage of this method compared to Runge-Kutta is that it has an evaluation of the error and can use it to adapt the integration step size.</li>
-</ul>
-
-<p>In order to synchronize the simulation step and the equation integration step, 2 facets can be used:</p>
-<ul>
-  <li><code class="highlighter-rouge">step: number</code></li>
-  <li><code class="highlighter-rouge">cycle_length: number</code></li>
-</ul>
+<p>In order to synchronize the simulation step and the equation integration step, 2 facets can be used:
+* <code>step: number</code>
+* <code>cycle_length: number</code> </p>
 
 <p>cycle_length (int): length of simulation cycle which will be synchronize with step of integrator (default value: 1)
 step (float): integration step, use with most integrator methods (default value: 1)</p>
@@ -3798,193 +3780,174 @@ step (float): integration step, use with most integrator methods (default value:
 time_initial (float): initial time
 discretizing_step (int): number of discret beside 2 step of simulation (default value: 0)
 integrated_times (list): time interval inside integration process
-integrated_values (list): list of variables’s value inside integration process</p>
+integrated_values (list): list of variables&#39;s value inside integration process</p>
 
-<p>Some facets are specific to the DP853 integration methods: <code class="highlighter-rouge">max_step</code>, <code class="highlighter-rouge">min_step</code>, <code class="highlighter-rouge">scalAbsoluteTolerance</code> and <code class="highlighter-rouge">scalRelativeTolerance</code>.</p>
+<p>Some facets are specific to the DP853 integration methods: <code>max_step</code>, <code>min_step</code>, <code>scalAbsoluteTolerance</code> and <code>scalRelativeTolerance</code>.</p>
 
 <h3 id="example-of-the-influence-of-the-integration-step">Example of the influence of the integration step</h3>
 
-<p>The <code class="highlighter-rouge">step</code> and <code class="highlighter-rouge">cycle_length</code> facets of the integration method may have a huge influence on the results. <code class="highlighter-rouge">step</code> has an impact on the result accuracy. In addition, it is possible to synchronize the step of the (agent-based) simulation and the (equation) integration step in various ways (depending on the modeler purpose) using the <code class="highlighter-rouge">cycle_length</code> facet: e.g. <code class="highlighter-rouge">cycle_length: 10</code> means that 10 simulation steps are equivalent to 1 unit of time of the integration method.</p>
+<p>The <code>step</code> and <code>cycle_length</code> facets of the integration method may have a huge influence on the results. <code>step</code> has an impact on the result accuracy. In addition, it is possible to synchronize the step of the (agent-based) simulation and the (equation) integration step in various ways (depending on the modeler purpose) using the <code>cycle_length</code> facet: e.g. <code>cycle_length: 10</code> means that 10 simulation steps are equivalent to 1 unit of time of the integration method.</p>
 
 <ul>
-  <li>
-    <p><code class="highlighter-rouge">solve SIR method: "rk4" step: 1.0 cycle_length: 1.0 ; </code>
-<img src="resources/images/multiParadigmModeling/SIR-results-h1.png" alt="SIR-results-h1.png" /></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">solve SIR method: "rk4" step: 0.1 cycle_length: 10.0 ; </code>
-<img src="resources/images/multiParadigmModeling/SIR-results-h0.1.png" alt="SIR-results-h0.1.png" /></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">solve SIR method: "rk4" step: 0.01 cycle_length: 100.0 ; </code>
-<img src="resources/images/multiParadigmModeling/SIR-results-h0.01.png" alt="SIR-results-h0.01.png" /></p>
-  </li>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 1.0 cycle_length: 1.0 ;</code>
+<img src="resources/images/multiParadigmModeling/SIR-results-h1.png" alt="SIR-results-h1.png"></p></li>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 0.1 cycle_length: 10.0 ;</code>
+<img src="resources/images/multiParadigmModeling/SIR-results-h0.1.png" alt="SIR-results-h0.1.png"></p></li>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 0.01 cycle_length: 100.0 ;</code>
+<img src="resources/images/multiParadigmModeling/SIR-results-h0.01.png" alt="SIR-results-h0.01.png"></p></li>
 </ul>
 
 <h3 id="list-of-built-in-ode-systems">List of built-in ODE systems</h3>
+
 <p>Several built-in equations have been defined.</p>
-<h4 id="equation-eqbuiltinsi-type-si-vars-sit-params-nbeta"><code class="highlighter-rouge">equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta];</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSI {
-	diff(S,t) = -beta * S * I / N ;
-	diff(I,t) = beta * S * I / N ;
+<h4 id="equation-eqbuiltinsi-type-si-vars-s-i-t-params-n-beta"><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta];</code></h4>
+
+<p>This system is equivalent to:
+<code>
+equation eqSI {
+    diff(S,t) = -beta * S * I / N ;
+    diff(I,t) = beta * S * I / N ;
 }
-</code></pre></div></div>
+</code> </p>
 
-<p><img src="resources/images/multiParadigmModeling/SI-compartment.png" alt="SI-compartment.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SI-compartment.png" alt="SI-compartment.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SI-equations.png" alt="SI-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SI-equations.png" alt="SI-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>S = 499</li>
-  <li>I = 1</li>
-  <li>beta = 0.4</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* S = 499
+* I = 1
+* beta = 0.4
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SI-result.png" alt="SI-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SI-result.png" alt="SI-result.png"></p>
 
-<h4 id="equation-eqsis-type-sis-vars-sit-params-nbetagamma"><code class="highlighter-rouge">equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma];</code></h4>
+<h4 id="equation-eqsis-type-sis-vars-s-i-t-params-n-beta-gamma"><code>equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma];</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIS {
-	diff(S,t) = -beta * S * I / N + gamma * I;
-	diff(I,t) = beta * S * I / N - gamma * I;
+<p>This system is equivalent to:
+<code>
+equation eqSIS {
+    diff(S,t) = -beta * S * I / N + gamma * I;
+    diff(I,t) = beta * S * I / N - gamma * I;
 }
-</code></pre></div></div>
-<p><img src="resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS-compartment.png" /></p>
+</code>
+<img src="resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS-compartment.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>S = 499</li>
-  <li>I = 1</li>
-  <li>beta = 0.4</li>
-  <li>gamma = 0.1</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* S = 499
+* I = 1
+* beta = 0.4
+* gamma = 0.1 
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIS-result.png" alt="SIS-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIS-result.png" alt="SIS-result.png"></p>
 
-<h4 id="equation-eqsir-typesir-varssirt-paramsnbetagamma-"><code class="highlighter-rouge">equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;</code></h4>
+<h4 id="equation-eqsir-type-sir-vars-s-i-r-t-params-n-beta-gamma"><code>equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIR {
-	diff(S,t) = (- beta * S * I / N);
-	diff(I,t) = (beta * S * I / N) - (gamma * I);
-	diff(R,t) = (gamma * I);
+<p>This system is equivalent to:
+<code>
+equation eqSIR {
+    diff(S,t) = (- beta * S * I / N);
+    diff(I,t) = (beta * S * I / N) - (gamma * I);
+    diff(R,t) = (gamma * I);
 }
-</code></pre></div></div>
+</code></p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>S = 499</li>
-  <li>I = 1</li>
-  <li>R = 0</li>
-  <li>beta = 0.4</li>
-  <li>gamma = 0.1</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* S = 499
+* I = 1
+* R = 0
+* beta = 0.4
+* gamma = 0.1 
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png"></p>
 
-<h4 id="equation-eqsirs-type-sirs-vars-sirt-params-nbetagammaomegamu-"><code class="highlighter-rouge">equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;</code></h4>
+<h4 id="equation-eqsirs-type-sirs-vars-s-i-r-t-params-n-beta-gamma-omega-mu"><code>equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSIRS {
-	 diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
-	 diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
-	 diff(R,t) = gamma * I - omega * R - mu * R ;
+<p>This system is equivalent to:
+<code>
+equation eqSIRS {
+     diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
+     diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
+     diff(R,t) = gamma * I - omega * R - mu * R ;
 }
-</code></pre></div></div>
+</code></p>
 
-<p><img src="resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS-compartment.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS-compartment.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SIRS-equations.png" alt="SIRS-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIRS-equations.png" alt="SIRS-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>S = 499</li>
-  <li>I = 1</li>
-  <li>R = 0</li>
-  <li>beta = 0.4</li>
-  <li>gamma = 0.01</li>
-  <li>omega = 0.05</li>
-  <li>mu = 0.01</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* S = 499
+* I = 1
+* R = 0
+* beta = 0.4
+* gamma = 0.01
+* omega = 0.05
+* mu = 0.01 
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SIRS-result.png" alt="SIRS-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SIRS-result.png" alt="SIRS-result.png"></p>
 
-<h4 id="equation-eqseir-type-seir-vars-seirt-params-nbetagammasigmamu-"><code class="highlighter-rouge">equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;</code></h4>
+<h4 id="equation-eqseir-type-seir-vars-s-e-i-r-t-params-n-beta-gamma-sigma-mu"><code>equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqSEIR {
-	diff(S,t) = mu * N - beta * S * I / N - mu * S ;
-	diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
-	diff(I,t) = sigma * E - mu * I - gamma * I;
-	diff(R,t) = gamma * I - mu * R ;
+<p>This system is equivalent to:
+<code>
+equation eqSEIR {
+    diff(S,t) = mu * N - beta * S * I / N - mu * S ;
+    diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
+    diff(I,t) = sigma * E - mu * I - gamma * I;
+    diff(R,t) = gamma * I - mu * R ;
 }
-</code></pre></div></div>
+</code></p>
 
-<p><img src="resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR-compartment.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR-compartment.png"></p>
 
-<p><img src="resources/images/multiParadigmModeling/SEIR-equations.png" alt="SEIR-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SEIR-equations.png" alt="SEIR-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>S = 499</li>
-  <li>E = 0</li>
-  <li>I = 1</li>
-  <li>R = 0</li>
-  <li>beta = 0.4</li>
-  <li>gamma = 0.01</li>
-  <li>sigma = 0.05</li>
-  <li>mu = 0.01</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* S = 499
+* E = 0
+* I = 1
+* R = 0
+* beta = 0.4
+* gamma = 0.01
+* sigma = 0.05
+* mu = 0.01 
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/SEIR-result.png" alt="SEIR-result.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/SEIR-result.png" alt="SEIR-result.png"></p>
 
-<h4 id="equation-eqlv-type-lv-vars-xyt-params-alphabetadeltagamma-"><code class="highlighter-rouge">equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;</code></h4>
+<h4 id="equation-eqlv-type-lv-vars-x-y-t-params-alpha-beta-delta-gamma"><code>equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;</code></h4>
 
-<p>This system is equivalent to:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>equation eqLV { 
-	diff(x,t) =   x * (alpha - beta * y);
-	diff(y,t) = - y * (delta - gamma * x);
-}	
-</code></pre></div></div>
+<p>This system is equivalent to:
+<code>
+equation eqLV { 
+    diff(x,t) =   x * (alpha - beta * y);
+    diff(y,t) = - y * (delta - gamma * x);
+}   
+</code></p>
 
-<p><img src="resources/images/multiParadigmModeling/LV-equations.png" alt="LV-equations.png" /></p>
+<p><img src="resources/images/multiParadigmModeling/LV-equations.png" alt="LV-equations.png"></p>
 
-<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
-<ul>
-  <li>x = 2</li>
-  <li>y = 2</li>
-  <li>alpha = 0.8</li>
-  <li>beta = 0.3</li>
-  <li>gamma = 0.2</li>
-  <li>delta = 0.85</li>
-  <li>h = 0.1</li>
-</ul>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:
+* x = 2
+* y = 2
+* alpha = 0.8
+* beta = 0.3
+* gamma = 0.2
+* delta = 0.85
+* h = 0.1</p>
 
-<p><img src="resources/images/multiParadigmModeling/LV-result.png" alt="LV-result.png" /></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_equation)">//</a>: # (endConcept</td>
-      <td>equation)</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="resources/images/multiParadigmModeling/LV-result.png" alt="LV-result.png"></p>
 
     </div>
     </div>

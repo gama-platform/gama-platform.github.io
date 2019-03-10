@@ -3606,74 +3606,75 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="the-graphical-editor">The Graphical Editor</h1>
 
 <p>The graphical editor that allow to build diagram (gadl files) is based on the <a href="http://www.eclipse.org/graphiti/">Graphiti</a> Eclipse plugin. It allows to define a GAMA model through a graphical interface. It a allows as well to produce a graphical model (diagram) from a gaml model.</p>
 
-<p><img src="resources/images/graphical_editor/gm_predator_prey.png" alt="images/graphical_editor/gm_predator_prey.png" /></p>
+<p><img src="resources/images/graphical_editor/gm_predator_prey.png" alt="images/graphical_editor/gm_predator_prey.png"></p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#the-graphical-editor">The Graphical Editor</a>
-    <ul>
-      <li><a href="#installing-the-graphical-editor">Installing the graphical editor</a></li>
-      <li><a href="#creating-a-first-model">Creating a first model</a></li>
-      <li><a href="#status-of-models-in-editors">Status of models in editors</a></li>
-      <li><a href="#diagram-definition-framework">Diagram definition framework</a></li>
-      <li><a href="#features">Features</a>
-        <ul>
-          <li><a href="#agents">agents</a>
-            <ul>
-              <li><a href="#species">species</a></li>
-              <li><a href="#grid">grid</a></li>
-              <li><a href="#inheriting-link">Inheriting link</a></li>
-              <li><a href="#world">world</a></li>
-            </ul>
-          </li>
-          <li><a href="#agent-features">agent features</a>
-            <ul>
-              <li><a href="#action">action</a></li>
-              <li><a href="#reflex">reflex</a></li>
-              <li><a href="#aspect">aspect</a></li>
-            </ul>
-          </li>
-          <li><a href="#experiment">experiment</a>
-            <ul>
-              <li><a href="#gui-experiment">GUI experiment</a></li>
-              <li><a href="#display">display</a></li>
-              <li><a href="#batch-experiment">batch experiment</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#pictogram-color-modification">Pictogram color modification</a></li>
-      <li><a href="#gaml-model-generation">GAML Model generation</a></li>
-    </ul>
-  </li>
+<li><a href="#the-graphical-editor">The Graphical Editor</a>
+
+<ul>
+<li><a href="#installing-the-graphical-editor">Installing the graphical editor</a></li>
+<li><a href="#creating-a-first-model">Creating a first model</a></li>
+<li><a href="#status-of-models-in-editors">Status of models in editors</a></li>
+<li><a href="#diagram-definition-framework">Diagram definition framework</a></li>
+<li><a href="#features">Features</a>
+
+<ul>
+<li><a href="#agents">agents</a>
+
+<ul>
+<li><a href="#species">species</a></li>
+<li><a href="#grid">grid</a></li>
+<li><a href="#inheriting-link">Inheriting link</a></li>
+<li><a href="#world">world</a></li>
+</ul></li>
+<li><a href="#agent-features">agent features</a>
+
+<ul>
+<li><a href="#action">action</a></li>
+<li><a href="#reflex">reflex</a></li>
+<li><a href="#aspect">aspect</a></li>
+</ul></li>
+<li><a href="#experiment">experiment</a>
+
+<ul>
+<li><a href="#gui-experiment">GUI experiment</a></li>
+<li><a href="#display">display</a></li>
+<li><a href="#batch-experiment">batch experiment</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pictogram-color-modification">Pictogram color modification</a></li>
+<li><a href="#gaml-model-generation">GAML Model generation</a></li>
+</ul></li>
 </ul>
 
 <h2 id="installing-the-graphical-editor">Installing the graphical editor</h2>
+
 <p>Using the graphical editor requires to install the graphical modeling plug-in. See <a href="G__InstallingPlugins">here</a> for information about plug-ins and their installation.</p>
 
-<p>The graphical editor plug-in is called <strong>Graphical_modeling</strong> and is directly available from GAMA update site <strong>https://gama-platform.googlecode.com/svn/update_site/*.</strong></p>
+<p>The graphical editor plug-in is called <strong>Graphical_modeling</strong> and is directly available from GAMA update site <strong><a href="https://gama-platform.googlecode.com/svn/update_site/*">https://gama-platform.googlecode.com/svn/update_site/*</a>.</strong></p>
 
-<p><img src="resources/images/graphical_editor/installing_graphical_editor.JPG" alt="install" /></p>
+<p><img src="resources/images/graphical_editor/installing_graphical_editor.JPG" alt="install"></p>
 
-<p>Note that the graphical editor is still under development. Updates of the plug-in will be add to the GAMA website. After installing the plug-in (and periodically), check for updates for this plug-in: in the “Help” menu, choose “Check for Updates” and install the proposed updates for the graphical modeling plug-in.</p>
+<p>Note that the graphical editor is still under development. Updates of the plug-in will be add to the GAMA website. After installing the plug-in (and periodically), check for updates for this plug-in: in the &quot;Help&quot; menu, choose &quot;Check for Updates&quot; and install the proposed updates for the graphical modeling plug-in.</p>
 
 <h2 id="creating-a-first-model">Creating a first model</h2>
 
-<p>A new diagram can be created in a new GAMA project. First, right click on a project, then select “New” on the contextual menu.
-In the New Wizard, select “GAMA -&gt; Model Diagram”, then “Next&gt;”
-<img src="resources/images/graphical_editor/newDiagram.png" alt="images/graphical_editor/newDiagram.png" /></p>
+<p>A new diagram can be created in a new GAMA project. First, right click on a project, then select &quot;New&quot; on the contextual menu.
+In the New Wizard, select &quot;GAMA -&gt; Model Diagram&quot;, then &quot;Next&gt;&quot;
+<img src="resources/images/graphical_editor/newDiagram.png" alt="images/graphical_editor/newDiagram.png"></p>
 
 <p>In the next Wizard dialog, select the type of diagram (Empty, Skeleton or Example) then the name of the file and the author.</p>
 
-<p><img src="resources/images/graphical_editor/modeldiagramNew.png" alt="images/graphical_editor/modeldiagramNew.png" /></p>
+<p><img src="resources/images/graphical_editor/modeldiagramNew.png" alt="images/graphical_editor/modeldiagramNew.png"> </p>
 
 <p>Skeleton and Example diagram types allow to add to the diagram some basic features.</p>
 
@@ -3685,152 +3686,157 @@ In the New Wizard, select “GAMA -&gt; Model Diagram”, then “Next&gt;”
 
 <p>Reaching the <strong>Experimentable</strong> state requires that all errors are eliminated and that at least one experiment is defined in the model. The experiment is immediately displayed as a button in the toolbar, and clicking on it will allow to launch this experiment on your model.</p>
 
-<p>Experiment buttons are updated in real-time to reflect what’s in your code. If more than one experiment is defined, corresponding buttons will be displayed in addition to the first one.</p>
+<p>Experiment buttons are updated in real-time to reflect what&#39;s in your code. If more than one experiment is defined, corresponding buttons will be displayed in addition to the first one.</p>
 
 <h2 id="diagram-definition-framework">Diagram definition framework</h2>
 
 <p>The following figure presents the editing framework:
-<img src="resources/images/graphical_editor/framework.png" alt="images/graphical_editor/framework.png" /></p>
+<img src="resources/images/graphical_editor/framework.png" alt="images/graphical_editor/framework.png"></p>
 
 <h2 id="features">Features</h2>
 
 <h3 id="agents">agents</h3>
+
 <h4 id="species">species</h4>
 
-<p><img src="resources/images/graphical_editor/species.png" alt="images/graphical_editor/species.png" /></p>
+<p><img src="resources/images/graphical_editor/species.png" alt="images/graphical_editor/species.png"></p>
 
 <p>The species feature allows to define a species with a continuous topology. A species is always a micro-species of another species. The top level (macro-species of all species) is the world species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (macro-species)</li>
-  <li><strong>target</strong>: -
-<img src="resources/images/graphical_editor/Frame_Speciesdef1.png" alt="images/graphical_editor/Frame_Speciesdef1.png" /></li>
+<li><strong>source</strong>: a species (macro-species)</li>
+<li><strong>target</strong>: -
+<img src="resources/images/graphical_editor/Frame_Speciesdef1.png" alt="images/graphical_editor/Frame_Speciesdef1.png"></li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_Speciesdef2.png" alt="images/graphical_editor/Frame_Speciesdef2.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_Speciesdef2.png" alt="images/graphical_editor/Frame_Speciesdef2.png"></p>
 
 <h4 id="grid">grid</h4>
 
-<p><img src="resources/images/graphical_editor/grid.png" alt="images/graphical_editor/grid.png" /></p>
+<p><img src="resources/images/graphical_editor/grid.png" alt="images/graphical_editor/grid.png"></p>
 
 <p>The grid feature allows to define a <a href="Species151">species</a> with a <a href="Sections151#environment">grid topology</a>. A grid is always a micro-species of another species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (macro-species)</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: a species (macro-species)</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_grid.png" alt="images/graphical_editor/Frame_grid.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_grid.png" alt="images/graphical_editor/Frame_grid.png"></p>
 
 <h4 id="inheriting-link">Inheriting link</h4>
+
 <p>The inheriting link feature allows to define an inheriting link between two species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (parent)</li>
-  <li><strong>target</strong>: a species (child)</li>
+<li><strong>source</strong>: a species (parent)</li>
+<li><strong>target</strong>: a species (child)</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/inhereting_link.png" alt="images/graphical_editor/inhereting_link.png" /></p>
+<p><img src="resources/images/graphical_editor/inhereting_link.png" alt="images/graphical_editor/inhereting_link.png"></p>
 
 <h4 id="world">world</h4>
 
-<p><img src="resources/images/graphical_editor/world.png" alt="images/graphical_editor/world.png" /></p>
+<p><img src="resources/images/graphical_editor/world.png" alt="images/graphical_editor/world.png"></p>
 
 <p>When a model is created, a world species is always defined. It represent the global part of the model. The world species, which is unique, is the top level species. All other species are micro-species of the world species.</p>
 
-<p><img src="resources/images/graphical_editor/Frame_world.png" alt="images/graphical_editor/Frame_world.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_world.png" alt="images/graphical_editor/Frame_world.png"></p>
 
 <h3 id="agent-features">agent features</h3>
 
 <h4 id="action">action</h4>
-<p><img src="resources/images/graphical_editor/action.png" alt="images/graphical_editor/action.png" /></p>
+
+<p><img src="resources/images/graphical_editor/action.png" alt="images/graphical_editor/action.png"></p>
 
 <p>The action feature allows to define an action for a species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (owner of the action)</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: a species (owner of the action)</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_action.png" alt="images/graphical_editor/Frame_action.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_action.png" alt="images/graphical_editor/Frame_action.png"></p>
 
 <h4 id="reflex">reflex</h4>
-<p><img src="resources/images/graphical_editor/reflex.png" alt="images/graphical_editor/reflex.png" /></p>
+
+<p><img src="resources/images/graphical_editor/reflex.png" alt="images/graphical_editor/reflex.png"></p>
 
 <p>The reflex feature allows to define a reflex for a species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (owner of the reflex)</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: a species (owner of the reflex)</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_reflex.png" alt="images/graphical_editor/Frame_reflex.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_reflex.png" alt="images/graphical_editor/Frame_reflex.png"></p>
 
 <h4 id="aspect">aspect</h4>
-<p><img src="resources/images/graphical_editor/aspect.png" alt="images/graphical_editor/aspect.png" /></p>
+
+<p><img src="resources/images/graphical_editor/aspect.png" alt="images/graphical_editor/aspect.png"></p>
 
 <p>The aspect feature allows to define an aspect for a species.</p>
 
 <ul>
-  <li><strong>source</strong>: a species (owner of the aspect)</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: a species (owner of the aspect)</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_aspect.png" alt="images/graphical_editor/Frame_aspect.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_aspect.png" alt="images/graphical_editor/Frame_aspect.png"></p>
 
-<p><img src="resources/images/graphical_editor/Frame_Aspect_layer.png" alt="images/graphical_editor/Frame_Aspect_layer.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_Aspect_layer.png" alt="images/graphical_editor/Frame_Aspect_layer.png"></p>
+
 <h3 id="experiment">experiment</h3>
+
 <h4 id="gui-experiment">GUI experiment</h4>
 
-<p><img src="resources/images/graphical_editor/guiXP.png" alt="images/graphical_editor/guiXP.png" /></p>
+<p><img src="resources/images/graphical_editor/guiXP.png" alt="images/graphical_editor/guiXP.png"></p>
 
 <p>The GUI Experiment feature allows to define a GUI experiment.</p>
 
 <ul>
-  <li><strong>source</strong>: world species</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: world species</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_Experiment.png" alt="images/graphical_editor/Frame_Experiment.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_Experiment.png" alt="images/graphical_editor/Frame_Experiment.png"></p>
 
 <h4 id="display">display</h4>
 
-<p><img src="resources/images/graphical_editor/display.png" alt="images/graphical_editor/display.png" /></p>
+<p><img src="resources/images/graphical_editor/display.png" alt="images/graphical_editor/display.png"></p>
 
 <p>The display feature allows to define a display.</p>
 
 <ul>
-  <li><strong>source</strong>: GUI experiment</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: GUI experiment</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
-<p><img src="resources/images/graphical_editor/Frame_display.png" alt="images/graphical_editor/Frame_display.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_display.png" alt="images/graphical_editor/Frame_display.png"></p>
 
-<p><img src="resources/images/graphical_editor/Frame_layer_display.png" alt="images/graphical_editor/Frame_layer_display.png" /></p>
+<p><img src="resources/images/graphical_editor/Frame_layer_display.png" alt="images/graphical_editor/Frame_layer_display.png"></p>
 
 <h4 id="batch-experiment">batch experiment</h4>
 
-<p><img src="resources/images/graphical_editor/batchxp.png" alt="images/graphical_editor/batchxp.png" /></p>
+<p><img src="resources/images/graphical_editor/batchxp.png" alt="images/graphical_editor/batchxp.png"></p>
 
 <p>The Batch Experiment feature allows to define a Batch experiment.</p>
 
 <ul>
-  <li><strong>source</strong>: world species</li>
-  <li><strong>target</strong>: -</li>
+<li><strong>source</strong>: world species</li>
+<li><strong>target</strong>: -</li>
 </ul>
 
 <h2 id="pictogram-color-modification">Pictogram color modification</h2>
-<p>It is possible to change the color of a pictogram.</p>
-<ul>
-  <li>Right click on a pictogram, then select the “Chance the color”.</li>
-</ul>
+
+<p>It is possible to change the color of a pictogram.
+  * Right click on a pictogram, then select the &quot;Chance the color&quot;.</p>
 
 <h2 id="gaml-model-generation">GAML Model generation</h2>
-<p>It is possible to automatically generate a Gaml model from a diagram.</p>
-<ul>
-  <li>Right click on the graphical framework (where the diagram is defined), then select the “Generate Gaml model”.
-A new GAML model with the same name as the diagram is created (and open).</li>
-</ul>
+
+<p>It is possible to automatically generate a Gaml model from a diagram.
+  * Right click on the graphical framework (where the diagram is defined), then select the &quot;Generate Gaml model&quot;.
+A new GAML model with the same name as the diagram is created (and open).</p>
 
     </div>
     </div>

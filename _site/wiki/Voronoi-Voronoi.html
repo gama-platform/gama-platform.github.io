@@ -3606,70 +3606,68 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="voronoi">Voronoi</h1>
 
 <p>_Author : _</p>
 
-<p>A model showing how to clusterize space using the closest center as the kernel of our cluster. The space is discretized using a grid, each cell computing its distance from a center to know in which cluster it is.</p>
+<p>A model showing how to clusterize space using the closest center as the kernel of our cluster. The space is discretized using a grid, each cell computing its distance from a center to know in which cluster it is. </p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">voronoi</span>
- 
+
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span> <span class="k">Parameters</span> 
-	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">points</span>
-	<span class="n">int</span> <span class="n">num_points</span> <span class="p">&lt;-</span> <span class="m">4</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-	<span class="n">int</span> <span class="n">env_width</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">env_height</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
-	
-	<span class="p">//</span> <span class="n">Environment</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">env_width</span><span class="p">,</span> <span class="n">env_height</span><span class="p">);</span>
-	
-	<span class="n">init</span> <span class="p">{</span> 
-		<span class="nb">write</span> <span class="s1">'This model shows how Voronoi-like shapes can be drawn on a regular surface. A set of mobile agents is placed on a grid. Each agent possesses an attribute called *inside_color*. Each step, the agents move randomly and the grid cells paint themselves using the *inside_color* of the nearest agent. Dynamical boundaries then appear on the screen without any further calculations.'</span><span class="p">;</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">points</span>
-		<span class="nb">create</span> <span class="n">center</span> <span class="n">number</span><span class="p">:</span> <span class="n">num_points</span> <span class="p">;</span>  
-	<span class="p">}</span>   
+    <span class="p">//</span> <span class="k">Parameters</span> 
+    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">points</span>
+    <span class="n">int</span> <span class="n">num_points</span> <span class="p">&lt;-</span> <span class="m">4</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+    <span class="n">int</span> <span class="n">env_width</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">env_height</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
+
+    <span class="p">//</span> <span class="n">Environment</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">env_width</span><span class="p">,</span> <span class="n">env_height</span><span class="p">);</span>
+
+    <span class="n">init</span> <span class="p">{</span> 
+        <span class="nb">write</span> <span class="s1">'This model shows how Voronoi-like shapes can be drawn on a regular surface. A set of mobile agents is placed on a grid. Each agent possesses an attribute called *inside_color*. Each step, the agents move randomly and the grid cells paint themselves using the *inside_color* of the nearest agent. Dynamical boundaries then appear on the screen without any further calculations.'</span><span class="p">;</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">points</span>
+        <span class="nb">create</span> <span class="n">center</span> <span class="n">number</span><span class="p">:</span> <span class="n">num_points</span> <span class="p">;</span>  
+    <span class="p">}</span>   
 <span class="p">}</span> 
 <span class="p">//</span><span class="n">Grid</span> <span class="n">for</span> <span class="n">the</span> <span class="n">voronoi</span> <span class="n">clustering</span>
 <span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="n">env_width</span> <span class="n">height</span><span class="p">:</span> <span class="n">env_height</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">8</span> <span class="n">use_regular_agents</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
-	<span class="p">//</span> <span class="n">Note</span><span class="p">:</span> <span class="n">since</span> <span class="n">GAMA</span> <span class="m">1.7</span><span class="p">,</span> <span class="n">the</span> <span class="n">topology</span> <span class="n">needs</span> <span class="k">to</span> <span class="n">be</span> <span class="n">specified</span> <span class="n">for</span> <span class="n">this</span> <span class="n">computation</span> <span class="k">to</span> <span class="n">use</span> <span class="n">continuous</span> <span class="n">distances</span>
-	<span class="n">center</span> <span class="n">closest_center</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">center</span> <span class="n">closest_to</span> <span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">)</span> <span class="n">using</span> <span class="n">topology</span><span class="p">(</span><span class="n">world</span><span class="p">);</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">white</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">closest_center</span><span class="p">).</span><span class="n">color</span><span class="p">;</span>
+    <span class="p">//</span> <span class="n">Note</span><span class="p">:</span> <span class="n">since</span> <span class="n">GAMA</span> <span class="m">1.7</span><span class="p">,</span> <span class="n">the</span> <span class="n">topology</span> <span class="n">needs</span> <span class="k">to</span> <span class="n">be</span> <span class="n">specified</span> <span class="n">for</span> <span class="n">this</span> <span class="n">computation</span> <span class="k">to</span> <span class="n">use</span> <span class="n">continuous</span> <span class="n">distances</span>
+    <span class="n">center</span> <span class="n">closest_center</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">center</span> <span class="n">closest_to</span> <span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">)</span> <span class="n">using</span> <span class="n">topology</span><span class="p">(</span><span class="n">world</span><span class="p">);</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">white</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">closest_center</span><span class="p">).</span><span class="n">color</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">a</span> <span class="n">Voronoi</span> <span class="n">point</span>
 <span class="n">species</span> <span class="n">center</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span> 
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">([</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">)]);</span> 
-	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cluster</span> <span class="n">wander</span> <span class="k">in</span> <span class="n">the</span> <span class="n">environment</span>       
-	<span class="n">reflex</span> <span class="n">wander</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">90</span><span class="p">;</span>
-	<span class="p">}</span>  
-	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">([</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span> <span class="p">(</span><span class="m">255</span><span class="p">)]);</span> 
+    <span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cluster</span> <span class="n">wander</span> <span class="k">in</span> <span class="n">the</span> <span class="n">environment</span>       
+    <span class="n">reflex</span> <span class="n">wander</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">90</span><span class="p">;</span>
+    <span class="p">}</span>  
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">voronoi</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">{</span> 
-	<span class="n">parameter</span> <span class="s1">'Number of points:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">num_points</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Width of the environment:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">env_width</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Height of the environment:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">env_height</span><span class="p">;</span>
-	
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">Voronoi</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-			<span class="n">grid</span> <span class="n">cell</span>  <span class="p">;</span>
-			<span class="n">species</span> <span class="n">center</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>	
-<span class="p">}</span>
-</code></pre></div></div>
+    <span class="n">parameter</span> <span class="s1">'Number of points:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">num_points</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Width of the environment:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">env_width</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Height of the environment:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">env_height</span><span class="p">;</span>
 
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">Voronoi</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+            <span class="n">grid</span> <span class="n">cell</span>  <span class="p">;</span>
+            <span class="n">species</span> <span class="n">center</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>   
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

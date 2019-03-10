@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="batch-specific-ui">Batch Specific UI</h1>
@@ -3616,45 +3616,42 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#batch-specific-ui">Batch Specific UI</a>
-    <ul>
-      <li><a href="#information-bar">Information bar</a></li>
-      <li><a href="#batch-ui">Batch UI</a></li>
-    </ul>
-  </li>
+<li><a href="#batch-specific-ui">Batch Specific UI</a>
+
+<ul>
+<li><a href="#information-bar">Information bar</a></li>
+<li><a href="#batch-ui">Batch UI</a></li>
+</ul></li>
 </ul>
 
 <h2 id="information-bar">Information bar</h2>
 
-<p>In batch mode, the top information bar displays 3 distinct information (instead of only the cycle number in the GUI experiment):</p>
-<ul>
-  <li>The <strong>run</strong> number: One run corresponds to X executions of simulation with one given parameters values (X is an integer given by the facet <code class="highlighter-rouge">repeat</code> in the definition of the <a href="ExplorationMethods">exploration method</a>);</li>
-  <li>The <strong>simulation</strong> number: the number of replications done (and the number of replications specified with the <code class="highlighter-rouge">repeat</code> facet);</li>
-  <li>The number of <strong>thread</strong>: the number of threads used for the simulation.</li>
-</ul>
+<p>In batch mode, the top information bar displays 3 distinct information (instead of only the cycle number in the GUI experiment):
+  * The <strong>run</strong> number: One run corresponds to X executions of simulation with one given parameters values (X is an integer given by the facet <code>repeat</code> in the definition of the <a href="ExplorationMethods">exploration method</a>);
+  * The <strong>simulation</strong> number: the number of replications done (and the number of replications specified with the <code>repeat</code> facet);
+  * The number of <strong>thread</strong>: the number of threads used for the simulation.</p>
 
-<p><img src="resources/images/runningExperiments/batch_Information_bar.png" alt="images/batch_Information_bar.png" /></p>
+<p><img src="resources/images/runningExperiments/batch_Information_bar.png" alt="images/batch_Information_bar.png"></p>
 
 <h2 id="batch-ui">Batch UI</h2>
 
-<p>The parameters view is also a bit different in the case of a Batch UI. The following interface is generated given the following model part:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed) or (time &gt; 400) {
-   parameter 'Size of the grid:' var: gridsize init: 75 unit: 'width and height';
-   parameter 'Number:' var: ants_number init: 200 unit: 'ants';
-   parameter 'Evaporation:' var: evaporation_rate among: [0.1, 0.2, 0.5, 0.8, 1.0] unit: 'rate every cycle (1.0 means 100%)';
-   parameter 'Diffusion:' var: diffusion_rate min: 0.1 max: 1.0 unit: 'rate every cycle (1.0 means 100%)' step: 0.3;
+<p>The parameters view is also a bit different in the case of a Batch UI. The following interface is generated given the following model part:
+```
+experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = food_placed) or (time &gt; 400) {
+   parameter &#39;Size of the grid:&#39; var: gridsize init: 75 unit: &#39;width and height&#39;;
+   parameter &#39;Number:&#39; var: ants_number init: 200 unit: &#39;ants&#39;;
+   parameter &#39;Evaporation:&#39; var: evaporation_rate among: [0.1, 0.2, 0.5, 0.8, 1.0] unit: &#39;rate every cycle (1.0 means 100%)&#39;;
+   parameter &#39;Diffusion:&#39; var: diffusion_rate min: 0.1 max: 1.0 unit: &#39;rate every cycle (1.0 means 100%)&#39; step: 0.3;</p>
 
-   method exhaustive maximize: food_gathered;
-</code></pre></div></div>
+<p>method exhaustive maximize: food_gathered;
+```</p>
 
-<p><img src="resources/images/runningExperiments/batch_Parameters_pane.png" alt="images/batch_Parameters_pane.png" /></p>
+<p><img src="resources/images/runningExperiments/batch_Parameters_pane.png" alt="images/batch_Parameters_pane.png"></p>
 
-<p>The interface summarizes all model parameters and the parameters given to the exploration method:</p>
-<ul>
-  <li><strong>Environment and Population</strong>: displays all the model parameters that should not be explored;</li>
-  <li><strong>Parameters to explore</strong>: the parameters to explore are the parameters defined in the experiment with a range of values (with <code class="highlighter-rouge">among</code> facet or <code class="highlighter-rouge">min</code>, <code class="highlighter-rouge">max</code> and <code class="highlighter-rouge">step</code> facets);</li>
-  <li><strong>Exploration method</strong>: it summarizes the Exploration method and the stop condition. For exhaustive method it also evaluates the parameter space. For other methods, it also displays the method parameters (e.g. mutation or crossover probability…). Finally the best fitness found and the last fitness found are displayed (with the associated parameter set).</li>
-</ul>
+<p>The interface summarizes all model parameters and the parameters given to the exploration method:
+  * <strong>Environment and Population</strong>: displays all the model parameters that should not be explored;
+  * <strong>Parameters to explore</strong>: the parameters to explore are the parameters defined in the experiment with a range of values (with <code>among</code> facet or <code>min</code>, <code>max</code> and <code>step</code> facets);
+  * <strong>Exploration method</strong>: it summarizes the Exploration method and the stop condition. For exhaustive method it also evaluates the parameter space. For other methods, it also displays the method parameters (e.g. mutation or crossover probability...). Finally the best fitness found and the last fitness found are displayed (with the associated parameter set).</p>
 
     </div>
     </div>

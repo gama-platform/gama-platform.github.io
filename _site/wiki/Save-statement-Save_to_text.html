@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="save-to-text">Save to Text</h1>
@@ -3615,63 +3615,61 @@ function closeRightMenu() {
 
 <p>This is a model that shows how to save agents inside a text file to reuse it later or to keep it.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 
 <span class="k">model</span> <span class="n">SavetoText</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="k">in</span> <span class="n">the</span> <span class="n">text</span> <span class="n">file</span><span class="p">.</span>
-		<span class="nb">create</span> <span class="n">bug</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="n">saving</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">every</span> <span class="m">10</span> <span class="n">steps</span><span class="p">.</span> 
-	<span class="n">reflex</span> <span class="n">save_data</span> <span class="n">when</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">){</span>
-		<span class="p">//</span><span class="n">save</span> <span class="n">the</span> <span class="n">following</span> <span class="n">text</span> <span class="n">into</span> <span class="n">the</span> <span class="n">given</span> <span class="n">text</span> <span class="n">file</span><span class="p">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">each</span> <span class="n">time</span> <span class="n">the</span> <span class="n">save</span> <span class="n">statement</span> <span class="n">is</span> <span class="n">used</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">line</span> <span class="n">is</span> <span class="n">added</span> <span class="n">at</span> <span class="n">the</span> <span class="k">end</span> <span class="k">of</span> <span class="n">the</span> <span class="n">file</span><span class="p">.</span>
-		<span class="n">save</span> <span class="p">(</span><span class="s2">"cycle:"</span> <span class="p">+</span> <span class="n">cycle</span> <span class="p">+</span> <span class="s2">", mean size: "</span> <span class="p">+</span> <span class="n">mean</span><span class="p">(</span><span class="n">bug</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">size</span><span class="p">))</span> <span class="k">to</span><span class="p">:</span> <span class="s2">"../results/data.txt"</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="n">that</span> <span class="n">will</span> <span class="n">pause</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">when</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cycles</span> <span class="n">reach</span> <span class="m">100.</span>
-	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">100</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="k">in</span> <span class="n">the</span> <span class="n">text</span> <span class="n">file</span><span class="p">.</span>
+        <span class="nb">create</span> <span class="n">bug</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="n">saving</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">every</span> <span class="m">10</span> <span class="n">steps</span><span class="p">.</span> 
+    <span class="n">reflex</span> <span class="n">save_data</span> <span class="n">when</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">){</span>
+        <span class="p">//</span><span class="n">save</span> <span class="n">the</span> <span class="n">following</span> <span class="n">text</span> <span class="n">into</span> <span class="n">the</span> <span class="n">given</span> <span class="n">text</span> <span class="n">file</span><span class="p">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">each</span> <span class="n">time</span> <span class="n">the</span> <span class="n">save</span> <span class="n">statement</span> <span class="n">is</span> <span class="n">used</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">line</span> <span class="n">is</span> <span class="n">added</span> <span class="n">at</span> <span class="n">the</span> <span class="k">end</span> <span class="k">of</span> <span class="n">the</span> <span class="n">file</span><span class="p">.</span>
+        <span class="n">save</span> <span class="p">(</span><span class="s2">"cycle:"</span> <span class="p">+</span> <span class="n">cycle</span> <span class="p">+</span> <span class="s2">", mean size: "</span> <span class="p">+</span> <span class="n">mean</span><span class="p">(</span><span class="n">bug</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">size</span><span class="p">))</span> <span class="k">to</span><span class="p">:</span> <span class="s2">"../results/data.txt"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="n">that</span> <span class="n">will</span> <span class="n">pause</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">when</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cycles</span> <span class="n">reach</span> <span class="m">100.</span>
+    <span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">100</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">bug</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
 <span class="n">species</span> <span class="n">bug</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
-	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">5.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4.0</span><span class="p">);</span>
-	
-	<span class="p">//</span><span class="n">At</span> <span class="n">each</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">update</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">bugs</span> <span class="n">close</span> <span class="k">to</span> <span class="n">the</span> <span class="n">agent</span>
-	<span class="n">reflex</span> <span class="n">update_size</span> <span class="p">{</span>
-		<span class="n">int</span> <span class="n">nb_neigh</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">bug</span> <span class="n">at_distance</span> <span class="m">20.0</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">nb_neigh</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span> 	
-	
-	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">randomly</span>
-	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">5.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4.0</span><span class="p">);</span>
+
+    <span class="p">//</span><span class="n">At</span> <span class="n">each</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">update</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">bugs</span> <span class="n">close</span> <span class="k">to</span> <span class="n">the</span> <span class="n">agent</span>
+    <span class="n">reflex</span> <span class="n">update_size</span> <span class="p">{</span>
+        <span class="n">int</span> <span class="n">nb_neigh</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">bug</span> <span class="n">at_distance</span> <span class="m">20.0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nb_neigh</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">size</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>   
+
+    <span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">randomly</span>
+    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">bug</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">bug</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

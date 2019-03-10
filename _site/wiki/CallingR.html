@@ -3606,154 +3606,149 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="calling-r">Calling R</h1>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>R language is one of powerful data mining tools, and its community is very large in the world (See the website: http://www.r-project.org/). Adding the R language into GAMA is our strong endeavors to accelerate many statistical, data mining tools into GAMA.</p>
+<p>R language is one of powerful data mining tools, and its community is very large in the world (See the website: <a href="http://www.r-project.org/">http://www.r-project.org/</a>). Adding the R language into GAMA is our strong endeavors to accelerate many statistical, data mining tools into GAMA.</p>
 
-<p>RCaller 2.0 package (Website: http://code.google.com/p/rcaller/) is used for GAMA 1.6.1.</p>
+<p>RCaller 2.0 package (Website: <a href="http://code.google.com/p/rcaller/">http://code.google.com/p/rcaller/</a>) is used for GAMA 1.6.1.</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#introduction">Introduction</a>
-    <ul>
-      <li><a href="#configuration-in-gama">Configuration in GAMA</a></li>
-      <li><a href="#calling-r-from-gaml">Calling R from GAML</a>
-        <ul>
-          <li><a href="#calling-the-built-in-operators">Calling the built-in operators</a>
-            <ul>
-              <li><a href="#example-1">Example 1</a></li>
-            </ul>
-          </li>
-          <li><a href="#calling-r-codes-from-a-text-file-txt-without-the-parameters">Calling R codes from a text file (.txt) WITHOUT the parameters</a>
-            <ul>
-              <li><a href="#example-2">Example 2</a></li>
-              <li><a href="#correlationr-file">Correlation.R file</a></li>
-            </ul>
-          </li>
-          <li><a href="#output">Output</a>
-            <ul>
-              <li><a href="#example-3">Example 3</a></li>
-              <li><a href="#randomforestr-file">RandomForest.R file</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#load-the-package">Load the package:</a></li>
-  <li><a href="#read-data-from-iris">Read data from iris:</a></li>
-  <li><a href="#build-the-decision-tree">Build the decision tree:</a></li>
-  <li><a href="#build-the-random-forest-of-50-decision-trees">Build the random forest of 50 decision trees:</a></li>
-  <li><a href="#predict-the-acceptance-of-test-set">Predict the acceptance of test set:</a></li>
-  <li><a href="#calculate-the-accuracy">Calculate the accuracy:</a>
-          * <a href="#output">Output</a>
-      * <a href="#calling-r-codes-from-a-text-file-r-txt-with-the-parameters">Calling R codes from a text file (.R, .txt) WITH the parameters</a>
-          * <a href="#example-4">Example 4</a>
-          * <a href="#meanr-file">Mean.R file</a>
-      * <a href="#output">Output</a>
-          * <a href="#example-5">Example 5</a>
-          * <a href="#addparamr-file">AddParam.R file</a>
-          * <a href="#output">Output</a></li>
+<li><a href="#introduction">Introduction</a>
+
+<ul>
+<li><a href="#configuration-in-gama">Configuration in GAMA</a></li>
+<li><a href="#calling-r-from-gaml">Calling R from GAML</a>
+
+<ul>
+<li><a href="#calling-the-built-in-operators">Calling the built-in operators</a>
+
+<ul>
+<li><a href="#example-1">Example 1</a></li>
+</ul></li>
+<li><a href="#calling-r-codes-from-a-text-file-txt-without-the-parameters">Calling R codes from a text file (.txt) WITHOUT the parameters</a>
+
+<ul>
+<li><a href="#example-2">Example 2</a></li>
+<li><a href="#correlationr-file">Correlation.R file</a></li>
+</ul></li>
+<li><a href="#output">Output</a>
+
+<ul>
+<li><a href="#example-3">Example 3</a></li>
+<li><a href="#randomforestr-file">RandomForest.R file</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#load-the-package">Load the package:</a></li>
+<li><a href="#read-data-from-iris">Read data from iris:</a></li>
+<li><a href="#build-the-decision-tree">Build the decision tree:</a></li>
+<li><a href="#build-the-random-forest-of-50-decision-trees">Build the random forest of 50 decision trees:</a></li>
+<li><a href="#predict-the-acceptance-of-test-set">Predict the acceptance of test set:</a></li>
+<li><a href="#calculate-the-accuracy">Calculate the accuracy:</a>
+        * <a href="#output">Output</a>
+    * <a href="#calling-r-codes-from-a-text-file-r-txt-with-the-parameters">Calling R codes from a text file (.R, .txt) WITH the parameters</a>
+        * <a href="#example-4">Example 4</a>
+        * <a href="#meanr-file">Mean.R file</a>
+    * <a href="#output">Output</a>
+        * <a href="#example-5">Example 5</a>
+        * <a href="#addparamr-file">AddParam.R file</a>
+        * <a href="#output">Output</a></li>
 </ul>
 
 <h2 id="configuration-in-gama">Configuration in GAMA</h2>
+
 <p>1) Install R language into your computer.</p>
 
 <p>2) In GAMA, select menu option: <strong>Edit/Preferences</strong>.</p>
 
-<p>3) In “<strong>Config RScript’s path</strong>”, browse to your “<strong>Rscript</strong>” file (R language installed in your system).</p>
+<p>3) In &quot;<strong>Config RScript&#39;s path</strong>&quot;, browse to your &quot;<strong>Rscript</strong>&quot; file (R language installed in your system).</p>
 
-<p><strong>Notes</strong>: Ensure that install.packages(“Runiversal”) is already applied in R environment.</p>
+<p><strong>Notes</strong>: Ensure that install.packages(&quot;Runiversal&quot;) is already applied in R environment.</p>
 
 <h2 id="calling-r-from-gaml">Calling R from GAML</h2>
 
 <h3 id="calling-the-built-in-operators">Calling the built-in operators</h3>
 
 <h4 id="example-1">Example 1</h4>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
-	<span class="k">list</span> <span class="n">Y</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">4</span><span class="p">];</span> 
+    <span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+    <span class="k">list</span> <span class="n">Y</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">4</span><span class="p">];</span> 
 
-	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
-	
-	<span class="n">init</span><span class="p">{</span>
-		<span class="nb">write</span> <span class="n">corR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">0.755928946018454</span>
-		<span class="nb">write</span> <span class="n">meanR</span><span class="p">(</span><span class="n">X</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">2.0</span>
-	<span class="p">}</span>
+    <span class="k">list</span> <span class="n">result</span><span class="p">;</span>
+
+    <span class="n">init</span><span class="p">{</span>
+        <span class="nb">write</span> <span class="n">corR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">0.755928946018454</span>
+        <span class="nb">write</span> <span class="n">meanR</span><span class="p">(</span><span class="n">X</span><span class="p">);</span> <span class="p">//</span> <span class="p">-&gt;</span> <span class="m">2.0</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="calling-r-codes-from-a-text-file-rtxt-without-the-parameters">Calling R codes from a text file (<strong>.R,</strong>.txt) WITHOUT the parameters</h3>
+</code></pre></div>
+<h3 id="calling-r-codes-from-a-text-file-r-txt-without-the-parameters">Calling R codes from a text file (<strong>.R,</strong>.txt) WITHOUT the parameters</h3>
 
 <p>Using <strong>R_compute(String RFile)</strong> operator. This operator DOESN’T ALLOW to add any parameters form the GAML code. All inputs is directly added into the R codes.
 <strong>Remarks</strong>: Don’t let any white lines at the end of R codes. <strong>R_compute</strong> will return the last variable of R file, this parameter can be a basic type or a list.  Please ensure that the called packages must be installed before using.</p>
 
 <h4 id="example-2">Example 2</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	<span class="n">init</span><span class="p">{</span>
-		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span><span class="p">{</span>
+        <span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
 <p>Above syntax is deprecated, use following syntax with R_file instead of R_compute:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-	<span class="n">file</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">file</span> <span class="n">result</span><span class="p">;</span>
 
-	<span class="n">init</span><span class="p">{</span>
-		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_file</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="n">result</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span><span class="p">{</span>
+        <span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_file</span><span class="p">(</span><span class="s2">"C:/YourPath/Correlation.R"</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="n">result</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-<h4 id="correlationr-file">Correlation.R file</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x &lt;- c(1, 2, 3)
+</code></pre></div>
+<h4 id="correlation-r-file">Correlation.R file</h4>
+<div class="highlight"><pre><code class="language-" data-lang="">x &lt;- c(1, 2, 3)
 
 y &lt;- c(1, 2, 4)
 
 result &lt;- cor(x, y, method = "pearson")
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="output">Output</h3>
 
-<p><code class="highlighter-rouge">result::[0.981980506061966]</code></p>
+<p><code>result::[0.981980506061966]</code></p>
 
 <h4 id="example-3">Example 3</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	<span class="n">init</span><span class="p">{</span>
-		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/RandomForest.R"</span><span class="p">);</span>
+    <span class="n">init</span><span class="p">{</span>
+        <span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute</span><span class="p">(</span><span class="s2">"C:/YourPath/RandomForest.R"</span><span class="p">);</span>
 
-		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-	<span class="p">}</span>
+        <span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="randomforestr-file">RandomForest.R file</h4>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Load the package:
+</code></pre></div>
+<h4 id="randomforest-r-file">RandomForest.R file</h4>
+<div class="highlight"><pre><code class="language-" data-lang=""># Load the package:
 
 library(randomForest)
 
@@ -3788,11 +3783,10 @@ pred&lt;-predict(model, testset[,-ncol], type="class")
 # Calculate the accuracy:
 
 acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
-</code></pre></div></div>
+</code></pre></div>
+<h4 id="output">Output</h4>
 
-<h4 id="output-1">Output</h4>
-
-<p><code class="highlighter-rouge">acc::[0.98]</code></p>
+<p><code>acc::[0.98]</code></p>
 
 <h3 id="calling-r-codes-from-a-text-file-r-txt-with-the-parameters">Calling R codes from a text file (.R, .txt) WITH the parameters</h3>
 
@@ -3801,66 +3795,53 @@ acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
 <p><strong>Remarks</strong>: Don’t let any white lines at the end of R codes. <strong>R_compute_param</strong> will return the last variable of R file, this parameter can be a basic type or a list. Please ensure that the called packages must be installed before using.</p>
 
 <h4 id="example-4">Example 4</h4>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
-	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+    <span class="k">list</span> <span class="n">result</span><span class="p">;</span>
 
-	<span class="n">init</span><span class="p">{</span>
-		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/Mean.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span><span class="p">{</span>
+        <span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/Mean.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
+<h4 id="mean-r-file">Mean.R file</h4>
 
-<h4 id="meanr-file">Mean.R file</h4>
+<p><code>result &lt;- mean(vectorParam)</code></p>
 
-<p><code class="highlighter-rouge">result &lt;- mean(vectorParam)</code></p>
+<h3 id="output">Output</h3>
 
-<h3 id="output-2">Output</h3>
-
-<p><code class="highlighter-rouge">result::[3.33333333333333]</code></p>
+<p><code>result::[3.33333333333333]</code></p>
 
 <h4 id="example-5">Example 5</h4>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CallingR</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CallingR</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
-	<span class="k">list</span> <span class="n">result</span><span class="p">;</span>
-	
+    <span class="k">list</span> <span class="n">X</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+    <span class="k">list</span> <span class="n">result</span><span class="p">;</span>
+
         <span class="n">init</span><span class="p">{</span>
-		<span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/AddParam.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-	<span class="p">}</span>
+        <span class="n">result</span> <span class="p">&lt;-</span> <span class="n">R_compute_param</span><span class="p">(</span><span class="s2">"C:/YourPath/AddParam.R"</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="n">result</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
+<h4 id="addparam-r-file">AddParam.R file</h4>
 
-<h4 id="addparamr-file">AddParam.R file</h4>
+<p><code>v1 &lt;- vectorParam[1]</code></p>
 
-<p><code class="highlighter-rouge">v1 &lt;- vectorParam[1]</code></p>
+<p><code>v2&lt;-vectorParam[2]</code></p>
 
-<p><code class="highlighter-rouge">v2&lt;-vectorParam[2]</code></p>
+<p><code>v3&lt;-vectorParam[3]</code></p>
 
-<p><code class="highlighter-rouge">v3&lt;-vectorParam[3]</code></p>
+<p><code>result&lt;-v1+v2+v3</code></p>
 
-<p><code class="highlighter-rouge">result&lt;-v1+v2+v3</code></p>
+<h4 id="output">Output</h4>
 
-<h4 id="output-3">Output</h4>
-
-<p><code class="highlighter-rouge">result::[10]</code></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_r)">//</a>: # (endConcept</td>
-      <td>call_r)</td>
-    </tr>
-  </tbody>
-</table>
+<p><code>result::[10]</code></p>
 
     </div>
     </div>

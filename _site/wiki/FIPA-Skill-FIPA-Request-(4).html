@@ -3606,81 +3606,76 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="fipa-request-4">FIPA Request (4)</h1>
 
-<p>This model demontrates a usecase of the FIPA Request interaction protocol.</p>
+<p>This model demontrates a usecase of the FIPA Request interaction protocol. 
+ * (Please see <a href="http://www.fipa.org/specs/fipa00026/index.html">http://www.fipa.org/specs/fipa00026/index.html</a> for the detail description of this protocol).</p>
+
 <ul>
-  <li>
-    <p>(Please see http://www.fipa.org/specs/fipa00026/index.html for the detail description of this protocol).</p>
-  </li>
-  <li>The Initiator agent begins the ‘fipa-request’ conversation/intaction protocol by sending a ‘request’</li>
-  <li>
-    <p>message to the Participant agent with ‘go sleeping’ as content.</p>
-  </li>
-  <li>On receiving a ‘request’ message, the Participant agent replies with an ‘inform’ message.</li>
-  <li>According to the specification of the FIPA Requestion interaction protocol, the next possible messages</li>
-  <li>after receiving a ‘request’ message are either ‘refuse’ message or ‘agree’ message.</li>
-  <li>Hence replying with an ‘inform’ message upon receiving a ‘request’ message violates the protocol specification.</li>
-  <li>GAMA will hence raise a GamaRuntimeException.</li>
-  <li>A conversation is automatically ended in case of GamaRuntimeException raised. Hence this conversation ends.</li>
+<li>The Initiator agent begins the &#39;fipa-request&#39; conversation/intaction protocol by sending a &#39;request&#39; </li>
+<li><p>message to the Participant agent with &#39;go sleeping&#39; as content.</p></li>
+<li><p>On receiving a &#39;request&#39; message, the Participant agent replies with an &#39;inform&#39; message. </p></li>
+<li><p>According to the specification of the FIPA Requestion interaction protocol, the next possible messages </p></li>
+<li><p>after receiving a &#39;request&#39; message are either &#39;refuse&#39; message or &#39;agree&#39; message. </p></li>
+<li><p>Hence replying with an &#39;inform&#39; message upon receiving a &#39;request&#39; message violates the protocol specification. </p></li>
+<li><p>GAMA will hence raise a GamaRuntimeException. </p></li>
+<li><p>A conversation is automatically ended in case of GamaRuntimeException raised. Hence this conversation ends.</p></li>
 </ul>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">fipa_request_4</span>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">fipa_request_4</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
-		
-		<span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-		
-		<span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
+
+        <span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+
+        <span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">send_request</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="s1">'send message'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-request'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'request'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'go sleeping'</span><span class="p">]</span> <span class="p">];</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">read_refuse_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(refuses)) {
-</span>		<span class="nb">write</span> <span class="s1">'read refuse messages'</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
-			<span class="nb">write</span> <span class="s1">'refuse message with content: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">send_request</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="s1">'send message'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-request'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'request'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'go sleeping'</span><span class="p">]</span> <span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">read_refuse_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(refuses)) {
+</span>        <span class="nb">write</span> <span class="s1">'read refuse messages'</span><span class="p">;</span>
+        <span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
+            <span class="nb">write</span> <span class="s1">'refuse message with content: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+    <span class="p">}</span>
 
-	<span class="n">reflex</span> <span class="n">reply_messages</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="c1">!empty(mailbox)) {
-</span>		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends an inform message'</span><span class="p">;</span>
-		
-		
-		<span class="nb">write</span> <span class="s1">'A GamaRuntimeException is raised to inform that the message\'</span><span class="n">s</span> <span class="n">performative</span> <span class="n">doesn</span><span class="p">\</span><span class="s1">'t respect the \'</span><span class="n">request</span><span class="p">\</span><span class="s1">' interaction protocol\'</span> <span class="n">specification</span><span class="s1">';
-		do inform with: [ message :: (mailbox at 0), contents :: ['</span><span class="n">I</span> <span class="n">don</span><span class="p">\</span><span class="s1">'t want'</span><span class="p">]</span> <span class="p">];</span> <span class="p">//</span> <span class="n">Attention</span><span class="p">:</span> <span class="n">note</span> <span class="n">that</span> <span class="n">GAMA</span> <span class="n">will</span> <span class="n">raise</span> <span class="n">an</span> <span class="n">exception</span> <span class="n">because</span> <span class="n">an</span> <span class="s1">'inform'</span> <span class="n">message</span> <span class="n">is</span> <span class="k">not</span> <span class="n">appropriate</span> <span class="n">here</span><span class="p">.</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">reply_messages</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="c1">!empty(mailbox)) {
+</span>        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends an inform message'</span><span class="p">;</span>
+
+
+        <span class="nb">write</span> <span class="s1">'A GamaRuntimeException is raised to inform that the message\'</span><span class="n">s</span> <span class="n">performative</span> <span class="n">doesn</span><span class="p">\</span><span class="s1">'t respect the \'</span><span class="n">request</span><span class="p">\</span><span class="s1">' interaction protocol\'</span> <span class="n">specification</span><span class="s1">';
+        do inform with: [ message :: (mailbox at 0), contents :: ['</span><span class="n">I</span> <span class="n">don</span><span class="p">\</span><span class="s1">'t want'</span><span class="p">]</span> <span class="p">];</span> <span class="p">//</span> <span class="n">Attention</span><span class="p">:</span> <span class="n">note</span> <span class="n">that</span> <span class="n">GAMA</span> <span class="n">will</span> <span class="n">raise</span> <span class="n">an</span> <span class="n">exception</span> <span class="n">because</span> <span class="n">an</span> <span class="s1">'inform'</span> <span class="n">message</span> <span class="n">is</span> <span class="k">not</span> <span class="n">appropriate</span> <span class="n">here</span><span class="p">.</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">test_request_interaction_protocol</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

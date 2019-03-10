@@ -3606,257 +3606,259 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="4-emotions-and-personality">4. Emotions and Personality</h1>
+
 <p>This fourth step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.</p>
 
 <h2 id="formulation">Formulation</h2>
+
 <ul>
-  <li>Definition of global emotions</li>
-  <li>Modification of the miner species to integrate emotions and personality</li>
+<li>Definition of global emotions</li>
+<li>Modification of the miner species to integrate emotions and personality</li>
 </ul>
 
 <h2 id="emotions">Emotions</h2>
-<p>The BDI architecture of GAMA gives the possibility to generate emotions and to use them in the cognition. The definition of emotions in GAMA is based on the OCC theory of emotions. According to this theory, an emotion is a valued answer to the appraisal of a situation. In GAMA an emotion is represented by a set of 5 elements :</p>
-<ul>
-  <li><em>E</em>: the name of the emotion felt by agent i.</li>
-  <li><em>P</em>: the predicate that represents the fact about which the emotion is expressed.</li>
-  <li><em>A</em>: the agent causing the emotion.</li>
-  <li><em>I</em>: the intensity of the emotion.</li>
-  <li><em>D</em>: the decay of the emotion’s intensity.</li>
-</ul>
 
-<p>The BDI architecture of GAMA integrates a dynamic creation of emotions processe that will create emotions according to the mental states of the agent. More precisely, twenty emotions can be created: eight emotions related to events, four emotions related to other agents and eight emotions related to actions.</p>
+<p>The BDI architecture of GAMA gives the possibility to generate emotions and to use them in the cognition. The definition of emotions in GAMA is based on the OCC theory of emotions. According to this theory, an emotion is a valued answer to the appraisal of a situation. In GAMA an emotion is represented by a set of 5 elements :
+* <em>E</em>: the name of the emotion felt by agent i.
+* <em>P</em>: the predicate that represents the fact about which the emotion is expressed.
+* <em>A</em>: the agent causing the emotion.
+* <em>I</em>: the intensity of the emotion.
+* <em>D</em>: the decay of the emotion’s intensity.</p>
+
+<p>The BDI architecture of GAMA integrates a dynamic creation of emotions processe that will create emotions according to the mental states of the agent. More precisely, twenty emotions can be created: eight emotions related to events, four emotions related to other agents and eight emotions related to actions. </p>
 
 <p>The complete description of these emotions and their creation rules can be found in <a href="https://hal.archives-ouvertes.fr/hal-01573384/document">(Bourgais et at., 2017)</a>.</p>
 
 <h2 id="personality">Personality</h2>
-<p>In order to facilitate the parametrization of the BDI agents, we add the possibility to define all the parameters related to the BDI architecture through the OCEAN model, which proposes to represent the personality of a person according to five factors (correspoding to the 5 variables of the BDI agents):</p>
-<ul>
-  <li><em>O</em>: represents the openness of someone (open-minded/narrow-minded).</li>
-  <li><em>C</em>: represents the consciousness  of someone (act with preparations/impulsive).</li>
-  <li><em>E</em>: represents the extroversion of someone (extrovert/shy).</li>
-  <li><em>A</em>: represents the agreeableness of someone (friendly/hostile).</li>
-  <li><em>N</em>: represent the degree of control someone has on its emotions (calm/neurotic)
-\end{itemize}</li>
-</ul>
+
+<p>In order to facilitate the parametrization of the BDI agents, we add the possibility to define all the parameters related to the BDI architecture through the OCEAN model, which proposes to represent the personality of a person according to five factors (correspoding to the 5 variables of the BDI agents):
+* <em>O</em>: represents the openness of someone (open-minded/narrow-minded).
+* <em>C</em>: represents the consciousness  of someone (act with preparations/impulsive).
+* <em>E</em>: represents the extroversion of someone (extrovert/shy).
+* <em>A</em>: represents the agreeableness of someone (friendly/hostile).
+* <em>N</em>: represent the degree of control someone has on its emotions (calm/neurotic)
+\end{itemize}</p>
 
 <p>Each of these variables has a value between 0 and 1. 0.5 represents the neutral value, below 0.5, the value is considered negatively and above 0.5, it is considered positively. For example, someone with a value of 1 for <em>N</em> is considered as calm and someone with a value of 0 for <em>A</em> is considered as hostile.</p>
 
 <h2 id="model-definition">Model Definition</h2>
-<h3 id="emotions-1">emotions</h3>
-<p>We add a new global emotion called <em>joy</em> that represents the joy emotion.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
-	...
-	emotion joy &lt;- new_emotion("joy");
+
+<h3 id="emotions">emotions</h3>
+
+<p>We add a new global emotion called <em>joy</em> that represents the joy emotion.
+<code>
+global {
+    ...
+    emotion joy &lt;- new_emotion(&quot;joy&quot;);
         ...
 }
-</code></pre></div></div>
+</code></p>
 
 <h3 id="emotions-and-personality">emotions and personality</h3>
-<p>To use emotions (and to activate the automatic emotion generation process), we just have to set the value of the built-in variable <em>use_emotions_architecture</em> to true (false by default). In our case, one of the possible desires concerns the predicate <em>has_gold</em>, and when an agent fulfill this desire and find a gold nugget (plan <em>getGold</em>), it gets the belief <em>has_gold</em>, and the emotion engine automatically creates a <em>joy</em> emotion.</p>
+
+<p>To use emotions (and to activate the automatic emotion generation process), we just have to set the value of the built-in variable <em>use_emotions_architecture</em> to true (false by default). In our case, one of the possible desires concerns the predicate <em>has_gold</em>, and when an agent fulfill this desire and find a gold nugget (plan <em>getGold</em>), it gets the belief <em>has_gold</em>, and the emotion engine automatically creates a <em>joy</em> emotion. </p>
 
 <p>To be able to define the parameter of a BDI agent through the OCEAN model, we have to set the value of the built-in variable <em>use_personality</em> to true (false by default). In this model, we chose to use the default value of the <em>O</em>, <em>C</em>, <em>E</em>, <em>A</em> and <em>N</em> variables (default value: 0.5). The interest of using the personality in our case is to allows the emotion engine to give a lifetime to the created emotions (otherwise, the emotions would have a infinite lifetime).</p>
 
-<p>In this model, we only use the emotions to define if the miner agents is going to share or not its knowledge about the gold mines. We consider that the miner only shares information if it has a joy emotion.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+<p>In this model, we only use the emotions to define if the miner agents is going to share or not its knowledge about the gold mines. We consider that the miner only shares information if it has a joy emotion.
+```
+species miner skills: [moving] control:simple_bdi {
         ...
         bool use_emotions_architecture &lt;- true;
-        bool use_personality &lt;- true;
-		
-	perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
-		focus mine_at_location var:location;
-		ask myself {
-			if (has_emotion(joy)) {do add_desire(predicate:share_information, strength: 5.0);}
-			do remove_intention(find_gold, false);
-		}
-	}
-        ...
+        bool use_personality &lt;- true;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
+    focus mine_at_location var:location;
+    ask myself {
+        if (has_emotion(joy)) {do add_desire(predicate:share_information, strength: 5.0);}
+        do remove_intention(find_gold, false);
+    }
 }
-</code></pre></div></div>
+    ...
+</code></pre></div>
+<p>}
+```</p>
 
 <h2 id="complete-model">Complete Model</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">GoldBdi</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">GoldBdi</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
-	<span class="n">int</span> <span class="n">nbminer</span><span class="p">&lt;-</span><span class="m">5</span><span class="p">;</span>
-	<span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
-	
-	<span class="k">string</span> <span class="n">mine_at_location</span> <span class="p">&lt;-</span> <span class="s2">"mine_at_location"</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">empty_mine_location</span> <span class="p">&lt;-</span> <span class="s2">"empty_mine_location"</span><span class="p">;</span>
-	
-	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">possible</span> <span class="n">predicates</span> <span class="n">concerning</span> <span class="n">miners</span>
-	<span class="n">predicate</span> <span class="n">mine_location</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">predicate</span> <span class="n">choose_goldmine</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"choose a gold mine"</span><span class="p">);</span>
-	<span class="n">predicate</span> <span class="n">has_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"extract gold"</span><span class="p">);</span>
-	<span class="n">predicate</span> <span class="n">find_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"find gold"</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">predicate</span> <span class="n">sell_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"sell gold"</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">predicate</span> <span class="n">share_information</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"share information"</span><span class="p">)</span> <span class="p">;</span>
-	
-	
-	<span class="n">emotion</span> <span class="n">joy</span> <span class="p">&lt;-</span> <span class="n">new_emotion</span><span class="p">(</span><span class="s2">"joy"</span><span class="p">);</span>
-	
-	<span class="n">float</span> <span class="n">inequality</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">miner</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">gold_sold</span><span class="p">);</span>
-	
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
-	<span class="n">init</span>
-	<span class="p">{</span>
-		<span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
-			<span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>	
-		<span class="p">}</span>
-		<span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">miner</span> <span class="n">number</span><span class="p">:</span><span class="n">nbminer</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">goldmine</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="k">and</span> <span class="n">empty</span><span class="p">(</span><span class="n">miner</span> <span class="n">where</span> <span class="n">each</span><span class="p">.</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)){</span>
-		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
+    <span class="n">int</span> <span class="n">nbminer</span><span class="p">&lt;-</span><span class="m">5</span><span class="p">;</span>
+    <span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
+
+    <span class="k">string</span> <span class="n">mine_at_location</span> <span class="p">&lt;-</span> <span class="s2">"mine_at_location"</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">empty_mine_location</span> <span class="p">&lt;-</span> <span class="s2">"empty_mine_location"</span><span class="p">;</span>
+
+    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">possible</span> <span class="n">predicates</span> <span class="n">concerning</span> <span class="n">miners</span>
+    <span class="n">predicate</span> <span class="n">mine_location</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">predicate</span> <span class="n">choose_goldmine</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"choose a gold mine"</span><span class="p">);</span>
+    <span class="n">predicate</span> <span class="n">has_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"extract gold"</span><span class="p">);</span>
+    <span class="n">predicate</span> <span class="n">find_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"find gold"</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">predicate</span> <span class="n">sell_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"sell gold"</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">predicate</span> <span class="n">share_information</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"share information"</span><span class="p">)</span> <span class="p">;</span>
+
+
+    <span class="n">emotion</span> <span class="n">joy</span> <span class="p">&lt;-</span> <span class="n">new_emotion</span><span class="p">(</span><span class="s2">"joy"</span><span class="p">);</span>
+
+    <span class="n">float</span> <span class="n">inequality</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">miner</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">gold_sold</span><span class="p">);</span>
+
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
+    <span class="n">init</span>
+    <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
+            <span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">miner</span> <span class="n">number</span><span class="p">:</span><span class="n">nbminer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">goldmine</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="k">and</span> <span class="n">empty</span><span class="p">(</span><span class="n">miner</span> <span class="n">where</span> <span class="n">each</span><span class="p">.</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)){</span>
+        <span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goldmine</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
-	<span class="n">aspect</span> <span class="n">default</span>
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
-		<span class="p">}</span>
-	 
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
+    <span class="n">aspect</span> <span class="n">default</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
+        <span class="p">}</span>
+
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">market</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">default</span>
-	<span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">default</span>
+    <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">miner</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span><span class="n">simple_bdi</span> <span class="p">{</span>
-	
-	<span class="n">float</span> <span class="n">viewdist</span><span class="p">&lt;-</span><span class="m">1000.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">mycolor</span><span class="p">&lt;-</span><span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">gold_sold</span><span class="p">;</span>
-	
-        <span class="n">bool</span> <span class="n">use_social_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">bool</span> <span class="n">use_emotions_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">bool</span> <span class="n">use_personality</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-	
-	<span class="n">init</span>
-	<span class="p">{</span>
-		<span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">find_gold</span><span class="p">);</span>
-	<span class="p">}</span>
-	
-	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">miner</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">socialize</span> <span class="n">liking</span><span class="p">:</span> <span class="m">1</span> <span class="p">-</span>  <span class="n">point</span><span class="p">(</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="n">distance_to</span> <span class="n">point</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span> <span class="m">255</span><span class="p">);</span>
-	<span class="p">}</span>
-		
-	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
-		<span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">has_emotion</span><span class="p">(</span><span class="n">joy</span><span class="p">))</span> <span class="p">{</span><span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span><span class="n">share_information</span><span class="p">,</span> <span class="n">strength</span><span class="p">:</span> <span class="m">5.0</span><span class="p">);}</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span><span class="p">;</span>
-	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">3.0</span><span class="p">;</span>
-	
-	<span class="n">plan</span> <span class="n">letsWander</span> <span class="n">intention</span><span class="p">:</span><span class="n">find_gold</span> 
-	<span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">getGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span> 
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-			<span class="k">do</span> <span class="n">current_intention_on_hold</span><span class="p">();</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">;</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
-				<span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
-				<span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
-				 	<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
-					<span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>	
-				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-					<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
-				<span class="p">}</span>
-				<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>	
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">choose_closest_goldmine</span> <span class="n">intention</span><span class="p">:</span> <span class="n">choose_goldmine</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">empty_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
-		<span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">possible_mines</span> <span class="p">-</span> <span class="n">empty_mines</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">possible_mines</span><span class="p">))</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">target</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">possible_mines</span> <span class="n">with_min_of</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_market</span> <span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">the_market</span><span class="p">.</span><span class="n">location</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
-			<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">plan</span> <span class="n">share_information_to_friends</span> <span class="n">intention</span><span class="p">:</span> <span class="n">share_information</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;</span> <span class="n">my_friends</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;((</span><span class="n">social_link_base</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">liking</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">agent</span><span class="p">);</span>
-		<span class="n">loop</span> <span class="n">known_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
-				<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">known_goldmine</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">loop</span> <span class="n">known_empty_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
-				<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">known_empty_goldmine</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		
-		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">share_information</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
-	<span class="p">}</span>
 
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">mycolor</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span> <span class="n">gold_sold</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">viewdist</span><span class="p">&lt;-</span><span class="m">1000.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">mycolor</span><span class="p">&lt;-</span><span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">gold_sold</span><span class="p">;</span>
+
+        <span class="n">bool</span> <span class="n">use_social_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">use_emotions_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">use_personality</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="n">init</span>
+    <span class="p">{</span>
+        <span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">find_gold</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">miner</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
+        <span class="n">socialize</span> <span class="n">liking</span><span class="p">:</span> <span class="m">1</span> <span class="p">-</span>  <span class="n">point</span><span class="p">(</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="n">distance_to</span> <span class="n">point</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span> <span class="m">255</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
+        <span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
+        <span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">has_emotion</span><span class="p">(</span><span class="n">joy</span><span class="p">))</span> <span class="p">{</span><span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span><span class="n">share_information</span><span class="p">,</span> <span class="n">strength</span><span class="p">:</span> <span class="m">5.0</span><span class="p">);}</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span><span class="p">;</span>
+    <span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">3.0</span><span class="p">;</span>
+
+    <span class="n">plan</span> <span class="n">letsWander</span> <span class="n">intention</span><span class="p">:</span><span class="n">find_gold</span> 
+    <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">getGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span> 
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+            <span class="k">do</span> <span class="n">current_intention_on_hold</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
+                <span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+                <span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+                    <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+                    <span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>    
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
+                <span class="p">}</span>
+                <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>   
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">choose_closest_goldmine</span> <span class="n">intention</span><span class="p">:</span> <span class="n">choose_goldmine</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">empty_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
+        <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">possible_mines</span> <span class="p">-</span> <span class="n">empty_mines</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">possible_mines</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">possible_mines</span> <span class="n">with_min_of</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_market</span> <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">the_market</span><span class="p">.</span><span class="n">location</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
+            <span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+            <span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">plan</span> <span class="n">share_information_to_friends</span> <span class="n">intention</span><span class="p">:</span> <span class="n">share_information</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;</span> <span class="n">my_friends</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;((</span><span class="n">social_link_base</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">liking</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">agent</span><span class="p">);</span>
+        <span class="n">loop</span> <span class="n">known_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
+                <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">known_goldmine</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">loop</span> <span class="n">known_empty_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
+                <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">known_empty_goldmine</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">share_information</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">mycolor</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span> <span class="n">gold_sold</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">GoldBdi</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
-		<span class="p">{</span>
-			<span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
-			<span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
-			<span class="n">species</span> <span class="n">miner</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+        <span class="p">{</span>
+            <span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
+            <span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
+            <span class="n">species</span> <span class="n">miner</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
-<ol>
-  <li><a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a></li>
-  <li><a href="GoldMinerModel_step2">Definition of the BDI miners</a></li>
-  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
-  <li><a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></li>
-</ol>
+</code></pre></div>
+<p><a href="BDIAgents">Back to the start of the tutorial</a>
+  1. <a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a>
+  2. <a href="GoldMinerModel_step2">Definition of the BDI miners</a>
+  3. <a href="GoldMinerModel_step3">Definition of social relations between miners</a>
+  5. <a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></p>
 
     </div>
     </div>

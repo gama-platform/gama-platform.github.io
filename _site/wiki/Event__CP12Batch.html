@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="batch-experiments">Batch Experiments</h1>
@@ -3653,7 +3653,7 @@ Jean-Daniel Zucker</p>
 
 <p>·         The experiment (the plan) creates the simulation (future: Headless mode)</p>
 
-<h2 id="what-would-be-great-in-gama-124">What would be great in Gama 12.4?</h2>
+<h2 id="what-would-be-great-in-gama-12-4">What would be great in Gama 12.4?</h2>
 
 <p>·         Export agent/simulation data in the file</p>
 
@@ -3665,7 +3665,7 @@ Jean-Daniel Zucker</p>
 
 <p>o   How? Put code in the exploring loop =&gt; put real GAML code in the agent</p>
 
-<p>o   =&gt; reflex “method” or “explore”</p>
+<p>o   =&gt; reflex &quot;method&quot; or &quot;explore&quot;</p>
 
 <p>o   Some existing exploration actions can be used with a ParameterSet (Map?) parameter</p>
 
@@ -3691,13 +3691,13 @@ Jean-Daniel Zucker</p>
 
 <p>·         Launch parallel simulation on multicore/clusters</p>
 
-<p>o   =&gt; special action “runSimulation” parameter to launch 4 in parallel?</p>
+<p>o   =&gt; special action &quot;runSimulation&quot; parameter to launch 4 in parallel?</p>
 
-<p>·         “Generate” agents</p>
+<p>·         &quot;Generate&quot; agents</p>
 
 <p>o   Define agent parameters by using global/previous variables/files</p>
 
-<p>o   Use of an “initSimulation” action before the “runSimulation” to  be able to change manually the simulation parameters</p>
+<p>o   Use of an &quot;initSimulation&quot; action before the &quot;runSimulation&quot; to  be able to change manually the simulation parameters</p>
 
 <p>·         Définition graphique de l’espace de valeur, éventuellement en 2D et disjoint</p>
 
@@ -3705,19 +3705,19 @@ Jean-Daniel Zucker</p>
 
 <h2 id="the-solution">The Solution</h2>
 
-<p>Define a new <strong>Experimenter</strong> agent and put real code/reflexes/actions… GAML code inside the Experimenter.</p>
+<p>Define a new <strong>Experimenter</strong> agent and put real code/reflexes/actions... GAML code inside the Experimenter.</p>
 
 <h2 id="one-simple-example-of-what-would-be-great">One simple example of what would be great:</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment InteliExplore type: batch repeat: 2 keep_seed: true until: ( time &gt; 200 ) {
+<div class="highlight"><pre><code class="language-" data-lang="">experiment InteliExplore type: batch repeat: 2 keep_seed: true until: ( time &gt; 200 ) {
       int nbprey init:0;
       int nbpredator init:0;
 
       init
       {
             //for example read experiment plan from file
-           
+
       }
-     
+
 
       reflex method
       {
@@ -3736,7 +3736,7 @@ Jean-Daniel Zucker</p>
                    do: runsimulation;
 
                    do: aftersimulation;
-                  
+
             }
       }
 
@@ -3759,39 +3759,24 @@ Jean-Daniel Zucker</p>
                                     + '; finalPredators: ' + getValue("nb_preys") ;
 }
 
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="todo">TODO</h2>
 
-<p>And Alexis did almost all this in less than a day……. But how does he do that??</p>
+<p>And Alexis did almost all this in less than a day....... But how does he do that??</p>
 
 <ul>
-  <li>
-    <p>A new type of Custom Experiment</p>
-  </li>
-  <li>
-    <p>In this experiment block, an ExperimenterAgent manages the simulations</p>
-  </li>
-  <li>
-    <p>Init() may have to create a Simulation to get a Scheduler (?) and/or a World(?)</p>
-  </li>
-  <li>
-    <p>He must have a Scheduler to be able to stop/wait in a loop for the end of a Simulation (contradiction with previous point…)</p>
-  </li>
-  <li>
-    <p>Its most important function is to be able to call Simulation.step()</p>
-  </li>
+<li><p>A new type of Custom Experiment</p></li>
+<li><p>In this experiment block, an ExperimenterAgent manages the simulations</p></li>
+<li><p>Init() may have to create a Simulation to get a Scheduler (?) and/or a World(?)</p></li>
+<li><p>He must have a Scheduler to be able to stop/wait in a loop for the end of a Simulation (contradiction with previous point...)</p></li>
+<li><p>Its most important function is to be able to call Simulation.step()</p></li>
 </ul>
 
 <p>=&gt;Create a Simulation Type which has a Step() operator</p>
 
 <ul>
-  <li>
-    <p>Create a ExperimentatorSkill with a lot of usefull actions (Step(int), …)</p>
-  </li>
-  <li>
-    <p>Check that it is possible to define plots, logs, …</p>
-  </li>
+<li><p>Create a ExperimentatorSkill with a lot of usefull actions (Step(int), ...)</p></li>
+<li><p>Check that it is possible to define plots, logs, ...</p></li>
 </ul>
 
     </div>

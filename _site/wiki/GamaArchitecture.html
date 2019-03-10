@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="architecture-of-gama">Architecture of GAMA</h1>
@@ -3614,33 +3614,31 @@ function closeRightMenu() {
 <p>GAMA is made of a number of Eclipse Java projects, some representing the core projects without which the platform cannot be run, others additional plugins adding functionalities or concepts to the platform.</p>
 
 <p><strong>Vocabulary:</strong>
-Each project is either designed as a <strong>plugin</strong> (containing an xml file “plugin.xml”) or as a <strong>feature</strong> (containing an xml file “feature.xml”).</p>
-<ul>
-  <li>A <strong>plugin</strong> can be seen as a module (or bundle in the OSGI architecture), which can be necessary (the GAMA platform can’t run without it) or optional (providing new functionalities to the platform). This decomposition between several plugins ensure the cohesion between functional blocks, each plugin has to be as independent as he can.</li>
-  <li>A <strong>feature</strong> is a group of one or several modules (or plugin), which can be loaded. NB : Unlike a plugin, a feature does not include source code, but only two files : a build.properties and a feature.xml.</li>
-</ul>
+Each project is either designed as a <strong>plugin</strong> (containing an xml file &quot;plugin.xml&quot;) or as a <strong>feature</strong> (containing an xml file &quot;feature.xml&quot;).
+  * A <strong>plugin</strong> can be seen as a module (or bundle in the OSGI architecture), which can be necessary (the GAMA platform can&#39;t run without it) or optional (providing new functionalities to the platform). This decomposition between several plugins ensure the cohesion between functional blocks, each plugin has to be as independent as he can.
+  * A <strong>feature</strong> is a group of one or several modules (or plugin), which can be loaded. NB : Unlike a plugin, a feature does not include source code, but only two files : a build.properties and a feature.xml.</p>
 
 <p>To see how to create a plugin and a feature, please read <a href="InstallingGitVersion">this page</a>.</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#architecture-of-gama">Architecture of GAMA</a>
-    <ul>
-      <li><a href="#the-minimal-configuration">The minimal configuration</a></li>
-      <li><a href="#optional-plugins">Optional Plugins</a>
-        <ul>
-          <li><a href="#plugins-present-in-the-release-version">Plugins present in the release version</a></li>
-          <li><a href="#plugins-not-present-by-default-in-the-release-version">Plugins not present by default in the release version</a></li>
-          <li><a href="#plugins-not-designated-to-be-in-the-release-version">Plugins not designated to be in the release version</a></li>
-        </ul>
-      </li>
-      <li><a href="#unmaintained-projects">Unmaintained projects</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#models">Models</a></li>
-      <li><a href="#plugins-overview">Plugins overview</a></li>
-    </ul>
-  </li>
+<li><a href="#architecture-of-gama">Architecture of GAMA</a>
+
+<ul>
+<li><a href="#the-minimal-configuration">The minimal configuration</a></li>
+<li><a href="#optional-plugins">Optional Plugins</a>
+
+<ul>
+<li><a href="#plugins-present-in-the-release-version">Plugins present in the release version</a></li>
+<li><a href="#plugins-not-present-by-default-in-the-release-version">Plugins not present by default in the release version</a></li>
+<li><a href="#plugins-not-designated-to-be-in-the-release-version">Plugins not designated to be in the release version</a></li>
+</ul></li>
+<li><a href="#unmaintained-projects">Unmaintained projects</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#models">Models</a></li>
+<li><a href="#plugins-overview">Plugins overview</a></li>
+</ul></li>
 </ul>
 
 <h2 id="the-minimal-configuration">The minimal configuration</h2>
@@ -3648,118 +3646,111 @@ Each project is either designed as a <strong>plugin</strong> (containing an xml 
 <p>Here is the list of projects which have to be imported in order to run the GAMA platform, and to execute a simple model in gaml language:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">msi.gama.core</code> : Encapsulates the core of the modeling and simulation facilities offered by the platform : runtime, simulation, meta-model, data structures, simulation kernel, scheduling, etc. It contains 2 main packages :
-    <ul>
-      <li><code class="highlighter-rouge">msi.gama</code></li>
-      <li><code class="highlighter-rouge">msi.gaml</code>, wich defines the GAML modeling language: keywords, operators, statements, species, skills�</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">msi.gama.application</code> : Describes the graphical user interface (<code class="highlighter-rouge">msi.gama.gui</code> package). This project also contains the file gama1.7.Eclipse3_8_2.product, when you can configure the application (and also launch the application). It contains the following sub-packages :
-    <ul>
-      <li><code class="highlighter-rouge">msi.gama.gui.displays</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.navigator</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.parameters</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.swt</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.views</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.wizards</code></li>
-      <li><code class="highlighter-rouge">msi.gama.gui.viewers</code></li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">msi.gama.ext</code> : Gathers all the external libraries upon which GAMA relies upon
-    <ul>
-      <li><code class="highlighter-rouge">msi.gama.lang.gaml</code> : Contains the gaml.xtext file which defines the GAML grammar</li>
-      <li><code class="highlighter-rouge">msi.gama.lang.gaml.ui</code> : Contains the GAML Editor (syntax highlighting, code completion�)</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">msi.gama.processor</code> : Is responsible for processing the annotations made in the Java source code and producing additions to GAML (Java, properties and documentation files), which are added into a source package called “gaml.additions” (containing two main generated files: GamlAdditions.java and GamlDocumentation.java). These additions are loaded automatically when GAMA launches, allowing extensions made by developers in other plugins to be recognized when their plugin is added to the platform.</li>
-  <li><code class="highlighter-rouge">ummisco.gaml.editbox</code> : Project used to define the edit boxes in the gaml ui.</li>
+<li><code>msi.gama.core</code> : Encapsulates the core of the modeling and simulation facilities offered by the platform : runtime, simulation, meta-model, data structures, simulation kernel, scheduling, etc. It contains 2 main packages :
+
+<ul>
+<li><code>msi.gama</code></li>
+<li><code>msi.gaml</code>, wich defines the GAML modeling language: keywords, operators, statements, species, skills�</li>
+</ul></li>
+<li><code>msi.gama.application</code> : Describes the graphical user interface (<code>msi.gama.gui</code> package). This project also contains the file gama1.7.Eclipse3_8_2.product, when you can configure the application (and also launch the application). It contains the following sub-packages :
+
+<ul>
+<li><code>msi.gama.gui.displays</code></li>
+<li><code>msi.gama.gui.navigator</code></li>
+<li><code>msi.gama.gui.parameters</code></li>
+<li><code>msi.gama.gui.swt</code></li>
+<li><code>msi.gama.gui.views</code></li>
+<li><code>msi.gama.gui.wizards</code></li>
+<li><code>msi.gama.gui.viewers</code></li>
+</ul></li>
+<li><code>msi.gama.ext</code> : Gathers all the external libraries upon which GAMA relies upon
+
+<ul>
+<li><code>msi.gama.lang.gaml</code> : Contains the gaml.xtext file which defines the GAML grammar</li>
+<li><code>msi.gama.lang.gaml.ui</code> : Contains the GAML Editor (syntax highlighting, code completion�)</li>
+</ul></li>
+<li><code>msi.gama.processor</code> : Is responsible for processing the annotations made in the Java source code and producing additions to GAML (Java, properties and documentation files), which are added into a source package called &quot;gaml.additions&quot; (containing two main generated files: GamlAdditions.java and GamlDocumentation.java). These additions are loaded automatically when GAMA launches, allowing extensions made by developers in other plugins to be recognized when their plugin is added to the platform.</li>
+<li><code>ummisco.gaml.editbox</code> : Project used to define the edit boxes in the gaml ui.</li>
 </ul>
 
 <p>Minimal configuration projects dependencies:</p>
 
-<p><img src="resources/images/developpingExtension/minimal_configuration.png" alt="Minimal configuration projects dependencies" /></p>
+<p><img src="resources/images/developpingExtension/minimal_configuration.png" alt="Minimal configuration projects dependencies"></p>
 
 <h2 id="optional-plugins">Optional Plugins</h2>
 
 <h3 id="plugins-present-in-the-release-version">Plugins present in the release version</h3>
-<p>From this minimal configuration, it is possible to add some features. Here is the list of the features installed by default in the release version:</p>
-<ul>
-  <li><code class="highlighter-rouge">idees.gama.mapcomparison</code> : Contains some useful tools to do map comparaison</li>
-  <li><code class="highlighter-rouge">msi.gaml.extensions.fipa</code> : Provides some operators for communication between agents, using the FIPA standards</li>
-  <li><code class="highlighter-rouge">msi.gama.headless</code> : Enables to run simulations in console mode</li>
-  <li><code class="highlighter-rouge">simtools.gaml.extensions.traffic</code> : Provides operators and skills for traffic simulation</li>
-  <li><code class="highlighter-rouge">simtools.gaml.extensions.physics</code> : Physics engine, collision modelling, using the library JBullet</li>
-  <li><code class="highlighter-rouge">ummisco.gaml.extensions.maths</code> : Solving differential equation, using Euler methods and Runge Kutta.</li>
-  <li><code class="highlighter-rouge">irit.gaml.extensions.database</code> : Provides database manipulation tools, using SQL requests</li>
-  <li><code class="highlighter-rouge">irit.gaml.extensions.test</code> : Add unitary test statements</li>
-  <li><code class="highlighter-rouge">ummisco.gama.opengl</code> : Provide a 3D visualization using OpenGL.</li>
-  <li><code class="highlighter-rouge">simtools.gamanalyzer.fr</code> : Adding tools for the analysis of several execution result of a simulation (in order to find some correlations).</li>
-  <li><code class="highlighter-rouge">dream.gama.opengis</code> : Used to load some geographic information datas from online GIS server.</li>
-  <li><code class="highlighter-rouge">simtools.graphanalysis.fr</code> : Advanced graph operators</li>
-</ul>
+
+<p>From this minimal configuration, it is possible to add some features. Here is the list of the features installed by default in the release version:
+  * <code>idees.gama.mapcomparison</code> : Contains some useful tools to do map comparaison
+  * <code>msi.gaml.extensions.fipa</code> : Provides some operators for communication between agents, using the FIPA standards
+  * <code>msi.gama.headless</code> : Enables to run simulations in console mode
+  * <code>simtools.gaml.extensions.traffic</code> : Provides operators and skills for traffic simulation
+  * <code>simtools.gaml.extensions.physics</code> : Physics engine, collision modelling, using the library JBullet
+  * <code>ummisco.gaml.extensions.maths</code> : Solving differential equation, using Euler methods and Runge Kutta.
+  * <code>irit.gaml.extensions.database</code> : Provides database manipulation tools, using SQL requests
+  * <code>irit.gaml.extensions.test</code> : Add unitary test statements
+  * <code>ummisco.gama.opengl</code> : Provide a 3D visualization using OpenGL.
+  * <code>simtools.gamanalyzer.fr</code> : Adding tools for the analysis of several execution result of a simulation (in order to find some correlations).
+  * <code>dream.gama.opengis</code> : Used to load some geographic information datas from online GIS server.
+  * <code>simtools.graphanalysis.fr</code> : Advanced graph operators</p>
 
 <h3 id="plugins-not-present-by-default-in-the-release-version">Plugins not present by default in the release version</h3>
-<p>Some other plugins are not present by default in the release version (because their use is very specific), but it’s possible to install them through features.
-Here is the list of those plugins:</p>
-<ul>
-  <li><code class="highlighter-rouge">idees.gama.weka</code> : Data-mining operators, using the library Weka.</li>
-  <li><code class="highlighter-rouge">msi.gaml.architecture.simplebdi</code> : Architecture for using the Belief-Desire-Intention software model.</li>
-  <li><code class="highlighter-rouge">ummisco.gaml.extensions.sound</code> : Use of sound in simulations</li>
-  <li><code class="highlighter-rouge">ummisco.gaml.extensions.stats</code> : Advanced statistics operators</li>
-  <li><code class="highlighter-rouge">ummisco.gama.communicator</code> : Communication between several instances of GAMA</li>
-  <li><code class="highlighter-rouge">ummisco.gaml.extensions.rjava</code> : Adding the R language into GAMA for data mining</li>
-</ul>
+
+<p>Some other plugins are not present by default in the release version (because their use is very specific), but it&#39;s possible to install them through features.
+Here is the list of those plugins:
+  * <code>idees.gama.weka</code> : Data-mining operators, using the library Weka.
+  * <code>msi.gaml.architecture.simplebdi</code> : Architecture for using the Belief-Desire-Intention software model.
+  * <code>ummisco.gaml.extensions.sound</code> : Use of sound in simulations
+  * <code>ummisco.gaml.extensions.stats</code> : Advanced statistics operators
+  * <code>ummisco.gama.communicator</code> : Communication between several instances of GAMA
+  * <code>ummisco.gaml.extensions.rjava</code> : Adding the R language into GAMA for data mining</p>
 
 <h3 id="plugins-not-designated-to-be-in-the-release-version">Plugins not designated to be in the release version</h3>
-<p>Other plugins will never be on the released version, and will never be loaded during the gama execution. They are just used in the “developer” version:</p>
-<ul>
-  <li><code class="highlighter-rouge">msi.gama.documentation</code> : Generate automatically the documentation in the wiki form (and also a pdf file)</li>
-</ul>
+
+<p>Other plugins will never be on the released version, and will never be loaded during the gama execution. They are just used in the &quot;developer&quot; version:
+  * <code>msi.gama.documentation</code> : Generate automatically the documentation in the wiki form (and also a pdf file)</p>
 
 <h2 id="unmaintained-projects">Unmaintained projects</h2>
 
-<p>Some other projects are still in the git repository in case we need to work on it one day, but they are either unfinished, obsolete, or used in very rare situations (They are not delivered in release versions, of course). Here is the list :</p>
-<ul>
-  <li><code class="highlighter-rouge">cenres.gaml.extensions.hydro</code> : Provide some tools in order to create hydrology models</li>
-  <li><code class="highlighter-rouge">msi.gaml.extensions.traffic2d</code> : Provide some tools for traffic in 2 dimensions (depreciated, now replace by msi.gaml.extensions.traffic)</li>
-  <li><code class="highlighter-rouge">msi.gaml.extensions.humainmoving</code> : Provide a skill to represent human movement</li>
-  <li><code class="highlighter-rouge">ummisco.gama.gpu</code> : Computation directly on the GPU for more efficiency. Results or not concluant, slower than using CPU.</li>
-  <li><code class="highlighter-rouge">msi.gama.hpc</code> : “High Power Computing” to execute gama simulation in several computer.</li>
-  <li><code class="highlighter-rouge">msi.gaml.extensions.cplex</code> : Originaly designed to be able to run CPLEX function in GAMA. The CPLEX is a proprietary library, we can’t deliver it in the project. Instead, we use a stub, “cplex.jar”, that you can replace by the real cplex.jar file.</li>
-  <li><code class="highlighter-rouge">irit.maelia.gaml.additions</code> : Used for the project “Maelia”. Provide the possibility to represent the computing time in a simulation.</li>
-  <li><code class="highlighter-rouge">msi.gama.display.web</code> : Originaly designed to run some GAMA simulation in a browser, inside gama application, using WebGL. Does not work for the moment</li>
-  <li><code class="highlighter-rouge">ummisco.miro.extension</code> : Once used for the “miro” project, no longer used.</li>
-  <li><code class="highlighter-rouge">ummisco.miro.extension.traffic</code> : Once used for the “miro” project, no longer used.</li>
-</ul>
+<p>Some other projects are still in the git repository in case we need to work on it one day, but they are either unfinished, obsolete, or used in very rare situations (They are not delivered in release versions, of course). Here is the list :
+  * <code>cenres.gaml.extensions.hydro</code> : Provide some tools in order to create hydrology models
+  * <code>msi.gaml.extensions.traffic2d</code> : Provide some tools for traffic in 2 dimensions (depreciated, now replace by msi.gaml.extensions.traffic)
+  * <code>msi.gaml.extensions.humainmoving</code> : Provide a skill to represent human movement
+  * <code>ummisco.gama.gpu</code> : Computation directly on the GPU for more efficiency. Results or not concluant, slower than using CPU.
+  * <code>msi.gama.hpc</code> : &quot;High Power Computing&quot; to execute gama simulation in several computer.
+  * <code>msi.gaml.extensions.cplex</code> : Originaly designed to be able to run CPLEX function in GAMA. The CPLEX is a proprietary library, we can&#39;t deliver it in the project. Instead, we use a stub, &quot;cplex.jar&quot;, that you can replace by the real cplex.jar file.
+  * <code>irit.maelia.gaml.additions</code> : Used for the project &quot;Maelia&quot;. Provide the possibility to represent the computing time in a simulation.
+  * <code>msi.gama.display.web</code> : Originaly designed to run some GAMA simulation in a browser, inside gama application, using WebGL. Does not work for the moment
+  * <code>ummisco.miro.extension</code> : Once used for the &quot;miro&quot; project, no longer used.
+  * <code>ummisco.miro.extension.traffic</code> : Once used for the &quot;miro&quot; project, no longer used.</p>
 
 <h2 id="features">Features</h2>
 
 <ul>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.audio</code> : sound plugin</li>
-  <li><code class="highlighter-rouge">ummisco.feature.stats</code> : stats plugin</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.opengl.jogl2</code> : gathers physics and opengl plugins</li>
-  <li><code class="highlighter-rouge">simtools.graphlayout.feature</code> : gathers core, ext, processor and graphanalysis plugins</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.core</code> : gathers mapcomparison, database, test, application, core, ext, headless, gaml, gaml.ui, processor, fipa, traffic and maths plugins</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.dependencies</code> : a bunch of libraries and plugins</li>
-  <li><code class="highlighter-rouge">other.gama.feature.plugins</code> gathers hydro, opengis, addition, web, hpc, cplex, traffic2d, communicator, gpu, stats, extensions and traffic plugins</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.models</code> : model plugin</li>
-  <li><code class="highlighter-rouge">idees.gama.features.weka</code> : weka plugin</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.jogl2.product</code> : gathering of the following features : core, dependencies, models, jogl2</li>
-  <li><code class="highlighter-rouge">ummisco.gama.feature.product</code> : gathering of the following features : core, dependencies, models, jogl1</li>
+<li><code>ummisco.gama.feature.audio</code> : sound plugin</li>
+<li><code>ummisco.feature.stats</code> : stats plugin</li>
+<li><code>ummisco.gama.feature.opengl.jogl2</code> : gathers physics and opengl plugins</li>
+<li><code>simtools.graphlayout.feature</code> : gathers core, ext, processor and graphanalysis plugins</li>
+<li><code>ummisco.gama.feature.core</code> : gathers mapcomparison, database, test, application, core, ext, headless, gaml, gaml.ui, processor, fipa, traffic and maths plugins</li>
+<li><code>ummisco.gama.feature.dependencies</code> : a bunch of libraries and plugins</li>
+<li><code>other.gama.feature.plugins</code> gathers hydro, opengis, addition, web, hpc, cplex, traffic2d, communicator, gpu, stats, extensions and traffic plugins</li>
+<li><code>ummisco.gama.feature.models</code> : model plugin</li>
+<li><code>idees.gama.features.weka</code> : weka plugin</li>
+<li><code>ummisco.gama.feature.jogl2.product</code> : gathering of the following features : core, dependencies, models, jogl2</li>
+<li><code>ummisco.gama.feature.product</code> : gathering of the following features : core, dependencies, models, jogl1</li>
 </ul>
 
 <h2 id="models">Models</h2>
 
-<p>Beside those plugins and features, a project dedicated to gather a bunch of examples is also in the git repository. It contains gaml code:</p>
-<ul>
-  <li><code class="highlighter-rouge">msi.gama.models</code></li>
-</ul>
+<p>Beside those plugins and features, a project dedicated to gather a bunch of examples is also in the git repository. It contains gaml code:
+  * <code>msi.gama.models</code></p>
 
 <h2 id="plugins-overview">Plugins overview</h2>
 
 <p>Global architecture of GAMA (nb : the features graphlayout, core, dependencies, plugins, jogl2.product and product are not represented here)</p>
 
-<p><img src="resources/images/developpingExtension/plugin_architecture.png" alt="Global architecture of GAMA" /></p>
+<p><img src="resources/images/developpingExtension/plugin_architecture.png" alt="Global architecture of GAMA"></p>
 
     </div>
     </div>

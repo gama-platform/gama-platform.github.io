@@ -3606,88 +3606,85 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="developing-types">Developing Types</h1>
 
-<p>GAML provides a given number of built-in simple types (int, bool…) and more complex ones (path, graph…).
+<p>GAML provides a given number of built-in simple types (int, bool...) and more complex ones (path, graph...).
 Developing a new type allows, then, to add a new data structure to GAML.</p>
 
 <h2 id="implementation">Implementation</h2>
-<p>Developing a new type requiers the implementation of 2 Java files:</p>
-<ul>
-  <li>the first one that describes the data structure (e.g.: <code class="highlighter-rouge">GamaColor.java</code> to define a type color)</li>
-  <li>the second one that implements the type itself, wrapping the data structure file (e.g.: <code class="highlighter-rouge">GamaColorType.java</code>), and providing accessors to data structure attributes.</li>
-</ul>
+
+<p>Developing a new type requiers the implementation of 2 Java files:
+  * the first one that describes the data structure (e.g.: <code>GamaColor.java</code> to define a type color)
+  * the second one that implements the type itself, wrapping the data structure file (e.g.: <code>GamaColorType.java</code>), and providing accessors to data structure attributes.</p>
 
 <h2 id="the-data-structure-file">The data structure file</h2>
 
-<p>The class representing the data structure is a Java class annotated by:</p>
-<ul>
-  <li>a <a href="DevelopingIndexAnnotations#@vars">@vars</a> annotation to describe the attributes of a complex type. The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@var</code> elements.
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({ @var(name = IKeyword.COLOR_RED, type = IType.INT), @var(name = IKeyword.COLOR_GREEN, type = IType.INT),
-@var(name = IKeyword.COLOR_BLUE, type = IType.INT), @var(name = IKeyword.ALPHA, type = IType.INT),
-@var(name = IKeyword.BRIGHTER, type = IType.COLOR), @var(name = IKeyword.DARKER, type = IType.COLOR) })
+<p>The class representing the data structure is a Java class annotated by:
+  * a <a href="DevelopingIndexAnnotations#@vars">@vars</a> annotation to describe the attributes of a complex type. The <code>@vars</code> annotation contains a set of <code>@var</code> elements.
+<code>
+@vars({ @var(name = IKeyword.COLOR_RED, type = IType.INT), @var(name = IKeyword.COLOR_GREEN, type = IType.INT),
+    @var(name = IKeyword.COLOR_BLUE, type = IType.INT), @var(name = IKeyword.ALPHA, type = IType.INT),
+    @var(name = IKeyword.BRIGHTER, type = IType.COLOR), @var(name = IKeyword.DARKER, type = IType.COLOR) })
 public class GamaColor extends Color implements IValue {
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></p>
 
-<p>It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the <a href="DevelopingIndexAnnotations#@getter">@getter</a> or <a href="DevelopingIndexAnnotations#@setter">@setter</a> annotations.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(IKeyword.COLOR_RED)
+<p>It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the <a href="DevelopingIndexAnnotations#@getter">@getter</a> or <a href="DevelopingIndexAnnotations#@setter">@setter</a> annotations.
+<code>
+@getter(IKeyword.COLOR_RED)
 public Integer red() {
-	return super.getRed();
+    return super.getRed();
 }
-</code></pre></div></div>
+</code></p>
 
-<p>In addition it is recommended that this class implements the <code class="highlighter-rouge">IValue</code> interface. It provides a clean way to give a string representation of the type and thus eases good serialization of the object.
-To this purpose the following method needs to be implemented:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public abstract String stringValue(IScope scope) throws GamaRuntimeException;
-</code></pre></div></div>
+<p>In addition it is recommended that this class implements the <code>IValue</code> interface. It provides a clean way to give a string representation of the type and thus eases good serialization of the object.
+To this purpose the following method needs to be implemented:
+<code>
+public abstract String stringValue(IScope scope) throws GamaRuntimeException;
+</code></p>
 
 <h2 id="the-type-file">The type file</h2>
 
-<p>The class representing the type is a Java class such that:</p>
-<ul>
-  <li>the class should be annotated by the <a href="DevelopingIndexAnnotations#@type">@type</a> annotation,</li>
-  <li>the class should extend the class <code class="highlighter-rouge">GamaType&lt;DataStructureFile&gt;</code> (and thus implement its 3 methods),</li>
-</ul>
+<p>The class representing the type is a Java class such that:
+  * the class should be annotated by the <a href="DevelopingIndexAnnotations#@type">@type</a> annotation,
+  * the class should extend the class <code>GamaType&lt;DataStructureFile&gt;</code> (and thus implement its 3 methods),</p>
 
-<p>Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaFloatType.java">GamaFloatType.java</a>):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@type(name = IKeyword.FLOAT, id = IType.FLOAT, wraps = { Double.class, double.class }, kind = ISymbolKind.Variable.NUMBER)
-</code></pre></div></div>
+<p>Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaFloatType.java">GamaFloatType.java</a>):
+<code>
+@type(name = IKeyword.FLOAT, id = IType.FLOAT, wraps = { Double.class, double.class }, kind = ISymbolKind.Variable.NUMBER)
+</code></p>
 
-<h3 id="inheritance-from-the-gamatypet-class">Inheritance from the <code class="highlighter-rouge">GamaType&lt;T&gt;</code> class</h3>
+<h3 id="inheritance-from-the-gamatypet-class">Inheritance from the <code>GamaType&lt;T&gt;</code> class</h3>
+
 <p>Each java class aiming at implement a type should inherit from the GamaType abstract class.
-Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaColorType.java">GamaColorType.java</a>):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class GamaColorType extends GamaType&lt;GamaColor&gt;
-</code></pre></div></div>
+Example (from <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaColorType.java">GamaColorType.java</a>):
+<code>
+public class GamaColorType extends GamaType&lt;GamaColor&gt;
+</code></p>
 
-<p>This class imposes to implement the three following methods (with the example of the GamaColorType):</p>
-<ul>
-  <li><code class="highlighter-rouge">public boolean canCastToConst()</code></li>
-  <li><code class="highlighter-rouge">public GamaColor cast(IScope scope, Object obj, Object param)</code>: the way to cast any object in the type,</li>
-  <li><code class="highlighter-rouge">public GamaColor getDefault()</code>: to define the default value of a variable of the current type.</li>
-</ul>
+<p>This class imposes to implement the three following methods (with the example of the GamaColorType):
+  * <code>public boolean canCastToConst()</code>
+  * <code>public GamaColor cast(IScope scope, Object obj, Object param)</code>: the way to cast any object in the type,
+  * <code>public GamaColor getDefault()</code>: to define the default value of a variable of the current type.</p>
 
 <p>Remark: for each type, an unary operator is created with the exact name of the type. It can be used to cast any expression in the given type.
-This operator calls the previous <code class="highlighter-rouge">cast</code> method.</p>
+This operator calls the previous <code>cast</code> method.</p>
 
 <h2 id="annotations">Annotations</h2>
 
 <h3 id="type">@type</h3>
+
 <p>It provides information necessary to the processor to identify a type.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String, “” by default): <em>a String representing the type name in GAML</em>.</li>
-  <li><strong>id</strong> (int, 0 by default): <em>the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE_TYPE and IType.SPECIES_TYPE (exclusive) (cf. <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/IType.java">IType.java</a>)</em>.</li>
-  <li><strong>wraps</strong> (tab of Class, null by default): <em>the list of Java Classes this type is “wrapping” (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)</em>.</li>
-  <li><strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.Variable</a></em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>whether this type is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the facet</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String, &quot;&quot; by default): <em>a String representing the type name in GAML</em>.
+  * <strong>id</strong> (int, 0 by default): <em>the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE_TYPE and IType.SPECIES_TYPE (exclusive) (cf. <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/IType.java">IType.java</a>)</em>.
+  * <strong>wraps</strong> (tab of Class, null by default): <em>the list of Java Classes this type is &quot;wrapping&quot; (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)</em>.
+  * <strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.Variable</a></em>.
+  * <strong>internal</strong> (boolean, false by default): <em>whether this type is for internal use only</em>.
+  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the facet</em>.</p>
 
 <p>All these annotations are defined in the file <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/GamlAnnotations.java">GamlAnnotations.java</a>.</p>
 

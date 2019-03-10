@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="movement-of-an-agent-on-different-paths">Movement of an agent on different paths</h1>
@@ -3615,109 +3615,108 @@ function closeRightMenu() {
 
 <p>Model showing the movement of an agent following three different paths : one defined by its vertices, an other defined thanks to all the roads species, and finally a path defined by a graph with weights (graph created thanks to an other species)</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">path_and_follow</span>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">path_and_follow</span>
 
 <span class="n">global</span><span class="p">{</span>
-	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
+    <span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
     <span class="n">init</span><span class="p">{</span>
-    		<span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">a</span> <span class="n">road</span> <span class="n">by</span> <span class="n">defining</span> <span class="n">its</span> <span class="n">shape</span><span class="p">,</span> <span class="n">being</span> <span class="n">a</span> <span class="n">line</span><span class="p">.</span> <span class="n">The</span> <span class="n">line</span> <span class="n">need</span> <span class="k">to</span> <span class="n">be</span> <span class="n">created</span> <span class="n">by</span> <span class="n">passing</span> <span class="n">the</span> <span class="n">location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">vertices</span>
+            <span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">a</span> <span class="n">road</span> <span class="n">by</span> <span class="n">defining</span> <span class="n">its</span> <span class="n">shape</span><span class="p">,</span> <span class="n">being</span> <span class="n">a</span> <span class="n">line</span><span class="p">.</span> <span class="n">The</span> <span class="n">line</span> <span class="n">need</span> <span class="k">to</span> <span class="n">be</span> <span class="n">created</span> <span class="n">by</span> <span class="n">passing</span> <span class="n">the</span> <span class="n">location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">vertices</span>
        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-       		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
+            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
        <span class="p">}</span>
        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-       		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">55</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
+            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">55</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
        <span class="p">}</span>
        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-       		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">55</span><span class="p">,</span><span class="m">60</span><span class="p">},{</span><span class="m">65</span><span class="p">,</span><span class="m">40</span><span class="p">}]);</span>
+            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">55</span><span class="p">,</span><span class="m">60</span><span class="p">},{</span><span class="m">65</span><span class="p">,</span><span class="m">40</span><span class="p">}]);</span>
        <span class="p">}</span>
-       
+
        <span class="nb">create</span> <span class="n">road_of_graph</span> <span class="p">{</span>
-       		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">65</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">75</span><span class="p">,</span><span class="m">35</span><span class="p">}]);</span>
+            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">65</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">75</span><span class="p">,</span><span class="m">35</span><span class="p">}]);</span>
        <span class="p">}</span>
        <span class="nb">create</span> <span class="n">road_of_graph</span> <span class="p">{</span>
-       		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">75</span><span class="p">,</span><span class="m">35</span><span class="p">},{</span><span class="m">85</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
+            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([{</span><span class="m">75</span><span class="p">,</span><span class="m">35</span><span class="p">},{</span><span class="m">85</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">60</span><span class="p">}]);</span>
        <span class="p">}</span>
        <span class="p">//</span><span class="n">It</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">a</span> <span class="n">weights</span> <span class="n">map</span> <span class="n">by</span> <span class="n">linking</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">their</span> <span class="n">weights</span> <span class="p">(</span><span class="n">the</span> <span class="n">road</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">key</span> <span class="k">of</span> <span class="n">the</span> <span class="n">weight</span><span class="p">)</span>
        <span class="n">map</span><span class="p">&lt;</span><span class="n">road_of_graph</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">weight_map</span> <span class="p">&lt;-</span> <span class="n">road_of_graph</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">*</span> <span class="m">10</span><span class="p">);</span>
-       
+
        <span class="p">//</span><span class="n">A</span> <span class="n">graph</span> <span class="n">can</span> <span class="n">be</span> <span class="n">defined</span> <span class="n">by</span> <span class="n">using</span> <span class="n">a</span> <span class="k">list</span> <span class="k">or</span> <span class="n">all</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">a</span> <span class="n">species</span> <span class="k">and</span> <span class="n">it</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">use</span> <span class="n">a</span> <span class="n">map</span> <span class="k">of</span> <span class="n">weights</span> <span class="k">with</span> <span class="n">each</span> <span class="n">key</span> 
        <span class="p">//</span> <span class="k">of</span> <span class="n">the</span> <span class="n">map</span> <span class="n">being</span> <span class="n">a</span> <span class="n">road</span> <span class="k">to</span> <span class="n">link</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">its</span> <span class="n">weight</span>
        <span class="p">//</span><span class="n">The</span> <span class="n">as_edge_graph</span> <span class="n">operator</span> <span class="n">is</span> <span class="n">an</span> <span class="n">operator</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">agents</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span>
        <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road_of_graph</span><span class="p">)</span> <span class="n">with_weights</span> <span class="n">weight_map</span><span class="p">;</span>
-      
+
        <span class="nb">create</span> <span class="n">myCircle</span> <span class="p">{</span>
-       		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
        <span class="p">}</span>
-      
+
     <span class="p">}</span>  
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">myCircle</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
-	<span class="p">//</span><span class="n">The</span> <span class="n">different</span> <span class="n">ways</span> <span class="k">to</span> <span class="n">declare</span> <span class="n">a</span> <span class="n">path</span> <span class="p">:</span> <span class="n">declaring</span> <span class="n">all</span> <span class="n">the</span> <span class="n">lines</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span> <span class="n">using</span> <span class="n">their</span> <span class="n">vertices</span>
-	<span class="p">//</span>							  <span class="n">using</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">agents</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">lines</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span>
-	<span class="p">//</span>							  <span class="n">using</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">as</span> <span class="n">a</span> <span class="n">path</span>
-	
-	
- 	<span class="n">path</span> <span class="n">path_to_follow1</span> <span class="p">&lt;-</span> <span class="n">path</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">},{</span><span class="m">20</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>	
- 	<span class="n">path</span> <span class="n">path_to_follow2</span> <span class="p">&lt;-</span> <span class="n">path</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>	
- 	<span class="n">path</span> <span class="n">path_to_follow3</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">road_of_graph</span><span class="p">)</span> <span class="n">as_path</span> <span class="n">the_graph</span><span class="p">;</span>	
- 	
- 	<span class="p">//</span><span class="n">These</span> <span class="n">two</span> <span class="n">variables</span> <span class="n">will</span> <span class="n">change</span> <span class="n">when</span> <span class="n">the</span> <span class="n">cycle</span> <span class="n">will</span> <span class="n">be</span> <span class="n">higher</span> <span class="n">than</span> <span class="m">100</span> <span class="k">and</span> <span class="m">200</span>
- 	<span class="n">path</span> <span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow1</span><span class="p">;</span>
- 	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
- 	
-	<span class="n">reflex</span> <span class="n">myfollow</span><span class="p">{</span> 
-		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">follow</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">from</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">vertice</span> <span class="k">of</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">edge</span> <span class="k">of</span> <span class="n">a</span> <span class="n">path</span> <span class="k">to</span> <span class="n">the</span> <span class="n">last</span> <span class="n">vertice</span> <span class="k">of</span> <span class="n">the</span> <span class="n">last</span> <span class="n">edge</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span>
-		<span class="p">//</span> <span class="n">but</span> <span class="n">following</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">concerned</span> <span class="n">path</span>
-	 	<span class="k">do</span> <span class="n">follow</span> <span class="n">path</span><span class="p">:</span> <span class="n">path_following</span><span class="p">;</span>	
-	 	<span class="k">if</span><span class="p">(</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">200</span><span class="p">)</span>
-	 	<span class="p">{</span>
-	 		<span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow3</span><span class="p">;</span>	
-	 		<span class="n">color</span><span class="p">&lt;-#</span><span class="n">pink</span><span class="p">;</span>
-	 	<span class="p">}</span>
-	 	<span class="k">else</span>
-	 	<span class="p">{</span>
-	 		<span class="k">if</span><span class="p">(</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">100</span><span class="p">)</span>
-		 	<span class="p">{</span>
-		 		<span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow2</span><span class="p">;</span>	
-		 		<span class="n">color</span><span class="p">&lt;-#</span><span class="n">blue</span><span class="p">;</span>
-		 	<span class="p">}</span>
-	 	<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="p">;</span>	
-	  <span class="p">//</span><span class="n">We</span> <span class="n">loop</span> <span class="n">on</span> <span class="n">all</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">follow</span> <span class="k">to</span> <span class="n">display</span> <span class="n">them</span>
-	  	<span class="n">loop</span> <span class="n">seg</span> <span class="n">over</span><span class="p">:</span> <span class="n">path_following</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-	  		<span class="n">draw</span> <span class="n">seg</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-	 	 <span class="p">}</span>
-	  
-	<span class="p">}</span> 
+    <span class="p">//</span><span class="n">The</span> <span class="n">different</span> <span class="n">ways</span> <span class="k">to</span> <span class="n">declare</span> <span class="n">a</span> <span class="n">path</span> <span class="p">:</span> <span class="n">declaring</span> <span class="n">all</span> <span class="n">the</span> <span class="n">lines</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span> <span class="n">using</span> <span class="n">their</span> <span class="n">vertices</span>
+    <span class="p">//</span>                            <span class="n">using</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">agents</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">lines</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span>
+    <span class="p">//</span>                            <span class="n">using</span> <span class="n">the</span> <span class="n">graph</span> <span class="k">as</span> <span class="n">a</span> <span class="n">path</span>
+
+
+    <span class="n">path</span> <span class="n">path_to_follow1</span> <span class="p">&lt;-</span> <span class="n">path</span><span class="p">([{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">},{</span><span class="m">20</span><span class="p">,</span><span class="m">40</span><span class="p">},{</span><span class="m">0</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>    
+    <span class="n">path</span> <span class="n">path_to_follow2</span> <span class="p">&lt;-</span> <span class="n">path</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>   
+    <span class="n">path</span> <span class="n">path_to_follow3</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">road_of_graph</span><span class="p">)</span> <span class="n">as_path</span> <span class="n">the_graph</span><span class="p">;</span>  
+
+    <span class="p">//</span><span class="n">These</span> <span class="n">two</span> <span class="n">variables</span> <span class="n">will</span> <span class="n">change</span> <span class="n">when</span> <span class="n">the</span> <span class="n">cycle</span> <span class="n">will</span> <span class="n">be</span> <span class="n">higher</span> <span class="n">than</span> <span class="m">100</span> <span class="k">and</span> <span class="m">200</span>
+    <span class="n">path</span> <span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow1</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+
+    <span class="n">reflex</span> <span class="n">myfollow</span><span class="p">{</span> 
+        <span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">follow</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">from</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">vertice</span> <span class="k">of</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">edge</span> <span class="k">of</span> <span class="n">a</span> <span class="n">path</span> <span class="k">to</span> <span class="n">the</span> <span class="n">last</span> <span class="n">vertice</span> <span class="k">of</span> <span class="n">the</span> <span class="n">last</span> <span class="n">edge</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span>
+        <span class="p">//</span> <span class="n">but</span> <span class="n">following</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">concerned</span> <span class="n">path</span>
+        <span class="k">do</span> <span class="n">follow</span> <span class="n">path</span><span class="p">:</span> <span class="n">path_following</span><span class="p">;</span> 
+        <span class="k">if</span><span class="p">(</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">200</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow3</span><span class="p">;</span>   
+            <span class="n">color</span><span class="p">&lt;-#</span><span class="n">pink</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">100</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">path_following</span><span class="p">&lt;-</span> <span class="n">path_to_follow2</span><span class="p">;</span>   
+                <span class="n">color</span><span class="p">&lt;-#</span><span class="n">blue</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="p">;</span>   
+      <span class="p">//</span><span class="n">We</span> <span class="n">loop</span> <span class="n">on</span> <span class="n">all</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">the</span> <span class="n">path</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">follow</span> <span class="k">to</span> <span class="n">display</span> <span class="n">them</span>
+        <span class="n">loop</span> <span class="n">seg</span> <span class="n">over</span><span class="p">:</span> <span class="n">path_following</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">seg</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+         <span class="p">}</span>
+
+    <span class="p">}</span> 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span> <span class="p">;</span>	
-	  
-	<span class="p">}</span> 
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span> <span class="p">;</span>  
+
+    <span class="p">}</span> 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road_of_graph</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="p">;</span>	
-	  
-	<span class="p">}</span> 
+    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="p">;</span>   
+
+    <span class="p">}</span> 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">0.10</span><span class="p">;</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">myView</span> <span class="p">{</span> 
-			<span class="n">species</span> <span class="n">myCircle</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span> 
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">0.10</span><span class="p">;</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">myView</span> <span class="p">{</span> 
+            <span class="n">species</span> <span class="n">myCircle</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
@@ -3726,8 +3725,7 @@ function closeRightMenu() {
 
 
 
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

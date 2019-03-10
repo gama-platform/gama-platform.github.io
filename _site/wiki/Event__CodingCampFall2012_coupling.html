@@ -3606,44 +3606,40 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="coupling-gama-with-hydrodynamics-simulators">Coupling GAMA with hydrodynamics simulators</h1>
 
 <h1 id="integration-of-edp-solver-into-gama">Integration of EDP solver into GAMA</h1>
 
-<p>The maps.gaml.extensions has been extended in order to allow modeler to write its own equation systems (as simple strings), specify parameters with their values and variables and “solve”/integrate them either step by step or N steps by N steps.</p>
+<p>The maps.gaml.extensions has been extended in order to allow modeler to write its own equation systems (as simple strings), specify parameters with their values and variables and &quot;solve&quot;/integrate them either step by step or N steps by N steps.</p>
 
 <p>An example has been implemented on the Lokta-Voltera equation system.</p>
 
-<p>Possible extension:</p>
-<ul>
-  <li>parse the equations to detect errors</li>
-  <li>rename the skill has EDO, because we consider only variables depending on time</li>
-  <li>extends to solve EDP</li>
-  <li>add some methods/algorithms in order to “resolve” the system, in a sense of finding some equilibria (asymptots or oscillation equilibrium…)</li>
-</ul>
+<p>Possible extension:
+  * parse the equations to detect errors
+  * rename the skill has EDO, because we consider only variables depending on time
+  * extends to solve EDP
+  * add some methods/algorithms in order to &quot;resolve&quot; the system, in a sense of finding some equilibria (asymptots or oscillation equilibrium...)</p>
 
 <h1 id="r-in-gama">R in GAMA</h1>
-<p><strong>Results</strong>: Verifying the old operators (A simple example “CallingR” is uploaded in the model list); Applying these statistical operators on the data loaded from RDBMS.</p>
+
+<p><strong>Results</strong>: Verifying the old operators (A simple example &quot;CallingR&quot; is uploaded in the model list); Applying these statistical operators on the data loaded from RDBMS.</p>
 
 <h1 id="sql-features-in-gama">SQL features in GAMA</h1>
-<p>Results:</p>
-<ul>
-  <li>1.Added PostgresSQL driver into SQSKILL and AgentDB.</li>
-  <li>2.Wrote example models for testing.</li>
-  <li>Now,GAMA supported query features for MySQL, MSSQL, PostgresSQL and SQLite.</li>
-</ul>
+
+<p>Results:
+  * 1.Added PostgresSQL driver into SQSKILL and AgentDB.
+  * 2.Wrote example models for testing.
+  * Now,GAMA supported query features for MySQL, MSSQL, PostgresSQL and SQLite.</p>
 
 <h1 id="physics-engine">Physics engine</h1>
 
-<p>Integration of a 3D Physics Engine Library (http://jbullet.advel.cz/) in <code class="highlighter-rouge">simtools.gaml.extensions.physics</code>
+<p>Integration of a 3D Physics Engine Library (<a href="http://jbullet.advel.cz/">http://jbullet.advel.cz/</a>) in <code>simtools.gaml.extensions.physics</code>
 This has been implemented as a new skill.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species myPhysicsAgent skills: [physical3D]
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">species myPhysicsAgent skills: [physical3D]
+</code></pre></div>
 <p>More details: <a href="Event__CodingCampFall2012_models">3D Physics Engine</a></p>
 
     </div>

@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="3d-graph">3D Graph</h1>
@@ -3615,123 +3615,121 @@ function closeRightMenu() {
 
 <p>Model using a 3D Graph and updating it at each step according to the location and the degree of each sphere. An arc is created between two adjacent spheres. Two different experiments are proposed : one with a dynamic size for the spheres according to their degree, one simpler with no update of the size.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 
 <span class="k">model</span> <span class="n">graph3D</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="k">min</span><span class="p">:</span> <span class="m">100</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">Distance</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">a</span> <span class="n">sphere</span> <span class="n">is</span> <span class="n">adjacent</span> <span class="k">or</span> <span class="k">not</span> <span class="k">with</span> <span class="n">an</span> <span class="n">other</span>
-	<span class="n">int</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'distance '</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
-	
-	
-	<span class="n">int</span> <span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
-	
-	
-	<span class="n">graph</span> <span class="n">my_graph</span><span class="p">;</span>
-	<span class="n">init</span> <span class="p">{</span>
-		
-		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">node</span> <span class="n">agent</span> <span class="n">ie</span> <span class="n">the</span> <span class="n">spheres</span> <span class="k">with</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">location</span> <span class="k">in</span> <span class="n">the</span> <span class="n">environment</span>
-		<span class="nb">create</span> <span class="n">node_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">)</span> <span class="p">};</span>
-		<span class="p">}</span>
-		
-		<span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
-		
-		<span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">updateDegreeMax</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="k">min</span><span class="p">:</span> <span class="m">100</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
 
-	<span class="n">action</span> <span class="n">degreeMax_computation</span> <span class="p">{</span>
-		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">node_agent</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
-		<span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-		<span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="p">((</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">degreeMax</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="p">//</span><span class="n">Distance</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">a</span> <span class="n">sphere</span> <span class="n">is</span> <span class="n">adjacent</span> <span class="k">or</span> <span class="k">not</span> <span class="k">with</span> <span class="n">an</span> <span class="n">other</span>
+    <span class="n">int</span> <span class="n">distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'distance '</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+
+
+    <span class="n">int</span> <span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
+
+
+    <span class="n">graph</span> <span class="n">my_graph</span><span class="p">;</span>
+    <span class="n">init</span> <span class="p">{</span>
+
+        <span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">node</span> <span class="n">agent</span> <span class="n">ie</span> <span class="n">the</span> <span class="n">spheres</span> <span class="k">with</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">location</span> <span class="k">in</span> <span class="n">the</span> <span class="n">environment</span>
+        <span class="nb">create</span> <span class="n">node_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">)</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+        <span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
+
+        <span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">updateDegreeMax</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">degreeMax_computation</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">action</span> <span class="n">degreeMax_computation</span> <span class="p">{</span>
+        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">node_agent</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
+        <span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">ask</span> <span class="n">node_agent</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">degreeMax</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">degreeMax</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">species</span> <span class="n">node_agent</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">degree</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">radius</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span><span class="p">;</span>
-	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">randomly</span>
-		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-		<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">degree</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-		<span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	
-	<span class="n">action</span> <span class="n">compute_degree</span> <span class="p">{</span>
-		<span class="n">degree</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
-		<span class="n">radius</span> <span class="p">&lt;-</span> <span class="p">((((</span><span class="n">degree</span> <span class="p">+</span> <span class="m">1</span><span class="p">)</span> <span class="p">^</span> <span class="m">1.4</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span><span class="p">)))</span> <span class="p">*</span> <span class="m">5</span><span class="p">;</span>
-		<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="m">0.66</span><span class="p">,</span><span class="n">degree</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span> <span class="p">+</span> <span class="m">1</span><span class="p">),</span> <span class="m">0.5</span><span class="p">);</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">degree</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span><span class="p">;</span>
+    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="n">randomly</span>
+        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+        <span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">degree</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+        <span class="k">do</span> <span class="n">compute_degree</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="n">action</span> <span class="n">compute_degree</span> <span class="p">{</span>
+        <span class="n">degree</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">)</span> <span class="n">degree_of</span> <span class="p">(</span><span class="n">self</span><span class="p">);</span>
+        <span class="n">radius</span> <span class="p">&lt;-</span> <span class="p">((((</span><span class="n">degree</span> <span class="p">+</span> <span class="m">1</span><span class="p">)</span> <span class="p">^</span> <span class="m">1.4</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span><span class="p">)))</span> <span class="p">*</span> <span class="m">5</span><span class="p">;</span>
+        <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="m">0.66</span><span class="p">,</span><span class="n">degree</span> <span class="p">/</span> <span class="p">(</span><span class="n">degreeMax</span> <span class="p">+</span> <span class="m">1</span><span class="p">),</span> <span class="m">0.5</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="k">dynamic</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-	<span class="p">}</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="k">dynamic</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+    <span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">Display</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
-			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">dynamic</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
-				<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">adjacence</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
-</span>					<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-						<span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
-						<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
-						<span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span>  <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">);</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
-				
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+            <span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="k">dynamic</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
+                <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edges</span> <span class="k">of</span> <span class="n">adjacence</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
+</span>                    <span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+                        <span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
+                        <span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
+                        <span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span>  <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">SimpleDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
-			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
-</span>					<span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-						<span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
-						<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
-						<span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
-				
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">WanderingSphere</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+            <span class="n">species</span> <span class="n">node_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span> <span class="c1">!= nil) {
+</span>                    <span class="n">loop</span> <span class="n">eg</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+                        <span class="n">geometry</span> <span class="n">edge_geom</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">eg</span><span class="p">);</span>
+                        <span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="m">255</span> <span class="p">*</span> <span class="n">edge_geom</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">/</span> <span class="n">distance</span><span class="p">;</span> 
+                        <span class="n">draw</span> <span class="n">line</span><span class="p">(</span><span class="n">edge_geom</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
 
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

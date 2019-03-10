@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="esri-ascii-to-grid-model">ESRI ASCII to grid model</h1>
@@ -3615,43 +3615,41 @@ function closeRightMenu() {
 
 <p>Model which shows how to initialize a grid using a ESRI ASCII file</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">ascimport</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">definiton</span> <span class="k">of</span> <span class="n">the</span> <span class="n">file</span> <span class="k">to</span> <span class="n">import</span>
-	<span class="n">file</span> <span class="n">grid_data</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/hab10.asc'</span><span class="p">)</span> <span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">geotiff</span> <span class="n">file</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">grid_data</span><span class="p">);</span>	
+    <span class="p">//</span><span class="n">definiton</span> <span class="k">of</span> <span class="n">the</span> <span class="n">file</span> <span class="k">to</span> <span class="n">import</span>
+    <span class="n">file</span> <span class="n">grid_data</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/hab10.asc'</span><span class="p">)</span> <span class="p">;</span>
+
+    <span class="p">//</span><span class="n">computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">geotiff</span> <span class="n">file</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">grid_data</span><span class="p">);</span>  
 <span class="p">}</span>
 
 
 
 <span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">from</span> <span class="n">the</span> <span class="n">asc</span> <span class="n">file</span><span class="p">:</span> <span class="n">the</span> <span class="n">width</span> <span class="k">and</span> <span class="n">height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">are</span> <span class="n">directly</span> <span class="nb">read</span> <span class="k">from</span> <span class="n">the</span> <span class="n">asc</span> <span class="n">file</span><span class="p">.</span> <span class="n">The</span> <span class="n">values</span> <span class="k">of</span> <span class="n">the</span> <span class="n">asc</span> <span class="n">file</span> <span class="n">are</span> <span class="n">stored</span> <span class="k">in</span> <span class="n">the</span> <span class="n">grid_value</span> <span class="n">attribute</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span><span class="p">.</span>
 <span class="n">grid</span> <span class="n">cell</span> <span class="n">file</span><span class="p">:</span> <span class="n">grid_data</span><span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">color</span><span class="p">&lt;-</span> <span class="n">grid_value</span> <span class="p">=</span> <span class="m">0.0</span> <span class="p">?</span> <span class="p">#</span><span class="n">black</span>  <span class="p">:</span> <span class="p">(</span><span class="n">grid_value</span> <span class="p">=</span> <span class="m">1.0</span>  <span class="p">?</span> <span class="p">#</span><span class="n">green</span> <span class="p">:</span>   <span class="p">#</span><span class="n">yellow</span><span class="p">);</span>
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">color</span><span class="p">&lt;-</span> <span class="n">grid_value</span> <span class="p">=</span> <span class="m">0.0</span> <span class="p">?</span> <span class="p">#</span><span class="n">black</span>  <span class="p">:</span> <span class="p">(</span><span class="n">grid_value</span> <span class="p">=</span> <span class="m">1.0</span>  <span class="p">?</span> <span class="p">#</span><span class="n">green</span> <span class="p">:</span>   <span class="p">#</span><span class="n">yellow</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">gridloading</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="s2">"As DEM"</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">elevation</span><span class="p">:</span> <span class="n">grid_value</span> <span class="p">*</span> <span class="m">300</span> <span class="p">;</span>
-		<span class="p">}</span>
-		
-		<span class="n">display</span> <span class="s2">"As 2D grid"</span>  <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
-			<span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span> 
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="s2">"As DEM"</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">elevation</span><span class="p">:</span> <span class="n">grid_value</span> <span class="p">*</span> <span class="m">300</span> <span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">display</span> <span class="s2">"As 2D grid"</span>  <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
+            <span class="n">grid</span> <span class="n">cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> 
 <span class="p">}</span>
 
 
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

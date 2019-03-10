@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="overview">Overview</h1>
@@ -3615,15 +3615,15 @@ function closeRightMenu() {
 Headless mode is documented <a href="Headless">here</a>, with the same model as an example. Here, we focus on the definition of an experiment plan, where the model is run several times. We only consider the shell script execution, not the java command execution.</p>
 
 <p>In headless-mode, GAMA can be seen as any shell command, whose behavior is controlled by passing arguments to it.
-You must provide 2 arguments :</p>
+You must provide 2 arguments : </p>
 
 <ul>
-  <li>an **input experiment file **, used to describe the execution plan of your model, its inputs and the expected outputs.</li>
-  <li>an ** output directory **, where the results of the execution are stored</li>
+<li>an *<em>input experiment file *</em>, used to describe the execution plan of your model, its inputs and the expected outputs.</li>
+<li>an ** output directory **, where the results of the execution are stored</li>
 </ul>
 
 <p>Headless-mode is a little bit more technical to handle than the general GAMA use-case, and the following commands and code have been solely tested on a Linux Ubuntu 15.04 machine, x86_64 architecture, with kernel 3.19.0-82-generic.
-Java version is 1.8.0_121 (java version “1.8.0_121”)</p>
+Java version is 1.8.0_121 (java version &quot;1.8.0_121&quot;)</p>
 
 <p>You may have to perform some adjustments (such as paths definition) according to your machine, OS, java and GAMA versions and so on.</p>
 
@@ -3631,23 +3631,22 @@ Java version is 1.8.0_121 (java version “1.8.0_121”)</p>
 
 <h2 id="gama-version">GAMA version</h2>
 
-<p>Headless mode is frequently updated by GAMA developers, so you have to get the very latest build version of GAMA. You can download it here  <a href="https://github.com/gama-platform/gama/releases">https://github.com/gama-platform/gama/releases</a> Be sure to pick the ** Continuous build **  version (The name looks like <code class="highlighter-rouge">GAMA1.7_Linux_64_02.26.17_da33f5b.zip</code>) and ** not ** the major release, e.g. <code class="highlighter-rouge">GAMA1.7_Linux_64.zip</code>.
+<p>Headless mode is frequently updated by GAMA developers, so you have to get the very latest build version of GAMA. You can download it here  <a href="https://github.com/gama-platform/gama/releases">https://github.com/gama-platform/gama/releases</a> Be sure to pick the ** Continuous build **  version (The name looks like <code>GAMA1.7_Linux_64_02.26.17_da33f5b.zip</code>) and ** not ** the major release, e.g. <code>GAMA1.7_Linux_64.zip</code>.
 Big note on Windows OS (maybe on others), GAMA must be placed outside of several sensible folders (Program Files, Program Filesx64, Windows).  RECOMMENED: Place GAMA in Users Folder of windows OS.</p>
 
-<h2 id="gama-headlesssh-script-setup">gama-headless.sh script setup</h2>
+<h2 id="gama-headless-sh-script-setup">gama-headless.sh script setup</h2>
 
-<p>The <code class="highlighter-rouge">gama-headless.sh</code> script can be found under the <code class="highlighter-rouge">headless</code> directory, in GAMA installation directory e.g. : `~/GAMA/headless/</p>
+<p>The <code>gama-headless.sh</code> script can be found under the <code>headless</code> directory, in GAMA installation directory e.g. : `~/GAMA/headless/</p>
 
 <h2 id="modifying-the-script-a-little-bit">Modifying the script (a little bit)</h2>
 
-<p>The original script looks like this :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /bin/bash</span>
+<p>The original script looks like this : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="c">#! /bin/bash</span>
 <span class="nv">memory</span><span class="o">=</span>2048m
-<span class="nb">declare</span> <span class="nt">-i</span> i	
+<span class="nb">declare</span> <span class="nt">-i</span> i    
 
 <span class="nv">i</span><span class="o">=</span>0
-<span class="nb">echo</span> <span class="k">${</span><span class="p">!i</span><span class="k">}</span>	
+<span class="nb">echo</span> <span class="k">${</span><span class="p">!i</span><span class="k">}</span>  
 
 <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span>i&lt;<span class="o">=</span><span class="nv">$#;i</span><span class="o">=</span><span class="nv">$i</span>+1<span class="o">))</span>
 <span class="k">do
@@ -3660,20 +3659,19 @@ if </span><span class="nb">test</span> <span class="k">${</span><span class="p">
     <span class="nv">i</span><span class="o">=</span><span class="nv">$i</span>+1
     <span class="nv">PARAM</span><span class="o">=</span><span class="nv">$PARAM</span><span class="se">\ </span><span class="k">${</span><span class="p">!i</span><span class="k">}</span>
 <span class="k">fi
-done	
+done    
 
 </span><span class="nb">echo</span> <span class="s2">"******************************************************************"</span>
 <span class="nb">echo</span> <span class="s2">"* GAMA version 1.7.0 V7                                          *"</span>
 <span class="nb">echo</span> <span class="s2">"* http://gama-platform.org                                       *"</span>
 <span class="nb">echo</span> <span class="s2">"* (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC &amp; Partners              *"</span>
 <span class="nb">echo</span> <span class="s2">"******************************************************************"</span>
-<span class="nv">passWork</span><span class="o">=</span>.work<span class="nv">$RANDOM</span>	
+<span class="nv">passWork</span><span class="o">=</span>.work<span class="nv">$RANDOM</span>   
 
 java <span class="nt">-cp</span> ../plugins/org.eclipse.equinox.launcher<span class="k">*</span>.jar <span class="nt">-Xms512m</span> <span class="nt">-Xmx</span><span class="nv">$memory</span>  <span class="nt">-Djava</span>.awt.headless<span class="o">=</span><span class="nb">true </span>org.eclipse.core.launcher.Main  <span class="nt">-application</span> msi.gama.headless.id4 <span class="nt">-data</span> <span class="nv">$passWork</span> <span class="nv">$PARAM</span> <span class="nv">$mfull</span> <span class="nv">$outputFile</span>
 rm <span class="nt">-rf</span> <span class="nv">$passWork</span>
-</code></pre></div></div>
-
-<p>Notice the final command of the script <code class="highlighter-rouge">rm -rf $passWork</code>. It is intended to remove the temporary file used during the execution of the script. For now, we should comment this commmand, in order to check the logs if an error appears : <code class="highlighter-rouge">#rm -rf $passWork</code></p>
+</code></pre></div>
+<p>Notice the final command of the script <code>rm -rf $passWork</code>. It is intended to remove the temporary file used during the execution of the script. For now, we should comment this commmand, in order to check the logs if an error appears : <code>#rm -rf $passWork</code></p>
 
 <h2 id="setting-the-experiment-file">Setting the experiment file</h2>
 
@@ -3681,189 +3679,175 @@ rm <span class="nt">-rf</span> <span class="nv">$passWork</span>
 
 <p>The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;Experiment_plan&gt;</span>
 <span class="nt">&lt;Simulation</span> <span class="na">id=</span><span class="s">"2"</span> <span class="na">sourcePath=</span><span class="s">"./predatorPrey/predatorPrey.gaml"</span> <span class="na">finalStep=</span><span class="s">"1000"</span> <span class="na">experiment=</span><span class="s">"predPrey"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;Parameters&gt;</span>
-		<span class="nt">&lt;Parameter</span> <span class="na">name=</span><span class="s">"nb_predator_init"</span> <span class="na">type=</span><span class="s">"INT"</span> <span class="na">value=</span><span class="s">"53"</span> <span class="nt">/&gt;</span>
-		<span class="nt">&lt;Parameter</span> <span class="na">name=</span><span class="s">"nb_preys_init"</span> <span class="na">type=</span><span class="s">"INT"</span> <span class="na">value=</span><span class="s">"621"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;/Parameters&gt;</span>
-	<span class="nt">&lt;Outputs&gt;</span>
-		<span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"1"</span> <span class="na">name=</span><span class="s">"main_display"</span> <span class="na">framerate=</span><span class="s">"10"</span> <span class="nt">/&gt;</span>
-		<span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"2"</span> <span class="na">name=</span><span class="s">"number_of_preys"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
-		<span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"3"</span> <span class="na">name=</span><span class="s">"number_of_predators"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
-		<span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"4"</span> <span class="na">name=</span><span class="s">"duration"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;/Outputs&gt;</span>
+    <span class="nt">&lt;Parameters&gt;</span>
+        <span class="nt">&lt;Parameter</span> <span class="na">name=</span><span class="s">"nb_predator_init"</span> <span class="na">type=</span><span class="s">"INT"</span> <span class="na">value=</span><span class="s">"53"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Parameter</span> <span class="na">name=</span><span class="s">"nb_preys_init"</span> <span class="na">type=</span><span class="s">"INT"</span> <span class="na">value=</span><span class="s">"621"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Parameters&gt;</span>
+    <span class="nt">&lt;Outputs&gt;</span>
+        <span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"1"</span> <span class="na">name=</span><span class="s">"main_display"</span> <span class="na">framerate=</span><span class="s">"10"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"2"</span> <span class="na">name=</span><span class="s">"number_of_preys"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"3"</span> <span class="na">name=</span><span class="s">"number_of_predators"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Output</span> <span class="na">id=</span><span class="s">"4"</span> <span class="na">name=</span><span class="s">"duration"</span> <span class="na">framerate=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Outputs&gt;</span>
 <span class="nt">&lt;/Simulation&gt;</span>
 <span class="nt">&lt;/Experiment_plan&gt;</span>
-</code></pre></div></div>
-
-<p>As you can see, you need to define 3 things in this minimal example :</p>
-<ul>
-  <li>Simulation:  its id, path to the model , finalStep (or stop condition), and name of the experiment</li>
-  <li>Parameters name, of the model for * this * simulation (i.e. Simulation of id= 2)</li>
-  <li>Outputs of the model: their id, name, type, and the rate (expressed in cycles) at which they are logged in the results file during the simulation</li>
-</ul>
+</code></pre></div>
+<p>As you can see, you need to define 3 things in this minimal example :
+* Simulation:  its id, path to the model , finalStep (or stop condition), and name of the experiment
+* Parameters name, of the model for * this * simulation (i.e. Simulation of id= 2)
+* Outputs of the model: their id, name, type, and the rate (expressed in cycles) at which they are logged in the results file during the simulation</p>
 
 <p>We now describe how to constitute your experiment file.</p>
 
-<h1 id="experiment-file--simulation">Experiment File : Simulation</h1>
+<h1 id="experiment-file-simulation">Experiment File : Simulation</h1>
 
 <h2 id="id">id</h2>
 
-<p>For now, we only consider one single execution of the model, so the simulation <code class="highlighter-rouge">id</code> is not critical, let it unchanged.
+<p>For now, we only consider one single execution of the model, so the simulation <code>id</code> is not critical, let it unchanged.
 Later example will include different simulations in the same experiment file.
-Simulation <code class="highlighter-rouge">id</code> is a string. Don’t introduce weird symbols into it.</p>
+Simulation <code>id</code> is a string. Don&#39;t introduce weird symbols into it. </p>
 
 <h2 id="sourcepath">sourcePath</h2>
 
-<p><code class="highlighter-rouge">sourcePath</code> is the relative (or absolute) path to the model file you want to execute headlessly.</p>
+<p><code>sourcePath</code> is the relative (or absolute) path to the model file you want to execute headlessly.</p>
 
-<p>Here we want to execute the <a href="PredatorPrey_step4">fourth model of the Predator Prey tutorial suite</a>, located in <code class="highlighter-rouge">~/GAMA/plugins/msi.gama.models_1.7.0.XXXXXXXXXXXX/models/Tutorials/Predator Prey/models</code> (with XXXXXXXXXXXX replaced by the number of the release you downloaded)</p>
+<p>Here we want to execute the <a href="PredatorPrey_step4">fourth model of the Predator Prey tutorial suite</a>, located in <code>~/GAMA/plugins/msi.gama.models_1.7.0.XXXXXXXXXXXX/models/Tutorials/Predator Prey/models</code> (with XXXXXXXXXXXX replaced by the number of the release you downloaded)</p>
 
-<p>So we set sourcePath=”../plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 07.gaml”  (Remember that the headless script is located in <code class="highlighter-rouge">~/GAMA/headless/</code>)</p>
+<p>So we set sourcePath=&quot;../plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 07.gaml&quot;  (Remember that the headless script is located in <code>~/GAMA/headless/</code>)</p>
 
-<p>Depending on the directory you want to run the <code class="highlighter-rouge">gama-headless.sh</code> script, sourcePath must me modified accordingly.
-Another workaround for shell more advanced users is to define a  <code class="highlighter-rouge">$GAMA_PATH</code>, <code class="highlighter-rouge">$MODEL_PATH</code> and <code class="highlighter-rouge">$OUPUT_PATH</code> in <code class="highlighter-rouge">gama-headless.sh</code> script.
-Don’t forget the quotes <code class="highlighter-rouge">"</code> around your path.</p>
+<p>Depending on the directory you want to run the <code>gama-headless.sh</code> script, sourcePath must me modified accordingly.
+Another workaround for shell more advanced users is to define a  <code>$GAMA_PATH</code>, <code>$MODEL_PATH</code> and <code>$OUPUT_PATH</code> in <code>gama-headless.sh</code> script.
+Don&#39;t forget the quotes <code>&quot;</code> around your path.</p>
 
 <h2 id="finalstep">finalStep</h2>
 
-<p>The duration, in cycles, of the simulation.</p>
+<p>The duration, in cycles, of the simulation. </p>
 
 <h2 id="experiment">experiment</h2>
 
 <p>This is the name of (one of) the experiment statement at the end of the model code.</p>
 
-<p>In our case there is only one, called <code class="highlighter-rouge">prey_predator</code> and  it looks like this :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment prey_predator type: gui {
-	parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
-	parameter "Prey max energy: " var: prey_max_energy category: "Prey" ;
-	parameter "Prey max transfert: " var: prey_max_transfert  category: "Prey" ;
-	parameter "Prey energy consumption: " var: prey_energy_consum  category: "Prey" ;
-	output {
-		display main_display {
-			grid vegetation_cell lines: #black ;
-			species prey aspect: base ;
-		}
-		monitor "Number of preys" value: nb_preys ;
-	}
+<p>In our case there is only one, called <code>prey_predator</code> and  it looks like this :</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment prey_predator type: gui {
+    parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
+    parameter "Prey max energy: " var: prey_max_energy category: "Prey" ;
+    parameter "Prey max transfert: " var: prey_max_transfert  category: "Prey" ;
+    parameter "Prey energy consumption: " var: prey_energy_consum  category: "Prey" ;
+    output {
+        display main_display {
+            grid vegetation_cell lines: #black ;
+            species prey aspect: base ;
+        }
+        monitor "Number of preys" value: nb_preys ;
+    }
 }  
-</code></pre></div></div>
+</code></pre></div>
+<p>So we are now able to constitute the entire Simulation tag : </p>
 
-<p>So we are now able to constitute the entire Simulation tag :</p>
+<p><code>&lt;Simulation id=&quot;2&quot; sourcePath=&quot;~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml&quot; finalStep=&quot;1000&quot; experiment=&quot;prey_predator&quot;&gt;</code></p>
 
-<p><code class="highlighter-rouge">&lt;Simulation id="2" sourcePath="~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml" finalStep="1000" experiment="prey_predator"&gt;</code></p>
-
-<p>N.B. the numbers after <code class="highlighter-rouge">msi.gama.models</code> (the number of your GAMA release actually) have to be adapted to your own release of GAMA number.
+<p>N.B. the numbers after <code>msi.gama.models</code> (the number of your GAMA release actually) have to be adapted to your own release of GAMA number.
 The path to the GAMA installation directory has also to be adapted of course.</p>
 
-<h1 id="experiment-file--parameters">Experiment File : Parameters</h1>
+<h1 id="experiment-file-parameters">Experiment File : Parameters</h1>
 
 <p>The parameters section of the experiment file describes the parameters names, types and values to be passed to the model for its execution.</p>
 
-<p>Let’s say we want to fix the number of preys and their max energy  for this simulation.
+<p>Let&#39;s say we want to fix the number of preys and their max energy  for this simulation.
 We look at the experiment section of the model code and use their ** title **. 
-The title of a parameter is the name that comes right after the <code class="highlighter-rouge">parameter</code> statement. In our case,  the strings “Initial number of preys: “ and “Prey max energy: “ (Mind the spaces, quotes and colon)</p>
+The title of a parameter is the name that comes right after the <code>parameter</code> statement. In our case,  the strings &quot;Initial number of preys: &quot; and &quot;Prey max energy: &quot; (Mind the spaces, quotes and colon)</p>
 
 <p>The parameters section of the file would look like :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Parameters&gt;
-	&lt;Parameter name="Initial number of preys: " type="INT" value="621" /&gt;
-	&lt;Parameter name="Prey max energy: " type="FLOAT" value="1.0" /&gt;
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;Parameters&gt;
+    &lt;Parameter name="Initial number of preys: " type="INT" value="621" /&gt;
+    &lt;Parameter name="Prey max energy: " type="FLOAT" value="1.0" /&gt;
 &lt;/Parameters&gt;
-</code></pre></div></div>
+</code></pre></div>
+<p>Any declared parameter can be set this way, yet you don&#39;t have to set all of them, provided they are initialized with a default value in the model (see the global statement part of the model code).</p>
 
-<p>Any declared parameter can be set this way, yet you don’t have to set all of them, provided they are initialized with a default value in the model (see the global statement part of the model code).</p>
+<h1 id="experiment-file-outputs">Experiment File : Outputs</h1>
 
-<h1 id="experiment-file--outputs">Experiment File : Outputs</h1>
+<p>Output section of the experiment file is pretty similar to the previous one, except for the <code>id</code> that have to be set for each of the outputs .</p>
 
-<p>Output section of the experiment file is pretty similar to the previous one, except for the <code class="highlighter-rouge">id</code> that have to be set for each of the outputs .</p>
-
-<p>We can log some of the declared outputs  : <code class="highlighter-rouge">main_display</code> and <code class="highlighter-rouge">number_of_preys</code>.</p>
+<p>We can log some of the declared outputs  : <code>main_display</code> and <code>number_of_preys</code>.</p>
 
 <p>The outputs section would look like the following:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Outputs&gt;
-	&lt;Output id="1" name="main_display" framerate="10" /&gt;
-	&lt;Output id="2" name="Number of preys" framerate="1" /&gt;
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;Outputs&gt;
+    &lt;Output id="1" name="main_display" framerate="10" /&gt;
+    &lt;Output id="2" name="Number of preys" framerate="1" /&gt;
 &lt;/Outputs&gt;
-</code></pre></div></div>
-
+</code></pre></div>
 <p>Outputs must have an id, a name, and a framerate.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">id</code> is a number that identifies the output</li>
-  <li>framerate is the rate at which the output is written in the result file. It’s a number of cycle of simulation (integer). In this example the display is saved every 10 cycle</li>
-  <li><code class="highlighter-rouge">name</code> is either the “title” of the corresponding monitor. In our case, the second output’s is the title of the monitor <code class="highlighter-rouge">"Number of preys"</code>, i.e. “Number of preys”</li>
+<li><code>id</code> is a number that identifies the output</li>
+<li>framerate is the rate at which the output is written in the result file. It&#39;s a number of cycle of simulation (integer). In this example the display is saved every 10 cycle</li>
+<li><code>name</code> is either the &quot;title&quot; of the corresponding monitor. In our case, the second output&#39;s is the title of the monitor <code>&quot;Number of preys&quot;</code>, i.e. &quot;Number of preys&quot;</li>
 </ul>
 
-<p>We also save a **display ** output, that is an image of the simulation graphical display named <code class="highlighter-rouge">main_display</code> in the code of the model. Theses images is what you would have seen if you had run the model in the traditional GUI mode.</p>
+<p>We also save a *<em>display *</em> output, that is an image of the simulation graphical display named <code>main_display</code> in the code of the model. Theses images is what you would have seen if you had run the model in the traditional GUI mode.</p>
 
 <h1 id="execution-and-results">Execution and results</h1>
 
-<p>Our new version of the experiment file is ready :</p>
+<p>Our new version of the experiment file is ready : </p>
 
-<?xml version="1.0" encoding="UTF-8"?>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 <Experiment_plan>
-	<Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
-		<Parameters>
-			<Parameter name="Initial number of preys: " type="INT" value="621" />
-			<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
-		</Parameters>
-		<Outputs>
-			<Output id="1" name="main_display" framerate="10" />
-			<Output id="2" name="Number of preys" framerate="1" />
-		</Outputs>
-	</Simulation>
-</Experiment_plan>
+    <Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
+        <Parameters>
+            <Parameter name="Initial number of preys: " type="INT" value="621" />
+            <Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
+        </Parameters>
+        <Outputs>
+            <Output id="1" name="main_display" framerate="10" />
+            <Output id="2" name="Number of preys" framerate="1" />
+        </Outputs>
+    </Simulation>
+</Experiment_plan></p>
 
 <h2 id="execution">Execution</h2>
 
-<p>We have to launch the <code class="highlighter-rouge">gama-headless.sh</code> script and provide two arguments : the experiment file we just completed and the path of a directory where the results will be written.</p>
+<p>We have to launch the <code>gama-headless.sh</code> script and provide two arguments : the experiment file we just completed and the path of a directory where the results will be written.</p>
 
 <p>** Warning ** In this example ,we are lazy and define the source path as the absolute path to the model we want to execute. If you want to use a relative path, note that it has to be define relatively to the location of your ** ExperimentFile.xml location ** (and the location where you launched the script)</p>
 
-<p>In a terminal, position yourself in the headless directory : `~/GAMA/headless/’.</p>
+<p>In a terminal, position yourself in the headless directory : `~/GAMA/headless/&#39;.</p>
 
-<p>Then type the following command :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
-</code></pre></div></div>
-
+<p>Then type the following command :  </p>
+<div class="highlight"><pre><code class="language-" data-lang="">bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
+</code></pre></div>
 <p>And replace paths by the location of your ExperimentFile and output directory</p>
 
-<p>You should obtain the following output in the terminal :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>******************************************************************
+<p>You should obtain the following output in the terminal : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">******************************************************************
 * GAMA version 1.7.0 V7                                          *
 * http://gama-platform.org                                       *
 * (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC &amp; Partners              *
 ******************************************************************
-&gt;GAMA plugin loaded in 2927 ms: 	msi.gama.core
-&gt;GAMA plugin loaded in 67 ms: 	ummisco.gama.network
-&gt;GAMA plugin loaded in 56 ms: 	simtools.gaml.extensions.traffic
-&gt;GAMA plugin loaded in 75 ms: 	simtools.gaml.extensions.physics
-&gt;GAMA plugin loaded in 1 ms: 	irit.gaml.extensions.test
-&gt;GAMA plugin loaded in 75 ms: 	ummisco.gaml.extensions.maths
-&gt;GAMA plugin loaded in 47 ms: 	msi.gaml.extensions.fipa
-&gt;GAMA plugin loaded in 92 ms: 	ummisco.gama.serialize
-&gt;GAMA plugin loaded in 49 ms: 	irit.gaml.extensions.database
-&gt;GAMA plugin loaded in 2 ms: 	msi.gama.lang.gaml
-&gt;GAMA plugin loaded in 1 ms: 	msi.gama.headless
-&gt;GAMA plugin loaded in 103 ms: 	ummisco.gama.java2d
-&gt;GAMA plugin loaded in 189 ms: 	msi.gaml.architecture.simplebdi
-&gt;GAMA plugin loaded in 129 ms: 	ummisco.gama.opengl
+&gt;GAMA plugin loaded in 2927 ms:     msi.gama.core
+&gt;GAMA plugin loaded in 67 ms:   ummisco.gama.network
+&gt;GAMA plugin loaded in 56 ms:   simtools.gaml.extensions.traffic
+&gt;GAMA plugin loaded in 75 ms:   simtools.gaml.extensions.physics
+&gt;GAMA plugin loaded in 1 ms:    irit.gaml.extensions.test
+&gt;GAMA plugin loaded in 75 ms:   ummisco.gaml.extensions.maths
+&gt;GAMA plugin loaded in 47 ms:   msi.gaml.extensions.fipa
+&gt;GAMA plugin loaded in 92 ms:   ummisco.gama.serialize
+&gt;GAMA plugin loaded in 49 ms:   irit.gaml.extensions.database
+&gt;GAMA plugin loaded in 2 ms:    msi.gama.lang.gaml
+&gt;GAMA plugin loaded in 1 ms:    msi.gama.headless
+&gt;GAMA plugin loaded in 103 ms:  ummisco.gama.java2d
+&gt;GAMA plugin loaded in 189 ms:  msi.gaml.architecture.simplebdi
+&gt;GAMA plugin loaded in 129 ms:  ummisco.gama.opengl
 &gt;GAMA building GAML artefacts&gt;GAMA total load time 4502 ms.
  in 714 ms
 cpus :8
 Simulation is running...
 ....................................................................................................
 Simulation duration: 7089ms
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="results">Results</h2>
 
 <p>The results are stored in the output directory you provided as the second argument of the script.</p>
@@ -3871,23 +3855,23 @@ Simulation duration: 7089ms
 <p>3 items have appeared :</p>
 
 <ul>
-  <li>A <code class="highlighter-rouge">console_output.txt</code> file, containing the output of the GAMA console of the model execution if any</li>
-  <li>a XML file <code class="highlighter-rouge">simulation-outputXX.xml</code>, where XX is the <code class="highlighter-rouge">id</code> number of your simulation. In our case it should be 2.</li>
-  <li>the folder <code class="highlighter-rouge">snapshots</code> containing the screenshots coming from the second declared output : <code class="highlighter-rouge">main_display</code>. image name format is <code class="highlighter-rouge">main_display[id]_[cycle].png</code>.</li>
+<li>A <code>console_output.txt</code> file, containing the output of the GAMA console of the model execution if any</li>
+<li>a XML file <code>simulation-outputXX.xml</code>, where XX is the <code>id</code> number of your simulation. In our case it should be 2.</li>
+<li>the folder <code>snapshots</code> containing the screenshots coming from the second declared output : <code>main_display</code>. image name format is <code>main_display[id]_[cycle].png</code>.</li>
 </ul>
 
-<p>The values of the monitor “Number of preys” are stored in the xml file <code class="highlighter-rouge">simulation-outputXX.xml</code></p>
+<p>The values of the monitor &quot;Number of preys&quot; are stored in the xml file <code>simulation-outputXX.xml</code></p>
 
 <h1 id="common-error-messages">Common error messages</h1>
 
-<p><code class="highlighter-rouge">Exception in thread "Thread-7" No parameter named prey_max_energy in experiment prey_predator</code>
+<p><code>Exception in thread &quot;Thread-7&quot; No parameter named prey_max_energy in experiment prey_predator</code>
 Probably a typo in the name or the title of a parameter. check spaces, capital letters, symbols and so on.</p>
 
 <p>java.io.IOException: Model file does not exist: /home/ubuntu/dev/tutoGamaHeadless/../plugins/msi.gama.models_1
 This may be a relative path mistake; try with absolute path.</p>
 
-<p>java.lang.NumberFormatException: For input string: “1.0”
-This may be a problem of type declaration in the parameter section.</p>
+<p>java.lang.NumberFormatException: For input string: &quot;1.0&quot;
+This may be a problem of type declaration in the parameter section. </p>
 
 <h1 id="going-further">Going further</h1>
 
@@ -3898,8 +3882,7 @@ Since you will have to edit the experiment file by hand, you should do that only
 
 <h2 id="design-of-experiments-plans">Design of experiments plans</h2>
 
-<p>For more systematic parameter values samples, you should turn towards a more adapted tool such as GAMAR, to generate a <code class="highlighter-rouge">ExperimentFile.xml</code> with a huge number of simulations.</p>
-
+<p>For more systematic parameter values samples, you should turn towards a more adapted tool such as GAMAR, to generate a <code>ExperimentFile.xml</code> with a huge number of simulations.</p>
 
     </div>
     </div>

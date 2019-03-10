@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="importing-models">Importing Models</h1>
@@ -3615,56 +3615,59 @@ function closeRightMenu() {
 
 <p>There are many situations where a model needs to be <em>imported</em> by the user: someone sent it to him/her by mail, it has been attached to an <a href="Troubleshooting">issue report</a>, it has been shared on the web or an SVN server, or it belongs to a previous workspace after the user has <a href="ChangingWorkspace">switched workspace</a>. The instructions below apply equally to all these situations.</p>
 
-<p>Since model files need to reside in a project to be managed by GAMA, it is usually preferable to import a whole project rather than individual files (unless, of course, the corresponding models are simple enough to not require any additional resources, in which case, the model file can be imported with no harm into an existing project). GAMA will then try to detect situations where a model file is imported alone and, if a corresponding project can be found (for instance, in the upper directories of this file), to import the project instead of the file. As the last resort, GAMA will import orphan model files into a <em>generic</em> project called <em>“Unclassified Models”</em> (which will be created if it does not exist yet).</p>
+<p>Since model files need to reside in a project to be managed by GAMA, it is usually preferable to import a whole project rather than individual files (unless, of course, the corresponding models are simple enough to not require any additional resources, in which case, the model file can be imported with no harm into an existing project). GAMA will then try to detect situations where a model file is imported alone and, if a corresponding project can be found (for instance, in the upper directories of this file), to import the project instead of the file. As the last resort, GAMA will import orphan model files into a <em>generic</em> project called <em>&quot;Unclassified Models&quot;</em> (which will be created if it does not exist yet).</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#importing-models">Importing Models</a>
-    <ul>
-      <li><a href="#the-import-menu-command">The “Import…” Menu Command</a></li>
-      <li><a href="#silent-import">Silent import</a></li>
-      <li><a href="#dragn-drop--copy-paste-limitations">Drag’n Drop / Copy-Paste Limitations</a></li>
-    </ul>
-  </li>
+<li><a href="#importing-models">Importing Models</a>
+
+<ul>
+<li><a href="#the-import-menu-command">The &quot;Import...&quot; Menu Command</a></li>
+<li><a href="#silent-import">Silent import</a></li>
+<li><a href="#dragn-drop--copy-paste-limitations">Drag&#39;n Drop / Copy-Paste Limitations</a></li>
+</ul></li>
 </ul>
 
-<h2 id="the-import-menu-command">The “Import…” Menu Command</h2>
-<p>The simplest, safest and most secure way to import a project into the workspace is to use the built-in “Import…” menu command, available in the “File” menu or in the contextual menu of the <em>Navigator</em>.</p>
+<h2 id="the-import-menu-command">The &quot;Import...&quot; Menu Command</h2>
 
-<p><img src="resources/images/workspaceProjectsAndModels/menu_file_import.png" alt="images/menu_file_import.png" /></p>
+<p>The simplest, safest and most secure way to import a project into the workspace is to use the built-in &quot;Import...&quot; menu command, available in the &quot;File&quot; menu or in the contextual menu of the <em>Navigator</em>.</p>
 
-<p>When invoked, this command will open a dialog asking the user to choose the source of the importation. It can be a directory in the filesystem (in which GAMA will look for existing projects), a zip file, a SVN site, etc. It is safer in any case to choose “Existing Projects into Workspace”.</p>
+<p><img src="resources/images/workspaceProjectsAndModels/menu_file_import.png" alt="images/menu_file_import.png"></p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/dialog_import.png" alt="images/dialog_import.png" /></p>
+<p>When invoked, this command will open a dialog asking the user to choose the source of the importation. It can be a directory in the filesystem (in which GAMA will look for existing projects), a zip file, a SVN site, etc. It is safer in any case to choose &quot;Existing Projects into Workspace&quot;.</p>
 
-<p>Note that when invoked from the contextual menu, “Import…” will directly give access to a shortcut of this source in a submenu.</p>
+<p><img src="resources/images/workspaceProjectsAndModels/dialog_import.png" alt="images/dialog_import.png"></p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/menu_navigator_import.png" alt="images/menu_navigator_import.png" /></p>
+<p>Note that when invoked from the contextual menu, &quot;Import...&quot; will directly give access to a shortcut of this source in a submenu.</p>
+
+<p><img src="resources/images/workspaceProjectsAndModels/menu_navigator_import.png" alt="images/menu_navigator_import.png"></p>
 
 <p>Both options will lead the user to a last dialog where he/she will be asked to:</p>
 
 <ol>
-  <li>Enter a location (or browse to a location) containing the GAMA project(s) to import</li>
-  <li>Choose among the list of available projects (computed by GAMA) the ones to effectively import</li>
-  <li>Indicate whether or not these projects need to be <strong>copied to</strong> or <strong>linked from</strong> the workspace (the latter is done by default)</li>
+<li>Enter a location (or browse to a location) containing the GAMA project(s) to import</li>
+<li>Choose among the list of available projects (computed by GAMA) the ones to effectively import</li>
+<li>Indicate whether or not these projects need to be <strong>copied to</strong> or <strong>linked from</strong> the workspace (the latter is done by default)</li>
 </ol>
 
-<p><img src="resources/images/workspaceProjectsAndModels/dialog_import_2.png" alt="images/dialog_import_2.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/dialog_import_2.png" alt="images/dialog_import_2.png"></p>
 
 <h2 id="silent-import">Silent import</h2>
+
 <p>Another (possibly simpler, but less controllable) way of importing projects and models is to either pass a path to a model when <a href="Launching">launching</a> GAMA from the command line or to double-click on a model file (ending in <em>.gaml</em>) in the Explorer or Finder (depending on your OS).</p>
 
 <p>If the file is not already part of an imported project in the current workspace, GAMA will:</p>
 
 <ol>
-  <li>silently import the project (by creating a link to it),</li>
-  <li>open an editor on the file selected.</li>
+<li>silently import the project (by creating a link to it),</li>
+<li>open an editor on the file selected.</li>
 </ol>
 
 <p>This procedure may fail, however, if a project of the same name (but in a different location) already exists in the workspace, in which case GAMA will refuse to import the project (and hence, the file). The solution in this case is to rename the project to import (or to rename the existing project in the workspace).</p>
 
-<h2 id="dragn-drop--copy-paste-limitations">Drag’n Drop / Copy-Paste Limitations</h2>
+<h2 id="dragn-drop-copy-paste-limitations">Drag&#39;n Drop / Copy-Paste Limitations</h2>
+
 <p>Currently, <strong>there is no way</strong> to drag and drop an entire project into GAMA <em>Navigator</em> (or to copy a project in the filesystem and paste it in the <em>Navigator</em>). Only individual model files, folders or resources can be moved this way (and they have to be dropped or pasted into existing projects).</p>
 
 <p>This limitation might be removed some time in the future, however, allowing users to use the <em>Navigator</em> as a project drop or paste target, but it is not the case yet.</p>

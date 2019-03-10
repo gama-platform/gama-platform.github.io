@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="index-of-annotations">Index of annotations</h1>
@@ -3614,259 +3614,236 @@ function closeRightMenu() {
 <p>Annotations are used to link Java methods and classes to GAML language.</p>
 
 <h2 id="action">@action</h2>
+
 <p>This annotations is used to tag a method that will be considered as an action (or primitive) in GAML.
-The method must have the following signature: <code class="highlighter-rouge">
+The method must have the following signature: <code>
 Object methodName(IScope) throws GamaRuntimeException</code> and be contained in a class annotated with <a href="#species">@species</a> or <a href="#skill">@skill</a> (or a related class, like a subclass or an interface).</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.</li>
-  <li><strong>virtual</strong> (boolean, false by default): <em>if true the action is virtual, i.e. equivalent to abstract method in java</em>.</li>
-  <li><strong>args</strong> (set of <a href="#arg">@arg</a>, empty by default): <em>the list of arguments passed to this action. Each argument is an instance of arg</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the action</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.
+  * <strong>virtual</strong> (boolean, false by default): <em>if true the action is virtual, i.e. equivalent to abstract method in java</em>.
+  * <strong>args</strong> (set of <a href="#arg">@arg</a>, empty by default): <em>the list of arguments passed to this action. Each argument is an instance of arg</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the action</em>.</p>
 
 <h2 id="arg">@arg</h2>
+
 <p>This annotations describes an argument passed to an action.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String, “” by default): <em>the name of the argument as it can be used in GAML</em>.</li>
-  <li><strong>type</strong> (set of ints, empty by default): <em>An array containing the textual representation of the types that can be taken by the argument (see IType)</em>.</li>
-  <li><strong>optional</strong> (boolean, true by default): <em>whether this argument is optional or not</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the argument.</em></li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String, &quot;&quot; by default): <em>the name of the argument as it can be used in GAML</em>.
+  * <strong>type</strong> (set of ints, empty by default): <em>An array containing the textual representation of the types that can be taken by the argument (see IType)</em>.
+  * <strong>optional</strong> (boolean, true by default): <em>whether this argument is optional or not</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the argument.</em></p>
 
 <h2 id="constant">@constant</h2>
+
 <p>This annotation is used to annotate fields that are used as constants in GAML.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>category</strong> (set of Strings, empty by default): <em>an array of strings, each representing a category in which this constant can be classified (for documentation indexes)</em>.</li>
-  <li><strong>value</strong> (String): <em>a string representing the basic keyword for the constant. Does not need to be unique throughout GAML</em>.</li>
-  <li><strong>altNames</strong> (set of Strings, empty by default): <em>an Array of strings, each representing a possible alternative name for the constant. Does not need to be unique throughout GAML</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this constant</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>category</strong> (set of Strings, empty by default): <em>an array of strings, each representing a category in which this constant can be classified (for documentation indexes)</em>.
+  * <strong>value</strong> (String): <em>a string representing the basic keyword for the constant. Does not need to be unique throughout GAML</em>.
+  * <strong>altNames</strong> (set of Strings, empty by default): <em>an Array of strings, each representing a possible alternative name for the constant. Does not need to be unique throughout GAML</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this constant</em>.</p>
 
 <h2 id="doc">@doc</h2>
+
 <p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (String, “” by default): <em>a String representing the documentation of a GAML element</em>.</li>
-  <li><strong>masterDoc</strong> (boolean, false by default): <em>a boolean representing the fact that this instance of the operator is the master one, that is whether its value will subsume the value of all other instances of it</em>.</li>
-  <li><strong>deprecated</strong> (String, “” by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.</li>
-  <li><strong>returns</strong> (String, “” by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.</li>
-  <li><strong>comment</strong> (String, “” by default): <em>an optional comment that will appear differently from the documentation itself</em>.</li>
-  <li><strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the “special cases” in which the documented element takes part</em>.</li>
-  <li><strong>examples</strong> (set of <a href="#example">@example</a>, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.</li>
-  <li><strong>usages</strong> (set of <a href="#usage">@usage</a>, empty by default): <em>An array of usages representing possible usage of the element in GAML</em>.</li>
-  <li><strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (String, &quot;&quot; by default): <em>a String representing the documentation of a GAML element</em>.
+  * <strong>masterDoc</strong> (boolean, false by default): <em>a boolean representing the fact that this instance of the operator is the master one, that is whether its value will subsume the value of all other instances of it</em>.
+  * <strong>deprecated</strong> (String, &quot;&quot; by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.
+  * <strong>returns</strong> (String, &quot;&quot; by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.
+  * <strong>comment</strong> (String, &quot;&quot; by default): <em>an optional comment that will appear differently from the documentation itself</em>.
+  * <strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the &quot;special cases&quot; in which the documented element takes part</em>.
+  * <strong>examples</strong> (set of <a href="#example">@example</a>, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.
+  * <strong>usages</strong> (set of <a href="#usage">@usage</a>, empty by default): <em>An array of usages representing possible usage of the element in GAML</em>.
+  * <strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</p>
 
 <h2 id="example">@example</h2>
+
 <p>This facet describes an example, that can be used either in the documentation, as unit test or as pattern.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (String, “” by default): <em>a String representing the expression as example</em>.</li>
-  <li><strong>var</strong> (String, “” by default): <em>The variable that will be tested in the equals, if it is omitted a default variable will be used</em>.</li>
-  <li><strong>equals</strong> (String, “” by default): <em>The value to which the value will be compared</em>.</li>
-  <li><strong>returnType</strong> (String, “” by default): <em>The type of the value that should be tested</em>.</li>
-  <li><strong>isNot</strong> (String, “” by default): <em>The value to which the value will be compared</em>.</li>
-  <li><strong>raises</strong> (String, “” by default): <em>The exception or warning that the expression could raise</em>.</li>
-  <li><strong>isTestOnly</strong> (boolean, false by default): <em>specifies that the example should not be included into the documentation</em>.</li>
-  <li><strong>isExecutable</strong> (boolean, true by default): <em>specifies that the example is correct GAML code that can be executed</em>.</li>
-  <li><strong>test</strong> (boolean, true by default): <em>specifies that the example is will be tested with the equals</em>.</li>
-  <li><strong>isPattern</strong> (boolean, false by default): <em>whether or not this example should be treated as part of a pattern (see @usage). If true, the developers might want to consider writing the example line (and its associated lines) using template variables (e.g. ${my_agent})</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (String, &quot;&quot; by default): <em>a String representing the expression as example</em>.
+  * <strong>var</strong> (String, &quot;&quot; by default): <em>The variable that will be tested in the equals, if it is omitted a default variable will be used</em>.
+  * <strong>equals</strong> (String, &quot;&quot; by default): <em>The value to which the value will be compared</em>.
+  * <strong>returnType</strong> (String, &quot;&quot; by default): <em>The type of the value that should be tested</em>.
+  * <strong>isNot</strong> (String, &quot;&quot; by default): <em>The value to which the value will be compared</em>.
+  * <strong>raises</strong> (String, &quot;&quot; by default): <em>The exception or warning that the expression could raise</em>.
+  * <strong>isTestOnly</strong> (boolean, false by default): <em>specifies that the example should not be included into the documentation</em>.
+  * <strong>isExecutable</strong> (boolean, true by default): <em>specifies that the example is correct GAML code that can be executed</em>.
+  * <strong>test</strong> (boolean, true by default): <em>specifies that the example is will be tested with the equals</em>.
+  * <strong>isPattern</strong> (boolean, false by default): <em>whether or not this example should be treated as part of a pattern (see @usage). If true, the developers might want to consider writing the example line (and its associated lines) using template variables (e.g. ${my_agent})</em>.</p>
 
 <h2 id="facet">@facet</h2>
+
 <p>This facet describes a facet in a list of facets.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String): <em>the name of the facet. Must be unique within a symbol</em>.</li>
-  <li><strong>type</strong> (set of int): <em>the string values of the different types that can be taken by this facet</em>.</li>
-  <li><strong>values</strong> (set of Strings, empty by default): <em>the values that can be taken by this facet. The value of the facet expression will be chosen among the values described here</em>.</li>
-  <li><strong>optional</strong> (boolean, false by default): <em>whether or not this facet is optional or mandatory</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the facet</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String): <em>the name of the facet. Must be unique within a symbol</em>.
+  * <strong>type</strong> (set of int): <em>the string values of the different types that can be taken by this facet</em>.
+  * <strong>values</strong> (set of Strings, empty by default): <em>the values that can be taken by this facet. The value of the facet expression will be chosen among the values described here</em>.
+  * <strong>optional</strong> (boolean, false by default): <em>whether or not this facet is optional or mandatory</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the facet</em>.</p>
 
 <h2 id="facets">@facets</h2>
+
 <p>This annotation describes a list of facets used by a statement in GAML.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (set of <a href="#facet">@facet</a>): array of @facet, each representing a facet name, type..</li>
-  <li><strong>ommissible</strong> (string): <em>the facet that can be safely omitted by the modeler (provided its value is the first following the keyword of the statement)</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (set of <a href="#facet">@facet</a>): array of @facet, each representing a facet name, type..
+  * <strong>ommissible</strong> (string): <em>the facet that can be safely omitted by the modeler (provided its value is the first following the keyword of the statement)</em>.</p>
 
 <h2 id="file">@file</h2>
+
 <p>This annotation is used to define a type of file.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String): <em>a (human-understandable) string describing this type of files, suitable for use in composed operator names (e.g. “shape”, “image”…). This name will be used to generate two operators: name+”_file” and “is</em>“+name. The first operator may have variants taking one or several arguments, depending on the @builder annotations present on the class_.</li>
-  <li><strong>extensions</strong> (set of Strings): <em>an array of extensions (without the ‘.’ delimiter) or an empty array if no specific extensions are associated to this type of files (e.g. [“png”,”jpg”,”jpeg”…]). The list of file extensions allowed for this type of files. These extensions will be used to check the validity of the file path, but also to generate the correct type of file when a path is passed to the generic “file” operator</em>.</li>
-  <li><strong>buffer_content</strong> (int, ITypeProvider.NONE by default): <em>the type of the content of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the content type is searched using this provider)</em>.</li>
-  <li><strong>buffer_index</strong> (int, ITypeProvider.NONE by default): <em>the type of the index of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the index type is searched using this provider)</em>.</li>
-  <li><strong>buffer_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the type is searched using this provider)</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String): <em>a (human-understandable) string describing this type of files, suitable for use in composed operator names (e.g. &quot;shape&quot;, &quot;image&quot;...). This name will be used to generate two operators: name+&quot;_file&quot; and &quot;is</em>&quot;+name. The first operator may have variants taking one or several arguments, depending on the @builder annotations present on the class_.
+  * <strong>extensions</strong> (set of Strings): <em>an array of extensions (without the &#39;.&#39; delimiter) or an empty array if no specific extensions are associated to this type of files (e.g. [&quot;png&quot;,&quot;jpg&quot;,&quot;jpeg&quot;...]). The list of file extensions allowed for this type of files. These extensions will be used to check the validity of the file path, but also to generate the correct type of file when a path is passed to the generic &quot;file&quot; operator</em>.
+  * <strong>buffer_content</strong> (int, ITypeProvider.NONE by default): <em>the type of the content of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the content type is searched using this provider)</em>.
+  * <strong>buffer_index</strong> (int, ITypeProvider.NONE by default): <em>the type of the index of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the index type is searched using this provider)</em>.
+  * <strong>buffer_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the buffer. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the type is searched using this provider)</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator</em>.</p>
 
 <h2 id="getter">@getter</h2>
+
 <p>This annotations is used to indicate that a method is to be used as a getter for a variable defined in the class. The variable must be defined on its own (in vars).</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a getter.</li>
-  <li><strong>initializer</strong> (boolean, false by default): returns whether or not this getter shoud also be used as an initializer</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a getter.
+  * <strong>initializer</strong> (boolean, false by default): returns whether or not this getter shoud also be used as an initializer</p>
 
 <h2 id="inside">@inside</h2>
+
 <p>This annotation is used in conjunction with symbol. Provides a way to tell where this symbol should be located in a model (i.e. what its parents should be). Either direct symbol names (in symbols) or generic symbol kinds can be used.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>symbols</strong> (set of Strings, empty by default): <em>symbol names of the parents</em>.</li>
-  <li><strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>symbols</strong> (set of Strings, empty by default): <em>symbol names of the parents</em>.
+  * <strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</p>
 
 <h2 id="operator">@operator</h2>
-<p>This annotation represents an “operator” in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (set of Strings, empty by default): <em>names of the operator</em>.</li>
-  <li><strong>category</strong> (set of string, empty by default): <em>categories to which the operator belong (for documentation purpose)</em>.</li>
-  <li><strong>iterator</strong> (boolean, false by default): <em>true if this operator should be treated as an iterator (i.e.requires initializing the special variable “each” of WorldSkill within the method)</em>.</li>
-  <li><strong>can_be_const</strong> (boolean, false by default): <em>if true: if the operands are constant, returns a constant value</em>.</li>
-  <li><strong>content_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the content if the returned value is a container. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the content type is searched using this provider)</em>.</li>
-  <li><strong>index_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the index if the returned value is a container. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the index type is searched using this provider)</em>.</li>
-  <li><strong>expected_content_type</strong> (set of int, empty by default): <em>if the argument is a container, returns the types expected for its contents. Should be an array of IType.XXX</em>.</li>
-  <li><strong>type</strong> (int, ITypeProvider.NONE by default): <em>the type of the expression if it cannot be determined at compile time (i.e. when the return type is “Object”). Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the type is searched using this provider).</em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>returns whether this operator is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator.</em></li>
-</ul>
+<p>This annotation represents an &quot;operator&quot; in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
+
+<p>This annotation contains:
+  * <strong>value</strong> (set of Strings, empty by default): <em>names of the operator</em>.
+  * <strong>category</strong> (set of string, empty by default): <em>categories to which the operator belong (for documentation purpose)</em>.
+  * <strong>iterator</strong> (boolean, false by default): <em>true if this operator should be treated as an iterator (i.e.requires initializing the special variable &quot;each&quot; of WorldSkill within the method)</em>.
+  * <strong>can_be_const</strong> (boolean, false by default): <em>if true: if the operands are constant, returns a constant value</em>.
+  * <strong>content_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the content if the returned value is a container. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the content type is searched using this provider)</em>.
+  * <strong>index_type</strong> (int, ITypeProvider.NONE by default): <em>the type of the index if the returned value is a container. Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the index type is searched using this provider)</em>.
+  * <strong>expected_content_type</strong> (set of int, empty by default): <em>if the argument is a container, returns the types expected for its contents. Should be an array of IType.XXX</em>.
+  * <strong>type</strong> (int, ITypeProvider.NONE by default): <em>the type of the expression if it cannot be determined at compile time (i.e. when the return type is &quot;Object&quot;). Can be directly a type in IType or one of the constants declared in ITypeProvider (in which case, the type is searched using this provider).</em>.
+  * <strong>internal</strong> (boolean, false by default): <em>returns whether this operator is for internal use only</em>. 
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator.</em></p>
 
 <h2 id="serializer">@serializer</h2>
-<p>It allows to declare a custom serializer for Symbols (statements, var declarations, species ,experiments, etc.). This serializer will be called instead of the standard serializer, superseding this last one. Serializers must be subclasses of the SymbolSerializer class.</p>
-<ul>
-  <li><strong>value</strong> (Class): <em>the serializer class</em>.</li>
-</ul>
+
+<p>It allows to declare a custom serializer for Symbols (statements, var declarations, species ,experiments, etc.). This serializer will be called instead of the standard serializer, superseding this last one. Serializers must be subclasses of the SymbolSerializer class.
+  * <strong>value</strong> (Class): <em>the serializer class</em>.</p>
 
 <h2 id="setter">@setter</h2>
+
 <p>This annotations is used to indicate that a method is to be used as a setter for a variable defined in the class. The variable must be defined on its own (in vars).</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a setter.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a setter.</p>
 
 <h2 id="skill">@skill</h2>
+
 <p>This annotations Allows to define a new skill (class grouping variables and actions that can be used by agents).</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String): <em>a String representing the skill name in GAML (must be unique throughout GAML)</em>.</li>
-  <li><strong>attach_to</strong> (set of strings): <em>an array of species names to which the skill will be automatically added (complements the “skills” parameter of species)</em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>return whether this skill is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the skill</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String): <em>a String representing the skill name in GAML (must be unique throughout GAML)</em>.
+  * <strong>attach_to</strong> (set of strings): <em>an array of species names to which the skill will be automatically added (complements the &quot;skills&quot; parameter of species)</em>.
+  * <strong>internal</strong> (boolean, false by default): <em>return whether this skill is for internal use only</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the skill</em>.</p>
 
 <h2 id="species">@species</h2>
-<p>This annotation represents a “species” in GAML. The class annotated with this annotation will be the support of a species of agents.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (string): <em>the name of the species that will be created with this class as base. Must be unique throughout GAML</em>.</li>
-  <li><strong>skills</strong> (set of strings, empty by default): <em>An array of skill names that will be automatically attached to this species.</em> Example: <code class="highlighter-rouge">
- @species(value="animal" skills={"moving"})</code></li>
-  <li><strong>internal</strong> (boolean, false by default): <em>whether this species is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator.</em></li>
-</ul>
+<p>This annotation represents a &quot;species&quot; in GAML. The class annotated with this annotation will be the support of a species of agents.</p>
+
+<p>This annotation contains:
+  * <strong>name</strong> (string): <em>the name of the species that will be created with this class as base. Must be unique throughout GAML</em>.
+  * <strong>skills</strong> (set of strings, empty by default): <em>An array of skill names that will be automatically attached to this species.</em> Example: <code>
+ @species(value=&quot;animal&quot; skills={&quot;moving&quot;})</code>
+  * <strong>internal</strong> (boolean, false by default): <em>whether this species is for internal use only</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this operator.</em></p>
 
 <h2 id="symbol">@symbol</h2>
-<p>This annotation represents a “statement” in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (set of string, empty by default): <em>names of the statement</em>.</li>
-  <li><strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</li>
-  <li><strong>with_scope</strong> (boolean, true by default): <em>indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope</em>.</li>
-  <li><strong>with_sequence</strong> (boolean): <em>indicates wether or not a sequence can or should follow the symbol denoted by this class</em>.</li>
-  <li><strong>with_args</strong> (boolean, false by default): <em>indicates wether or not the symbol denoted by this class will accept arguments</em>.</li>
-  <li><strong>remote_context</strong> (boolean, false by default): <em>indicates that the context of this statement is actually an hybrid context: although it will be executed in a remote context, any temporary variables declared in the enclosing scopes should be passed on as if the statement was executed in the current context</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this symbol</em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>returns whether this symbol is for internal use only</em>.</li>
-  <li><strong>unique_in_context</strong> (boolean, false by default): <em>Indicates that this statement must be unique in its super context (for example, only one return is allowed in the body of an action).</em>.</li>
-  <li><strong>unique_name</strong> (boolean, false by default): <em>Indicates that only one statement with the same name should be allowed in the same super context</em>.</li>
-</ul>
+<p>This annotation represents a &quot;statement&quot; in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
+
+<p>This annotation contains:
+  * <strong>name</strong> (set of string, empty by default): <em>names of the statement</em>.
+  * <strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.
+  * <strong>with_scope</strong> (boolean, true by default): <em>indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope</em>.
+  * <strong>with_sequence</strong> (boolean): <em>indicates wether or not a sequence can or should follow the symbol denoted by this class</em>.
+  * <strong>with_args</strong> (boolean, false by default): <em>indicates wether or not the symbol denoted by this class will accept arguments</em>.
+  * <strong>remote_context</strong> (boolean, false by default): <em>indicates that the context of this statement is actually an hybrid context: although it will be executed in a remote context, any temporary variables declared in the enclosing scopes should be passed on as if the statement was executed in the current context</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation attached to this symbol</em>.
+  * <strong>internal</strong> (boolean, false by default): <em>returns whether this symbol is for internal use only</em>.
+  * <strong>unique_in_context</strong> (boolean, false by default): <em>Indicates that this statement must be unique in its super context (for example, only one return is allowed in the body of an action).</em>.
+  * <strong>unique_name</strong> (boolean, false by default): <em>Indicates that only one statement with the same name should be allowed in the same super context</em>.</p>
 
 <h2 id="type">@type</h2>
+
 <p>It provides information necessary to the processor to identify a type.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String, “” by default): <em>a String representing the type name in GAML</em>.</li>
-  <li><strong>id</strong> (int, 0 by default): <em>the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE_TYPE and IType.SPECIES_TYPE (exclusive) (cf. <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/IType.java">IType.java</a>)</em>.</li>
-  <li><strong>wraps</strong> (tab of Class, null by default): <em>the list of Java Classes this type is “wrapping” (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)</em>.</li>
-  <li><strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.Variable</a></em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>whether this type is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the facet</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String, &quot;&quot; by default): <em>a String representing the type name in GAML</em>.
+  * <strong>id</strong> (int, 0 by default): <em>the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE_TYPE and IType.SPECIES_TYPE (exclusive) (cf. <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/IType.java">IType.java</a>)</em>.
+  * <strong>wraps</strong> (tab of Class, null by default): <em>the list of Java Classes this type is &quot;wrapping&quot; (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)</em>.
+  * <strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.Variable</a></em>.
+  * <strong>internal</strong> (boolean, false by default): <em>whether this type is for internal use only</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the facet</em>.</p>
 
 <h2 id="usage">@usage</h2>
-<p>This replaces @special_cases and @examples, and unifies the doc for operators, statements and others.
-An @usage can also be used for defining a template for a GAML structure, and in that case requires the following to be defined:</p>
-<ul>
-  <li>A name (attribute “name”), optional, but better</li>
-  <li>A description (attribute “value”), optional</li>
-  <li>A menu name (attribute “menu”), optional</li>
-  <li>A hierarchical path within this menu (attribute “path”), optional</li>
-  <li>A pattern (attribute “pattern” or concatenation of the @example present in “examples” that define “isPattern” as true)</li>
-</ul>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (String): <em>a String representing one usage of the keyword. Note that for usages aiming at defining templates, the description is displayed on a tooltip in the editor. The use of the path allows to remove unecessary explanations. For instance, instead of writing : description=”This template illustrates the use of a complex form of the “create” statement, which reads agents from a shape file and uses the tabular data of the file to initialize their attributes”, choose: name=”Create agents from shapefile” menu=STATEMENT; path={“Create”, “Complex forms”} description=”Read agents from a shape file and initialze their attributes”. If no description is provided, GAMA will try to grab it from the context where the template is defined (in the documentation, for example)</em>.</li>
-  <li><strong>menu</strong> (String, “” by default): <em>Define the top-level menu where this template should appear. Users are free to use other names than the provided constants if necessary (i.e. “My templates”). When no menu is defined, GAMA tries to guess it from the context where the template is defined</em>.</li>
-  <li><strong>path</strong> (set of Strings, empty be default): The path indicates where to put this template in the menu. For instance, the following annotation: “ menu = STATEMENT; path = {“Control”, “If”} will put the template in a menu called “If”, within “Control”, within the top menu “Statement”. When no path is defined, GAMA will try to guess it from the context where the template is defined (i.e. keyword of the statement, etc.)</li>
-  <li><strong>name</strong> (String, “” by default): <em>The name of the template should be both concise (as it will appear in a menu) and precise (to remove ambiguities between templates)</em>.</li>
-  <li><strong>examples</strong> (set of <a href="#example">@example</a>, empty by default): <em>An array of String representing some examples or use-cases about how to use this element, related to the particular usage above</em>.</li>
-  <li><strong>pattern</strong> (String, “” by default): <em>Alternatively, the contents of the usage can be descried using a @pattern (rather than an array of <a href="#example">@example</a>). The formatting of this string depends entirely on the user (e.g. including \n and \t for indentation, for instance)</em>.</li>
-</ul>
+<p>This replaces @special_cases and @examples, and unifies the doc for operators, statements and others.
+An @usage can also be used for defining a template for a GAML structure, and in that case requires the following to be defined:
+  * A name (attribute &quot;name&quot;), optional, but better
+  * A description (attribute &quot;value&quot;), optional
+  * A menu name (attribute &quot;menu&quot;), optional
+  * A hierarchical path within this menu (attribute &quot;path&quot;), optional
+  * A pattern (attribute &quot;pattern&quot; or concatenation of the @example present in &quot;examples&quot; that define &quot;isPattern&quot; as true)</p>
+
+<p>This annotation contains:
+  * <strong>value</strong> (String): <em>a String representing one usage of the keyword. Note that for usages aiming at defining templates, the description is displayed on a tooltip in the editor. The use of the path allows to remove unecessary explanations. For instance, instead of writing : description=&quot;This template illustrates the use of a complex form of the &quot;create&quot; statement, which reads agents from a shape file and uses the tabular data of the file to initialize their attributes&quot;, choose: name=&quot;Create agents from shapefile&quot; menu=STATEMENT; path={&quot;Create&quot;, &quot;Complex forms&quot;} description=&quot;Read agents from a shape file and initialze their attributes&quot;. If no description is provided, GAMA will try to grab it from the context where the template is defined (in the documentation, for example)</em>.
+  * <strong>menu</strong> (String, &quot;&quot; by default): <em>Define the top-level menu where this template should appear. Users are free to use other names than the provided constants if necessary (i.e. &quot;My templates&quot;). When no menu is defined, GAMA tries to guess it from the context where the template is defined</em>.
+  * <strong>path</strong> (set of Strings, empty be default): The path indicates where to put this template in the menu. For instance, the following annotation: &quot; menu = STATEMENT; path = {&quot;Control&quot;, &quot;If&quot;} will put the template in a menu called &quot;If&quot;, within &quot;Control&quot;, within the top menu &quot;Statement&quot;. When no path is defined, GAMA will try to guess it from the context where the template is defined (i.e. keyword of the statement, etc.)
+  * <strong>name</strong> (String, &quot;&quot; by default): <em>The name of the template should be both concise (as it will appear in a menu) and precise (to remove ambiguities between templates)</em>.
+  * <strong>examples</strong> (set of <a href="#example">@example</a>, empty by default): <em>An array of String representing some examples or use-cases about how to use this element, related to the particular usage above</em>.
+  * <strong>pattern</strong> (String, &quot;&quot; by default): <em>Alternatively, the contents of the usage can be descried using a @pattern (rather than an array of <a href="#example">@example</a>). The formatting of this string depends entirely on the user (e.g. including \n and \t for indentation, for instance)</em>.</p>
 
 <h2 id="validator">@validator</h2>
-<p>It allows to declare a custom validator for Symbols (statements, var declarations, species ,experiments, etc.). This validator, if declared on subclasses of Symbol, will be called after the standard validation is done. The validator must be subclass of IDescriptionValidator.</p>
-<ul>
-  <li><strong>value</strong> (Class): <em>the validator class</em>.</li>
-</ul>
+
+<p>It allows to declare a custom validator for Symbols (statements, var declarations, species ,experiments, etc.). This validator, if declared on subclasses of Symbol, will be called after the standard validation is done. The validator must be subclass of IDescriptionValidator.
+  * <strong>value</strong> (Class): <em>the validator class</em>.</p>
 
 <h2 id="variable">@variable</h2>
+
 <p>This annotation is used to describe a single variable or field.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.</li>
-  <li><strong>type</strong> (int): <em>The textual representation of the type of the variable (see IType)</em>.</li>
-  <li><strong>of</strong> (int, 0 by default): <em>The textual representation of the content type of the variable (see IType#defaultContentType())</em>.</li>
-  <li><strong>index</strong> (int, 0 by default): <em>The textual representation of the index type of the variable (see IType#defaultKeyType())</em>.</li>
-  <li><strong>constant</strong> (boolean, false by default): <em>returns whether or not this variable should be considered as non modifiable</em>.</li>
-  <li><strong>init</strong> (String, “” by default): <em>the initial value of this variable as a String that will be interpreted by GAML</em>.</li>
-  <li><strong>depend_on</strong> (set of Strings, empty by default): <em>an array of String representing the names of the variables on which this variable depends (so that they are computed before)</em>.</li>
-  <li><strong>internal</strong> (boolean, false by default): <em>return whether this var is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the variable</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.
+  * <strong>type</strong> (int): <em>The textual representation of the type of the variable (see IType)</em>.
+  * <strong>of</strong> (int, 0 by default): <em>The textual representation of the content type of the variable (see IType#defaultContentType())</em>.
+  * <strong>index</strong> (int, 0 by default): <em>The textual representation of the index type of the variable (see IType#defaultKeyType())</em>.
+  * <strong>constant</strong> (boolean, false by default): <em>returns whether or not this variable should be considered as non modifiable</em>.
+  * <strong>init</strong> (String, &quot;&quot; by default): <em>the initial value of this variable as a String that will be interpreted by GAML</em>.
+  * <strong>depend_on</strong> (set of Strings, empty by default): <em>an array of String representing the names of the variables on which this variable depends (so that they are computed before)</em>.
+  * <strong>internal</strong> (boolean, false by default): <em>return whether this var is for internal use only</em>.
+  * <strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the variable</em>.</p>
 
 <h2 id="vars">@vars</h2>
+
 <p>This annotation is used to describe a set of variables or fields.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>value</strong> (set of @var): <em>an Array of var instances, each representing a variable</em>.</li>
-</ul>
+<p>This annotation contains:
+  * <strong>value</strong> (set of @var): <em>an Array of var instances, each representing a variable</em>.</p>
 
     </div>
     </div>

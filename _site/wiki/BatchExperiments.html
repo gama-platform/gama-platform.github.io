@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="defining-batch-experiments">Defining Batch Experiments</h1>
@@ -3614,72 +3614,70 @@ function closeRightMenu() {
 <p>Batch experiments allows to execute numerous successive simulation runs.They are used to explore the parameter space of a model or to optimize a set of model parameters.</p>
 
 <p>A Batch experiment is defined by:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment exp_title type: batch {
+<div class="highlight"><pre><code class="language-" data-lang="">experiment exp_title type: batch {
    [parameter to explore]
    [exploration method]
    [reflex]
    [permanent]
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#the-batch-experiment-facets">The batch experiment facets</a></li>
-  <li><a href="#action-step">Action _step</a></li>
-  <li><a href="#reflexes">Reflexes</a></li>
-  <li><a href="#permanent">Permanent</a></li>
+<li><a href="#the-batch-experiment-facets">The batch experiment facets</a></li>
+<li><a href="#action-step">Action _step</a></li>
+<li><a href="#reflexes">Reflexes</a></li>
+<li><a href="#permanent">Permanent</a></li>
 </ul>
 
 <h2 id="the-batch-experiment-facets">The batch experiment facets</h2>
-<p>Batch experiment have the following three facets:</p>
-<ul>
-  <li>until: (expression) Specifies when to stop each simulations. Its value is a condition on variables defined in the model. The run will stop when the condition is evaluated to true. If omitted, the first simulation run will go forever, preventing any subsequent run to take place (unless a halt command is used in the model itself).</li>
-  <li>repeat: (integer) A parameter configuration corresponds to a set of values assigned to each parameter. The attribute repeat specifies the number of times each configuration will be repeated, meaning that as many simulations will be run with the same parameter values. Different random seeds are given to the pseudo-random number generator. This allows to get some statistical power from the experiments conducted. Default value is 1.</li>
-  <li>keep_seed: (boolean) If true, the same series of random seeds will be used from one parameter configuration to another. Default value is false.</li>
-</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_batch_experiment type: batch repeat: 5 keep_seed: true until: time = 300 {
+<p>Batch experiment have the following three facets:
+* until: (expression) Specifies when to stop each simulations. Its value is a condition on variables defined in the model. The run will stop when the condition is evaluated to true. If omitted, the first simulation run will go forever, preventing any subsequent run to take place (unless a halt command is used in the model itself).
+* repeat: (integer) A parameter configuration corresponds to a set of values assigned to each parameter. The attribute repeat specifies the number of times each configuration will be repeated, meaning that as many simulations will be run with the same parameter values. Different random seeds are given to the pseudo-random number generator. This allows to get some statistical power from the experiments conducted. Default value is 1.
+* keep_seed: (boolean) If true, the same series of random seeds will be used from one parameter configuration to another. Default value is false.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment my_batch_experiment type: batch repeat: 5 keep_seed: true until: time = 300 {
    [parameter to explore]
    [exploration method]
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="action-_step">Action _step</h2>
+
 <p>The_step_action of an experiment is called at the end of a simulation. It is possible to override this action to apply a specific action at the end of each simulation. Note that at the experiment level, you have access to all the species and all the global variables._</p>
 
-<p>For instance, the following experiment runs the simulation 5 times, and, at the end of each simulation, saves the people agents in a shapefile.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment 'Run 5 simulations' type: batch repeat: 5 keep_seed: true until: ( time &gt; 1000 ) {
-	int cpt &lt;- 0;
-	action _step_ {
-		save people type:"shp" to:"people_shape" + cpt + ".shp" with: [is_infected::"INFECTED",is_immune::"IMMUNE"];
-		cpt &lt;- cpt + 1;
-	}
-}
+<p>For instance, the following experiment runs the simulation 5 times, and, at the end of each simulation, saves the people agents in a shapefile.
+```
+experiment &#39;Run 5 simulations&#39; type: batch repeat: 5 keep_seed: true until: ( time &gt; 1000 ) {
+    int cpt &lt;- 0;
+    action <em>step</em> {
+        save people type:&quot;shp&quot; to:&quot;people_shape&quot; + cpt + &quot;.shp&quot; with: [is_infected::&quot;INFECTED&quot;,is_immune::&quot;IMMUNE&quot;];
+        cpt &lt;- cpt + 1;
+    }
+}</p>
 
-A second solution to achieve the same result is to use reflexes (see below).
-</code></pre></div></div>
+<p>A second solution to achieve the same result is to use reflexes (see below).
+```</p>
 
 <h2 id="reflexes">Reflexes</h2>
+
 <p>It is possible to write reflexes inside a batch experiment. This reflex will be executed at the end of each simulation. For instance, the following reflex writes at the end of each simulation the value of the variable <em>food_gathered</em>:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex info_sim {
-	write "Running a new simulation " + simulation + " -&gt; " + food_gathered;
+<div class="highlight"><pre><code class="language-" data-lang="">reflex info_sim {
+    write "Running a new simulation " + simulation + " -&gt; " + food_gathered;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="permanent">Permanent</h2>
+
 <p>The <strong>permanent</strong> section allows to define a output block that will not be re-initialized at the beginning of each simulation but will be filled at the end of each simulation.
-For instance, this <strong>permanent</strong> section will allows to display for each simulation the end value of the <em>food_gathered</em> variable.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permanent {
-	display Ants background: rgb('white') refresh:every(1) {
-		chart "Food Gathered" type: series {
-			data "Food" value: food_gathered;
-		}
-	}
+For instance, this <strong>permanent</strong> section will allows to display for each simulation the end value of the <em>food_gathered</em> variable.
+<code>
+permanent {
+    display Ants background: rgb(&#39;white&#39;) refresh:every(1) {
+        chart &quot;Food Gathered&quot; type: series {
+            data &quot;Food&quot; value: food_gathered;
+        }
+    }
 }
-</code></pre></div></div>
+</code></p>
 
     </div>
     </div>

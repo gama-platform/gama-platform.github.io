@@ -3606,236 +3606,234 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="corridor-multi-level-architecture">Corridor Multi-Level Architecture</h1>
 
 <p>_Author : _</p>
 
-<p>This model shows how to use multi-level architecture. A corridor can capture pedestrians going from left to right side if they are inside the corridor. This will result in changing their species from pedestrian to captured_pedestrian which will not be displayed. Once they pass enought time to consider they reach the exit of the corridor, they will be released by the corridor agent as pedestrians, letting them been displayed and going to their target.</p>
+<p>This model shows how to use multi-level architecture. A corridor can capture pedestrians going from left to right side if they are inside the corridor. This will result in changing their species from pedestrian to captured_pedestrian which will not be displayed. Once they pass enought time to consider they reach the exit of the corridor, they will be released by the corridor agent as pedestrians, letting them been displayed and going to their target. </p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">corridor</span>
 
-<span class="n">global</span> <span class="p">{</span>	
-	<span class="p">//</span><span class="n">Capture</span> <span class="n">pedestrians</span> <span class="n">parameter</span> <span class="k">to</span> <span class="n">define</span> <span class="k">if</span> <span class="n">wall</span> <span class="n">will</span> <span class="n">capture</span> <span class="n">pedestrians</span>
-	<span class="n">bool</span> <span class="n">capture_pedestrians</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Capture pedestrians?'</span><span class="p">;</span>
-	
-	<span class="n">int</span> <span class="n">environment_size</span> <span class="n">init</span><span class="p">:</span> <span class="m">2000</span><span class="p">;</span>
-	<span class="n">point</span> <span class="n">environment_bounds</span> <span class="n">init</span><span class="p">:</span> <span class="p">{</span><span class="n">environment_size</span><span class="p">,</span> <span class="n">environment_size</span><span class="p">}</span> <span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_bounds</span><span class="p">)</span> <span class="p">;</span>		
-	
-	<span class="p">//</span><span class="n">Pedestrians</span> <span class="k">parameters</span>
-	<span class="n">float</span> <span class="n">pedestrian_size</span> <span class="n">init</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">pedestrian_shape</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
-	<span class="n">rgb</span> <span class="n">pedestrian_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span> 
-	<span class="n">float</span> <span class="n">pedestrian_speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-	
-	
-	<span class="p">//</span><span class="n">Wall</span> <span class="k">parameters</span>
-	<span class="n">rgb</span> <span class="n">corridor_wall_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">corridor_wall_width</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">);</span>
-	<span class="n">int</span> <span class="n">corridor_wall_height</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">corridor_wall_0_shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span> <span class="p">{</span><span class="n">corridor_wall_width</span><span class="p">,</span> <span class="n">corridor_wall_height</span><span class="p">}</span> <span class="p">)</span> <span class="n">at_location</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">corridor_wall_height</span> <span class="p">/</span> <span class="m">2</span><span class="p">};</span>
-	<span class="n">geometry</span> <span class="n">corridor_wall_1_shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span> <span class="p">{</span><span class="n">corridor_wall_width</span><span class="p">,</span> <span class="n">corridor_wall_height</span><span class="p">}</span> <span class="p">)</span> <span class="n">at_location</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_size</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_wall_height</span> <span class="p">/</span> <span class="m">2</span><span class="p">)};</span>
-	
-	<span class="p">//</span><span class="n">Corridor</span> <span class="k">parameters</span>
-	<span class="n">rgb</span> <span class="n">corridor_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">corridor_width</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">int</span> <span class="n">corridor_height</span> <span class="p">&lt;-</span> <span class="n">environment_size</span> <span class="p">;</span>
-	<span class="n">point</span> <span class="n">corridor_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">}</span> <span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">corridor_shape</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_wall_0_shape</span> <span class="p">+</span> <span class="n">corridor_wall_1_shape</span><span class="p">);</span>
-	<span class="n">int</span> <span class="n">corridor_left_bounds</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">corridor_location</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)))</span> <span class="p">;</span>
-	<span class="n">int</span> <span class="n">corridor_right_bounds</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">corridor_location</span><span class="p">.</span><span class="n">x</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)))</span> <span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">Generation</span> <span class="k">of</span> <span class="n">new</span> <span class="n">pedestrians</span> <span class="k">parameters</span>
-	<span class="n">int</span> <span class="n">new_pedestrian_rate</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">new_pedestian_generate_frequency</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">new_pedestrian_y_distance</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="n">new_pedestrian_rate</span><span class="p">);</span>
-	
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">pedestrian</span><span class="p">&gt;</span> <span class="n">pedestrians</span>  <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">pedestrian</span><span class="p">);</span> 
-	<span class="n">float</span> <span class="n">start_time</span> <span class="p">&lt;-</span> <span class="n">machine_time</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">corridor</span><span class="p">;</span>
-		 
-		<span class="nb">create</span> <span class="n">corridor_wall</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">corridor_walls</span><span class="p">;</span> 
-		<span class="p">(</span><span class="n">corridor_walls</span> <span class="n">at</span> <span class="m">0</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_wall_0_shape</span><span class="p">;</span>
-		<span class="p">(</span><span class="n">corridor_walls</span> <span class="n">at</span> <span class="m">1</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_wall_1_shape</span><span class="p">;</span>
-		
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">generate</span> <span class="n">new</span> <span class="n">pedestrians</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">generation</span> <span class="n">parameter</span>
-	<span class="n">reflex</span> <span class="n">generate_pedestrians</span> <span class="n">when</span><span class="p">:</span> <span class="p">((</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">new_pedestian_generate_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">pedestrian</span> <span class="n">number</span><span class="p">:</span> <span class="n">new_pedestrian_rate</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_pedestrians</span><span class="p">;</span> 
-		
-		<span class="n">int</span> <span class="n">loop_times</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">p</span> <span class="n">over</span><span class="p">:</span> <span class="n">new_pedestrians</span> <span class="p">{</span>
-			<span class="n">int</span> <span class="n">y_coor</span> <span class="p">&lt;-</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">new_pedestrian_y_distance</span><span class="p">);</span>
-			<span class="n">ask</span> <span class="n">p</span> <span class="k">as</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="p">{</span>
-				<span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="n">loop_times</span> <span class="p">*</span> <span class="n">new_pedestrian_y_distance</span><span class="p">)</span> <span class="p">+</span> <span class="n">y_coor</span> <span class="p">};</span>
-			<span class="p">}</span>
-			<span class="n">loop_times</span> <span class="p">&lt;-</span> <span class="n">loop_times</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+<span class="n">global</span> <span class="p">{</span>    
+    <span class="p">//</span><span class="n">Capture</span> <span class="n">pedestrians</span> <span class="n">parameter</span> <span class="k">to</span> <span class="n">define</span> <span class="k">if</span> <span class="n">wall</span> <span class="n">will</span> <span class="n">capture</span> <span class="n">pedestrians</span>
+    <span class="n">bool</span> <span class="n">capture_pedestrians</span> <span class="p">&lt;-</span> <span class="nb">false</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Capture pedestrians?'</span><span class="p">;</span>
+
+    <span class="n">int</span> <span class="n">environment_size</span> <span class="n">init</span><span class="p">:</span> <span class="m">2000</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">environment_bounds</span> <span class="n">init</span><span class="p">:</span> <span class="p">{</span><span class="n">environment_size</span><span class="p">,</span> <span class="n">environment_size</span><span class="p">}</span> <span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_bounds</span><span class="p">)</span> <span class="p">;</span>       
+
+    <span class="p">//</span><span class="n">Pedestrians</span> <span class="k">parameters</span>
+    <span class="n">float</span> <span class="n">pedestrian_size</span> <span class="n">init</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">pedestrian_shape</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
+    <span class="n">rgb</span> <span class="n">pedestrian_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span> 
+    <span class="n">float</span> <span class="n">pedestrian_speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+
+
+    <span class="p">//</span><span class="n">Wall</span> <span class="k">parameters</span>
+    <span class="n">rgb</span> <span class="n">corridor_wall_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">corridor_wall_width</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">);</span>
+    <span class="n">int</span> <span class="n">corridor_wall_height</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">corridor_wall_0_shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span> <span class="p">{</span><span class="n">corridor_wall_width</span><span class="p">,</span> <span class="n">corridor_wall_height</span><span class="p">}</span> <span class="p">)</span> <span class="n">at_location</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">corridor_wall_height</span> <span class="p">/</span> <span class="m">2</span><span class="p">};</span>
+    <span class="n">geometry</span> <span class="n">corridor_wall_1_shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span> <span class="p">{</span><span class="n">corridor_wall_width</span><span class="p">,</span> <span class="n">corridor_wall_height</span><span class="p">}</span> <span class="p">)</span> <span class="n">at_location</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_size</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_wall_height</span> <span class="p">/</span> <span class="m">2</span><span class="p">)};</span>
+
+    <span class="p">//</span><span class="n">Corridor</span> <span class="k">parameters</span>
+    <span class="n">rgb</span> <span class="n">corridor_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">corridor_width</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">int</span> <span class="n">corridor_height</span> <span class="p">&lt;-</span> <span class="n">environment_size</span> <span class="p">;</span>
+    <span class="n">point</span> <span class="n">corridor_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">}</span> <span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">corridor_shape</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_wall_0_shape</span> <span class="p">+</span> <span class="n">corridor_wall_1_shape</span><span class="p">);</span>
+    <span class="n">int</span> <span class="n">corridor_left_bounds</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">corridor_location</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)))</span> <span class="p">;</span>
+    <span class="n">int</span> <span class="n">corridor_right_bounds</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">corridor_location</span><span class="p">.</span><span class="n">x</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)))</span> <span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Generation</span> <span class="k">of</span> <span class="n">new</span> <span class="n">pedestrians</span> <span class="k">parameters</span>
+    <span class="n">int</span> <span class="n">new_pedestrian_rate</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">new_pedestian_generate_frequency</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">new_pedestrian_y_distance</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">environment_size</span> <span class="p">/</span> <span class="n">new_pedestrian_rate</span><span class="p">);</span>
+
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">pedestrian</span><span class="p">&gt;</span> <span class="n">pedestrians</span>  <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">pedestrian</span><span class="p">);</span> 
+    <span class="n">float</span> <span class="n">start_time</span> <span class="p">&lt;-</span> <span class="n">machine_time</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">corridor</span><span class="p">;</span>
+
+        <span class="nb">create</span> <span class="n">corridor_wall</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">corridor_walls</span><span class="p">;</span> 
+        <span class="p">(</span><span class="n">corridor_walls</span> <span class="n">at</span> <span class="m">0</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_wall_0_shape</span><span class="p">;</span>
+        <span class="p">(</span><span class="n">corridor_walls</span> <span class="n">at</span> <span class="m">1</span><span class="p">).</span><span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_wall_1_shape</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">generate</span> <span class="n">new</span> <span class="n">pedestrians</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">generation</span> <span class="n">parameter</span>
+    <span class="n">reflex</span> <span class="n">generate_pedestrians</span> <span class="n">when</span><span class="p">:</span> <span class="p">((</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">new_pedestian_generate_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">pedestrian</span> <span class="n">number</span><span class="p">:</span> <span class="n">new_pedestrian_rate</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_pedestrians</span><span class="p">;</span> 
+
+        <span class="n">int</span> <span class="n">loop_times</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">loop</span> <span class="n">p</span> <span class="n">over</span><span class="p">:</span> <span class="n">new_pedestrians</span> <span class="p">{</span>
+            <span class="n">int</span> <span class="n">y_coor</span> <span class="p">&lt;-</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">new_pedestrian_y_distance</span><span class="p">);</span>
+            <span class="n">ask</span> <span class="n">p</span> <span class="k">as</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="p">{</span>
+                <span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="n">loop_times</span> <span class="p">*</span> <span class="n">new_pedestrian_y_distance</span><span class="p">)</span> <span class="p">+</span> <span class="n">y_coor</span> <span class="p">};</span>
+            <span class="p">}</span>
+            <span class="n">loop_times</span> <span class="p">&lt;-</span> <span class="n">loop_times</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
 <span class="p">}</span> 
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">pedestrian</span> <span class="n">which</span> <span class="n">will</span> <span class="n">move</span> <span class="k">from</span> <span class="n">one</span> <span class="n">side</span> <span class="k">of</span> <span class="n">the</span> <span class="n">experiments</span> <span class="k">to</span> <span class="n">another</span> <span class="k">and</span> <span class="n">destroy</span> <span class="n">itself</span> <span class="n">once</span> <span class="n">the</span> <span class="n">other</span> <span class="n">side</span> <span class="n">is</span> <span class="n">reached</span>
 <span class="n">species</span> <span class="n">pedestrian</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">topology</span><span class="p">:</span> <span class="p">(</span> <span class="n">topology</span> <span class="p">(</span><span class="n">shape</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_wall_0_shape</span> <span class="p">+</span> <span class="n">corridor_wall_1_shape</span><span class="p">))</span> <span class="p">){</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
-	<span class="n">point</span> <span class="n">initial_location</span><span class="p">;</span>
-	<span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">heading</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-	
-	<span class="n">action</span> <span class="n">init_location</span> <span class="p">(</span><span class="n">point</span> <span class="n">loc</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
-		<span class="n">initial_location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
-		<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_size</span><span class="p">,</span> <span class="n">loc</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target_location</span>
-	<span class="n">reflex</span> <span class="n">move_left</span> <span class="p">{</span>
-		<span class="n">int</span> <span class="n">update_heading</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
-		
-		<span class="n">point</span> <span class="n">current_location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-		
-		<span class="k">do</span> <span class="n">move</span> <span class="n">heading</span><span class="p">:</span> <span class="n">update_heading</span> <span class="p">;</span>
-		
-		<span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">doesn</span><span class="s1">'t move, in this case we take care if it is bcause of the walls 
-		if (current_location = location) {
-			if ( (location.y &lt;= corridor_wall_height) or (location.y &gt;= environment_size - corridor_wall_height) ) {
-				do move heading: self towards {(environment_size / 2) - (corridor_width / 2), environment_size / 2}; 
-			} else {
-				do move heading: self towards {environment_size / 2, environment_size / 2}; 
-			}
-		}
-		
-		if( (target_location.x - location.x) &lt;= speed ) { 
-			do die;
-		}
-	}
-	 
-	aspect my_aspect {
-		draw shape color: pedestrian_color;
-	}
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">initial_location</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">heading</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+
+    <span class="n">action</span> <span class="n">init_location</span> <span class="p">(</span><span class="n">point</span> <span class="n">loc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
+        <span class="n">initial_location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
+        <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_size</span><span class="p">,</span> <span class="n">loc</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+        <span class="n">heading</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target_location</span>
+    <span class="n">reflex</span> <span class="n">move_left</span> <span class="p">{</span>
+        <span class="n">int</span> <span class="n">update_heading</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
+
+        <span class="n">point</span> <span class="n">current_location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+
+        <span class="k">do</span> <span class="n">move</span> <span class="n">heading</span><span class="p">:</span> <span class="n">update_heading</span> <span class="p">;</span>
+
+        <span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">doesn</span><span class="s1">'t move, in this case we take care if it is bcause of the walls 
+        if (current_location = location) {
+            if ( (location.y &lt;= corridor_wall_height) or (location.y &gt;= environment_size - corridor_wall_height) ) {
+                do move heading: self towards {(environment_size / 2) - (corridor_width / 2), environment_size / 2}; 
+            } else {
+                do move heading: self towards {environment_size / 2, environment_size / 2}; 
+            }
+        }
+
+        if( (target_location.x - location.x) &lt;= speed ) { 
+            do die;
+        }
+    }
+
+    aspect my_aspect {
+        draw shape color: pedestrian_color;
+    }
 }
 
 //Species which represents the corridor
 species corridor  {
-	geometry shape &lt;- corridor_shape;
-	
-	//Subspecies for the multi-level architectures : captured pedestrians in this case
-	species captured_pedestrian parent: pedestrian schedules: [] {
-		float released_time;
-		
-		aspect my_aspect { }
-	}
-	
-	init {
-		create corridor_info_drawer number: 1 with: [target :: self];
-	}
-	
-	//Reflex to capture pedestrians if the parameter is checked
-	reflex aggregate when: capture_pedestrians {
-		//List to get all the pedestrians inside the corridor
-		list&lt;pedestrian&gt; tobe_captured_pedestrians &lt;- (pedestrian overlapping shape);
-		
-		//If we have pedestrians inside the corridor, we capture them
-		if !(empty (tobe_captured_pedestrians)) {
-			capture tobe_captured_pedestrians as: captured_pedestrian returns: cps;
-			
-			//We update the time during which a pedestrian is captured according to the time the pedestrian
-			// should need to pass through the corridor if it wasn'</span><span class="n">t</span> <span class="n">captured</span>
-			<span class="n">loop</span> <span class="n">cp</span> <span class="n">over</span><span class="p">:</span> <span class="n">cps</span> <span class="p">{</span>
-				<span class="n">cp</span><span class="p">.</span><span class="n">released_time</span> <span class="p">&lt;-</span> <span class="n">time</span> <span class="p">+</span> <span class="p">(</span> <span class="p">(</span> <span class="n">corridor_width</span> <span class="p">-</span> <span class="p">(</span> <span class="p">(((</span><span class="n">cp</span><span class="p">).</span><span class="n">location</span><span class="p">).</span><span class="n">x</span><span class="p">)</span> <span class="p">-</span> <span class="p">((</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">))</span> <span class="p">)</span> <span class="p">)</span> <span class="p">/</span> <span class="n">pedestrian_speed</span><span class="p">)</span> <span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">release</span> <span class="n">pedestrians</span> <span class="n">which</span> <span class="n">have</span> <span class="n">already</span> <span class="n">passed</span> <span class="n">enough</span> <span class="n">time</span> <span class="k">in</span> <span class="n">the</span> <span class="n">corridor</span>
-	<span class="p">//</span> <span class="n">which</span> <span class="n">means</span> <span class="k">if</span> <span class="n">they</span> <span class="n">weren</span><span class="s1">'t captured by the corridor, they would have finish passing through it
-	reflex disaggregate  {
-		list tobe_released_pedestrians &lt;- members where (time &gt;= (captured_pedestrian (each)).released_time);
-		if !(empty (tobe_released_pedestrians)) {
-			release tobe_released_pedestrians as: pedestrian in: world {
-				location &lt;- {((environment_size / 2) + (corridor_width / 2)) + (2 * pedestrian_size), (location).y};
-			}
-		}
-	}
-	
-	aspect my_aspect {
-		draw shape color: corridor_color;
-	}
+    geometry shape &lt;- corridor_shape;
+
+    //Subspecies for the multi-level architectures : captured pedestrians in this case
+    species captured_pedestrian parent: pedestrian schedules: [] {
+        float released_time;
+
+        aspect my_aspect { }
+    }
+
+    init {
+        create corridor_info_drawer number: 1 with: [target :: self];
+    }
+
+    //Reflex to capture pedestrians if the parameter is checked
+    reflex aggregate when: capture_pedestrians {
+        //List to get all the pedestrians inside the corridor
+        list&lt;pedestrian&gt; tobe_captured_pedestrians &lt;- (pedestrian overlapping shape);
+
+        //If we have pedestrians inside the corridor, we capture them
+        if !(empty (tobe_captured_pedestrians)) {
+            capture tobe_captured_pedestrians as: captured_pedestrian returns: cps;
+
+            //We update the time during which a pedestrian is captured according to the time the pedestrian
+            // should need to pass through the corridor if it wasn'</span><span class="n">t</span> <span class="n">captured</span>
+            <span class="n">loop</span> <span class="n">cp</span> <span class="n">over</span><span class="p">:</span> <span class="n">cps</span> <span class="p">{</span>
+                <span class="n">cp</span><span class="p">.</span><span class="n">released_time</span> <span class="p">&lt;-</span> <span class="n">time</span> <span class="p">+</span> <span class="p">(</span> <span class="p">(</span> <span class="n">corridor_width</span> <span class="p">-</span> <span class="p">(</span> <span class="p">(((</span><span class="n">cp</span><span class="p">).</span><span class="n">location</span><span class="p">).</span><span class="n">x</span><span class="p">)</span> <span class="p">-</span> <span class="p">((</span><span class="n">environment_size</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">))</span> <span class="p">)</span> <span class="p">)</span> <span class="p">/</span> <span class="n">pedestrian_speed</span><span class="p">)</span> <span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">release</span> <span class="n">pedestrians</span> <span class="n">which</span> <span class="n">have</span> <span class="n">already</span> <span class="n">passed</span> <span class="n">enough</span> <span class="n">time</span> <span class="k">in</span> <span class="n">the</span> <span class="n">corridor</span>
+    <span class="p">//</span> <span class="n">which</span> <span class="n">means</span> <span class="k">if</span> <span class="n">they</span> <span class="n">weren</span><span class="s1">'t captured by the corridor, they would have finish passing through it
+    reflex disaggregate  {
+        list tobe_released_pedestrians &lt;- members where (time &gt;= (captured_pedestrian (each)).released_time);
+        if !(empty (tobe_released_pedestrians)) {
+            release tobe_released_pedestrians as: pedestrian in: world {
+                location &lt;- {((environment_size / 2) + (corridor_width / 2)) + (2 * pedestrian_size), (location).y};
+            }
+        }
+    }
+
+    aspect my_aspect {
+        draw shape color: corridor_color;
+    }
 }
 
 species corridor_wall {
-	init {
-		create corridor_wall_info_drawer number: 1 with: [target :: self];
-	}
-	
-	aspect  my_aspect {
-		draw shape color: corridor_wall_color;
-	}
+    init {
+        create corridor_wall_info_drawer number: 1 with: [target :: self];
+    }
+
+    aspect  my_aspect {
+        draw shape color: corridor_wall_color;
+    }
 }
 
 species corridor_info_drawer {
-	corridor target;
-	
-	aspect my_aspect {
-		draw  '</span><span class="n">Captured</span> <span class="n">pedestrians</span><span class="p">:</span> <span class="s1">' + (string (length (target.members))) color: rgb ('</span><span class="n">blue</span><span class="s1">') size: 12°px at: {(target.location).x - 480, (target.location).y};
-		draw  '</span><span class="n">Pedestrians</span><span class="p">:</span> <span class="s1">' + (string (length (list (pedestrian)))) color: rgb ('</span><span class="n">blue</span><span class="s1">') size: 12°px at: {(target.location).x - 135, (target.location).y + 100};
-	}
+    corridor target;
+
+    aspect my_aspect {
+        draw  '</span><span class="n">Captured</span> <span class="n">pedestrians</span><span class="p">:</span> <span class="s1">' + (string (length (target.members))) color: rgb ('</span><span class="n">blue</span><span class="s1">') size: 12°px at: {(target.location).x - 480, (target.location).y};
+        draw  '</span><span class="n">Pedestrians</span><span class="p">:</span> <span class="s1">' + (string (length (list (pedestrian)))) color: rgb ('</span><span class="n">blue</span><span class="s1">') size: 12°px at: {(target.location).x - 135, (target.location).y + 100};
+    }
 }
 
 species corridor_wall_info_drawer {
-	corridor_wall target;
-	
-	init {
-		location &lt;- target.location;
-	}
-	
-	aspect my_aspect { 
-		draw '</span><span class="n">WALL</span><span class="s1">' color: rgb ('</span><span class="n">green</span><span class="s1">') size: 15°px at: {(location).x - 40, (location).y};
-	}
+    corridor_wall target;
+
+    init {
+        location &lt;- target.location;
+    }
+
+    aspect my_aspect { 
+        draw '</span><span class="n">WALL</span><span class="s1">' color: rgb ('</span><span class="n">green</span><span class="s1">') size: 15°px at: {(location).x - 40, (location).y};
+    }
 }
 
 
 experiment corridor_expr type: gui{
-	output {
-		display defaut_display {
-			species pedestrian;
-			
-			species corridor aspect: my_aspect transparency: 0.8 {
-				species captured_pedestrian;
-			}
-			
-			species corridor_wall aspect: my_aspect transparency: 0.7;
-			species corridor_info_drawer aspect: my_aspect;
-			species corridor_wall_info_drawer aspect: my_aspect;
-		}
+    output {
+        display defaut_display {
+            species pedestrian;
 
-		display Execution_Time refresh: every(25) {
-			chart '</span><span class="n">Simulation</span> <span class="n">step</span> <span class="n">length</span><span class="s1">' type: series background: #white {
-				data '</span><span class="n">simulation_step_length_in_mili_second</span><span class="s1">' value: machine_time - start_time color: (rgb ('</span><span class="n">green</span><span class="s1">'));
-			}
-		}
-	 	
-		display Captured_Pedestrians refresh: every(25){
-			chart '</span><span class="n">Captured</span> <span class="n">Pedestrian</span><span class="s1">' type: series background: #white {
-				data '</span><span class="n">captured_pedestrians</span><span class="s1">' value: length ( ((list (corridor)) at 0).members ) color: rgb ('</span><span class="n">blue</span><span class="s1">');
-				data '</span><span class="n">pedestrians</span><span class="s1">' value: length (list (pedestrian)) color: rgb ('</span><span class="n">white</span><span class="s1">');  
-			}
-		}
-	}
+            species corridor aspect: my_aspect transparency: 0.8 {
+                species captured_pedestrian;
+            }
+
+            species corridor_wall aspect: my_aspect transparency: 0.7;
+            species corridor_info_drawer aspect: my_aspect;
+            species corridor_wall_info_drawer aspect: my_aspect;
+        }
+
+        display Execution_Time refresh: every(25) {
+            chart '</span><span class="n">Simulation</span> <span class="n">step</span> <span class="n">length</span><span class="s1">' type: series background: #white {
+                data '</span><span class="n">simulation_step_length_in_mili_second</span><span class="s1">' value: machine_time - start_time color: (rgb ('</span><span class="n">green</span><span class="s1">'));
+            }
+        }
+
+        display Captured_Pedestrians refresh: every(25){
+            chart '</span><span class="n">Captured</span> <span class="n">Pedestrian</span><span class="s1">' type: series background: #white {
+                data '</span><span class="n">captured_pedestrians</span><span class="s1">' value: length ( ((list (corridor)) at 0).members ) color: rgb ('</span><span class="n">blue</span><span class="s1">');
+                data '</span><span class="n">pedestrians</span><span class="s1">' value: length (list (pedestrian)) color: rgb ('</span><span class="n">white</span><span class="s1">');  
+            }
+        }
+    }
 }
-</span></code></pre></div></div>
-
+</span></code></pre></div>
     </div>
     </div>
     </div>
