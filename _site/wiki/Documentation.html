@@ -3606,39 +3606,39 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#requirements">Requirements</a>
-    <ul>
-      <li><a href="#configuration">Configuration</a></li>
-      <li><a href="#generated-files-location">Generated files location</a></li>
-    </ul>
-  </li>
-  <li><a href="#workflow-to-generate-wiki-files">Workflow to generate wiki files</a></li>
-  <li><a href="#workflow-to-generate-pdf-files">Workflow to generate PDF files</a></li>
-  <li><a href="#workflow-to-generate-unit-tests">Workflow to generate unit tests</a></li>
-  <li><a href="#main-internal-steps">Main internal steps</a>
-    <ul>
-      <li><a href="#generate-wiki-files">Generate wiki files</a></li>
-      <li><a href="#generate-pdf-files">Generate pdf files</a></li>
-      <li><a href="#generate-unit-test-files">Generate unit test files</a></li>
-    </ul>
-  </li>
-  <li><a href="#how-to-document">How to document</a>
-    <ul>
-      <li><a href="#the-doc-annotation">The @doc annotation</a></li>
-      <li><a href="#the-example-annotation">the @example annotation</a></li>
-      <li><a href="#how-to-document-operators">How to document operators</a></li>
-      <li><a href="#how-to-document-statements">How to document statements</a></li>
-      <li><a href="#how-to-document-skills">How to document skills</a></li>
-    </ul>
-  </li>
-  <li><a href="#how-to-change-the-processor">How to change the processor</a></li>
-  <li><a href="#general-workflow-of-file-generation">General workflow of file generation</a></li>
+<li><a href="#requirements">Requirements</a>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#generated-files-location">Generated files location</a></li>
+</ul></li>
+<li><a href="#workflow-to-generate-wiki-files">Workflow to generate wiki files</a></li>
+<li><a href="#workflow-to-generate-pdf-files">Workflow to generate PDF files</a></li>
+<li><a href="#workflow-to-generate-unit-tests">Workflow to generate unit tests</a></li>
+<li><a href="#main-internal-steps">Main internal steps</a>
+
+<ul>
+<li><a href="#generate-wiki-files">Generate wiki files</a></li>
+<li><a href="#generate-pdf-files">Generate pdf files</a></li>
+<li><a href="#generate-unit-test-files">Generate unit test files</a></li>
+</ul></li>
+<li><a href="#how-to-document">How to document</a>
+
+<ul>
+<li><a href="#the-doc-annotation">The @doc annotation</a></li>
+<li><a href="#the-example-annotation">the @example annotation</a></li>
+<li><a href="#how-to-document-operators">How to document operators</a></li>
+<li><a href="#how-to-document-statements">How to document statements</a></li>
+<li><a href="#how-to-document-skills">How to document skills</a></li>
+</ul></li>
+<li><a href="#how-to-change-the-processor">How to change the processor</a></li>
+<li><a href="#general-workflow-of-file-generation">General workflow of file generation</a></li>
 </ul>
 
 <h1 id="documentation">Documentation</h1>
@@ -3647,125 +3647,99 @@ function closeRightMenu() {
 
 <p>In the wiki files, some are hand-written by the GAMA community and some others are generated automatically from the Java code and the associated java annotations.</p>
 
-<p>The section summarizes:</p>
-<ul>
-  <li>how to generate this wiki files,</li>
-  <li>how to generate the PDF documentation,</li>
-  <li>how to generate the unit tests from the java annotations,</li>
-  <li>how to add documentation in the java code.</li>
-</ul>
+<p>The section summarizes:
+* how to generate this wiki files,
+* how to generate the PDF documentation,
+* how to generate the unit tests from the java annotations, 
+* how to add documentation in the java code.</p>
 
 <h2 id="requirements">Requirements</h2>
 
-<p>To generate automatically the documentation, the GAMA Git version is required. See <a href="InstallingGitVersion">Install Git version</a> for more details.</p>
+<p>To generate automatically the documentation, the GAMA Git version is required. See <a href="InstallingGitVersion">Install Git version</a> for more details. </p>
 
-<p>Among all the GAMA plugins, the following ones are related to documentation generation:</p>
-<ul>
-  <li><code class="highlighter-rouge">msi.gama.processor</code>: the java preprocessor is called during java compilation of the various plugins and extract information from the java code and the java annotations. For each plugin it produces the <code class="highlighter-rouge">docGAMA.xml</code> file in the <code class="highlighter-rouge">gaml</code> directory.</li>
-  <li><code class="highlighter-rouge">msi.gama.documentation</code>: it contains all the java classes needed to gather all the <code class="highlighter-rouge">docGAMA.xml</code> files and generate wiki, pdf or unit test files.</li>
-</ul>
+<p>Among all the GAMA plugins, the following ones are related to documentation generation:
+* <code>msi.gama.processor</code>: the java preprocessor is called during java compilation of the various plugins and extract information from the java code and the java annotations. For each plugin it produces the <code>docGAMA.xml</code> file in the <code>gaml</code> directory.
+* <code>msi.gama.documentation</code>: it contains all the java classes needed to gather all the <code>docGAMA.xml</code> files and generate wiki, pdf or unit test files.</p>
 
-<p>In addition, the folder containing the wiki files is required. In the GitHub architecture, the wiki documentation is stored in a separate Git repository <code class="highlighter-rouge">https://github.com/gama-platform/gama.wiki.git</code>. A local clone of this repository should thus be created:</p>
-<ol>
-  <li>Open the Git perspective:
-    <ul>
-      <li>Windows &gt; Open Perspective &gt; Other…</li>
-      <li>Choose <code class="highlighter-rouge">Git</code></li>
-    </ul>
-  </li>
-  <li>Click on “Clone a Git repository”
-    <ul>
-      <li>In <strong>Source Git repository</strong> window:</li>
-    </ul>
-    <ul>
-      <li>Fill in the URI label with: <code class="highlighter-rouge">https://github.com/gama-platform/gama.wiki.git</code></li>
-      <li>Other fields will be automatically filled in.
-      * In <strong>Branch Selection</strong> windows,</li>
-      <li>check the master branch</li>
-      <li>Next
-      * In <strong>Local Destination</strong> windows,</li>
-      <li>Choose the directory in which the gama Git repository has been cloned</li>
-      <li>Everything else should be unchecked</li>
-      <li>Finish</li>
-    </ul>
-  </li>
-  <li>In the <strong>Git perspective</strong> and the <strong>Git Repositories</strong> view, Right-Click on “Working Directory” inside the <code class="highlighter-rouge">gama.wiki</code> repository, and choose “Import projects”
-    <ul>
-      <li>In the <strong>Select a wizard to use for importing projects</strong> window:</li>
-    </ul>
-    <ul>
-      <li>“Import existing projects” should be checked</li>
-      <li>“Working Directory” should be selected
-      * In <strong>Import Projects</strong> window:</li>
-      <li><strong>Uncheck « Search for nested project »</strong></li>
-      <li>Check the project <code class="highlighter-rouge">gama.wiki</code></li>
-      <li>Finish</li>
-    </ul>
-  </li>
-  <li>Go back to the Java perspective: a <code class="highlighter-rouge">gama.wiki</code> plugin should have been added.</li>
-</ol>
+<p>In addition, the folder containing the wiki files is required. In the GitHub architecture, the wiki documentation is stored in a separate Git repository <code>https://github.com/gama-platform/gama.wiki.git</code>. A local clone of this repository should thus be created:
+1. Open the Git perspective:
+  * Windows &gt; Open Perspective &gt; Other...
+  * Choose <code>Git</code>
+2. Click on &quot;Clone a Git repository&quot;
+  * In <strong>Source Git repository</strong> window: 
+    * Fill in the URI label with: <code>https://github.com/gama-platform/gama.wiki.git</code>
+    * Other fields will be automatically filled in.
+  * In <strong>Branch Selection</strong> windows, 
+    * check the master branch 
+    * Next
+  * In <strong>Local Destination</strong> windows,
+    * Choose the directory in which the gama Git repository has been cloned
+    * Everything else should be unchecked 
+    * Finish
+3. In the <strong>Git perspective</strong> and the <strong>Git Repositories</strong> view, Right-Click on &quot;Working Directory&quot; inside the <code>gama.wiki</code> repository, and choose &quot;Import projects&quot;
+  * In the <strong>Select a wizard to use for importing projects</strong> window:
+    * &quot;Import existing projects&quot; should be checked
+    * &quot;Working Directory&quot; should be selected
+  * In <strong>Import Projects</strong> window:
+    * <strong>Uncheck « Search for nested project »</strong>
+    * Check the project <code>gama.wiki</code>
+    * Finish
+2. Go back to the Java perspective: a <code>gama.wiki</code> plugin should have been added.</p>
 
 <p>In order to generate the PDF file from the wiki files, we use an external application named <a href="http://pandoc.org/">Pandoc</a>.
-Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instructions to install it</a>. Specify the path to the pandoc folder in the file “Constants.java”, in the static constant <code class="highlighter-rouge">CMD_PANDOC</code> : “<em>yourAbsolutePathToPandoc/pandoc</em>”.</p>
+Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instructions to install it</a>. Specify the path to the pandoc folder in the file &quot;Constants.java&quot;, in the static constant <code>CMD_PANDOC</code> : &quot;<em>yourAbsolutePathToPandoc/pandoc</em>&quot;.</p>
 
-<p>Note that Latex should be installed in order to be able to generate PDF files. Make sure you have already installed <a href="http://miktex.org/download">Miktex</a> (for OS Windows and Mac). Specify the path to the miktex folder in the file “Constants.java”, in the static constant <code class="highlighter-rouge">CMD_PDFLATEX</code> : “<em>yourAbsolutePathToMiktex/pdflatex</em>”.</p>
+<p>Note that Latex should be installed in order to be able to generate PDF files. Make sure you have already installed <a href="http://miktex.org/download">Miktex</a> (for OS Windows and Mac). Specify the path to the miktex folder in the file &quot;Constants.java&quot;, in the static constant <code>CMD_PDFLATEX</code> : &quot;<em>yourAbsolutePathToMiktex/pdflatex</em>&quot;.</p>
 
 <h3 id="configuration">Configuration</h3>
 
-<p>The location where the files are generated (and other constants used by the generator) are defined in the file <code class="highlighter-rouge">msi.gama.documentation/src/msi/gama/doc/util/Constants.java</code>.</p>
+<p>The location where the files are generated (and other constants used by the generator) are defined in the file <code>msi.gama.documentation/src/msi/gama/doc/util/Constants.java</code>.</p>
 
-<p>The use of Pandoc (path to the application and so on) is defined in the file <code class="highlighter-rouge">msi.gama.documentation/src/msi/gama/doc/util/ConvertToPDF.java</code>. <em>This should be changed in the future…</em></p>
+<p>The use of Pandoc (path to the application and so on) is defined in the file <code>msi.gama.documentation/src/msi/gama/doc/util/ConvertToPDF.java</code>. <em>This should be changed in the future...</em></p>
 
 <h3 id="generated-files-location">Generated files location</h3>
-<p>The generated files are (by default) generated in various locations depending on their type:</p>
-<ul>
-  <li>wiki files: they are generated in the plugin <code class="highlighter-rouge">gama.wiki</code>.</li>
-  <li>pdf file: they are generated in the plugin <code class="highlighter-rouge">msi.gama.documentation</code>, in the folder <code class="highlighter-rouge">files/gen/pdf</code>.</li>
-  <li>unit test files: they are generated in the plugin <code class="highlighter-rouge">msi.gama.models</code>, in the folder <code class="highlighter-rouge">models/Tests</code>.</li>
-</ul>
+
+<p>The generated files are (by default) generated in various locations depending on their type:
+* wiki files: they are generated in the plugin <code>gama.wiki</code>.
+* pdf file: they are generated in the plugin <code>msi.gama.documentation</code>, in the folder <code>files/gen/pdf</code>.
+* unit test files: they are generated in the plugin <code>msi.gama.models</code>, in the folder <code>models/Tests</code>.</p>
 
 <h2 id="workflow-to-generate-wiki-files">Workflow to generate wiki files</h2>
 
-<p>The typical workflow to generate the wiki files is as follow:</p>
-<ul>
-  <li>Clean and Build all the GAMA projects,</li>
-  <li>Run the <code class="highlighter-rouge">MainGenerateWiki.java</code> file in the <code class="highlighter-rouge">msi.gama.documentation</code>,</li>
-  <li>The wiki files are generated in the <code class="highlighter-rouge">gama.wiki</code> plugin.</li>
-</ul>
+<p>The typical workflow to generate the wiki files is as follow:
+* Clean and Build all the GAMA projects,
+* Run the <code>MainGenerateWiki.java</code> file in the <code>msi.gama.documentation</code>,
+* The wiki files are generated in the <code>gama.wiki</code> plugin.</p>
 
 <h2 id="workflow-to-generate-pdf-files">Workflow to generate PDF files</h2>
 
-<p>The typical workflow to generate the wiki files is as follow:</p>
-<ul>
-  <li>Clean and Build all the GAMA projects,</li>
-  <li>In the file mytemplate.tex, specify the absolute path to your “gama_style.tex” (it should be just next to this file)</li>
-  <li>Run the <code class="highlighter-rouge">MainGeneratePDF.java</code> file in the <code class="highlighter-rouge">msi.gama.documentation</code>, accepting all the packages install of latex,</li>
-  <li>The wiki files are generated in the <code class="highlighter-rouge">msi.gama.documentation</code> plugin.</li>
-</ul>
+<p>The typical workflow to generate the wiki files is as follow:
+* Clean and Build all the GAMA projects,
+* In the file mytemplate.tex, specify the absolute path to your &quot;gama_style.tex&quot; (it should be just next to this file)
+* Run the <code>MainGeneratePDF.java</code> file in the <code>msi.gama.documentation</code>, accepting all the packages install of latex,
+* The wiki files are generated in the <code>msi.gama.documentation</code> plugin.</p>
 
 <p>Note that generating the PDF takes a lot of time. Please be patient !</p>
 
-<p>If you want to update the file “gama_style.sty” (for syntax coloration), you have to turn the flag “generateGamaStyle” to “true” (and make sure the file “keywords.xml” is already generated).</p>
+<p>If you want to update the file &quot;gama_style.sty&quot; (for syntax coloration), you have to turn the flag &quot;generateGamaStyle&quot; to &quot;true&quot; (and make sure the file &quot;keywords.xml&quot; is already generated).</p>
 
 <h2 id="workflow-to-generate-unit-tests">Workflow to generate unit tests</h2>
 
-<p>The typical workflow to generate the wiki files is as follow:</p>
-<ul>
-  <li>Clean and Build all the GAMA projects,</li>
-  <li>Run the <code class="highlighter-rouge">MainGenerateUnitTest.java</code> file in the <code class="highlighter-rouge">msi.gama.documentation</code>,</li>
-  <li>The wiki files are generated in the <code class="highlighter-rouge">msi.gama.models</code> plugin.</li>
-</ul>
+<p>The typical workflow to generate the wiki files is as follow:
+* Clean and Build all the GAMA projects,
+* Run the <code>MainGenerateUnitTest.java</code> file in the <code>msi.gama.documentation</code>,
+* The wiki files are generated in the <code>msi.gama.models</code> plugin.</p>
 
 <h2 id="main-internal-steps">Main internal steps</h2>
 
 <ul>
-  <li>Clean and Build all the GAMA projects will create a <code class="highlighter-rouge">docGAMA.xml</code> file in the <code class="highlighter-rouge">gaml</code> directory of each plugin,</li>
-  <li>The <code class="highlighter-rouge">MainGenerateXXX.java</code> files then perform the following preparatory tasks:
-    <ul>
-      <li>they <em>prepare the gen folder</em> by deleting the existing folders and create all the folders that may contain intermediary generated folders</li>
-      <li>they merge all the <code class="highlighter-rouge">docGAMA.xml</code> files in a <code class="highlighter-rouge">docGAMAglobal.xml</code> file, created in the <code class="highlighter-rouge">files/gen/java2xml</code> folder. <strong>Only the plugins that are referred in the product files are merged.</strong></li>
-    </ul>
-  </li>
+<li>Clean and Build all the GAMA projects will create a <code>docGAMA.xml</code> file in the <code>gaml</code> directory of each plugin,</li>
+<li>The <code>MainGenerateXXX.java</code> files then perform the following preparatory tasks:
+
+<ul>
+<li>they <em>prepare the gen folder</em> by deleting the existing folders and create all the folders that may contain intermediary generated folders</li>
+<li>they merge all the <code>docGAMA.xml</code> files in a <code>docGAMAglobal.xml</code> file, created in the <code>files/gen/java2xml</code> folder. <strong>Only the plugins that are referred in the product files are merged.</strong></li>
+</ul></li>
 </ul>
 
 <p>After these common main first steps, each generator (wiki, pdf or unit test) performs specific tasks.</p>
@@ -3773,156 +3747,139 @@ Follow the <a href="http://pandoc.org/installing.html">Pandoc installation instr
 <h3 id="generate-wiki-files">Generate wiki files</h3>
 
 <ul>
-  <li>The <code class="highlighter-rouge">docGamaglobal.xml</code> is parsed in order to generate 1 wiki file per kind of keyword:
-    <ul>
-      <li>operators,</li>
-      <li>statements,</li>
-      <li>skills,</li>
-      <li>architectures,</li>
-      <li>built-in species,</li>
-      <li>constants and units.</li>
-      <li>in addition an index wiki file containing all the GAML keywords is generated.</li>
-    </ul>
-  </li>
-  <li>One wiki file is generated for each <em>extension</em> plugin, i.e. plugin existing in the Eclipse workspace but not refered in the product.</li>
+<li>The <code>docGamaglobal.xml</code> is parsed in order to generate 1 wiki file per kind of keyword: 
+
+<ul>
+<li>operators,</li>
+<li>statements,</li>
+<li>skills,</li>
+<li>architectures,</li>
+<li>built-in species,</li>
+<li>constants and units.</li>
+<li>in addition an index wiki file containing all the GAML keywords is generated.</li>
+</ul></li>
+<li>One wiki file is generated for each <em>extension</em> plugin, i.e. plugin existing in the Eclipse workspace but not refered in the product.</li>
 </ul>
 
 <h3 id="generate-pdf-files">Generate pdf files</h3>
 
-<p>The pdf generator uses the table of content (toc) file located in the <code class="highlighter-rouge">files/input/toc</code> folder (<code class="highlighter-rouge">msi.gama.documetation</code> plugin) to organize the wiki files in a pdf file.</p>
+<p>The pdf generator uses the table of content (toc) file located in the <code>files/input/toc</code> folder (<code>msi.gama.documetation</code> plugin) to organize the wiki files in a pdf file.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">MainGeneratePDF.java</code> file parsers the toc file and create the associated PDF file using the wiki files associated to each element of the toc. The generation is tuned using files located in the <code class="highlighter-rouge">files/input/pandocPDF</code> folder.</li>
+<li><code>MainGeneratePDF.java</code> file parsers the toc file and create the associated PDF file using the wiki files associated to each element of the toc. The generation is tuned using files located in the <code>files/input/pandocPDF</code> folder.</li>
 </ul>
 
 <h3 id="generate-unit-test-files">Generate unit test files</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">MainGenerateUnitTest.java</code> creates GAMA model files for each kind of keyword from the <code class="highlighter-rouge">docGAMAglobal.xml</code> file.</li>
+<li><code>MainGenerateUnitTest.java</code> creates GAMA model files for each kind of keyword from the <code>docGAMAglobal.xml</code> file.</li>
 </ul>
 
 <h2 id="how-to-document">How to document</h2>
 
 <p>The documentation is generate from the Java code thanks to the Java additional processor, using mainly information from Java classes or methods and from the Java annotations. (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations).</p>
 
-<h3 id="the-doc-annotation">The <code class="highlighter-rouge">@doc</code> annotation</h3>
+<h3 id="the-doc-annotation">The <code>@doc</code> annotation</h3>
 
-<p>Most of the annotations can contain a <a href="DevelopingIndexAnnotations#doc"><code class="highlighter-rouge">@doc</code></a> annotation, that can contain the main part of the documentation.</p>
+<p>Most of the annotations can contain a <a href="DevelopingIndexAnnotations#doc"><code>@doc</code></a> annotation, that can contain the main part of the documentation.</p>
 
-<p>For example, the <code class="highlighter-rouge">inter</code> (<a href="Operators#inter">inter</a>) operator is commented using:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@doc(
-  value = "the intersection of the two operands",
-  comment = "both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.",
+<p>For example, the <code>inter</code> (<a href="Operators#inter">inter</a>) operator is commented using: 
+<code>
+@doc(
+  value = &quot;the intersection of the two operands&quot;,
+  comment = &quot;both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.&quot;,
   usages = {
-    @usage(value = "if an operand is a graph, it will be transformed into the set of its nodes"),
-    @usage(value = "if an operand is a map, it will be transformed into the set of its values", examples = {
-      @example(value = "[1::2, 3::4, 5::6] inter [2,4]", equals = "[2,4]"),
-      @example(value = "[1::2, 3::4, 5::6] inter [1,3]", equals = "[]") }),
-    @usage(value = "if an operand is a matrix, it will be transformed into the set of the lines", examples =
-      @example(value = "matrix([[1,2,3],[4,5,4]]) inter [3,4]", equals = "[3,4]")) },
+    @usage(value = &quot;if an operand is a graph, it will be transformed into the set of its nodes&quot;),
+    @usage(value = &quot;if an operand is a map, it will be transformed into the set of its values&quot;, examples = {
+      @example(value = &quot;[1::2, 3::4, 5::6] inter [2,4]&quot;, equals = &quot;[2,4]&quot;),
+      @example(value = &quot;[1::2, 3::4, 5::6] inter [1,3]&quot;, equals = &quot;[]&quot;) }),
+    @usage(value = &quot;if an operand is a matrix, it will be transformed into the set of the lines&quot;, examples =
+      @example(value = &quot;matrix([[1,2,3],[4,5,4]]) inter [3,4]&quot;, equals = &quot;[3,4]&quot;)) },
   examples = { 
-    @example(value = "[1,2,3,4,5,6] inter [2,4]", equals = "[2,4]"),
-    @example(value = "[1,2,3,4,5,6] inter [0,8]", equals = "[]") },
-  see = { "remove_duplicates" })
-</code></pre></div></div>
-<p>This <code class="highlighter-rouge">@doc</code>annotation contains 5 parts:</p>
-<ul>
-  <li>value: describes the documented element,</li>
-  <li>comment: a general comment about the documented element,</li>
-  <li>usages: a set of ways to use the documented element, each of them being in a <code class="highlighter-rouge">@usage</code> annotation. The usage contains mainly a description and and set of examples,</li>
-  <li>examples: a set of examples that are not related to a particular usage,</li>
-  <li>see: other related keywords.</li>
-</ul>
+    @example(value = &quot;[1,2,3,4,5,6] inter [2,4]&quot;, equals = &quot;[2,4]&quot;),
+    @example(value = &quot;[1,2,3,4,5,6] inter [0,8]&quot;, equals = &quot;[]&quot;) },
+  see = { &quot;remove_duplicates&quot; })
+</code>
+This <code>@doc</code>annotation contains 5 parts: 
+* value: describes the documented element,<br>
+* comment: a general comment about the documented element,
+* usages: a set of ways to use the documented element, each of them being in a <code>@usage</code> annotation. The usage contains mainly a description and and set of examples,
+* examples: a set of examples that are not related to a particular usage, 
+* see: other related keywords.</p>
 
-<h3 id="the-example-annotation">the <code class="highlighter-rouge">@example</code> annotation</h3>
+<h3 id="the-example-annotation">the <code>@example</code> annotation</h3>
 
 <p>This annotation contains a particular use example of the documented element. It is also used to generate unit test and patterns.</p>
 
-<p>The simplest way to use it:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@example(value = "[1::2, 3::4, 5::6] inter [2,4]", equals = "[2,4]")
-</code></pre></div></div>
+<p>The simplest way to use it:
+<code>
+@example(value = &quot;[1::2, 3::4, 5::6] inter [2,4]&quot;, equals = &quot;[2,4]&quot;)
+</code></p>
 
-<p>In this example:</p>
-<ul>
-  <li><code class="highlighter-rouge">value</code> contains an example of use of the operator,</li>
-  <li><code class="highlighter-rouge">equals</code> contains the expected results of expression in value.</li>
-</ul>
+<p>In this example:
+* <code>value</code> contains an example of use of the operator,
+* <code>equals</code> contains the expected results of expression in value.</p>
 
-<p>This will become in the documentation:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list var3 &lt;- [1::2, 3::4, 5::6] inter [2,4];    // var3 equals [2,4]
-</code></pre></div></div>
-<p>When no variable is given in the annotation, an automatic name is generated. The type of the variable is determined thanks to the return type of the operator with these parameters.</p>
+<p>This will become in the documentation:
+<code>
+list var3 &lt;- [1::2, 3::4, 5::6] inter [2,4];    // var3 equals [2,4]
+</code>
+When no variable is given in the annotation, an automatic name is generated. The type of the variable is determined thanks to the return type of the operator with these parameters.</p>
 
-<p>This example can also generate a unit test model. In this case, the value in the variable will be compared to the <code class="highlighter-rouge">equals</code> part.</p>
+<p>This example can also generate a unit test model. In this case, the value in the variable will be compared to the <code>equals</code> part.</p>
 
-<p>By default, the <code class="highlighter-rouge">@example</code> annotation has the following default values:</p>
-<ul>
-  <li><code class="highlighter-rouge">isTestOnly</code> = <code class="highlighter-rouge">false</code>, meaning that the example will be added to the documentation too,</li>
-  <li><code class="highlighter-rouge">isExecutable</code> = <code class="highlighter-rouge">true</code>, meaning that content of <code class="highlighter-rouge">value</code> can be added in a model and can be compiled (it can be useful to switch it to false, in a documentation example containing name of species that have not been defined),</li>
-  <li><code class="highlighter-rouge">test</code> = <code class="highlighter-rouge">true</code>, meaning that the content of value will be tested to the content of equals,</li>
-  <li><code class="highlighter-rouge">isPattern</code> = <code class="highlighter-rouge">false</code>.</li>
-</ul>
+<p>By default, the <code>@example</code> annotation has the following default values:
+* <code>isTestOnly</code> = <code>false</code>, meaning that the example will be added to the documentation too,
+* <code>isExecutable</code> = <code>true</code>, meaning that content of <code>value</code> can be added in a model and can be compiled (it can be useful to switch it to false, in a documentation example containing name of species that have not been defined),
+* <code>test</code> = <code>true</code>, meaning that the content of value will be tested to the content of equals,
+* <code>isPattern</code> = <code>false</code>.</p>
 
 <h3 id="how-to-document-operators">How to document operators</h3>
 
-<p>A GAML operator is defined by a Java method annoted by the <code class="highlighter-rouge">@operator</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the operators are defined in the plugin <code class="highlighter-rouge">msi.gama.core</code> and in the package <code class="highlighter-rouge">msi.gaml.operators</code>.</p>
+<p>A GAML operator is defined by a Java method annoted by the <code>@operator</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the operators are defined in the plugin <code>msi.gama.core</code> and in the package <code>msi.gaml.operators</code>.</p>
 
-<p>The documentation generator will use information from:</p>
-<ul>
-  <li>the <code class="highlighter-rouge">@operator</code> annotation:
-    <ul>
-      <li><code class="highlighter-rouge">value</code>: it provides the name(s) of the operator (if an operator has several names, the other names will be considered as alternative names)</li>
-      <li><code class="highlighter-rouge">category</code>: it is used to classified the operators in categories</li>
-    </ul>
-  </li>
-  <li>the <code class="highlighter-rouge">@doc</code> annotation,</li>
-  <li>the method definition:
-    <ul>
-      <li>the return value type</li>
-      <li>parameters and their type (if the method is static, the IScope attribute is not taken into account)</li>
-    </ul>
-  </li>
-</ul>
+<p>The documentation generator will use information from:
+* the <code>@operator</code> annotation:
+  * <code>value</code>: it provides the name(s) of the operator (if an operator has several names, the other names will be considered as alternative names)
+  * <code>category</code>: it is used to classified the operators in categories
+* the <code>@doc</code> annotation,
+* the method definition:
+  * the return value type
+  * parameters and their type (if the method is static, the IScope attribute is not taken into account)</p>
 
 <h3 id="how-to-document-statements">How to document statements</h3>
 
-<p>A GAML statement is defined by a Java class annoted by the <code class="highlighter-rouge">@symbol</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the statements are defined in the plugin <code class="highlighter-rouge">msi.gama.core</code> and in the package <code class="highlighter-rouge">msi.gaml.statements</code>.</p>
+<p>A GAML statement is defined by a Java class annoted by the <code>@symbol</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the statements are defined in the plugin <code>msi.gama.core</code> and in the package <code>msi.gaml.statements</code>.</p>
 
-<p>The documentation generator will use information from:</p>
-<ul>
-  <li><code class="highlighter-rouge">@symbol</code> annotation,</li>
-  <li><code class="highlighter-rouge">@facets</code> annotation (each facet can contain a documentation in a <code class="highlighter-rouge">@doc</code> annotation),</li>
-  <li><code class="highlighter-rouge">@inside</code> annotation (where the statement can be used),</li>
-  <li><code class="highlighter-rouge">@doc</code> annotation</li>
-</ul>
+<p>The documentation generator will use information from:
+* <code>@symbol</code> annotation,
+* <code>@facets</code> annotation (each facet can contain a documentation in a <code>@doc</code> annotation),
+* <code>@inside</code> annotation (where the statement can be used),
+* <code>@doc</code> annotation</p>
 
 <h3 id="how-to-document-skills">How to document skills</h3>
 
-<p>A GAML skill is defined by a Java class annoted by the <code class="highlighter-rouge">@skill</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the skills are defined in the plugin <code class="highlighter-rouge">msi.gama.core</code> and in the package <code class="highlighter-rouge">msi.gaml.skills</code>.</p>
+<p>A GAML skill is defined by a Java class annoted by the <code>@skill</code> annotation (see <a href="DevelopingIndexAnnotations">the list of all annotations</a> for more details about annotations). In the core of GAMA, most of the skills are defined in the plugin <code>msi.gama.core</code> and in the package <code>msi.gaml.skills</code>.</p>
 
-<p>The documentation generator will use information from:</p>
-<ul>
-  <li><code class="highlighter-rouge">@skill</code> annotation,</li>
-  <li><code class="highlighter-rouge">@vars</code> annotation (each var can contain a documentation in a <code class="highlighter-rouge">@doc</code> annotation),</li>
-  <li><code class="highlighter-rouge">@doc</code> annotation</li>
-</ul>
+<p>The documentation generator will use information from:
+* <code>@skill</code> annotation,
+* <code>@vars</code> annotation (each var can contain a documentation in a <code>@doc</code> annotation),
+* <code>@doc</code> annotation</p>
 
 <h2 id="how-to-change-the-processor">How to change the processor</h2>
 
 <p>If you make some modifications in the plugin processor, you have to rebuild the .jar file associated to the processor to take in account the changes.
-Here are the several steps you have to do :</p>
-<ul>
-  <li>In the “processor” plugin, open the <em>plugin.xml</em>.</li>
-  <li>In exporting (from the <em>Overview</em> tab), click on <em>Export Wizard</em>.</li>
-  <li>In the tab “Destination”, choose processor/plugins for the directory. In the tab “Options”, delete the field <em>Qualifier replacement</em>. Click “finish”.</li>
-  <li>Right click on the folder “processor” to refresh.
-–&gt; It’s ok !</li>
-</ul>
+Here are the several steps you have to do :
+- In the &quot;processor&quot; plugin, open the <em>plugin.xml</em>.
+- In exporting (from the <em>Overview</em> tab), click on <em>Export Wizard</em>.
+- In the tab &quot;Destination&quot;, choose processor/plugins for the directory. In the tab &quot;Options&quot;, delete the field <em>Qualifier replacement</em>. Click &quot;finish&quot;.
+- Right click on the folder &quot;processor&quot; to refresh.
+--&gt; It&#39;s ok !</p>
 
 <h1 id="general-workflow-of-file-generation">General workflow of file generation</h1>
 
 <p>This following diagram explains roughly the workflow for the generation of the different files : 
-<img src="resources/images/developpingExtension/generationFilesWorkflow.png" alt="resources/images/developpingExtension/generationFilesWorkflow.png" /></p>
+<img src="resources/images/developpingExtension/generationFilesWorkflow.png" alt="resources/images/developpingExtension/generationFilesWorkflow.png"></p>
 
     </div>
     </div>

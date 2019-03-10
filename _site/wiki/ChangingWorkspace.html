@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="changing-workspace">Changing Workspace</h1>
@@ -3616,47 +3616,49 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#changing-workspace">Changing Workspace</a>
-    <ul>
-      <li><a href="#switching-to-another-workspace">Switching to another Workspace</a></li>
-      <li><a href="#cloning-the-current-workspace">Cloning the Current Workspace</a></li>
-    </ul>
-  </li>
+<li><a href="#changing-workspace">Changing Workspace</a>
+
+<ul>
+<li><a href="#switching-to-another-workspace">Switching to another Workspace</a></li>
+<li><a href="#cloning-the-current-workspace">Cloning the Current Workspace</a></li>
+</ul></li>
 </ul>
 
 <h2 id="switching-to-another-workspace">Switching to another Workspace</h2>
-<p>This process is similar to the <a href="Launching#Choosing_a_Workspace">choice of the workspace location</a> when GAMA is launched for the first time. The only preliminary step is to invoke the appropriate command (“Switch Workspace”) from the “File” menu.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/menu_switch.png" alt="images/menu_switch.png" /></p>
+<p>This process is similar to the <a href="Launching#Choosing_a_Workspace">choice of the workspace location</a> when GAMA is launched for the first time. The only preliminary step is to invoke the appropriate command (&quot;Switch Workspace&quot;) from the &quot;File&quot; menu.</p>
 
-<p>In the dialog that appears, the current workspace location should already be entered. Changing it to a new location (or choosing one in the file selector invoked by clicking on “Browse…”) and pressing “OK” will then either create a new workspace if none existed at that location or switch to this new workspace. Both operations will restart GAMA and set the new workspace location. To come back to the previous location, just repeat this step (the previous location is normally now accessible from the combo box).</p>
+<p><img src="resources/images/workspaceProjectsAndModels/menu_switch.png" alt="images/menu_switch.png"></p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/dialog_switch_ok.png" alt="images/dialog_switch_ok.png" /></p>
+<p>In the dialog that appears, the current workspace location should already be entered. Changing it to a new location (or choosing one in the file selector invoked by clicking on &quot;Browse...&quot;) and pressing &quot;OK&quot; will then either create a new workspace if none existed at that location or switch to this new workspace. Both operations will restart GAMA and set the new workspace location. To come back to the previous location, just repeat this step (the previous location is normally now accessible from the combo box).</p>
+
+<p><img src="resources/images/workspaceProjectsAndModels/dialog_switch_ok.png" alt="images/dialog_switch_ok.png"></p>
 
 <h2 id="cloning-the-current-workspace">Cloning the Current Workspace</h2>
+
 <p>Another possibility, if you have models in your current workspace that you would like to keep in the new one (and that you do not want to <a href="ImportingModels">import</a> one by one after switching workspace), or if you change workspace because you suspect the current one is corrupted, or outdated, etc. but you still want to keep your models, is to <strong>clone</strong> the current workspace into a new (or existing) one.</p>
 
-<p><strong>Please note that cloning (as its name implies) is an operation that will make a <em>copy</em> of the files into a new workspace. So, if projects are stored in the current workspace, this will result in two different instances of the same projets/models with the same name in the two workspaces. However, for projects that are simply linked from the current workspace, only the link will be copied (which allows to have different workspaces “containing” the same project)</strong></p>
+<p><strong>Please note that cloning (as its name implies) is an operation that will make a <em>copy</em> of the files into a new workspace. So, if projects are stored in the current workspace, this will result in two different instances of the same projets/models with the same name in the two workspaces. However, for projects that are simply linked from the current workspace, only the link will be copied (which allows to have different workspaces &quot;containing&quot; the same project)</strong></p>
 
-<p>This can be done by entering the new workspace location and choosing “Clone current workspace” in the previous dialog instead of “Ok”.</p>
+<p>This can be done by entering the new workspace location and choosing &quot;Clone current workspace&quot; in the previous dialog instead of &quot;Ok&quot;.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/dialog_switch_clone.png" alt="images/dialog_switch_clone.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/dialog_switch_clone.png" alt="images/dialog_switch_clone.png"></p>
 
 <p>If the new location does not exist, GAMA will ask you to confirm the creation and cloning using a specific dialog box. Dismissing it will cancel the operation.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/clone_confirm_new.png" alt="images/clone_confirm_new.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/clone_confirm_new.png" alt="images/clone_confirm_new.png"></p>
 
 <p>If the new location is already the location of an existing workspace, another confirmation dialog is produced. <strong>It is important to note that all projects in the target workspace will be erased and replaced by the projects in the current workspace if you proceed</strong>. Dismissing it will cancel the operation.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/clone_confirm_existing.png" alt="images/clone_confirm_existing.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/clone_confirm_existing.png" alt="images/clone_confirm_existing.png"> </p>
 
 <p>There are two cases where cloning is not accepted. The first one is when the user tries to clone the current workspace into itself (i.e. the new location is the same as the current location).</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/close_error_same.png" alt="images/close_error_same.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/close_error_same.png" alt="images/close_error_same.png"></p>
 
 <p>The second case is when the user tries to clone the current workspace into one of its subdirectories (which is not feasible).</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/close_error_subdir.png" alt="images/close_error_subdir.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/close_error_subdir.png" alt="images/close_error_subdir.png"></p>
 
     </div>
     </div>

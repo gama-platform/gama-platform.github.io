@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="si-without-ode">SI without ODE</h1>
@@ -3615,27 +3615,26 @@ function closeRightMenu() {
 
 <p>A simple SI model without Ordinary Differential Equations showing agents moving randomly among a grid and becoming infected</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">si</span>
 
 <span class="n">global</span> <span class="p">{</span> 
-	
+
     <span class="n">int</span> <span class="n">number_S</span> <span class="p">&lt;-</span> <span class="m">495</span><span class="p">;</span>  <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
-    <span class="n">int</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">;</span>	<span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
+    <span class="n">int</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
     <span class="n">float</span> <span class="n">survivalProbability</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">/(</span><span class="m">70</span><span class="p">*</span><span class="m">365</span><span class="p">)</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">survival</span> <span class="n">probability</span>
-	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.05</span> <span class="p">;</span> 	<span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
-	<span class="n">float</span> <span class="n">nu</span> <span class="p">&lt;-</span> <span class="m">0.001</span> <span class="p">;</span>	<span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Nu</span>
-	<span class="n">int</span> <span class="n">numberHosts</span> <span class="p">&lt;-</span> <span class="n">number_S</span><span class="p">+</span><span class="n">number_I</span><span class="p">;</span> <span class="p">//</span><span class="n">Total</span> <span class="n">number</span> <span class="k">of</span> <span class="n">hosts</span>
-	<span class="n">bool</span> <span class="n">local_infection</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span> <span class="p">//</span><span class="n">Infection</span> <span class="n">spread</span> <span class="n">locally</span> <span class="k">or</span> <span class="k">not</span>
-	<span class="n">int</span> <span class="n">neighbors_size</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="p">;</span> <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighborhood</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">50</span><span class="p">);</span>
-	<span class="n">init</span> <span class="p">{</span> 
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">susceptible</span> <span class="n">hosts</span>
-		<span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">{</span>
-        	<span class="n">is_susceptible</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        	<span class="n">is_infected</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.05</span> <span class="p">;</span>    <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
+    <span class="n">float</span> <span class="n">nu</span> <span class="p">&lt;-</span> <span class="m">0.001</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Nu</span>
+    <span class="n">int</span> <span class="n">numberHosts</span> <span class="p">&lt;-</span> <span class="n">number_S</span><span class="p">+</span><span class="n">number_I</span><span class="p">;</span> <span class="p">//</span><span class="n">Total</span> <span class="n">number</span> <span class="k">of</span> <span class="n">hosts</span>
+    <span class="n">bool</span> <span class="n">local_infection</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="p">;</span> <span class="p">//</span><span class="n">Infection</span> <span class="n">spread</span> <span class="n">locally</span> <span class="k">or</span> <span class="k">not</span>
+    <span class="n">int</span> <span class="n">neighbors_size</span> <span class="p">&lt;-</span> <span class="m">2</span> <span class="p">;</span> <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighborhood</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">50</span><span class="p">);</span>
+    <span class="n">init</span> <span class="p">{</span> 
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">susceptible</span> <span class="n">hosts</span>
+        <span class="nb">create</span> <span class="n">Host</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">{</span>
+            <span class="n">is_susceptible</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="n">is_infected</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span>
             <span class="n">is_immune</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span> 
             <span class="n">color</span> <span class="p">&lt;-</span>  <span class="p">#</span><span class="n">green</span><span class="p">;</span>
         <span class="p">}</span>
@@ -3649,53 +3648,53 @@ function closeRightMenu() {
    <span class="p">}</span>
    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span> <span class="n">hosts</span>
    <span class="n">reflex</span> <span class="n">compute_nb_infected</span> <span class="p">{</span>
-   		<span class="n">number_I</span> <span class="p">&lt;-</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+        <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
    <span class="p">}</span>  
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Grid</span> <span class="k">to</span> <span class="n">discretize</span> <span class="n">space</span>
 <span class="n">grid</span> <span class="n">si_grid</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">use_individual_shapes</span><span class="p">:</span> <span class="nb">false</span> <span class="n">use_regular_agents</span><span class="p">:</span> <span class="nb">false</span> <span class="n">frequency</span><span class="p">:</span> <span class="m">0</span><span class="p">{</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">si_grid</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="n">neighbors_size</span><span class="p">)</span> <span class="p">;</span>       
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">si_grid</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="n">neighbors_size</span><span class="p">)</span> <span class="p">;</span>       
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">host</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">possible</span> <span class="n">hosts</span> <span class="k">of</span> <span class="n">a</span> <span class="n">disease</span>
 <span class="n">species</span> <span class="n">Host</span>  <span class="p">{</span>
-	<span class="p">//</span><span class="n">Booleans</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-	<span class="n">bool</span> <span class="n">is_susceptible</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Booleans</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+    <span class="n">bool</span> <span class="n">is_susceptible</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
     <span class="n">bool</span> <span class="n">is_immune</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
     <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
     <span class="n">int</span> <span class="n">sic_count</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
     <span class="n">si_grid</span> <span class="n">myPlace</span><span class="p">;</span>
-    
+
     <span class="p">//</span><span class="n">The</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">grid</span>
     <span class="n">init</span> <span class="p">{</span>
-    	<span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">si_grid</span> <span class="k">as</span> <span class="k">list</span><span class="p">);</span>
-    	<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myPlace</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+        <span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">si_grid</span> <span class="k">as</span> <span class="k">list</span><span class="p">);</span>
+        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myPlace</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
     <span class="p">}</span>        
     <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">in</span> <span class="n">its</span> <span class="n">neighborhood</span>
     <span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span>
-    	<span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myPlace</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myPlace</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="p">;</span>
         <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myPlace</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">infect</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">susceptible</span> <span class="k">and</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">other</span> <span class="n">infected</span> <span class="n">agents</span>
     <span class="n">reflex</span> <span class="n">become_infected</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_susceptible</span> <span class="p">{</span>
-    	<span class="n">float</span> <span class="n">rate</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    	<span class="k">if</span><span class="p">(</span><span class="n">local_infection</span><span class="p">)</span> <span class="p">{</span>
-    		<span class="n">int</span> <span class="n">nb_hosts</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    		<span class="n">int</span> <span class="n">nb_hosts_infected</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    		<span class="n">loop</span> <span class="n">hst</span> <span class="n">over</span><span class="p">:</span> <span class="p">((</span><span class="n">myPlace</span><span class="p">.</span><span class="n">neighbors</span> <span class="p">+</span> <span class="n">myPlace</span><span class="p">)</span> <span class="n">accumulate</span> <span class="p">(</span><span class="n">Host</span> <span class="n">overlapping</span> <span class="n">each</span><span class="p">))</span> <span class="p">{</span>
-    			<span class="n">nb_hosts</span> <span class="p">&lt;-</span> <span class="n">nb_hosts</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-    			<span class="k">if</span> <span class="p">(</span><span class="n">hst</span><span class="p">.</span><span class="n">is_infected</span><span class="p">)</span> <span class="p">{</span>
-    				<span class="n">nb_hosts_infected</span> <span class="p">&lt;-</span> <span class="n">nb_hosts_infected</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-    			<span class="p">}</span>
-    		<span class="p">}</span>
-    		<span class="n">rate</span> <span class="p">&lt;-</span> <span class="n">nb_hosts_infected</span> <span class="p">/</span> <span class="n">nb_hosts</span><span class="p">;</span>
-    	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    		<span class="n">rate</span> <span class="p">&lt;-</span> <span class="n">number_I</span> <span class="p">/</span> <span class="n">numberHosts</span><span class="p">;</span>
-    	<span class="p">}</span>
-    	<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">beta</span> <span class="p">*</span> <span class="n">rate</span><span class="p">))</span> <span class="p">{</span>
-        	<span class="n">is_susceptible</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span>
+        <span class="n">float</span> <span class="n">rate</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">local_infection</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">int</span> <span class="n">nb_hosts</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+            <span class="n">int</span> <span class="n">nb_hosts_infected</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+            <span class="n">loop</span> <span class="n">hst</span> <span class="n">over</span><span class="p">:</span> <span class="p">((</span><span class="n">myPlace</span><span class="p">.</span><span class="n">neighbors</span> <span class="p">+</span> <span class="n">myPlace</span><span class="p">)</span> <span class="n">accumulate</span> <span class="p">(</span><span class="n">Host</span> <span class="n">overlapping</span> <span class="n">each</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">nb_hosts</span> <span class="p">&lt;-</span> <span class="n">nb_hosts</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">hst</span><span class="p">.</span><span class="n">is_infected</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">nb_hosts_infected</span> <span class="p">&lt;-</span> <span class="n">nb_hosts_infected</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">rate</span> <span class="p">&lt;-</span> <span class="n">nb_hosts_infected</span> <span class="p">/</span> <span class="n">nb_hosts</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">rate</span> <span class="p">&lt;-</span> <span class="n">number_I</span> <span class="p">/</span> <span class="n">numberHosts</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">beta</span> <span class="p">*</span> <span class="n">rate</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">is_susceptible</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span>
             <span class="n">is_infected</span> <span class="p">&lt;-</span>  <span class="nb">true</span><span class="p">;</span>
             <span class="n">is_immune</span> <span class="p">&lt;-</span>  <span class="nb">false</span><span class="p">;</span>
             <span class="n">color</span> <span class="p">&lt;-</span>  <span class="p">#</span><span class="n">red</span><span class="p">;</span>    
@@ -3703,13 +3702,13 @@ function closeRightMenu() {
     <span class="p">}</span>
     <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">kill</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">death</span> <span class="n">rate</span>
     <span class="n">reflex</span> <span class="n">shallDie</span> <span class="n">when</span><span class="p">:</span> <span class="n">flip</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">species</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">myPlace</span> <span class="p">;</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span> 
-		<span class="p">}</span>
-       	<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">species</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">myPlace</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">myPlace</span> <span class="p">;</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
     <span class="p">}</span>
-            
+
     <span class="n">aspect</span> <span class="n">basic</span> <span class="p">{</span>
         <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
     <span class="p">}</span>
@@ -3717,31 +3716,30 @@ function closeRightMenu() {
 
 
 <span class="n">experiment</span> <span class="n">Simulation</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span> 
- 	<span class="n">parameter</span> <span class="s2">"Number of Susceptible"</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">;//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
-    <span class="n">parameter</span> <span class="s2">"Number of Infected"</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_I</span> <span class="p">;</span>	<span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
+    <span class="n">parameter</span> <span class="s2">"Number of Susceptible"</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">;//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
+    <span class="n">parameter</span> <span class="s2">"Number of Infected"</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_I</span> <span class="p">;</span>  <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
     <span class="n">parameter</span> <span class="s2">"Survival Probability"</span> <span class="n">var</span><span class="p">:</span> <span class="n">survivalProbability</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">survival</span> <span class="n">probability</span>
-	<span class="n">parameter</span> <span class="s2">"Beta (S-&gt;I)"</span> <span class="n">var</span><span class="p">:</span><span class="n">beta</span><span class="p">;</span> 	<span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
-	<span class="n">parameter</span> <span class="s2">"Mortality"</span> <span class="n">var</span><span class="p">:</span><span class="n">nu</span> <span class="p">;</span>	<span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Nu</span>
-	<span class="n">parameter</span> <span class="s2">"Is the infection is computed locally?"</span> <span class="n">var</span><span class="p">:</span><span class="n">local_infection</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s2">"Size of the neighbors"</span> <span class="n">var</span><span class="p">:</span><span class="n">neighbors_size</span> <span class="p">;</span>
-	
- 	<span class="n">output</span> <span class="p">{</span> 
-	    <span class="n">display</span> <span class="n">si_display</span> <span class="p">{</span>
-	        <span class="n">grid</span> <span class="n">si_grid</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-	        <span class="n">species</span> <span class="n">Host</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">basic</span><span class="p">;</span>
-	    <span class="p">}</span>
-	        
-	    <span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">chart</span> <span class="s2">"Susceptible"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">style</span><span class="p">:</span> <span class="n">exploded</span> <span class="p">{</span>
-				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_susceptible</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-			
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
+    <span class="n">parameter</span> <span class="s2">"Beta (S-&gt;I)"</span> <span class="n">var</span><span class="p">:</span><span class="n">beta</span><span class="p">;</span>   <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
+    <span class="n">parameter</span> <span class="s2">"Mortality"</span> <span class="n">var</span><span class="p">:</span><span class="n">nu</span> <span class="p">;</span>  <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Nu</span>
+    <span class="n">parameter</span> <span class="s2">"Is the infection is computed locally?"</span> <span class="n">var</span><span class="p">:</span><span class="n">local_infection</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s2">"Size of the neighbors"</span> <span class="n">var</span><span class="p">:</span><span class="n">neighbors_size</span> <span class="p">;</span>
 
+    <span class="n">output</span> <span class="p">{</span> 
+        <span class="n">display</span> <span class="n">si_display</span> <span class="p">{</span>
+            <span class="n">grid</span> <span class="n">si_grid</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">Host</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">basic</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">chart</span> <span class="s2">"Susceptible"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">style</span><span class="p">:</span> <span class="n">exploded</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_susceptible</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+                <span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">Host</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

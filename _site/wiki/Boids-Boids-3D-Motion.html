@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="boids-3d-motion">Boids 3D Motion</h1>
@@ -3615,165 +3615,163 @@ function closeRightMenu() {
 
 <p>This model shows the movement of boids following a goal, and creating without their own volonty, a flock .  The goal agent and the boids will move within the 3D space.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">boids_3D</span> 
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">boids_3D</span> 
 <span class="n">global</span> <span class="n">torus</span><span class="p">:</span> <span class="n">torus_environment</span><span class="p">{</span> 
-	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">boids</span> <span class="k">to</span> <span class="nb">create</span>
-	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of agents'</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000000</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">obstacles</span> <span class="k">to</span> <span class="nb">create</span>
-	<span class="n">int</span> <span class="n">number_of_obstacles</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of obstacles'</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
-	<span class="n">int</span> <span class="n">boids_size</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Boids size'</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Maximal</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
-	<span class="n">float</span> <span class="n">maximal_speed</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Maximal speed'</span> <span class="p">&lt;-</span> <span class="m">15.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="k">max</span><span class="p">:</span> <span class="m">15.0</span><span class="p">;</span>
-	<span class="p">//</span><span class="n">Factor</span> <span class="n">for</span> <span class="n">the</span> <span class="n">boids</span> <span class="n">flock</span>
-	<span class="n">int</span> <span class="n">cohesion_factor</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Cohesion Factor'</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span> 
-	<span class="n">int</span> <span class="n">alignment_factor</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Alignment Factor'</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span> 
-	<span class="n">float</span> <span class="n">minimal_distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Minimal Distance'</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
-	<span class="p">//</span><span class="n">MAximal</span> <span class="n">angle</span> <span class="k">of</span> <span class="n">turn</span> <span class="n">for</span> <span class="n">the</span> <span class="n">boids</span>
-	<span class="n">int</span> <span class="n">maximal_turn</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Maximal Turn'</span> <span class="p">&lt;-</span> <span class="m">90</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">359</span><span class="p">;</span> 
-	<span class="p">//</span><span class="n">environment</span> <span class="k">parameters</span>
-	<span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Width/Height of the Environment'</span> <span class="p">&lt;-</span> <span class="m">800</span><span class="p">;</span>  
-	<span class="n">int</span> <span class="n">z_max</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Z max of the Environment'</span> <span class="p">&lt;-</span> <span class="m">400</span><span class="p">;</span>  
-	<span class="n">bool</span> <span class="n">torus_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Toroidal Environment ?'</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span> 
-	<span class="p">//</span><span class="n">Experiment</span> <span class="n">parameter</span>
-	<span class="n">bool</span> <span class="n">apply_cohesion</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Cohesion ?'</span><span class="p">;</span>
-	<span class="n">bool</span> <span class="n">apply_alignment</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Alignment ?'</span><span class="p">;</span>   
-	<span class="n">bool</span> <span class="n">apply_separation</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Separation ?'</span><span class="p">;</span>   
-	<span class="n">bool</span> <span class="n">apply_goal</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Follow Goal ?'</span><span class="p">;</span> 
-	<span class="n">bool</span> <span class="n">apply_wind</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Wind ?'</span><span class="p">;</span>     
-	<span class="p">//</span><span class="n">Wind</span> <span class="n">variable</span>
-	<span class="n">point</span> <span class="n">wind_vector</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span>  <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Direction of the wind'</span><span class="p">;</span>   
-	<span class="p">//</span><span class="n">Duration</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
-	<span class="n">int</span> <span class="n">goal_duration</span> <span class="p">&lt;-</span> <span class="m">30</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">goal_duration</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span> 
-	<span class="p">//</span><span class="n">Location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
-	<span class="n">point</span> <span class="n">goal</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span><span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span> <span class="p">,(</span><span class="n">rnd</span><span class="p">(</span><span class="n">z_max</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">)};</span> 
-	<span class="k">list</span> <span class="n">images</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird1.png'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird2.png'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird3.png'</span><span class="p">)];</span> 
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">within</span> <span class="n">the</span> <span class="n">environment</span>
-		<span class="nb">create</span> <span class="n">boids</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">{</span> 
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span><span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span> <span class="p">,</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">z_max</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">)};</span>
-		<span class="p">}</span> 
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
-		<span class="nb">create</span> <span class="n">boids_goal</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">goal</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">boids</span> <span class="k">to</span> <span class="nb">create</span>
+    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of agents'</span> <span class="p">&lt;-</span> <span class="m">100</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000000</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">obstacles</span> <span class="k">to</span> <span class="nb">create</span>
+    <span class="n">int</span> <span class="n">number_of_obstacles</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of obstacles'</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
+    <span class="n">int</span> <span class="n">boids_size</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Boids size'</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Maximal</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
+    <span class="n">float</span> <span class="n">maximal_speed</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Maximal speed'</span> <span class="p">&lt;-</span> <span class="m">15.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="k">max</span><span class="p">:</span> <span class="m">15.0</span><span class="p">;</span>
+    <span class="p">//</span><span class="n">Factor</span> <span class="n">for</span> <span class="n">the</span> <span class="n">boids</span> <span class="n">flock</span>
+    <span class="n">int</span> <span class="n">cohesion_factor</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Cohesion Factor'</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span> 
+    <span class="n">int</span> <span class="n">alignment_factor</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Alignment Factor'</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span> 
+    <span class="n">float</span> <span class="n">minimal_distance</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Minimal Distance'</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
+    <span class="p">//</span><span class="n">MAximal</span> <span class="n">angle</span> <span class="k">of</span> <span class="n">turn</span> <span class="n">for</span> <span class="n">the</span> <span class="n">boids</span>
+    <span class="n">int</span> <span class="n">maximal_turn</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Maximal Turn'</span> <span class="p">&lt;-</span> <span class="m">90</span> <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">359</span><span class="p">;</span> 
+    <span class="p">//</span><span class="n">environment</span> <span class="k">parameters</span>
+    <span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Width/Height of the Environment'</span> <span class="p">&lt;-</span> <span class="m">800</span><span class="p">;</span>  
+    <span class="n">int</span> <span class="n">z_max</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Z max of the Environment'</span> <span class="p">&lt;-</span> <span class="m">400</span><span class="p">;</span>  
+    <span class="n">bool</span> <span class="n">torus_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Toroidal Environment ?'</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span> 
+    <span class="p">//</span><span class="n">Experiment</span> <span class="n">parameter</span>
+    <span class="n">bool</span> <span class="n">apply_cohesion</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Cohesion ?'</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">apply_alignment</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Alignment ?'</span><span class="p">;</span>   
+    <span class="n">bool</span> <span class="n">apply_separation</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Separation ?'</span><span class="p">;</span>   
+    <span class="n">bool</span> <span class="n">apply_goal</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Follow Goal ?'</span><span class="p">;</span> 
+    <span class="n">bool</span> <span class="n">apply_wind</span> <span class="p">&lt;-</span> <span class="nb">true</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Apply Wind ?'</span><span class="p">;</span>     
+    <span class="p">//</span><span class="n">Wind</span> <span class="n">variable</span>
+    <span class="n">point</span> <span class="n">wind_vector</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span>  <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Direction of the wind'</span><span class="p">;</span>   
+    <span class="p">//</span><span class="n">Duration</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
+    <span class="n">int</span> <span class="n">goal_duration</span> <span class="p">&lt;-</span> <span class="m">30</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">goal_duration</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span> 
+    <span class="p">//</span><span class="n">Location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
+    <span class="n">point</span> <span class="n">goal</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span><span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span> <span class="p">,(</span><span class="n">rnd</span><span class="p">(</span><span class="n">z_max</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">)};</span> 
+    <span class="k">list</span> <span class="n">images</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird1.png'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird2.png'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/bird3.png'</span><span class="p">)];</span> 
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">within</span> <span class="n">the</span> <span class="n">environment</span>
+        <span class="nb">create</span> <span class="n">boids</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span> <span class="p">{</span> 
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">width_and_height_of_environment</span> <span class="p">-</span><span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span> <span class="p">,</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">z_max</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">)};</span>
+        <span class="p">}</span> 
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">goal</span>
+        <span class="nb">create</span> <span class="n">boids_goal</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">goal</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">boids_goal</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">agent</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
 <span class="n">species</span> <span class="n">boids_goal</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="k">range</span> <span class="n">init</span><span class="p">:</span> <span class="m">20.0</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">agent</span> <span class="n">wander</span> <span class="k">in</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">amplitude</span> <span class="k">and</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">speed</span><span class="p">,</span> 
-	<span class="p">//</span><span class="n">Respecting</span> <span class="n">the</span> <span class="n">minimal</span> <span class="k">and</span> <span class="n">maximal</span> <span class="n">z</span> <span class="n">values</span>
-	<span class="n">reflex</span> <span class="n">wander</span> <span class="p">{</span> 
-		<span class="k">do</span>  <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">45</span> <span class="n">speed</span><span class="p">:</span> <span class="m">20</span><span class="p">;</span> 
-		<span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">z_max</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">z_max</span><span class="p">};</span>
-		<span class="p">}</span>
-		<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="k">range</span> <span class="n">init</span><span class="p">:</span> <span class="m">20.0</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">agent</span> <span class="n">wander</span> <span class="k">in</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">amplitude</span> <span class="k">and</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">speed</span><span class="p">,</span> 
+    <span class="p">//</span><span class="n">Respecting</span> <span class="n">the</span> <span class="n">minimal</span> <span class="k">and</span> <span class="n">maximal</span> <span class="n">z</span> <span class="n">values</span>
+    <span class="n">reflex</span> <span class="n">wander</span> <span class="p">{</span> 
+        <span class="k">do</span>  <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">45</span> <span class="n">speed</span><span class="p">:</span> <span class="m">20</span><span class="p">;</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">z_max</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">z_max</span><span class="p">};</span>
+        <span class="p">}</span>
+        <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span> 
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">boids</span> <span class="n">that</span> <span class="n">will</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">boids</span> <span class="n">agents</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
 <span class="n">species</span> <span class="n">boids</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">Attribute</span> <span class="n">for</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="k">max</span><span class="p">:</span> <span class="n">maximal_speed</span> <span class="p">&lt;-</span> <span class="n">maximal_speed</span><span class="p">;</span>
-	<span class="p">//</span><span class="k">Range</span> <span class="k">of</span> <span class="n">sensing</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
-	<span class="n">float</span> <span class="k">range</span> <span class="p">&lt;-</span> <span class="n">minimal_distance</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span>
-	<span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">;</span>
-	
-	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">others</span> <span class="n">boids</span> <span class="k">in</span> <span class="n">the</span> <span class="k">range</span> <span class="n">distance</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-	<span class="k">list</span> <span class="n">others</span> <span class="n">update</span><span class="p">:</span> <span class="p">((</span><span class="n">boids</span> <span class="n">at_distance</span> <span class="k">range</span><span class="p">)</span>  <span class="p">-</span> <span class="n">self</span><span class="p">);</span>
-	<span class="p">//</span><span class="n">Mass</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="s2">"flock"</span> <span class="n">represented</span> <span class="k">as</span> <span class="n">the</span> <span class="n">other</span> <span class="n">boids</span> <span class="k">in</span> <span class="n">the</span> <span class="n">sensing</span> <span class="k">range</span>
-	<span class="n">point</span> <span class="n">mass_center</span> <span class="n">update</span><span class="p">:</span>  <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">others</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">mean</span> <span class="p">(</span><span class="n">others</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">))</span> <span class="p">)</span>  <span class="p">:</span> <span class="n">location</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">separation</span>
-	<span class="n">reflex</span> <span class="n">separation</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_separation</span> <span class="p">{</span>
-		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-		<span class="n">loop</span> <span class="n">boid</span> <span class="n">over</span><span class="p">:</span> <span class="p">(</span><span class="n">boids</span> <span class="n">at_distance</span> <span class="p">(</span><span class="n">minimal_distance</span><span class="p">))</span>  <span class="p">{</span>
-			<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">((</span><span class="n">location</span> <span class="k">of</span> <span class="n">boid</span><span class="p">)</span> <span class="p">-</span> <span class="n">location</span><span class="p">);</span>
-		<span class="p">}</span>  
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">alignment</span>
-	<span class="n">reflex</span> <span class="n">alignment</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_alignment</span> <span class="p">{</span>
-		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">others</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">mean</span> <span class="p">(</span><span class="n">others</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">velocity</span><span class="p">)))</span> <span class="p">:</span> <span class="p">{</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">};</span>
-		<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="n">velocity</span><span class="p">;</span>
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">(</span><span class="n">acc</span> <span class="p">/</span> <span class="n">alignment_factor</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">cohesion</span>
-	<span class="n">reflex</span> <span class="n">cohesion</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_cohesion</span> <span class="p">{</span>
-		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">mass_center</span> <span class="p">-</span> <span class="n">location</span><span class="p">;</span>
-		<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">;</span>
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span> 
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">location</span> <span class="n">within</span> <span class="n">the</span> <span class="n">environment</span>
-	<span class="n">action</span> <span class="n">bounding</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">z_max</span> <span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">z_max</span><span class="p">};</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">follow</span> <span class="n">the</span> <span class="n">goal</span>
-	<span class="n">reflex</span> <span class="n">follow_goal</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_goal</span> <span class="p">{</span>
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">((</span><span class="n">goal</span> <span class="p">-</span> <span class="n">location</span><span class="p">)</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">the</span> <span class="n">wind</span> <span class="n">by</span> <span class="n">using</span> <span class="n">the</span> <span class="n">vector</span> <span class="k">of</span> <span class="n">wind</span>
-	<span class="n">reflex</span> <span class="n">wind</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_wind</span> <span class="p">{</span>
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">wind_vector</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">moving</span>
-	<span class="n">action</span> <span class="n">do_move</span> <span class="p">{</span>  
-		<span class="k">if</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span><span class="m">2</span><span class="p">,</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span> <span class="m">2</span><span class="p">,</span>  <span class="p">((</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span> <span class="m">2</span><span class="p">)}</span> <span class="p">;</span> 
-		<span class="p">}</span>
-		<span class="n">point</span> <span class="n">old_location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="n">velocity</span><span class="p">;</span>
-		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">-</span> <span class="n">old_location</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span><span class="p">,</span> <span class="n">calling</span> <span class="n">both</span> <span class="n">bounding</span> <span class="k">and</span> <span class="n">do_move</span> <span class="n">action</span>
-	<span class="n">reflex</span> <span class="n">movement</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">bounding</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">do_move</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="n">sphere</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">aspect</span> <span class="n">image</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="p">(</span><span class="n">images</span> <span class="n">at</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">2</span><span class="p">)))</span> <span class="n">size</span><span class="p">:</span> <span class="n">boids_size</span> <span class="n">rotate</span><span class="p">:</span> <span class="n">heading</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>      
-	<span class="p">}</span>
+    <span class="p">//</span><span class="n">Attribute</span> <span class="n">for</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="k">max</span><span class="p">:</span> <span class="n">maximal_speed</span> <span class="p">&lt;-</span> <span class="n">maximal_speed</span><span class="p">;</span>
+    <span class="p">//</span><span class="k">Range</span> <span class="k">of</span> <span class="n">sensing</span> <span class="k">of</span> <span class="n">the</span> <span class="n">boids</span>
+    <span class="n">float</span> <span class="k">range</span> <span class="p">&lt;-</span> <span class="n">minimal_distance</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">;</span>
+
+    <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">the</span> <span class="n">others</span> <span class="n">boids</span> <span class="k">in</span> <span class="n">the</span> <span class="k">range</span> <span class="n">distance</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+    <span class="k">list</span> <span class="n">others</span> <span class="n">update</span><span class="p">:</span> <span class="p">((</span><span class="n">boids</span> <span class="n">at_distance</span> <span class="k">range</span><span class="p">)</span>  <span class="p">-</span> <span class="n">self</span><span class="p">);</span>
+    <span class="p">//</span><span class="n">Mass</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="s2">"flock"</span> <span class="n">represented</span> <span class="k">as</span> <span class="n">the</span> <span class="n">other</span> <span class="n">boids</span> <span class="k">in</span> <span class="n">the</span> <span class="n">sensing</span> <span class="k">range</span>
+    <span class="n">point</span> <span class="n">mass_center</span> <span class="n">update</span><span class="p">:</span>  <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">others</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">mean</span> <span class="p">(</span><span class="n">others</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">))</span> <span class="p">)</span>  <span class="p">:</span> <span class="n">location</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">separation</span>
+    <span class="n">reflex</span> <span class="n">separation</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_separation</span> <span class="p">{</span>
+        <span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+        <span class="n">loop</span> <span class="n">boid</span> <span class="n">over</span><span class="p">:</span> <span class="p">(</span><span class="n">boids</span> <span class="n">at_distance</span> <span class="p">(</span><span class="n">minimal_distance</span><span class="p">))</span>  <span class="p">{</span>
+            <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">((</span><span class="n">location</span> <span class="k">of</span> <span class="n">boid</span><span class="p">)</span> <span class="p">-</span> <span class="n">location</span><span class="p">);</span>
+        <span class="p">}</span>  
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">alignment</span>
+    <span class="n">reflex</span> <span class="n">alignment</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_alignment</span> <span class="p">{</span>
+        <span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">others</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">mean</span> <span class="p">(</span><span class="n">others</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">velocity</span><span class="p">)))</span> <span class="p">:</span> <span class="p">{</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">};</span>
+        <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="n">velocity</span><span class="p">;</span>
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">(</span><span class="n">acc</span> <span class="p">/</span> <span class="n">alignment_factor</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">cohesion</span>
+    <span class="n">reflex</span> <span class="n">cohesion</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_cohesion</span> <span class="p">{</span>
+        <span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">mass_center</span> <span class="p">-</span> <span class="n">location</span><span class="p">;</span>
+        <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">;</span>
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">location</span> <span class="n">within</span> <span class="n">the</span> <span class="n">environment</span>
+    <span class="n">action</span> <span class="n">bounding</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">z_max</span> <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">z_max</span><span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">follow</span> <span class="n">the</span> <span class="n">goal</span>
+    <span class="n">reflex</span> <span class="n">follow_goal</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_goal</span> <span class="p">{</span>
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">((</span><span class="n">goal</span> <span class="p">-</span> <span class="n">location</span><span class="p">)</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">the</span> <span class="n">wind</span> <span class="n">by</span> <span class="n">using</span> <span class="n">the</span> <span class="n">vector</span> <span class="k">of</span> <span class="n">wind</span>
+    <span class="n">reflex</span> <span class="n">wind</span> <span class="n">when</span><span class="p">:</span> <span class="n">apply_wind</span> <span class="p">{</span>
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">wind_vector</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">moving</span>
+    <span class="n">action</span> <span class="n">do_move</span> <span class="p">{</span>  
+        <span class="k">if</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(((</span><span class="n">velocity</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="k">as</span> <span class="n">int</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span><span class="m">2</span><span class="p">,</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span> <span class="m">2</span><span class="p">,</span>  <span class="p">((</span><span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">))</span> <span class="p">-</span> <span class="m">2</span><span class="p">)}</span> <span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="n">point</span> <span class="n">old_location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="n">velocity</span><span class="p">;</span>
+        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">-</span> <span class="n">old_location</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span><span class="p">,</span> <span class="n">calling</span> <span class="n">both</span> <span class="n">bounding</span> <span class="k">and</span> <span class="n">do_move</span> <span class="n">action</span>
+    <span class="n">reflex</span> <span class="n">movement</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">bounding</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">do_move</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">sphere</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">image</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="p">(</span><span class="n">images</span> <span class="n">at</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">2</span><span class="p">)))</span> <span class="n">size</span><span class="p">:</span> <span class="n">boids_size</span> <span class="n">rotate</span><span class="p">:</span> <span class="n">heading</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>      
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">boids_3D</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	
-	
-	<span class="n">output</span> <span class="p">{</span>
-		
-		<span class="n">display</span> <span class="n">Sky1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">z_fighting</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
-			<span class="n">image</span> <span class="s1">'background'</span> <span class="n">file</span><span class="p">:</span><span class="s1">'../images/ocean.jpg'</span> <span class="p">;</span>
-			<span class="n">species</span> <span class="n">boids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">image</span><span class="p">;</span>
-			<span class="n">species</span> <span class="n">boids_goal</span><span class="p">;</span>	
-		<span class="p">}</span>
-		
 
-	<span class="p">}</span>
+
+    <span class="n">output</span> <span class="p">{</span>
+
+        <span class="n">display</span> <span class="n">Sky1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">z_fighting</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
+            <span class="n">image</span> <span class="s1">'background'</span> <span class="n">file</span><span class="p">:</span><span class="s1">'../images/ocean.jpg'</span> <span class="p">;</span>
+            <span class="n">species</span> <span class="n">boids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">image</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">boids_goal</span><span class="p">;</span> 
+        <span class="p">}</span>
+
+
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

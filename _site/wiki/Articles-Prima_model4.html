@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="prima-4">Prima 4</h1>
@@ -3615,86 +3615,84 @@ function closeRightMenu() {
 
 <p>This model shows how to create agent and make them move randomly in the world.Some agents are infected, and others can gain the infection if they are in a certain range. The people are now placed in buildings at the initial state. Those buildings are created thanks toa shapefile. Roads are also created thanks to an other shapefile. A graph is now created fromthe road agents, and the people move from their location to a targent on the graph. The displayis now a 3D display.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model4</span> 
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">model4</span> 
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">roads</span>
-	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
-	<span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
-	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-	<span class="p">//</span><span class="n">The</span> <span class="n">world</span> <span class="n">bounds</span> <span class="n">are</span> <span class="n">now</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">roads</span> <span class="s1">'s boundss
-	geometry shape &lt;- envelope(roads_shapefile);
-	//The graph of roads on which people will move
-	graph road_network;
-	init {
-		//Creation of the roads using the road shapefile
-		create roads from: roads_shapefile;
-		//Creation of the graph using roads as the edges of the graph
-		road_network &lt;- as_edge_graph(roads);
-		//Creation of the buildings from the building shapefile
-		create buildings from: buildings_shapefile;
-		//Creation of the people agent, located in one of the building
-		create people number:1000 {
-			buildings init_place &lt;- one_of(buildings);
-			location &lt;- any_location_in(init_place) + {0,0, init_place.height};
-			target &lt;- any_location_in(one_of(buildings));
-		}
-	}
+    <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">roads</span>
+    <span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+    <span class="p">//</span><span class="n">Shapefile</span> <span class="n">for</span> <span class="n">the</span> <span class="n">buildings</span>
+    <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+    <span class="p">//</span><span class="n">The</span> <span class="n">world</span> <span class="n">bounds</span> <span class="n">are</span> <span class="n">now</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">roads</span> <span class="s1">'s boundss
+    geometry shape &lt;- envelope(roads_shapefile);
+    //The graph of roads on which people will move
+    graph road_network;
+    init {
+        //Creation of the roads using the road shapefile
+        create roads from: roads_shapefile;
+        //Creation of the graph using roads as the edges of the graph
+        road_network &lt;- as_edge_graph(roads);
+        //Creation of the buildings from the building shapefile
+        create buildings from: buildings_shapefile;
+        //Creation of the people agent, located in one of the building
+        create people number:1000 {
+            buildings init_place &lt;- one_of(buildings);
+            location &lt;- any_location_in(init_place) + {0,0, init_place.height};
+            target &lt;- any_location_in(one_of(buildings));
+        }
+    }
 }
 //Species people that will move from a location to a target and can be infected
-species people skills:[moving]{		
-	float speed &lt;- 5.0 + rnd(5);
-	bool is_infected &lt;- flip(0.01);
-	point target;
-	
-	//Reflex to move to the target on the graph of roads
-	reflex move {
-		do goto target:target on: road_network;
-		//Once the target is reached, find an other target
-		if (location = target) {
-			target &lt;- any_location_in(one_of(buildings));
-		}
-	}
-	//Reflex to check if we are infected if we aren'</span><span class="n">t</span> <span class="n">already</span> <span class="k">and</span> <span class="n">infected</span> <span class="n">people</span> <span class="n">are</span> <span class="n">nearby</span>
-	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
-		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-	<span class="p">}</span>
+species people skills:[moving]{     
+    float speed &lt;- 5.0 + rnd(5);
+    bool is_infected &lt;- flip(0.01);
+    point target;
+
+    //Reflex to move to the target on the graph of roads
+    reflex move {
+        do goto target:target on: road_network;
+        //Once the target is reached, find an other target
+        if (location = target) {
+            target &lt;- any_location_in(one_of(buildings));
+        }
+    }
+    //Reflex to check if we are infected if we aren'</span><span class="n">t</span> <span class="n">already</span> <span class="k">and</span> <span class="n">infected</span> <span class="n">people</span> <span class="n">are</span> <span class="n">nearby</span>
+    <span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+        <span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">roads</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
-	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Type</span> <span class="n">opengl</span> <span class="k">to</span> <span class="n">display</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Type</span> <span class="n">opengl</span> <span class="k">to</span> <span class="n">display</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>           
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

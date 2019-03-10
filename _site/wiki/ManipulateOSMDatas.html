@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="manipulate-osm-datas">Manipulate OSM Datas</h1>
@@ -3615,103 +3615,92 @@ function closeRightMenu() {
 
 <p>From the website <a href="https://www.openstreetmap.org/">openstreetmap.org</a>, we will chose a place (in this example, we will take a neighborhood in New York City). Directly from the website, you can export the chosen area in the osm format.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_1.png" alt="images/manipulate_OSM_file_1.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_1.png" alt="images/manipulate_OSM_file_1.png"></p>
 
 <p>We have now to manipulate the attributes for the exported osm file.
 Several software are possible to use, but we will focus on <a href="http://www.qgis.org/en/site/">QGIS</a>, which is totally free and provides a lot of possibilities in term of manipulation of data.</p>
 
 <p>Once you have installed correctly QGIS, launch QGIS Desktop, and start to import the topology from the osm file.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_2.png" alt="images/manipulate_OSM_file_2.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_2.png" alt="images/manipulate_OSM_file_2.png"></p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_3.png" alt="images/manipulate_OSM_file_3.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_3.png" alt="images/manipulate_OSM_file_3.png"></p>
 
 <p>A message indicates that the import was successful. An output file .osm.db is created. You have now to export the topology to SpatiaLite.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_4.png" alt="images/manipulate_OSM_file_4.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_4.png" alt="images/manipulate_OSM_file_4.png"></p>
 
-<p>Specify the path for your DataBase file, then choose the export type (in your case, we will choose the type “Polygons (closed ways)”), choose an output layer name. If you want to use the open street maps attributes values, click on “Load from DB”, and select the attributes you want to keep. Click OK then.</p>
+<p>Specify the path for your DataBase file, then choose the export type (in your case, we will choose the type &quot;Polygons (closed ways)&quot;), choose an output layer name. If you want to use the open street maps attributes values, click on &quot;Load from DB&quot;, and select the attributes you want to keep. Click OK then.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_5.png" alt="images/manipulate_OSM_file_5.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_5.png" alt="images/manipulate_OSM_file_5.png"></p>
 
 <p>A message indicates that the export was successful, and you have now a new layer created.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_6.png" alt="images/manipulate_OSM_file_6.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_6.png" alt="images/manipulate_OSM_file_6.png"></p>
 
-<p>We will now manipulate the attributes of your datafile. Right click on the layer, and select “Open Attribute Table”.</p>
+<p>We will now manipulate the attributes of your datafile. Right click on the layer, and select &quot;Open Attribute Table&quot;.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_7.png" alt="images/manipulate_OSM_file_7.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_7.png" alt="images/manipulate_OSM_file_7.png"></p>
 
 <p>The table of attribute appears. Select the little pencil on the top-left corner of the window to modify the table.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_8.png" alt="images/manipulate_OSM_file_8.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_8.png" alt="images/manipulate_OSM_file_8.png"></p>
 
-<p>We will add an attribute manually. Click on the button “new column”, choose a name and a type (we will choose the type “text”).</p>
+<p>We will add an attribute manually. Click on the button &quot;new column&quot;, choose a name and a type (we will choose the type &quot;text&quot;).</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_9.png" alt="images/manipulate_OSM_file_9.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_9.png" alt="images/manipulate_OSM_file_9.png"></p>
 
-<p>A new column appears at the end of the table. Let’s fill some values (for instance blue / red). Once you finishes, click on the “save edit” button.</p>
+<p>A new column appears at the end of the table. Let&#39;s fill some values (for instance blue / red). Once you finishes, click on the &quot;save edit&quot; button.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_10.png" alt="images/manipulate_OSM_file_10.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_10.png" alt="images/manipulate_OSM_file_10.png"></p>
 
-<p>Our file is now ready to be exported. Right click on the layer, and click on “Save As”.</p>
+<p>Our file is now ready to be exported. Right click on the layer, and click on &quot;Save As&quot;.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_11.png" alt="images/manipulate_OSM_file_11.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_11.png" alt="images/manipulate_OSM_file_11.png"></p>
 
-<p>Choose “shapefile” as format, choose a save path and click ok.</p>
+<p>Choose &quot;shapefile&quot; as format, choose a save path and click ok.</p>
 
-<p><img src="resources/images/recipes/manipulate_OSM_file_12.png" alt="images/manipulate_OSM_file_12.png" /></p>
+<p><img src="resources/images/recipes/manipulate_OSM_file_12.png" alt="images/manipulate_OSM_file_12.png"></p>
 
 <p>Copy passed all the .shp created in the include folder of your GAMA project. You are now ready to write the model.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">HowToUseOpenStreetMap</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">HowToUseOpenStreetMap</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span> <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Management</span> <span class="n">units</span>	
-	<span class="n">file</span> <span class="n">shapeFile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/new_york.shp'</span><span class="p">);</span> 
-	
-	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">.</span> 
-	<span class="p">//</span><span class="n">Note</span> <span class="n">that</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">it</span> <span class="k">from</span> <span class="n">several</span> <span class="n">files</span> <span class="n">by</span> <span class="n">using</span><span class="p">:</span> <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">envelope</span><span class="p">(</span><span class="n">file1</span><span class="p">)</span> <span class="p">+</span> <span class="n">envelope</span><span class="p">(</span><span class="n">file2</span><span class="p">)</span> <span class="p">+</span> <span class="p">...);</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shapeFile</span><span class="p">);</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">elementOfNewYork</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="p">(</span><span class="k">and</span> <span class="n">reading</span> <span class="n">some</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">attributes</span><span class="p">)</span>
-		<span class="nb">create</span> <span class="n">elementOfNewYork</span> <span class="k">from</span><span class="p">:</span> <span class="n">shapeFile</span> 
-			<span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">elementId</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)),</span> <span class="n">elementHeight</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'height'</span><span class="p">)),</span> <span class="n">elementColor</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'attrForGama'</span><span class="p">))]</span> <span class="p">;</span>
+    <span class="p">//</span> <span class="n">Global</span> <span class="n">variables</span> <span class="n">related</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Management</span> <span class="n">units</span> 
+    <span class="n">file</span> <span class="n">shapeFile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/new_york.shp'</span><span class="p">);</span> 
+
+    <span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">.</span> 
+    <span class="p">//</span><span class="n">Note</span> <span class="n">that</span> <span class="n">is</span> <span class="n">possible</span> <span class="k">to</span> <span class="n">define</span> <span class="n">it</span> <span class="k">from</span> <span class="n">several</span> <span class="n">files</span> <span class="n">by</span> <span class="n">using</span><span class="p">:</span> <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">envelope</span><span class="p">(</span><span class="n">file1</span><span class="p">)</span> <span class="p">+</span> <span class="n">envelope</span><span class="p">(</span><span class="n">file2</span><span class="p">)</span> <span class="p">+</span> <span class="p">...);</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shapeFile</span><span class="p">);</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">elementOfNewYork</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="p">(</span><span class="k">and</span> <span class="n">reading</span> <span class="n">some</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">attributes</span><span class="p">)</span>
+        <span class="nb">create</span> <span class="n">elementOfNewYork</span> <span class="k">from</span><span class="p">:</span> <span class="n">shapeFile</span> 
+            <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">elementId</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)),</span> <span class="n">elementHeight</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'height'</span><span class="p">)),</span> <span class="n">elementColor</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s1">'attrForGama'</span><span class="p">))]</span> <span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-	
+
 <span class="n">species</span> <span class="n">elementOfNewYork</span><span class="p">{</span>
-	<span class="n">int</span> <span class="n">elementId</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">elementHeight</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">elementColor</span><span class="p">;</span>
-	
-	<span class="n">aspect</span> <span class="n">basic</span><span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">blue</span> <span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">elementHeight</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>	
+    <span class="n">int</span> <span class="n">elementId</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">elementHeight</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">elementColor</span><span class="p">;</span>
 
-<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>		
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">HowToUseOpenStreetMap</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
-	   		<span class="n">species</span> <span class="n">elementOfNewYork</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">basic</span><span class="p">;</span> 
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">basic</span><span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">blue</span> <span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="n">elementColor</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">elementHeight</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>   
+
+<span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>     
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">HowToUseOpenStreetMap</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">elementOfNewYork</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">basic</span><span class="p">;</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
+<p>Here is the result, with a special colorization of the different elements regarding to the value of the attribute &quot;attrForGama&quot;, and an elevation regarding to the value of the attribute &quot;height&quot;.</p>
 
-<p>Here is the result, with a special colorization of the different elements regarding to the value of the attribute “attrForGama”, and an elevation regarding to the value of the attribute “height”.</p>
-
-<p><img src="resources/images/recipes/manipulate_OSM_file_13.png" alt="images/manipulate_OSM_file_13.png" /></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_shapefile)">//</a>: # (endConcept</td>
-      <td>use_osm_datas)</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="resources/images/recipes/manipulate_OSM_file_13.png" alt="images/manipulate_OSM_file_13.png"></p>
 
     </div>
     </div>

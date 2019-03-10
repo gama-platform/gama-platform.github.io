@@ -3606,151 +3606,149 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="sir_split_in_agents">SIR_split_in_agents</h1>
 
 <p>_Author : hqnghi _</p>
 
-<p>This model illustrates the possibility to split an equation system into several agents. All the equations are solve together thanks to the <code class="highlighter-rouge">simultaneously</code> facet of the equation statement. We also compare the split model with the simple SIR one.</p>
+<p>This model illustrates the possibility to split an equation system into several agents. All the equations are solve together thanks to the <code>simultaneously</code> facet of the equation statement. We also compare the split model with the simple SIR one. </p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">SIR_split_in_agents</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">number_S</span> <span class="p">&lt;-</span> <span class="m">495</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
-	<span class="n">int</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span>   <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
-	<span class="n">int</span> <span class="n">number_R</span> <span class="p">&lt;-</span> <span class="m">0</span>   <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">removed</span> 
+    <span class="n">int</span> <span class="n">number_S</span> <span class="p">&lt;-</span> <span class="m">495</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
+    <span class="n">int</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span>   <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
+    <span class="n">int</span> <span class="n">number_R</span> <span class="p">&lt;-</span> <span class="m">0</span>   <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">number</span> <span class="k">of</span> <span class="n">removed</span> 
 
-	<span class="n">float</span> <span class="n">beta</span>  <span class="p">&lt;-</span> <span class="m">1.0</span>  <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
-	<span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Delta</span>
-	
-	<span class="p">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">N</span> <span class="n">will</span> <span class="n">remain</span> <span class="n">constant</span> <span class="k">as</span> <span class="n">demography</span> <span class="n">is</span> <span class="k">not</span> <span class="n">taken</span> <span class="n">into</span> <span class="n">account</span> <span class="k">in</span> <span class="n">the</span> <span class="n">SIR</span> <span class="k">model</span><span class="p">.</span>
-	<span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="n">number_S</span> <span class="p">+</span> <span class="n">number_I</span> <span class="p">+</span> <span class="n">number_R</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">hKR4</span> <span class="p">&lt;-</span> <span class="m">0.07</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">beta</span>  <span class="p">&lt;-</span> <span class="m">1.0</span>  <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Beta</span>
+    <span class="n">float</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span> <span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">parameter</span> <span class="n">Delta</span>
 
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">susceptible</span> <span class="n">agents</span>
-		<span class="nb">create</span> <span class="n">S_agt</span> <span class="p">{</span>
-			<span class="n">Ssize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_S</span><span class="p">)</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">infected</span> <span class="n">agents</span>
-		<span class="nb">create</span> <span class="n">I_agt</span> <span class="p">{</span>
-			<span class="n">Isize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_I</span><span class="p">)</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">recovered</span> <span class="n">agents</span>
-		<span class="nb">create</span> <span class="n">R_agt</span> <span class="p">{</span>
-			<span class="n">Rsize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_R</span><span class="p">)</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">SIR</span> <span class="n">agent</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">non</span> <span class="n">split</span> <span class="nf">system</span>
-		<span class="nb">create</span> <span class="n">SIR_agt</span> <span class="p">{</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">Sm</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_S</span><span class="p">)</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">Im</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_I</span><span class="p">)</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">Rm</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_R</span><span class="p">)</span> <span class="p">;</span>
-			
-			<span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
-			<span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="p">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">N</span> <span class="n">will</span> <span class="n">remain</span> <span class="n">constant</span> <span class="k">as</span> <span class="n">demography</span> <span class="n">is</span> <span class="k">not</span> <span class="n">taken</span> <span class="n">into</span> <span class="n">account</span> <span class="k">in</span> <span class="n">the</span> <span class="n">SIR</span> <span class="k">model</span><span class="p">.</span>
+    <span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="n">number_S</span> <span class="p">+</span> <span class="n">number_I</span> <span class="p">+</span> <span class="n">number_R</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">hKR4</span> <span class="p">&lt;-</span> <span class="m">0.07</span> <span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">susceptible</span> <span class="n">agents</span>
+        <span class="nb">create</span> <span class="n">S_agt</span> <span class="p">{</span>
+            <span class="n">Ssize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_S</span><span class="p">)</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">infected</span> <span class="n">agents</span>
+        <span class="nb">create</span> <span class="n">I_agt</span> <span class="p">{</span>
+            <span class="n">Isize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_I</span><span class="p">)</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">recovered</span> <span class="n">agents</span>
+        <span class="nb">create</span> <span class="n">R_agt</span> <span class="p">{</span>
+            <span class="n">Rsize</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_R</span><span class="p">)</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">representation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">SIR</span> <span class="n">agent</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">non</span> <span class="n">split</span> <span class="nf">system</span>
+        <span class="nb">create</span> <span class="n">SIR_agt</span> <span class="p">{</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">Sm</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_S</span><span class="p">)</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">Im</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_I</span><span class="p">)</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">Rm</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">number_R</span><span class="p">)</span> <span class="p">;</span>
+
+            <span class="n">self</span><span class="p">.</span><span class="n">beta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">beta</span> <span class="p">;</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">delta</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">delta</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">susceptible</span> <span class="n">agents</span> <span class="n">compartiment</span>
 <span class="n">species</span> <span class="n">S_agt</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">t</span> <span class="p">;</span>		
-	<span class="n">float</span> <span class="n">Ssize</span> <span class="p">;</span> <span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
-	
-	<span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
-	<span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
-	<span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span>  <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">,</span>  <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
-			<span class="p">(</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span>	<span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span><span class="n">solve</span> <span class="n">evol</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="m">0.01</span> <span class="p">;}</span>
+    <span class="n">float</span> <span class="n">t</span> <span class="p">;</span>       
+    <span class="n">float</span> <span class="n">Ssize</span> <span class="p">;</span> <span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">susceptible</span>
+
+    <span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
+    <span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
+    <span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span>  <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">,</span>  <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
+            <span class="p">(</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span>    <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span><span class="n">solve</span> <span class="n">evol</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="m">0.01</span> <span class="p">;}</span>
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">infected</span> <span class="n">agents</span> <span class="n">compartiment</span>
 <span class="n">species</span> <span class="n">I_agt</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">t</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">Isize</span> <span class="p">;</span> <span class="p">//</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
-	
-	<span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">t</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">Isize</span> <span class="p">;</span> <span class="p">//</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span>
 
-	<span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
-	<span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span>  <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">,</span>  <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
-			<span class="p">(</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> 
-			<span class="p">-</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
+    <span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span>  <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">,</span>  <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
+            <span class="p">(</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> 
+            <span class="p">-</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">resistant</span> <span class="n">agents</span> <span class="n">compartiment</span>
 <span class="n">species</span> <span class="n">R_agt</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">t</span> <span class="p">;</span>		
-	<span class="n">float</span> <span class="n">Rsize</span> <span class="p">;</span> <span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">resistant</span>
-	
-	<span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">t</span> <span class="p">;</span>       
+    <span class="n">float</span> <span class="n">Rsize</span> <span class="p">;</span> <span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">resistant</span>
 
-	<span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
-	<span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">+</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Rsize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
-			<span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Equation</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">simultaneously</span> <span class="k">with</span> <span class="n">the</span> <span class="n">two</span> <span class="n">other</span> <span class="n">equations</span> <span class="n">systems</span>
+    <span class="n">equation</span> <span class="n">evol</span> <span class="n">simultaneously</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">+</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">]</span> <span class="p">{</span>
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">first</span> <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Rsize</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> 
+            <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">ordinary</span> <span class="n">differential</span> <span class="n">equations</span> <span class="nf">system</span>
 <span class="n">species</span> <span class="n">SIR_agt</span> <span class="p">{</span>
-	<span class="n">float</span> <span class="n">t</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">Im</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">Sm</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">Rm</span> <span class="p">;</span>
-	
-	<span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
-	<span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
-	
-	<span class="n">equation</span> <span class="n">SIR</span> <span class="p">{</span>
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">Sm</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">Sm</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">;</span> 
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">Im</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">Sm</span>	<span class="p">*</span> <span class="n">Im</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">-</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">)</span> <span class="p">;</span> 
-		<span class="n">diff</span> <span class="p">(</span> <span class="n">Rm</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span><span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="m">0.01</span> <span class="p">;}</span>
+    <span class="n">float</span> <span class="n">t</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">Im</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">Sm</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">Rm</span> <span class="p">;</span>
+
+    <span class="n">float</span> <span class="n">beta</span> <span class="p">;</span>
+    <span class="n">float</span> <span class="n">delta</span> <span class="p">;</span>
+
+    <span class="n">equation</span> <span class="n">SIR</span> <span class="p">{</span>
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">Sm</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="p">-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">Sm</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">;</span> 
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">Im</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">Sm</span>   <span class="p">*</span> <span class="n">Im</span> <span class="p">/</span> <span class="n">N</span> <span class="p">)</span> <span class="p">-</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">)</span> <span class="p">;</span> 
+        <span class="n">diff</span> <span class="p">(</span> <span class="n">Rm</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span> <span class="p">=</span> <span class="p">(</span> <span class="n">delta</span> <span class="p">*</span> <span class="n">Im</span> <span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">solving</span> <span class="p">{</span><span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="m">0.01</span> <span class="p">;}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">Simulation</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">parameter</span> <span class="s1">'Number of Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">&lt;-</span> <span class="m">495</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">initial</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptibles</span>
-	<span class="n">parameter</span> <span class="s1">'Number of Infected'</span>    <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Number of Removed'</span>     <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_R</span> <span class="p">&lt;-</span> <span class="m">0</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Number of Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_S</span> <span class="p">&lt;-</span> <span class="m">495</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span> <span class="p">//</span> <span class="n">The</span> <span class="n">initial</span> <span class="n">number</span> <span class="k">of</span> <span class="n">susceptibles</span>
+    <span class="n">parameter</span> <span class="s1">'Number of Infected'</span>    <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_I</span> <span class="p">&lt;-</span> <span class="m">5</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Number of Removed'</span>     <span class="n">type</span><span class="p">:</span> <span class="n">int</span> <span class="n">var</span><span class="p">:</span> <span class="n">number_R</span> <span class="p">&lt;-</span> <span class="m">0</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Initial population"</span><span class="p">;</span>
 
-	<span class="n">parameter</span> <span class="s1">'Beta (S-&gt;I)'</span>  <span class="n">type</span><span class="p">:</span> <span class="n">float</span> <span class="n">var</span><span class="p">:</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">1.0</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Parameters"</span><span class="p">;</span>
-	<span class="n">parameter</span> <span class="s1">'Delta (I-&gt;R)'</span> <span class="n">type</span><span class="p">:</span> <span class="n">float</span> <span class="n">var</span><span class="p">:</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Parameters"</span><span class="p">;</span>
-	
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="s2">"split system"</span> <span class="p">{</span>
-			<span class="n">chart</span> <span class="s1">'Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'lightGray'</span> <span class="p">)</span> <span class="p">{</span>
-				<span class="n">data</span> <span class="s1">'susceptible'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'green'</span> <span class="p">)</span> <span class="p">;</span>
-				<span class="n">data</span> <span class="s1">'infected'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'red'</span> <span class="p">)</span> <span class="p">;</span>
-				<span class="n">data</span> <span class="s1">'removed'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Rsize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'blue'</span> <span class="p">)</span> <span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="s2">"unified system"</span><span class="p">{</span>
-			<span class="n">chart</span> <span class="s1">'Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'lightGray'</span> <span class="p">)</span> <span class="p">{</span>
-				<span class="n">data</span> <span class="s1">'susceptible_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Sm</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'green'</span> <span class="p">)</span> <span class="p">;</span>
-				<span class="n">data</span> <span class="s1">'infected_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Im</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'red'</span> <span class="p">)</span> <span class="p">;</span>
-				<span class="n">data</span> <span class="s1">'removed_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Rm</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'blue'</span> <span class="p">)</span> <span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">parameter</span> <span class="s1">'Beta (S-&gt;I)'</span>  <span class="n">type</span><span class="p">:</span> <span class="n">float</span> <span class="n">var</span><span class="p">:</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">1.0</span>   <span class="n">category</span><span class="p">:</span> <span class="s2">"Parameters"</span><span class="p">;</span>
+    <span class="n">parameter</span> <span class="s1">'Delta (I-&gt;R)'</span> <span class="n">type</span><span class="p">:</span> <span class="n">float</span> <span class="n">var</span><span class="p">:</span> <span class="n">delta</span> <span class="p">&lt;-</span> <span class="m">0.01</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Parameters"</span><span class="p">;</span>
+
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="s2">"split system"</span> <span class="p">{</span>
+            <span class="n">chart</span> <span class="s1">'Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'lightGray'</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="s1">'susceptible'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">S_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Ssize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'green'</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="n">data</span> <span class="s1">'infected'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">I_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Isize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'red'</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="n">data</span> <span class="s1">'removed'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span> <span class="p">(</span> <span class="n">R_agt</span> <span class="p">)</span> <span class="p">.</span> <span class="n">Rsize</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'blue'</span> <span class="p">)</span> <span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="s2">"unified system"</span><span class="p">{</span>
+            <span class="n">chart</span> <span class="s1">'Susceptible'</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">background</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'lightGray'</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="s1">'susceptible_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Sm</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'green'</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="n">data</span> <span class="s1">'infected_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Im</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'red'</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="n">data</span> <span class="s1">'removed_maths'</span> <span class="n">value</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">SIR_agt</span> <span class="p">).</span><span class="n">Rm</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">(</span> <span class="s1">'blue'</span> <span class="p">)</span> <span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

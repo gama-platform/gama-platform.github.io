@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="movingagents">MovingAgents</h1>
@@ -3614,187 +3614,185 @@ function closeRightMenu() {
 <p><em>Author : drogoul</em></p>
 
 <p>Shows how to move agents using two event layers : 
-Click to grab an group of agents, click again to drop them. Press the keys “k” to kill the agents in the selection, and “d” to duplicate them.</p>
+Click to grab an group of agents, click again to drop them. Press the keys &quot;k&quot; to kill the agents in the selection, and &quot;d&quot; to duplicate them.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">MovingAgents</span>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">MovingAgents</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">moved_agents</span> <span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">);</span>
-	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">zone</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-	<span class="n">bool</span> <span class="n">can_drop</span><span class="p">;</span>
-	<span class="n">init</span>
-	<span class="p">{</span>
-		<span class="nb">create</span> <span class="n">being</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">moved_agents</span> <span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">zone</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+    <span class="n">bool</span> <span class="n">can_drop</span><span class="p">;</span>
+    <span class="n">init</span>
+    <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">being</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+    <span class="p">}</span>
 
-	<span class="n">action</span> <span class="n">kill</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">ask</span> <span class="n">moved_agents</span>
-		<span class="p">{</span>
-			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
-		<span class="p">}</span>
+    <span class="n">action</span> <span class="n">kill</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ask</span> <span class="n">moved_agents</span>
+        <span class="p">{</span>
+            <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+        <span class="p">}</span>
 
-		<span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;([]);</span>
-	<span class="p">}</span>
+        <span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;([]);</span>
+    <span class="p">}</span>
 
-	<span class="n">action</span> <span class="n">duplicate</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">geometry</span> <span class="n">available_space</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">target</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="k">union</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">)</span> <span class="p">+</span> <span class="m">10</span><span class="p">);</span>
-		<span class="nb">create</span> <span class="n">being</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">)</span> <span class="k">with</span><span class="p">:</span> <span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">available_space</span><span class="p">));</span>
-	<span class="p">}</span>
+    <span class="n">action</span> <span class="n">duplicate</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">geometry</span> <span class="n">available_space</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">target</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="k">union</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">)</span> <span class="p">+</span> <span class="m">10</span><span class="p">);</span>
+        <span class="nb">create</span> <span class="n">being</span> <span class="n">number</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">)</span> <span class="k">with</span><span class="p">:</span> <span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">available_space</span><span class="p">));</span>
+    <span class="p">}</span>
 
-	<span class="n">action</span> <span class="n">click</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
-		<span class="p">{</span>
-			<span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">selected_agents</span> <span class="p">&lt;-</span> <span class="n">being</span> <span class="n">inside</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">mousePosition</span><span class="p">);</span>
-			<span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="n">selected_agents</span><span class="p">;</span>
-			<span class="n">ask</span> <span class="n">selected_agents</span>
-			<span class="p">{</span>
-				<span class="n">difference</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span> <span class="p">-</span> <span class="n">location</span><span class="p">;</span>
-				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">olive</span><span class="p">;</span>
-			<span class="p">}</span>
+    <span class="n">action</span> <span class="n">click</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">selected_agents</span> <span class="p">&lt;-</span> <span class="n">being</span> <span class="n">inside</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">mousePosition</span><span class="p">);</span>
+            <span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="n">selected_agents</span><span class="p">;</span>
+            <span class="n">ask</span> <span class="n">selected_agents</span>
+            <span class="p">{</span>
+                <span class="n">difference</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span> <span class="p">-</span> <span class="n">location</span><span class="p">;</span>
+                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">olive</span><span class="p">;</span>
+            <span class="p">}</span>
 
-		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">can_drop</span><span class="p">)</span>
-		<span class="p">{</span>
-			<span class="n">ask</span> <span class="n">moved_agents</span>
-			<span class="p">{</span>
-				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">burlywood</span><span class="p">;</span>
-			<span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">can_drop</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ask</span> <span class="n">moved_agents</span>
+            <span class="p">{</span>
+                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">burlywood</span><span class="p">;</span>
+            <span class="p">}</span>
 
-			<span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;([]);</span>
-		<span class="p">}</span>
+            <span class="n">moved_agents</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;([]);</span>
+        <span class="p">}</span>
 
-	<span class="p">}</span>
+    <span class="p">}</span>
 
-	<span class="n">action</span> <span class="n">move</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">can_drop</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-		<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span><span class="p">;</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">other_agents</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">being</span> <span class="n">inside</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">mousePosition</span><span class="p">))</span> <span class="p">-</span> <span class="n">moved_agents</span><span class="p">;</span>
-		<span class="n">geometry</span> <span class="n">occupied</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">other_agents</span><span class="p">);</span>
-		<span class="n">ask</span> <span class="n">moved_agents</span>
-		<span class="p">{</span>
-			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span> <span class="p">-</span> <span class="n">difference</span><span class="p">;</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">occupied</span> <span class="n">intersects</span> <span class="n">self</span><span class="p">)</span>
-			<span class="p">{</span>
-				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
-				<span class="n">can_drop</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-			<span class="p">}</span> <span class="k">else</span>
-			<span class="p">{</span>
-				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">olive</span><span class="p">;</span>
-			<span class="p">}</span>
+    <span class="n">action</span> <span class="n">move</span> <span class="p">(</span><span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">selectedAgent</span><span class="p">,</span> <span class="n">point</span> <span class="n">mousePosition</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">can_drop</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span><span class="p">;</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">being</span><span class="p">&gt;</span> <span class="n">other_agents</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">being</span> <span class="n">inside</span> <span class="p">(</span><span class="n">zone</span> <span class="n">at_location</span> <span class="n">mousePosition</span><span class="p">))</span> <span class="p">-</span> <span class="n">moved_agents</span><span class="p">;</span>
+        <span class="n">geometry</span> <span class="n">occupied</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">other_agents</span><span class="p">);</span>
+        <span class="n">ask</span> <span class="n">moved_agents</span>
+        <span class="p">{</span>
+            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">mousePosition</span> <span class="p">-</span> <span class="n">difference</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">occupied</span> <span class="n">intersects</span> <span class="n">self</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+                <span class="n">can_drop</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">olive</span><span class="p">;</span>
+            <span class="p">}</span>
 
-		<span class="p">}</span>
+        <span class="p">}</span>
 
-	<span class="p">}</span>
+    <span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">being</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
 <span class="p">{</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
-	<span class="n">point</span> <span class="n">difference</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">burlywood</span><span class="p">;</span>
-	<span class="n">reflex</span> <span class="n">r</span>
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="c1">!(moved_agents contains self))
-</span>		<span class="p">{</span>
-			<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">30</span><span class="p">;</span>
-		<span class="p">}</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">difference</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">burlywood</span><span class="p">;</span>
+    <span class="n">reflex</span> <span class="n">r</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="c1">!(moved_agents contains self))
+</span>        <span class="p">{</span>
+            <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span> <span class="m">30</span><span class="p">;</span>
+        <span class="p">}</span>
 
-	<span class="p">}</span>
+    <span class="p">}</span>
 
-	<span class="n">aspect</span> <span class="n">default</span>
-	<span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span>
+    <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">at</span><span class="p">:</span> <span class="n">location</span><span class="p">;</span>
+    <span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="s2">"Click and Move"</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-	<span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
-	<span class="n">output</span>
-	<span class="p">{</span>
-		<span class="n">display</span> <span class="s2">"Click and Move [OPENGL]"</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
-		<span class="p">{</span>
-			<span class="n">graphics</span> <span class="s2">"Empty target"</span> 
-			<span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
-				<span class="p">{</span>
-					<span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">wheat</span><span class="p">;</span>
-				<span class="p">}</span>
+    <span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
+    <span class="n">output</span>
+    <span class="p">{</span>
+        <span class="n">display</span> <span class="s2">"Click and Move [OPENGL]"</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+        <span class="p">{</span>
+            <span class="n">graphics</span> <span class="s2">"Empty target"</span> 
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">wheat</span><span class="p">;</span>
+                <span class="p">}</span>
 
-			<span class="p">}</span>
+            <span class="p">}</span>
 
-			<span class="n">species</span> <span class="n">being</span><span class="p">;</span>
-			<span class="n">event</span> <span class="n">mouse_move</span> <span class="n">action</span><span class="p">:</span> <span class="n">move</span><span class="p">;</span>
-			<span class="n">event</span> <span class="n">mouse_up</span> <span class="n">action</span><span class="p">:</span> <span class="n">click</span><span class="p">;</span>
-			<span class="n">event</span> <span class="s1">'k'</span> <span class="n">action</span><span class="p">:</span> <span class="n">kill</span><span class="p">;</span>
-			<span class="n">event</span> <span class="s1">'c'</span> <span class="n">action</span><span class="p">:</span> <span class="n">duplicate</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"Full target"</span> 
-			<span class="p">{</span>
-				<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">);</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
-				<span class="p">{</span>
-					<span class="n">rgb</span> <span class="n">c1</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">darkseagreen</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
-					<span class="n">rgb</span> <span class="n">c2</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">firebrick</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
-					<span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">can_drop</span> <span class="p">?</span> <span class="n">c1</span> <span class="p">:</span> <span class="n">c2</span><span class="p">);</span>
-					<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="p">-</span><span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-					<span class="n">draw</span> <span class="s2">"'k': kill"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-					<span class="n">draw</span> <span class="s2">"'c': copy"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-				<span class="p">}</span>
+            <span class="n">species</span> <span class="n">being</span><span class="p">;</span>
+            <span class="n">event</span> <span class="n">mouse_move</span> <span class="n">action</span><span class="p">:</span> <span class="n">move</span><span class="p">;</span>
+            <span class="n">event</span> <span class="n">mouse_up</span> <span class="n">action</span><span class="p">:</span> <span class="n">click</span><span class="p">;</span>
+            <span class="n">event</span> <span class="s1">'k'</span> <span class="n">action</span><span class="p">:</span> <span class="n">kill</span><span class="p">;</span>
+            <span class="n">event</span> <span class="s1">'c'</span> <span class="n">action</span><span class="p">:</span> <span class="n">duplicate</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"Full target"</span> 
+            <span class="p">{</span>
+                <span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">rgb</span> <span class="n">c1</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">darkseagreen</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
+                    <span class="n">rgb</span> <span class="n">c2</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">firebrick</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
+                    <span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">can_drop</span> <span class="p">?</span> <span class="n">c1</span> <span class="p">:</span> <span class="n">c2</span><span class="p">);</span>
+                    <span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="p">-</span><span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                    <span class="n">draw</span> <span class="s2">"'k': kill"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                    <span class="n">draw</span> <span class="s2">"'c': copy"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                <span class="p">}</span>
 
-			<span class="p">}</span>
+            <span class="p">}</span>
 
-		<span class="p">}</span>
-		
-		<span class="n">display</span> <span class="s2">"Click and Move [JAVA2D]"</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span>
-		<span class="p">{</span>
-			<span class="n">graphics</span> <span class="s2">"Empty target"</span> 
-			<span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
-				<span class="p">{</span>
-					<span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">wheat</span><span class="p">;</span>
-				<span class="p">}</span>
+        <span class="p">}</span>
 
-			<span class="p">}</span>
+        <span class="n">display</span> <span class="s2">"Click and Move [JAVA2D]"</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span>
+        <span class="p">{</span>
+            <span class="n">graphics</span> <span class="s2">"Empty target"</span> 
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">wheat</span><span class="p">;</span>
+                <span class="p">}</span>
 
-			<span class="n">species</span> <span class="n">being</span><span class="p">;</span>
-			<span class="n">event</span> <span class="n">mouse_move</span> <span class="n">action</span><span class="p">:</span> <span class="n">move</span><span class="p">;</span>
-			<span class="n">event</span> <span class="n">mouse_up</span> <span class="n">action</span><span class="p">:</span> <span class="n">click</span><span class="p">;</span>
-			<span class="n">event</span> <span class="s1">'k'</span> <span class="n">action</span><span class="p">:</span> <span class="n">kill</span><span class="p">;</span>
-			<span class="n">event</span> <span class="s1">'c'</span> <span class="n">action</span><span class="p">:</span> <span class="n">duplicate</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"Full target"</span> 
-			<span class="p">{</span>
-				<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">);</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
-				<span class="p">{</span>
-					<span class="n">rgb</span> <span class="n">c1</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">darkseagreen</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
-					<span class="n">rgb</span> <span class="n">c2</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">firebrick</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
-					<span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">can_drop</span> <span class="p">?</span> <span class="n">c1</span> <span class="p">:</span> <span class="n">c2</span><span class="p">);</span>
-					<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="p">-</span><span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-					<span class="n">draw</span> <span class="s2">"'k': kill"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-					<span class="n">draw</span> <span class="s2">"'c': copy"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
-				<span class="p">}</span>
+            <span class="p">}</span>
 
-			<span class="p">}</span>
+            <span class="n">species</span> <span class="n">being</span><span class="p">;</span>
+            <span class="n">event</span> <span class="n">mouse_move</span> <span class="n">action</span><span class="p">:</span> <span class="n">move</span><span class="p">;</span>
+            <span class="n">event</span> <span class="n">mouse_up</span> <span class="n">action</span><span class="p">:</span> <span class="n">click</span><span class="p">;</span>
+            <span class="n">event</span> <span class="s1">'k'</span> <span class="n">action</span><span class="p">:</span> <span class="n">kill</span><span class="p">;</span>
+            <span class="n">event</span> <span class="s1">'c'</span> <span class="n">action</span><span class="p">:</span> <span class="n">duplicate</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"Full target"</span> 
+            <span class="p">{</span>
+                <span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">moved_agents</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">rgb</span> <span class="n">c1</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">darkseagreen</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
+                    <span class="n">rgb</span> <span class="n">c2</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(#</span><span class="n">firebrick</span><span class="p">,</span> <span class="m">120</span><span class="p">);</span>
+                    <span class="n">draw</span> <span class="n">zone</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">false</span> <span class="n">border</span><span class="p">:</span> <span class="nb">false</span> <span class="n">color</span><span class="p">:</span> <span class="p">(</span><span class="n">can_drop</span> <span class="p">?</span> <span class="n">c1</span> <span class="p">:</span> <span class="n">c2</span><span class="p">);</span>
+                    <span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="p">-</span><span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                    <span class="n">draw</span> <span class="s2">"'k': kill"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                    <span class="n">draw</span> <span class="s2">"'c': copy"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="p">-</span><span class="m">30</span><span class="p">,</span> <span class="m">30</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span><span class="p">;</span>
+                <span class="p">}</span>
 
-		<span class="p">}</span>
-		
-		
-		
-	<span class="p">}</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+
+
+
+    <span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

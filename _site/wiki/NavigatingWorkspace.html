@@ -3606,110 +3606,108 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="navigating-in-the-workspace">Navigating in the Workspace</h1>
 
 <p>All the models that you edit or run using GAMA are accessible from a central location: the <em>Navigator</em>, which is always on the left-hand side of the main window and cannot be closed. This view presents the models currently present in (or linked from) your <strong>workspace</strong>.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_first.png" alt="images/navigator_first.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_first.png" alt="images/navigator_first.png"></p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#navigating-in-the-workspace">Navigating in the Workspace</a>
-    <ul>
-      <li><a href="#the-different-categories-of-models">The Different Categories of Models</a>
-        <ul>
-          <li><a href="#models-library">Models library</a></li>
-          <li><a href="#plugin-models">Plugin models</a></li>
-          <li><a href="#user-models">User models</a></li>
-        </ul>
-      </li>
-      <li><a href="#inspect-models">Inspect Models</a></li>
-      <li><a href="#moving-models-around">Moving Models Around</a></li>
-      <li><a href="#closing-and-deleting-projects">Closing and Deleting Projects</a></li>
-    </ul>
-  </li>
+<li><a href="#navigating-in-the-workspace">Navigating in the Workspace</a>
+
+<ul>
+<li><a href="#the-different-categories-of-models">The Different Categories of Models</a>
+
+<ul>
+<li><a href="#models-library">Models library</a></li>
+<li><a href="#plugin-models">Plugin models</a></li>
+<li><a href="#user-models">User models</a></li>
+</ul></li>
+<li><a href="#inspect-models">Inspect Models</a></li>
+<li><a href="#moving-models-around">Moving Models Around</a></li>
+<li><a href="#closing-and-deleting-projects">Closing and Deleting Projects</a></li>
+</ul></li>
 </ul>
 
 <h2 id="the-different-categories-of-models">The Different Categories of Models</h2>
 
 <p>In the <em>Navigator</em>, models are organized in three different categories: <em>Models library</em>, <em>Plugin models</em>, and <em>User models</em>. This organization is purely logical and does not reflect where the models are actually stored in the workspace (or elsewhere). Whatever their actual location, model files need to be stored in <strong>projects</strong>, which may contain also other files (called <em>resources</em>) necessary for the models to function. A project may of course contain several model files, especially if they are importing each other, if they represent different models on the same topic, or if they share the same resources.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_3_categories.png" alt="images/navigator_3_categories.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_3_categories.png" alt="images/navigator_3_categories.png"></p>
 
 <h3 id="models-library">Models library</h3>
 
 <p>This category represents the models that are shipped with each version of GAMA. They do not reside in the workspace, but are considered as <em>linked</em> from it. This link is established every time a new workspace is created. Their actual location is within a plugin (msi.gama.models) of the GAMA application. This category contains four main projects in GAMA 1.6.1, which are further refined in folders and sub-folders that contain model files and resources.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_library_2_folders_expanded.png" alt="images/navigator_library_2_folders_expanded.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_library_2_folders_expanded.png" alt="images/navigator_library_2_folders_expanded.png"></p>
 
-<p>It may happen, in some occasions, that the library of models is not synchronized with the version of GAMA that uses your workspace. This is the case if you use different versions of GAMA to work with the same workspace. In that case, it is required that the library be manually updated. This can be done using the “Update library” item in the contextual menu.</p>
+<p>It may happen, in some occasions, that the library of models is not synchronized with the version of GAMA that uses your workspace. This is the case if you use different versions of GAMA to work with the same workspace. In that case, it is required that the library be manually updated. This can be done using the &quot;Update library&quot; item in the contextual menu.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_update_library.png" alt="images/navigator_update_library.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_update_library.png" alt="images/navigator_update_library.png"></p>
 
-<p>To look up for a particular model in the library, users can use the “Search for file” menu item. A search dialog is then displayed, which allows to look for models by their title (for example, models containing “GIS” in the example below).</p>
+<p>To look up for a particular model in the library, users can use the &quot;Search for file&quot; menu item. A search dialog is then displayed, which allows to look for models by their title (for example, models containing &quot;GIS&quot; in the example below).</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_search.png" alt="images/navigator_menu_search.png" />
-<img src="resources/images/workspaceProjectsAndModels/navigator_dialog_search.png" alt="images/navigator_dialog_search.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_search.png" alt="images/navigator_menu_search.png">
+<img src="resources/images/workspaceProjectsAndModels/navigator_dialog_search.png" alt="images/navigator_dialog_search.png"></p>
 
 <h3 id="plugin-models">Plugin models</h3>
 
 <p>This category represents the models that are related to a specific plugin (additional or integrated by default). The corresponding plugin is shown between parenthesis.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_plugin_models.png" alt="images/navigator_plugin_models.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_plugin_models.png" alt="images/navigator_plugin_models.png"></p>
 
 <p>For each projects, you can see the list of plugins needed, and a caption to show you if the plugin is actually installed in your GAMA version or not : green if the plugin is installed, red otherwise.</p>
 
 <h3 id="user-models">User models</h3>
 
-<p>This category regroups all the projects that have been <a href="GamlEditorGeneralities">created</a> or <a href="ImportingModels">imported</a> in the workspace by the user. Each project is actually a folder that resides in the folder of the workspace (so they can be easily located from within the filesystem). Any modification (addition, removal of files…) made to them in the file system (or using another application) is immediately reflected in the <em>Navigator</em> and vice-versa.</p>
+<p>This category regroups all the projects that have been <a href="GamlEditorGeneralities">created</a> or <a href="ImportingModels">imported</a> in the workspace by the user. Each project is actually a folder that resides in the folder of the workspace (so they can be easily located from within the filesystem). Any modification (addition, removal of files...) made to them in the file system (or using another application) is immediately reflected in the <em>Navigator</em> and vice-versa.</p>
 
-<p>Model files, although it is by no means mandatory, usually reside in a sub-folder of the project called “models”.</p>
+<p>Model files, although it is by no means mandatory, usually reside in a sub-folder of the project called &quot;models&quot;.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_user_expanded.png" alt="images/navigator_user_expanded.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_user_expanded.png" alt="images/navigator_user_expanded.png"></p>
 
 <h2 id="inspect-models">Inspect Models</h2>
 
 <p>Each models is presented as a node in the navigation workspace, including <em>Experiment</em> buttons and/or <em>Requires</em> node and/or <em>Uses</em> node.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/inspect_model.png" alt="images/inspect_model.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/inspect_model.png" alt="images/inspect_model.png"></p>
 
 <ul>
-  <li>
-    <p><strong>Experiment button</strong> : Experiment button are present if your model contains experiments (it is usually the case !). To run the corresponding experiment, just click on it. To learn more about running experiments, jump into this <a href="LaunchingExperiments">section</a>.</p>
-  </li>
-  <li>
-    <p><strong>Require node</strong> : The node <em>Require</em> is present if your model uses some plugins (additional or integrated by default). Each plugin is listed in this node, with a green icon if the plugin is already installed in your GAMA, and a red one if it is not the case. If the plugin you want in not installed, an error will be raised in your model. Please read about <a href="InstallingPlugins">how to install plugins</a> to learn some more about it.</p>
-  </li>
+<li><p><strong>Experiment button</strong> : Experiment button are present if your model contains experiments (it is usually the case !). To run the corresponding experiment, just click on it. To learn more about running experiments, jump into this <a href="LaunchingExperiments">section</a>.</p></li>
+<li><p><strong>Require node</strong> : The node <em>Require</em> is present if your model uses some plugins (additional or integrated by default). Each plugin is listed in this node, with a green icon if the plugin is already installed in your GAMA, and a red one if it is not the case. If the plugin you want in not installed, an error will be raised in your model. Please read about <a href="InstallingPlugins">how to install plugins</a> to learn some more about it.</p></li>
 </ul>
 
-<p><img src="resources/images/workspaceProjectsAndModels/requires_plugin_not_found.png" alt="images/requires_plugin_not_found.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/requires_plugin_not_found.png" alt="images/requires_plugin_not_found.png"></p>
 
 <ul>
-  <li><strong>Uses node</strong> : The node <em>Uses</em> is present if your model uses some external resources, <em>and if the path to the resource is correct</em> (if the path to the resource is not correct, the resource will not be displayed under <em>Uses</em>)</li>
+<li><strong>Uses node</strong> : The node <em>Uses</em> is present if your model uses some external resources, <em>and if the path to the resource is correct</em> (if the path to the resource is not correct, the resource will not be displayed under <em>Uses</em>)</li>
 </ul>
 
-<p><img src="resources/images/workspaceProjectsAndModels/uses_non_correct_paths.png" alt="images/uses_non_correct_paths.png" />
-<img src="resources/images/workspaceProjectsAndModels/uses_correct_paths.png" alt="images/uses_correct_paths.png" /></p>
+<p><img src="resources/images/workspaceProjectsAndModels/uses_non_correct_paths.png" alt="images/uses_non_correct_paths.png">
+<img src="resources/images/workspaceProjectsAndModels/uses_correct_paths.png" alt="images/uses_correct_paths.png"></p>
 
 <h2 id="moving-models-around">Moving Models Around</h2>
-<p>Model files, as well as resources, or even complete projects, can be moved around between the “Models Library”/”Plugin Models” and “Users Models” categories, or within them, directly in the <em>Navigator</em>. Drag’n drop operations are supported, as well as copy and paste. For example, the model “Life.gaml”, present in the “Models Library”, can perfectly be copied and then pasted in a project in the “Users Model”. This local copy in the workspace can then be further edited by the user without altering the original one.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_copy_paste.png" alt="images/navigator_menu_copy_paste.png" /></p>
+<p>Model files, as well as resources, or even complete projects, can be moved around between the &quot;Models Library&quot;/&quot;Plugin Models&quot; and &quot;Users Models&quot; categories, or within them, directly in the <em>Navigator</em>. Drag&#39;n drop operations are supported, as well as copy and paste. For example, the model &quot;Life.gaml&quot;, present in the &quot;Models Library&quot;, can perfectly be copied and then pasted in a project in the &quot;Users Model&quot;. This local copy in the workspace can then be further edited by the user without altering the original one.</p>
+
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_copy_paste.png" alt="images/navigator_menu_copy_paste.png"></p>
 
 <h2 id="closing-and-deleting-projects">Closing and Deleting Projects</h2>
-<p>Users can choose to get rid of old projects by either <strong>closing</strong> or <strong>deleting</strong> them. Closing a project means that it will still reside in the workspace (and be still visible, although a bit differently, in the <em>Navigator</em>) but its model(s) won’t participate to the build process and won’t be displayable until the project is opened again.</p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_close.png" alt="images/navigator_menu_close.png" />
-<img src="resources/images/workspaceProjectsAndModels/navigator_close_result.png" alt="images/navigator_close_result.png" /></p>
+<p>Users can choose to get rid of old projects by either <strong>closing</strong> or <strong>deleting</strong> them. Closing a project means that it will still reside in the workspace (and be still visible, although a bit differently, in the <em>Navigator</em>) but its model(s) won&#39;t participate to the build process and won&#39;t be displayable until the project is opened again.</p>
 
-<p><strong>Deleting</strong> a project must be invoked when the user wants this project to not appear in the workspace anymore (unless, that is, it is <a href="ImportingModels">imported</a> again). Invoking this command will effectively make the workspace “forget” about this project, and this can be further doubled with a deletion of the projects resources and models from the filesystem.</p>
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_close.png" alt="images/navigator_menu_close.png">
+<img src="resources/images/workspaceProjectsAndModels/navigator_close_result.png" alt="images/navigator_close_result.png"></p>
 
-<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_delete.png" alt="images/navigator_menu_delete.png" />
-<img src="resources/images/workspaceProjectsAndModels/navigator_delete_dialog.png" alt="images/navigator_delete_dialog.png" /></p>
+<p><strong>Deleting</strong> a project must be invoked when the user wants this project to not appear in the workspace anymore (unless, that is, it is <a href="ImportingModels">imported</a> again). Invoking this command will effectively make the workspace &quot;forget&quot; about this project, and this can be further doubled with a deletion of the projects resources and models from the filesystem.</p>
+
+<p><img src="resources/images/workspaceProjectsAndModels/navigator_menu_delete.png" alt="images/navigator_menu_delete.png">
+<img src="resources/images/workspaceProjectsAndModels/navigator_delete_dialog.png" alt="images/navigator_delete_dialog.png"></p>
 
     </div>
     </div>

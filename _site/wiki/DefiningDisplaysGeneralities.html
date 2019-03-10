@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="defining-displays-generalities">Defining displays (Generalities)</h1>
@@ -3614,74 +3614,66 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-  <li><a href="#displays-and-layers">Displays and layers</a></li>
-  <li><a href="#organize-your-layers">Organize your layers</a></li>
-  <li><a href="#example-of-layers">Example of layers</a>
-    <ul>
-      <li><a href="#agents-layer">agents layer</a></li>
-      <li><a href="#species-layer">species layer</a></li>
-      <li><a href="#image-layer">image layer</a></li>
-      <li><a href="#text-layer">text layer</a></li>
-      <li><a href="#graphics-layer">graphics layer</a></li>
-    </ul>
-  </li>
+<li><a href="#displays-and-layers">Displays and layers</a></li>
+<li><a href="#organize-your-layers">Organize your layers</a></li>
+<li><a href="#example-of-layers">Example of layers</a>
+
+<ul>
+<li><a href="#agents-layer">agents layer</a></li>
+<li><a href="#species-layer">species layer</a></li>
+<li><a href="#image-layer">image layer</a></li>
+<li><a href="#text-layer">text layer</a></li>
+<li><a href="#graphics-layer">graphics layer</a></li>
+</ul></li>
 </ul>
 
 <h2 id="displays-and-layers">Displays and layers</h2>
 
-<p>A display is the graphical output of your simulation. You can define several displays related with what you want to represent from your model execution. To define a display, use the keyword <code class="highlighter-rouge">display</code> inside the <code class="highlighter-rouge">output</code> scope, and specify a name (<code class="highlighter-rouge">name</code> facet).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
-	output {
-		display "display1" {
-		}
-		display name:"display2" {
-		}
-	}
+<p>A display is the graphical output of your simulation. You can define several displays related with what you want to represent from your model execution. To define a display, use the keyword <code>display</code> inside the <code>output</code> scope, and specify a name (<code>name</code> facet).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type: gui {
+    output {
+        display "display1" {
+        }
+        display name:"display2" {
+        }
+    }
 }
-</code></pre></div></div>
+</code></pre></div>
+<p>Other facets are available when defining your display:
+* Use <code>background</code> to define a color for your background
+<code>
+display &quot;my_display&quot; background:#red
+</code></p>
 
-<p>Other facets are available when defining your display:</p>
 <ul>
-  <li>Use <code class="highlighter-rouge">background</code> to define a color for your background
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display "my_display" background:#red
-</code></pre></div>    </div>
-  </li>
-  <li>Use <code class="highlighter-rouge">refresh</code> if you want to refresh the display when a condition is true (to refresh your display every number of steps, use the operator <code class="highlighter-rouge">every</code>)
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display "my_display" refresh:every(10)
-</code></pre></div>    </div>
-  </li>
+<li>Use <code>refresh</code> if you want to refresh the display when a condition is true (to refresh your display every number of steps, use the operator <code>every</code>)
+<code>
+display &quot;my_display&quot; refresh:every(10)
+</code></li>
 </ul>
 
-<p>You can choose between two types of displays, by using the facet type:</p>
-<ul>
-  <li>java2D displays will be used when you want to have 2D visualization. It is used for example when you manipulate charts. This is the default value for the facet type.</li>
-  <li>opengl displays allows you to have 3D visualization.</li>
-</ul>
+<p>You can choose between two types of displays, by using the facet type:
+* java2D displays will be used when you want to have 2D visualization. It is used for example when you manipulate charts. This is the default value for the facet type. 
+* opengl displays allows you to have 3D visualization.</p>
 
-<p>You can save the display on the disk, as a png file, in the folder name_of_model/models/snapshots, by using the facet <code class="highlighter-rouge">autosave</code>. This facet takes one a boolean as argument (to allow or not to save each frame) or a point (to define the size of your image). By default, the resolution of the output image is 500x500px (note that when no unit is provided, the unit is <code class="highlighter-rouge">#px</code> (pixel) ).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display my_display autosave:true type:java2D {}
-</code></pre></div></div>
-
+<p>You can save the display on the disk, as a png file, in the folder name_of_model/models/snapshots, by using the facet <code>autosave</code>. This facet takes one a boolean as argument (to allow or not to save each frame) or a point (to define the size of your image). By default, the resolution of the output image is 500x500px (note that when no unit is provided, the unit is <code>#px</code> (pixel) ).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">display my_display autosave:true type:java2D {}
+</code></pre></div>
 <p>is equivalent to :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display my_display autosave:{500,500} type:java2D {}
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">display my_display autosave:{500,500} type:java2D {}
+</code></pre></div>
 <p>Each display can be decomposed in one or several layers. Here is a screenshot (from the Toy Model Ant) to better understand those different notions we are about to tackle in this session.</p>
 
-<p><img src="resources/images/definingGUIExperiment/difference_layer_display.png" alt="images/difference_layer_display.png" /></p>
+<p><img src="resources/images/definingGUIExperiment/difference_layer_display.png" alt="images/difference_layer_display.png"></p>
 
 <h2 id="organize-your-layers">Organize your layers</h2>
 
-<p>In one 2D display, you will have several types of layers, giving what you want to display in your model. You have a large number of layers available. You already know some of them, such as <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">agents</code>, <code class="highlighter-rouge">grid</code>, but other specific layers such as <code class="highlighter-rouge">image</code> (to display image) and <code class="highlighter-rouge">graphics</code> (to freely draw shapes/geometries/texts without having to define a species) are also available</p>
+<p>In one 2D display, you will have several types of layers, giving what you want to display in your model. You have a large number of layers available. You already know some of them, such as <code>species</code>, <code>agents</code>, <code>grid</code>, but other specific layers such as <code>image</code> (to display image) and <code>graphics</code> (to freely draw shapes/geometries/texts without having to define a species) are also available</p>
 
 <p>Each layer will be displayed in the same order as you declare them. The last declared layer will be above the others.</p>
 
 <p>Thus, the following code:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
+<div class="highlight"><pre><code class="language-" data-lang="">experiment expe type:gui {
     output {
         display my_display {
             graphics "layer1" {
@@ -3696,87 +3688,77 @@ function closeRightMenu() {
         }
     }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>Will have this output:</p>
 
-<p><img src="resources/images/definingGUIExperiment/layers_order.png" alt="images/layers_order.png" /></p>
+<p><img src="resources/images/definingGUIExperiment/layers_order.png" alt="images/layers_order.png"></p>
 
-<p>Most of the layers have the <code class="highlighter-rouge">transparency</code> facet in order to see the layers which are under.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
-	output {
-		display my_display {
-			graphics "layer1" {
-				draw square(20) at:{10,10} color:#darkorange;
-			}
-			graphics "layer2" transparency:0.5 {
-				draw square(20) at:{15,15} color:#cornflowerblue;
-			}
-		}
-	}
+<p>Most of the layers have the <code>transparency</code> facet in order to see the layers which are under.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment expe type:gui {
+    output {
+        display my_display {
+            graphics "layer1" {
+                draw square(20) at:{10,10} color:#darkorange;
+            }
+            graphics "layer2" transparency:0.5 {
+                draw square(20) at:{15,15} color:#cornflowerblue;
+            }
+        }
+    }
 }
-</code></pre></div></div>
+</code></pre></div>
+<p><img src="resources/images/definingGUIExperiment/layers_transparency.png" alt="images/layers_transparency.png"></p>
 
-<p><img src="resources/images/definingGUIExperiment/layers_transparency.png" alt="images/layers_transparency.png" /></p>
-
-<p>To specify a position and a size for your layer, you can use the <code class="highlighter-rouge">position</code> and the <code class="highlighter-rouge">size</code> facets.
-The <code class="highlighter-rouge">position</code> facet is used with a point type, between {0,0} and {1,1}, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point {0.5,0.5}, the upper left corner of your layer will be in the center of your display. By default, this value is {0,0}.
-The <code class="highlighter-rouge">size</code> facet is used with a point type, between {0,0} and {1,1} also. It corresponds to the size occupied by the layer in percentage. By default, this value is {1,1}.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe type:gui {
-	output {
-		display my_display {
-			graphics "layer1" position:{0,0} size:{0.5,0.8} {
-				draw shape color:#darkorange;
-			}
-			graphics "layer2" position:{0.3,0.1} size:{0.6,0.2} {
-				draw shape color:#cornflowerblue;
-			}
-			graphics "layer3" position:{0.4,0.2} size:{0.3,0.8} {
-				draw shape color:#gold;
-			}
-		}
-	}
+<p>To specify a position and a size for your layer, you can use the <code>position</code> and the <code>size</code> facets.
+The <code>position</code> facet is used with a point type, between {0,0} and {1,1}, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point {0.5,0.5}, the upper left corner of your layer will be in the center of your display. By default, this value is {0,0}.
+The <code>size</code> facet is used with a point type, between {0,0} and {1,1} also. It corresponds to the size occupied by the layer in percentage. By default, this value is {1,1}.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment expe type:gui {
+    output {
+        display my_display {
+            graphics "layer1" position:{0,0} size:{0.5,0.8} {
+                draw shape color:#darkorange;
+            }
+            graphics "layer2" position:{0.3,0.1} size:{0.6,0.2} {
+                draw shape color:#cornflowerblue;
+            }
+            graphics "layer3" position:{0.4,0.2} size:{0.3,0.8} {
+                draw shape color:#gold;
+            }
+        }
+    }
 }
-</code></pre></div></div>
+</code></pre></div>
+<p><img src="resources/images/definingGUIExperiment/layers_size_position.png" alt="images/layers_size_position.png"></p>
 
-<p><img src="resources/images/definingGUIExperiment/layers_size_position.png" alt="images/layers_size_position.png" /></p>
+<p>NB : <code>displays</code> can have background, while <code>graphics</code> can&#39;t. If you want to put a background for your <code>graphics</code>, a solution can be to draw the <code>shape</code> of the world (which is, by default, a square 100m*100m).</p>
 
-<p>NB : <code class="highlighter-rouge">displays</code> can have background, while <code class="highlighter-rouge">graphics</code> can’t. If you want to put a background for your <code class="highlighter-rouge">graphics</code>, a solution can be to draw the <code class="highlighter-rouge">shape</code> of the world (which is, by default, a square 100m*100m).</p>
-
-<p>A lot of other facets are available for the different layers. Please read the documentation of <a href="Statements#graphics"><code class="highlighter-rouge">graphics</code></a> for more information.</p>
+<p>A lot of other facets are available for the different layers. Please read the documentation of <a href="Statements#graphics"><code>graphics</code></a> for more information.</p>
 
 <h2 id="example-of-layers">Example of layers</h2>
 
 <h3 id="agents-layer">agents layer</h3>
-<p><code class="highlighter-rouge">agents</code> allows the modeler to display only the agents that fulfill a given condition.</p>
 
-<p>Please read the documentation about <a href="Statements#agents"><code class="highlighter-rouge">agents</code> statement</a> if you are interested.</p>
+<p><code>agents</code> allows the modeler to display only the agents that fulfill a given condition. </p>
+
+<p>Please read the documentation about <a href="Statements#agents"><code>agents</code> statement</a> if you are interested.</p>
 
 <h3 id="species-layer">species layer</h3>
-<p><code class="highlighter-rouge">species</code> allows modeler to display all the agent of a given species in the current display. In particular, modeler can choose the aspect used to display them.</p>
 
-<p>Please read the documentation about <a href="Statements#species"><code class="highlighter-rouge">species</code> statement</a> if you are interested.</p>
+<p><code>species</code> allows modeler to display all the agent of a given species in the current display. In particular, modeler can choose the aspect used to display them.</p>
+
+<p>Please read the documentation about <a href="Statements#species"><code>species</code> statement</a> if you are interested.</p>
 
 <h3 id="image-layer">image layer</h3>
-<p><code class="highlighter-rouge">image</code> allows modeler to display an image (e.g. as background of a simulation).</p>
 
-<p>Please read the documentation about <a href="Statements#image"><code class="highlighter-rouge">image</code> statement</a> if you are interested.</p>
+<p><code>image</code> allows modeler to display an image (e.g. as background of a simulation).</p>
+
+<p>Please read the documentation about <a href="Statements#image"><code>image</code> statement</a> if you are interested.</p>
 
 <h3 id="graphics-layer">graphics layer</h3>
-<p><code class="highlighter-rouge">graphics</code> allows the modeler to freely draw shapes/geometries/texts without having to define a species.</p>
 
-<p>Please read the documentation about <a href="Statements#graphics"><code class="highlighter-rouge">graphics</code> statement</a> if you are interested.</p>
+<p><code>graphics</code> allows the modeler to freely draw shapes/geometries/texts without having to define a species.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_text)">//</a>: # (endConcept</td>
-      <td>2d_displays)</td>
-    </tr>
-  </tbody>
-</table>
+<p>Please read the documentation about <a href="Statements#graphics"><code>graphics</code> statement</a> if you are interested.</p>
 
     </div>
     </div>

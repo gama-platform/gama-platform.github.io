@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="developing-plugins">Developing Plugins</h1>
@@ -3620,79 +3620,79 @@ We consider here that the developer version of GAMA has been installed (as detai
 <p>Here are detailled steps to create and configure a new GAMA plug-in.</p>
 
 <ul>
-  <li>File &gt; New &gt; Project &gt; plug-in project</li>
-  <li>In the “New plug-in Project” / “Plug-in project” window:
-    <ul>
-      <li>Choose as <strong>name</strong> « name_of_the_plugin » (or anything else)</li>
-      <li>Check “Use défaut location”</li>
-      <li>Check “Create a Java Project”</li>
-      <li>The project should be targeted to run with Eclipse</li>
-      <li>working set is unchecked</li>
-      <li>Click on “Next”</li>
-    </ul>
-  </li>
-  <li>In the “New plug-in Project” / “Content” window:
-    <ul>
-      <li>Id : could contain the name of your institution and/or your project, e.g. « irit.maelia.gaml.additions »</li>
-      <li>version 1.0.0.qualifier (this latter mention is important if you plan on distributing the plugin on GAMA update site)</li>
-      <li>Name « Additions to GAML from Maelia project »</li>
-      <li>Uncheck “Generate an activator, a Java class that controls the plug-in’s life cycle” ,</li>
-      <li>Uncheck “This plug-in will make contributions to the UI”</li>
-      <li>Check “No” when it asks “Would you like to create a rich client application ?”</li>
-      <li>Click on “Next”</li>
-    </ul>
-  </li>
-  <li>In the “New plug-in Project” / “Templates” window:
-    <ul>
-      <li>Uncheck “Create a plug-in using one of the templates”</li>
-      <li>Click on “Finish”</li>
-    </ul>
-  </li>
+<li>File &gt; New &gt; Project &gt; plug-in project</li>
+<li>In the &quot;New plug-in Project&quot; / &quot;Plug-in project&quot; window:
+
+<ul>
+<li>Choose as <strong>name</strong> « name_of_the_plugin » (or anything else)</li>
+<li>Check &quot;Use défaut location&quot;</li>
+<li>Check &quot;Create a Java Project&quot;</li>
+<li>The project should be targeted to run with Eclipse</li>
+<li>working set is unchecked</li>
+<li>Click on &quot;Next&quot;</li>
+</ul></li>
+<li>In the &quot;New plug-in Project&quot; / &quot;Content&quot; window:
+
+<ul>
+<li>Id : could contain the name of your institution and/or your project, e.g. « irit.maelia.gaml.additions »</li>
+<li>version 1.0.0.qualifier (this latter mention is important if you plan on distributing the plugin on GAMA update site)</li>
+<li>Name « Additions to GAML from Maelia project »</li>
+<li>Uncheck &quot;Generate an activator, a Java class that controls the plug-in&#39;s life cycle&quot; ,</li>
+<li>Uncheck &quot;This plug-in will make contributions to the UI&quot;</li>
+<li>Check &quot;No&quot; when it asks &quot;Would you like to create a rich client application ?&quot;</li>
+<li>Click on &quot;Next&quot;</li>
+</ul></li>
+<li>In the &quot;New plug-in Project&quot; / &quot;Templates&quot; window:
+
+<ul>
+<li>Uncheck &quot;Create a plug-in using one of the templates&quot;</li>
+<li>Click on &quot;Finish&quot;</li>
+</ul></li>
 </ul>
 
 <p>Your plug-in has been created.</p>
 
 <ul>
-  <li>Edit the file “Manifest.MF”:
-    <ul>
-      <li>Overview pane:
-        <ul>
-          <li>check « This plug-in is a singleton »</li>
-        </ul>
-      </li>
-      <li>Dependencies pane:
-        <ul>
-          <li>add (at least minimum) the two plug-ins “msi.gama.core” and “msi.gama.ext” in the “Required Plug-ins”. When you click on “Add”, a new window will appear without any plug-in. Just write the beginning of the plug-in name in the text field under “Select a plug-in”.</li>
-        </ul>
-      </li>
-      <li>Runtime pane:
-        <ul>
-          <li>In exported Packages: nothing (but when you will have implemented new packages in the plug-in you should add them there)</li>
-          <li>Add in the classpath all the additional libraries (.jar files) used in the project.</li>
-        </ul>
-      </li>
-      <li>Extensions pane:
-        <ul>
-          <li>“Add” “gaml.extension”</li>
-        </ul>
-      </li>
-      <li>Save the file. This should create a “plugin.xml” file.</li>
-    </ul>
-  </li>
-  <li>Select the project and in menu Project &gt; Properties:
-    <ul>
-      <li>Java Compiler  &gt; Annotation Processing: check “Enable project specific settings”, then in “Generated Source Directory”, change “.apt_generated” to “gaml”,</li>
-      <li>Java Compiler  &gt; Annotation Processing &gt; Factory path: check “Enable project specific settings”, then “Add Jars” and choose “msi.gama.processor/processor/plugins/msi.gama.processor.1.4.0.jar”</li>
-      <li>Close the menu. It should compile the project and create the <code class="highlighter-rouge">gaml</code> directory.</li>
-      <li>Return in the Project &gt; Properties Menu.</li>
-      <li>In Java Buildpath  &gt; Source, check that the gaml directory has been added. Otherwise click on Add Folder and select the gaml directory</li>
-    </ul>
-  </li>
+<li><p>Edit the file &quot;Manifest.MF&quot;:</p>
+
+<ul>
+<li>Overview pane:
+
+<ul>
+<li>check « This plug-in is a singleton »</li>
+</ul></li>
+<li>Dependencies pane:
+
+<ul>
+<li>add (at least minimum) the two plug-ins &quot;msi.gama.core&quot; and &quot;msi.gama.ext&quot; in the &quot;Required Plug-ins&quot;. When you click on &quot;Add&quot;, a new window will appear without any plug-in. Just write the beginning of the plug-in name in the text field under &quot;Select a plug-in&quot;.</li>
+</ul></li>
+<li>Runtime pane:
+
+<ul>
+<li>In exported Packages: nothing (but when you will have implemented new packages in the plug-in you should add them there)</li>
+<li>Add in the classpath all the additional libraries (.jar files) used in the project.</li>
+</ul></li>
+<li>Extensions pane:
+
+<ul>
+<li>&quot;Add&quot; &quot;gaml.extension&quot;</li>
+</ul></li>
+<li>Save the file. This should create a &quot;plugin.xml&quot; file.</li>
+</ul></li>
+<li><p>Select the project and in menu Project &gt; Properties:</p>
+
+<ul>
+<li>Java Compiler  &gt; Annotation Processing: check &quot;Enable project specific settings&quot;, then in &quot;Generated Source Directory&quot;, change &quot;.apt_generated&quot; to &quot;gaml&quot;,</li>
+<li>Java Compiler  &gt; Annotation Processing &gt; Factory path: check &quot;Enable project specific settings&quot;, then &quot;Add Jars&quot; and choose &quot;msi.gama.processor/processor/plugins/msi.gama.processor.1.4.0.jar&quot;</li>
+<li>Close the menu. It should compile the project and create the <code>gaml</code> directory.</li>
+<li>Return in the Project &gt; Properties Menu.</li>
+<li>In Java Buildpath  &gt; Source, check that the gaml directory has been added. Otherwise click on Add Folder and select the gaml directory</li>
+</ul></li>
 </ul>
 
 <p>The plug-in is ready to accept any addition to the GAML language, e.g. skills, actions, operators.</p>
 
-<p>Do not forget to export the created packages that could be used by “clients”, especially the packages containing the code of the additions (in the plugin.xml of the new project, tab “Runtime”).</p>
+<p>Do not forget to export the created packages that could be used by &quot;clients&quot;, especially the packages containing the code of the additions (in the plugin.xml of the new project, tab &quot;Runtime&quot;).</p>
 
 <p>To test the plug-in and use it into GAMA, developers have to define a new feature project containing your plugin and its dependencies, and adds this feature to the existing product (or a new .product file of your own).
 The use of feature is also mandatory to define a plug-in that can be uploaded on the update site and can be installed in the release of GAMA.</p>
@@ -3704,50 +3704,45 @@ The use of feature is also mandatory to define a plug-in that can be uploaded on
 <p>Here are detailled steps to create and configure a new feature.</p>
 
 <ul>
-  <li>File &gt; New &gt; Feature project (or File &gt; New &gt; Project… then  Plug-in Development &gt; Feature Project)</li>
-  <li>In Feature properties
-    <ul>
-      <li>Choose a project name (e.g. “institution.gama.feature.pluginsName”)</li>
-      <li>Click on “Next”</li>
-    </ul>
-  </li>
-  <li>In Referenced Plug-ins and fragments
-    <ul>
-      <li>Check “Initialize from the plug-ins list:”</li>
-      <li>Choose the plug-ins that have to be gathered in the feature</li>
-      <li>Click on “Finish”</li>
-    </ul>
-  </li>
-  <li>A new project has been created. The “feature.xml” file will configure the feature.
-    <ul>
-      <li>In “Information pane”:
-        <ul>
-          <li>You can add description of the various plug-ins of the feature, define the copyright notice and the licence.</li>
-        </ul>
-      </li>
-      <li>In “Plug-ins and Fragments”
-        <ul>
-          <li>In the Plug-ins and Fragments, additional plug-ins can be added.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+<li>File &gt; New &gt; Feature project (or File &gt; New &gt; Project... then  Plug-in Development &gt; Feature Project)</li>
+<li>In Feature properties
+
+<ul>
+<li>Choose a project name (e.g. &quot;institution.gama.feature.pluginsName&quot;)</li>
+<li>Click on &quot;Next&quot;</li>
+</ul></li>
+<li>In Referenced Plug-ins and fragments
+
+<ul>
+<li>Check &quot;Initialize from the plug-ins list:&quot;</li>
+<li>Choose the plug-ins that have to be gathered in the feature</li>
+<li>Click on &quot;Finish&quot;</li>
+</ul></li>
+<li>A new project has been created. The &quot;feature.xml&quot; file will configure the feature.
+
+<ul>
+<li>In &quot;Information pane&quot;:
+
+<ul>
+<li>You can add description of the various plug-ins of the feature, define the copyright notice and the licence.</li>
+</ul></li>
+<li>In &quot;Plug-ins and Fragments&quot;
+
+<ul>
+<li>In the Plug-ins and Fragments, additional plug-ins can be added.</li>
+</ul></li>
+</ul></li>
 </ul>
 
 <h2 id="addition-of-a-feature-to-the-product">Addition of a feature to the product</h2>
 
-<p>In the product, e.g. <code class="highlighter-rouge">gama.product</code> in the <code class="highlighter-rouge">ummisco.gama.product</code> project:</p>
-<ul>
-  <li>Contents pane
-    <ul>
-      <li>Click on Add button</li>
-      <li>In the window select the feature</li>
-      <li>Click on OK.</li>
-    </ul>
-  </li>
-</ul>
+<p>In the product, e.g. <code>gama.product</code> in the <code>ummisco.gama.product</code> project:
+  * Contents pane
+    * Click on Add button
+    * In the window select the feature
+    * Click on OK.</p>
 
-<p><strong>Remark:</strong> To check whether the new plug-in has been taken into account by GAMA, after GAMA launch, it should appear in the Eclipse console in a line beginning by “» GAMA bundle loaded in “.</p>
+<p><strong>Remark:</strong> To check whether the new plug-in has been taken into account by GAMA, after GAMA launch, it should appear in the Eclipse console in a line beginning by &quot;&gt;&gt; GAMA bundle loaded in &quot;.</p>
 
 <h2 id="how-to-make-a-plug-in-available-at-gama-update-site-for-the-gama-release">How to make a plug-in available at GAMA update site for the GAMA release</h2>
 
@@ -3755,160 +3750,107 @@ The use of feature is also mandatory to define a plug-in that can be uploaded on
 
 <h3 id="configure-plugin-to-be-available-for-maven">Configure plugin to be available for Maven</h3>
 
-<p>a/ Add pom.xml for plugin institution.gama.pluginsName :</p>
-<ul>
-  <li>Right click -&gt; Configure -&gt; Convert to maven project to add pom.xml:</li>
-  <li>Set:
-    <ul>
-      <li>Group id: institution.gama.pluginsName</li>
-      <li>Artifact id: institution.gama.pluginsName</li>
-      <li>Version: 1.0.0-SNAPSHOT // must have -SNAPSHOT if the plugin version is x.x.x.qualifier</li>
-      <li>Packaging: eclipse-plugin</li>
-    </ul>
-  </li>
-  <li>Finish</li>
-</ul>
+<p>a/ Add pom.xml for plugin institution.gama.pluginsName :
+* Right click -&gt; Configure -&gt; Convert to maven project to add pom.xml:
+* Set:
+  * Group id: institution.gama.pluginsName
+  * Artifact id: institution.gama.pluginsName
+  * Version: 1.0.0-SNAPSHOT // must have -SNAPSHOT if the plugin version is x.x.x.qualifier
+  * Packaging: eclipse-plugin
+* Finish</p>
 
-<p>b/ Configure pom.xml to recognize the parent pom.xml for Maven builds</p>
-<ul>
-  <li>Open pom.xml in institution.gama.pluginsName</li>
-  <li>Tab overview, Parent section, type in:
-    <ul>
-      <li>Group id: msi.gama</li>
-      <li>Artifact id: msi.gama.experimental.parent</li>
-      <li>Version: 1.7.0-SNAPSHOT</li>
-      <li>Relative path: ../msi.gama.experimental.parent</li>
-    </ul>
-  </li>
-  <li>Save</li>
-</ul>
+<p>b/ Configure pom.xml to recognize the parent pom.xml for Maven builds
+* Open pom.xml in institution.gama.pluginsName
+* Tab overview, Parent section, type in:
+  * Group id: msi.gama
+  * Artifact id: msi.gama.experimental.parent
+  * Version: 1.7.0-SNAPSHOT
+  * Relative path: ../msi.gama.experimental.parent
+* Save</p>
 
 <p>c/ Update maven cache in eclipse (optional)
-It will fix this compilation error “Project configuration is not up-to-date with pom.xml. Select: Maven-&gt;Update Project… from the project context menu or use Quick Fix.”</p>
-<ul>
-  <li>Right click -&gt; Maven -&gt; Update project</li>
-</ul>
+It will fix this compilation error &quot;Project configuration is not up-to-date with pom.xml. Select: Maven-&gt;Update Project... from the project context menu or use Quick Fix.&quot;
+* Right click -&gt; Maven -&gt; Update project</p>
 
 <h3 id="create-a-feature-for-the-plugin">Create a feature for the plugin</h3>
 
-<p>a/ Create new feature</p>
-<ul>
-  <li>New -&gt; Project -&gt; type in : feature -&gt; Select “Feature Project”</li>
-  <li>Set:
-    <ul>
-      <li>Project name: institution.gama.feature.pluginsName</li>
-      <li>Uncheck use default location, type in: {current git repository}\aaa.bbb.feature.ccc</li>
-      <li>Feature Version: 1.0.0.qualifier</li>
-      <li>Update Site URL: http://updates.gama-platform.org/experimental</li>
-      <li>Update Site Name: GAMA 1.7.x Experimental Plugins Update Site</li>
-    </ul>
-  </li>
-  <li>Click Next
-    <ul>
-      <li>Initialize from the plugin list -&gt; check all plugins needed:
-institution.gama.pluginsName (1.0.0.qualifier)</li>
-    </ul>
-  </li>
-  <li>Finish</li>
-</ul>
+<p>a/ Create new feature
+* New -&gt; Project -&gt; type in : feature -&gt; Select &quot;Feature Project&quot;
+* Set:
+  * Project name: institution.gama.feature.pluginsName
+  * Uncheck use default location, type in: {current git repository}\aaa.bbb.feature.ccc 
+  * Feature Version: 1.0.0.qualifier
+  * Update Site URL: <a href="http://updates.gama-platform.org/experimental">http://updates.gama-platform.org/experimental</a>
+  * Update Site Name: GAMA 1.7.x Experimental Plugins Update Site
+* Click Next
+  * Initialize from the plugin list -&gt; check all plugins needed:
+    institution.gama.pluginsName (1.0.0.qualifier)
+* Finish</p>
 
 <p>b/  Add pom.xml for feature institution.gama.feature.pluginsName :</p>
 
 <ul>
-  <li>Right click -&gt; Configure -&gt; Convert to maven project (to add pom.xml)</li>
-  <li>Set:
-    <ul>
-      <li>Group id: institution.gama.feature.pluginsName</li>
-      <li>Artifact id: institution.gama.feature.pluginsName</li>
-      <li>Version: 1.0.0-SNAPSHOT</li>
-      <li>Packaging: eclipse-feature</li>
-    </ul>
-  </li>
-  <li>Finish</li>
+<li>Right click -&gt; Configure -&gt; Convert to maven project (to add pom.xml)</li>
+<li>Set:
+
+<ul>
+<li>Group id: institution.gama.feature.pluginsName</li>
+<li>Artifact id: institution.gama.feature.pluginsName</li>
+<li>Version: 1.0.0-SNAPSHOT </li>
+<li>Packaging: eclipse-feature</li>
+</ul></li>
+<li>Finish</li>
 </ul>
 
-<p>c/ Configure pom.xml to recognize the parent pom.xml for Maven builds</p>
-<ul>
-  <li>Open pom.xml in institution.gama.pluginsName</li>
-  <li>Tab overview, Parent section, type in:
-    <ul>
-      <li>Group id: msi.gama</li>
-      <li>Artifact id: msi.gama.experimental.parent</li>
-      <li>Version: 1.7.0-SNAPSHOT</li>
-      <li>Relative path: ../msi.gama.experimental.parent</li>
-    </ul>
-  </li>
-  <li>Save</li>
-</ul>
+<p>c/ Configure pom.xml to recognize the parent pom.xml for Maven builds
+* Open pom.xml in institution.gama.pluginsName
+* Tab overview, Parent section, type in:
+  * Group id: msi.gama
+  * Artifact id: msi.gama.experimental.parent
+  * Version: 1.7.0-SNAPSHOT
+  * Relative path: ../msi.gama.experimental.parent
+* Save</p>
 
 <p>d/ Update maven cache in eclipse (optional)
-It will fix this compilation error “Project configuration is not up-to-date with pom.xml. Select: Maven-&gt;Update Project… from the project context menu or use Quick Fix.”</p>
-<ul>
-  <li>Right click -&gt; Maven -&gt; Update project</li>
-</ul>
+It will fix this compilation error &quot;Project configuration is not up-to-date with pom.xml. Select: Maven-&gt;Update Project... from the project context menu or use Quick Fix.&quot;
+* Right click -&gt; Maven -&gt; Update project</p>
 
-<h3 id="update-p2updatesite-categoryxml-this-step-will-be-done-automatically-by-travis-soon">Update p2updatesite category.xml (this step will be done automatically by travis, soon)</h3>
-<p>Open msi.gama.experimental.p2updatesite</p>
-<ul>
-  <li>Tab Managing the Categories -&gt; Add feature -&gt; institution.gama.feature.pluginsName</li>
-</ul>
+<h3 id="update-p2updatesite-category-xml-this-step-will-be-done-automatically-by-travis-soon">Update p2updatesite category.xml (this step will be done automatically by travis, soon)</h3>
+
+<p>Open msi.gama.experimental.p2updatesite
+* Tab Managing the Categories -&gt; Add feature -&gt; institution.gama.feature.pluginsName</p>
 
 <h2 id="how-to-make-a-plug-in-available-as-an-extension-for-the-gama-release-obsolete">How to make a plug-in available as an extension for the GAMA release (obsolete)</h2>
 
 <p>Once the plug-in has been tested in the GAMA SVN version, it can be made available for GAMA release users.</p>
 
-<p>First, the <code class="highlighter-rouge">update_site</code> should be checked out from the SVN repository:</p>
-<ul>
-  <li>File &gt; New &gt; Other… &gt; SVN &gt; Project from SVN</li>
-  <li>In Checkout Project from SVN repository
-    <ul>
-      <li>Use existing repository location (it is the same location as for the GAMA code)</li>
-      <li>Next</li>
-    </ul>
-  </li>
-  <li>In Select resource:
-    <ul>
-      <li>Browse
-        <ul>
-          <li>choose svn &gt; update_site</li>
-        </ul>
-      </li>
-      <li>Finish</li>
-    </ul>
-  </li>
-  <li>Finish</li>
-</ul>
+<p>First, the <code>update_site</code> should be checked out from the SVN repository:
+  * File &gt; New &gt; Other... &gt; SVN &gt; Project from SVN
+  * In Checkout Project from SVN repository
+    * Use existing repository location (it is the same location as for the GAMA code)
+    * Next
+  * In Select resource:
+    * Browse
+      * choose svn &gt; update_site
+    * Finish
+  * Finish</p>
 
 <p>Now the update_site project is available in the project list (in Package Explorer).
-The sequel describes how to add a new feature to the update site.</p>
-<ul>
-  <li>Open the <code class="highlighter-rouge">site.xml</code> file</li>
-  <li>In update site Map:
-    <ul>
-      <li>Click on Extensions</li>
-      <li>click on the Add Feature… button
-        <ul>
-          <li>Choose the feature to be added</li>
-          <li>It should appear in Extensions</li>
-        </ul>
-      </li>
-      <li>Select the added feature and click on the Synchronize… button
-        <ul>
-          <li>Check Synchronize selected features only</li>
-          <li>Finish</li>
-        </ul>
-      </li>
-      <li>Select the added feature and click on the Build button</li>
-    </ul>
-  </li>
-  <li>All the files and folder of the update_site project have been modified.</li>
-  <li>Commit all the modifications on the SVN repository
-    <ul>
-      <li>Richt-click on the project, Team &gt; Update</li>
-      <li>Richt-click on the project, Team &gt; Commit…</li>
-    </ul>
-  </li>
-</ul>
+The sequel describes how to add a new feature to the update site.
+  * Open the <code>site.xml</code> file
+  * In update site Map:
+    * Click on Extensions
+    * click on the Add Feature... button
+      * Choose the feature to be added
+      * It should appear in Extensions
+    * Select the added feature and click on the Synchronize... button
+      * Check Synchronize selected features only
+      * Finish
+    * Select the added feature and click on the Build button
+  * All the files and folder of the update_site project have been modified.
+  * Commit all the modifications on the SVN repository
+    * Richt-click on the project, Team &gt; Update
+    * Richt-click on the project, Team &gt; Commit...</p>
 
 <p>The plug-in is now available as an extension from the GAMA release.
 More details about the update of the GAMA realease are available <a href="Updating">on the dedicated page</a>.</p>

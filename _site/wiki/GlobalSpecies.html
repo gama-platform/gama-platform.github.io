@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="the-global-species">The global species</h1>
@@ -3617,45 +3617,39 @@ In the global species you can define the attributes, actions and behaviors that 
 <h2 id="index">Index</h2>
 
 <ul>
-  <li><a href="#declaration">Declaration</a></li>
-  <li><a href="#environment-size">Environment Size</a></li>
-  <li><a href="#built-in-attributes">Built-in Attributes</a></li>
-  <li><a href="#built-in-actions">Built-in Actions</a></li>
-  <li><a href="#the-init-statement">The init statement</a></li>
+<li><a href="#declaration">Declaration</a></li>
+<li><a href="#environment-size">Environment Size</a></li>
+<li><a href="#built-in-attributes">Built-in Attributes</a></li>
+<li><a href="#built-in-actions">Built-in Actions</a></li>
+<li><a href="#the-init-statement">The init statement</a></li>
 </ul>
 
 <h2 id="declaration">Declaration</h2>
 
 <p>A GAMA model contains a unique global section that defines the global species.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
-	// definition of global attributes, actions, behaviours
+<div class="highlight"><pre><code class="language-" data-lang="">global {
+    // definition of global attributes, actions, behaviours
 }
-</code></pre></div></div>
+</code></pre></div>
+<p><code>global</code> can use facets, such as the <code>torus</code> facet, to make the environment a torus or not (if it is a torus, all the agents going out of the environment will appear in the other side. If it&#39;s not, the agents won&#39;t be able to go out of the environment). By default, the environment is not a torus.</p>
 
-<p><code class="highlighter-rouge">global</code> can use facets, such as the <code class="highlighter-rouge">torus</code> facet, to make the environment a torus or not (if it is a torus, all the agents going out of the environment will appear in the other side. If it’s not, the agents won’t be able to go out of the environment). By default, the environment is not a torus.</p>
-
-<p><img src="resources/images/manipulateBasicSpecies/torus.png" alt="images/torus.png" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global torus:true {
-	// definition of global attributes, actions, behaviours
+<p><img src="resources/images/manipulateBasicSpecies/torus.png" alt="images/torus.png"> </p>
+<div class="highlight"><pre><code class="language-" data-lang="">global torus:true {
+    // definition of global attributes, actions, behaviours
 }
-</code></pre></div></div>
+</code></pre></div>
+<p>Other facets such as <code>control</code> or <code>schedules</code> are also available, but we will explain them later.</p>
 
-<p>Other facets such as <code class="highlighter-rouge">control</code> or <code class="highlighter-rouge">schedules</code> are also available, but we will explain them later.</p>
-
-<p>Directly in the <code class="highlighter-rouge">global</code> scope, you have to declare all your global attributes (can be seen as “static members” in Java or C++). To declare them, proceed exactly as for declaring basic variables. Those attributes are accessible wherever you want inside the species scope.</p>
+<p>Directly in the <code>global</code> scope, you have to declare all your global attributes (can be seen as &quot;static members&quot; in Java or C++). To declare them, proceed exactly as for declaring basic variables. Those attributes are accessible wherever you want inside the species scope.</p>
 
 <h2 id="environment-size">Environment size</h2>
 
-<p>In the global context, you have to define a size and a shape for your environment. In fact, an attribute already exists for the global species: it’s called shape, and its type is a geometry. By default, shape is equal to a 100m*100m square. You can change the geometry of the shape by affecting another value:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry shape &lt;- circle(50#mm);
+<p>In the global context, you have to define a size and a shape for your environment. In fact, an attribute already exists for the global species: it&#39;s called shape, and its type is a geometry. By default, shape is equal to a 100m*100m square. You can change the geometry of the shape by affecting another value:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">geometry shape &lt;- circle(50#mm);
 geometry shape &lt;- rectangle(10#m,20#m);
 geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
-</code></pre></div></div>
-
-<p>nb: there are just examples. Try to avoid mixing dimensions! If no dimensions are specify, it’ll be meter by default.</p>
+</code></pre></div>
+<p>nb: there are just examples. Try to avoid mixing dimensions! If no dimensions are specify, it&#39;ll be meter by default.</p>
 
 <h2 id="built-in-attributes">Built-in attributes</h2>
 
@@ -3664,124 +3658,116 @@ geometry shape &lt;- polygon([{1°m,2°m},{3°m,50°cm},{3.4°m,60°dm}]);
 <p>Like the other attributes of the global species, global built-in attributes can be accessed (and sometimes modified) by the world agent and every other agents in the model.</p>
 
 <h3 id="world">world</h3>
+
 <ul>
-  <li>represents the sole instance of the model species (i.e. the one defined in the <code class="highlighter-rouge">global</code> section). It is accessible from everywhere (including experiments) and gives access to built-in or user-defined global attributes and actions.</li>
+<li>represents the sole instance of the model species (i.e. the one defined in the <code>global</code> section). It is accessible from everywhere (including experiments) and gives access to built-in or user-defined global attributes and actions.</li>
 </ul>
 
 <h3 id="cycle">cycle</h3>
+
 <ul>
-  <li>integer, read-only, designates the (integer) number of executions of the simulation cycles. Note that the first cycle is the cycle with number 0.</li>
+<li>integer, read-only, designates the (integer) number of executions of the simulation cycles. Note that the first cycle is the cycle with number 0.</li>
 </ul>
 
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
 
 <h3 id="step">step</h3>
+
 <ul>
-  <li>float,  is the length, in model time, of an interval between two cycles, in seconds. Its default value is 1 (second). Each turn, the value of time is incremented by the value of step. The definition of step must be coherent with that of the agents’ variables like speed. The use of time unit is particularly relevant for its definition.</li>
+<li>float,  is the length, in model time, of an interval between two cycles, in seconds. Its default value is 1 (second). Each turn, the value of time is incremented by the value of step. The definition of step must be coherent with that of the agents&#39; variables like speed. The use of time unit is particularly relevant for its definition.</li>
 </ul>
 
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<div class="highlight"><pre><code class="language-" data-lang="">global {
 ...
     float step &lt;- 10°h;
 ...
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="time">time</h3>
-<ul>
-  <li>float, read-only, represents the current simulated time in seconds (the default unit). It is time in the model time. Begins at zero. Basically, we have:   <strong>time = cycle <code class="highlighter-rouge">*</code> step</strong>  .</li>
-</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<ul>
+<li>float, read-only, represents the current simulated time in seconds (the default unit). It is time in the model time. Begins at zero. Basically, we have:   <strong>time = cycle <code>*</code> step</strong>  .</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang="">global {
 ...
     int nb_minutes function: { int(time / 60)};
 ...
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
 
 <h3 id="duration">duration</h3>
+
 <ul>
-  <li>string, read-only, represents the value that is equal to the duration <strong>in real machine time</strong> of the last cycle.</li>
+<li>string, read-only, represents the value that is equal to the duration <strong>in real machine time</strong> of the last cycle.</li>
 </ul>
 
 <h3 id="total_duration">total_duration</h3>
+
 <ul>
-  <li>string, read-only, represents the sum of duration since the beginning of the simulation.</li>
+<li>string, read-only, represents the sum of duration since the beginning of the simulation.</li>
 </ul>
 
 <h3 id="average_duration">average_duration</h3>
+
 <ul>
-  <li>string, read-only, represents the average of duration since the beginning of the simulation.</li>
+<li>string, read-only, represents the average of duration since the beginning of the simulation.</li>
 </ul>
 
 <h3 id="machine_time">machine_time</h3>
+
 <ul>
-  <li>float, read-only, represents the current machine time in milliseconds.</li>
+<li>float, read-only, represents the current machine time in milliseconds.</li>
 </ul>
 
 <h3 id="agents">agents</h3>
+
 <ul>
-  <li>list, read-only, returns a list of all the agents of the model that are considered as “active” (i.e. all the agents with behaviors, excluding the places). Note that obtaining this list can be quite time consuming, as the world has to go through all the species and get their agents before assembling the result. For instance, instead of writing something like:</li>
+<li>list, read-only, returns a list of all the agents of the model that are considered as &quot;active&quot; (i.e. all the agents with behaviors, excluding the places). Note that obtaining this list can be quite time consuming, as the world has to go through all the species and get their agents before assembling the result. For instance, instead of writing something like:</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agents of_species my_species {
+<div class="highlight"><pre><code class="language-" data-lang="">ask agents of_species my_species {
 ...
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>one would prefer to write (which is much faster):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask my_species {
+<div class="highlight"><pre><code class="language-" data-lang="">ask my_species {
 ...
 }
-</code></pre></div></div>
-<p>Note that any agent has the <code class="highlighter-rouge">agents</code> attribute, representing the agents it contains. So to get all the agents of the simulation, we need to access the <code class="highlighter-rouge">agents</code> of the world using: <code class="highlighter-rouge">world.agents</code>.</p>
+</code></pre></div>
+<p>Note that any agent has the <code>agents</code> attribute, representing the agents it contains. So to get all the agents of the simulation, we need to access the <code>agents</code> of the world using: <code>world.agents</code>.</p>
 
 <h2 id="built-in-actions">Built-in Actions</h2>
+
 <p>The global species is provided with two specific actions.</p>
 
 <h3 id="halt">halt</h3>
-<ul>
-  <li>stops the simulation.</li>
-</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<ul>
+<li>stops the simulation.</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang="">global {
      ...
      reflex halting when: empty (agents) {
             do halt;
      }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="pause">pause</h3>
-<ul>
-  <li>pauses the simulation, which can then be continued by the user.</li>
-</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<ul>
+<li>pauses the simulation, which can then be continued by the user.</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang="">global {
      ...
      reflex toto when: time = 100 {
             do pause;
      }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="the-init-statement">The init statement</h2>
 
-<p>After declaring all the global attributes and defining your environment size, you can define an initial state (before launching the simulation). Here, you normally initialize your global variables, and you instantiate your species. We will see in the next session how to initialize a regular species.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_init)">//</a>: # (endConcept</td>
-      <td>global_species)</td>
-    </tr>
-  </tbody>
-</table>
+<p>After declaring all the global attributes and defining your environment size, you can define an initial state (before launching the simulation). Here, you normally initialize your global variables, and you instantiate your species. We will see in the next session how to initialize a regular species. </p>
 
     </div>
     </div>

@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="validation-of-models">Validation of Models</h1>
@@ -3616,108 +3616,115 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#validation-of-models">Validation of Models</a>
-    <ul>
-      <li><a href="#syntactic-errors">Syntactic errors</a></li>
-      <li><a href="#semantic-errors">Semantic errors</a></li>
-      <li><a href="#semantic-warnings">Semantic warnings</a></li>
-      <li><a href="#semantic-information">Semantic information</a></li>
-      <li><a href="#semantic-documentation">Semantic documentation</a></li>
-      <li><a href="#changing-the-visual-indicators">Changing the visual indicators</a></li>
-      <li><a href="#errors-in-imported-files">Errors in imported files</a></li>
-      <li><a href="#cleaning-models">Cleaning models</a></li>
-    </ul>
-  </li>
+<li><a href="#validation-of-models">Validation of Models</a>
+
+<ul>
+<li><a href="#syntactic-errors">Syntactic errors</a></li>
+<li><a href="#semantic-errors">Semantic errors</a></li>
+<li><a href="#semantic-warnings">Semantic warnings</a></li>
+<li><a href="#semantic-information">Semantic information</a></li>
+<li><a href="#semantic-documentation">Semantic documentation</a></li>
+<li><a href="#changing-the-visual-indicators">Changing the visual indicators</a></li>
+<li><a href="#errors-in-imported-files">Errors in imported files</a></li>
+<li><a href="#cleaning-models">Cleaning models</a></li>
+</ul></li>
 </ul>
 
 <h2 id="syntactic-errors">Syntactic errors</h2>
-<p>These errors are produced when the modeler enters a sentence that has no meaning in the grammar of GAML (see <a href="GamlLanguage">the documentation of the language</a>). It can either be a non-existing symbol (like “globals” (instead of <em>global</em>) in the example below), a wrong punctuation scheme, or any other construct that puts the parser in the incapacity of producing a correct syntax tree. These errors are extremely common when editing models (since incomplete keywords or sentences are continuously validated). GAMA will report them using several indicators: the icon of the file in the title of the editor will sport an error icon and the gutter of the editor (i.e. the vertical space beside the line numbers) will use error <strong>markers</strong> to report two or more errors: one on the statement defining the model, and one (or more) in the various places where the parser has failed to produce the syntax tree. In addition, the toolbar over the editor will turn red and indicate that errors have been detected.</p>
 
-<p><img src="resources/images/editingModels/model_with_syntactic_errors.png" alt="images/model_with_syntactic_errors.png" /></p>
+<p>These errors are produced when the modeler enters a sentence that has no meaning in the grammar of GAML (see <a href="GamlLanguage">the documentation of the language</a>). It can either be a non-existing symbol (like &quot;globals&quot; (instead of <em>global</em>) in the example below), a wrong punctuation scheme, or any other construct that puts the parser in the incapacity of producing a correct syntax tree. These errors are extremely common when editing models (since incomplete keywords or sentences are continuously validated). GAMA will report them using several indicators: the icon of the file in the title of the editor will sport an error icon and the gutter of the editor (i.e. the vertical space beside the line numbers) will use error <strong>markers</strong> to report two or more errors: one on the statement defining the model, and one (or more) in the various places where the parser has failed to produce the syntax tree. In addition, the toolbar over the editor will turn red and indicate that errors have been detected.</p>
+
+<p><img src="resources/images/editingModels/model_with_syntactic_errors.png" alt="images/model_with_syntactic_errors.png"></p>
 
 <p>Hovering over one of these <strong>markers</strong> indicates what went wrong during the syntactic validation. Note that these errors are sometimes difficult to interpret, since the parser might fail in places that are not precisely those where a wrong syntax is being used (it will usually fail <strong>after</strong>).</p>
 
-<p><img src="resources/images/editingModels/model_with_syntactic_errors_and_hover.png" alt="images/model_with_syntactic_errors_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_syntactic_errors_and_hover.png" alt="images/model_with_syntactic_errors_and_hover.png"></p>
 
 <h2 id="semantic-errors">Semantic errors</h2>
+
 <p>When syntactic errors are eliminated, the validation enters a so-called semantic phase, during which it ensures that what the modeler has written makes sense with respect to the various rules of the language. To understand the difference between the two phases, take a look at the following example.</p>
 
-<p>This sentence below is <strong>syntactically</strong> correct:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species parent: my_species;
-</code></pre></div></div>
-<p>But it is <strong>semantically</strong> incorrect because a species cannot be parent of itself. No syntactic errors will be reported here, but the validation will fail with a <strong>semantic</strong> error.</p>
+<p>This sentence below is <strong>syntactically</strong> correct:
+<code>
+species my_species parent: my_species;
+</code>
+But it is <strong>semantically</strong> incorrect because a species cannot be parent of itself. No syntactic errors will be reported here, but the validation will fail with a <strong>semantic</strong> error.</p>
 
-<p><img src="resources/images/editingModels/semantic_error_detail.png" alt="images/semantic_error_detail.png" /></p>
+<p><img src="resources/images/editingModels/semantic_error_detail.png" alt="images/semantic_error_detail.png"></p>
 
 <p>Semantic errors are reported in a way similar to syntactic errors, except that no <strong>marker</strong> are displayed beside the model statement. The compiler tries to report them as precisely as possible, underlining the places where they have been found and outputting hopefully meaningful error messages. In the example below, for instance, we use a wrong number of arguments for defining a square geometry. Although the sentence is syntactically correct, GAMA will nevertheless issue an error and prevent the model from being experimentable.</p>
 
-<p><img src="resources/images/editingModels/model_with_semantic_errors.png" alt="images/model_with_semantic_errors.png" /></p>
+<p><img src="resources/images/editingModels/model_with_semantic_errors.png" alt="images/model_with_semantic_errors.png"></p>
 
 <p>The message accompanying this error can be obtained by hovering over the error <strong>marker</strong> found in the gutter (multiple messages can actually be produced for a same error, see below).</p>
 
-<p><img src="resources/images/editingModels/model_with_semantic_errors_and_hover.png" alt="images/model_with_semantic_errors_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_semantic_errors_and_hover.png" alt="images/model_with_semantic_errors_and_hover.png"></p>
 
-<p>While the editor is in a so-called <em>dirty</em> state (i.e. the model has not been saved), errors are only reported locally (in the editor itself). However, as soon as the user saves a model containing syntactic or semantic errors, they are “promoted” to become workspace errors, and, as such, indicated in other places: the file icon in the <em>Navigator</em>, and a new line in the <em>Errors</em> view.</p>
+<p>While the editor is in a so-called <em>dirty</em> state (i.e. the model has not been saved), errors are only reported locally (in the editor itself). However, as soon as the user saves a model containing syntactic or semantic errors, they are &quot;promoted&quot; to become workspace errors, and, as such, indicated in other places: the file icon in the <em>Navigator</em>, and a new line in the <em>Errors</em> view.</p>
 
-<p><img src="resources/images/editingModels/model_with_semantic_errors_saved.png" alt="images/model_with_semantic_errors_saved.png" /></p>
+<p><img src="resources/images/editingModels/model_with_semantic_errors_saved.png" alt="images/model_with_semantic_errors_saved.png"></p>
 
 <h2 id="semantic-warnings">Semantic warnings</h2>
 
-<p>The semantic validation phase does not only report errors. It also outputs various indicators that can help the modeler in verifying the correctness of his/her model. Among them are <strong>warnings</strong>. A warning is an indication that something is not completely right in the way the model is written, although it can <em>probably</em> be worked around by GAMA when the model will be executed. For instance, in the example below, we pass a string argument to the facet “number:” of the “create” statement. GAMA will emit a warning in such a case, indicating that “number:” expects an integer, and that the string passed will be casted to int when the model will be executed. Warnings are to be considered seriously, as they usually indicate some flaws in the logic of the model.</p>
+<p>The semantic validation phase does not only report errors. It also outputs various indicators that can help the modeler in verifying the correctness of his/her model. Among them are <strong>warnings</strong>. A warning is an indication that something is not completely right in the way the model is written, although it can <em>probably</em> be worked around by GAMA when the model will be executed. For instance, in the example below, we pass a string argument to the facet &quot;number:&quot; of the &quot;create&quot; statement. GAMA will emit a warning in such a case, indicating that &quot;number:&quot; expects an integer, and that the string passed will be casted to int when the model will be executed. Warnings are to be considered seriously, as they usually indicate some flaws in the logic of the model.</p>
 
-<p><img src="resources/images/editingModels/model_with_warnings.png" alt="images/model_with_warnings.png" /></p>
+<p><img src="resources/images/editingModels/model_with_warnings.png" alt="images/model_with_warnings.png"></p>
 
 <p>Hovering over the warning <strong>marker</strong> will allow the modeler to have access to the explanation and hopefully fix the cause of the warning.</p>
 
-<p><img src="resources/images/editingModels/model_with_warnings_and_hover.png" alt="images/model_with_warnings_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_warnings_and_hover.png" alt="images/model_with_warnings_and_hover.png"></p>
 
 <h2 id="semantic-information">Semantic information</h2>
-<p>Besides warnings, another type of harmless feedback is produce by the semantic validation phase: information <strong>markers</strong>. They are used to indicate useful information to the modeler, for example that an attribute has been redefined in a sub-species, or that some operation will take place when running the model (for instance, the truncation of a float to an int). The visual affordance used in this case is voluntarily discrete (a small “i” in the editor’s gutter).</p>
 
-<p><img src="resources/images/editingModels/model_with_info.png" alt="images/model_with_info.png" /></p>
+<p>Besides warnings, another type of harmless feedback is produce by the semantic validation phase: information <strong>markers</strong>. They are used to indicate useful information to the modeler, for example that an attribute has been redefined in a sub-species, or that some operation will take place when running the model (for instance, the truncation of a float to an int). The visual affordance used in this case is voluntarily discrete (a small &quot;i&quot; in the editor&#39;s gutter).</p>
+
+<p><img src="resources/images/editingModels/model_with_info.png" alt="images/model_with_info.png"></p>
 
 <p>As with the other types of <strong>markers</strong>, information markers unveil their messages when being hovered.</p>
 
-<p><img src="resources/images/editingModels/model_with_info_and_hover.png" alt="images/model_with_info_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_info_and_hover.png" alt="images/model_with_info_and_hover.png"></p>
 
 <h2 id="semantic-documentation">Semantic documentation</h2>
+
 <p>The last type of output of the semantic validation phase consists in a complete documentation of the various elements present in the model, which the user can retrieve by hovering over the different symbols. Note that although the best effort is being made in producing a complete and consistent documentation, it may happen that some symbols do not produce anything. In that case, please report a new Issue <a href="https://code.google.com/p/gama-platform/issues/list">here</a>.</p>
 
-<p><img src="resources/images/editingModels/model_with_no_errors_and_hover.png" alt="images/model_with_no_errors_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_no_errors_and_hover.png" alt="images/model_with_no_errors_and_hover.png"></p>
 
 <h2 id="changing-the-visual-indicators">Changing the visual indicators</h2>
-<p>The default visual indicators depicted in the examples above to report errors, warnings and information can be customized to be less (or more) intrusive. This can be done by choosing the “Preferences…” item of the editor contextual menu and navigating to “General &gt; Editors &gt; Text Editors &gt; Annotations”. There, you will find the various <strong>markers</strong> used, and you will be able to change how they are displayed in the editor’s view. For instance, if you prefer to highlight errors in the text, you can change it here.</p>
 
-<p><img src="resources/images/editingModels/preferences_annotations.png" alt="images/preferences_annotations.png" /></p>
+<p>The default visual indicators depicted in the examples above to report errors, warnings and information can be customized to be less (or more) intrusive. This can be done by choosing the &quot;Preferences...&quot; item of the editor contextual menu and navigating to &quot;General &gt; Editors &gt; Text Editors &gt; Annotations&quot;. There, you will find the various <strong>markers</strong> used, and you will be able to change how they are displayed in the editor&#39;s view. For instance, if you prefer to highlight errors in the text, you can change it here.</p>
+
+<p><img src="resources/images/editingModels/preferences_annotations.png" alt="images/preferences_annotations.png"></p>
 
 <p>Which will result in the following visual feedback for errors:</p>
 
-<p><img src="resources/images/editingModels/model_with_semantic_error_different_annotation.png" alt="images/model_with_semantic_error_different_annotation.png" /></p>
+<p><img src="resources/images/editingModels/model_with_semantic_error_different_annotation.png" alt="images/model_with_semantic_error_different_annotation.png"></p>
 
 <h2 id="errors-in-imported-files">Errors in imported files</h2>
 
-<p>Finally, even if your model has been cleansed of all errors, it may happen that it refuses to launch because it imports another model that cannot be compiled. In the following screenshot, “My First Model.gaml” imports “My Imported Model.gaml”, which sports a syntactic error.</p>
+<p>Finally, even if your model has been cleansed of all errors, it may happen that it refuses to launch because it imports another model that cannot be compiled. In the following screenshot, &quot;My First Model.gaml&quot; imports &quot;My Imported Model.gaml&quot;, which sports a syntactic error.</p>
 
-<p><img src="resources/images/editingModels/model_with_imported_errors.png" alt="images/model_with_imported_errors.png" /></p>
+<p><img src="resources/images/editingModels/model_with_imported_errors.png" alt="images/model_with_imported_errors.png"></p>
 
-<p>In such a case, the importing model refuses to compile (although it is itself valid) and to propose experiments. There are cases, however, where the same importation can work. Consider the following example, where, this time, “My Imported Model.gaml” sports a semantic error in the definition of the global ‘shape’ attribute. Without further modifications, the use case is similar to the first one.</p>
+<p>In such a case, the importing model refuses to compile (although it is itself valid) and to propose experiments. There are cases, however, where the same importation can work. Consider the following example, where, this time, &quot;My Imported Model.gaml&quot; sports a semantic error in the definition of the global &#39;shape&#39; attribute. Without further modifications, the use case is similar to the first one.</p>
 
-<p><img src="resources/images/editingModels/model_with_imported_semantic_error.png" alt="images/model_with_imported_semantic_error.png" /></p>
+<p><img src="resources/images/editingModels/model_with_imported_semantic_error.png" alt="images/model_with_imported_semantic_error.png"></p>
 
-<p>However, if “My First Model.gaml” happens to redefine the <em>shape</em> attribute (in global), it is now considered as valid. All the valid sections of “My Imported Model.gaml” are effectively imported, while the erroneous definition is superseded by the new one.</p>
+<p>However, if &quot;My First Model.gaml&quot; happens to redefine the <em>shape</em> attribute (in global), it is now considered as valid. All the valid sections of &quot;My Imported Model.gaml&quot; are effectively imported, while the erroneous definition is superseded by the new one.</p>
 
-<p><img src="resources/images/editingModels/model_with_superseded_semantic_error.png" alt="images/model_with_superseded_semantic_error.png" /></p>
+<p><img src="resources/images/editingModels/model_with_superseded_semantic_error.png" alt="images/model_with_superseded_semantic_error.png"></p>
 
 <p>This process is described by the information marker next to the redefinition.</p>
 
-<p><img src="resources/images/editingModels/model_with_superseded_semantic_error_and_hover.png" alt="images/model_with_superseded_semantic_error_and_hover.png" /></p>
+<p><img src="resources/images/editingModels/model_with_superseded_semantic_error_and_hover.png" alt="images/model_with_superseded_semantic_error_and_hover.png"></p>
 
 <h2 id="cleaning-models">Cleaning models</h2>
+
 <p>It may happen that the metadata that GAMA maintains about the different projects (which includes the various <strong>markers</strong> on files in the workspace, etc.) becomes corrupted from time to time. This especially happens if you frequently switch workspaces, but not only. In those (hopefully rare) cases, GAMA may report incorrect errors for perfectly legible files.</p>
 
-<p>When such odd behaviors are detected, or if you want to regularly keep your metadata in a good shape, you can clean all your project, by clicking on the button “Clear and validate all projects” (in the syntax errors view).</p>
+<p>When such odd behaviors are detected, or if you want to regularly keep your metadata in a good shape, you can clean all your project, by clicking on the button &quot;Clear and validate all projects&quot; (in the syntax errors view).</p>
 
-<p><img src="resources/images/editingModels/action_clean.png" alt="images/action_clean.png" /></p>
+<p><img src="resources/images/editingModels/action_clean.png" alt="images/action_clean.png"></p>
 
     </div>
     </div>

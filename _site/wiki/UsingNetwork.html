@@ -3606,42 +3606,25 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <table>
-  <tbody>
-    <tr>
-      <td>[//]: # (keyword</td>
-      <td>concept_network)</td>
-    </tr>
-    <tr>
-      <td>[//]: # (startConcept</td>
-      <td>network)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="using-network">Using network</h1>
+        <h1 id="using-network">Using network</h1>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>GAMA provides features to allow agents to communicate with other agents (and other applications) through network and to exchange messages of various types (from simple number to agents). To this purpose, the <code class="highlighter-rouge">network</code> skill should be used on agents intending to use these capabilities.</p>
+<p>GAMA provides features to allow agents to communicate with other agents (and other applications) through network and to exchange messages of various types (from simple number to agents). To this purpose, the <code>network</code> skill should be used on agents intending to use these capabilities.</p>
 
-<p>Notice that in this communication, roles are asymetric: the simulations should contain a server and some clients to communicate. Message exchanges are made between agents through this server. 3 protocols are supported (TCP, UDP and MQTT):</p>
-<ul>
-  <li><strong>when TCP or UDP protocols are used:</strong> one agent of the simulation is the server and the other ones are the clients.</li>
-  <li><strong>when the MQTT protocol is used:</strong> all the agents are clients and the server is an external software. A free solution (ActiveMQ) can be freely downloaded from: http://activemq.apache.org.</li>
-</ul>
+<p>Notice that in this communication, roles are asymetric: the simulations should contain a server and some clients to communicate. Message exchanges are made between agents through this server. 3 protocols are supported (TCP, UDP and MQTT):
+* <strong>when TCP or UDP protocols are used:</strong> one agent of the simulation is the server and the other ones are the clients.
+* <strong>when the MQTT protocol is used:</strong> all the agents are clients and the server is an external software. A free solution (ActiveMQ) can be freely downloaded from: <a href="http://activemq.apache.org">http://activemq.apache.org</a>.</p>
 
-<h2 id="which-protocol-to-use-">Which protocol to use ?</h2>
+<h2 id="which-protocol-to-use">Which protocol to use ?</h2>
 
-<p>In the GAMA network, 3 kinds of protocol can be used. Each of them has a particular purpose.</p>
-<ul>
-  <li><strong>MQTT</strong>: this is the default protocol that should be used to make agents of various GAMA instances to communicate through a MQTT server (that should be run as an external application, e.g. ActiveMQ that can be downloaded from: http://activemq.apache.org/),</li>
-  <li><strong>UDP</strong>: this protocol should be limited to fast (and unsecured) exchanges of small pieces of data from GAMA to an external application (for example, mouse location from a Processing application to GAMA, c.f. model library),</li>
-  <li><strong>TCP</strong>: this protocol can be used both to communicate between GAMA applications or between GAMA and an external application.</li>
-</ul>
+<p>In the GAMA network, 3 kinds of protocol can be used. Each of them has a particular purpose.
+* <strong>MQTT</strong>: this is the default protocol that should be used to make agents of various GAMA instances to communicate through a MQTT server (that should be run as an external application, e.g. ActiveMQ that can be downloaded from: <a href="http://activemq.apache.org/">http://activemq.apache.org/</a>),
+* <strong>UDP</strong>: this protocol should be limited to fast (and unsecured) exchanges of small pieces of data from GAMA to an external application (for example, mouse location from a Processing application to GAMA, c.f. model library),
+* <strong>TCP</strong>: this protocol can be used both to communicate between GAMA applications or between GAMA and an external application.</p>
 
 <h2 id="disclaimer">Disclaimer</h2>
 
@@ -3650,85 +3633,74 @@ As a consequence, when TCP or UDP protocols are used, a model creating a server 
 
 <h2 id="declaring-a-network-species">Declaring a network species</h2>
 
-<p>To create agents able to communicate through a network, their species should have the skill <code class="highlighter-rouge">network</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species Networking_Client skills: [network] {
+<p>To create agents able to communicate through a network, their species should have the skill <code>network</code>:
+<code>
+species Networking_Client skills: [network] {
    ...
 }
-</code></pre></div></div>
+</code></p>
 
 <p>A list exhaustive of the additional attributes and available actions provided by this skill are described here:
 <a href="https://github.com/gama-platform/gama/wiki/BuiltInSkills#network">network skill preference page</a>.</p>
 
 <h2 id="creation-of-a-network-agent">Creation of a network agent</h2>
 
-<p>The network agents are created as any other agents, but (in general) at the creation of the agents, the connection is also created, using the <code class="highlighter-rouge">connect</code> built-in action:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create Networking_Client {
+<p>The network agents are created as any other agents, but (in general) at the creation of the agents, the connection is also created, using the <code>connect</code> built-in action:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">create Networking_Client {
     do connect to: "localhost" protocol: "tcp_client" port: 3001 with_name: "Client";
 }
-</code></pre></div></div>
-
-<p>Each protocol has its specificities regarding the connection:</p>
-<ul>
-  <li><strong>TCP</strong>:
-    <ul>
-      <li><strong>protocol</strong>: the 2 possibles keywords are <code class="highlighter-rouge">tcp_server</code> or <code class="highlighter-rouge">tcp_client</code>, depending on the wanted role of the agent in the communication.</li>
-      <li><strong>port</strong>: traditionally the port <code class="highlighter-rouge">3001</code> is used.</li>
-    </ul>
-  </li>
-  <li><strong>UDP</strong>:
-    <ul>
-      <li><strong>protocol</strong>: the 2 possibles keywords are <code class="highlighter-rouge">udp_server</code> or <code class="highlighter-rouge">udp_emitter</code>, depending on the wanted role of the agent in the communication.</li>
-      <li><strong>port</strong>: traditionally the port <code class="highlighter-rouge">9876</code> is used.</li>
-    </ul>
-  </li>
-  <li><strong>MQTT</strong>:
-    <ul>
-      <li><strong>protocol</strong>: MQTT is the default protocol value (if no value is given, MQTT will be used)</li>
-    </ul>
-  </li>
-</ul>
+</code></pre></div>
+<p>Each protocol has its specificities regarding the connection:
+* <strong>TCP</strong>: 
+  * <strong>protocol</strong>: the 2 possibles keywords are <code>tcp_server</code> or <code>tcp_client</code>, depending on the wanted role of the agent in the communication.
+  * <strong>port</strong>: traditionally the port <code>3001</code> is used.
+* <strong>UDP</strong>: 
+  * <strong>protocol</strong>: the 2 possibles keywords are <code>udp_server</code> or <code>udp_emitter</code>, depending on the wanted role of the agent in the communication.
+  * <strong>port</strong>: traditionally the port <code>9876</code> is used.
+* <strong>MQTT</strong>: 
+  * <strong>protocol</strong>: MQTT is the default protocol value (if no value is given, MQTT will be used)</p>
 
 <h2 id="sending-messages">Sending messages</h2>
 
-<p>To send any message, the agent has to use the <code class="highlighter-rouge">send</code> action:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    do send to: "send" contents: name + " " + cycle + " sent to server";
-</code></pre></div></div>
+<p>To send any message, the agent has to use the <code>send</code> action:
+<code>
+    do send to: &quot;send&quot; contents: name + &quot; &quot; + cycle + &quot; sent to server&quot;;
+</code></p>
 
 <h2 id="receiving-messages">Receiving messages</h2>
 
-<p>The messages sent by other agents are received in the <code class="highlighter-rouge">mailbox</code> attribute of each agent. So to get its new message, the agent has simply to check whether it has new messages (with action <code class="highlighter-rouge">has_more_message()</code> ) and fetch it (that is get it and remove it from the mailing box) with the action <code class="highlighter-rouge">fetch_message()</code>.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex fetch when: has_more_message() {	
+<p>The messages sent by other agents are received in the <code>mailbox</code> attribute of each agent. So to get its new message, the agent has simply to check whether it has new messages (with action <code>has_more_message()</code> ) and fetch it (that is get it and remove it from the mailing box) with the action <code>fetch_message()</code>.
+<code>
+reflex fetch when: has_more_message() { 
     message mess &lt;- fetch_message();
-    write name + " fecth this message: " + mess.contents;	
+    write name + &quot; fecth this message: &quot; + mess.contents;   
 }
-</code></pre></div></div>
+</code></p>
 
-<p>Alternatively, the <code class="highlighter-rouge">mailbox</code> attribute can be directly accessed (notice that the <code class="highlighter-rouge">mailbox</code> is a list of messages):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex receive {  
+<p>Alternatively, the <code>mailbox</code> attribute can be directly accessed (notice that the <code>mailbox</code> is a list of messages):
+<code>
+reflex receive {  
     if (length(mailbox) &gt; 0) {
         write mailbox;
     }
 }
-</code></pre></div></div>
+</code></p>
 
 <h2 id="broadcasting-a-message-to-all-the-agents-members-of-a-given-group">Broadcasting a message to all the agents members of a given group</h2>
 
-<p>Each time an agent create a connection to another agent as a client, a way to communicate with it is stored in the <code class="highlighter-rouge">network_groups</code> attribute. 
-So an agent can use this attribute to broadcast messages to all the agents with whose it can communicate:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex broad {
+<p>Each time an agent create a connection to another agent as a client, a way to communicate with it is stored in the <code>network_groups</code> attribute. 
+So an agent can use this attribute to broadcast messages to all the agents with whose it can communicate: 
+<code>
+reflex broad {
     loop id over: network_groups {
-        do send to: id contents: "I am Server " + name + " I give order to " + id;
+        do send to: id contents: &quot;I am Server &quot; + name + &quot; I give order to &quot; + id;
     }
 }
-</code></pre></div></div>
+</code></p>
 
-<p>To go further:</p>
-<ul>
-  <li><a href="https://github.com/gama-platform/gama/wiki/BuiltInSkills#network">network skill peference page</a>.</li>
-  <li>examples model can be found in the GAMA model library, in: <code class="highlighter-rouge">Plugin models &gt; Network</code>.</li>
-</ul>
-
+<p>To go further:
+* <a href="https://github.com/gama-platform/gama/wiki/BuiltInSkills#network">network skill peference page</a>.
+* examples model can be found in the GAMA model library, in: <code>Plugin models &gt; Network</code>.</p>
 
     </div>
     </div>

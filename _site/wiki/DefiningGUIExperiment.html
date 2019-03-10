@@ -3606,18 +3606,15 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="defining-gui-experiment">Defining GUI Experiment</h1>
 
-<p>When you execute your simulation, you will often need to display some information. For each simulation, you can define some inputs and outputs:</p>
-<ul>
-  <li>The inputs will be composed of parameters manipulated by the user for each simulation.</li>
-  <li>The outputs will be composed of displays, monitors or output files. They will be define inside the scope <code class="highlighter-rouge">output</code>.</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment exp_name type: gui {
+<p>When you execute your simulation, you will often need to display some information. For each simulation, you can define some inputs and outputs:
+* The inputs will be composed of parameters manipulated by the user for each simulation.
+* The outputs will be composed of displays, monitors or output files. They will be define inside the scope <code>output</code>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment exp_name type: gui {
    [input]
    output {
      [display statements]
@@ -3625,21 +3622,16 @@ function closeRightMenu() {
      [file statements]
    }
 }
-</code></pre></div></div>
+</code></pre></div>
+<p>You can define two types of experiment (through the facet <code>type</code>):
+* <strong><code>gui</code></strong> experiments (the default type) are used to play an experiment, and interpret its outputs.
+* <strong><code>batch</code></strong> experiments are used to play an experiment several times (usually with other input values), used for model exploration. We will come back to this notion a bit further in the tutorial.</p>
 
-<p>You can define two types of experiment (through the facet <code class="highlighter-rouge">type</code>):</p>
-<ul>
-  <li><strong><code class="highlighter-rouge">gui</code></strong> experiments (the default type) are used to play an experiment, and interpret its outputs.</li>
-  <li><strong><code class="highlighter-rouge">batch</code></strong> experiments are used to play an experiment several times (usually with other input values), used for model exploration. We will come back to this notion a bit further in the tutorial.</li>
-</ul>
-
-<p>Inside experiment scope, you can access to some built-ins which can be useful, such as <code class="highlighter-rouge">minimum_cycle_duration</code>, to force the duration of one cycle.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
-	float minimum_cycle_duration &lt;- 2.0#minute;
+<p>Inside experiment scope, you can access to some built-ins which can be useful, such as <code>minimum_cycle_duration</code>, to force the duration of one cycle.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type: gui {
+    float minimum_cycle_duration &lt;- 2.0#minute;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>Other built-ins are available, to learn more about, go to the page <strong><a href="ExperimentBuiltIn">experiment built-in</a></strong>.</p>
 
 <p>In this part, we will focus on the <strong>gui experiments</strong>. We will start with learning how to <strong><a href="DefiningParameters">define input parameters</a></strong>, then we will study the outputs, such as <strong><a href="DefiningDisplaysGeneralities">displays</a></strong>, <strong><a href="DefiningMonitorsAndInspectors">monitors and inspectors</a></strong>, and <strong><a href="DefiningExportFiles">export files</a></strong>. We will finish this part with how to define <strong><a href="DefiningUserInteraction">user commands</a></strong>.</p>

@@ -3606,80 +3606,78 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="regression">Regression</h1>
 
 <p><em>Author : Patrick Taillandier</em></p>
 
-<p>A model which shows how to use the regression</p>
+<p>A model which shows how to use the regression </p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">example_regression</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">Regression</span> <span class="n">variable</span> <span class="n">that</span> <span class="n">will</span> <span class="n">store</span> <span class="n">the</span> <span class="k">function</span>
-	<span class="n">regression</span> <span class="n">location_fct</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">x_val</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">y_val</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;</span>
-	
-	<span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="p">-</span><span class="m">1.0</span><span class="p">;</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="m">18</span><span class="p">{</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="c1">!= 10) {
-</span>				<span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">i</span> <span class="p">*</span> <span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">),</span> <span class="n">i</span><span class="p">*</span><span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">),</span> <span class="n">i</span><span class="p">*</span><span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">)}];</span>	
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">regression</span>
-	<span class="n">reflex</span> <span class="n">do_regression</span> <span class="p">{</span>
-		<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">instances</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="m">3</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">dummy</span><span class="p">)};</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">dummy</span><span class="p">)</span> <span class="p">-</span><span class="m">1</span> <span class="p">{</span>
-			<span class="n">dummy</span> <span class="n">ag</span> <span class="p">&lt;-</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-			<span class="n">instances</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-			<span class="n">instances</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-			<span class="n">instances</span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Compute</span> <span class="n">the</span> <span class="k">function</span> <span class="k">of</span> <span class="n">regression</span>
-		<span class="n">location_fct</span>  <span class="p">&lt;-</span> <span class="n">build</span><span class="p">(</span><span class="n">instances</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="s2">"learnt function: "</span> <span class="p">+</span> <span class="n">location_fct</span><span class="p">;</span>
-		
-		<span class="p">//</span><span class="n">Predict</span> <span class="n">the</span> <span class="n">value</span> <span class="n">using</span> <span class="n">the</span> <span class="k">function</span> <span class="n">resulting</span> <span class="n">before</span>
-		<span class="n">val</span> <span class="p">&lt;-</span>  <span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">]);</span>
-		<span class="nb">write</span> <span class="s2">"value : "</span> <span class="p">+</span> <span class="n">val</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="p">//</span><span class="n">Regression</span> <span class="n">variable</span> <span class="n">that</span> <span class="n">will</span> <span class="n">store</span> <span class="n">the</span> <span class="k">function</span>
+    <span class="n">regression</span> <span class="n">location_fct</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">x_val</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">y_val</span> <span class="p">&lt;-</span> <span class="m">50.0</span><span class="p">;</span>
+
+    <span class="n">float</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="p">-</span><span class="m">1.0</span><span class="p">;</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="m">18</span><span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="c1">!= 10) {
+</span>                <span class="nb">create</span> <span class="n">dummy</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">i</span> <span class="p">*</span> <span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">),</span> <span class="n">i</span><span class="p">*</span><span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">),</span> <span class="n">i</span><span class="p">*</span><span class="m">5</span> <span class="p">+</span> <span class="m">2</span> <span class="p">-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">4</span><span class="p">)}];</span> 
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">regression</span>
+    <span class="n">reflex</span> <span class="n">do_regression</span> <span class="p">{</span>
+        <span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">instances</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="m">3</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">dummy</span><span class="p">)};</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">dummy</span><span class="p">)</span> <span class="p">-</span><span class="m">1</span> <span class="p">{</span>
+            <span class="n">dummy</span> <span class="n">ag</span> <span class="p">&lt;-</span> <span class="n">dummy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">instances</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+            <span class="n">instances</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+            <span class="n">instances</span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">ag</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Compute</span> <span class="n">the</span> <span class="k">function</span> <span class="k">of</span> <span class="n">regression</span>
+        <span class="n">location_fct</span>  <span class="p">&lt;-</span> <span class="n">build</span><span class="p">(</span><span class="n">instances</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="s2">"learnt function: "</span> <span class="p">+</span> <span class="n">location_fct</span><span class="p">;</span>
+
+        <span class="p">//</span><span class="n">Predict</span> <span class="n">the</span> <span class="n">value</span> <span class="n">using</span> <span class="n">the</span> <span class="k">function</span> <span class="n">resulting</span> <span class="n">before</span>
+        <span class="n">val</span> <span class="p">&lt;-</span>  <span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">]);</span>
+        <span class="nb">write</span> <span class="s2">"value : "</span> <span class="p">+</span> <span class="n">val</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">dummy</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">parameter</span> <span class="s2">"Point to test, x value"</span> <span class="n">var</span><span class="p">:</span> <span class="n">x_val</span> <span class="p">;</span>
-	<span class="n">parameter</span> <span class="s2">"Point to test, y value"</span> <span class="n">var</span><span class="p">:</span> <span class="n">y_val</span> <span class="p">;</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">dummy</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"new Point "</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">location_fct</span> <span class="c1">!= nil) {
-</span>					<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">x_val</span><span class="p">,</span><span class="n">y_val</span><span class="p">,</span><span class="n">val</span><span class="p">};</span>
-					
-					<span class="p">//</span><span class="n">Draw</span> <span class="n">the</span> <span class="k">function</span> <span class="k">as</span> <span class="n">a</span> <span class="n">line</span>
-					<span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])},{-</span><span class="m">10</span><span class="p">,-</span><span class="m">10</span><span class="p">,</span><span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[-</span><span class="m">10</span><span class="p">,-</span><span class="m">10</span><span class="p">])}])</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-				<span class="p">}</span>
-				
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
+    <span class="n">parameter</span> <span class="s2">"Point to test, x value"</span> <span class="n">var</span><span class="p">:</span> <span class="n">x_val</span> <span class="p">;</span>
+    <span class="n">parameter</span> <span class="s2">"Point to test, y value"</span> <span class="n">var</span><span class="p">:</span> <span class="n">y_val</span> <span class="p">;</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">dummy</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"new Point "</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">location_fct</span> <span class="c1">!= nil) {
+</span>                    <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">x_val</span><span class="p">,</span><span class="n">y_val</span><span class="p">,</span><span class="n">val</span><span class="p">};</span>
 
+                    <span class="p">//</span><span class="n">Draw</span> <span class="n">the</span> <span class="k">function</span> <span class="k">as</span> <span class="n">a</span> <span class="n">line</span>
+                    <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">])},{-</span><span class="m">10</span><span class="p">,-</span><span class="m">10</span><span class="p">,</span><span class="n">predict</span><span class="p">(</span><span class="n">location_fct</span><span class="p">,</span> <span class="p">[-</span><span class="m">10</span><span class="p">,-</span><span class="m">10</span><span class="p">])}])</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+                <span class="p">}</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

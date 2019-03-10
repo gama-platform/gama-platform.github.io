@@ -3606,100 +3606,101 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="attaching-skills">Attaching Skills</h1>
 
-<p>GAMA allows to attach skills to agents through the facet <code class="highlighter-rouge">skills</code>. Skills are built-in modules that provide a set of related built-in attributes and built-in actions (in addition to those already proposed by GAMA) to the species that declare them.</p>
+<p>GAMA allows to attach skills to agents through the facet <code>skills</code>. Skills are built-in modules that provide a set of related built-in attributes and built-in actions (in addition to those already proposed by GAMA) to the species that declare them.</p>
 
 <h2 id="index">Index</h2>
 
 <ul>
-  <li><a href="#the-moving-skill">The moving skill</a></li>
-  <li><a href="#other-skills">Other skills</a></li>
-  <li><a href="#example-of-implementation">Example of implementation</a></li>
+<li><a href="#the-moving-skill">The moving skill</a></li>
+<li><a href="#other-skills">Other skills</a></li>
+<li><a href="#example-of-implementation">Example of implementation</a></li>
 </ul>
 
 <h2 id="skills">Skills</h2>
 
-<p>A declaration of skill is done by filling the <code class="highlighter-rouge">skills</code> facet in the species definition:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species skills: [skill1,skill2] {
+<p>A declaration of skill is done by filling the <code>skills</code> facet in the species definition:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">species my_species skills: [skill1,skill2] {
 }
-</code></pre></div></div>
-
-<p>A very useful and common skill is the <code class="highlighter-rouge">moving</code> skill.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species skills: [moving] {
+</code></pre></div>
+<p>A very useful and common skill is the <code>moving</code> skill.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">species my_species skills: [moving] {
 }
-</code></pre></div></div>
-
-<p>Once your species has the moving skill, it earns automatically the following attributes: <code class="highlighter-rouge">speed</code>, <code class="highlighter-rouge">heading</code>, <code class="highlighter-rouge">destination</code> and the following actions: <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">goto</code>, <code class="highlighter-rouge">follow</code>, <code class="highlighter-rouge">wander</code> and <code class="highlighter-rouge">wander_3D</code>.</p>
+</code></pre></div>
+<p>Once your species has the moving skill, it earns automatically the following attributes: <code>speed</code>, <code>heading</code>, <code>destination</code> and the following actions: <code>move</code>, <code>goto</code>, <code>follow</code>, <code>wander</code> and <code>wander_3D</code>.</p>
 
 <h3 id="attributes">Attributes:</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float) designs the speed of the agent, in m/s.</li>
-  <li><strong><code class="highlighter-rouge">heading</code></strong> (int) designs the heading of an agent in degrees, which means that is the maximum angle the agent can turn around each step.</li>
-  <li><strong><code class="highlighter-rouge">destination</code></strong> (point) is the updated destination of the agent, with respect to its speed and heading. It’s a read-only attribute, you can’t change its value.</li>
+<li><strong><code>speed</code></strong> (float) designs the speed of the agent, in m/s.</li>
+<li><strong><code>heading</code></strong> (int) designs the heading of an agent in degrees, which means that is the maximum angle the agent can turn around each step.</li>
+<li><strong><code>destination</code></strong> (point) is the updated destination of the agent, with respect to its speed and heading. It&#39;s a read-only attribute, you can&#39;t change its value.</li>
 </ul>
 
 <h3 id="actions">Actions:</h3>
 
-<h4 id="follow"><strong><code class="highlighter-rouge">follow</code></strong></h4>
+<h4 id="follow"><strong><code>follow</code></strong></h4>
+
 <p>moves the agent along a given path passed in the arguments.</p>
 
 <ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">path</code></strong> (path): a path to be followed.</li>
-  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weights used for the moving.</li>
-  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
+<li>returns: path<br></li>
+<li><strong><code>speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)<br></li>
+<li><strong><code>path</code></strong> (path): a path to be followed.<br></li>
+<li><strong><code>move_weights</code></strong> (map): Weights used for the moving.<br></li>
+<li><strong><code>return_path</code></strong> (boolean): if true, return the path followed (by default: false)<br></li>
 </ul>
 
-<h4 id="goto"><strong><code class="highlighter-rouge">goto</code></strong></h4>
+<h4 id="goto"><strong><code>goto</code></strong></h4>
+
 <p>moves the agent towards the target passed in the arguments.</p>
 
 <ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">target</code></strong> (agent,point,geometry): the location or entity towards which to move.</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">on</code></strong> (graph): graph that restrains this move</li>
-  <li><strong><code class="highlighter-rouge">recompute_path</code></strong> (boolean): if false, the path is not recompute even if the graph is modified (by default: true)</li>
-  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
-  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weights used for the moving.</li>
+<li>returns: path<br></li>
+<li><strong><code>target</code></strong> (agent,point,geometry): the location or entity towards which to move.<br></li>
+<li><strong><code>speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)<br></li>
+<li><strong><code>on</code></strong> (graph): graph that restrains this move<br></li>
+<li><strong><code>recompute_path</code></strong> (boolean): if false, the path is not recompute even if the graph is modified (by default: true)<br></li>
+<li><strong><code>return_path</code></strong> (boolean): if true, return the path followed (by default: false)<br></li>
+<li><strong><code>move_weights</code></strong> (map): Weights used for the moving.<br></li>
 </ul>
 
-<h4 id="move"><strong><code class="highlighter-rouge">move</code></strong></h4>
+<h4 id="move"><strong><code>move</code></strong></h4>
+
 <p>moves the agent forward, the distance being computed with respect to its speed and heading. The value of the corresponding variables are used unless arguments are passed.</p>
 
 <ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">heading</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)</li>
-  <li><strong><code class="highlighter-rouge">bounds</code></strong> (geometry,agent): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry</li>
+<li>returns: path<br></li>
+<li><strong><code>speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)<br></li>
+<li><strong><code>heading</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)<br></li>
+<li><strong><code>bounds</code></strong> (geometry,agent): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry<br></li>
 </ul>
 
-<h4 id="wander"><strong><code class="highlighter-rouge">wander</code></strong></h4>
+<h4 id="wander"><strong><code>wander</code></strong></h4>
+
 <p>Moves the agent towards a random location at the maximum distance (with respect to its speed). The heading of the agent is chosen randomly if no amplitude is specified. This action changes the value of heading.</p>
 
 <ul>
-  <li>returns: void</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">amplitude</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)</li>
-  <li><strong><code class="highlighter-rouge">bounds</code></strong> (agent,geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry</li>
+<li>returns: void<br></li>
+<li><strong><code>speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)<br></li>
+<li><strong><code>amplitude</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)<br></li>
+<li><strong><code>bounds</code></strong> (agent,geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry<br></li>
 </ul>
 
-<h4 id="wander_3d"><strong><code class="highlighter-rouge">wander_3D</code></strong></h4>
+<h4 id="wander_3d"><strong><code>wander_3D</code></strong></h4>
+
 <p>Moves the agent towards a random location (3D point) at the maximum distance (with respect to its speed). The heading of the agent is chosen randomly if no amplitude is specified. This action changes the value of heading.</p>
 
 <ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">amplitude</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)</li>
-  <li><strong><code class="highlighter-rouge">z_max</code></strong> (int): the maximum altitude (z) the geometry can reach</li>
-  <li><strong><code class="highlighter-rouge">bounds</code></strong> (agent,geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry</li>
+<li>returns: path<br></li>
+<li><strong><code>speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)<br></li>
+<li><strong><code>amplitude</code></strong> (int): a restriction placed on the random heading choice. The new heading is chosen in the range (heading - amplitude/2, heading+amplitude/2)<br></li>
+<li><strong><code>z_max</code></strong> (int): the maximum altitude (z) the geometry can reach<br></li>
+<li><strong><code>bounds</code></strong> (agent,geometry): the geometry (the localized entity geometry) that restrains this move (the agent moves inside this geometry<br></li>
 </ul>
 
 <h3 id="other-skills">Other skills</h3>
@@ -3707,85 +3708,74 @@ function closeRightMenu() {
 <p>A lot of other skills are available. Some of them can be <a href="BuiltInSkills">built in skills</a>, integrated by default in GAMA, other are linked to <a href="Extension">additional plugins</a>.</p>
 
 <p>This is the list of skills:
-<code class="highlighter-rouge">Advanced_driving</code>, <code class="highlighter-rouge">communication</code>, <code class="highlighter-rouge">driving</code>, <code class="highlighter-rouge">GAMASQL</code>, <code class="highlighter-rouge">graphic</code>, <code class="highlighter-rouge">grid</code>, <code class="highlighter-rouge">MDXSKILL</code>, <code class="highlighter-rouge">moving</code>, <code class="highlighter-rouge">moving3D</code>, <code class="highlighter-rouge">physical3D</code>, <code class="highlighter-rouge">skill_road</code>, <code class="highlighter-rouge">skill_road</code>, <code class="highlighter-rouge">skill_road_node</code>, <code class="highlighter-rouge">SQLSKILL</code></p>
+<code>Advanced_driving</code>, <code>communication</code>, <code>driving</code>, <code>GAMASQL</code>, <code>graphic</code>, <code>grid</code>, <code>MDXSKILL</code>, <code>moving</code>, <code>moving3D</code>, <code>physical3D</code>, <code>skill_road</code>, <code>skill_road</code>, <code>skill_road_node</code>, <code>SQLSKILL</code></p>
 
 <h3 id="example">Example</h3>
 
-<p>We can now build a model using the skill moving. Let’s design 2 species, one is “species_red”, the other is “species_green”. 
+<p>We can now build a model using the skill moving. Let&#39;s design 2 species, one is &quot;species_red&quot;, the other is &quot;species_green&quot;. 
 Species_green agents are moving randomly with a certain speed and a certain heading.
 Species_red agents wait for a species_green agent to be in a certain range of distance. Once it is the case, the agent move toward the species_green agent. A line link the red_species agent and its target.</p>
 
-<p><img src="resources/images/manipulateBasicSpecies/green_and_red_species.png" alt="images/green_and_red_species.png" /></p>
+<p><img src="resources/images/manipulateBasicSpecies/green_and_red_species.png" alt="images/green_and_red_species.png"> </p>
 
 <p>Here is an example of implementation:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">green_and_red_species</span>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">green_and_red_species</span>
 
 <span class="n">global</span><span class="p">{</span>
-	<span class="n">float</span> <span class="n">distance_to_intercept</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">number_of_green_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">number_of_red_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">speciesA</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_green_species</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">speciesB</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_red_species</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">distance_to_intercept</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">number_of_green_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">number_of_red_species</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">speciesA</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_green_species</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">speciesB</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_red_species</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">speciesA</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">green</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">green</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">speciesB</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">speciesA</span> <span class="n">target</span><span class="p">;</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">reflex</span> <span class="n">search_target</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="p">=</span><span class="n">nil</span> <span class="p">{</span>
-		<span class="n">ask</span> <span class="n">speciesA</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">distance_to_intercept</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">myself</span><span class="p">.</span><span class="n">target</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">reflex</span> <span class="n">follow</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="c1">!=nil {
-</span>		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.8</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">target</span><span class="c1">!=nil) {
-</span>			<span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">speciesA</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+        <span class="n">heading</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">search_target</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="p">=</span><span class="n">nil</span> <span class="p">{</span>
+        <span class="n">ask</span> <span class="n">speciesA</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">distance_to_intercept</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">myself</span><span class="p">.</span><span class="n">target</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">follow</span> <span class="n">when</span><span class="p">:</span><span class="n">target</span><span class="c1">!=nil {
+</span>        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.8</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span><span class="c1">!=nil) {
+</span>            <span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">,</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span>
 <span class="p">{</span>
-	<span class="n">output</span><span class="p">{</span>
-		<span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">speciesA</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
-			<span class="n">species</span> <span class="n">speciesB</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span><span class="p">{</span>
+        <span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">speciesA</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">speciesB</span> <span class="n">aspect</span><span class="p">:</span><span class="n">default</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|skill_moving)">//</a>: # (endConcept</td>
-      <td>attaching_skills)</td>
-    </tr>
-  </tbody>
-</table>
-
+</code></pre></div>
     </div>
     </div>
     </div>

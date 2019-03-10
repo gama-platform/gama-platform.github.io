@@ -3606,120 +3606,116 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="raster-map-comparison">Raster Map Comparison</h1>
 
 <p><em>Author : Patrick Taillandier</em></p>
 
-<p>This model shows how to use different comparators to know the accuracy of a prediction model. Four comparators are used :</p>
-<ul>
-  <li>kappa, comparing the map observed and the map simulation ; kappa simulation comparing the initial map, the map observed and the map simulation;</li>
-  <li>fuzzy kappa, comparing the map observed and the map simulation but being more permissive by using fuzzy logic;</li>
-  <li>fuzzy kappa simulation, comparing the map observed, the map simulation and the map initial but being more permissive by using fuzzy logic</li>
-</ul>
+<p>This model shows how to use different comparators to know the accuracy of a prediction model. Four comparators are used :
+- kappa, comparing the map observed and the map simulation ; kappa simulation comparing the initial map, the map observed and the map simulation;
+- fuzzy kappa, comparing the map observed and the map simulation but being more permissive by using fuzzy logic;
+- fuzzy kappa simulation, comparing the map observed, the map simulation and the map initial but being more permissive by using fuzzy logic</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">mapcomparison</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">categories</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"type 1"</span><span class="p">,</span> <span class="s2">"type 2"</span><span class="p">,</span> <span class="s2">"type 3"</span><span class="p">,</span> <span class="s2">"type 4"</span><span class="p">];</span>
-	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">color_cat</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"type 1"</span><span class="p">::#</span><span class="n">blue</span><span class="p">,</span> <span class="s2">"type 2"</span><span class="p">::#</span><span class="n">green</span><span class="p">,</span> <span class="s2">"type 3"</span><span class="p">::#</span><span class="n">yellow</span><span class="p">,</span> <span class="s2">"type 4"</span><span class="p">::#</span><span class="n">red</span><span class="p">];</span>
-	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_categories</span><span class="p">;</span>
-	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_transitions</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_obs</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_sim</span><span class="p">;</span>
-	 
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Initialize</span> <span class="n">randomly</span> <span class="n">the</span> <span class="n">category</span> <span class="k">of</span> <span class="n">each</span> <span class="n">cell</span>
-		<span class="n">ask</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">string</span> <span class="n">neigh_cat</span> <span class="p">&lt;-</span><span class="n">one_of</span><span class="p">(</span><span class="n">neighbors</span><span class="p">).</span><span class="n">cat_observed</span><span class="p">;</span>
-			<span class="n">cat_init</span> <span class="p">&lt;-</span> <span class="n">neigh_cat</span> <span class="k">in</span> <span class="n">categories</span> <span class="p">?</span> <span class="n">neigh_cat</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
-			<span class="n">color_init</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat_init</span><span class="p">];</span>
-		<span class="p">}</span>
-		
-		<span class="p">//</span><span class="n">Initialize</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span> <span class="k">and</span> <span class="n">the</span> <span class="n">cat</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">according</span> <span class="k">to</span> <span class="n">probability</span> <span class="p">:</span> 
-		<span class="p">//</span> <span class="m">60</span><span class="p">%</span> <span class="k">of</span> <span class="n">cases</span><span class="p">,</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">same</span> <span class="n">than</span> <span class="n">the</span> <span class="n">category</span> <span class="n">initialized</span>
-		<span class="p">//</span><span class="m">60</span><span class="p">%</span> <span class="k">of</span> <span class="n">cases</span><span class="p">,</span> <span class="n">the</span> <span class="n">category</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">same</span> <span class="n">than</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span>
-		<span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
-			<span class="n">cat_observed</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.6</span><span class="p">)</span> <span class="p">?</span>  <span class="n">cat_init</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
-			<span class="n">cat</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.6</span><span class="p">)</span> <span class="p">?</span>  <span class="n">cat_observed</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
-			<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat</span><span class="p">];</span>
-			<span class="n">color_obs</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat_observed</span><span class="p">];</span>
-		<span class="p">}</span>
-		<span class="n">fuzzy_categories</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
-			<span class="n">fuzzy_categories</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">fuzzy_transitions</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">*</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
-			<span class="n">fuzzy_transitions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>	
-		<span class="p">}</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">similarity_per_agents</span> <span class="p">;</span>
-		<span class="nb">write</span> <span class="s2">"kappa(map observed, map simulation, categories): "</span> <span class="p">+</span> <span class="n">kappa</span><span class="p">(</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="s2">"kappa simulation(map init, map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">kappa_sim</span><span class="p">(</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_init</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
-		<span class="n">using</span> <span class="n">topology</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nb">write</span> <span class="s2">"fuzzy kappa(map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">cell</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_categories</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
-			<span class="nb">write</span> <span class="s2">"fuzzy kappa sim(map init, map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa_sim</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">cell</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_init</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_transitions</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
-		<span class="p">}</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
-			<span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="n">similarity_per_agents</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-			<span class="n">ask</span> <span class="n">cell</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">);}</span>
-			
-		<span class="p">}</span>
-		<span class="n">loop</span> <span class="n">c</span> <span class="n">over</span><span class="p">:</span> <span class="n">categories</span> <span class="p">{</span>
-			<span class="n">nb_per_cat_obs</span> <span class="p">&lt;&lt;</span> <span class="n">cell</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span> <span class="p">=</span> <span class="n">c</span><span class="p">);</span>
-			<span class="n">nb_per_cat_sim</span> <span class="p">&lt;&lt;</span> <span class="n">cell</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span> <span class="p">=</span> <span class="n">c</span><span class="p">);</span> 
-		<span class="p">}</span>
-		<span class="nb">write</span> <span class="s2">"percent_absolute_deviation : "</span> <span class="p">+</span> <span class="n">percent_absolute_deviation</span><span class="p">(</span><span class="n">nb_per_cat_obs</span><span class="p">,</span><span class="n">nb_per_cat_sim</span><span class="p">)</span> <span class="p">+</span> <span class="s2">"%"</span><span class="p">;</span>
-		
-	<span class="p">}</span>
-	
+    <span class="k">list</span><span class="p">&lt;</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">categories</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"type 1"</span><span class="p">,</span> <span class="s2">"type 2"</span><span class="p">,</span> <span class="s2">"type 3"</span><span class="p">,</span> <span class="s2">"type 4"</span><span class="p">];</span>
+    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="n">rgb</span><span class="p">&gt;</span> <span class="n">color_cat</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"type 1"</span><span class="p">::#</span><span class="n">blue</span><span class="p">,</span> <span class="s2">"type 2"</span><span class="p">::#</span><span class="n">green</span><span class="p">,</span> <span class="s2">"type 3"</span><span class="p">::#</span><span class="n">yellow</span><span class="p">,</span> <span class="s2">"type 4"</span><span class="p">::#</span><span class="n">red</span><span class="p">];</span>
+    <span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_categories</span><span class="p">;</span>
+    <span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">fuzzy_transitions</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_obs</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">nb_per_cat_sim</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Initialize</span> <span class="n">randomly</span> <span class="n">the</span> <span class="n">category</span> <span class="k">of</span> <span class="n">each</span> <span class="n">cell</span>
+        <span class="n">ask</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">string</span> <span class="n">neigh_cat</span> <span class="p">&lt;-</span><span class="n">one_of</span><span class="p">(</span><span class="n">neighbors</span><span class="p">).</span><span class="n">cat_observed</span><span class="p">;</span>
+            <span class="n">cat_init</span> <span class="p">&lt;-</span> <span class="n">neigh_cat</span> <span class="k">in</span> <span class="n">categories</span> <span class="p">?</span> <span class="n">neigh_cat</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
+            <span class="n">color_init</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat_init</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="p">//</span><span class="n">Initialize</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span> <span class="k">and</span> <span class="n">the</span> <span class="n">cat</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">according</span> <span class="k">to</span> <span class="n">probability</span> <span class="p">:</span> 
+        <span class="p">//</span> <span class="m">60</span><span class="p">%</span> <span class="k">of</span> <span class="n">cases</span><span class="p">,</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">same</span> <span class="n">than</span> <span class="n">the</span> <span class="n">category</span> <span class="n">initialized</span>
+        <span class="p">//</span><span class="m">60</span><span class="p">%</span> <span class="k">of</span> <span class="n">cases</span><span class="p">,</span> <span class="n">the</span> <span class="n">category</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">same</span> <span class="n">than</span> <span class="n">the</span> <span class="n">category</span> <span class="n">observed</span>
+        <span class="n">ask</span> <span class="n">cell</span> <span class="p">{</span>
+            <span class="n">cat_observed</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.6</span><span class="p">)</span> <span class="p">?</span>  <span class="n">cat_init</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
+            <span class="n">cat</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.6</span><span class="p">)</span> <span class="p">?</span>  <span class="n">cat_observed</span> <span class="p">:</span> <span class="n">one_of</span><span class="p">(</span><span class="n">categories</span><span class="p">);</span>
+            <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat</span><span class="p">];</span>
+            <span class="n">color_obs</span> <span class="p">&lt;-</span> <span class="n">color_cat</span><span class="p">[</span><span class="n">cat_observed</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">fuzzy_categories</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+            <span class="n">fuzzy_categories</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">fuzzy_transitions</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">as_matrix</span> <span class="p">{</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">),</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)*</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)};</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="p">*</span> <span class="n">length</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+            <span class="n">fuzzy_transitions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>  
+        <span class="p">}</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">similarity_per_agents</span> <span class="p">;</span>
+        <span class="nb">write</span> <span class="s2">"kappa(map observed, map simulation, categories): "</span> <span class="p">+</span> <span class="n">kappa</span><span class="p">(</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="s2">"kappa simulation(map init, map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">kappa_sim</span><span class="p">(</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_init</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span><span class="n">categories</span><span class="p">);</span>
+        <span class="n">using</span> <span class="n">topology</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">write</span> <span class="s2">"fuzzy kappa(map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">cell</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_categories</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+            <span class="nb">write</span> <span class="s2">"fuzzy kappa sim(map init, map observed, map simulation,categories): "</span> <span class="p">+</span> <span class="n">fuzzy_kappa_sim</span><span class="p">(</span><span class="k">list</span><span class="p">(</span><span class="n">cell</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_init</span><span class="p">),</span> <span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span><span class="p">),</span><span class="n">cell</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span><span class="p">),</span> <span class="n">similarity_per_agents</span><span class="p">,</span><span class="n">categories</span><span class="p">,</span><span class="n">fuzzy_transitions</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span> <span class="p">{</span>
+            <span class="n">int</span> <span class="n">val</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="n">similarity_per_agents</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="n">ask</span> <span class="n">cell</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span><span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">);}</span>
+
+        <span class="p">}</span>
+        <span class="n">loop</span> <span class="n">c</span> <span class="n">over</span><span class="p">:</span> <span class="n">categories</span> <span class="p">{</span>
+            <span class="n">nb_per_cat_obs</span> <span class="p">&lt;&lt;</span> <span class="n">cell</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat_observed</span> <span class="p">=</span> <span class="n">c</span><span class="p">);</span>
+            <span class="n">nb_per_cat_sim</span> <span class="p">&lt;&lt;</span> <span class="n">cell</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">cat</span> <span class="p">=</span> <span class="n">c</span><span class="p">);</span> 
+        <span class="p">}</span>
+        <span class="nb">write</span> <span class="s2">"percent_absolute_deviation : "</span> <span class="p">+</span> <span class="n">percent_absolute_deviation</span><span class="p">(</span><span class="n">nb_per_cat_obs</span><span class="p">,</span><span class="n">nb_per_cat_sim</span><span class="p">)</span> <span class="p">+</span> <span class="s2">"%"</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
-	<span class="k">string</span> <span class="n">cat_init</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">cat_observed</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">cat</span> <span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color_init</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color_obs</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
-	
-	<span class="n">aspect</span> <span class="n">fuzzy_sim</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_fuzzy</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_fuzzy</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">init</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_init</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_init</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">aspect</span> <span class="n">observed</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_obs</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_obs</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="k">string</span> <span class="n">cat_init</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">cat_observed</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">cat</span> <span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color_init</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color_obs</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">color_fuzzy</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="n">aspect</span> <span class="n">fuzzy_sim</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_fuzzy</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_fuzzy</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">init</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_init</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_init</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">observed</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">color_obs</span> <span class="n">border</span><span class="p">:</span> <span class="n">color_obs</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">mapcomparison</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map_sim</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">grid</span> <span class="n">cell</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">map_observed</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">observed</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">map_init</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">init</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">map_fuzzy</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">fuzzy_sim</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map_sim</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">grid</span> <span class="n">cell</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="n">map_observed</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">observed</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="n">map_init</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">init</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="n">map_fuzzy</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">fuzzy_sim</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

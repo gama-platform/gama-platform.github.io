@@ -3606,154 +3606,152 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="model-using-batch-mode">Model using Batch mode</h1>
 
 <p><em>Author :  Patrick Taillandier</em></p>
 
-<p>A model showing how to use batch experiments to find the best combination of parameters to minimize the numbers of infected people in a SIR infection model where agents infect others and become immune for a certain time. The batch mode uses three different methods : Exhaustive, GA and Tabu Search. The model proposes five experiments : one simple with a User Interface, one running 5 experiments and saving the data, and one for each strategy.</p>
+<p>A model showing how to use batch experiments to find the best combination of parameters to minimize the numbers of infected people in a SIR infection model where agents infect others and become immune for a certain time. The batch mode uses three different methods : Exhaustive, GA and Tabu Search. The model proposes five experiments : one simple with a User Interface, one running 5 experiments and saving the data, and one for each strategy. </p>
 
-<p>Code of the model :</p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-php" data-lang="php">
 
 <span class="nx">model</span> <span class="nx">batch_example</span>
 
 <span class="k">global</span> <span class="p">{</span>
     <span class="nx">int</span> <span class="nx">number_people</span> <span class="o">&lt;-</span> <span class="mi">300</span><span class="p">;</span>  <span class="c1">// The init number of people
-</span>    <span class="nx">int</span> <span class="nx">number_I</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="p">;</span>	<span class="c1">// The init number of infected
+</span>    <span class="nx">int</span> <span class="nx">number_I</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="p">;</span> <span class="c1">// The init number of infected
 </span>    <span class="nx">float</span> <span class="nx">infection_rate</span> <span class="o">&lt;-</span> <span class="mf">0.1</span> <span class="p">;</span> <span class="c1">// The infection rate
-</span>	<span class="nx">float</span> <span class="nx">infection_distance</span> <span class="o">&lt;-</span> <span class="mf">5.0</span> <span class="p">;</span> <span class="c1">// infection distance (in meters)
-</span>	<span class="nx">int</span> <span class="nx">immune_step</span> <span class="o">&lt;-</span> <span class="mi">30</span> <span class="p">;</span> <span class="c1">// number of steps before becoming immune after infection
-</span>	<span class="nx">int</span> <span class="nx">end_immunity_step</span> <span class="o">&lt;-</span><span class="mi">50</span><span class="p">;</span> <span class="c1">// number of steps before not being immune anymore
-</span>	<span class="nx">float</span> <span class="nx">speed_people</span> <span class="o">&lt;-</span> <span class="mf">5.0</span> <span class="p">;</span> <span class="c1">// speed of the Host
+</span>    <span class="nx">float</span> <span class="nx">infection_distance</span> <span class="o">&lt;-</span> <span class="mf">5.0</span> <span class="p">;</span> <span class="c1">// infection distance (in meters)
+</span>    <span class="nx">int</span> <span class="nx">immune_step</span> <span class="o">&lt;-</span> <span class="mi">30</span> <span class="p">;</span> <span class="c1">// number of steps before becoming immune after infection
+</span>    <span class="nx">int</span> <span class="nx">end_immunity_step</span> <span class="o">&lt;-</span><span class="mi">50</span><span class="p">;</span> <span class="c1">// number of steps before not being immune anymore
+</span>    <span class="nx">float</span> <span class="nx">speed_people</span> <span class="o">&lt;-</span> <span class="mf">5.0</span> <span class="p">;</span> <span class="c1">// speed of the Host
 </span>
-	<span class="nx">int</span> <span class="nx">nb_infected</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="nx">init</span> <span class="p">{</span>
-		<span class="nx">create</span> <span class="nx">people</span> <span class="nx">number</span><span class="o">:</span> <span class="nx">number_people</span> <span class="p">;</span>
+    <span class="nx">int</span> <span class="nx">nb_infected</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">init</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">people</span> <span class="nx">number</span><span class="o">:</span> <span class="nx">number_people</span> <span class="p">;</span>
         <span class="nx">ask</span> <span class="p">(</span><span class="nx">number_I</span> <span class="nx">among</span> <span class="nx">people</span><span class="p">)</span> <span class="p">{</span>
-        	<span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
-        	<span class="nx">color</span> <span class="o">&lt;-</span> <span class="c1">#red;
+            <span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">color</span> <span class="o">&lt;-</span> <span class="c1">#red;
 </span>        <span class="p">}</span>
-	<span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nx">species</span> <span class="nx">people</span> <span class="nx">skills</span><span class="o">:</span><span class="p">[</span><span class="nx">moving</span><span class="p">]</span> <span class="p">{</span>
-	<span class="nx">bool</span> <span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
-	<span class="nx">bool</span> <span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
-	<span class="nx">rgb</span> <span class="nx">color</span> <span class="o">&lt;-</span> <span class="c1">#green;
-</span>	<span class="nx">int</span> <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="nx">reflex</span> <span class="nx">basic_move</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="nx">wander</span> <span class="nx">speed</span><span class="o">:</span> <span class="nx">speed_people</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="nx">bool</span> <span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">bool</span> <span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">rgb</span> <span class="nx">color</span> <span class="o">&lt;-</span> <span class="c1">#green;
+</span>    <span class="nx">int</span> <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">reflex</span> <span class="nx">basic_move</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="nx">wander</span> <span class="nx">speed</span><span class="o">:</span> <span class="nx">speed_people</span><span class="p">;</span>
+    <span class="p">}</span>
 
-	<span class="nx">reflex</span> <span class="nx">end_of_immunity</span> <span class="nx">when</span><span class="o">:</span> <span class="nx">is_immune</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="nx">cpt</span> <span class="o">&gt;</span> <span class="nx">end_immunity_step</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
-			<span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
-			<span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#green;
-</span>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">reflex</span> <span class="nx">become_immune</span> <span class="nx">when</span><span class="o">:</span> <span class="nx">is_infected</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="nx">cpt</span> <span class="o">&gt;</span> <span class="nx">immune_step</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
-			<span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
-			<span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
-			<span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#blue;
-</span>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">reflex</span> <span class="nx">become_infected</span> <span class="nx">when</span><span class="o">:</span> <span class="k">not</span> <span class="nx">is_infected</span> <span class="k">and</span> <span class="k">not</span> <span class="nx">is_immune</span><span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="nx">flip</span><span class="p">(</span><span class="nx">infection_rate</span><span class="p">)</span> <span class="k">and</span> <span class="k">not</span> <span class="k">empty</span><span class="p">(</span><span class="nx">people</span> <span class="nx">at_distance</span> <span class="nx">infection_distance</span> <span class="nx">where</span> <span class="nb">each</span><span class="o">.</span><span class="nx">is_infected</span><span class="p">))</span> <span class="p">{</span>
-			<span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
-			<span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#red;
-</span>			<span class="nx">nb_infected</span> <span class="o">&lt;-</span> <span class="nx">nb_infected</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="nx">reflex</span> <span class="nx">end_of_immunity</span> <span class="nx">when</span><span class="o">:</span> <span class="nx">is_immune</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cpt</span> <span class="o">&gt;</span> <span class="nx">end_immunity_step</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#green;
+</span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">reflex</span> <span class="nx">become_immune</span> <span class="nx">when</span><span class="o">:</span> <span class="nx">is_infected</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cpt</span> <span class="o">&gt;</span> <span class="nx">immune_step</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="nx">is_immune</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#blue;
+</span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">reflex</span> <span class="nx">become_infected</span> <span class="nx">when</span><span class="o">:</span> <span class="k">not</span> <span class="nx">is_infected</span> <span class="k">and</span> <span class="k">not</span> <span class="nx">is_immune</span><span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">flip</span><span class="p">(</span><span class="nx">infection_rate</span><span class="p">)</span> <span class="k">and</span> <span class="k">not</span> <span class="k">empty</span><span class="p">(</span><span class="nx">people</span> <span class="nx">at_distance</span> <span class="nx">infection_distance</span> <span class="nx">where</span> <span class="nb">each</span><span class="o">.</span><span class="nx">is_infected</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">is_infected</span> <span class="o">&lt;-</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">color</span> <span class="o">&lt;-</span>  <span class="c1">#red;
+</span>            <span class="nx">nb_infected</span> <span class="o">&lt;-</span> <span class="nx">nb_infected</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-	<span class="nx">aspect</span> <span class="k">default</span> <span class="p">{</span> 
-		<span class="nx">draw</span> <span class="nx">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">color</span><span class="p">;</span>
+    <span class="nx">aspect</span> <span class="k">default</span> <span class="p">{</span> 
+        <span class="nx">draw</span> <span class="nx">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">color</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nx">experiment</span> <span class="nx">Simple</span> <span class="nx">type</span><span class="o">:</span><span class="nx">gui</span> <span class="p">{</span>
-	<span class="nx">parameter</span> <span class="s1">'Infection Rate:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span><span class="p">;</span>
-	<span class="nx">parameter</span> <span class="s1">'Infection Distance:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_distance</span><span class="p">;</span>
-	<span class="nx">output</span> <span class="p">{</span>
-		<span class="nx">monitor</span> <span class="s2">"nb of infected people"</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">nb_infected</span><span class="p">;</span>
-		<span class="nx">display</span> <span class="nx">map</span> <span class="p">{</span>
-			<span class="nx">species</span> <span class="nx">people</span> <span class="nx">aspect</span><span class="o">:</span> <span class="k">default</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="nx">parameter</span> <span class="s1">'Infection Rate:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span><span class="p">;</span>
+    <span class="nx">parameter</span> <span class="s1">'Infection Distance:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_distance</span><span class="p">;</span>
+    <span class="nx">output</span> <span class="p">{</span>
+        <span class="nx">monitor</span> <span class="s2">"nb of infected people"</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">nb_infected</span><span class="p">;</span>
+        <span class="nx">display</span> <span class="nx">map</span> <span class="p">{</span>
+            <span class="nx">species</span> <span class="nx">people</span> <span class="nx">aspect</span><span class="o">:</span> <span class="k">default</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="c1">// This experiment runs the simulation 5 times.
 // At the end of each simulation, the people agents are saved in a shapefile
 </span><span class="nx">experiment</span> <span class="s1">'Run 5 simulations'</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">batch</span> <span class="nx">repeat</span><span class="o">:</span> <span class="mi">5</span> <span class="nx">keep_seed</span><span class="o">:</span> <span class="kc">true</span> <span class="nx">until</span><span class="o">:</span> <span class="p">(</span> <span class="nb">time</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="p">)</span> <span class="p">{</span>
-	
-	<span class="c1">// the reflex will be activated at the end of each run; in this experiment a run consists of the execution of 5 simulations (repeat: 5)
-</span>	<span class="nx">reflex</span> <span class="nx">end_of_runs</span>
-	<span class="p">{</span>
-		<span class="nx">int</span> <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="c1">// each simulation of the run is an agent; it is possible to access to the list of these agents by using the variable "simulations" of the experiment. 
-</span>		<span class="c1">// Another way of accessing to the simulations consists in using the name of model + _model: here "batch_example_model"
-</span>		<span class="c1">//in this example, we ask all the simulation agents of the run to save (at the end of the simulation) the people population in a shapefile with their is_infected and is_immune attributes 
-</span>		<span class="nx">ask</span> <span class="nx">simulations</span>
-		<span class="p">{</span>
-			<span class="nx">save</span> <span class="nx">people</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">"shp"</span> <span class="nx">to</span><span class="o">:</span> <span class="s2">"people_shape"</span> <span class="o">+</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="s2">".shp"</span> <span class="nx">with</span><span class="o">:</span> <span class="p">[</span><span class="nx">is_infected</span><span class="o">::</span><span class="s2">"INFECTED"</span><span class="p">,</span> <span class="nx">is_immune</span><span class="o">::</span><span class="s2">"IMMUNE"</span><span class="p">];</span>
-			<span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+
+    <span class="c1">// the reflex will be activated at the end of each run; in this experiment a run consists of the execution of 5 simulations (repeat: 5)
+</span>    <span class="nx">reflex</span> <span class="nx">end_of_runs</span>
+    <span class="p">{</span>
+        <span class="nx">int</span> <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// each simulation of the run is an agent; it is possible to access to the list of these agents by using the variable "simulations" of the experiment. 
+</span>        <span class="c1">// Another way of accessing to the simulations consists in using the name of model + _model: here "batch_example_model"
+</span>        <span class="c1">//in this example, we ask all the simulation agents of the run to save (at the end of the simulation) the people population in a shapefile with their is_infected and is_immune attributes 
+</span>        <span class="nx">ask</span> <span class="nx">simulations</span>
+        <span class="p">{</span>
+            <span class="nx">save</span> <span class="nx">people</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">"shp"</span> <span class="nx">to</span><span class="o">:</span> <span class="s2">"people_shape"</span> <span class="o">+</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="s2">".shp"</span> <span class="nx">with</span><span class="o">:</span> <span class="p">[</span><span class="nx">is_infected</span><span class="o">::</span><span class="s2">"INFECTED"</span><span class="p">,</span> <span class="nx">is_immune</span><span class="o">::</span><span class="s2">"IMMUNE"</span><span class="p">];</span>
+            <span class="nx">cpt</span> <span class="o">&lt;-</span> <span class="nx">cpt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// This experiment explores two parameters with an exhaustive strategy,
 // repeating each simulation three times (the aggregated fitness correspond to the mean fitness), 
 // in order to find the best combination of parameters to minimize the number of infected people
 </span><span class="nx">experiment</span> <span class="s1">'Exhaustive optimization'</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">batch</span> <span class="nx">repeat</span><span class="o">:</span> <span class="mi">5</span> <span class="nx">keep_seed</span><span class="o">:</span> <span class="kc">true</span> <span class="nx">until</span><span class="o">:</span> <span class="p">(</span> <span class="nb">time</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="p">)</span> <span class="p">{</span>
-	<span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
-	<span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">3.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
-	<span class="nx">method</span> <span class="nx">exhaustive</span> <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span><span class="p">;</span>
-	
-	<span class="c1">//the permanent section allows to define a output section that will be kept during all the batch experiment
-</span>	<span class="nx">permanent</span> <span class="p">{</span>
-		<span class="nx">display</span> <span class="nx">Comparison</span> <span class="p">{</span>
-			<span class="nx">chart</span> <span class="s2">"Number of people infected"</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">series</span> <span class="p">{</span>
-				<span class="c1">//we can access to all the simulations of a run (here composed of 5 simulation -&gt; repeat: 5) by the variable "simulations" of the experiment.
-</span>				<span class="c1">//here we display for the 5 simulations, the mean, min and max values of the nb_infected variable.
-</span>				<span class="nx">data</span> <span class="s2">"Mean"</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">mean</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#blue ;
-</span>				<span class="nx">data</span> <span class="s2">"Min"</span> <span class="nx">value</span><span class="o">:</span>  <span class="nb">min</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#darkgreen ;
-</span>				<span class="nx">data</span> <span class="s2">"Max"</span> <span class="nx">value</span><span class="o">:</span>  <span class="nb">max</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#red ;
-</span>			<span class="p">}</span>
-		<span class="p">}</span>	
-	<span class="p">}</span>
+    <span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
+    <span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">3.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
+    <span class="nx">method</span> <span class="nx">exhaustive</span> <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span><span class="p">;</span>
+
+    <span class="c1">//the permanent section allows to define a output section that will be kept during all the batch experiment
+</span>    <span class="nx">permanent</span> <span class="p">{</span>
+        <span class="nx">display</span> <span class="nx">Comparison</span> <span class="p">{</span>
+            <span class="nx">chart</span> <span class="s2">"Number of people infected"</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">series</span> <span class="p">{</span>
+                <span class="c1">//we can access to all the simulations of a run (here composed of 5 simulation -&gt; repeat: 5) by the variable "simulations" of the experiment.
+</span>                <span class="c1">//here we display for the 5 simulations, the mean, min and max values of the nb_infected variable.
+</span>                <span class="nx">data</span> <span class="s2">"Mean"</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">mean</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#blue ;
+</span>                <span class="nx">data</span> <span class="s2">"Min"</span> <span class="nx">value</span><span class="o">:</span>  <span class="nb">min</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#darkgreen ;
+</span>                <span class="nx">data</span> <span class="s2">"Max"</span> <span class="nx">value</span><span class="o">:</span>  <span class="nb">max</span><span class="p">(</span><span class="nx">simulations</span> <span class="nx">collect</span> <span class="nb">each</span><span class="o">.</span><span class="nx">nb_infected</span> <span class="p">)</span> <span class="nx">style</span><span class="o">:</span> <span class="nx">spline</span> <span class="nx">color</span><span class="o">:</span> <span class="c1">#red ;
+</span>            <span class="p">}</span>
+        <span class="p">}</span>   
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// This experiment explores two parameters with a GA strategy,
 // repeating each simulation three times (the aggregated fitness correspond to the min fitness), 
 // in order to find the best combination of parameters to minimize the number of infected people
 </span><span class="nx">experiment</span> <span class="nx">Genetic</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">batch</span> <span class="nx">keep_seed</span><span class="o">:</span> <span class="kc">true</span> <span class="nx">repeat</span><span class="o">:</span> <span class="mi">3</span> <span class="nx">until</span><span class="o">:</span> <span class="p">(</span> <span class="nb">time</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="p">)</span> <span class="p">{</span>
-	<span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
-	<span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">10.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
-	<span class="nx">method</span> <span class="nx">genetic</span> <span class="nx">pop_dim</span><span class="o">:</span> <span class="mi">3</span> <span class="nx">crossover_prob</span><span class="o">:</span> <span class="mf">0.7</span> <span class="nx">mutation_prob</span><span class="o">:</span> <span class="mf">0.1</span>
-	<span class="nx">nb_prelim_gen</span><span class="o">:</span> <span class="mi">1</span> <span class="nx">max_gen</span><span class="o">:</span> <span class="mi">5</span>  <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span>  <span class="nx">aggregation</span><span class="o">:</span> <span class="s2">"min"</span><span class="p">;</span>
+    <span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
+    <span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">10.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
+    <span class="nx">method</span> <span class="nx">genetic</span> <span class="nx">pop_dim</span><span class="o">:</span> <span class="mi">3</span> <span class="nx">crossover_prob</span><span class="o">:</span> <span class="mf">0.7</span> <span class="nx">mutation_prob</span><span class="o">:</span> <span class="mf">0.1</span>
+    <span class="nx">nb_prelim_gen</span><span class="o">:</span> <span class="mi">1</span> <span class="nx">max_gen</span><span class="o">:</span> <span class="mi">5</span>  <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span>  <span class="nx">aggregation</span><span class="o">:</span> <span class="s2">"min"</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// This experiment explores two parameters with a Tabu Search strategy,
 // repeating each simulation three times (the aggregated fitness correspond to the max fitness), 
 // in order to find the best combination of parameters to minimize the number of infected people
 </span><span class="nx">experiment</span> <span class="nx">Tabu_Search</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">batch</span> <span class="nx">keep_seed</span><span class="o">:</span> <span class="kc">true</span> <span class="nx">repeat</span><span class="o">:</span> <span class="mi">3</span> <span class="nx">until</span><span class="o">:</span> <span class="p">(</span> <span class="nb">time</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="p">)</span> <span class="p">{</span>
-	<span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
-	<span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">10.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
-	<span class="nx">method</span> <span class="nx">tabu</span> <span class="nx">iter_max</span><span class="o">:</span> <span class="mi">10</span> <span class="nx">tabu_list_size</span><span class="o">:</span> <span class="mi">5</span> <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span> <span class="nx">aggregation</span><span class="o">:</span> <span class="s2">"max"</span><span class="p">;</span>
+    <span class="nx">parameter</span> <span class="s1">'Infection rate'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">infection_rate</span> <span class="nx">among</span><span class="o">:</span> <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">];</span>
+    <span class="nx">parameter</span> <span class="s1">'Speed of people:'</span> <span class="k">var</span><span class="o">:</span> <span class="nx">speed_people</span> <span class="nb">min</span><span class="o">:</span> <span class="mf">1.0</span> <span class="nb">max</span><span class="o">:</span> <span class="mf">10.0</span> <span class="nx">step</span><span class="o">:</span><span class="mf">1.0</span><span class="p">;</span>
+    <span class="nx">method</span> <span class="nx">tabu</span> <span class="nx">iter_max</span><span class="o">:</span> <span class="mi">10</span> <span class="nx">tabu_list_size</span><span class="o">:</span> <span class="mi">5</span> <span class="nx">minimize</span><span class="o">:</span> <span class="nx">nb_infected</span> <span class="nx">aggregation</span><span class="o">:</span> <span class="s2">"max"</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

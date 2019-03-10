@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="using-gamanalyzer">Using GAMAnalyzer</h1>
@@ -3618,65 +3618,53 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
 
 <p>GamAnalyzer is a tool to monitor several multi-agents simulation</p>
 
-<p>The “agent_group_follower” goal is to monitor and analyze a group of agent during several simulation. This group of agent can be chosen by the user according to criteria chosen by the user. The monitoring process and analysis of these agents involves the extraction, processing and visualization of their data at every step of the simulation.  The data for each simulation are pooled and treated commonly for their graphic representation or clusters.</p>
+<p>The &quot;agent_group_follower&quot; goal is to monitor and analyze a group of agent during several simulation. This group of agent can be chosen by the user according to criteria chosen by the user. The monitoring process and analysis of these agents involves the extraction, processing and visualization of their data at every step of the simulation.  The data for each simulation are pooled and treated commonly for their graphic representation or clusters.</p>
 
 <h2 id="built-in-variable">Built-in Variable</h2>
 
 <ul>
-  <li>
-    <p><strong>varmap</strong>: All variable that can be analyzed or displayed in a graph.</p>
-  </li>
-  <li>
-    <p><strong>numvarmap</strong>: Numerical variable (on this variable all the aggregator numeric are computed).</p>
-  </li>
-  <li>
-    <p><strong>qualivarmap</strong>: All non numerical variable. Could be used for BDI to analyze beliefs.</p>
-  </li>
-  <li>
-    <p><strong>metadatahistory</strong>: See updateMetaDataHistory. This matrice store all the metadata like getSimulationScope(), getClock().getCycle(), getUniqueSimName(scope), rule, scope.getAgentScope().getName(), this.getName(), this.agentsCourants.copy(scope), this.agentsCourants.size(), this.getGeometry().</p>
-  </li>
-  <li>
-    <p><strong>lastdetailedvarvalues</strong>: store all the value (in varmap) for all the followed agent for the last iteration.</p>
-  </li>
-  <li><strong>averagehistory</strong>: Average value for each of the numvar</li>
-  <li><strong>stdevhistory</strong>: Std deviation value for each of the numvar</li>
-  <li><strong>minhistory</strong>: Min deviation value for each of the numvar</li>
-  <li><strong>maxhistory</strong>: Max deviation value for each of the numvar</li>
-  <li><strong>distribhistoryparams</strong>: Gives the interval of the distribution described in distribhistory</li>
-  <li>
-    <p><strong>distribhistory</strong>: Distribution of numvarmap</p>
-  </li>
-  <li><strong>multi_metadatahistory</strong>: Aggregate each metadatahistory for each experiment</li>
+<li><p><strong>varmap</strong>: All variable that can be analyzed or displayed in a graph.</p></li>
+<li><p><strong>numvarmap</strong>: Numerical variable (on this variable all the aggregator numeric are computed). </p></li>
+<li><p><strong>qualivarmap</strong>: All non numerical variable. Could be used for BDI to analyze beliefs.</p></li>
+<li><p><strong>metadatahistory</strong>: See updateMetaDataHistory. This matrice store all the metadata like getSimulationScope(), getClock().getCycle(), getUniqueSimName(scope), rule, scope.getAgentScope().getName(), this.getName(), this.agentsCourants.copy(scope), this.agentsCourants.size(), this.getGeometry().</p></li>
+<li><p><strong>lastdetailedvarvalues</strong>: store all the value (in varmap) for all the followed agent for the last iteration.</p></li>
+<li><p><strong>averagehistory</strong>: Average value for each of the numvar </p></li>
+<li><p><strong>stdevhistory</strong>: Std deviation value for each of the numvar </p></li>
+<li><p><strong>minhistory</strong>: Min deviation value for each of the numvar </p></li>
+<li><p><strong>maxhistory</strong>: Max deviation value for each of the numvar</p></li>
+<li><p><strong>distribhistoryparams</strong>: Gives the interval of the distribution described in distribhistory</p></li>
+<li><p><strong>distribhistory</strong>: Distribution of numvarmap</p></li>
+<li><p><strong>multi_metadatahistory</strong>: Aggregate each metadatahistory for each experiment </p></li>
 </ul>
 
 <h2 id="example">Example</h2>
 
-<p>This example is based on a toy model which is only composed of wandering people. In this example we will use GamAnalyzer to follow the agent people.</p>
-
-<p>###</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent_group_follower peoplefollower;
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create agentfollower 
+<p>This example is based on a toy model which is only composed of wandering people. In this example we will use GamAnalyzer to follow the agent people. </p>
+<div class="highlight"><pre><code class="language-" data-lang="">agent_group_follower peoplefollower;
+</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">create agentfollower 
 {
   do analyse_cluster species_to_analyse:"people";
   peoplefollower&lt;-self;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="expglobalnone">expGlobalNone</h3>
-<p>No clustering only the current agent follower is displayed</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base {
-  display_mode &lt;-"global";
-  clustering_mode &lt;-"none";
+
+<p>No clustering only the current agent follower is displayed
+<code>
+aspect base {
+  display_mode &lt;-&quot;global&quot;;
+  clustering_mode &lt;-&quot;none&quot;;
   draw shape color: #red;
 }
-</code></pre></div></div>
+</code></p>
 
 <h3 id="expsimglobalnone">expSimGlobalNone</h3>
-<p>The agent_group_follower corresponding to the current iteration and all the already launch experiments are displayed.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect simglobal{
-  display_mode &lt;-"simglobal";
-  clustering_mode &lt;-"none";
+
+<p>The agent_group_follower corresponding to the current iteration and all the already launch experiments are displayed. 
+<code>
+aspect simglobal{
+  display_mode &lt;-&quot;simglobal&quot;;
+  clustering_mode &lt;-&quot;none&quot;;
   draw shape color: #red;
   int curColor &lt;-0;
   loop geom over: allSimShape{
@@ -3684,19 +3672,23 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
     curColor &lt;- curColor+1;
   }
 }
-</code></pre></div></div>
+</code></p>
+
 <h3 id="expcluster">expCluster</h3>
-<p>The agent group follower is divided in cluster computed thanks to a dbscan algorithm. Only the current agent_group_follower is displayed</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect cluster {
-  display_mode &lt;-"global";
-  clustering_mode &lt;-"dbscan";
+
+<p>The agent group follower is divided in cluster computed thanks to a dbscan algorithm. Only the current agent_group_follower is displayed
+<code>
+aspect cluster {
+  display_mode &lt;-&quot;global&quot;;
+  clustering_mode &lt;-&quot;dbscan&quot;;
   draw shape color: #red;
 }
-</code></pre></div></div>
-<h3 id="expclustersimglobal">expClusterSimGlobal</h3>
-<p>The agent_group_follower (made of different cluster) corresponding to the current iteration and all the already launch experiments are displayed.</p>
+</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect clusterSimGlobal {
+<h3 id="expclustersimglobal">expClusterSimGlobal</h3>
+
+<p>The agent_group_follower (made of different cluster) corresponding to the current iteration and all the already launch experiments are displayed. </p>
+<div class="highlight"><pre><code class="language-" data-lang="">aspect clusterSimGlobal {
   display_mode &lt;-"simglobal";
   clustering_mode &lt;-"dbscan";
   draw shape color: #red;
@@ -3706,17 +3698,7 @@ Add the dependencies in ummisco.gama.feature.dependencies</p>
     curColor &lt;- curColor+1;
   } 
 }
-</code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (startConcept|run_several_models_using_gamanalyzer)">//</a>: # (endConcept</td>
-      <td>run_several_models_using_gamanalyzer)</td>
-    </tr>
-  </tbody>
-</table>
-
+</code></pre></div>
     </div>
     </div>
     </div>

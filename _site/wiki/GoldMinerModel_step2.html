@@ -3606,427 +3606,412 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="2-bdi-agents">2. BDI Agents</h1>
+
 <p>This second step consists in defining the gold miner agents using the GAMA BDI architecture.</p>
 
 <h2 id="formulation">Formulation</h2>
+
 <ul>
-  <li>Definition of global predicates</li>
-  <li>Definition of the gold miner species</li>
-  <li>Definition of the gold miner perceptions</li>
-  <li>Definition of the gold miner rules</li>
-  <li>Definition of the gold miner plans</li>
-  <li>Creation and display of the gold miners</li>
+<li>Definition of global predicates</li>
+<li>Definition of the gold miner species</li>
+<li>Definition of the gold miner perceptions</li>
+<li>Definition of the gold miner rules</li>
+<li>Definition of the gold miner plans</li>
+<li>Creation and display of the gold miners</li>
 </ul>
 
 <h2 id="bdi-agents">BDI agents</h2>
-<p>A classic paradigm to formalize the internal architecture of cognitive agents in Agent-Oriented Software Engineering is the BDI (Belief-Desire-Intention) paradigm. This paradigm, based on the philosophy of action <a href="https://philpapers.org/rec/braipa">(Bratman, 1987)</a>, allows to design expressive and realistic agents.</p>
+
+<p>A classic paradigm to formalize the internal architecture of cognitive agents in Agent-Oriented Software Engineering is the BDI (Belief-Desire-Intention) paradigm. This paradigm, based on the philosophy of action <a href="https://philpapers.org/rec/braipa">(Bratman, 1987)</a>, allows to design expressive and realistic agents. </p>
 
 <p>The concepts of Belief-Desire-Intention can be summarized as follow for the the Gold Miner: the Miner agent has a general desire to find gold. As it is the only thing it wants at the beginning, it is its initial intention (what it is currently doing). To find gold, it wanders around (its plan is to wander). When it perceives some gold nuggets, it stores this information (it has a new belief about the existence and location of this gold nugget), and it adopts a new desire (it wants to extract the gold). When it perceives a gold nugget, the intention to find gold is put on hold and a new intention is selected (to extract gold). To achieve this intention, the plan has two steps, i.e. two new (sub)intentions: to choose a gold nugget to extract (among its known gold nuggets) and to go and take it. And so on.</p>
 
-<p>In GAMA, we propose a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:</p>
-<ul>
-  <li><strong>belief_base</strong> (what it knows): the internal knowledge the agent has about the world or about its internal state, updated during the simulation. A belief can concern any type of information (a quantity, a location, a boolean value, etc).</li>
-  <li><strong>desire_base</strong> (what it wants): objectives that the agent would like to accomplish, also updated during the simulation. Desires can have hierarchical links (sub/super desires) when a desire is created as an intermediary objective.</li>
-  <li><strong>intention_base</strong> (what it is doing): what the agent has chosen to do. The current intention will determine the selected plan. Intentions can be put on hold (for example when they require a sub-intention to be achieved).</li>
-</ul>
+<p>In GAMA, we propose a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 database linked to the agent cognition:
+* <strong>belief_base</strong> (what it knows): the internal knowledge the agent has about the world or about its internal state, updated during the simulation. A belief can concern any type of information (a quantity, a location, a boolean value, etc).
+* <strong>desire_base</strong> (what it wants): objectives that the agent would like to accomplish, also updated during the simulation. Desires can have hierarchical links (sub/super desires) when a desire is created as an intermediary objective.
+* <strong>intention_base</strong> (what it is doing): what the agent has chosen to do. The current intention will determine the selected plan. Intentions can be put on hold (for example when they require a sub-intention to be achieved).</p>
 
-<p>In addition, the BDI architecture provides agents with three types of behavior structures</p>
-<ul>
-  <li><strong>Perception</strong>: a perception is a function executed at each iteration to update the agent’s Belief base, to know the changes in its environment (the world, the other agents and itself). The agent can perceive other agents up to a fixed distance or inside a specific geometry.</li>
-  <li><strong>Rule</strong>: a rule is a function executed at each iteration to infer new desires or beliefs from the agent’s current beliefs and desires, i.e. a new desire or belief can emerge from the existing ones.</li>
-  <li><strong>Plan</strong>: the agent has a set of plans, which are behaviors defined to accomplish specific intentions. Plans can be instantaneous and/or persistent, and may have a priority value (that can be dynamic), used to select a plan when several possible plans are available to accomplish the same intention.</li>
-</ul>
+<p>In addition, the BDI architecture provides agents with three types of behavior structures
+* <strong>Perception</strong>: a perception is a function executed at each iteration to update the agent’s Belief base, to know the changes in its environment (the world, the other agents and itself). The agent can perceive other agents up to a fixed distance or inside a specific geometry. 
+* <strong>Rule</strong>: a rule is a function executed at each iteration to infer new desires or beliefs from the agent’s current beliefs and desires, i.e. a new desire or belief can emerge from the existing ones. 
+* <strong>Plan</strong>: the agent has a set of plans, which are behaviors defined to accomplish specific intentions. Plans can be instantaneous and/or persistent, and may have a priority value (that can be dynamic), used to select a plan when several possible plans are available to accomplish the same intention.</p>
 
-<p>To be more precise on the behavior of BDI agents (what the agent is going to do when activated), this one is composed of 10 steps (see <a href="https://hal.archives-ouvertes.fr/hal-01216165/document">(Caillou et al., 2017)</a> and <a href="https://hal.archives-ouvertes.fr/hal-01391002/document">(Taillandier et al., 2016)</a> for more details):</p>
-<ol>
-  <li><em>Perceive</em>: Perceptions are executed.</li>
-  <li><em>Rule</em>: Rules are executed.</li>
-  <li><em>Is one of my intentions achieved?</em>: If one of my intentions is achieved, sets the current plan to nil and removes the intention from the intention base. If the achieved intention’s super-intention is on hold, it is reactivated (its sub-intention just got completed).</li>
-  <li><em>Do I keep the current intention?</em>: To take into account the environment instability, an intention-persistence coefficient is applied: with this probability, the current intention is removed from the intention stack.</li>
-  <li><em>Do I have a current plan?</em>: If I have a current plan, just execute it. Similarly to intentions, a plan-persistence coefficient is defined: with this probability, the current plan is just dropped.</li>
-  <li><em>Choose a desire as new current intention</em>: If the current intention is on hold (or the intention base is empty), choose a desire as new current intention. The new selected intention is the desire with higher priority.</li>
-  <li><em>Choose a plan as a new current plan</em>: The new current plan is selected among the plans compatible with the current intention (and if their activation condition is checked) and with the highest priority.</li>
-  <li><em>Execute the plan</em>: The current plan is executed.</li>
-  <li><em>Is my plan finished?</em>: To allow persistent plans, a plan may have a termination condition. If it is not reached, the same plan will be kept for the next iteration.</li>
-  <li><em>Was my plan instantaneous?</em>: Most agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like “choose a destination”. This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.</li>
-</ol>
+<p>To be more precise on the behavior of BDI agents (what the agent is going to do when activated), this one is composed of 10 steps (see <a href="https://hal.archives-ouvertes.fr/hal-01216165/document">(Caillou et al., 2017)</a> and <a href="https://hal.archives-ouvertes.fr/hal-01391002/document">(Taillandier et al., 2016)</a> for more details):
+1. <em>Perceive</em>: Perceptions are executed.
+1. <em>Rule</em>: Rules are executed.
+1. <em>Is one of my intentions achieved?</em>: If one of my intentions is achieved, sets the current plan to nil and removes the intention from the intention base. If the achieved intention’s super-intention is on hold, it is reactivated (its sub-intention just got completed).
+1. <em>Do I keep the current intention?</em>: To take into account the environment instability, an intention-persistence coefficient is applied: with this probability, the current intention is removed from the intention stack. 
+1. <em>Do I have a current plan?</em>: If I have a current plan, just execute it. Similarly to intentions, a plan-persistence coefficient is defined: with this probability, the current plan is just dropped.
+1. <em>Choose a desire as new current intention</em>: If the current intention is on hold (or the intention base is empty), choose a desire as new current intention. The new selected intention is the desire with higher priority.
+1. <em>Choose a plan as a new current plan</em>: The new current plan is selected among the plans compatible with the current intention (and if their activation condition is checked) and with the highest priority.
+1. <em>Execute the plan</em>: The current plan is executed.
+1. <em>Is my plan finished?</em>: To allow persistent plans, a plan may have a termination condition. If it is not reached, the same plan will be kept for the next iteration.
+1. <em>Was my plan instantaneous?</em>: Most agent based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like &quot;choose a destination&quot;. This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.</p>
 
-<p>The architecture introduces two new main types of variables related to cognition:</p>
+<p>The architecture introduces two new main types of variables related to cognition: 
+* <strong>predicate</strong>: a predicate unifies the representation of the information about the world. It can represent a situation, an event or an action. </p>
+
 <ul>
-  <li>
-    <p><strong>predicate</strong>: a predicate unifies the representation of the information about the world. It can represent a situation, an event or an action.</p>
-  </li>
-  <li>
-    <p><strong>mental_state</strong>: it represents the element (belief, desire, intention) manipulated by the agent and the architecture to take a decision. A mental state is composed of a modality, a predicate or another mental state, a real value and a lifetime. The modality indicates the type of the mental state (e.g. a belief or a desire), the predicate indicates the fact about which is this mental state (a mental state can also be about another mental state like a belief about a belief, etc), the value has a different interpretation depending on the modality and finally, the lifetime indicate the duration of the mental state (it can be infinite).</p>
-  </li>
+<li><strong>mental_state</strong>: it represents the element (belief, desire, intention) manipulated by the agent and the architecture to take a decision. A mental state is composed of a modality, a predicate or another mental state, a real value and a lifetime. The modality indicates the type of the mental state (e.g. a belief or a desire), the predicate indicates the fact about which is this mental state (a mental state can also be about another mental state like a belief about a belief, etc), the value has a different interpretation depending on the modality and finally, the lifetime indicate the duration of the mental state (it can be infinite).</li>
 </ul>
 
 <h2 id="model-definition">Model Definition</h2>
-<h3 id="predicates">predicates</h3>
-<p>As a first step of the integration of the BDI agents in our model, we define a set of global predicate that will represent all the information that will be manipulated by the miner agents:</p>
-<ul>
-  <li><em>mine_location</em>: represents the information about the location of a gold mine.</li>
-  <li><em>choose_goldmine</em>: represents the information that the miner wants to choose a gold mine.</li>
-  <li><em>has_gold</em>: represents the information that the miner has a gold nugget.</li>
-  <li><em>find_gold</em>: represents the information that the miner wants to find gold.</li>
-  <li><em>sell_gold</em>: represents the information that the miner wants to sell gold.</li>
-</ul>
 
-<p>We define as well two global string (<em>mine_at_location</em> and <em>empty_mine_location</em>) for simplification purpose and to avoid misspellings.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<h3 id="predicates">predicates</h3>
+
+<p>As a first step of the integration of the BDI agents in our model, we define a set of global predicate that will represent all the information that will be manipulated by the miner agents:
+* <em>mine_location</em>: represents the information about the location of a gold mine.
+* <em>choose_goldmine</em>: represents the information that the miner wants to choose a gold mine.
+* <em>has_gold</em>: represents the information that the miner has a gold nugget.
+* <em>find_gold</em>: represents the information that the miner wants to find gold.
+* <em>sell_gold</em>: represents the information that the miner wants to sell gold.</p>
+
+<p>We define as well two global string (<em>mine_at_location</em> and <em>empty_mine_location</em>) for simplification purpose and to avoid misspellings.
+```
+global {
         ...
-	string mine_at_location &lt;- "mine_at_location";
-	string empty_mine_location &lt;- "empty_mine_location";
-	
-	predicate mine_location &lt;- new_predicate(mine_at_location) ;
-	predicate choose_goldmine &lt;- new_predicate("choose a gold mine");
-	predicate has_gold &lt;- new_predicate("extract gold");
-	predicate find_gold &lt;- new_predicate("find gold") ;
-	predicate sell_gold &lt;- new_predicate("sell gold") ;
-        ...
-}
-</code></pre></div></div>
+    string mine_at_location &lt;- &quot;mine_at_location&quot;;
+    string empty_mine_location &lt;- &quot;empty_mine_location&quot;;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">predicate mine_location &lt;- new_predicate(mine_at_location) ;
+predicate choose_goldmine &lt;- new_predicate("choose a gold mine");
+predicate has_gold &lt;- new_predicate("extract gold");
+predicate find_gold &lt;- new_predicate("find gold") ;
+predicate sell_gold &lt;- new_predicate("sell gold") ;
+    ...
+</code></pre></div>
+<p>}
+``` </p>
+
 <h3 id="skeleton-of-the-miner-species">skeleton of the miner species</h3>
-<p>We then define a miner species with the <em>moving</em> skill and the <em>simple_bdi</em> control architecture. The miner agents have 5 variables:</p>
-<ul>
-  <li><em>viewdist</em>: distance of perception of the miner agent</li>
-  <li><em>speed</em>: speed of the agent</li>
-  <li><em>mycolor</em>: the color of the agent (random color)</li>
-  <li><em>target</em>: where the agent wants to go</li>
-  <li><em>gold_sold</em>: the number of gold nuggets sold by the agent</li>
-</ul>
+
+<p>We then define a miner species with the <em>moving</em> skill and the <em>simple_bdi</em> control architecture. The miner agents have 5 variables:
+* <em>viewdist</em>: distance of perception of the miner agent
+* <em>speed</em>: speed of the agent
+* <em>mycolor</em>: the color of the agent (random color)
+* <em>target</em>: where the agent wants to go
+* <em>gold_sold</em>: the number of gold nuggets sold by the agent</p>
 
 <p>We define the init block of the species such as to add at the creation of the agent the desire to find gold nuggets (<em>find_gold</em> predicate). we use for that the <em>add_desire</em> action provides with the BDI architecture.</p>
 
 <p>At last, we define an aspect in which we draw the agent with its <em>mycolor</em> color and with a depth that depends on the number of gold nuggets collected.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
+    float viewdist&lt;-1000.0;
+    float speed &lt;- 2#km/#h;
+    rgb mycolor&lt;-rnd_color(255);
+    point target;
+    int gold_sold;
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
-	float viewdist&lt;-1000.0;
-	float speed &lt;- 2#km/#h;
-	rgb mycolor&lt;-rnd_color(255);
-	point target;
-	int gold_sold;
-	
-	init
-	{
-		do add_desire(find_gold);
-	}
-	aspect default {
-	        draw circle(200) color: mycolor border: #black depth: gold_sold;
-	}
+    init
+    {
+        do add_desire(find_gold);
+    }
+    aspect default {
+            draw circle(200) color: mycolor border: #black depth: gold_sold;
+    }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="perception">perception</h3>
-<p>We add a <em>perceive</em> statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to “viewdist”. The use of the <em>focus</em> statement allows to add for each detected goldmine a belief corresponding to the location of this goldmine. The name of the belief will be “mine_at_location” and the location value of the goldmine will be stored in the <em>values</em> (a map) variable of the belief at the key “location_value”. 
+
+<p>We add a <em>perceive</em> statement for the miner agents. This perceive will allow to detect the gold mine that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to &quot;viewdist&quot;. The use of the <em>focus</em> statement allows to add for each detected goldmine a belief corresponding to the location of this goldmine. The name of the belief will be &quot;mine_at_location&quot; and the location value of the goldmine will be stored in the <em>values</em> (a map) variable of the belief at the key &quot;location_value&quot;. 
 In addition, we ask the miner agent to remove the intention to find gold, allowing the agent to choose a new intention. The boolean value of the <em>remove_intention</em> action is used to specify if the agent should or not remove the given intention from the desire base as well. In our case, we choose to keep the desire to find golds.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
-	...	
-	perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
-		focus id:mine_at_location var:location;
-		ask myself {
-			do remove_intention(find_gold, false);
-		}
-	}
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
+    ... 
+    perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
+        focus id:mine_at_location var:location;
+        ask myself {
+            do remove_intention(find_gold, false);
+        }
+    }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>Note that the perceive statement works as the ask statement: the instructions written in the statement are executed in the context of the perceive agents. It is for that that we have to use the <em>myself</em> keyword to ask the miner agent to execute the <em>remove_intention</em> action.</p>
 
 <h3 id="rules">rules</h3>
-<p>We define two rules for the miner agents:</p>
-<ul>
-  <li>if the agent believes that there is somewhere at least one gold mine with gold nuggets, the agent gets the new desire to has a gold nugget with a strength of 2.</li>
-  <li>if the agent believes that it has a gold nugget, the agent gets the new desire to sell the gold nugget with a strength of 3.</li>
-</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
-	...
-	rule belief: mine_location new_desire: has_gold strength: 2.0;
-	rule belief: has_gold new_desire: sell_gold strength: 3.0;
+<p>We define two rules for the miner agents:
+* if the agent believes that there is somewhere at least one gold mine with gold nuggets, the agent gets the new desire to has a gold nugget with a strength of 2. 
+* if the agent believes that it has a gold nugget, the agent gets the new desire to sell the gold nugget with a strength of 3. </p>
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
+    ...
+    rule belief: mine_location new_desire: has_gold strength: 2.0;
+    rule belief: has_gold new_desire: sell_gold strength: 3.0;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>The strength of a desire will be used when selecting a desire as a new intention: the agent will choose as new intention the one with the highest strength. In our model, if the agent has the desires to find gold, to has gold and to sell gold, it will choose as intention to sell gold as it is the one with the highest strength. It is possible to replace this deterministic choice by a probabilistic one by setting the <em>probabilistic_choice</em> built-in varibale of the BDI agent to true (false by default).</p>
 
 <h3 id="plans">plans</h3>
 
-<p>The last (and most important) part of the definition of BDI agents consist in defining the plans that the agents can carry out to acheive its intention.</p>
+<p>The last (and most important) part of the definition of BDI agents consist in defining the plans that the agents can carry out to acheive its intention. </p>
 
-<p>The first plan called <em>letsWander</em> is defined to achieve the <em>find_gold</em> intention. This plan will just consists in executing the <em>wander</em> action of the <em>moving</em> skill (random move).</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+<p>The first plan called <em>letsWander</em> is defined to achieve the <em>find_gold</em> intention. This plan will just consists in executing the <em>wander</em> action of the <em>moving</em> skill (random move).
+<code>
+species miner skills: [moving] control:simple_bdi {
         ...
         plan letsWander intention:find_gold 
-	{
-		do wander;
-	}
+    {
+        do wander;
+    }
        ...
 }
-</code></pre></div></div>
+</code></p>
 
 <p>The second plan called <em>getGold</em> is defined to achieve the <em>has_gold</em> intention. if the agent has no target (it does not know where to go), it adds a new sub-intention to choose a goldmine and put the current intention on hold (the agent will wait to select a gold mine to go before executing again this plan). The <em>add_subintention</em> has 3 arguments: the sub-intention (choose_goldmine), the super intention (extract_gold) and a boolean that defines if the sub-intention should or not be added as well as a desire.
 If the agent has already a target, it moves toward this target using the <em>goto</em> action of the <em>moving</em> skill. If the agent reaches its target - goldmine - (target = location), the agent tries to extract gold nuggets from it. If the corresponding goldmine (that one located at the target location) is not empty, the agent extract a gold nugget from it: the agent adds the belief that it has a gold nugget, then the quantity of golds in the gold mine is reduced. Otherwise, if the gold mine is empty, the agent adds the belief that this gold mine is empty. then the target is set to nil.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
         ...
         plan getGold intention:has_gold
-	{
-		if (target = nil) {
-			do add_subintention(has_gold,choose_goldmine, true);
-			do current_intention_on_hold();
-		} else {
-			do goto target: target ;
-			if (target = location)  {
-				goldmine current_mine&lt;- goldmine first_with (target = each.location);
-				if current_mine.quantity &gt; 0 {
-				 	do add_belief(has_gold);
-					ask current_mine {quantity &lt;- quantity - 1;}	
-				} else {
-					do add_belief(new_predicate(empty_mine_location, ["location_value"::target]));
-				}
-				target &lt;- nil;
-			}
-		}	
-	}
+    {
+        if (target = nil) {
+            do add_subintention(has_gold,choose_goldmine, true);
+            do current_intention_on_hold();
+        } else {
+            do goto target: target ;
+            if (target = location)  {
+                goldmine current_mine&lt;- goldmine first_with (target = each.location);
+                if current_mine.quantity &gt; 0 {
+                    do add_belief(has_gold);
+                    ask current_mine {quantity &lt;- quantity - 1;}    
+                } else {
+                    do add_belief(new_predicate(empty_mine_location, ["location_value"::target]));
+                }
+                target &lt;- nil;
+            }
+        }   
+    }
        ...
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>The third plan called <em>choose_closest_goldmine</em> is defined to achieve the <em>choose_goldmine</em> intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (<em>mine_at_location</em> beliefs), then removes the gold mines that it knows that they are empty (<em>empty_mine_location</em> beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to <em>extract_gold</em>. We use for that the <em>remove_intention</em> action, that removes an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
         ...
         plan choose_closest_goldmine intention: choose_goldmine instantaneous: true{
-		list&lt;point&gt; possible_mines &lt;- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-		list&lt;point&gt; empty_mines &lt;- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-		possible_mines &lt;- possible_mines - empty_mines;
-		if (empty(possible_mines)) {
-			do remove_intention(extract_gold, true); 
-		} else {
-			target &lt;- (possible_mines with_min_of (each distance_to self)).location;
-		}
-		do remove_intention(choose_goldmine, true); 
-	}
+        list&lt;point&gt; possible_mines &lt;- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point&gt; empty_mines &lt;- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        possible_mines &lt;- possible_mines - empty_mines;
+        if (empty(possible_mines)) {
+            do remove_intention(extract_gold, true); 
+        } else {
+            target &lt;- (possible_mines with_min_of (each distance_to self)).location;
+        }
+        do remove_intention(choose_goldmine, true); 
+    }
        ...
 }
-</code></pre></div></div>
-
-<p>The last plan called <em>return_to_base</em> is defined to achieve the <em>sell_gold</em> intention. The agent moves in direction of the market using the <em>goto</em> action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it removes the intention and the desire to sell golds, at last it increments its <em>gold_sold</em> variable.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+</code></pre></div>
+<p>The last plan called <em>return_to_base</em> is defined to achieve the <em>sell_gold</em> intention. The agent moves in direction of the market using the <em>goto</em> action. if the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it removes the intention and the desire to sell golds, at last it increments its <em>gold_sold</em> variable. </p>
+<div class="highlight"><pre><code class="language-" data-lang="">species miner skills: [moving] control:simple_bdi {
         ...
         plan return_to_base intention: sell_gold {
-		do goto target: the_market ;
-		if (the_market.location = location)  {
-			do remove_belief(has_gold);
-			do remove_intention(sell_gold, true);
-			gold_sold &lt;- gold_sold + 1;
-		}
-	}
+        do goto target: the_market ;
+        if (the_market.location = location)  {
+            do remove_belief(has_gold);
+            do remove_intention(sell_gold, true);
+            gold_sold &lt;- gold_sold + 1;
+        }
+    }
        ...
 }
-</code></pre></div></div>
+</code></pre></div>
 <h2 id="gobal-section">Gobal section</h2>
-<p>We define two new global variables:</p>
-<ul>
-  <li><em>nbminer</em>: number of gold miners</li>
-  <li><em>inequality</em>: recomputed at each simulation step: standard deviation of the number of gold nuggets extracted per miners.</li>
-</ul>
+
+<p>We define two new global variables:
+* <em>nbminer</em>: number of gold miners
+* <em>inequality</em>: recomputed at each simulation step: standard deviation of the number of gold nuggets extracted per miners.</p>
 
 <p>In the global init, after creating the gold mines and the market, we create the gold miner agents.</p>
 
-<p>At last, we define a global reflex <em>end_simulation</em> that is activated when all the gold mines are empty and no more miner has a gold nuggets and that pauses the simulation.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
-	...
-	int nbminer&lt;-5;
-	float inequality &lt;- 0.0 update:standard_deviation(miner collect each.gold_sold);
-	...
+<p>At last, we define a global reflex <em>end_simulation</em> that is activated when all the gold mines are empty and no more miner has a gold nuggets and that pauses the simulation.
+```
+global {
+    ...
+    int nbminer&lt;-5;
+    float inequality &lt;- 0.0 update:standard_deviation(miner collect each.gold_sold);
+    ...
         init
-	{
-		...
-		create miner number:nbminer;
-	}
-	
-	reflex end_simulation when: sum(goldmine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
-		do pause;
-	}
+    {
+        ...
+        create miner number:nbminer;
+    }</p>
+<div class="highlight"><pre><code class="language-" data-lang="">reflex end_simulation when: sum(goldmine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
+    do pause;
 }
-</code></pre></div></div>
+</code></pre></div>
+<p>}
+```</p>
 
 <h2 id="map-display">Map display</h2>
-<p>We add to the map display the miner species.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment GoldBdi type: gui {
 
-	output {
-		display map type: opengl
-		{
-			species market ;
-			species goldmine ;
-			species miner;
-		}
-	}
+<p>We add to the map display the miner species.
+```
+experiment GoldBdi type: gui {</p>
+<div class="highlight"><pre><code class="language-" data-lang="">output {
+    display map type: opengl
+    {
+        species market ;
+        species goldmine ;
+        species miner;
+    }
 }
-</code></pre></div></div>
-<h2 id="complete-model">Complete Model</h2>
+</code></pre></div>
+<p>}
+```</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">GoldBdi</span>
+<h2 id="complete-model">Complete Model</h2>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">GoldBdi</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
-	<span class="n">int</span> <span class="n">nbminer</span><span class="p">&lt;-</span><span class="m">5</span><span class="p">;</span>
-	<span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
-	
-	<span class="k">string</span> <span class="n">mine_at_location</span> <span class="p">&lt;-</span> <span class="s2">"mine_at_location"</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">empty_mine_location</span> <span class="p">&lt;-</span> <span class="s2">"empty_mine_location"</span><span class="p">;</span>
-	
-	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">possible</span> <span class="n">predicates</span> <span class="n">concerning</span> <span class="n">miners</span>
-	<span class="n">predicate</span> <span class="n">mine_location</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">predicate</span> <span class="n">choose_goldmine</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"choose a gold mine"</span><span class="p">);</span>
-	<span class="n">predicate</span> <span class="n">has_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"extract gold"</span><span class="p">);</span>
-	<span class="n">predicate</span> <span class="n">find_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"find gold"</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">predicate</span> <span class="n">sell_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"sell gold"</span><span class="p">)</span> <span class="p">;</span>
-	
-	
-	
-	<span class="n">float</span> <span class="n">inequality</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">miner</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">gold_sold</span><span class="p">);</span>
-	
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
-	
-	<span class="n">init</span>
-	<span class="p">{</span>
-		<span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
-			<span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>	
-		<span class="p">}</span>
-		<span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">miner</span> <span class="n">number</span><span class="p">:</span><span class="n">nbminer</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">goldmine</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="k">and</span> <span class="n">empty</span><span class="p">(</span><span class="n">miner</span> <span class="n">where</span> <span class="n">each</span><span class="p">.</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)){</span>
-		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
+    <span class="n">int</span> <span class="n">nbminer</span><span class="p">&lt;-</span><span class="m">5</span><span class="p">;</span>
+    <span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
+
+    <span class="k">string</span> <span class="n">mine_at_location</span> <span class="p">&lt;-</span> <span class="s2">"mine_at_location"</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">empty_mine_location</span> <span class="p">&lt;-</span> <span class="s2">"empty_mine_location"</span><span class="p">;</span>
+
+    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">possible</span> <span class="n">predicates</span> <span class="n">concerning</span> <span class="n">miners</span>
+    <span class="n">predicate</span> <span class="n">mine_location</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">predicate</span> <span class="n">choose_goldmine</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"choose a gold mine"</span><span class="p">);</span>
+    <span class="n">predicate</span> <span class="n">has_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"extract gold"</span><span class="p">);</span>
+    <span class="n">predicate</span> <span class="n">find_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"find gold"</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">predicate</span> <span class="n">sell_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"sell gold"</span><span class="p">)</span> <span class="p">;</span>
+
+
+
+    <span class="n">float</span> <span class="n">inequality</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">miner</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">gold_sold</span><span class="p">);</span>
+
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
+
+    <span class="n">init</span>
+    <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
+            <span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">miner</span> <span class="n">number</span><span class="p">:</span><span class="n">nbminer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">goldmine</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="k">and</span> <span class="n">empty</span><span class="p">(</span><span class="n">miner</span> <span class="n">where</span> <span class="n">each</span><span class="p">.</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)){</span>
+        <span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goldmine</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
-	<span class="n">aspect</span> <span class="n">default</span>
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
-		<span class="p">}</span>
-	 
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
+    <span class="n">aspect</span> <span class="n">default</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
+        <span class="p">}</span>
+
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">market</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">default</span>
-	<span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">default</span>
+    <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">miner</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span><span class="n">simple_bdi</span> <span class="p">{</span>
-	
-	<span class="n">float</span> <span class="n">viewdist</span><span class="p">&lt;-</span><span class="m">1000.0</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-	<span class="n">rgb</span> <span class="n">mycolor</span><span class="p">&lt;-</span><span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">gold_sold</span><span class="p">;</span>
-	
-	<span class="n">init</span>
-	<span class="p">{</span>
-		<span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">find_gold</span><span class="p">);</span>
-	<span class="p">}</span>
-		
-	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
-		<span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span><span class="p">;</span>
-	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">3.0</span><span class="p">;</span>
-	
-		
-	<span class="n">plan</span> <span class="n">letsWander</span> <span class="n">intention</span><span class="p">:</span><span class="n">find_gold</span> 
-	<span class="p">{</span>
-		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">getGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span> 
-	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-			<span class="k">do</span> <span class="n">current_intention_on_hold</span><span class="p">();</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">;</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
-				<span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
-				<span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
-				 	<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
-					<span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>	
-				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-					<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
-				<span class="p">}</span>
-				<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>	
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">choose_closest_goldmine</span> <span class="n">intention</span><span class="p">:</span> <span class="n">choose_goldmine</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
-		<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">empty_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
-		<span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">possible_mines</span> <span class="p">-</span> <span class="n">empty_mines</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">possible_mines</span><span class="p">))</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="n">target</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">possible_mines</span> <span class="n">with_min_of</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
-	<span class="p">}</span>
-	
-	<span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="p">{</span>
-		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_market</span> <span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">the_market</span><span class="p">.</span><span class="n">location</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
-			<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
-			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
 
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-	  <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">mycolor</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span> <span class="n">gold_sold</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">float</span> <span class="n">viewdist</span><span class="p">&lt;-</span><span class="m">1000.0</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+    <span class="n">rgb</span> <span class="n">mycolor</span><span class="p">&lt;-</span><span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">gold_sold</span><span class="p">;</span>
+
+    <span class="n">init</span>
+    <span class="p">{</span>
+        <span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">find_gold</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
+        <span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
+        <span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span><span class="p">;</span>
+    <span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">3.0</span><span class="p">;</span>
+
+
+    <span class="n">plan</span> <span class="n">letsWander</span> <span class="n">intention</span><span class="p">:</span><span class="n">find_gold</span> 
+    <span class="p">{</span>
+        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">getGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span> 
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+            <span class="k">do</span> <span class="n">current_intention_on_hold</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
+                <span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+                <span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+                    <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+                    <span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>    
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
+                <span class="p">}</span>
+                <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>   
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">choose_closest_goldmine</span> <span class="n">intention</span><span class="p">:</span> <span class="n">choose_goldmine</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
+        <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">empty_mines</span> <span class="p">&lt;-</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">get_predicate</span><span class="p">(</span><span class="n">mental_state</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">values</span><span class="p">[</span><span class="s2">"location_value"</span><span class="p">]));</span>
+        <span class="n">possible_mines</span> <span class="p">&lt;-</span> <span class="n">possible_mines</span> <span class="p">-</span> <span class="n">empty_mines</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">empty</span><span class="p">(</span><span class="n">possible_mines</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">possible_mines</span> <span class="n">with_min_of</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_market</span> <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">the_market</span><span class="p">.</span><span class="n">location</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
+            <span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+            <span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+            <span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+      <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">mycolor</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span> <span class="n">gold_sold</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">GoldBdi</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
-		<span class="p">{</span>
-			<span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
-			<span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
-			<span class="n">species</span> <span class="n">miner</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+        <span class="p">{</span>
+            <span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
+            <span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
+            <span class="n">species</span> <span class="n">miner</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
-<ol>
-  <li><a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a></li>
-  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
-  <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
-  <li><a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></li>
-</ol>
+</code></pre></div>
+<p><a href="BDIAgents">Back to the start of the tutorial</a>
+  1. <a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a>
+  3. <a href="GoldMinerModel_step3">Definition of social relations between miners</a>
+  4. <a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a>
+  5. <a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></p>
 
     </div>
     </div>

@@ -3606,73 +3606,72 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="developing-species">Developing Species</h1>
 
-<p>Additional <a href="BuiltInSpecies">built-in species</a> can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. <a href="OtherBuiltInSpecies">mulit-criteria decision-making</a>, <a href="OtherBuiltInSpecies">database connection</a>…).</p>
+<p>Additional <a href="BuiltInSpecies">built-in species</a> can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. <a href="OtherBuiltInSpecies">mulit-criteria decision-making</a>, <a href="OtherBuiltInSpecies">database connection</a>...).</p>
 
-<p>A new built-in species extends the <code class="highlighter-rouge">GamlAgent</code> class, which defines the basic GAML agents. As a consequence, new built-in species have all the attributes (<code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">shape</code>, …) and actions (<code class="highlighter-rouge">die</code>…) of <a href="AgentBuiltIn">regular species</a>.</p>
+<p>A new built-in species extends the <code>GamlAgent</code> class, which defines the basic GAML agents. As a consequence, new built-in species have all the attributes (<code>name</code>, <code>shape</code>, ...) and actions (<code>die</code>...) of <a href="AgentBuiltIn">regular species</a>.</p>
 
 <h2 id="implementation">Implementation</h2>
 
-<p>A new species can be <strong>any Java class</strong> that:</p>
-<ul>
-  <li>extends the <code class="highlighter-rouge">GamlAgent</code> class,</li>
-  <li>begins by the <a href="DevelopingIndexAnnotations#@species">@species</a>: <code class="highlighter-rouge">@species(name = "name_of_the_species_gaml")</code>,
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@species(name = "multicriteria_analyzer")
+<p>A new species can be <strong>any Java class</strong> that:
+  * extends the <code>GamlAgent</code> class,
+  * begins by the <a href="DevelopingIndexAnnotations#@species">@species</a>: <code>@species(name = &quot;name_of_the_species_gaml&quot;)</code>,
+<code>
+@species(name = &quot;multicriteria_analyzer&quot;)
 public class MulticriteriaAnalyzer extends GamlAgent {
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></p>
 
 <p><a href="DevelopingSkills">Similarly to skills</a>, a species can define additional attributes and actions.</p>
 
 <h3 id="additional-attributes">Additional attributes</h3>
 
-<p>Defining new attributes needs:</p>
-<ul>
-  <li>to add <a href="DevelopingIndexAnnotations#@vars">@vars</a> (and one embedded <a href="DevelopingIndexAnnotations#@var">@var</a> per additional attribute) annotation on top of the class,</li>
-  <li>to define <a href="DevelopingIndexAnnotations#@setter">@setter</a> and <a href="DevelopingIndexAnnotations#@getter">@getter</a> annotations to the accessors methods.</li>
-</ul>
+<p>Defining new attributes needs:
+  * to add <a href="DevelopingIndexAnnotations#@vars">@vars</a> (and one embedded <a href="DevelopingIndexAnnotations#@var">@var</a> per additional attribute) annotation on top of the class,
+  * to define <a href="DevelopingIndexAnnotations#@setter">@setter</a> and <a href="DevelopingIndexAnnotations#@getter">@getter</a> annotations to the accessors methods.</p>
 
-<p>For example, regular species are defined with the following annotation:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({ @var(name = IKeyword.NAME, type = IType.STRING), @var(name = IKeyword.PEERS, type = IType.LIST),
-	@var(name = IKeyword.HOST, type = IType.AGENT),
-	@var(name = IKeyword.LOCATION, type = IType.POINT, depends_on = IKeyword.SHAPE),
-	@var(name = IKeyword.SHAPE, type = IType.GEOMETRY) })
-</code></pre></div></div>
+<p>For example, regular species are defined with the following annotation:
+<code>
+@vars({ @var(name = IKeyword.NAME, type = IType.STRING), @var(name = IKeyword.PEERS, type = IType.LIST),
+    @var(name = IKeyword.HOST, type = IType.AGENT),
+    @var(name = IKeyword.LOCATION, type = IType.POINT, depends_on = IKeyword.SHAPE),
+    @var(name = IKeyword.SHAPE, type = IType.GEOMETRY) })
+</code></p>
 
-<p>And accessors are defined using:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(IKeyword.NAME)
-public abstract String getName();
+<p>And accessors are defined using:
+```
+@getter(IKeyword.NAME)
+public abstract String getName();</p>
 
-@setter(IKeyword.NAME)
+<p>@setter(IKeyword.NAME)
 public abstract void setName(String name);
-</code></pre></div></div>
+```</p>
 
 <h3 id="additional-actions">Additional actions</h3>
 
-<p>An additional action is a method annotated by the <a href="DevelopingIndexAnnotations#@action">@action</a> annotation.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@action(name = ISpecies.stepActionName)
+<p>An additional action is a method annotated by the <a href="DevelopingIndexAnnotations#@action">@action</a> annotation.
+<code>
+@action(name = ISpecies.stepActionName)
 public Object _step_(final IScope scope) {
-</code></pre></div></div>
+</code></p>
 
 <h2 id="annotations">Annotations</h2>
+
 <h3 id="species">@species</h3>
-<p>This annotation represents a “species” in GAML. The class annotated with this annotation will be the support of a species of agents.</p>
 
-<p>This annotation contains:</p>
-<ul>
-  <li><strong>name</strong> (string): <em>the name of the species that will be created with this class as base. Must be unique throughout GAML</em>.</li>
-  <li><strong>skills</strong> (set of strings, empty by default): <em>An array of skill names that will be automatically attached to this species.</em> Example: <code class="highlighter-rouge">
- @species(value="animal" skills={"moving"})</code></li>
-  <li><strong>internal</strong> (boolean, false by default): <em>whether this species is for internal use only</em>.</li>
-  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this operator.</em></li>
-</ul>
+<p>This annotation represents a &quot;species&quot; in GAML. The class annotated with this annotation will be the support of a species of agents.</p>
 
-<p>All these annotations are defined in the <code class="highlighter-rouge">GamlAnnotations.java</code> file of the <code class="highlighter-rouge">msi.gama.processor</code> plug-in.</p>
+<p>This annotation contains:
+  * <strong>name</strong> (string): <em>the name of the species that will be created with this class as base. Must be unique throughout GAML</em>.
+  * <strong>skills</strong> (set of strings, empty by default): <em>An array of skill names that will be automatically attached to this species.</em> Example: <code>
+ @species(value=&quot;animal&quot; skills={&quot;moving&quot;})</code>
+  * <strong>internal</strong> (boolean, false by default): <em>whether this species is for internal use only</em>.
+  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this operator.</em></p>
+
+<p>All these annotations are defined in the <code>GamlAnnotations.java</code> file of the <code>msi.gama.processor</code> plug-in.</p>
 
     </div>
     </div>

@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="rgb-color-to-xyz-position">RGB color to XYZ position</h1>
@@ -3615,43 +3615,41 @@ function closeRightMenu() {
 
 <p>A model to show how to convert rgb values in xyz position using the operator rgb_to_xyz. Each pixel of a given image is used to create a point with its coordinates depending on its color : red value for x coordinate, green value for y coordinate and blue value for the z coordinate.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">rgbCube</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">import</span> <span class="n">an</span> <span class="n">image</span>
-	<span class="n">file</span> <span class="n">imageRaster</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'images/RGB.jpg'</span><span class="p">);</span>
-	
-	<span class="p">//</span><span class="k">list</span> <span class="k">of</span> <span class="n">points</span>  <span class="nb">create</span> <span class="k">from</span> <span class="n">the</span> <span class="n">image</span> 
-	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">p</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">geometry</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">environment</span><span class="p">)</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-	
-	<span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">points</span> <span class="k">from</span> <span class="n">the</span> <span class="n">image</span><span class="p">:</span> <span class="n">a</span> <span class="n">point</span> <span class="n">is</span> <span class="n">defined</span> <span class="n">per</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">its</span> <span class="n">coordinate</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span> <span class="n">color</span>
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">p</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">rgb_to_xyz</span><span class="p">(</span><span class="n">imageRaster</span><span class="p">));</span>
-	<span class="p">}</span>
+    <span class="p">//</span><span class="n">import</span> <span class="n">an</span> <span class="n">image</span>
+    <span class="n">file</span> <span class="n">imageRaster</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'images/RGB.jpg'</span><span class="p">);</span>
+
+    <span class="p">//</span><span class="k">list</span> <span class="k">of</span> <span class="n">points</span>  <span class="nb">create</span> <span class="k">from</span> <span class="n">the</span> <span class="n">image</span> 
+    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">geometry</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+
+    <span class="p">//</span><span class="nb">create</span> <span class="n">the</span> <span class="k">list</span> <span class="k">of</span> <span class="n">points</span> <span class="k">from</span> <span class="n">the</span> <span class="n">image</span><span class="p">:</span> <span class="n">a</span> <span class="n">point</span> <span class="n">is</span> <span class="n">defined</span> <span class="n">per</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">its</span> <span class="n">coordinate</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span> <span class="n">color</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">rgb_to_xyz</span><span class="p">(</span><span class="n">imageRaster</span><span class="p">));</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">Display</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">RGB_to_XYZ</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
-			<span class="n">image</span> <span class="n">imageRaster</span><span class="p">.</span><span class="n">path</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-			<span class="n">graphics</span> <span class="s2">"pts"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">{</span>
-				<span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">p</span> <span class="p">{</span>
-					<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">pt</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">RGB_to_XYZ</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span> 
+            <span class="n">image</span> <span class="n">imageRaster</span><span class="p">.</span><span class="n">path</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="n">graphics</span> <span class="s2">"pts"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">{</span>
+                <span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">p</span> <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">pt</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

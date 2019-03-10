@@ -3606,54 +3606,51 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <h1 id="lunerays-flu">Luneray’s flu</h1>
+        <h1 id="lunerays-flu">Luneray&#39;s flu</h1>
 
-<p>This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species…) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available <a href="resources/other/models/Luneray_flu.zip">here</a>.</p>
+<p>This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species...) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available <a href="resources/other/models/Luneray_flu.zip">here</a>. </p>
 
 <p>The importation of models is described <a href="ImportingModels">here</a></p>
 
 <h2 id="model-overview">Model Overview</h2>
+
 <p>The model built in this tutorial concerns the spreading of a flu in the city of Luneray (Normandie, France).</p>
 
-<p><img src="resources/images/tutorials/Luneray.jpg" alt="images/Luneray.jpg" /></p>
+<p><img src="resources/images/tutorials/Luneray.jpg" alt="images/Luneray.jpg"></p>
 
 <p>Two layers of GIS data are used: a road layer (polylines) and a building layer (polygons). In this model, people agents are moving from building to building using the road network. Each infected people can infect the neighbor people.</p>
 
-<p>Some data collected concerning Luneray and the disease:</p>
-<ul>
-  <li>Number of inhabitants: 2147 (source : wikipedia)</li>
-  <li>Mean speed of the inhabitants (while moving on the road) : 2-5 km/h</li>
-  <li>The disease - non lethal - is spreading (by air) from people to people</li>
-  <li>Time to cure the disease: more than 100 days</li>
-  <li>Infection distance: 10 meters</li>
-  <li>Infection probability (when two people are at infection distance) : 0.05/ 5 minutes</li>
-</ul>
+<p>Some data collected concerning Luneray and the disease:
+* Number of inhabitants: 2147 (source : wikipedia)
+* Mean speed of the inhabitants (while moving on the road) : 2-5 km/h
+* The disease - non lethal - is spreading (by air) from people to people
+* Time to cure the disease: more than 100 days
+* Infection distance: 10 meters
+* Infection probability (when two people are at infection distance) : 0.05/ 5 minutes</p>
 
-<p>From the data collected, we made some modeling choice:</p>
-<ul>
-  <li>Simulation step: 5 minutes</li>
-  <li>People are moving on the roads from building to building</li>
-  <li>People use the shortest path to move between buildings</li>
-  <li>All people move at constant speed</li>
-  <li>Each time, people arrived at a building they are staying a certain time</li>
-  <li>Infected people are never cured</li>
-</ul>
+<p>From the data collected, we made some modeling choice:
+* Simulation step: 5 minutes
+* People are moving on the roads from building to building 
+* People use the shortest path to move between buildings
+* All people move at constant speed
+* Each time, people arrived at a building they are staying a certain time 
+* Infected people are never cured</p>
 
-<p><img src="resources/images/tutorials/Luneray_model.png" alt="images/Luneray_model.png" /></p>
+<p><img src="resources/images/tutorials/Luneray_model.png" alt="images/Luneray_model.png"></p>
 
 <h2 id="step-list">Step List</h2>
 
 <p>This tutorial is composed of 5 steps corresponding to 5 models. For each step we present its purpose, an explicit formulation and the corresponding GAML code.</p>
 
 <ol>
-  <li><a href="LuneraysFlu_step1">Creation of a first basic disease spreading model</a></li>
-  <li><a href="LuneraysFlu_step2">Definition of monitors and chart outputs</a></li>
-  <li><a href="LuneraysFlu_step3">Importation of GIS data</a></li>
-  <li><a href="LuneraysFlu_step4">Use of a graph to constraint the movements of people</a></li>
-  <li><a href="LuneraysFlu_step5">Definition of 3D displays</a></li>
+<li><a href="LuneraysFlu_step1">Creation of a first basic disease spreading model</a></li>
+<li><a href="LuneraysFlu_step2">Definition of monitors and chart outputs</a></li>
+<li><a href="LuneraysFlu_step3">Importation of GIS data</a></li>
+<li><a href="LuneraysFlu_step4">Use of a graph to constraint the movements of people</a></li>
+<li><a href="LuneraysFlu_step5">Definition of 3D displays</a></li>
 </ol>
 
     </div>

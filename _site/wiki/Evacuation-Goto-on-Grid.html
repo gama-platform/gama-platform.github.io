@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="evacuationgoto">evacuationgoto</h1>
@@ -3615,96 +3615,94 @@ function closeRightMenu() {
 
 <p>A 3D model with walls and exit, and people agents trying to evacuate from the area to a exit location, avoiding the walls with a discretized space by a grid</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">evacuationgoto</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">walls</span>
-	<span class="n">file</span> <span class="n">wall_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/walls.shp"</span><span class="p">);</span>
-	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="k">exit</span>
-	<span class="n">file</span> <span class="n">exit_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/exit.shp"</span><span class="p">);</span>
-	<span class="p">//</span><span class="n">DImension</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">agent</span>
-	<span class="n">int</span> <span class="n">nb_cols</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-	<span class="n">int</span> <span class="n">nb_rows</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">initialized</span> <span class="k">as</span> <span class="n">the</span> <span class="n">bounding</span> <span class="n">box</span> <span class="n">around</span> <span class="n">the</span> <span class="n">walls</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">wall_shapefile</span><span class="p">);</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">wall</span> <span class="k">and</span> <span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_wall</span> <span class="n">attribute</span>
-		<span class="nb">create</span> <span class="n">wall</span> <span class="k">from</span><span class="p">:</span> <span class="n">wall_shapefile</span> <span class="p">{</span>
-			<span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">{</span>
-				<span class="n">is_wall</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="k">exit</span> <span class="k">and</span> <span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_exit</span> <span class="n">attribute</span>
-		<span class="nb">create</span> <span class="k">exit</span> <span class="k">from</span><span class="p">:</span> <span class="n">exit_shapefile</span> <span class="p">{</span>
-			<span class="n">ask</span> <span class="p">(</span><span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span><span class="p">)</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_wall</span><span class="p">{</span>
-				<span class="n">is_exit</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
-		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">{</span>
-			<span class="p">//</span><span class="n">People</span> <span class="n">agent</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">cells</span> <span class="n">which</span> <span class="n">aren</span><span class="s1">'t wall
-			location &lt;- one_of(cell where not each.is_wall).location;
-			//Target of the people agent is one of the possible exits
-			target &lt;- one_of(cell where each.is_exit).location;
-		}
-	}
+    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">walls</span>
+    <span class="n">file</span> <span class="n">wall_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/walls.shp"</span><span class="p">);</span>
+    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="k">exit</span>
+    <span class="n">file</span> <span class="n">exit_shapefile</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/exit.shp"</span><span class="p">);</span>
+    <span class="p">//</span><span class="n">DImension</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">agent</span>
+    <span class="n">int</span> <span class="n">nb_cols</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">nb_rows</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+
+    <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">initialized</span> <span class="k">as</span> <span class="n">the</span> <span class="n">bounding</span> <span class="n">box</span> <span class="n">around</span> <span class="n">the</span> <span class="n">walls</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">wall_shapefile</span><span class="p">);</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">wall</span> <span class="k">and</span> <span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_wall</span> <span class="n">attribute</span>
+        <span class="nb">create</span> <span class="n">wall</span> <span class="k">from</span><span class="p">:</span> <span class="n">wall_shapefile</span> <span class="p">{</span>
+            <span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">{</span>
+                <span class="n">is_wall</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="k">exit</span> <span class="k">and</span> <span class="n">initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_exit</span> <span class="n">attribute</span>
+        <span class="nb">create</span> <span class="k">exit</span> <span class="k">from</span><span class="p">:</span> <span class="n">exit_shapefile</span> <span class="p">{</span>
+            <span class="n">ask</span> <span class="p">(</span><span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span><span class="p">)</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_wall</span><span class="p">{</span>
+                <span class="n">is_exit</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
+        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">{</span>
+            <span class="p">//</span><span class="n">People</span> <span class="n">agent</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">cells</span> <span class="n">which</span> <span class="n">aren</span><span class="s1">'t wall
+            location &lt;- one_of(cell where not each.is_wall).location;
+            //Target of the people agent is one of the possible exits
+            target &lt;- one_of(cell where each.is_exit).location;
+        }
+    }
 }
 //Grid species to discretize space
 grid cell width: nb_cols height: nb_rows neighbors: 8 {
-	bool is_wall &lt;- false;
-	bool is_exit &lt;- false;
-	rgb color &lt;- #white;	
+    bool is_wall &lt;- false;
+    bool is_exit &lt;- false;
+    rgb color &lt;- #white;    
 }
 //Species exit which represent the exit
 species exit {
-	aspect default {
-		draw shape color: #blue;
-	}
+    aspect default {
+        draw shape color: #blue;
+    }
 }
 //Species which represent the wall
 species wall {
-	aspect default {
-		draw shape color: #black depth: 10;
-	}
+    aspect default {
+        draw shape color: #black depth: 10;
+    }
 }
 //Species which represent the people moving from their location to an exit using the skill moving
 species people skills: [moving]{
-	//Evacuation point
-	point target;
-	rgb color &lt;- rnd_color(255);
-	
-	//Reflex to move the agent 
-	reflex move {
-		//Make the agent move only on cell without walls
-		do goto target: target speed: 1 on: (cell where not each.is_wall) recompute_path: false;
-		//If the agent is close enough to the exit, it dies
-		if (self distance_to target) &lt; 2.0 {
-			do die;
-		}
-	}
-	aspect default {
-		draw pyramid(2) color: color;
-		draw sphere(1) at: {location.x,location.y,2} color: color;
-	}
+    //Evacuation point
+    point target;
+    rgb color &lt;- rnd_color(255);
+
+    //Reflex to move the agent 
+    reflex move {
+        //Make the agent move only on cell without walls
+        do goto target: target speed: 1 on: (cell where not each.is_wall) recompute_path: false;
+        //If the agent is close enough to the exit, it dies
+        if (self distance_to target) &lt; 2.0 {
+            do die;
+        }
+    }
+    aspect default {
+        draw pyramid(2) color: color;
+        draw sphere(1) at: {location.x,location.y,2} color: color;
+    }
 }
 experiment evacuationgoto type: gui {
-	output {
-		display map type: opengl{
-			image "../images/floor.jpg";
-			species wall refresh: false;
-			species exit refresh: false;
-			species people;
-			
-		}
-	}
-}
-</span></code></pre></div></div>
+    output {
+        display map type: opengl{
+            image "../images/floor.jpg";
+            species wall refresh: false;
+            species exit refresh: false;
+            species people;
 
+        }
+    }
+}
+</span></code></pre></div>
     </div>
     </div>
     </div>

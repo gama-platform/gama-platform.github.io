@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="basic-programming-concepts-in-gaml">Basic programming concepts in GAML</h1>
@@ -3617,328 +3617,265 @@ We will overfly quickly all those basic programming concepts, admitting that you
 <h2 id="index">Index</h2>
 
 <ul>
-  <li><a href="#variables">Variables</a>
-    <ul>
-      <li><a href="#basic-types">Basic types</a></li>
-      <li><a href="#the-point-type">The point type</a></li>
-      <li><a href="#a-word-about-dimensions">A word about dimensions</a></li>
-    </ul>
-  </li>
-  <li><a href="#declare-variables-using-facet">Declare variables using facet</a></li>
-  <li><a href="#operators-in-gama">Operators in GAMA</a>
-    <ul>
-      <li><a href="#logical-operators">Logical operators</a></li>
-      <li><a href="#comparison-operators">Comparison operators</a></li>
-      <li><a href="#type-casting-operators">Type casting operators</a></li>
-      <li><a href="#other-operators">Other operators</a></li>
-    </ul>
-  </li>
-  <li><a href="#conditional-structures">Conditional structures</a></li>
-  <li><a href="#loop">Loop</a></li>
-  <li><a href="#manipulate-containers">Manipulate containers</a></li>
-  <li><a href="#random-values">Random values</a></li>
+<li><a href="#variables">Variables</a>
+
+<ul>
+<li><a href="#basic-types">Basic types</a></li>
+<li><a href="#the-point-type">The point type</a></li>
+<li><a href="#a-word-about-dimensions">A word about dimensions</a></li>
+</ul></li>
+<li><a href="#declare-variables-using-facet">Declare variables using facet</a></li>
+<li><a href="#operators-in-gama">Operators in GAMA</a>
+
+<ul>
+<li><a href="#logical-operators">Logical operators</a></li>
+<li><a href="#comparison-operators">Comparison operators</a></li>
+<li><a href="#type-casting-operators">Type casting operators</a></li>
+<li><a href="#other-operators">Other operators</a></li>
+</ul></li>
+<li><a href="#conditional-structures">Conditional structures</a></li>
+<li><a href="#loop">Loop</a></li>
+<li><a href="#manipulate-containers">Manipulate containers</a></li>
+<li><a href="#random-values">Random values</a></li>
 </ul>
 
 <h2 id="variables">Variables</h2>
 
 <p>Variables are declared very easily in GAML, starting with the keyword for the type, following by the name you want for your variable. 
-NB: The declaration has to be inside the <code class="highlighter-rouge">global</code> scope, or inside the <code class="highlighter-rouge">species</code> scope.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typeName myVariableName;
-</code></pre></div></div>
-
+NB: The declaration has to be inside the <code>global</code> scope, or inside the <code>species</code> scope.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">typeName myVariableName;
+</code></pre></div>
 <h3 id="basic-types">Basic types</h3>
 
-<p>All the “basic” types are present in GAML:<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">bool</code>.
-The operator for the affectation in GAML is <code class="highlighter-rouge">&lt;-</code> (the operator <code class="highlighter-rouge">=</code> is used to test the equality).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int integerVariable &lt;- 3;
+<p>All the &quot;basic&quot; types are present in GAML:<code>int</code>, <code>float</code>, <code>string</code>, <code>bool</code>.
+The operator for the affectation in GAML is <code>&lt;-</code> (the operator <code>=</code> is used to test the equality).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int integerVariable &lt;- 3;
 float floatVariable &lt;- 2.5;
 string stringVariable &lt;- "test"; // you can also write simple ' : &lt;- 'test'
 bool booleanVariable &lt;- true; // or false
-</code></pre></div></div>
-
-<p>To follow the behavior of variable, we can write their value in the console. Let’s go back to our basic skeleton of a model, and let’s create a reflex in the global scope (to be short, a reflex is a function that is executed in each step. We will come back to this concept later). The <code class="highlighter-rouge">write</code> function works very easily, simply writing down the keyword <code class="highlighter-rouge">write</code> and the name of the variable we want to be displayed.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">firstModel</span>
+</code></pre></div>
+<p>To follow the behavior of variable, we can write their value in the console. Let&#39;s go back to our basic skeleton of a model, and let&#39;s create a reflex in the global scope (to be short, a reflex is a function that is executed in each step. We will come back to this concept later). The <code>write</code> function works very easily, simply writing down the keyword <code>write</code> and the name of the variable we want to be displayed.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">firstModel</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">integerVariable</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
-	<span class="n">float</span> <span class="n">floatVariable</span> <span class="p">&lt;-</span> <span class="m">2.5</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">stringVariable</span> <span class="p">&lt;-</span> <span class="s2">"test"</span><span class="p">;</span> <span class="p">//</span> <span class="n">you</span> <span class="n">can</span> <span class="n">also</span> <span class="nb">write</span> <span class="n">simple</span> <span class="s1">' : &lt;- '</span><span class="n">test</span><span class="s1">'
-	bool booleanVariable &lt;- true; // or false
-	reflex writeDebug {
-		write integerVariable;
-		write floatVariable;
-		write stringVariable;
-		write booleanVariable;
-	}
+    <span class="n">int</span> <span class="n">integerVariable</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+    <span class="n">float</span> <span class="n">floatVariable</span> <span class="p">&lt;-</span> <span class="m">2.5</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">stringVariable</span> <span class="p">&lt;-</span> <span class="s2">"test"</span><span class="p">;</span> <span class="p">//</span> <span class="n">you</span> <span class="n">can</span> <span class="n">also</span> <span class="nb">write</span> <span class="n">simple</span> <span class="s1">' : &lt;- '</span><span class="n">test</span><span class="s1">'
+    bool booleanVariable &lt;- true; // or false
+    reflex writeDebug {
+        write integerVariable;
+        write floatVariable;
+        write stringVariable;
+        write booleanVariable;
+    }
 }
 
 experiment myExperiment
 {
 }
-</span></code></pre></div></div>
+</span></code></pre></div>
+<p>The function <code>write</code> is overloaded for each type of variable (even for the more complex type, such as containers).</p>
 
-<p>The function <code class="highlighter-rouge">write</code> is overloaded for each type of variable (even for the more complex type, such as containers).</p>
-
-<p>Note that before being initialized, a variable has the value <code class="highlighter-rouge">nil</code>.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex update {
-	string my_string;
-	write my_string; // this will write "nil".
-	int my_int;
-	write my_int; // this will write "0", which is the default value for int.
+<p>Note that before being initialized, a variable has the value <code>nil</code>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">reflex update {
+    string my_string;
+    write my_string; // this will write "nil".
+    int my_int;
+    write my_int; // this will write "0", which is the default value for int.
 }
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">nil</code> is also a literal you can use to initialize your variable (you can learn more about the concept of literal in this <a href="Literals">page</a>).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex update {
-	string my_string &lt;- "a string";
-	my_string &lt;- nil;
-	write my_string; // this will write "nil".
-	int my_int &lt;- 6;
-	my_int &lt;- nil;
-	write my_int; // this will write "0", which is the default value for int.
+</code></pre></div>
+<p><code>nil</code> is also a literal you can use to initialize your variable (you can learn more about the concept of literal in this <a href="Literals">page</a>).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">reflex update {
+    string my_string &lt;- "a string";
+    my_string &lt;- nil;
+    write my_string; // this will write "nil".
+    int my_int &lt;- 6;
+    my_int &lt;- nil;
+    write my_int; // this will write "0", which is the default value for int.
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="the-point-type">The point type</h3>
 
-<p>Another variable type you should know is the point variable. This type of variable is used to describe coordinates. It is in fact a complex variable, composed of two float variables (or three if you are working in 3D). To declare it, you have to use the curly bracket <code class="highlighter-rouge">{</code>:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>point p &lt;- {0.2,2.4};
-</code></pre></div></div>
-
+<p>Another variable type you should know is the point variable. This type of variable is used to describe coordinates. It is in fact a complex variable, composed of two float variables (or three if you are working in 3D). To declare it, you have to use the curly bracket <code>{</code>:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">point p &lt;- {0.2,2.4};
+</code></pre></div>
 <p>The first field is related to the x value, and the second, to the y value. You can easily get this value as following:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>point p &lt;- {0.2,2.4};
+<div class="highlight"><pre><code class="language-" data-lang="">point p &lt;- {0.2,2.4};
 write p.x; // the output will be 0.2
 write p.y; // the output will be 2.4
-</code></pre></div></div>
-
-<p>You can’t modify directly the value. But if you want, you can do a simple operation to get what you want:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>point p &lt;- {0.2,2.4};
+</code></pre></div>
+<p>You can&#39;t modify directly the value. But if you want, you can do a simple operation to get what you want:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">point p &lt;- {0.2,2.4};
 p &lt;- p + {0.0,1.0};
 write p.y; // the output will be 3.4
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="a-world-about-dimensions">A world about dimensions</h3>
 
 <p>When manipulating float values, you can specify the dimension of your value. Dimensions are preceded by # or ° (exactly the same).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float a &lt;- 5°m;
+<div class="highlight"><pre><code class="language-" data-lang="">float a &lt;- 5°m;
 float b &lt;- 4#cm;
 float c &lt;- a + b; // c is equal to 5.0399999 (it's not equal to 5.04 because it is a float value, not as precise as int)
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="declare-variables-using-facet">Declare variables using facet</h2>
 
-<p>Facets are used to describe the behavior of a variable during its declaration, by adding the keyword <code class="highlighter-rouge">facet</code> just after the variable name, followed by the value you want for the facet (or also just after the initial value).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type variableName &lt;- initialValue facet1:valueForFacet1 facet2:valueForFacet2;
+<p>Facets are used to describe the behavior of a variable during its declaration, by adding the keyword <code>facet</code> just after the variable name, followed by the value you want for the facet (or also just after the initial value).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">type variableName &lt;- initialValue facet1:valueForFacet1 facet2:valueForFacet2;
 // or:
 type variableName facet1:valueForFacet1 facet2:valueForFacet2;
 variableName &lt;- initialValue;
-</code></pre></div></div>
-
-<p>You can use the facet <code class="highlighter-rouge">update</code> if you want to change the value of your variable. For example, to increment your integer variable each step, you can do as follow:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int integerVariable &lt;- 3 min:0 max:10 update:integerVariable+1;
+</code></pre></div>
+<p>You can use the facet <code>update</code> if you want to change the value of your variable. For example, to increment your integer variable each step, you can do as follow:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int integerVariable &lt;- 3 min:0 max:10 update:integerVariable+1;
 // nb: the operator "++" doesn't exist in gaml.
-</code></pre></div></div>
-
-<p>You can use the facet <code class="highlighter-rouge">min</code> and <code class="highlighter-rouge">max</code> to constraint the value in a specific range of values:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int integerVariable &lt;- 3 min:0 max:10 update:integerVariable+1;
+</code></pre></div>
+<p>You can use the facet <code>min</code> and <code>max</code> to constraint the value in a specific range of values:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int integerVariable &lt;- 3 min:0 max:10 update:integerVariable+1;
 // the result will be 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 10 - 10 - ...
-</code></pre></div></div>
-
-<p>The facet <code class="highlighter-rouge">among</code> can also be useful (that can be seen as an enum):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string fruits &lt;- "banana" among:["pear","apple","banana"];
-</code></pre></div></div>
-
+</code></pre></div>
+<p>The facet <code>among</code> can also be useful (that can be seen as an enum):</p>
+<div class="highlight"><pre><code class="language-" data-lang="">string fruits &lt;- "banana" among:["pear","apple","banana"];
+</code></pre></div>
 <h2 id="operators-in-gama">Operators in GAMA</h2>
 
 <p>In GAML language, you can use a lot of different operators. They are all listed in this <a href="Operators">page</a>, but here are the most useful ones:</p>
 
-<p><strong>-	Mathematical operators</strong></p>
+<p><strong>- Mathematical operators</strong></p>
 
-<p>The basic arithmetical operators, such as <code class="highlighter-rouge">+</code>(add), <code class="highlighter-rouge">-</code>(substract), <code class="highlighter-rouge">*</code>(multiply), <code class="highlighter-rouge">/</code>(divide), <code class="highlighter-rouge">^</code>(power) are used this way:</p>
+<p>The basic arithmetical operators, such as <code>+</code>(add), <code>-</code>(substract), <code>*</code>(multiply), <code>/</code>(divide), <code>^</code>(power) are used this way: </p>
 
-<p>FirstOperand Operator SecondOperand –&gt; ex: 5 * 3; // return 15</p>
+<p>FirstOperand Operator SecondOperand --&gt; ex: 5 * 3; // return 15</p>
 
-<p>Some other operators, such as <code class="highlighter-rouge">cos</code>(cosinus), <code class="highlighter-rouge">sin</code>(sinus), <code class="highlighter-rouge">tan</code>(tangent), <code class="highlighter-rouge">sqrt</code>(square root), <code class="highlighter-rouge">round</code>(rounding) etc… are used this way:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Operator(Operand) --&gt; ex: sqrt(49); // return 7
-</code></pre></div></div>
-
+<p>Some other operators, such as <code>cos</code>(cosinus), <code>sin</code>(sinus), <code>tan</code>(tangent), <code>sqrt</code>(square root), <code>round</code>(rounding) etc... are used this way:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Operator(Operand) --&gt; ex: sqrt(49); // return 7
+</code></pre></div>
 <h3 id="logical-operators">Logical operators</h3>
 
-<p>Logical operators such as <code class="highlighter-rouge">and</code>(and), <code class="highlighter-rouge">or</code>(inclusive or) are used the same way as basic arithmetical operators. The operator <code class="highlighter-rouge">!</code>(negation) has to be placed just before the operand. They return a boolean result.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FirstOperand Operator SecondOperand --&gt; ex: true or false; // return true
+<p>Logical operators such as <code>and</code>(and), <code>or</code>(inclusive or) are used the same way as basic arithmetical operators. The operator <code>!</code>(negation) has to be placed just before the operand. They return a boolean result.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">FirstOperand Operator SecondOperand --&gt; ex: true or false; // return true
 NegationOperator Operand --&gt; ex: !(true or false); // return false
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="comparison-operators">Comparison operators</h3>
 
-<p>The comparison operators <code class="highlighter-rouge">!=</code>(different than), <code class="highlighter-rouge">&lt;</code>(smaller than), <code class="highlighter-rouge">&lt;=</code>(smaller of equal), <code class="highlighter-rouge">=</code>(equal), <code class="highlighter-rouge">&gt;</code>(bigger than), <code class="highlighter-rouge">&gt;=</code>(bigger or equal) are used the same way as basic arithmetical operators:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FirstOperand Operator SecondOperand --&gt; ex: 5 &lt; 3; // return false
-</code></pre></div></div>
-
+<p>The comparison operators <code>!=</code>(different than), <code>&lt;</code>(smaller than), <code>&lt;=</code>(smaller of equal), <code>=</code>(equal), <code>&gt;</code>(bigger than), <code>&gt;=</code>(bigger or equal) are used the same way as basic arithmetical operators:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">FirstOperand Operator SecondOperand --&gt; ex: 5 &lt; 3; // return false
+</code></pre></div>
 <h3 id="type-casting-operators">Type casting operators</h3>
 
 <p>You can cast an operand to a special type using casting operator:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Operator(Operand); --&gt; ex: int(2.1); // return 2
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">Operator(Operand); --&gt; ex: int(2.1); // return 2
+</code></pre></div>
 <h3 id="other-operators">Other operators</h3>
 
 <p>A lot of other operators exist in GAML. The standard way to use those operators is as followed:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Operator(FirstOperand,SecondOperand,...) --&gt; ex: rnd(1,8);
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">Operator(FirstOperand,SecondOperand,...) --&gt; ex: rnd(1,8);
+</code></pre></div>
 <p>Some others are used in a more intuitive way:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FirstOperand Operator SecondOperand --&gt; ex: 2[6,4,5] contains(5);
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">FirstOperand Operator SecondOperand --&gt; ex: 2[6,4,5] contains(5);
+</code></pre></div>
 <h2 id="conditional-structures">Conditional structures</h2>
 
 <p>You can write if/else if/else in GAML:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (integerVariable&lt;0) {
-	write "my value is negative !! The exact value is " + integerVariable;
+<div class="highlight"><pre><code class="language-" data-lang="">if (integerVariable&lt;0) {
+    write "my value is negative !! The exact value is " + integerVariable;
 }
 else if (integerVariable&gt;0) {
-	write "my value is positive !! The exact value is " + integerVariable;
+    write "my value is positive !! The exact value is " + integerVariable;
 }
 else if (integerVariable=0) {
-	write "my value is equal to 0 !!";
+    write "my value is equal to 0 !!";
 }
 else {
-	write "hey... This is not possible, right ?";
+    write "hey... This is not possible, right ?";
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>GAML also accepts ternary operator:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stringVariable &lt;- (booleanVariable) ? "booleanVariable = true" : "booleanVariable = false";
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">stringVariable &lt;- (booleanVariable) ? "booleanVariable = true" : "booleanVariable = false";
+</code></pre></div>
 <h2 id="loop">Loop</h2>
 
-<p>Loops in GAML are designed by the keyword <code class="highlighter-rouge">loop</code>. As for variables, a loop have multiple facet to determine its behavior:</p>
+<p>Loops in GAML are designed by the keyword <code>loop</code>. As for variables, a loop have multiple facet to determine its behavior:</p>
 
 <ul>
-  <li>The facet <code class="highlighter-rouge">times</code>, to repeat a fixed number of times a set of statements:</li>
+<li>  The facet <code>times</code>, to repeat a fixed number of times a set of statements:</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loop times: 2 {
+<div class="highlight"><pre><code class="language-" data-lang="">loop times: 2 {
 write "helloWorld";
 } 
 // the output will be helloWorld - helloWorld
-</code></pre></div></div>
-
+</code></pre></div>
 <ul>
-  <li>The facet <code class="highlighter-rouge">while</code>, to repeat a set of statements while a condition is true:</li>
+<li>  The facet <code>while</code>, to repeat a set of statements while a condition is true:</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loop while: (true) {
+<div class="highlight"><pre><code class="language-" data-lang="">loop while: (true) {
 }
 // infinity loop
-</code></pre></div></div>
-
+</code></pre></div>
 <ul>
-  <li>The facet <code class="highlighter-rouge">from</code> / <code class="highlighter-rouge">to</code>, to repeat a set of statements while an index iterates over a range of values with a fixed step of 1:</li>
+<li>  The facet <code>from</code> / <code>to</code>, to repeat a set of statements while an index iterates over a range of values with a fixed step of 1:</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loop i from:0 to: 5 { // or loop name:i from:0 to:5 -&gt; the name is also a facet
-	write i;
+<div class="highlight"><pre><code class="language-" data-lang="">loop i from:0 to: 5 { // or loop name:i from:0 to:5 -&gt; the name is also a facet
+    write i;
 }
 // the output will be 0 - 1 - 2 - 3 - 4 - 5
-</code></pre></div></div>
-
+</code></pre></div>
 <ul>
-  <li>The facet <code class="highlighter-rouge">from</code> / <code class="highlighter-rouge">to</code> combine with the facet <code class="highlighter-rouge">step</code> to choose the step:</li>
+<li>  The facet <code>from</code> / <code>to</code> combine with the facet <code>step</code> to choose the step:</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loop i from:0 to: 5 step: 2 {
-	write i;
+<div class="highlight"><pre><code class="language-" data-lang="">loop i from:0 to: 5 step: 2 {
+    write i;
 }
 // the output will be 0 - 2 - 4
-</code></pre></div></div>
-
+</code></pre></div>
 <ul>
-  <li>The facet over to browse containers, as we will see in the next part.</li>
+<li>  The facet over to browse containers, as we will see in the next part.</li>
 </ul>
 
-<p>Nb: you can interrupt a loop at any time by using the <code class="highlighter-rouge">break</code> statement.</p>
+<p>Nb: you can interrupt a loop at any time by using the <code>break</code> statement.</p>
 
 <h2 id="manipulate-containers">Manipulate containers</h2>
 
-<p>We saw in the previous parts “simple” types of variable. You also have a multiple containers types, such as list, matrix, map, pair… In this section, we will only focus on the container <code class="highlighter-rouge">list</code> (you can learn the other by reading the <a href="DataTypes#complex-built-in-types">section about datatypes</a>).</p>
+<p>We saw in the previous parts &quot;simple&quot; types of variable. You also have a multiple containers types, such as list, matrix, map, pair... In this section, we will only focus on the container <code>list</code> (you can learn the other by reading the <a href="DataTypes#complex-built-in-types">section about datatypes</a>).</p>
 
 <p><strong>How to declare a list?</strong></p>
 
 <p>To declare a list, you can either or not specify the type of the data of its elements:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; listOfInt &lt;- [5,4,9,8];
+<div class="highlight"><pre><code class="language-" data-lang="">list&lt;int&gt; listOfInt &lt;- [5,4,9,8];
 list listWithoutType &lt;- [2,4.6,"oij",["hoh",0.0]];
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to know the number of elements of a list?</strong></p>
 
-<p>To know the number of element of a list, you can use the operator <code class="highlighter-rouge">length</code> that returns the number of elements (note that this operator also works with strings).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int numberOfElements &lt;- length([12,13]); // will return 2
+<p>To know the number of element of a list, you can use the operator <code>length</code> that returns the number of elements (note that this operator also works with strings).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int numberOfElements &lt;- length([12,13]); // will return 2
 int numberOfElements &lt;- length([]); // will return 0
 int numberOfElements &lt;- length("stuff"); // will return 5
-</code></pre></div></div>
-
-<p>There is an other operator, <code class="highlighter-rouge">empty</code>, that returns you a boolean telling you if the list is empty or not.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool isEmpty &lt;- empty([12,13]); // will return false
+</code></pre></div>
+<p>There is an other operator, <code>empty</code>, that returns you a boolean telling you if the list is empty or not.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">bool isEmpty &lt;- empty([12,13]); // will return false
 bool isEmpty &lt;- empty([]); // will return true
 bool isEmpty &lt;- empty("stuff"); // will return false
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to get an element from a list?</strong></p>
 
-<p>To get an element from a list by its index, you have to use the operator <code class="highlighter-rouge">at</code> (nb: it is indeed an operator, and not a facet, so no “:” after the keyword).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int theFirstElementOfTheList &lt;- [5,4,9,8] at 0; // this will return 5
+<p>To get an element from a list by its index, you have to use the operator <code>at</code> (nb: it is indeed an operator, and not a facet, so no &quot;:&quot; after the keyword).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int theFirstElementOfTheList &lt;- [5,4,9,8] at 0; // this will return 5
 int theThirdElementOfTheList &lt;- [5,4,9,8] at 2; // this will return 9
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to know the index of an element of a list?</strong></p>
 
-<p>You can know the index of the first occurrence of a value in a list using the operator <code class="highlighter-rouge">index_of</code>.
-You can know the index of the last occurrence of a value in a list using the operator <code class="highlighter-rouge">last_index_of</code>.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int result &lt;- [4,2,3,4,5,4] last_index_of 4;  // result equals 5
+<p>You can know the index of the first occurrence of a value in a list using the operator <code>index_of</code>.
+You can know the index of the last occurrence of a value in a list using the operator <code>last_index_of</code>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int result &lt;- [4,2,3,4,5,4] last_index_of 4;  // result equals 5
 int result &lt;- [4,2,3,4,5,4] index_of 4;  // result equals 0
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to know if an element exists in a list?</strong></p>
 
-<p>You can use the operator <code class="highlighter-rouge">contains</code> (return a boolean):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool result &lt;- [{1,2}, {3,4}, {5,6}] contains {3,4};  // result equals true
-</code></pre></div></div>
-
+<p>You can use the operator <code>contains</code> (return a boolean):</p>
+<div class="highlight"><pre><code class="language-" data-lang="">bool result &lt;- [{1,2}, {3,4}, {5,6}] contains {3,4};  // result equals true
+</code></pre></div>
 <p><strong>How to insert/remove an element to/from a list?</strong></p>
 
-<p>For those operation, no operator are available, but you can use a statement instead. The statements <code class="highlighter-rouge">add</code> and <code class="highlighter-rouge">put</code> are used to insert/modify an element, while the statement <code class="highlighter-rouge">remove</code> is used to remove an element. Here are some example of how to use those 3 statements with the most common facets:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; list_int &lt;- [1,5,7,6,7];
+<p>For those operation, no operator are available, but you can use a statement instead. The statements <code>add</code> and <code>put</code> are used to insert/modify an element, while the statement <code>remove</code> is used to remove an element. Here are some example of how to use those 3 statements with the most common facets:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">list&lt;int&gt; list_int &lt;- [1,5,7,6,7];
 remove from:list_int index:1; // remove the 2nd element of the list
 write list_int; // the output is : [1,7,6,7]
 remove item:7 from:list_int; // remove the 1st occurrence of 7
@@ -3951,47 +3888,39 @@ put 3 in: list_int at: 0; // put 3 in the 1st position
 write list_int; // the output is : [3,6,9,7,0]
 put 2 in: list_int key: 2; // put 2 in the 3rd position
 write list_int; // the output is : [3,6,2,7,0]
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to add 2 lists?</strong></p>
 
-<p>You can add 2 lists by creating a third one and browsing the 2 first one, but you can do it much easily by using the operator <code class="highlighter-rouge">+</code> :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; list_int1 &lt;- [1,5,7,6,7];
+<p>You can add 2 lists by creating a third one and browsing the 2 first one, but you can do it much easily by using the operator <code>+</code> : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">list&lt;int&gt; list_int1 &lt;- [1,5,7,6,7];
 list&lt;int&gt; list_int2 &lt;- [6,9];
 list&lt;int&gt; list_int_result &lt;- list_int1 + list_int2;
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to browse a list?</strong></p>
 
-<p>You can use the facet <code class="highlighter-rouge">over</code> of a loop:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; exampleOfList &lt;- [4,2,3,4,5,4];
+<p>You can use the facet <code>over</code> of a loop:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">list&lt;int&gt; exampleOfList &lt;- [4,2,3,4,5,4];
 loop i over:exampleOfList {
-	write i;
+    write i;
 }
 // the output will be 4 - 2 - 3 - 4 - 5 - 4
-</code></pre></div></div>
-
+</code></pre></div>
 <p><strong>How to filter a list?</strong></p>
 
-<p>If you want to get all the elements of a list that fulfill a particular condition, you need the operator where. In the condition, you can design all the element of a particular list by using the pseudo variable <strong><code class="highlighter-rouge">each</code></strong> as followed:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;int&gt; exampleOfList &lt;- [4,2,3,4,5,4] where (each &lt;= 3); 
+<p>If you want to get all the elements of a list that fulfill a particular condition, you need the operator where. In the condition, you can design all the element of a particular list by using the pseudo variable <strong><code>each</code></strong> as followed:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">list&lt;int&gt; exampleOfList &lt;- [4,2,3,4,5,4] where (each &lt;= 3); 
 // the list is now [2,3]
-</code></pre></div></div>
-
+</code></pre></div>
 <p>Other useful operators for the manipulation of lists:</p>
 
-<p>Here are some other operators which can be useful to manipulate lists: <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">sort_by</code>, <code class="highlighter-rouge">shuffle</code>, <code class="highlighter-rouge">reverse</code>, <code class="highlighter-rouge">collect</code>, <code class="highlighter-rouge">accumulate</code>, <code class="highlighter-rouge">among</code>. Please read the GAML Reference if you want to know more about those operators.</p>
+<p>Here are some other operators which can be useful to manipulate lists: <code>sort</code>, <code>sort_by</code>, <code>shuffle</code>, <code>reverse</code>, <code>collect</code>, <code>accumulate</code>, <code>among</code>. Please read the GAML Reference if you want to know more about those operators.</p>
 
 <h2 id="random-values">Random values</h2>
 
-<p>When you will implement your model, you will have to manipulate some random values quite often.</p>
+<p>When you will implement your model, you will have to manipulate some random values quite often. </p>
 
-<p>To get a random value in a range of value, use the operator <a href="Operators#rnd"><code class="highlighter-rouge">rnd</code></a>. You can use this operator in many ways:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int var0 &lt;- rnd (2);    // var0 equals 0, 1 or 2
+<p>To get a random value in a range of value, use the operator <a href="Operators#rnd"><code>rnd</code></a>. You can use this operator in many ways:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">int var0 &lt;- rnd (2);    // var0 equals 0, 1 or 2
 float var1 &lt;- rnd (1000) / 1000;    // var1 equals a float between 0 and 1 with a precision of 0.001
 point var2 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1);    // var2 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0
 float var3 &lt;- rnd (2.0, 4.0, 0.5);  // var3 equals a float number between 2.0 and 4.0 every 0.5
@@ -4001,29 +3930,15 @@ point var6 &lt;- rnd ({2.5,3, 0.0});   // var6 equals {x,y} with x in [0.0,2.0],
 int var7 &lt;- rnd (2, 4);     // var7 equals 2, 3 or 4
 point var8 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0});   // var8 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
 float var9 &lt;- rnd (2.0, 4.0);   // var9 equals a float number between 2.0 and 4.0
-</code></pre></div></div>
-
-<p>Use the operator <a href="Operators#flip"><code class="highlighter-rouge">flip</code></a> if you want to pick a boolean value with a certain probability:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool result &lt;- flip(0.2); // result will have 20% of chance to be true
-</code></pre></div></div>
-
-<p>You can use randomness in list, by using the operator <a href="Operators#shuffle"><code class="highlighter-rouge">shuffle</code></a>, or also by using the operator <a href="Operators#among"><code class="highlighter-rouge">among</code></a> to pick randomly one (or several) element of your list:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list TwoRandomValuesFromTheList &lt;- 2 among [5,4,9,8];
+</code></pre></div>
+<p>Use the operator <a href="Operators#flip"><code>flip</code></a> if you want to pick a boolean value with a certain probability:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">bool result &lt;- flip(0.2); // result will have 20% of chance to be true
+</code></pre></div>
+<p>You can use randomness in list, by using the operator <a href="Operators#shuffle"><code>shuffle</code></a>, or also by using the operator <a href="Operators#among"><code>among</code></a> to pick randomly one (or several) element of your list:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">list TwoRandomValuesFromTheList &lt;- 2 among [5,4,9,8];
 // the list will be for example [5,9].
-</code></pre></div></div>
-
-<p>You can use probabilistic laws, using operators such as <a href="Operators#gauss"><code class="highlighter-rouge">gauss</code></a>, <a href="Operators#poisson"><code class="highlighter-rouge">poisson</code></a>, <a href="Operators#binomial"><code class="highlighter-rouge">binomial</code></a>, or <a href="Operators#truncated_gauss"><code class="highlighter-rouge">truncated_gauss</code></a> (we invite you to read the documentation for those operators).</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_distribution)">//</a>: # (endConcept</td>
-      <td>programming_basis)</td>
-    </tr>
-  </tbody>
-</table>
+</code></pre></div>
+<p>You can use probabilistic laws, using operators such as <a href="Operators#gauss"><code>gauss</code></a>, <a href="Operators#poisson"><code>poisson</code></a>, <a href="Operators#binomial"><code>binomial</code></a>, or <a href="Operators#truncated_gauss"><code>truncated_gauss</code></a> (we invite you to read the documentation for those operators).</p>
 
     </div>
     </div>

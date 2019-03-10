@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="agents-to-database-in-mssql">Agents to Database in MSSQL</h1>
@@ -3615,82 +3615,80 @@ function closeRightMenu() {
 
 <p>This model shows how to Insert and Delete agents from a MSSQL DB</p>
 
-<p>Code of the model :</p>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">agent2DB_MSSQL</span> 
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">agent2DB_MSSQL</span> 
-  
 <span class="n">global</span> <span class="p">{</span>  
-	<span class="n">file</span> <span class="n">buildingsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/building.shp'</span><span class="p">);</span>
-	<span class="n">file</span> <span class="n">boundsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/bounds.shp'</span><span class="p">);</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsShp</span><span class="p">);</span>
-	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'4326'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
-								  <span class="s1">'host'</span><span class="p">::</span><span class="s1">'127.0.0.1'</span><span class="p">,</span><span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlserver'</span><span class="p">,</span><span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
-								  <span class="s1">'port'</span><span class="p">::</span><span class="s1">'1433'</span><span class="p">,</span><span class="s1">'user'</span><span class="p">::</span><span class="s1">'sa'</span><span class="p">,</span><span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
+    <span class="n">file</span> <span class="n">buildingsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/building.shp'</span><span class="p">);</span>
+    <span class="n">file</span> <span class="n">boundsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/bounds.shp'</span><span class="p">);</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsShp</span><span class="p">);</span>
+    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'4326'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
+                                  <span class="s1">'host'</span><span class="p">::</span><span class="s1">'127.0.0.1'</span><span class="p">,</span><span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlserver'</span><span class="p">,</span><span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
+                                  <span class="s1">'port'</span><span class="p">::</span><span class="s1">'1433'</span><span class="p">,</span><span class="s1">'user'</span><span class="p">::</span><span class="s1">'sa'</span><span class="p">,</span><span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
 
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildingsShp</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s1">'NATURE'</span><span class="p">))];</span>
-		<span class="nb">create</span> <span class="n">bounds</span> <span class="k">from</span><span class="p">:</span> <span class="n">boundsShp</span><span class="p">;</span>
-		
-		<span class="nb">create</span> <span class="n">DB_Accessor</span> 
-		<span class="p">{</span> 			
-			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM buildings"</span><span class="p">;</span>	
-			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM bounds"</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="nb">write</span> <span class="s2">"Click on &lt;&lt;Step&gt;&gt; button to save data of agents to DB"</span><span class="p">;</span>		 
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildingsShp</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s1">'NATURE'</span><span class="p">))];</span>
+        <span class="nb">create</span> <span class="n">bounds</span> <span class="k">from</span><span class="p">:</span> <span class="n">boundsShp</span><span class="p">;</span>
+
+        <span class="nb">create</span> <span class="n">DB_Accessor</span> 
+        <span class="p">{</span>           
+            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM buildings"</span><span class="p">;</span>    
+            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM bounds"</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nb">write</span> <span class="s2">"Click on &lt;&lt;Step&gt;&gt; button to save data of agents to DB"</span><span class="p">;</span>       
+    <span class="p">}</span>
 <span class="p">}</span>   
-  
+
 <span class="n">species</span> <span class="n">DB_Accessor</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">]</span> <span class="p">;</span>   
 
 <span class="n">species</span> <span class="n">bounds</span> <span class="p">{</span>
-	<span class="n">reflex</span> <span class="n">printdata</span><span class="p">{</span>
-		 <span class="nb">write</span> <span class="s1">' name : '</span> <span class="p">+</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">savetosql</span><span class="p">{</span>  <span class="p">//</span> <span class="n">save</span> <span class="n">data</span> <span class="n">into</span> <span class="n">MSSQL</span>
-		<span class="nb">write</span> <span class="s2">"begin"</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
-		<span class="n">ask</span> <span class="n">DB_Accessor</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">insert</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"bounds"</span>
-					  <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"geom"</span><span class="p">]</span>
-					  <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">];</span>
-		<span class="p">}</span>
-	    <span class="nb">write</span> <span class="s2">"finish "</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
-	<span class="p">}</span>		
+    <span class="n">reflex</span> <span class="n">printdata</span><span class="p">{</span>
+         <span class="nb">write</span> <span class="s1">' name : '</span> <span class="p">+</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">savetosql</span><span class="p">{</span>  <span class="p">//</span> <span class="n">save</span> <span class="n">data</span> <span class="n">into</span> <span class="n">MSSQL</span>
+        <span class="nb">write</span> <span class="s2">"begin"</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">ask</span> <span class="n">DB_Accessor</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">insert</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"bounds"</span>
+                      <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"geom"</span><span class="p">]</span>
+                      <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="nb">write</span> <span class="s2">"finish "</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>       
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
-	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-	
-	<span class="n">reflex</span> <span class="n">printdata</span><span class="p">{</span>
-		 <span class="nb">write</span> <span class="s1">' name : '</span> <span class="p">+</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">+</span> <span class="s1">'; type: '</span> <span class="p">+</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="p">+</span> <span class="s2">"shape:"</span> <span class="p">+</span> <span class="n">shape</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">savetosql</span><span class="p">{</span>  <span class="p">//</span> <span class="n">save</span> <span class="n">data</span> <span class="n">into</span> <span class="n">MSSQL</span>
-		<span class="nb">write</span> <span class="s2">"begin"</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
-		<span class="n">ask</span> <span class="n">DB_Accessor</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">insert</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"buildings"</span>
-					  <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">,</span><span class="s2">"geom"</span><span class="p">]</span>
-					  <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="n">myself</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="n">myself</span><span class="p">.</span><span class="n">type</span><span class="p">,</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">];</span>
-		<span class="p">}</span>
-	    <span class="nb">write</span> <span class="s2">"finish "</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
-	<span class="p">}</span>	
-	
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+
+    <span class="n">reflex</span> <span class="n">printdata</span><span class="p">{</span>
+         <span class="nb">write</span> <span class="s1">' name : '</span> <span class="p">+</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">+</span> <span class="s1">'; type: '</span> <span class="p">+</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="p">+</span> <span class="s2">"shape:"</span> <span class="p">+</span> <span class="n">shape</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">savetosql</span><span class="p">{</span>  <span class="p">//</span> <span class="n">save</span> <span class="n">data</span> <span class="n">into</span> <span class="n">MSSQL</span>
+        <span class="nb">write</span> <span class="s2">"begin"</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">ask</span> <span class="n">DB_Accessor</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="n">insert</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"buildings"</span>
+                      <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">,</span><span class="s2">"geom"</span><span class="p">]</span>
+                      <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="n">myself</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="n">myself</span><span class="p">.</span><span class="n">type</span><span class="p">,</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="nb">write</span> <span class="s2">"finish "</span><span class="p">+</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>   
+
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>     
 
 <span class="n">experiment</span> <span class="n">default_expr</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		
-		<span class="n">display</span> <span class="n">GlobalView</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+
+        <span class="n">display</span> <span class="n">GlobalView</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

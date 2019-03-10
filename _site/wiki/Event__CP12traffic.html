@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="traffic-simulation-and-physics-constraints-operators">Traffic simulation and Physics constraints operators</h1>
@@ -3615,38 +3615,36 @@ function closeRightMenu() {
 
 <p>A first task that we done was to define a new plug-in in order to take into account the fact that a road has a limited number of lanes.</p>
 
-<p>We propose a plug-in that contains the driving plug-in. This plug-in extends the moving skill. In particular, it proposes a new primitive “gotoTraffic” that integrates a collision avoiding algorithm.
-2 models (in “models/experimental models”) were proposed to illustrate the use of our plug-in.</p>
+<p>We propose a plug-in that contains the driving plug-in. This plug-in extends the moving skill. In particular, it proposes a new primitive &quot;gotoTraffic&quot; that integrates a collision avoiding algorithm.
+2 models (in &quot;models/experimental models&quot;) were proposed to illustrate the use of our plug-in.</p>
 
-<p>DrivingSkill.java implements a new skill in <code class="highlighter-rouge"><span class="k">package</span> <span class="n">msi</span><span class="p">.</span><span class="n">gaml</span><span class="p">.</span><span class="n">extensions</span><span class="p">.</span><span class="n">traffic</span></code></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@skill("driving")
+<p>DrivingSkill.java implements a new skill in <code>package msi.gaml.extensions.traffic</code>
+<code>
+@skill(&quot;driving&quot;)
 public class DrivingSkill extends MovingSkill{
 ...
 }
-</code></pre></div></div>
+</code></p>
 
-<p>New model in <code class="highlighter-rouge">msi.gama.models/experimental_models/traffic</code></p>
+<p>New model in <code>msi.gama.models/experimental_models/traffic</code></p>
 
 <p><strong>Physics constraints operators</strong></p>
 
 <p>A second plugin is under development concerning physic computation. In particular, it allows to handle collisions between two convex polygons. A first toy model concerning pool game was developed.
-Library used: http://www.jbox2d.org/</p>
+Library used: <a href="http://www.jbox2d.org/">http://www.jbox2d.org/</a></p>
 
-<p><code class="highlighter-rouge">src/msi/gaml/extensions/physics/PhysicsSkill.java</code> implements a new skill in <code class="highlighter-rouge"><span class="k">package</span> <span class="n">msi</span><span class="p">.</span><span class="n">gaml</span><span class="p">.</span><span class="n">extensions</span><span class="p">.</span><span class="n">physics</span></code></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@skill("physical")
+<p><code>src/msi/gaml/extensions/physics/PhysicsSkill.java</code> implements a new skill in <code>package msi.gaml.extensions.physics</code>
+```
+@skill(&quot;physical&quot;)
 public class PhysicsSkill extends Skill{
-        @setter("physical_world")
+        @setter(&quot;physical_world&quot;)
         public void setWorldAgent(final IAgent _agent, final IAgent _world){
                 if(_world == null)
-                        return;
-                        
-                PhysicalWorldAgent pwa = (PhysicalWorldAgent)_world;
-                pwa.registerAgent(_agent);
-        }
-
-
-</code></pre></div></div>
-
+                        return;</p>
+<div class="highlight"><pre><code class="language-" data-lang="">            PhysicalWorldAgent pwa = (PhysicalWorldAgent)_world;
+            pwa.registerAgent(_agent);
+    }
+</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""></code></pre></div>
     </div>
     </div>
     </div>

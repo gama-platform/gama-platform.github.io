@@ -3606,273 +3606,260 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="implementing-diffusion">Implementing diffusion</h1>
 
-<p>GAMA provides you the possibility to represent and simulate the diffusion of a variable through a grid topology.</p>
+<p>GAMA provides you the possibility to represent and simulate the diffusion of a variable through a grid topology. </p>
 
 <h2 id="index">Index</h2>
 
 <ul>
-  <li><a href="#diffuse-statement">Diffuse statement</a></li>
-  <li><a href="#diffusion-with-matrix">Diffusion with matrix</a>
-    <ul>
-      <li><a href="#diffusion-matrix">Diffusion matrix</a></li>
-      <li><a href="#gradient-matrix">Gradient matrix</a></li>
-      <li><a href="#compute-multiple-propagations-at-the-same-step">Compute multiple propagations at the same step</a></li>
-      <li><a href="#execution-several-diffusion-matrix">Executing several diffusion matrix</a></li>
-    </ul>
-  </li>
-  <li><a href="#diffusion-with-parameters">Diffusion with parameters</a></li>
-  <li><a href="#computation-methods">Computation methods</a>
-    <ul>
-      <li><a href="#convolution">Convolution</a></li>
-      <li><a href="#dot-product">Dot Product</a></li>
-    </ul>
-  </li>
-  <li><a href="#using-mask">Use mask</a>
-    <ul>
-      <li><a href="#generalities">Generalities</a></li>
-      <li><a href="#tips">Tips</a></li>
-    </ul>
-  </li>
-  <li><a href="#pseudo-code">Pseudo code</a></li>
+<li><a href="#diffuse-statement">Diffuse statement</a></li>
+<li><a href="#diffusion-with-matrix">Diffusion with matrix</a>
+
+<ul>
+<li><a href="#diffusion-matrix">Diffusion matrix</a></li>
+<li><a href="#gradient-matrix">Gradient matrix</a></li>
+<li><a href="#compute-multiple-propagations-at-the-same-step">Compute multiple propagations at the same step</a></li>
+<li><a href="#execution-several-diffusion-matrix">Executing several diffusion matrix</a></li>
+</ul></li>
+<li><a href="#diffusion-with-parameters">Diffusion with parameters</a></li>
+<li><a href="#computation-methods">Computation methods</a>
+
+<ul>
+<li><a href="#convolution">Convolution</a></li>
+<li><a href="#dot-product">Dot Product</a></li>
+</ul></li>
+<li><a href="#using-mask">Use mask</a>
+
+<ul>
+<li><a href="#generalities">Generalities</a></li>
+<li><a href="#tips">Tips</a></li>
+</ul></li>
+<li><a href="#pseudo-code">Pseudo code</a></li>
 </ul>
 
 <h2 id="diffuse-statement">Diffuse statement</h2>
 
-<p>The statement to use for the diffusion is <code class="highlighter-rouge">diffuse</code>. It has to be used in a <code class="highlighter-rouge">grid</code> species. The <code class="highlighter-rouge">diffuse</code> uses the following facets:</p>
+<p>The statement to use for the diffusion is <code>diffuse</code>. It has to be used in a <code>grid</code> species. The <code>diffuse</code> uses the following facets:</p>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">var</code></strong> (an identifier), (omissible) : the variable to be diffused</li>
-  <li><strong><code class="highlighter-rouge">on</code></strong> (any type in [container, species]): the list of agents (in general cells of a grid), on which the diffusion will occur</li>
-  <li><code class="highlighter-rouge">avoid_mask</code> (boolean): if true, the value will not be diffused in the masked cells, but will be restitute to the neighboring cells, multiplied by the variation value (no signal lost). If false, the value will be diffused in the masked cells, but masked cells won’t diffuse the value afterward (lost of signal). (default value : false)</li>
-  <li><code class="highlighter-rouge">cycle_length</code> (int): the number of diffusion operation applied in one simulation step</li>
-  <li><code class="highlighter-rouge">mask</code> (matrix): a matrix masking the diffusion (matrix created from a image for example). The cells corresponding to the values smaller than “-1” in the mask matrix will not diffuse, and the other will diffuse.</li>
-  <li><code class="highlighter-rouge">matrix</code> (matrix): the diffusion matrix (“kernel” or “filter” in image processing). Can have any size, as long as dimensions are odd values.</li>
-  <li><code class="highlighter-rouge">method</code> (an identifier), takes values in: {convolution, dot_product}: the diffusion method</li>
-  <li><code class="highlighter-rouge">min_value</code> (float): if a value is smaller than this value, it will not be diffused. By default, this value is equal to 0.0. This value cannot be smaller than 0.</li>
-  <li><code class="highlighter-rouge">propagation</code> (a label), takes values in: {diffusion, gradient}: represents both the way the signal is propagated and the way to treat multiple propagation of the same signal occurring at once from different places. If propagation equals ‘diffusion’, the intensity of a signal is shared between its neighbors with respect to ‘proportion’, ‘variation’ and the number of neighbors of the environment places (4, 6 or 8). I.e., for a given signal S propagated from place P, the value transmitted to its N neighbors is : S’ = (S / N / proportion) - variation. The intensity of S is then diminished by S <code class="highlighter-rouge">*</code> proportion on P. In a diffusion, the different signals of the same name see their intensities added to each other on each place. If propagation equals ‘gradient’, the original intensity is not modified, and each neighbors receives the intensity : S / proportion - variation. If multiple propagation occur at once, only the maximum intensity is kept on each place. If ‘propagation’ is not defined, it is assumed that it is equal to ‘diffusion’.</li>
-  <li><code class="highlighter-rouge">proportion</code> (float): a diffusion rate</li>
-  <li><code class="highlighter-rouge">radius</code> (int): a diffusion radius (in number of cells from the center)</li>
-  <li><code class="highlighter-rouge">variation</code> (float): an absolute value to decrease at each neighbors</li>
+<li><strong><code>var</code></strong> (an identifier), (omissible) : the variable to be diffused<br></li>
+<li><strong><code>on</code></strong> (any type in [container, species]): the list of agents (in general cells of a grid), on which the diffusion will occur</li>
+<li><code>avoid_mask</code> (boolean): if true, the value will not be diffused in the masked cells, but will be restitute to the neighboring cells, multiplied by the variation value (no signal lost). If false, the value will be diffused in the masked cells, but masked cells won&#39;t diffuse the value afterward (lost of signal). (default value : false)</li>
+<li><code>cycle_length</code> (int): the number of diffusion operation applied in one simulation step</li>
+<li><code>mask</code> (matrix): a matrix masking the diffusion (matrix created from a image for example). The cells corresponding to the values smaller than &quot;-1&quot; in the mask matrix will not diffuse, and the other will diffuse.</li>
+<li><code>matrix</code> (matrix): the diffusion matrix (&quot;kernel&quot; or &quot;filter&quot; in image processing). Can have any size, as long as dimensions are odd values.</li>
+<li><code>method</code> (an identifier), takes values in: {convolution, dot_product}: the diffusion method</li>
+<li><code>min_value</code> (float): if a value is smaller than this value, it will not be diffused. By default, this value is equal to 0.0. This value cannot be smaller than 0.</li>
+<li><code>propagation</code> (a label), takes values in: {diffusion, gradient}: represents both the way the signal is propagated and the way to treat multiple propagation of the same signal occurring at once from different places. If propagation equals &#39;diffusion&#39;, the intensity of a signal is shared between its neighbors with respect to &#39;proportion&#39;, &#39;variation&#39; and the number of neighbors of the environment places (4, 6 or 8). I.e., for a given signal S propagated from place P, the value transmitted to its N neighbors is : S&#39; = (S / N / proportion) - variation. The intensity of S is then diminished by S <code>*</code> proportion on P. In a diffusion, the different signals of the same name see their intensities added to each other on each place. If propagation equals &#39;gradient&#39;, the original intensity is not modified, and each neighbors receives the intensity : S / proportion - variation. If multiple propagation occur at once, only the maximum intensity is kept on each place. If &#39;propagation&#39; is not defined, it is assumed that it is equal to &#39;diffusion&#39;.</li>
+<li><code>proportion</code> (float): a diffusion rate</li>
+<li><code>radius</code> (int): a diffusion radius (in number of cells from the center)</li>
+<li><code>variation</code> (float): an absolute value to decrease at each neighbors </li>
 </ul>
 
-<p>To write a diffusion, you first have to declare a grid, and declare a special attribute for the diffusion. You will then have to write the <code class="highlighter-rouge">diffuse</code> statement in an other scope (such as the <code class="highlighter-rouge">global</code> scope for instance), which will permit the values to be diffused at each step. There, you will specify which variable you want to diffuse (through the <strong><code class="highlighter-rouge">var</code></strong> facet), on which species or list of agents you want the diffusion (through the <strong><code class="highlighter-rouge">on</code></strong> facet), and how you want this value to be diffused (through all the other facets, we will see how it works <a href="#diffusion-with-matrix">with matrix</a> and <a href="#diffusion-with-parameters">with special parameters</a> just after).</p>
+<p>To write a diffusion, you first have to declare a grid, and declare a special attribute for the diffusion. You will then have to write the <code>diffuse</code> statement in an other scope (such as the <code>global</code> scope for instance), which will permit the values to be diffused at each step. There, you will specify which variable you want to diffuse (through the <strong><code>var</code></strong> facet), on which species or list of agents you want the diffusion (through the <strong><code>on</code></strong> facet), and how you want this value to be diffused (through all the other facets, we will see how it works <a href="#diffusion-with-matrix">with matrix</a> and <a href="#diffusion-with-parameters">with special parameters</a> just after).</p>
 
 <p>Here is the template of code we will use for the next following part of this page:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">global {
+    int size &lt;- 64; // the size has to be a power of 2.
+    cells selected_cells;
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
-	int size &lt;- 64; // the size has to be a power of 2.
-  	cells selected_cells;
+    // Initialize the emiter cell as the cell at the center of the word
+    init {
+        selected_cells &lt;- location as cells;
+    }
+    // Affecting "1" to each step
+    reflex new_Value {
+        ask(selected_cells){
+            phero &lt;- 1.0;
+        }   
+    }
 
-	// Initialize the emiter cell as the cell at the center of the word
-	init {
-		selected_cells &lt;- location as cells;
-	}
-	// Affecting "1" to each step
-	reflex new_Value {
-		ask(selected_cells){
-			phero &lt;- 1.0;
-		}	
-	}
-
-	reflex diff {
-		// Declare a diffusion on the grid "cells" and on "quick_cells". The diffusion declared on "quick_cells" will make 10 computations at each step to accelerate the process. 
-		// The value of the diffusion will be store in the new variable "phero" of the cell.
-		diffuse var: phero on: cells /*HERE WRITE DOWN THE DIFFUSION PROPERTIES*/;			
-	}
+    reflex diff {
+        // Declare a diffusion on the grid "cells" and on "quick_cells". The diffusion declared on "quick_cells" will make 10 computations at each step to accelerate the process. 
+        // The value of the diffusion will be store in the new variable "phero" of the cell.
+        diffuse var: phero on: cells /*HERE WRITE DOWN THE DIFFUSION PROPERTIES*/;          
+    }
 }
 
 
 grid cells height: size width: size {
-	// "phero" is the variable storing the value of the diffusion
-	float phero  &lt;- 0.0;
-	// The color of the cell is linked to the value of "phero".
-	rgb color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
+    // "phero" is the variable storing the value of the diffusion
+    float phero  &lt;- 0.0;
+    // The color of the cell is linked to the value of "phero".
+    rgb color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
 }
 
 
 experiment diffusion type: gui {
-	output {
-		display a type: opengl {
-			// Display the grid with elevation
-			grid cells elevation: phero * 10 triangulation: true;
-		}
-	}
+    output {
+        display a type: opengl {
+            // Display the grid with elevation
+            grid cells elevation: phero * 10 triangulation: true;
+        }
+    }
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <p>This model will simulate a diffusion through a grid at each step, affecting 1 to the center cell diffusing variable value. The diffusion will be seen during the simulation through a color code, and through the elevation of the cell.</p>
 
 <h2 id="diffusion-with-matrix">Diffusion with matrix</h2>
 
-<p>A first way of specifying the behavior of your diffusion is using diffusion matrix. A diffusion matrix is a 2 dimension matrix <code class="highlighter-rouge">[n][m]</code> with <code class="highlighter-rouge">float</code> values, where both <code class="highlighter-rouge">n</code> and <code class="highlighter-rouge">m</code> have to be <strong>pair values</strong>. The most often, diffusion matrix are square matrix, but you can also declare rectangular matrix.</p>
+<p>A first way of specifying the behavior of your diffusion is using diffusion matrix. A diffusion matrix is a 2 dimension matrix <code>[n][m]</code> with <code>float</code> values, where both <code>n</code> and <code>m</code> have to be <strong>pair values</strong>. The most often, diffusion matrix are square matrix, but you can also declare rectangular matrix.</p>
 
 <p>Example of matrix:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
-		[1/9,1/9,1/9],
-		[1/9,1/9,1/9],
-		[1/9,1/9,1/9]]);
-</code></pre></div></div>
-
-<p>In the <code class="highlighter-rouge">diffuse</code> statement, you than have to specify the matrix of diffusion you want in the facet <code class="highlighter-rouge">matrix</code>.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diffuse var: phero on: cells matrix:mat_diff;
-</code></pre></div></div>
-
-<p>Using the facet <code class="highlighter-rouge">propagation</code>, you can specify if you want the value to be propagated as a <em>diffusion</em> or as a <em>gratient</em>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">matrix&lt;float&gt; mat_diff &lt;- matrix([
+        [1/9,1/9,1/9],
+        [1/9,1/9,1/9],
+        [1/9,1/9,1/9]]);
+</code></pre></div>
+<p>In the <code>diffuse</code> statement, you than have to specify the matrix of diffusion you want in the facet <code>matrix</code>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">diffuse var: phero on: cells matrix:mat_diff;
+</code></pre></div>
+<p>Using the facet <code>propagation</code>, you can specify if you want the value to be propagated as a <em>diffusion</em> or as a <em>gratient</em>.</p>
 
 <h3 id="diffusion-matrix">Diffusion matrix</h3>
 
-<p>A <em>diffusion</em> (the default value of the facet <code class="highlighter-rouge">propagation</code>) will spread the values to the neighbors cells according to the diffusion matrix, and all those values will be added together, as it is the case in the following example :</p>
+<p>A <em>diffusion</em> (the default value of the facet <code>propagation</code>) will spread the values to the neighbors cells according to the diffusion matrix, and all those values will be added together, as it is the case in the following example :</p>
 
-<p><img src="resources/images/recipes/diffusion_computation.png" alt="resources/images/recipes/diffusion_computation.png" /></p>
+<p><img src="resources/images/recipes/diffusion_computation.png" alt="resources/images/recipes/diffusion_computation.png"></p>
 
 <p>Note that the sum of all the values diffused at the next step is equal to the sum of the values that will be diffused multiply by the sum of the values of the diffusion matrix. That means that if the sum of the values of your diffusion matrix is larger than 1, the values will increase exponentially at each step. The sum of the value of a diffusion matrix is usually equal to 1.</p>
 
 <p>Here are some example of matrix you can use, played with the template model:</p>
 
-<p><img src="resources/images/recipes/uniform_diffusion.png" alt="resources/images/recipes/uniform_diffusion.png" /></p>
+<p><img src="resources/images/recipes/uniform_diffusion.png" alt="resources/images/recipes/uniform_diffusion.png"></p>
 
-<p><img src="resources/images/recipes/anisotropic_diffusion.png" alt="resources/images/recipes/anisotropic_diffusion.png" /></p>
+<p><img src="resources/images/recipes/anisotropic_diffusion.png" alt="resources/images/recipes/anisotropic_diffusion.png"></p>
 
 <h3 id="gradient-matrix">Gradient matrix</h3>
 
-<p>A <code class="highlighter-rouge">gradient</code> (use facet : <code class="highlighter-rouge">propagation:gradient</code>) is an other type of propagation. This time, only the larger value diffused will be chosen as the new one.</p>
+<p>A <code>gradient</code> (use facet : <code>propagation:gradient</code>) is an other type of propagation. This time, only the larger value diffused will be chosen as the new one.</p>
 
-<p><img src="resources/images/recipes/gradient_computation.png" alt="resources/images/recipes/gradient_computation.png" /></p>
+<p><img src="resources/images/recipes/gradient_computation.png" alt="resources/images/recipes/gradient_computation.png"></p>
 
 <p>Note that unlike the <em>diffusion</em> propagation, the sum of your matrix can be greater than 1 (and it is the case, most often !).</p>
 
 <p>Here are some example of matrix with gradient propagation:</p>
 
-<p><img src="resources/images/recipes/uniform_gradient.png" alt="resources/images/recipes/uniform_gradient.png" /></p>
+<p><img src="resources/images/recipes/uniform_gradient.png" alt="resources/images/recipes/uniform_gradient.png"></p>
 
-<p><img src="resources/images/recipes/irregular_gradient.png" alt="resources/images/recipes/irregular_gradient.png" /></p>
+<p><img src="resources/images/recipes/irregular_gradient.png" alt="resources/images/recipes/irregular_gradient.png"></p>
 
 <h3 id="compute-multiple-propagations-at-the-same-step">Compute multiple propagations at the same step</h3>
 
-<p>You can compute several times the propagation you want by using the facet <code class="highlighter-rouge">cycle_length</code>. GAMA will compute for you the corresponding new matrix, and will apply it.</p>
+<p>You can compute several times the propagation you want by using the facet <code>cycle_length</code>. GAMA will compute for you the corresponding new matrix, and will apply it.</p>
 
-<p><img src="resources/images/recipes/cycle_length.png" alt="resources/images/recipes/cycle_length.png" /></p>
+<p><img src="resources/images/recipes/cycle_length.png" alt="resources/images/recipes/cycle_length.png"></p>
 
 <p>Writing those two thinks are exactly equivalent (for diffusion):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
-			[1/81,2/81,3/81,2/81,1/81],
-			[2/81,4/81,6/81,4/81,2/81],
-			[3/81,6/81,1/9,6/81,3/81],
-			[2/81,4/81,6/81,4/81,2/81],
-			[1/81,2/81,3/81,2/81,1/81]]);
-	reflex diff {
-		diffuse var: phero on: cells matrix:mat_diff;
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	matrix&lt;float&gt; mat_diff &lt;- matrix([
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9]]);
-	reflex diff {
-		diffuse var: phero on: cells matrix:mat_diff cycle_length:2;
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">    matrix&lt;float&gt; mat_diff &lt;- matrix([
+            [1/81,2/81,3/81,2/81,1/81],
+            [2/81,4/81,6/81,4/81,2/81],
+            [3/81,6/81,1/9,6/81,3/81],
+            [2/81,4/81,6/81,4/81,2/81],
+            [1/81,2/81,3/81,2/81,1/81]]);
+    reflex diff {
+        diffuse var: phero on: cells matrix:mat_diff;
+</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">    matrix&lt;float&gt; mat_diff &lt;- matrix([
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9]]);
+    reflex diff {
+        diffuse var: phero on: cells matrix:mat_diff cycle_length:2;
+</code></pre></div>
 <h3 id="executing-several-diffusion-matrix">Executing several diffusion matrix</h3>
 
-<p>If you execute several times the statement <code class="highlighter-rouge">diffuse</code> with different matrix on the same variable, their values will be added (and centered if their dimension is not equal).</p>
+<p>If you execute several times the statement <code>diffuse</code> with different matrix on the same variable, their values will be added (and centered if their dimension is not equal).</p>
 
 <p>Thus, the following 3 matrix will be combined to create one unique matrix:</p>
 
-<p><img src="resources/images/recipes/addition_matrix.png" alt="resources/images/recipes/addition_matrix.png" /></p>
+<p><img src="resources/images/recipes/addition_matrix.png" alt="resources/images/recipes/addition_matrix.png"></p>
 
 <h2 id="diffusion-with-parameters">Diffusion with parameters</h2>
 
-<p>Sometimes writing diffusion matrix is not exactly what you want, and you may prefer to just give some parameters to compute the correct diffusion matrix. You can use the following facets in order to do that : <code class="highlighter-rouge">propagation</code>, <code class="highlighter-rouge">variation</code> and <code class="highlighter-rouge">radius</code>.</p>
+<p>Sometimes writing diffusion matrix is not exactly what you want, and you may prefer to just give some parameters to compute the correct diffusion matrix. You can use the following facets in order to do that : <code>propagation</code>, <code>variation</code> and <code>radius</code>.</p>
 
-<p>Depending on which <code class="highlighter-rouge">propagation</code> you choose, and how many neighbors your grid have, the propagation matrix will be compute differently. The propagation matrix will have the size : range*2+1.</p>
+<p>Depending on which <code>propagation</code> you choose, and how many neighbors your grid have, the propagation matrix will be compute differently. The propagation matrix will have the size : range*2+1.</p>
 
-<p>Let’s note <strong>P</strong> for the propagation value, <strong>V</strong> for the variation, <strong>R</strong> for the range and <strong>N</strong> for the number of neighbors.</p>
+<p>Let&#39;s note <strong>P</strong> for the propagation value, <strong>V</strong> for the variation, <strong>R</strong> for the range and <strong>N</strong> for the number of neighbors.</p>
 
 <ul>
-  <li><strong>With diffusion propagation</strong></li>
+<li><strong>With diffusion propagation</strong></li>
 </ul>
 
 <p>For diffusion propagation, we compute following the following steps:</p>
 
-<p>(1) We determine the “minimale” matrix according to N (if N = 8, the matrix will be <code class="highlighter-rouge">[[P/9,P/9,P/9][P/9,1/9,P/9][P/9,P/9,P/9]]</code>. if N = 4, the matrix will be <code class="highlighter-rouge">[[0,P/5,0][P/5,1/5,P/5][0,P/5,0]]</code>).</p>
+<p>(1) We determine the &quot;minimale&quot; matrix according to N (if N = 8, the matrix will be <code>[[P/9,P/9,P/9][P/9,1/9,P/9][P/9,P/9,P/9]]</code>. if N = 4, the matrix will be <code>[[0,P/5,0][P/5,1/5,P/5][0,P/5,0]]</code>).</p>
 
-<p>(2) If R != 1, we propagate the matrix R times to obtain a <code class="highlighter-rouge">[2*R+1][2*R+1]</code> matrix (same computation as for <code class="highlighter-rouge">cycle_length</code>).</p>
+<p>(2) If R != 1, we propagate the matrix R times to obtain a <code>[2*R+1][2*R+1]</code> matrix (same computation as for <code>cycle_length</code>).</p>
 
 <p>(3) If V != 0, we substract each value by V*DistanceFromCenter (DistanceFromCenter depends on N).</p>
 
 <p>Ex with the default values (P=1, R=1, V=0, N=8):</p>
 
 <ul>
-  <li><strong>With gradient propagation</strong></li>
+<li><strong>With gradient propagation</strong></li>
 </ul>
 
 <p>The value of each cell will be equal to <strong>P/POW(N,DistanceFromCenter)-DistanceFromCenter*V</strong>. (DistanceFromCenter depends on N).</p>
 
 <p>Ex with R=2, other parameters default values (R=2, P=1, V=0, N=8):</p>
 
-<p><img src="resources/images/recipes/gradient_computation_from_parameters.png" alt="resources/images/recipes/gradient_computation_from_parameters.png" /></p>
+<p><img src="resources/images/recipes/gradient_computation_from_parameters.png" alt="resources/images/recipes/gradient_computation_from_parameters.png"></p>
 
 <p>Note that if you declared a diffusion matrix, you cannot use those 3 facets (it will raise a warning). Note also that if you use parameters, you will only have uniform matrix.</p>
 
 <h2 id="computation-methods">Computation methods</h2>
 
-<p>You can compute the output matrix using two computation methods by using the facet <code class="highlighter-rouge">method</code> : the dot product and the convolution. Note that the result of those two methods is exactly the same (except if you use the <code class="highlighter-rouge">avoid_mask</code> facet, the results can be slightly differents between the two computations).</p>
+<p>You can compute the output matrix using two computation methods by using the facet <code>method</code> : the dot product and the convolution. Note that the result of those two methods is exactly the same (except if you use the <code>avoid_mask</code> facet, the results can be slightly differents between the two computations).</p>
 
 <h3 id="convolution">Convolution</h3>
 
-<p><code class="highlighter-rouge">convolution</code> is the default computation method for the diffusion. For every output cells, we will multiply the input values and the flipped kernel together, as shown in the following image :</p>
+<p><code>convolution</code> is the default computation method for the diffusion. For every output cells, we will multiply the input values and the flipped kernel together, as shown in the following image :</p>
 
-<p><img src="resources/images/recipes/convolution.png" alt="resources/images/recipes/convolution.png" /></p>
+<p><img src="resources/images/recipes/convolution.png" alt="resources/images/recipes/convolution.png"></p>
 
-<p>Pseudo-code (<code class="highlighter-rouge">k</code> the kernel, <code class="highlighter-rouge">x</code> the input matrix, <code class="highlighter-rouge">y</code> the output matrix) :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
+<p>Pseudo-code (<code>k</code> the kernel, <code>x</code> the input matrix, <code>y</code> the output matrix) :</p>
+<div class="highlight"><pre><code class="language-" data-lang="">for (i = 0 ; i &lt; y.nbRows ; i++)
   for (j = 0 ; j &lt; y.nbCols ; j++)
     for (m = 0 ; m &lt; k.nbRows ; m++)
       for (n = 0 ; n &lt; k.nbCols ; n++)
         y[i,j] += k[k.nbRows - m - 1, k.nbCols - n - 1] 
             * x[i - k.nbRows/2 + m, j - k.nbCols/2 + n]
-</code></pre></div></div>
-
+</code></pre></div>
 <h3 id="dot-product">Dot Product</h3>
 
-<p><code class="highlighter-rouge">dot_product</code> method will compute the matrix using a simple dot product between the matrix. For every input cells, we multiply the cell by the kernel matrix, as shown in the following image :</p>
+<p><code>dot_product</code> method will compute the matrix using a simple dot product between the matrix. For every input cells, we multiply the cell by the kernel matrix, as shown in the following image :</p>
 
-<p><img src="resources/images/recipes/dot_product.png" alt="resources/images/recipes/dot_product.png" /></p>
+<p><img src="resources/images/recipes/dot_product.png" alt="resources/images/recipes/dot_product.png"></p>
 
-<p>Pseudo-code (<code class="highlighter-rouge">k</code> the kernel, <code class="highlighter-rouge">x</code> the input matrix, <code class="highlighter-rouge">y</code> the output matrix) :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 0 ; i &lt; y.nbRows ; i++)
+<p>Pseudo-code (<code>k</code> the kernel, <code>x</code> the input matrix, <code>y</code> the output matrix) :</p>
+<div class="highlight"><pre><code class="language-" data-lang="">for (i = 0 ; i &lt; y.nbRows ; i++)
   for (j = 0 ; j &lt; y.nbCols ; j++)
     for (m = 0 ; m &lt; k.nbRows ; m++)
       for (n = 0 ; n &lt; k.nbCols ; n++)
         y[i - k.nbRows/2 + m, j - k.nbCols/2 + n] += k[m, n] * x[i, j]
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="using-mask">Using mask</h2>
 
 <h3 id="generalities">Generalities</h3>
 
 <p>If you want to propagate some values in an heterogeneous grid, you can use some mask to forbid some cells to propagate their values.</p>
 
-<p>You can pass a matrix to the facet <code class="highlighter-rouge">mask</code>. All the values smaller than <code class="highlighter-rouge">-1</code> will not propagate, and all the values greater or equal to <code class="highlighter-rouge">-1</code> will propagate.</p>
+<p>You can pass a matrix to the facet <code>mask</code>. All the values smaller than <code>-1</code> will not propagate, and all the values greater or equal to <code>-1</code> will propagate.</p>
 
 <p>A simple way to use mask is by loading an image :</p>
 
-<p><img src="resources/images/recipes/simple_mask.png" alt="resources/images/recipes/simple_mask.png" /></p>
+<p><img src="resources/images/recipes/simple_mask.png" alt="resources/images/recipes/simple_mask.png"></p>
 
-<p>Note that when you use the <code class="highlighter-rouge">on</code> facet for the <code class="highlighter-rouge">diffuse</code> statement, you can choose only some cells, and not every cells. In fact, when you restrain the values to be diffuse, it is exactly the same process as if you were defining a mask.</p>
+<p>Note that when you use the <code>on</code> facet for the <code>diffuse</code> statement, you can choose only some cells, and not every cells. In fact, when you restrain the values to be diffuse, it is exactly the same process as if you were defining a mask.</p>
 
-<p><img src="resources/images/recipes/mask_with_on_facet.png" alt="resources/images/recipes/mask_with_on_facet.png" /></p>
+<p><img src="resources/images/recipes/mask_with_on_facet.png" alt="resources/images/recipes/mask_with_on_facet.png"></p>
 
-<p>When your diffusion is combined with a mask, the default behavior is that the non-masked cells will diffuse their values in <strong>all</strong> existing cells (that means, even the masked cells !). To change this behavior, you can use the facet <code class="highlighter-rouge">avoid_mask</code>. In that case, the value which was supposed to be affected to the masked cell will be redistributed to the neighboring non-masked cells.</p>
+<p>When your diffusion is combined with a mask, the default behavior is that the non-masked cells will diffuse their values in <strong>all</strong> existing cells (that means, even the masked cells !). To change this behavior, you can use the facet <code>avoid_mask</code>. In that case, the value which was supposed to be affected to the masked cell will be redistributed to the neighboring non-masked cells.</p>
 
 <h3 id="tips">Tips</h3>
 
@@ -3880,91 +3867,84 @@ experiment diffusion type: gui {
 
 <h4 id="wall-blocking-the-diffusion">Wall blocking the diffusion</h4>
 
-<p>If you want to simulate a wall blocking a uniform diffusion, you can declare a second diffusion matrix that will be applied only on the cells where your wall will be. This diffusion matrix will “push” the values outside from himself, but conserving the values (the sum of the values of the diffusion still have to be equal to 1) :</p>
+<p>If you want to simulate a wall blocking a uniform diffusion, you can declare a second diffusion matrix that will be applied only on the cells where your wall will be. This diffusion matrix will &quot;push&quot; the values outside from himself, but conserving the values (the sum of the values of the diffusion still have to be equal to 1) :</p>
+<div class="highlight"><pre><code class="language-" data-lang="">matrix&lt;float&gt; mat_diff &lt;- matrix([
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9]]);
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9]]);
-								
 matrix&lt;float&gt; mat_diff_left_wall &lt;- matrix([
-			[0.0,0.0,2/9],
-			[0.0,0.0,4/9],
-			[0.0,0.0,2/9]]);
+            [0.0,0.0,2/9],
+            [0.0,0.0,4/9],
+            [0.0,0.0,2/9]]);
 
 reflex diff { 
-	diffuse var: phero on: (cells where(each.grid_x&gt;30)) matrix:mat_diff;
-	diffuse var: phero on: (cells where(each.grid_x=30)) matrix:mat_diff_left_wall;
+    diffuse var: phero on: (cells where(each.grid_x&gt;30)) matrix:mat_diff;
+    diffuse var: phero on: (cells where(each.grid_x=30)) matrix:mat_diff_left_wall;
 }
-</code></pre></div></div>
+</code></pre></div>
+<p><img src="resources/images/recipes/wall_simulation.png" alt="resources/images/recipes/wall_simulation.png"></p>
 
-<p><img src="resources/images/recipes/wall_simulation.png" alt="resources/images/recipes/wall_simulation.png" /></p>
-
-<p>Note that almost the same result can be obtained by using the facet <code class="highlighter-rouge">avoid_mask</code> : the value of all masked cells will remain at 0, and the value which was supposed to be affected to the masked cell will be distributed to the neighboring cells. Notice that the results can be slightly different if you are using the <code class="highlighter-rouge">convolution</code> or the <code class="highlighter-rouge">dot_product</code> method : the algorithm of redistribution of the value to the neighboring cells is a bit different. We advise you to use the <code class="highlighter-rouge">dot_product</code> with the <code class="highlighter-rouge">avoid_mask</code> facet, the results are more accurates.</p>
+<p>Note that almost the same result can be obtained by using the facet <code>avoid_mask</code> : the value of all masked cells will remain at 0, and the value which was supposed to be affected to the masked cell will be distributed to the neighboring cells. Notice that the results can be slightly different if you are using the <code>convolution</code> or the <code>dot_product</code> method : the algorithm of redistribution of the value to the neighboring cells is a bit different. We advise you to use the <code>dot_product</code> with the <code>avoid_mask</code> facet, the results are more accurates.</p>
 
 <h4 id="wind-pushing-the-diffusion">Wind pushing the diffusion</h4>
 
-<p>Let’s simulate a uniform diffusion that is pushed by a wind from “north” everywhere in the grid. A wind from “west” as blowing at the top side of the grid. We will here have to build 2 matrix : one for the uniform diffusion, one for the “north” wind and one for the “west” wind. The sum of the values for the 2 matrix meant to simulate the wind will be equal to 0 (as it will be add to the diffusion matrix).</p>
+<p>Let&#39;s simulate a uniform diffusion that is pushed by a wind from &quot;north&quot; everywhere in the grid. A wind from &quot;west&quot; as blowing at the top side of the grid. We will here have to build 2 matrix : one for the uniform diffusion, one for the &quot;north&quot; wind and one for the &quot;west&quot; wind. The sum of the values for the 2 matrix meant to simulate the wind will be equal to 0 (as it will be add to the diffusion matrix).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">matrix&lt;float&gt; mat_diff &lt;- matrix([
+        [1/9,1/9,1/9],
+        [1/9,1/9,1/9],
+        [1/9,1/9,1/9]]);
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
-		[1/9,1/9,1/9],
-		[1/9,1/9,1/9],
-		[1/9,1/9,1/9]]);
-								
 matrix&lt;float&gt; mat_wind_from_west &lt;- matrix([
-		[-1/9,0.0,1/9],
-		[-1/9,0.0,1/9],
-		[-1/9,0.0,1/9]]);
-								
+        [-1/9,0.0,1/9],
+        [-1/9,0.0,1/9],
+        [-1/9,0.0,1/9]]);
+
 matrix&lt;float&gt; mat_wind_from_north &lt;- matrix([
-		[-1/9,-1/9,-1/9],
-		[0.0,0.0,0.0],
-		[1/9,1/9,1/9]]);
+        [-1/9,-1/9,-1/9],
+        [0.0,0.0,0.0],
+        [1/9,1/9,1/9]]);
 
 reflex diff { 
-	diffuse var: phero on: cells matrix:mat_diff;
-	diffuse var: phero on: cells matrix:mat_wind_from_north;
-	diffuse var: phero on: (cells where (each.grid_y&gt;=32)) matrix:mat_wind_from_west;
+    diffuse var: phero on: cells matrix:mat_diff;
+    diffuse var: phero on: cells matrix:mat_wind_from_north;
+    diffuse var: phero on: (cells where (each.grid_y&gt;=32)) matrix:mat_wind_from_west;
 }
-</code></pre></div></div>
-
-<p><img src="resources/images/recipes/diffusion_with_wind.png" alt="resources/images/recipes/diffusion_with_wind.png" /></p>
+</code></pre></div>
+<p><img src="resources/images/recipes/diffusion_with_wind.png" alt="resources/images/recipes/diffusion_with_wind.png"></p>
 
 <h4 id="endless-world">Endless world</h4>
 
 <p>Note that when your world is not a torus, it has the same effect as a <em>mask</em>, since all the values outside from the world cannot diffuse some values back :</p>
 
-<p><img src="resources/images/recipes/uniform_diffusion_near_edge.png" alt="resources/images/recipes/uniform_diffusion_near_edge.png" /></p>
+<p><img src="resources/images/recipes/uniform_diffusion_near_edge.png" alt="resources/images/recipes/uniform_diffusion_near_edge.png"></p>
 
-<p>You can “fake” the fact that your world is endless by adding a different diffusion for the cells with <code class="highlighter-rouge">grid_x=0</code> to have almost the same result :</p>
+<p>You can &quot;fake&quot; the fact that your world is endless by adding a different diffusion for the cells with <code>grid_x=0</code> to have almost the same result :</p>
 
-<p><img src="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png" alt="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png" /></p>
+<p><img src="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png" alt="resources/images/recipes/uniform_diffusion_near_edge_with_mask.png"></p>
+<div class="highlight"><pre><code class="language-" data-lang="">matrix&lt;float&gt; mat_diff &lt;- matrix([
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9],
+            [1/9,1/9,1/9]]);
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix&lt;float&gt; mat_diff &lt;- matrix([
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9],
-			[1/9,1/9,1/9]]);
-								
 matrix&lt;float&gt; mat_diff_upper_edge &lt;- matrix([
-			[0.0,0.0,0.0],
-			[1/9+7/81,2/9+1/81,1/9+7/81],
-			[1/9,1/9,1/9]]);
+            [0.0,0.0,0.0],
+            [1/9+7/81,2/9+1/81,1/9+7/81],
+            [1/9,1/9,1/9]]);
 
 reflex diff { 
-	diffuse var: phero on: (cells where(each.grid_y&gt;0)) matrix:mat_diff;
-	diffuse var: phero on: (cells where(each.grid_y=0)) matrix:mat_diff_upper_edge;
+    diffuse var: phero on: (cells where(each.grid_y&gt;0)) matrix:mat_diff;
+    diffuse var: phero on: (cells where(each.grid_y=0)) matrix:mat_diff_upper_edge;
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="pseudo-code">Pseudo code</h2>
 
 <p><em>This section is more for a better understanding of the source code.</em></p>
 
 <p>Here is the pseudo code for the computation of diffusion :</p>
 
-<p>1) : Execute the statement <code class="highlighter-rouge">diffuse</code>, store the diffusions in a map (from class <em>DiffusionStatement</em> to class <em>GridDiffuser</em>) :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Get all the facet values
+<p>1) : Execute the statement <code>diffuse</code>, store the diffusions in a map (from class <em>DiffusionStatement</em> to class <em>GridDiffuser</em>) :</p>
+<div class="highlight"><pre><code class="language-" data-lang="">- Get all the facet values
 - Compute the "real" mask, from the facet "mask:" and the facet "on:".
   - If no value for "mask:" and "on:" all the grid, the mask is equal to null.
 - Compute the matrix of diffusion
@@ -3974,11 +3954,9 @@ reflex diff {
   - Map : ["method_diffu", "is_gradient", "matrix", "mask", "min_value"] is value, ["var_diffu", "grid_name"] is key.
   - If the key exists in the map, try to "mix" the diffusions
     - If "method_diffu", "mask" and "is_gradient" equal for the 2 diffusions, mix the diffusion matrix.
-</code></pre></div></div>
-
+</code></pre></div>
 <p>2) : At the end of the step, execute the diffusions (class <em>GridDiffuser</em>) :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- For each key of the map,
+<div class="highlight"><pre><code class="language-" data-lang="">- For each key of the map,
   - Load the couple "var_diffu" / "grid_name"
   - Build the "output" and "input" array with the dimension of the grid. 
   - Initialize the "output" array with -Double.MAX_VALUE.
@@ -3990,17 +3968,7 @@ reflex diff {
         - Else, do the computation (gradient or diffusion).
     - Finish the diffusion :
       - If output[idx] &gt; -Double.MAX_VALUE, write the new value in the cell.
-</code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_matrix)">//</a>: # (endConcept</td>
-      <td>diffusion)</td>
-    </tr>
-  </tbody>
-</table>
-
+</code></pre></div>
     </div>
     </div>
     </div>

@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="agents-from-database-in-postgis">Agents from Database in PostGIS</h1>
@@ -3615,56 +3615,54 @@ function closeRightMenu() {
 
 <p>This model does SQL query commands and create agents using the results</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">DB2agentMySQL</span> 
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">DB2agentMySQL</span> 
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span>	<span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
-	 								<span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
-									<span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
-									<span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
-									<span class="s1">'port'</span><span class="p">::</span><span class="s1">'5433'</span><span class="p">,</span>
-									<span class="s1">'user'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
-									<span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">,</span>
-								  	<span class="s1">'select'</span><span class="p">::</span><span class="s1">'SELECT ST_AsBinary(geom) as geom FROM buildings;'</span> <span class="p">];</span>
-	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span>	<span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
-									<span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
-									<span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
-									<span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
-									<span class="s1">'port'</span><span class="p">::</span><span class="s1">'5433'</span><span class="p">,</span>
-									<span class="s1">'user'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
-									<span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
-	
-	<span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, ST_AsBinary(geom) as geom FROM buildings ;"</span><span class="p">;</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>		  	
-		  	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
-			<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
-							 <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
-		 <span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span>  <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
+                                    <span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
+                                    <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
+                                    <span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
+                                    <span class="s1">'port'</span><span class="p">::</span><span class="s1">'5433'</span><span class="p">,</span>
+                                    <span class="s1">'user'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
+                                    <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">,</span>
+                                    <span class="s1">'select'</span><span class="p">::</span><span class="s1">'SELECT ST_AsBinary(geom) as geom FROM buildings;'</span> <span class="p">];</span>
+    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span>  <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span> <span class="p">//</span> <span class="n">optinal</span>
+                                    <span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span>
+                                    <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
+                                    <span class="s1">'database'</span><span class="p">::</span><span class="s1">'spatial_DB'</span><span class="p">,</span>
+                                    <span class="s1">'port'</span><span class="p">::</span><span class="s1">'5433'</span><span class="p">,</span>
+                                    <span class="s1">'user'</span><span class="p">::</span><span class="s1">'postgres'</span><span class="p">,</span>
+                                    <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'tmt'</span><span class="p">];</span>
+
+    <span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, ST_AsBinary(geom) as geom FROM buildings ;"</span><span class="p">;</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>         
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
+            <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
+                             <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">DB_accessor</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">];</span>
 
 <span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
-	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
-	<span class="p">}</span>	
-<span class="p">}</span>	
+    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+    <span class="p">}</span>   
+<span class="p">}</span>   
 
 <span class="n">experiment</span> <span class="n">DB2agentSQLite</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

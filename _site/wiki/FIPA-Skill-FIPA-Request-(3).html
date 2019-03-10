@@ -3606,81 +3606,79 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="fipa-request-3">FIPA Request (3)</h1>
 
-<p>This model demontrates a usecase of the FIPA Request interaction protocol. (Please see http://www.fipa.org/specs/fipa00026/index.html for the detail description of this protocol).</p>
+<p>This model demontrates a usecase of the FIPA Request interaction protocol. (Please see <a href="http://www.fipa.org/specs/fipa00026/index.html">http://www.fipa.org/specs/fipa00026/index.html</a> for the detail description of this protocol).</p>
 
-<p>The Initiator agent begins the ‘fipa-request’ conversation/interaction protocol by sending a ‘request’  message to the Participant agent with ‘go sleeping’ as content.
-On receiving the ‘request’ message, the Participant replies with two consecutive messages :
-(1) an ‘agree’ message indicating that the Participant agent accepts to execute the request of the Initiator agent,
-(2) an ‘inform’ message indicating that the Participant agent has already executed the request of the Initiator agent (in this case, the ‘inform’ message informs the Initiator that the Participant agent has already gone to bed!).
-After the Initiator agent reads the ‘inform’ message, the conversation ends.</p>
+<p>The Initiator agent begins the &#39;fipa-request&#39; conversation/interaction protocol by sending a &#39;request&#39;  message to the Participant agent with &#39;go sleeping&#39; as content.
+On receiving the &#39;request&#39; message, the Participant replies with two consecutive messages :
+(1) an &#39;agree&#39; message indicating that the Participant agent accepts to execute the request of the Initiator agent,
+(2) an &#39;inform&#39; message indicating that the Participant agent has already executed the request of the Initiator agent (in this case, the &#39;inform&#39; message informs the Initiator that the Participant agent has already gone to bed!).
+After the Initiator agent reads the &#39;inform&#39; message, the conversation ends.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">fipa_request_3</span>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">fipa_request_3</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
-		
-		<span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-		
-		<span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
+
+        <span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+
+        <span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">send_request</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="s1">'send message'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">start_conversation</span> <span class="p">(</span><span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-request'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'request'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'go sleeping'</span><span class="p">]</span> <span class="p">);</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+    <span class="p">}</span>
 
-	<span class="n">reflex</span> <span class="n">read_agree_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(agrees)) {
-</span>		<span class="nb">write</span> <span class="s1">'read agree messages'</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">a</span> <span class="n">over</span><span class="p">:</span> <span class="n">agrees</span> <span class="p">{</span>
-			<span class="nb">write</span> <span class="s1">'agree message with content: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">read_inform_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(informs)) {
-</span>		<span class="nb">write</span> <span class="s1">'read inform messages'</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
-			<span class="nb">write</span> <span class="s1">'inform message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">send_request</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="s1">'send message'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">start_conversation</span> <span class="p">(</span><span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'fipa-request'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'request'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'go sleeping'</span><span class="p">]</span> <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">read_agree_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(agrees)) {
+</span>        <span class="nb">write</span> <span class="s1">'read agree messages'</span><span class="p">;</span>
+        <span class="n">loop</span> <span class="n">a</span> <span class="n">over</span><span class="p">:</span> <span class="n">agrees</span> <span class="p">{</span>
+            <span class="nb">write</span> <span class="s1">'agree message with content: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">read_inform_message</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!(empty(informs)) {
+</span>        <span class="nb">write</span> <span class="s1">'read inform messages'</span><span class="p">;</span>
+        <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
+            <span class="nb">write</span> <span class="s1">'inform message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-	<span class="p">}</span>
+    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; messages: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+    <span class="p">}</span>
 
-	<span class="n">reflex</span> <span class="n">reply_messages</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="c1">!empty(mailbox)) {
-</span>		<span class="n">message</span> <span class="n">requestFromInitiator</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">mailbox</span> <span class="n">at</span> <span class="m">0</span><span class="p">);</span>
-		<span class="nb">write</span> <span class="s1">'agree message'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">agree</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">requestFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I will'</span><span class="p">]</span> <span class="p">];</span>
-		
-		<span class="nb">write</span> <span class="s1">'inform the initiator'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">requestFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I\'</span><span class="n">m</span> <span class="k">in</span> <span class="n">bed</span> <span class="n">already</span><span class="s1">'] ];
-	}
+    <span class="n">reflex</span> <span class="n">reply_messages</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="c1">!empty(mailbox)) {
+</span>        <span class="n">message</span> <span class="n">requestFromInitiator</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">mailbox</span> <span class="n">at</span> <span class="m">0</span><span class="p">);</span>
+        <span class="nb">write</span> <span class="s1">'agree message'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">agree</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">requestFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I will'</span><span class="p">]</span> <span class="p">];</span>
+
+        <span class="nb">write</span> <span class="s1">'inform the initiator'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">requestFromInitiator</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span><span class="s1">'I\'</span><span class="n">m</span> <span class="k">in</span> <span class="n">bed</span> <span class="n">already</span><span class="s1">'] ];
+    }
 }
 
 
 
 experiment test_request_interaction_protocol type: gui {}
-</span></code></pre></div></div>
-
+</span></code></pre></div>
     </div>
     </div>
     </div>

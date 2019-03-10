@@ -3606,41 +3606,46 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="product-your-own-release-of-gama">Product your own release of GAMA</h1>
 
 <h2 id="install-maven-if-not-already-installed">Install Maven if not already installed</h2>
+
 <p>Download the latest version of Maven here: <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>. Proceed to install it as explained on this page: <a href="https://maven.apache.org/install.html">https://maven.apache.org/install.html</a></p>
 
-<h2 id="locate-the-buildsh-shell-script">Locate the <code class="highlighter-rouge">build.sh</code> shell script</h2>
-<p>It is located at the root of the <code class="highlighter-rouge">gama</code> Git repository on your computer. The easiest way to proceed is to select one of the GAMA projects in the Eclipse explorer and choose, in the contextual menu, <code class="highlighter-rouge">Show in &gt; System Explorer</code>. Then open a shell with this path and <code class="highlighter-rouge">cd ..</code>. Alternatively, you can open a shell and <code class="highlighter-rouge">cd</code> to your Git repository and then inside <code class="highlighter-rouge">gama</code>.</p>
+<h2 id="locate-the-build-sh-shell-script">Locate the <code>build.sh</code> shell script</h2>
+
+<p>It is located at the root of the <code>gama</code> Git repository on your computer. The easiest way to proceed is to select one of the GAMA projects in the Eclipse explorer and choose, in the contextual menu, <code>Show in &gt; System Explorer</code>. Then open a shell with this path and <code>cd ..</code>. Alternatively, you can open a shell and <code>cd</code> to your Git repository and then inside <code>gama</code>. </p>
 
 <h2 id="launch-the-script">Launch the script</h2>
-<p>Simply type <code class="highlighter-rouge">../build.sh</code> in your terminal and the build should begin and log its activity.</p>
+
+<p>Simply type <code>../build.sh</code> in your terminal and the build should begin and log its activity.</p>
 
 <h2 id="locate-the-applications-built-by-the-script">Locate the applications built by the script</h2>
-<p>They are in <code class="highlighter-rouge">ummisco.gama.product/target/products/ummisco.gama.application.product</code> in their binary form or alternatively in <code class="highlighter-rouge">ummisco.gama.product/target/products</code> in their zipped form.</p>
+
+<p>They are in <code>ummisco.gama.product/target/products/ummisco.gama.application.product</code> in their binary form or alternatively in <code>ummisco.gama.product/target/products</code> in their zipped form. </p>
 
 <h2 id="instruction-for-travis-build-continuous-integration">Instruction for Travis build (Continuous Integration)</h2>
+
 <p>GAMA is built by Travis-ci.org. There are some trigger for developers to control travis:</p>
 
 <ul>
-  <li>“ci skip” : skip the build for a commit</li>
-  <li>“ci deploy” : deploy the artifacts/features to p2 server (currently to the ovh server of gama, www.gama-platform.org/updates)</li>
-  <li>“ci clean” : used with ci deploy, this trigger remove all old artifacts/features in server’s p2 repository</li>
-  <li>“ci docs” : tell travis  to regenerate the documentation of operators on wiki page, and update the website githubio</li>
-  <li>“ci release” : travis release zip package for OSs and place it on https://github.com/gama-platform/gama/releases/tag/latest</li>
-  <li>“ci ext” : The msi.gama.ext has big size, so it is not rebuilt every time, it will be compile automatically only when it was changed, Or use this command to force travis deploy msi.gama.ext</li>
-  <li>“ci fullbuild” : Full deploy all features/plugins</li>
+<li>&quot;ci skip&quot; : skip the build for a commit</li>
+<li>&quot;ci deploy&quot; : deploy the artifacts/features to p2 server (currently to the ovh server of gama, <a href="http://www.gama-platform.org/updates">www.gama-platform.org/updates</a>)</li>
+<li>&quot;ci clean&quot; : used with ci deploy, this trigger remove all old artifacts/features in server&#39;s p2 repository</li>
+<li>&quot;ci docs&quot; : tell travis  to regenerate the documentation of operators on wiki page, and update the website githubio</li>
+<li>&quot;ci release&quot; : travis release zip package for OSs and place it on <a href="https://github.com/gama-platform/gama/releases/tag/latest">https://github.com/gama-platform/gama/releases/tag/latest</a></li>
+<li>&quot;ci ext&quot; : The msi.gama.ext has big size, so it is not rebuilt every time, it will be compile automatically only when it was changed, Or use this command to force travis deploy msi.gama.ext</li>
+<li>&quot;ci fullbuild&quot; : Full deploy all features/plugins</li>
 </ul>
 
 <p>These instructions above can be use in 2 ways:</p>
 
 <ul>
-  <li>Place them anywhere in the commit message, i.e : “ fix bug #1111 ci deploy ci clean ci docs” , “ update readme ci skip “</li>
-  <li>In Travis-ci, go to More Options -&gt; Settings, add a environment varianle named MSG , add the value as string, i.e.: “ci fullbuild ci deploy ci clean ci docs”</li>
+<li>Place them anywhere in the commit message, i.e : &quot; fix bug #1111 ci deploy ci clean ci docs&quot; , &quot; update readme ci skip &quot;</li>
+<li>In Travis-ci, go to More Options -&gt; Settings, add a environment varianle named MSG , add the value as string, i.e.: &quot;ci fullbuild ci deploy ci clean ci docs&quot;</li>
 </ul>
 
     </div>

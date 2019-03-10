@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="defining-3d-displays">Defining 3D Displays</h1>
@@ -3614,39 +3614,39 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-  <li><a href="#opengl-display">OpenGL display</a>
-    <ul>
-      <li><a href="#position">Position</a></li>
-      <li><a href="#size">Size</a></li>
-    </ul>
-  </li>
-  <li><a href="#camera">Camera</a></li>
-  <li><a href="#dynamic-camera">Dynamic camera</a>
-    <ul>
-      <li><a href="#camera-position">Camera position</a></li>
-      <li><a href="#camera-direction-look-position">Camera direction (Look Position)</a></li>
-      <li><a href="#camera-orientation-up-vector">Camera orientation (Up Vector)</a>
-        <ul>
-          <li><a href="#default-view">Default view</a></li>
-          <li><a href="#first-person-view">First person view</a></li>
-          <li><a href="#third-person-view">Third Person view</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#lighting">Lighting</a></li>
+<li><a href="#opengl-display">OpenGL display</a>
+
+<ul>
+<li><a href="#position">Position</a></li>
+<li><a href="#size">Size</a></li>
+</ul></li>
+<li><a href="#camera">Camera</a></li>
+<li><a href="#dynamic-camera">Dynamic camera</a>
+
+<ul>
+<li><a href="#camera-position">Camera position</a></li>
+<li><a href="#camera-direction-look-position">Camera direction (Look Position)</a></li>
+<li><a href="#camera-orientation-up-vector">Camera orientation (Up Vector)</a>
+
+<ul>
+<li><a href="#default-view">Default view</a></li>
+<li><a href="#first-person-view">First person view</a></li>
+<li><a href="#third-person-view">Third Person view</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#lighting">Lighting</a></li>
 </ul>
 
 <h2 id="opengl-display">OpenGL display</h2>
 
 <ul>
-  <li>Define the attribute type of the display with <code class="highlighter-rouge">type:opengl</code> in the output of your model (or use the preferences-&gt;display windows to use it by default):
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
+<li>Define the attribute type of the display with <code>type:opengl</code> in the output of your model (or use the preferences-&gt;display windows to use it by default):
+<code>
+output {
 display DisplayName type:opengl {
-  species mySpecies;
+species mySpecies;
 }
-</code></pre></div>    </div>
-  </li>
+</code></li>
 </ul>
 
 <p>The opengl display share most of the feature that the java2D offers and that are described <a href="DefiningDisplaysGeneralities">here</a>.</p>
@@ -3654,30 +3654,30 @@ display DisplayName type:opengl {
 <p>Using 3D display offers many way to represent a simulation. A layer can be positioned and scaled in a 3D world. It is possible to superpose layer on different z value and display different information on the model at different position on the screen.</p>
 
 <h3 id="position">Position</h3>
+
 <p>Layer can be drawn on different position (x,y and z)  value using the <em>position</em> facet</p>
 
 <h3 id="size">Size</h3>
+
 <p>Layer can be drawn with different size (x,y and z) using the <em>size</em> facet</p>
 
 <p>Here is an example of display using all the previous facet (experiment factice to add to the model <em>Incremental Model 5</em>). You can also dynamically change those value by showing the side bar in the display.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment expe_test type:gui {
-	output {
-		display city_display type: opengl{
-			species road aspect: geom refresh:false;
-			species building aspect: geom transparency:0.5 ;
-			species people aspect: sphere3D position:{0,0,0.1};
-			species road aspect: geom size:{0.3,0.3,0.3};
-		}
-	}
+<div class="highlight"><pre><code class="language-" data-lang="">experiment expe_test type:gui {
+    output {
+        display city_display type: opengl{
+            species road aspect: geom refresh:false;
+            species building aspect: geom transparency:0.5 ;
+            species people aspect: sphere3D position:{0,0,0.1};
+            species road aspect: geom size:{0.3,0.3,0.3};
+        }
+    }
 }
-</code></pre></div></div>
-
-<p><img src="resources/images/definingGUIExperiment/species_layer.png" alt="images/species_layer.png" /></p>
+</code></pre></div>
+<p><img src="resources/images/definingGUIExperiment/species_layer.png" alt="images/species_layer.png"></p>
 
 <h2 id="camera">Camera</h2>
 
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=rMIVQlul1Ag" target="_blank">&lt;img src=’http://img.youtube.com/vi/rMIVQlul1Ag/0.jpg’ width=’425’ height=344 /&gt;</a></p>
+<p><a href='http://www.youtube.com/watch?feature=player_embedded&v=rMIVQlul1Ag' target='_blank'><img src='http://img.youtube.com/vi/rMIVQlul1Ag/0.jpg' width='425' height=344 /></a></p>
 
 <p><a href="Displays#arcball-camera-commands">Arcball Camera</a></p>
 
@@ -3688,47 +3688,50 @@ display DisplayName type:opengl {
 <p>User have the possibility to set dynamically the parameter of the camera (observer). The basic camera properties are its <strong>position</strong>, the <strong>direction</strong> in which is pointing, and its <strong>orientation</strong>. Those 3 parameters can be set dynamically at each iteration of the simulation.</p>
 
 <h3 id="camera-position">Camera position</h3>
-<p>The facet <code class="highlighter-rouge">camera_pos(x,y,z)</code> places the camera at the given position.
-The default camera positon is <em>(world.width/2,world/height/2,world.maxDim<code class="highlighter-rouge">*</code>1.5)</em> to place the camera at the middle of the environement at an altitude that enables to see the entire environment.</p>
+
+<p>The facet <code>camera_pos(x,y,z)</code> places the camera at the given position.
+The default camera positon is <em>(world.width/2,world/height/2,world.maxDim<code>*</code>1.5)</em> to place the camera at the middle of the environement at an altitude that enables to see the entire environment.</p>
 
 <h3 id="camera-direction-look-position">Camera direction (Look Position)</h3>
-<p>The facet <code class="highlighter-rouge">camera_look_pos(x,y,z)</code> points the camera toward the given position.  The default look position is <em>(world.width/2,world/height/2,0)</em> to look at the center of the environment.</p>
+
+<p>The facet <code>camera_look_pos(x,y,z)</code> points the camera toward the given position.  The default look position is <em>(world.width/2,world/height/2,0)</em> to look at the center of the environment.</p>
 
 <h3 id="camera-orientation-up-vector">Camera orientation (Up Vector)</h3>
-<p>The camera <code class="highlighter-rouge">camera_up_vector(x,y,z)</code> sets the <em>up vector</em> of the camera.
+
+<p>The camera <code>camera_up_vector(x,y,z)</code> sets the <em>up vector</em> of the camera.
 The <em>up vector</em> direction in your scene is the <em>up</em> direction on your display screen.
 The default value is (0,1,0)</p>
 
 <p>Here are some examples that can be done using those 3 parameters. You can test it by running the following model:</p>
 
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=lQVGD8aDKZY" target="_blank">&lt;img src=’http://img.youtube.com/vi/lQVGD8aDKZY/0.jpg’ width=’425’ height=344 /&gt;</a></p>
+<p><a href='http://www.youtube.com/watch?feature=player_embedded&v=lQVGD8aDKZY' target='_blank'><img src='http://img.youtube.com/vi/lQVGD8aDKZY/0.jpg' width='425' height=344 /></a></p>
 
-<p><a href="https://code.google.com/p/gama-platform/source/browse/branches/GAMA_CURRENT/msi.gama.models/models/Features/3D Visualization/Toy Models/Boids 3D Camera movement.gaml">Boids 3D Camera movement</a></p>
+<p><a href="https://code.google.com/p/gama-platform/source/browse/branches/GAMA_CURRENT/msi.gama.models/models/Features/3D%20Visualization/Toy%20Models/Boids%203D%20Camera%20movement.gaml">Boids 3D Camera movement</a></p>
 
 <h4 id="default-view">Default view</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display RealBoids   type:opengl{
-...		
+<div class="highlight"><pre><code class="language-" data-lang="">display RealBoids   type:opengl{
+...     
 }
-</code></pre></div></div>
-
+</code></pre></div>
 <h4 id="first-person-view">First person view</h4>
-<p>You can set the position as a first person shooter video game using:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display FirstPerson  type:opengl 
+
+<p>You can set the position as a first person shooter video game using:
+<code>
+display FirstPerson  type:opengl 
 camera_pos:{boids(1).location.x,-boids(1).location.y,10} 
 camera_look_pos:{cos(boids(1).heading)*world.shape.width,-sin(boids(1).heading)*world.shape.height,0} 
 camera_up_vector:{0.0,0.0,1.0}{
 ...
 }
-</code></pre></div></div>
+</code></p>
 
 <h4 id="third-person-view">Third Person view</h4>
-<p>You can follow an agent during a simulation by positioning the camera above it using:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display ThirdPerson  type:opengl camera_pos:{boids(1).location.x,-boids(1).location.y,250}  camera_look_pos:{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
+<p>You can follow an agent during a simulation by positioning the camera above it using:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">display ThirdPerson  type:opengl camera_pos:{boids(1).location.x,-boids(1).location.y,250}  camera_look_pos:{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
 ...
 } 
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="lighting">Lighting</h2>
 
 <p>In a 3D scene once can define light sources. The way how light sources and 3D object interact is called lighting. Lighting is an important factor to render realistic scenes.</p>
@@ -3738,31 +3741,20 @@ camera_up_vector:{0.0,0.0,1.0}{
 <p>Gama handle <em>ambient</em> and <em>diffuse</em> light.</p>
 
 <ul>
-  <li><strong>ambient_light</strong>: Allows to define the value of the ambient light either using an int (ambient_light:(125)) or a rgb color ((ambient_light:rgb(255,255,255)). default is rgb(125,125,125).</li>
-  <li><strong>diffuse_light</strong>: Allows to define the value of the diffuse light either using an int (diffuse_light:(125)) or a rgb color ((diffuse_light:rgb(255,255,255)). default is rgb(125,125,125).</li>
-  <li><strong>diffuse_light_pos</strong>: Allows to define the position of the diffuse light either using an point (diffuse_light_pos:{x,y,z}). default is {world.shape.width/2,world.shape.height/2,world.shape.width<code class="highlighter-rouge">*</code>2}.</li>
-  <li><strong>is_light_on</strong>: Allows to enable/disable the light. Default is true.</li>
-  <li><strong>draw_diffuse_light</strong>: Allows to enable/disable the drawing of the diffuse light. Default is false”)),</li>
+<li><strong>ambient_light</strong>: Allows to define the value of the ambient light either using an int (ambient_light:(125)) or a rgb color ((ambient_light:rgb(255,255,255)). default is rgb(125,125,125).</li>
+<li><strong>diffuse_light</strong>: Allows to define the value of the diffuse light either using an int (diffuse_light:(125)) or a rgb color ((diffuse_light:rgb(255,255,255)). default is rgb(125,125,125).</li>
+<li><strong>diffuse_light_pos</strong>: Allows to define the position of the diffuse light either using an point (diffuse_light_pos:{x,y,z}). default is {world.shape.width/2,world.shape.height/2,world.shape.width<code>*</code>2}.</li>
+<li><strong>is_light_on</strong>: Allows to enable/disable the light. Default is true.</li>
+<li><strong>draw_diffuse_light</strong>: Allows to enable/disable the drawing of the diffuse light. Default is false&quot;)),</li>
 </ul>
 
 <p>Here is an example using all the available facet to define a diffuse light that rotate around the world.</p>
 
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=op56elmEEYs" target="_blank">&lt;img src=’http://img.youtube.com/vi/op56elmEEYs/0.jpg’ width=’425’ height=344 /&gt;</a></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display View1  type:opengl draw_diffuse_light:true ambient_light:(0) diffuse_light:(255) diffuse_light_pos:{50+ 150*sin(time*2),50,150*cos(time*2){
+<p><a href='http://www.youtube.com/watch?feature=player_embedded&v=op56elmEEYs' target='_blank'><img src='http://img.youtube.com/vi/op56elmEEYs/0.jpg' width='425' height=344 /></a></p>
+<div class="highlight"><pre><code class="language-" data-lang="">display View1  type:opengl draw_diffuse_light:true ambient_light:(0) diffuse_light:(255) diffuse_light_pos:{50+ 150*sin(time*2),50,150*cos(time*2){
 ...
 }
-</code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="# (keyword|concept_light)">//</a>: # (endConcept</td>
-      <td>3d_displays)</td>
-    </tr>
-  </tbody>
-</table>
-
+</code></pre></div>
     </div>
     </div>
     </div>

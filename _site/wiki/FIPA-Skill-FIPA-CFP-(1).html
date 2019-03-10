@@ -3606,65 +3606,63 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="fipa-contract-net">FIPA Contract Net</h1>
 
-<p>This model demonstrates a use-case of the FIPA Contract Net interaction protocol. One initiator sends a ‘cfp’ message to other participants. All participants reply with a ‘refuse’ messages which end the interaction protocol.</p>
+<p>This model demonstrates a use-case of the FIPA Contract Net interaction protocol. One initiator sends a &#39;cfp&#39; message to other participants. All participants reply with a &#39;refuse&#39; messages which end the interaction protocol.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">cfp_cfp_1</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">int</span> <span class="n">nbOfParticipants</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="nb">create</span> <span class="n">initiator</span><span class="p">;</span>
-		<span class="nb">create</span> <span class="n">participant</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbOfParticipants</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">nbOfParticipants</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
 
-		<span class="nb">write</span> <span class="s1">'Please step the simulation to observe the outcome in the console'</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="nb">create</span> <span class="n">initiator</span><span class="p">;</span>
+        <span class="nb">create</span> <span class="n">participant</span> <span class="n">number</span><span class="p">:</span> <span class="n">nbOfParticipants</span><span class="p">;</span>
+
+        <span class="nb">write</span> <span class="s1">'Please step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span> 
-	
-	<span class="n">reflex</span> <span class="n">send_cfp_to_participants</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="p">//</span><span class="k">list</span><span class="p">&lt;</span><span class="n">participant</span><span class="p">&gt;</span> <span class="n">participants</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span>
-		
-		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a cfp message to all participants'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">start_conversation</span> <span class="p">(</span><span class="k">to</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">participant</span><span class="p">),</span> <span class="n">protocol</span><span class="p">:</span> <span class="s1">'fipa-contract-net'</span><span class="p">,</span> <span class="n">performative</span><span class="p">:</span> <span class="s1">'cfp'</span><span class="p">,</span> <span class="n">contents</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Go swimming'</span><span class="p">]);</span>
-	<span class="p">}</span>
-	
-	<span class="n">reflex</span> <span class="n">receive_refuse_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(refuses) {
-</span>		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives refuse messages'</span><span class="p">;</span>
-		
-		<span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
-			<span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a refuse message from '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">sender</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">send_cfp_to_participants</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">//</span><span class="k">list</span><span class="p">&lt;</span><span class="n">participant</span><span class="p">&gt;</span> <span class="n">participants</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span>
+
+        <span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' sends a cfp message to all participants'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">start_conversation</span> <span class="p">(</span><span class="k">to</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">participant</span><span class="p">),</span> <span class="n">protocol</span><span class="p">:</span> <span class="s1">'fipa-contract-net'</span><span class="p">,</span> <span class="n">performative</span><span class="p">:</span> <span class="s1">'cfp'</span><span class="p">,</span> <span class="n">contents</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Go swimming'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">receive_refuse_messages</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(refuses) {
+</span>        <span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives refuse messages'</span><span class="p">;</span>
+
+        <span class="n">loop</span> <span class="n">r</span> <span class="n">over</span><span class="p">:</span> <span class="n">refuses</span> <span class="p">{</span>
+            <span class="nb">write</span> <span class="s1">'\t'</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a refuse message from '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">sender</span> <span class="p">+</span> <span class="s1">' with content '</span> <span class="p">+</span> <span class="n">r</span><span class="p">.</span><span class="n">contents</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-	
-	<span class="n">reflex</span> <span class="n">receive_cfp_from_initiator</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(cfps) {
-</span>		
-		<span class="n">message</span> <span class="n">proposalFromInitiator</span> <span class="p">&lt;-</span> <span class="n">cfps</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
-		<span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a cfp message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' and replies with a refuse message'</span><span class="p">;</span>
-		<span class="k">do</span> <span class="n">refuse</span> <span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">proposalFromInitiator</span><span class="p">,</span> <span class="n">contents</span><span class="p">:</span> <span class="p">[</span><span class="s1">'I am busy today'</span><span class="p">]</span> <span class="p">);</span>
-		
-	<span class="p">}</span>
+
+    <span class="n">reflex</span> <span class="n">receive_cfp_from_initiator</span> <span class="n">when</span><span class="p">:</span> <span class="c1">!empty(cfps) {
+</span>
+        <span class="n">message</span> <span class="n">proposalFromInitiator</span> <span class="p">&lt;-</span> <span class="n">cfps</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+        <span class="nb">write</span> <span class="s1">'(Time '</span> <span class="p">+</span> <span class="n">time</span> <span class="p">+</span> <span class="s1">'): '</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives a cfp message from '</span> <span class="p">+</span> <span class="n">agent</span><span class="p">(</span><span class="n">proposalFromInitiator</span><span class="p">.</span><span class="n">sender</span><span class="p">).</span><span class="n">name</span> <span class="p">+</span> <span class="s1">' and replies with a refuse message'</span><span class="p">;</span>
+        <span class="k">do</span> <span class="n">refuse</span> <span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">proposalFromInitiator</span><span class="p">,</span> <span class="n">contents</span><span class="p">:</span> <span class="p">[</span><span class="s1">'I am busy today'</span><span class="p">]</span> <span class="p">);</span>
+
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">test</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span> 
-	<span class="n">output</span> <span class="p">{</span>
-		
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
+    <span class="n">output</span> <span class="p">{</span>
 
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

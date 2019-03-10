@@ -3606,7 +3606,7 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="hand-made-graph">Hand Made Graph</h1>
@@ -3615,70 +3615,68 @@ function closeRightMenu() {
 
 <p>Model to show how to build a graph from scratch using three ways : by putting a list of edges as parameter of as_edge_graph, by adding a node or an edge manually using facet to or by changing the graph itself after adding a node or an edge. The experiment has two displays : one for the first graph created from the list of edges, an other for the graph creating by adding the nodes and edges manually using add operator.</p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="p">@</span><span class="n">no_warning</span>
 <span class="k">model</span> <span class="n">handMadeGraph</span>
 
 <span class="n">global</span> <span class="p">{</span>
-	<span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph1</span> <span class="p">;</span>
-	<span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph2</span><span class="p">;</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="n">the_graph1</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">([</span><span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">},</span> <span class="p">{</span><span class="m">20</span><span class="p">,</span><span class="m">3</span><span class="p">}),</span> <span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">},</span> <span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">30</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">30</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">}),</span> <span class="n">node</span> <span class="p">({</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})]);</span>	
-		
-		<span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;([]);</span>
-		<span class="p">//</span><span class="n">first</span> <span class="n">way</span> <span class="k">to</span> <span class="n">add</span> <span class="n">nodes</span> <span class="k">and</span> <span class="n">edges</span>
-		<span class="n">the_graph2</span> <span class="p">&lt;&lt;</span> <span class="n">node</span><span class="p">({</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})</span> <span class="p">;</span>
-		<span class="n">the_graph2</span> <span class="p">&lt;&lt;</span> <span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">});</span>
-		
-		<span class="p">//</span><span class="n">second</span> <span class="n">way</span> <span class="k">to</span> <span class="n">add</span> <span class="n">nodes</span> <span class="k">and</span> <span class="n">edges</span>
-		<span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">the_graph2</span> <span class="n">add_node</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">}</span> <span class="p">;</span>
-		<span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">the_graph2</span> <span class="n">add_edge</span> <span class="p">({</span><span class="m">35</span><span class="p">,</span><span class="m">50</span><span class="p">}::</span> <span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})</span> <span class="p">;</span>
-	<span class="p">}</span>
-	
+    <span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph1</span> <span class="p">;</span>
+    <span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph2</span><span class="p">;</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="n">the_graph1</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">([</span><span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">},</span> <span class="p">{</span><span class="m">20</span><span class="p">,</span><span class="m">3</span><span class="p">}),</span> <span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">},</span> <span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">30</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">30</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">}),</span><span class="n">edge</span><span class="p">({</span><span class="m">80</span><span class="p">,</span><span class="m">35</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">}),</span> <span class="n">node</span> <span class="p">({</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})]);</span> 
+
+        <span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span> <span class="n">geometry</span><span class="p">&gt;([]);</span>
+        <span class="p">//</span><span class="n">first</span> <span class="n">way</span> <span class="k">to</span> <span class="n">add</span> <span class="n">nodes</span> <span class="k">and</span> <span class="n">edges</span>
+        <span class="n">the_graph2</span> <span class="p">&lt;&lt;</span> <span class="n">node</span><span class="p">({</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})</span> <span class="p">;</span>
+        <span class="n">the_graph2</span> <span class="p">&lt;&lt;</span> <span class="n">edge</span><span class="p">({</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">});</span>
+
+        <span class="p">//</span><span class="n">second</span> <span class="n">way</span> <span class="k">to</span> <span class="n">add</span> <span class="n">nodes</span> <span class="k">and</span> <span class="n">edges</span>
+        <span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">the_graph2</span> <span class="n">add_node</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">}</span> <span class="p">;</span>
+        <span class="n">the_graph2</span> <span class="p">&lt;-</span> <span class="n">the_graph2</span> <span class="n">add_edge</span> <span class="p">({</span><span class="m">35</span><span class="p">,</span><span class="m">50</span><span class="p">}::</span> <span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">})</span> <span class="p">;</span>
+    <span class="p">}</span>
+
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">edge_agent</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>	
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>    
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">node_agent</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>	
-		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>    
+        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">create_graph</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">graph1</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">graphics</span> <span class="s2">"the graph 1"</span> <span class="p">{</span>
-				<span class="n">loop</span> <span class="n">e</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph1</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-					<span class="n">draw</span> <span class="n">e</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">blue</span><span class="p">;</span> 
-				<span class="p">}</span>
-				<span class="n">loop</span> <span class="n">n</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph1</span><span class="p">.</span><span class="n">vertices</span> <span class="p">{</span>
-					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">blue</span><span class="p">;</span> 
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">display</span> <span class="n">graph2</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-			<span class="n">graphics</span> <span class="s2">"the graph 2"</span> <span class="p">{</span>
-				<span class="n">loop</span> <span class="n">e</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph2</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-					<span class="n">draw</span> <span class="n">e</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span> 
-				<span class="p">}</span>
-				<span class="n">loop</span> <span class="n">n</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph2</span><span class="p">.</span><span class="n">vertices</span> <span class="p">{</span>
-					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span> 
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
 
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">graph1</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">graphics</span> <span class="s2">"the graph 1"</span> <span class="p">{</span>
+                <span class="n">loop</span> <span class="n">e</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph1</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">e</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">blue</span><span class="p">;</span> 
+                <span class="p">}</span>
+                <span class="n">loop</span> <span class="n">n</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph1</span><span class="p">.</span><span class="n">vertices</span> <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">blue</span><span class="p">;</span> 
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">display</span> <span class="n">graph2</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+            <span class="n">graphics</span> <span class="s2">"the graph 2"</span> <span class="p">{</span>
+                <span class="n">loop</span> <span class="n">e</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph2</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">e</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span> 
+                <span class="p">}</span>
+                <span class="n">loop</span> <span class="n">n</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph2</span><span class="p">.</span><span class="n">vertices</span> <span class="p">{</span>
+                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span> 
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
     </div>
     </div>
     </div>

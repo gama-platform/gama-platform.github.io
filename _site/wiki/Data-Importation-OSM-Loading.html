@@ -3606,88 +3606,86 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="osm-file-to-agents">OSM file to Agents</h1>
 
 <p><em>Author :  Patrick Taillandier</em></p>
 
-<p>Model which shows how to import a OSM File in GAMA and use it to create Agents. In this model, a filter is done to take only into account the roads and the buildings contained in the file.</p>
+<p>Model which shows how to import a OSM File in GAMA and use it to create Agents. In this model, a filter is done to take only into account the roads and the buildings contained in the file. </p>
 
-<p>Code of the model :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>Code of the model : </p>
+<div class="highlight"><pre><code class="language-" data-lang="">
 <span class="k">model</span> <span class="n">simpleOSMLoading</span> 
- 
+
 <span class="n">global</span><span class="p">{</span>
-	
-	<span class="p">//</span><span class="n">map</span> <span class="n">used</span> <span class="k">to</span> <span class="n">filter</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">build</span> <span class="k">from</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span> <span class="n">according</span> <span class="k">to</span> <span class="n">attributes</span><span class="p">.</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
-	<span class="n">map</span> <span class="n">filtering</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">([</span><span class="s2">"highway"</span><span class="p">::[</span><span class="s2">"primary"</span><span class="p">,</span> <span class="s2">"secondary"</span><span class="p">,</span> <span class="s2">"tertiary"</span><span class="p">,</span> <span class="s2">"motorway"</span><span class="p">,</span> <span class="s2">"living_street"</span><span class="p">,</span><span class="s2">"residential"</span><span class="p">,</span> <span class="s2">"unclassified"</span><span class="p">],</span> <span class="s2">"building"</span><span class="p">::[</span><span class="s2">"yes"</span><span class="p">]]);</span>
-	<span class="p">//</span><span class="n">OSM</span> <span class="n">file</span> <span class="k">to</span> <span class="nf">load</span>
-	<span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">osmfile</span> <span class="p">&lt;-</span>  <span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;(</span><span class="n">osm_file</span><span class="p">(</span><span class="s2">"../includes/rouen.gz"</span><span class="p">,</span> <span class="n">filtering</span><span class="p">))</span>  <span class="p">;</span>
-	
-	<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="k">from</span> <span class="n">the</span> <span class="n">envelope</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span>
-	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">osmfile</span><span class="p">);</span>
-	
-	<span class="n">init</span> <span class="p">{</span>
-		<span class="p">//</span><span class="n">possibility</span> <span class="k">to</span> <span class="nf">load</span> <span class="n">all</span> <span class="k">of</span> <span class="n">the</span> <span class="n">attibutes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">data</span><span class="p">:</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
-		<span class="nb">create</span> <span class="n">osm_agent</span> <span class="k">from</span><span class="p">:</span><span class="n">osmfile</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">highway_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"highway"</span><span class="p">)),</span> <span class="n">building_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"building"</span><span class="p">))];</span>
-		
-		<span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">created</span> <span class="n">generic</span> <span class="n">agents</span><span class="p">,</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">agents</span>
-		<span class="n">ask</span> <span class="n">osm_agent</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span> <span class="k">and</span> <span class="n">highway_str</span> <span class="c1">!= nil ) {
-</span>				<span class="nb">create</span> <span class="n">node_agent</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span> 
-			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">highway_str</span> <span class="c1">!= nil ) {
-</span>					<span class="nb">create</span> <span class="n">road</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span>
-				<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">building_str</span> <span class="c1">!= nil){
-</span>					<span class="nb">create</span> <span class="n">building</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">];</span>
-				<span class="p">}</span>  
-			<span class="p">}</span>
-			<span class="p">//</span><span class="k">do</span> <span class="n">the</span> <span class="n">generic</span> <span class="n">agent</span> <span class="n">die</span>
-			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>	
+
+    <span class="p">//</span><span class="n">map</span> <span class="n">used</span> <span class="k">to</span> <span class="n">filter</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">build</span> <span class="k">from</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span> <span class="n">according</span> <span class="k">to</span> <span class="n">attributes</span><span class="p">.</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
+    <span class="n">map</span> <span class="n">filtering</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">([</span><span class="s2">"highway"</span><span class="p">::[</span><span class="s2">"primary"</span><span class="p">,</span> <span class="s2">"secondary"</span><span class="p">,</span> <span class="s2">"tertiary"</span><span class="p">,</span> <span class="s2">"motorway"</span><span class="p">,</span> <span class="s2">"living_street"</span><span class="p">,</span><span class="s2">"residential"</span><span class="p">,</span> <span class="s2">"unclassified"</span><span class="p">],</span> <span class="s2">"building"</span><span class="p">::[</span><span class="s2">"yes"</span><span class="p">]]);</span>
+    <span class="p">//</span><span class="n">OSM</span> <span class="n">file</span> <span class="k">to</span> <span class="nf">load</span>
+    <span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">osmfile</span> <span class="p">&lt;-</span>  <span class="n">file</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;(</span><span class="n">osm_file</span><span class="p">(</span><span class="s2">"../includes/rouen.gz"</span><span class="p">,</span> <span class="n">filtering</span><span class="p">))</span>  <span class="p">;</span>
+
+    <span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span> <span class="k">from</span> <span class="n">the</span> <span class="n">envelope</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">file</span>
+    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">osmfile</span><span class="p">);</span>
+
+    <span class="n">init</span> <span class="p">{</span>
+        <span class="p">//</span><span class="n">possibility</span> <span class="k">to</span> <span class="nf">load</span> <span class="n">all</span> <span class="k">of</span> <span class="n">the</span> <span class="n">attibutes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">OSM</span> <span class="n">data</span><span class="p">:</span> <span class="n">for</span> <span class="n">an</span> <span class="n">exhaustive</span> <span class="k">list</span><span class="p">,</span> <span class="n">see</span><span class="p">:</span> <span class="n">http</span><span class="p">://</span><span class="n">wiki</span><span class="p">.</span><span class="n">openstreetmap</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wiki</span><span class="p">/</span><span class="n">Map_Features</span>
+        <span class="nb">create</span> <span class="n">osm_agent</span> <span class="k">from</span><span class="p">:</span><span class="n">osmfile</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">highway_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"highway"</span><span class="p">)),</span> <span class="n">building_str</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"building"</span><span class="p">))];</span>
+
+        <span class="p">//</span><span class="k">from</span> <span class="n">the</span> <span class="n">created</span> <span class="n">generic</span> <span class="n">agents</span><span class="p">,</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">agents</span>
+        <span class="n">ask</span> <span class="n">osm_agent</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span> <span class="k">and</span> <span class="n">highway_str</span> <span class="c1">!= nil ) {
+</span>                <span class="nb">create</span> <span class="n">node_agent</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span> 
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">highway_str</span> <span class="c1">!= nil ) {
+</span>                    <span class="nb">create</span> <span class="n">road</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span> <span class="n">highway_str</span><span class="p">];</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">building_str</span> <span class="c1">!= nil){
+</span>                    <span class="nb">create</span> <span class="n">building</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span> <span class="p">::</span><span class="n">shape</span><span class="p">];</span>
+                <span class="p">}</span>  
+            <span class="p">}</span>
+            <span class="p">//</span><span class="k">do</span> <span class="n">the</span> <span class="n">generic</span> <span class="n">agent</span> <span class="n">die</span>
+            <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>   
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">osm_agent</span> <span class="p">{</span>
-	<span class="k">string</span> <span class="n">highway_str</span><span class="p">;</span>
-	<span class="k">string</span> <span class="n">building_str</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">highway_str</span><span class="p">;</span>
+    <span class="k">string</span> <span class="n">building_str</span><span class="p">;</span>
 <span class="p">}</span> 
-	
+
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
-	<span class="p">}</span>
+    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span> 
+    <span class="p">}</span>
 <span class="p">}</span> 
-	
+
 <span class="n">species</span> <span class="n">node_agent</span> <span class="p">{</span>
-	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
-		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-	<span class="p">}</span>
+    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+        <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span> 
-	
+
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
-		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">);</span>
-	<span class="p">}</span>
+    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">,</span><span class="m">200</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>  
 
 <span class="n">experiment</span> <span class="n">load_OSM</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-	<span class="n">output</span> <span class="p">{</span>
-		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-			<span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-			<span class="n">species</span> <span class="n">road</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span>  <span class="p">;</span>
-			<span class="n">species</span> <span class="n">node_agent</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+    <span class="n">output</span> <span class="p">{</span>
+        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+            <span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="n">species</span> <span class="n">road</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span>  <span class="p">;</span>
+            <span class="n">species</span> <span class="n">node_agent</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
     </div>
     </div>
     </div>

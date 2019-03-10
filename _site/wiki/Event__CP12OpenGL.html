@@ -3606,44 +3606,40 @@ function closeRightMenu() {
 </div>      <div id='sub' class='w3-bar-block w3-small'>
 <b> Coding Camp</b><br/>
  <div style='padding-left:1em'><a href="/wiki/Event__CC15_Reorganization" class="wiki_menu" >Reorganization</a></div>
-</div></div></div></nav></div>
+</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="opengl-display">OpenGL Display</h1>
 
 <p>Integrate OpenGL (jogl) view in Gama.</p>
 
-<p>Have a display using OpenGL (Jogl: http://jogamp.org/jogl/www/) libraries implement as a gama plug-ins.</p>
+<p>Have a display using OpenGL (Jogl: <a href="http://jogamp.org/jogl/www/">http://jogamp.org/jogl/www/</a>) libraries implement as a gama plug-ins.</p>
 
-<p>plugin name: ` msi.gama.jogl`</p>
+<p>plugin name: <code>msi.gama.jogl</code></p>
 
-<p><code class="highlighter-rouge">msi.gama.jogl</code> will depend on <code class="highlighter-rouge">msi.gama.application</code> and <code class="highlighter-rouge">msi.gama.core</code></p>
+<p><code>msi.gama.jogl</code> will depend on <code>msi.gama.application</code> and <code>msi.gama.core</code></p>
 
-<p>Current work:</p>
-<ul>
-  <li>A new output symbol has been defined in order to call a new display in gaml</li>
-</ul>
+<p>Current work:
+  * A new output symbol has been defined in order to call a new display in gaml</p>
 
-<h1 id="definition-of-the-symbol-in-msigamacoresrcmsigamaopenglgloutputjava">Definition of the symbol in <code class="highlighter-rouge">msi.gama.core/src/msi/gama/opengl/GLOutput.java</code></h1>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.DISPLAY_GL, kind = ISymbolKind.OUTPUT)
+<h1 id="definition-of-the-symbol-in-msi-gama-core-src-msi-gama-opengl-gloutput-java">Definition of the symbol in <code>msi.gama.core/src/msi/gama/opengl/GLOutput.java</code></h1>
+<div class="highlight"><pre><code class="language-" data-lang="">@symbol(name = IKeyword.DISPLAY_GL, kind = ISymbolKind.OUTPUT)
 @facets(value = {
-	//@facet(name = IKeyword.DISPLAY_GRAPH, type = IType.STRING_STR, optional = false),
-	@facet(name = IKeyword.NAME, type = IType.STRING_STR, optional = true)
-	}, omissible = IKeyword.NAME)
+    //@facet(name = IKeyword.DISPLAY_GRAPH, type = IType.STRING_STR, optional = false),
+    @facet(name = IKeyword.NAME, type = IType.STRING_STR, optional = true)
+    }, omissible = IKeyword.NAME)
 @with_sequence
 @inside(symbols = IKeyword.OUTPUT)
-</code></pre></div></div>
-
-<h1 id="use-of-the-symbol-in-msigamamodelsmodelsgraphmodeltestsiggaml-">Use of the symbol in <code class="highlighter-rouge">msi.gama.models/models/graph/model/testSIG.gaml</code> :</h1>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
-	graphdisplaygl {		
-	}
-</code></pre></div></div>
+</code></pre></div>
+<h1 id="use-of-the-symbol-in-msi-gama-models-models-graph-model-testsig-gaml">Use of the symbol in <code>msi.gama.models/models/graph/model/testSIG.gaml</code> :</h1>
+<div class="highlight"><pre><code class="language-" data-lang="">output {
+    graphdisplaygl {        
+    }
+</code></pre></div>
 <ul>
-  <li>A new view in msi.gama.jogl plugin.xml</li>
+<li>A new view in msi.gama.jogl plugin.xml</li>
 </ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;extension
+<div class="highlight"><pre><code class="language-" data-lang="">    &lt;extension
           point="org.eclipse.ui.views"&gt;
            &lt;view allowMultiple="true"
             category="msi.gama.gui.category.gama"
@@ -3654,15 +3650,15 @@ function closeRightMenu() {
             restorable="true"&gt;
           &lt;/view&gt;
     &lt;/extension&gt;
-</code></pre></div></div>
+</code></pre></div>
+<p>This view is implemented in <code>/Users/macbookpro/Projects/GamaDev/msi.gama.jogl/src/msi/gama/jogl/GLView.java</code></p>
 
-<p>This view is implemented in <code class="highlighter-rouge">/Users/macbookpro/Projects/GamaDev/msi.gama.jogl/src/msi/gama/jogl/GLView.java</code></p>
+<p>The view ID must also be defined <code>src/msi/gama/common/util/GuiUtils.java</code>
+<code>
+public static final String GL_VIEW_ID = &quot;msi.gama.jogl.GLView&quot;;
+</code></p>
 
-<p>The view ID must also be defined <code class="highlighter-rouge">src/msi/gama/common/util/GuiUtils.java</code></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static final String GL_VIEW_ID = "msi.gama.jogl.GLView";
-</code></pre></div></div>
-
-<p><a href="http://gama-platform.googlecode.com/files/gama-opengl.png" title="CodingCampNight"><img src="http://gama-platform.googlecode.com/files/gama-opengl.png" alt="CodingCampNight" /></a></p>
+<p><a href='http://gama-platform.googlecode.com/files/gama-opengl.png' title='CodingCampNight'><img src='http://gama-platform.googlecode.com/files/gama-opengl.png' alt='CodingCampNight' /></a></p>
 
     </div>
     </div>
