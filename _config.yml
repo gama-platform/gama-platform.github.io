@@ -8,7 +8,7 @@ github_username:  dphilippon
 
 # Build settings
 encoding: utf-8
-markdown: kramdown
+markdown: redcarpet
 highlighter: rouge
 theme: minima
 menu:
@@ -18,6 +18,8 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+redcarpet:
+    extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "with_toc_data"]
 wikiToJekyll:
     user_name: gama-platform
     repository_name: gama
