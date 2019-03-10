@@ -376,7 +376,7 @@ def defineLayoutMenu
       end
       
     end
-    newLayout.puts '</div></div></div></nav></div>
+    newLayout.puts '</div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         {{ content }}
