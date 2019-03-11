@@ -3615,46 +3615,54 @@ function closeRightMenu() {
 
 <h2 id="implementation">Implementation</h2>
 
-<p>A new operator can be <strong>any Java method</strong> that:
-  * begins by the <a href="DevelopingIndexAnnotations#@operator">@operator</a> (other fields can be added to the annotation): <code>@operator(value = &quot;name_of_the_operator_gaml&quot;)</code>,
-<code>
-@operator(value = &quot;rgb&quot;)
-public static GamaColor rgb(final int r, final int g, final int b, final double alpha) {    
-</code></p>
+<p>A new operator can be <strong>any Java method</strong> that:</p>
+<ul>
+  <li>begins by the <a href="DevelopingIndexAnnotations#@operator">@operator</a> (other fields can be added to the annotation): <code class="highlighter-rouge">@operator(value = "name_of_the_operator_gaml")</code>,
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@operator(value = "rgb")
+public static GamaColor rgb(final int r, final int g, final int b, final double alpha) {	
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>The method:
-  * must return a value (that has to be one of the GAMA Type: Integer, Double, Boolean, String, IShape, IList, IGraph, IAgent...),
-  * can define any number of parameters, defined using Java type,
-  * can be either static or non-static:
-    * in the case it is static, the number of parameters (except an IScope attribute) of the method is equal to the number of operands of the GAML operator.
-    * in the case it is not static, a first operand is added to the operator with the type of the current class.
-  * can have a IScope parameter, that will be taken into account as operand of the operator.</p>
+<p>The method:</p>
+<ul>
+  <li>must return a value (that has to be one of the GAMA Type: Integer, Double, Boolean, String, IShape, IList, IGraph, IAgent…),</li>
+  <li>can define any number of parameters, defined using Java type,</li>
+  <li>can be either static or non-static:
+    <ul>
+      <li>in the case it is static, the number of parameters (except an IScope attribute) of the method is equal to the number of operands of the GAML operator.</li>
+      <li>in the case it is not static, a first operand is added to the operator with the type of the current class.</li>
+    </ul>
+  </li>
+  <li>can have a IScope parameter, that will be taken into account as operand of the operator.</li>
+</ul>
 
 <h2 id="annotations">Annotations</h2>
-
 <h3 id="operator">@operator</h3>
+<p>This annotation represents an “operator” in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
 
-<p>This annotation represents an &quot;operator&quot; in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
-
-<p>This annotation contains:
-  * <strong>value</strong> (set of string, empty by default): <em>names of the operator</em>.
-  * <strong>content_type</strong> (integer) : <em>if the operator returns a container, type of elements contained in the container</em>
-  * <strong>can_be_const</strong> (boolean, false by default): <em>if true: if the operands are constant, returns a constant value</em>.
-  * <strong>category</strong> (set of string, empty by default): <em>categories to which the operator belong (for documentation purpose)</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this operator.</em></p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>value</strong> (set of string, empty by default): <em>names of the operator</em>.</li>
+  <li><strong>content_type</strong> (integer) : <em>if the operator returns a container, type of elements contained in the container</em></li>
+  <li><strong>can_be_const</strong> (boolean, false by default): <em>if true: if the operands are constant, returns a constant value</em>.</li>
+  <li><strong>category</strong> (set of string, empty by default): <em>categories to which the operator belong (for documentation purpose)</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this operator.</em></li>
+</ul>
 
 <h3 id="doc">@doc</h3>
+<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.</p>
+<ul>
+  <li><strong>value</strong> (String, “” by default): <em>a String representing the documentation of a GAML element</em>.</li>
+  <li><strong>deprecated</strong> (String, “” by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.</li>
+  <li><strong>returns</strong> (String, “” by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.</li>
+  <li><strong>comment</strong> (String, “” by default): <em>an optional comment that will appear differently from the documentation itself</em>.</li>
+  <li><strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the “special cases” in which the documented element takes part</em>.</li>
+  <li><strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.</li>
+  <li><strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</li>
+</ul>
 
-<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.
-  * <strong>value</strong> (String, &quot;&quot; by default): <em>a String representing the documentation of a GAML element</em>.
-  * <strong>deprecated</strong> (String, &quot;&quot; by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.
-  * <strong>returns</strong> (String, &quot;&quot; by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.
-  * <strong>comment</strong> (String, &quot;&quot; by default): <em>an optional comment that will appear differently from the documentation itself</em>.
-  * <strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the &quot;special cases&quot; in which the documented element takes part</em>.
-  * <strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.
-  * <strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</p>
-
-<p>All these annotations are defined in the <code>GamlAnnotations.java</code> file of the <code>msi.gama.processor</code> plug-in.</p>
+<p>All these annotations are defined in the <code class="highlighter-rouge">GamlAnnotations.java</code> file of the <code class="highlighter-rouge">msi.gama.processor</code> plug-in.</p>
 
     </div>
     </div>

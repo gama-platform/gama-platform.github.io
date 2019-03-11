@@ -3618,18 +3618,18 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#installation">Installation</a>
-
-<ul>
-<li><a href="#system-requirements">System Requirements</a></li>
-<li><a href="#installation-of-java">Installation of Java</a>
-
-<ul>
-<li><a href="#on-macos-x">On MacOS X</a></li>
-<li><a href="#on-windows-7--8-64-bits">On Windows</a></li>
-<li><a href="#on-ubuntu--linux">On Ubuntu &amp; Linux</a></li>
-</ul></li>
-</ul></li>
+  <li><a href="#installation">Installation</a>
+    <ul>
+      <li><a href="#system-requirements">System Requirements</a></li>
+      <li><a href="#installation-of-java">Installation of Java</a>
+        <ul>
+          <li><a href="#on-macos-x">On MacOS X</a></li>
+          <li><a href="#on-windows-7--8-64-bits">On Windows</a></li>
+          <li><a href="#on-ubuntu--linux">On Ubuntu &amp; Linux</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="system-requirements">System Requirements</h2>
@@ -3638,17 +3638,17 @@ function closeRightMenu() {
 
 <h3 id="macos">MacOS</h3>
 
-<p>In some cases, &quot;Archive utility.app&quot; in MacOS may damage the files when extracting them from the zip or tar.gz archive files. This problem manifests itself by a dialog opening and explaining that the application is damaged and cannot be launched (see <a href="https://github.com/gama-platform/gama/issues/2082#issuecomment-271812519">Issue 2082</a> and also <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=398450#c17">this thread</a>. In that case, to expand the files, consider using a different utility, like the free <a href="http://my.smithmicro.com/stuffit-expander-mac.html">Stuffit Expander</a> or directly from the command line. </p>
+<p>In some cases, “Archive utility.app” in MacOS may damage the files when extracting them from the zip or tar.gz archive files. This problem manifests itself by a dialog opening and explaining that the application is damaged and cannot be launched (see <a href="https://github.com/gama-platform/gama/issues/2082#issuecomment-271812519">Issue 2082</a> and also <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=398450#c17">this thread</a>. In that case, to expand the files, consider using a different utility, like the free <a href="http://my.smithmicro.com/stuffit-expander-mac.html">Stuffit Expander</a> or directly from the command line.</p>
 
-<p>MacOS Sierra has introduced a series of issues linked to the so-called &quot;quarantine&quot; mode (where applications downloaded from Internet prevent to use and update their internal components, such as the models of the library or the self-updating of the application). See this <a href="http://lapcatsoftware.com/articles/app-translocation.html">page</a> for background information. To be certain that Gama will work, and until we find an easier solution, the installation should follow these steps:</p>
+<p>MacOS Sierra has introduced a series of issues linked to the so-called “quarantine” mode (where applications downloaded from Internet prevent to use and update their internal components, such as the models of the library or the self-updating of the application). See this <a href="http://lapcatsoftware.com/articles/app-translocation.html">page</a> for background information. To be certain that Gama will work, and until we find an easier solution, the installation should follow these steps:</p>
 
 <ol>
-<li>Download the GAMA zip file</li>
-<li>Unzip it (possibly with another archive utility, see above)</li>
-<li>Copy and paste <code>Gama</code> in the <code>Applications</code> folder</li>
-<li>Launch <code>Terminal.app</code></li>
-<li>Type <code>cd /Applications</code> and hit return.</li>
-<li>Type <code>xattr -d -r com.apple.quarantine Gama.app/</code> and hit return to remove the quarantine attribute</li>
+  <li>Download the GAMA zip file</li>
+  <li>Unzip it (possibly with another archive utility, see above)</li>
+  <li>Copy and paste <code class="highlighter-rouge">Gama</code> in the <code class="highlighter-rouge">Applications</code> folder</li>
+  <li>Launch <code class="highlighter-rouge">Terminal.app</code></li>
+  <li>Type <code class="highlighter-rouge">cd /Applications</code> and hit return.</li>
+  <li>Type <code class="highlighter-rouge">xattr -d -r com.apple.quarantine Gama.app/</code> and hit return to remove the quarantine attribute</li>
 </ol>
 
 <p>From now on, Gama should be fully functional.</p>
@@ -3660,52 +3660,48 @@ function closeRightMenu() {
 GAMA may work with the standard JRE, although it will be slower and may even crash (esp. under MacOS X).</p>
 
 <h3 id="on-macos">On MacOS</h3>
+<p>The latest version of GAMA requires a JVM (or JDK or JRE) compatible with Java 1.8 to run.</p>
 
-<p>The latest version of GAMA requires a JVM (or JDK or JRE) compatible with Java 1.8 to run. </p>
-
-<p><em>Note for GAMA 1.6.1 users: if you plan to keep a copy of GAMA 1.6.1, you will need to have both Java 1.6 (distributed by Apple) and Java 1.8 (distributed by Oracle) installed at the same time. Because of this bug in SWT (<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=374199">https://bugs.eclipse.org/bugs/show_bug.cgi?id=374199</a>), GAMA 1.6.1 will not run correctly under Java 1.8 (all the displays will appear empty). To install the JDK 1.6 distributed by Apple, follow the instructions here : <a href="http://support.apple.com/kb/DL1572">http://support.apple.com/kb/DL1572</a>. Alternatively, you might want to go to <a href="https://developer.apple.com/downloads">https://developer.apple.com/downloads</a> and, after a free registration step if you&#39;re not an Apple Developer, get the complete JDK from the list of downloads.</em></p>
+<p><em>Note for GAMA 1.6.1 users: if you plan to keep a copy of GAMA 1.6.1, you will need to have both Java 1.6 (distributed by Apple) and Java 1.8 (distributed by Oracle) installed at the same time. Because of this bug in SWT (https://bugs.eclipse.org/bugs/show_bug.cgi?id=374199), GAMA 1.6.1 will not run correctly under Java 1.8 (all the displays will appear empty). To install the JDK 1.6 distributed by Apple, follow the instructions here : http://support.apple.com/kb/DL1572. Alternatively, you might want to go to https://developer.apple.com/downloads and, after a free registration step if you’re not an Apple Developer, get the complete JDK from the list of downloads.</em></p>
 
 <h3 id="on-windows">On Windows</h3>
-
 <p>Please notice that, by default, Internet Explorer and Chrome browsers will download a 32 bits version of the JRE. Running GAMA 32 bits for Windows is ok, but you may want to download the latest JDK instead, in order to both improve the performances of the simulator and be able to run GAMA 64 bits.</p>
 
 <ul>
-<li>To download the appropriate java version, follow this link: <a href="http://www.java.com/en/download/manual.jsp">http://www.java.com/en/download/manual.jsp</a></li>
-<li>Execute the downloaded file</li>
-<li>You can check that a <strong>Java\jre8</strong> folder has been installed at the location *<em>C:\Program Files\*</em></li>
+  <li>To download the appropriate java version, follow this link: http://www.java.com/en/download/manual.jsp</li>
+  <li>Execute the downloaded file</li>
+  <li>You can check that a <strong>Java\jre8</strong> folder has been installed at the location <strong>C:\Program Files\</strong></li>
 </ul>
 
 <p>In order for Java to be found by Windows, you may have to modify environment variables:</p>
 
 <ul>
-<li>Go to the <strong>Control Panel</strong></li>
-<li>In the new window, go to <strong>System</strong></li>
-<li>On the left, click on <strong>Advanced System parameters</strong></li>
-<li>In the bottom, click on <strong>Environment Variables</strong></li>
-<li>In System Variables, choose to modify the <strong>Path</strong> variable</li>
-<li>At the end, add <strong>;C:\Program Files\Java\jre8\bin</strong> (or jre8\bin)</li>
+  <li>Go to the <strong>Control Panel</strong></li>
+  <li>In the new window, go to <strong>System</strong></li>
+  <li>On the left, click on <strong>Advanced System parameters</strong></li>
+  <li>In the bottom, click on <strong>Environment Variables</strong></li>
+  <li>In System Variables, choose to modify the <strong>Path</strong> variable</li>
+  <li>At the end, add <strong>;C:\Program Files\Java\jre8\bin</strong> (or jre8\bin)</li>
 </ul>
 
-<h3 id="on-ubuntu-linux">On Ubuntu &amp; Linux</h3>
+<h3 id="on-ubuntu--linux">On Ubuntu &amp; Linux</h3>
 
 <p>To have a complete overview of java management on Ubuntu, have a look at:</p>
 
 <ul>
-<li><a href="https://help.ubuntu.com/community/Java">Ubuntu Java documentation</a></li>
-<li>for French speaking users: <a href="http://doc.ubuntu-fr.org/java#installations_alternatives">http://doc.ubuntu-fr.org/java#installations_alternatives</a></li>
+  <li><a href="https://help.ubuntu.com/community/Java">Ubuntu Java documentation</a></li>
+  <li>for French speaking users: <a href="http://doc.ubuntu-fr.org/java#installations_alternatives">http://doc.ubuntu-fr.org/java#installations_alternatives</a></li>
 </ul>
 
-<p>Basically, you need to do:
-<code>
-sudo add-apt-repository ppa:webupd8team/java
+<p>Basically, you need to do:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer 
-</code></p>
+</code></pre></div></div>
 
-<p>You can then switch between java version using:
-<code>
-sudo update-alternatives --config java
-</code></p>
+<p>You can then switch between java version using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-alternatives --config java
+</code></pre></div></div>
 
 <p>See <a href="Troubleshooting#Ubuntu">the troubleshooting page</a> for more information on workaround for problems on Unbuntu.</p>
 

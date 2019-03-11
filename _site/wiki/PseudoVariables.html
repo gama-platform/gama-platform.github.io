@@ -3616,33 +3616,34 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#pseudo-variables">Pseudo-variables</a>
-
-<ul>
-<li><a href="#self">self</a></li>
-<li><a href="#myself">myself</a></li>
-<li><a href="#each">each</a></li>
-<li><a href="#super">super</a></li>
-</ul></li>
+  <li><a href="#pseudo-variables">Pseudo-variables</a>
+    <ul>
+      <li><a href="#self">self</a></li>
+      <li><a href="#myself">myself</a></li>
+      <li><a href="#each">each</a></li>
+      <li><a href="#super">super</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="self">self</h2>
-
-<p>The pseudo-variable <code>self</code> always holds a reference to the agent executing the current statement.</p>
+<p>The pseudo-variable <code class="highlighter-rouge">self</code> always holds a reference to the agent executing the current statement.</p>
 
 <ul>
-<li>Example (sets the <code>friend</code> attribute of another random agent of the same species to <code>self</code> and conversely):</li>
+  <li>Example (sets the <code class="highlighter-rouge">friend</code> attribute of another random agent of the same species to <code class="highlighter-rouge">self</code> and conversely):</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">friend potential_friend &lt;- one_of (species(self) - self);
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>friend potential_friend &lt;- one_of (species(self) - self);
 if potential_friend != nil {
     potential_friend.friend &lt;- self;
     friend &lt;- potential_friend;
 }
-</code></pre></div>
-<h2 id="super">super</h2>
+</code></pre></div></div>
 
-<p>The pseudo-variable <code>super</code> behaves exactly in the same way as <code>self</code> except when calling an action, in which case it represents an indirection to the parent species. It is mainly used for allowing to call inherited actions within redefined ones. For instance:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species parent {
+<h2 id="super">super</h2>
+<p>The pseudo-variable <code class="highlighter-rouge">super</code> behaves exactly in the same way as <code class="highlighter-rouge">self</code> except when calling an action, in which case it represents an indirection to the parent species. It is mainly used for allowing to call inherited actions within redefined ones. For instance:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species parent {
 
     int add(int a, int b) {
         return a + b;
@@ -3658,39 +3659,44 @@ species child parent: parent {
     }
 
 }
-</code></pre></div>
-<h2 id="myself">myself</h2>
+</code></pre></div></div>
 
-<p><code>myself</code> plays the same role as <code>self</code> but in remotely-executed code (<code>ask</code>, <code>create</code>, <code>capture</code> and <code>release</code> statements), where it represents the <em>calling</em> agent when the code is executed by the <em>remote</em> agent.</p>
+<h2 id="myself">myself</h2>
+<p><code class="highlighter-rouge">myself</code> plays the same role as <code class="highlighter-rouge">self</code> but in remotely-executed code (<code class="highlighter-rouge">ask</code>, <code class="highlighter-rouge">create</code>, <code class="highlighter-rouge">capture</code> and <code class="highlighter-rouge">release</code> statements), where it represents the <em>calling</em> agent when the code is executed by the <em>remote</em> agent.</p>
 
 <ul>
-<li>Example (asks the first agent of my species to set its color to my color):</li>
+  <li>Example (asks the first agent of my species to set its color to my color):</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">ask first (species (self)){
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask first (species (self)){
     color &lt;- myself.color;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <ul>
-<li>Example (create 10 new agents of the species of my species, share the energy between them, turn them towards me, and make them move 4 times to get closer to me):</li>
+  <li>Example (create 10 new agents of the species of my species, share the energy between them, turn them towards me, and make them move 4 times to get closer to me):</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">create species (self) number: 10 {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create species (self) number: 10 {
    energy &lt;- myself.energy / 10.0;
    loop times: 4 {
        heading &lt;- towards (myself);
        do move;
    }
 }
-</code></pre></div>
-<h2 id="each">each</h2>
+</code></pre></div></div>
 
-<p><code>each</code> is available only in the right-hand argument of <a href="Operators#Iterator-operators">iterators</a>.  It is a pseudo-variable that represents, in turn, each of the elements of the left-hand container. It can then take any type depending on the context.</p>
+<h2 id="each">each</h2>
+<p><code class="highlighter-rouge">each</code> is available only in the right-hand argument of <a href="Operators#Iterator-operators">iterators</a>.  It is a pseudo-variable that represents, in turn, each of the elements of the left-hand container. It can then take any type depending on the context.</p>
 
 <ul>
-<li>Example:</li>
+  <li>Example:</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">    list&lt;string&gt; names &lt;- my_species collect each.name;  // each is of type my_species
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    list&lt;string&gt; names &lt;- my_species collect each.name;  // each is of type my_species
     int max &lt;- max(['aa', 'bbb', 'cccc'] collect length(each)); // each is of type string
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

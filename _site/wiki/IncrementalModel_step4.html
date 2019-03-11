@@ -3610,184 +3610,187 @@ function closeRightMenu() {
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="4-movement-on-graph">4. Movement on Graph</h1>
-
 <p>This step illustrates how load a graph and use it for the displacement of our species.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>definition of a global graph to represent the road network</li>
-<li>definition of a new global variable: <strong>staying_coeff</strong> to represent the fact that people move more near 9h, 12h and 18h</li>
-<li>definition of two new variables for the people agents: <strong>target</strong> and <strong>staying_counter</strong></li>
-<li>definition of a new reflex for people agents: <strong>stay</strong></li>
-<li>modification of the <strong>move</strong> reflex of the people agents</li>
+  <li>definition of a global graph to represent the road network</li>
+  <li>definition of a new global variable: <strong>staying_coeff</strong> to represent the fact that people move more near 9h, 12h and 18h</li>
+  <li>definition of two new variables for the people agents: <strong>target</strong> and <strong>staying_counter</strong></li>
+  <li>definition of a new reflex for people agents: <strong>stay</strong></li>
+  <li>modification of the <strong>move</strong> reflex of the people agents</li>
 </ul>
 
-<p><img src="resources/images/tutorials/Incremental_model4.jpg" alt="images/Incremental_model4.jpg"></p>
+<p><img src="resources/images/tutorials/Incremental_model4.jpg" alt="images/Incremental_model4.jpg" /></p>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="global-variables">global variables</h3>
+<p>We define two new global variables:</p>
+<ul>
+  <li><strong>road_network</strong> (graph) : represents the graph that will be built from the road network</li>
+  <li><strong>staying_coeff</strong> (float) : represents the fact that people have more chance to move from their current building near 9h (go to work), 12h (lunch time) and 18h (go home). This variable is updated at each simulation step (use of the <strong>update</strong> facet).</li>
+</ul>
 
-<p>We define two new global variables:
-  * <strong>road_network</strong> (graph) : represents the graph that will be built from the road network
-  * <strong>staying_coeff</strong> (float) : represents the fact that people have more chance to move from their current building near 9h (go to work), 12h (lunch time) and 18h (go home). This variable is updated at each simulation step (use of the <strong>update</strong> facet).</p>
-<div class="highlight"><pre><code class="language-" data-lang=""> global{
-    ....
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> global{
+	....
         graph road_network;
-    float staying_coeff update: 10.0 ^ (1 + min([abs(current_hour - 9), abs(current_hour - 12), 
+	float staying_coeff update: 10.0 ^ (1 + min([abs(current_hour - 9), abs(current_hour - 12), 
 abs(current_hour - 18)]));
-    ....
+	....
 }
-</code></pre></div>
-<h3 id="initialization">initialization</h3>
+</code></pre></div></div>
 
-<p>We need to compute from the <strong>road</strong> agents, a graph for the moving of the <strong>people</strong> agents. The operator <strong>as_edge_graph</strong> allows to do that. It automatically builds from a set of agents or geometries a graph where the agents are the edges of the graph, a node represent the extremities of the agent geometry. The weight of each edge corresponds to the length of the road.
-<code>
-global {
+<h3 id="initialization">initialization</h3>
+<p>We need to compute from the <strong>road</strong> agents, a graph for the moving of the <strong>people</strong> agents. The operator <strong>as_edge_graph</strong> allows to do that. It automatically builds from a set of agents or geometries a graph where the agents are the edges of the graph, a node represent the extremities of the agent geometry. The weight of each edge corresponds to the length of the road.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    ...
    init {
       ...
       create road from: roads_shapefile;
-      road_network &lt;- as_edge_graph(road);  
+      road_network &lt;- as_edge_graph(road);	
       ...
    }
 }
-</code></p>
+</code></pre></div></div>
 
 <h3 id="people-agent">people agent</h3>
-
-<p>First, we add two new variables for the people agents:
-  * <strong>target</strong> (point): the target location that the people want to reach (a point inside a building)
-  * <strong>staying_counter</strong> (int): the number of cycles since the agent arrived at its building</p>
+<p>First, we add two new variables for the people agents:</p>
+<ul>
+  <li><strong>target</strong> (point): the target location that the people want to reach (a point inside a building)</li>
+  <li><strong>staying_counter</strong> (int): the number of cycles since the agent arrived at its building</li>
+</ul>
 
 <p>We define a new reflex called <strong>stay</strong> that is activated when the agent has no target (target = nil), i.e. when the agent is inside a building. This reflex increments the <strong>staying_counter</strong>, then it test the probability to leave that is computed from the <strong>staying_counter</strong> (longer the agent is inside the building, more it has a chance to leave) and the staying_coeff (closer to 9h, 12h and 18h, more the agent has a chance to leave).
 If the agents decide to leave, it computes a new target as a random point inside one of the buildings (randomly chosen).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species people skills:[moving]{     
-    ...
-    reflex stay when: target = nil {
-        staying_counter &lt;- staying_counter + 1;
-        if flip(staying_counter / staying_coeff) {
-            target &lt;- any_location_in (one_of(building));
-        }
-    }
-    ...
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
+	...
+	reflex stay when: target = nil {
+		staying_counter &lt;- staying_counter + 1;
+		if flip(staying_counter / staying_coeff) {
+			target &lt;- any_location_in (one_of(building));
+		}
+	}
+	...
 }
-</code></pre></div>
-<p>We modify the <strong>move</strong> reflex. Now, this reflex is activated only when the agent has a target (target != nil). In this case the agent moves in direction to its target using the <strong>goto</strong> action. Note that we specified a graph (<strong>road_network</strong>) to constraint the moving of the agents on the road network with the facet <strong>on</strong>. The agent uses the shortest path (according to the graph) to go to the target point. When the agent arrives at destination (location = location), the target is set to nil (the agent will stop moving) and the staying_counter is set to 0.
-<code>
-species people skills:[moving]{     
-    ...
-    reflex move when: target != nil{
-        do goto target:target on: road_network;
-        if (location = target) {
-            target &lt;- nil;
-            staying_counter &lt;- 0;
-        } 
-    }
+</code></pre></div></div>
+
+<p>We modify the <strong>move</strong> reflex. Now, this reflex is activated only when the agent has a target (target != nil). In this case the agent moves in direction to its target using the <strong>goto</strong> action. Note that we specified a graph (<strong>road_network</strong>) to constraint the moving of the agents on the road network with the facet <strong>on</strong>. The agent uses the shortest path (according to the graph) to go to the target point. When the agent arrives at destination (location = location), the target is set to nil (the agent will stop moving) and the staying_counter is set to 0.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species people skills:[moving]{		
+	...
+	reflex move when: target != nil{
+		do goto target:target on: road_network;
+		if (location = target) {
+			target &lt;- nil;
+			staying_counter &lt;- 0;
+		} 
+	}
 }
-</code></p>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">model4</span> 
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model4</span> 
+ 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-    <span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
-    <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">cycle</span> <span class="p">/</span> <span class="m">60</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
-    <span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">staying_coeff</span> <span class="n">update</span><span class="p">:</span> <span class="m">10.0</span> <span class="p">^</span> <span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="k">min</span><span class="p">([</span><span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">9</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">12</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">18</span><span class="p">)]));</span>
-    <span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
-
-    <span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
-        <span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-            <span class="n">building</span> <span class="n">bd</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">);</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">bd</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">cycle</span> <span class="p">/</span> <span class="m">60</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">staying_coeff</span> <span class="n">update</span><span class="p">:</span> <span class="m">10.0</span> <span class="p">^</span> <span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="k">min</span><span class="p">([</span><span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">9</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">12</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">current_hour</span> <span class="p">-</span> <span class="m">18</span><span class="p">)]));</span>
+	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+			<span class="n">building</span> <span class="n">bd</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">bd</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>     
-    <span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">staying_counter</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">staying</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">{</span>
-        <span class="n">staying_counter</span> <span class="p">&lt;-</span> <span class="n">staying_counter</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-        <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">staying_counter</span> <span class="p">/</span> <span class="n">staying_coeff</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="c1">!= nil{
-</span>        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-            <span class="n">staying_counter</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-        <span class="p">}</span> 
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">staying_counter</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">staying</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="p">=</span> <span class="n">nil</span> <span class="p">{</span>
+		<span class="n">staying_counter</span> <span class="p">&lt;-</span> <span class="n">staying_counter</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">staying_counter</span> <span class="p">/</span> <span class="n">staying_coeff</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">target</span> <span class="c1">!= nil{
+</span>		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+			<span class="n">staying_counter</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">monitor</span> <span class="s2">"Current hour"</span> <span class="n">value</span><span class="p">:</span> <span class="n">current_hour</span><span class="p">;</span>
-        <span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>           
-        <span class="p">}</span>
-        <span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">monitor</span> <span class="s2">"Current hour"</span> <span class="n">value</span><span class="p">:</span> <span class="n">current_hour</span><span class="p">;</span>
+		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3612,57 +3612,56 @@ function closeRightMenu() {
         <h1 id="implementing-light">Implementing light</h1>
 
 <p>When using opengl display, GAMA provides you the possibility to manipulate one or several lights, making your display more realistic.
-Most of the following screenshots will be taken with the following short example gaml : 
-```
-model test_light</p>
+Most of the following screenshots will be taken with the following short example gaml :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">test_light</span>
 
-<p>grid cells {
-    aspect base {
-        draw square(1) at:{grid_x,grid_y} color:#white;
-    }
-}
-experiment my_experiment type:gui{
-    output {
-        display my_display type:opengl background:#darkblue {
-            species cells aspect:base;
-            graphics &quot;my_layer&quot; {
-                draw square(100) color:#white at:{50,50};
-                draw cube(5) color:#lightgrey at:{50,30};
-                draw cube(5) color:#lightgrey at:{30,35};
-                draw cube(5) color:#lightgrey at:{60,35};
-                draw sphere(5) color:#lightgrey at:{10,10,2.5};
-                draw sphere(5) color:#lightgrey at:{20,30,2.5};
-                draw sphere(5) color:#lightgrey at:{40,30,2.5};
-                draw sphere(5) color:#lightgrey at:{40,60,2.5};
-                draw cone3D(5,5) color:#lightgrey at:{55,10,0};
-                draw cylinder(5,5) color:#lightgrey at:{10,60,0};
-            }
-        }
-    }
-}
-```</p>
+<span class="n">grid</span> <span class="n">cells</span> <span class="p">{</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">at</span><span class="p">:{</span><span class="n">grid_x</span><span class="p">,</span><span class="n">grid_y</span><span class="p">}</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:#</span><span class="n">darkblue</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">cells</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"my_layer"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span> <span class="n">at</span><span class="p">:{</span><span class="m">50</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">50</span><span class="p">,</span><span class="m">30</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">30</span><span class="p">,</span><span class="m">35</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">60</span><span class="p">,</span><span class="m">35</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">40</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">40</span><span class="p">,</span><span class="m">60</span><span class="p">,</span><span class="m">2.5</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cone3D</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">55</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+				<span class="n">draw</span> <span class="n">cylinder</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">lightgrey</span> <span class="n">at</span><span class="p">:{</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#light-generalities">Light generalities</a></li>
-<li><a href="#default-light">Default light</a></li>
-<li><a href="#custom-lights">Custom lights</a></li>
+  <li><a href="#light-generalities">Light generalities</a></li>
+  <li><a href="#default-light">Default light</a></li>
+  <li><a href="#custom-lights">Custom lights</a></li>
 </ul>
 
 <h2 id="light-generalities">Light generalities</h2>
 
 <p>Before going deep into the code, here is a quick explanation about how light works in opengl.
-First of all, you need to know that there are 3 types of lights you can manipulate : the <strong>ambient light</strong>, the <strong>diffuse light</strong> and the <strong>specular light</strong>. Each &quot;light&quot; in opengl is in fact composed of those 3 types of lights.</p>
+First of all, you need to know that there are 3 types of lights you can manipulate : the <strong>ambient light</strong>, the <strong>diffuse light</strong> and the <strong>specular light</strong>. Each “light” in opengl is in fact composed of those 3 types of lights.</p>
 
 <h3 id="ambient-light">Ambient light</h3>
 
 <p>The <strong>ambient light</strong> is the light of your world without any lighting. If a face of a cube is not stricken by the light rays for instance, this face will appear totally black if there is no ambient light. To make your world more realistic, it is better to have an ambient light.
 An ambient light has then no position or direction. It is equally distributed to all the objects of your scene.</p>
 
-<p>Here is an example of our GAML scene using only ambient light (color red) : </p>
+<p>Here is an example of our GAML scene using only ambient light (color red) :</p>
 
-<p><img src="resources/images/lightRecipes/ambient_light.png" alt="resources/images/lightRecipes/ambient_light.png"></p>
+<p><img src="resources/images/lightRecipes/ambient_light.png" alt="resources/images/lightRecipes/ambient_light.png" /></p>
 
 <h3 id="diffuse-light">Diffuse light</h3>
 
@@ -3676,132 +3675,159 @@ Your have 2 categories of diffuse light : the <strong>positional lights</strong>
 <p>Those lights have a position in your world. It is the case of <strong>point lights</strong> and <strong>spot lights</strong>.</p>
 
 <ul>
-<li>Point lights</li>
+  <li>Point lights</li>
 </ul>
 
 <p>Points lights can be seen as a candle in your world, diffusing the light equally in all the direction.</p>
 
-<p>Here is an example of our GAML scene using only diffuse light, with a point light (color red, the light source is displayed as a red sphere) : </p>
+<p>Here is an example of our GAML scene using only diffuse light, with a point light (color red, the light source is displayed as a red sphere) :</p>
 
-<p><img src="resources/images/lightRecipes/point_light.png" alt="resources/images/lightRecipes/point_light.png"></p>
+<p><img src="resources/images/lightRecipes/point_light.png" alt="resources/images/lightRecipes/point_light.png" /></p>
 
 <ul>
-<li>Spot lights</li>
+  <li>Spot lights</li>
 </ul>
 
 <p>Spot lights can be seen as a torch light in your world. It needs a position, and also a direction and an angle.</p>
 
-<p>Here is an example of our GAML scene using only diffusion light, with a spot light (color red, the light source is displayed as a red cone) : </p>
+<p>Here is an example of our GAML scene using only diffusion light, with a spot light (color red, the light source is displayed as a red cone) :</p>
 
-<p><img src="resources/images/lightRecipes/spot_light.png" alt="resources/images/lightRecipes/spot_light.png"></p>
+<p><img src="resources/images/lightRecipes/spot_light.png" alt="resources/images/lightRecipes/spot_light.png" /></p>
 
 <p>Positional lights, as they have a position, can also have an attenuation according to the distance between the light source and the object. The value of positional lights are computed with the following formula :
 diffuse_light = diffuse_light * ( 1 / (1 + constante_attenuation + linear_attenuation * d + quadratic_attenuation * d))
-By changing those 3 values (constante_attenuation, linear_attenuation and quadratic_attenuation), you can control the way light is diffused over your world (if your world is &quot;foggy&quot; for instance, you may turn your linear and quadratic attenuation on). Note that by default, all those attenuation are equal to 0.</p>
+By changing those 3 values (constante_attenuation, linear_attenuation and quadratic_attenuation), you can control the way light is diffused over your world (if your world is “foggy” for instance, you may turn your linear and quadratic attenuation on). Note that by default, all those attenuation are equal to 0.</p>
 
-<p>Here is an example of our GAML scene using only diffusion light, with a point light with linear attenuation (color red, the light source is displayed as a red sphere) : </p>
+<p>Here is an example of our GAML scene using only diffusion light, with a point light with linear attenuation (color red, the light source is displayed as a red sphere) :</p>
 
-<p><img src="resources/images/lightRecipes/point_light_with_attenuation.png" alt="resources/images/lightRecipes/point_light_with_attenuation.png"></p>
+<p><img src="resources/images/lightRecipes/point_light_with_attenuation.png" alt="resources/images/lightRecipes/point_light_with_attenuation.png" /></p>
 
 <h4 id="directional-lights">Directional lights</h4>
 
-<p>Directional lights have no real &quot;position&quot; : they only have a direction. A directional light will strike all the objects of your world with the same direction. An example of directional light you have in the real world would be the light of the sun : the sun is so far away from us that you can consider that the rays have the same direction and the same intensity wherever they strike.
+<p>Directional lights have no real “position” : they only have a direction. A directional light will strike all the objects of your world with the same direction. An example of directional light you have in the real world would be the light of the sun : the sun is so far away from us that you can consider that the rays have the same direction and the same intensity wherever they strike.
 Since there is no position for directional lights, there is no attenuation either.</p>
 
-<p>Here is an example of our GAML scene using only diffusion light, with a directional light (color red) : </p>
+<p>Here is an example of our GAML scene using only diffusion light, with a directional light (color red) :</p>
 
-<p><img src="resources/images/lightRecipes/direction_light.png" alt="resources/images/lightRecipes/direction_light.png"></p>
+<p><img src="resources/images/lightRecipes/direction_light.png" alt="resources/images/lightRecipes/direction_light.png" /></p>
 
 <h3 id="specular-light">Specular light</h3>
 
-<p>This is a more advanced concept, giving an aspect a little bit &quot;shinny&quot; to the objects stricken by the specular light. It is used to simulate the interaction between the light and a special material (ex : wood, steel, rubber...).
+<p>This is a more advanced concept, giving an aspect a little bit “shinny” to the objects stricken by the specular light. It is used to simulate the interaction between the light and a special material (ex : wood, steel, rubber…).
 This specular light is not implemented yet in gama, only the two others are.</p>
 
 <h2 id="default-light">Default light</h2>
 
 <p>In your opengl display, without specifying any light, you will have only one light, with those following properties :</p>
 
-<p>Those values have been chosen in order to have the same visual effect in both opengl and java2D displays, when you display 2D objects, and also to have a nice &quot;3D effect&quot; when using the opengl displays. We chose the following setting by default : 
-* The ambient light value : rgb(127,127,127,255)
-* diffuse light value : rgb(127,127,127,255)
-* type of light : direction
-* direction of the light : (0.5,0.5,-1);</p>
+<p>Those values have been chosen in order to have the same visual effect in both opengl and java2D displays, when you display 2D objects, and also to have a nice “3D effect” when using the opengl displays. We chose the following setting by default :</p>
+<ul>
+  <li>The ambient light value : rgb(127,127,127,255)</li>
+  <li>diffuse light value : rgb(127,127,127,255)</li>
+  <li>type of light : direction</li>
+  <li>direction of the light : (0.5,0.5,-1);</li>
+</ul>
 
-<p>Here is an example of our GAML scene using the default light : </p>
+<p>Here is an example of our GAML scene using the default light :</p>
 
-<p><img src="resources/images/lightRecipes/default_light.png" alt="resources/images/lightRecipes/default_light.png"></p>
+<p><img src="resources/images/lightRecipes/default_light.png" alt="resources/images/lightRecipes/default_light.png" /></p>
 
 <h2 id="custom-lights">Custom lights</h2>
 
 <p>In your opengl display, you can create up to 8 lights, giving them the properties you want.</p>
 
-<h3 id="ambient-light">Ambient light</h3>
+<h3 id="ambient-light-1">Ambient light</h3>
 
-<p>In order to keep it simple, the ambient light can be set directly when you are declaring your display, through the facet <code>ambient_light</code>. You will have one only ambient light.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type:gui {
-    output {
-        display "my_display" type:opengl ambient_light:100 {
-        }
-    }
+<p>In order to keep it simple, the ambient light can be set directly when you are declaring your display, through the facet <code class="highlighter-rouge">ambient_light</code>. You will have one only ambient light.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type:gui {
+	output {
+		display "my_display" type:opengl ambient_light:100 {
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p><em>Note for developers</em> : Note that this ambient light is set to the GL_LIGHT0. This GL_LIGHT0 only contains an ambient light, and no either diffuse nor specular light.</p>
 
-<h3 id="diffuse-light">Diffuse light</h3>
+<h3 id="diffuse-light-1">Diffuse light</h3>
 
-<p>In order to add lights, or modifying the existing lights, you can use the statement <code>light</code>, inside your <code>display</code> scope : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type:gui {
-    output {
-        display "my_display" type:opengl {
-            light id:0;
-        }
-    }
+<p>In order to add lights, or modifying the existing lights, you can use the statement <code class="highlighter-rouge">light</code>, inside your <code class="highlighter-rouge">display</code> scope :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type:gui {
+	output {
+		display "my_display" type:opengl {
+			light id:0;
+		}
+	}
 }
-</code></pre></div>
-<p>This statement has just one non-optional facet : the facet &quot;id&quot;. Through this facet, you can specify which light you want. You can control 7 lights, through an integer value between 1 and 7.
-Once you are manipulating a light through the <code>light</code> statement, the light is turned on. To switch off the light, you have to add the facet <code>active</code>, and turn it to <code>false</code>.
-The light you are declaring through the <code>light</code> statement is in fact a &quot;diffuse&quot; light. You can specify the color of the diffuse light through the facet <code>color</code> (by default, the color will be turn to white).
-An other very important facet is the <code>type</code> facet. This facet accepts a value among <code>direction</code>, <code>point</code> and <code>spot</code>.</p>
+</code></pre></div></div>
+
+<p>This statement has just one non-optional facet : the facet “id”. Through this facet, you can specify which light you want. You can control 7 lights, through an integer value between 1 and 7.
+Once you are manipulating a light through the <code class="highlighter-rouge">light</code> statement, the light is turned on. To switch off the light, you have to add the facet <code class="highlighter-rouge">active</code>, and turn it to <code class="highlighter-rouge">false</code>.
+The light you are declaring through the <code class="highlighter-rouge">light</code> statement is in fact a “diffuse” light. You can specify the color of the diffuse light through the facet <code class="highlighter-rouge">color</code> (by default, the color will be turn to white).
+An other very important facet is the <code class="highlighter-rouge">type</code> facet. This facet accepts a value among <code class="highlighter-rouge">direction</code>, <code class="highlighter-rouge">point</code> and <code class="highlighter-rouge">spot</code>.</p>
 
 <h4 id="declaring-direction-light">Declaring direction light</h4>
 
-<p>A direction light, as explained in the first part, is a light without any position. Instead of the facet <code>position</code>, you will use the facet <code>direction</code>, giving a 3D vector.</p>
+<p>A direction light, as explained in the first part, is a light without any position. Instead of the facet <code class="highlighter-rouge">position</code>, you will use the facet <code class="highlighter-rouge">direction</code>, giving a 3D vector.</p>
 
-<p>Example of implementation : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">light id:1 type:direction direction:{1,1,1} color:rgb(255,0,0);
-</code></pre></div>
+<p>Example of implementation :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:direction direction:{1,1,1} color:rgb(255,0,0);
+</code></pre></div></div>
+
 <h4 id="declaring-point-light">Declaring point light</h4>
 
-<p>A point light will need a facet <code>position</code>, in order to give the position of the light source.</p>
+<p>A point light will need a facet <code class="highlighter-rouge">position</code>, in order to give the position of the light source.</p>
 
-<p>Example of implementation of a basic point light : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">light id:1 type:point position:{10,20,10} color:rgb(255,0,0);
-</code></pre></div>
-<p>You can add, if you want, a custom attenuation of the light, through the facets <code>linear_attenuation</code> or <code>quadratic_attenuation</code>.</p>
+<p>Example of implementation of a basic point light :</p>
 
-<p>Example of implementation of a point light with attenuation : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">light id:1 type:point position:{10,20,10} color:rgb(255,0,0) linear_attenuation:0.1;
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0);
+</code></pre></div></div>
+
+<p>You can add, if you want, a custom attenuation of the light, through the facets <code class="highlighter-rouge">linear_attenuation</code> or <code class="highlighter-rouge">quadratic_attenuation</code>.</p>
+
+<p>Example of implementation of a point light with attenuation :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:point position:{10,20,10} color:rgb(255,0,0) linear_attenuation:0.1;
+</code></pre></div></div>
+
 <h4 id="declaring-spot-light">Declaring spot light</h4>
 
-<p>A spot light will need the facet <code>position</code> (a spot light is a positionnal light) and the facet <code>direction</code>. A spot light will also need a special facet <code>spot_angle</code> to determine the angle of the spot (by default, this value is set to 45 degree).</p>
+<p>A spot light will need the facet <code class="highlighter-rouge">position</code> (a spot light is a positionnal light) and the facet <code class="highlighter-rouge">direction</code>. A spot light will also need a special facet <code class="highlighter-rouge">spot_angle</code> to determine the angle of the spot (by default, this value is set to 45 degree).</p>
 
-<p>Example of implementation of a basic spot light : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
-</code></pre></div>
+<p>Example of implementation of a basic spot light :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
+</code></pre></div></div>
+
 <p>Same as for point light, you can specify an attenuation for a spot light.</p>
 
-<p>Example of implementation of a spot light with attenuation : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
-</code></pre></div>
-<p>Note that when you are working with lights, you can display your lights through the facet <code>draw light</code> to help you implementing your model. The three types of lights are displayed differently :
-- The <strong>point</strong> light is represented by a sphere with the color of the diffuse light you specified, in the position of your light source.
-- The <strong>spot</strong> light is represented by a cone with the color of the diffuse light you specified, in the position of your light source, the orientation of your light source. The size of the base of the cone will depend of the angle you specified.
-- The <strong>direction</strong> light, as it has no real position, is represented with arrows a bit above the world, with the direction of your direction light, and the color of the diffuse light you specified.</p>
+<p>Example of implementation of a spot light with attenuation :</p>
 
-<p><img src="resources/images/lightRecipes/draw_light.png" alt="resources/images/lightRecipes/draw_light.png"></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:rgb(255,0,0) spot_angle:20;
+</code></pre></div></div>
+
+<p>Note that when you are working with lights, you can display your lights through the facet <code class="highlighter-rouge">draw light</code> to help you implementing your model. The three types of lights are displayed differently :</p>
+<ul>
+  <li>The <strong>point</strong> light is represented by a sphere with the color of the diffuse light you specified, in the position of your light source.</li>
+  <li>The <strong>spot</strong> light is represented by a cone with the color of the diffuse light you specified, in the position of your light source, the orientation of your light source. The size of the base of the cone will depend of the angle you specified.</li>
+  <li>The <strong>direction</strong> light, as it has no real position, is represented with arrows a bit above the world, with the direction of your direction light, and the color of the diffuse light you specified.</li>
+</ul>
+
+<p><img src="resources/images/lightRecipes/draw_light.png" alt="resources/images/lightRecipes/draw_light.png" /></p>
 
 <p><em>Note for developers</em> : Note that, since the GL_LIGHT0 is already reserved for the ambient light (only !), all the other lights (from 1 to 7) are the lights from GL_LIGHT1 to GL_LIGHT7.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|statement_light)">//</a>: # (endConcept</td>
+      <td>light)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

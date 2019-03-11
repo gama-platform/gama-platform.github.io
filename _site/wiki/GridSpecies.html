@@ -3618,93 +3618,96 @@ Moreover, in addition to classic built-in variables, grid a provided with a set 
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#declaration">Declaration</a></li>
-<li><a href="#built-in-attributes">Built-in attributes</a></li>
-<li><a href="#access-to-cells">Access to cells</a></li>
-<li><a href="#display-grid">Display grid</a></li>
-<li><a href="#grid-with-matrix">Grid with matrix</a></li>
-<li><a href="#example">Example</a></li>
+  <li><a href="#declaration">Declaration</a></li>
+  <li><a href="#built-in-attributes">Built-in attributes</a></li>
+  <li><a href="#access-to-cells">Access to cells</a></li>
+  <li><a href="#display-grid">Display grid</a></li>
+  <li><a href="#grid-with-matrix">Grid with matrix</a></li>
+  <li><a href="#example">Example</a></li>
 </ul>
 
 <h2 id="declaration">Declaration</h2>
 
-<p>Instead of using the <code>species</code> keyword, use the keyword <code>grid</code> to declare a grid species. The grid species has exactly the same facets of the regular species, plus some others.
+<p>Instead of using the <code class="highlighter-rouge">species</code> keyword, use the keyword <code class="highlighter-rouge">grid</code> to declare a grid species. The grid species has exactly the same facets of the regular species, plus some others.
 To declare a grid, you have to specify the number of columns and rows first. You can do it two different ways:</p>
 
-<p>Using the two facets <code>width:</code> and <code>height:</code> to fix the number of cells (the size of each cells will be determined thanks to the environment dimension).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid my_grid width:8 height:10 {
+<p>Using the two facets <code class="highlighter-rouge">width:</code> and <code class="highlighter-rouge">height:</code> to fix the number of cells (the size of each cells will be determined thanks to the environment dimension).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid my_grid width:8 height:10 {
 // my_grid has 8 columns and 10 rows
 }
-</code></pre></div>
-<p>Using the two facets <code>cell_width:</code> and <code>cell_height:</code> to fix the size of each cells (the number cells will be determined thanks to the environment dimension).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid my_grid cell_width:3 cell_height:2 {
+</code></pre></div></div>
+
+<p>Using the two facets <code class="highlighter-rouge">cell_width:</code> and <code class="highlighter-rouge">cell_height:</code> to fix the size of each cells (the number cells will be determined thanks to the environment dimension).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid my_grid cell_width:3 cell_height:2 {
 // my_grid has cells with dimension 3m width by 2m height
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>By default, a grid is composed by 100 rows and 100 columns.</p>
 
-<p>Another facet exists for grid only, very useful. It is the <code>neighbors</code> facet, used to determine how many neighbors has each cell. You can choose among 3 values: 4 (Von Neumann), 6 (hexagon) or 8 (Moore).</p>
+<p>Another facet exists for grid only, very useful. It is the <code class="highlighter-rouge">neighbors</code> facet, used to determine how many neighbors has each cell. You can choose among 3 values: 4 (Von Neumann), 6 (hexagon) or 8 (Moore).</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/grid_neighbors.png" alt="images/grid_neighbors.png"></p>
+<p><img src="resources/images/definingAdvancedSpecies/grid_neighbors.png" alt="images/grid_neighbors.png" /></p>
 
-<p>A grid can also be provided with specific facets that allows to optimize the computation time and the memory space, such as <code>use_regular_agents</code>, <code>use_indivitual_shapes</code> and <code>use_neighbors_cache</code>. Please refer to the GAML Reference for more explanation about those particular facets.</p>
+<p>A grid can also be provided with specific facets that allows to optimize the computation time and the memory space, such as <code class="highlighter-rouge">use_regular_agents</code>, <code class="highlighter-rouge">use_indivitual_shapes</code> and <code class="highlighter-rouge">use_neighbors_cache</code>. Please refer to the GAML Reference for more explanation about those particular facets.</p>
 
 <h2 id="built-in-attributes">Built-in attributes</h2>
 
 <h3 id="grid_x">grid_x</h3>
-
-<p>This variable stores the column index of a cell.
-<code>
-   grid cell width: 10 height: 10 neighbors: 4 {
+<p>This variable stores the column index of a cell.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   grid cell width: 10 height: 10 neighbors: 4 {
         init {
-             write &quot;my column index is:&quot; + grid_x;
+             write "my column index is:" + grid_x;
         }
    }
-</code></p>
+</code></pre></div></div>
 
 <h3 id="grid_y">grid_y</h3>
-
-<p>This variable stores the row index of a cell.
-<code>
-   grid cell width: 10 height: 10 neighbors: 4 {
+<p>This variable stores the row index of a cell.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   grid cell width: 10 height: 10 neighbors: 4 {
         init {
-             write &quot;my row index is:&quot; + grid_y;
+             write "my row index is:" + grid_y;
         }
    }
-</code></p>
-
+</code></pre></div></div>
 <h3 id="agents">agents</h3>
 
 <p>return the set of agents located inside the cell. Note the use of this variable is deprecated.
-It is preferable to use the <code>inside</code> operator:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""> grid cell width: 10 height: 10 neighbors: 4 { 
+It is preferable to use the <code class="highlighter-rouge">inside</code> operator:
+<a href="# (keyword|concept_load_file)">//</a>: # (keyword|operator_inside)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> grid cell width: 10 height: 10 neighbors: 4 { 
         list&lt;bug&gt; bugs_inside -&gt; {bug inside self};
    }
-</code></pre></div>
-<h3 id="color">color</h3>
+</code></pre></div></div>
 
+<h3 id="color">color</h3>
 <p>The <strong>color</strong> built-in variable is used by the optimized grid display. Indeed, it is possible to use for grid agents an optimized aspect by using in a display the <strong>grid</strong> keyword. In this case, the grid will be displayed using the color defined by the <strong>color</strong> variable. The border of the cells can be displayed with a specific color by using the <strong>lines</strong> facet.</p>
 
 <p>Here an example of the display of a grid species named <strong>cell</strong> with black border.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment main_xp type: gui{
-    output {
-        display map {
-            grid cell lines: rgb("black") ;
-        }
-    }
-}
-</code></pre></div>
-<h3 id="neighbors">neighbors</h3>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_xp type: gui{
+	output {
+		display map {
+			grid cell lines: rgb("black") ;
+		}
+	}
+}
+</code></pre></div></div>
+
+<h3 id="neighbors">neighbors</h3>
 <p>The <strong>neighbors</strong> built-in variable returns the list of cells at a distance of 1.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid my_grid {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid my_grid {
   reflex writeNeighbors {
     write neighbors;
   }
 }
-</code></pre></div>
-<h3 id="grid_value">grid_value</h3>
+</code></pre></div></div>
 
+<h3 id="grid_value">grid_value</h3>
 <p>The <strong>grid_value</strong> built-in variable is used when initializing a grid from grid file (see later). It is also used for the 3D representation of DEM.</p>
 
 <h2 id="access-to-a-cell">Access to a cell</h2>
@@ -3712,9 +3715,10 @@ It is preferable to use the <code>inside</code> operator:</p>
 <p>there are several ways to access to a specific cell:</p>
 
 <ul>
-<li>by a location: by casting a location to a cell (the unity (<code>#m</code>, <code>#cm</code>, etc...) is defined when you choose your environment size, in the <a href="GlobalSpecies">global species</a>.</li>
+  <li>by a location: by casting a location to a cell (the unity (<code class="highlighter-rouge">#m</code>, <code class="highlighter-rouge">#cm</code>, etc…) is defined when you choose your environment size, in the <a href="GlobalSpecies">global species</a>.</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">   global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   global {
          init {
              write "cell at {57.5, 45} :" + cell({57.5, 45});
          }
@@ -3722,20 +3726,24 @@ It is preferable to use the <code>inside</code> operator:</p>
 
    grid cell width: 10 height: 10 neighbors: 4 {
    }
-</code></pre></div>
+</code></pre></div></div>
+
 <ul>
-<li>by the row and column indexes: like matrix, it is possible to directly access to a cell from its indexes</li>
+  <li>by the row and column indexes: like matrix, it is possible to directly access to a cell from its indexes</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">   global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   global {
          init {
              write "cell [5,8] :" + cell[5,8];
          }
    }
    grid cell width: 10 height: 10 neighbors: 4 {
    }
-</code></pre></div>
-<p>The operator <code>grid_at</code> also exists to get a particular cell. You just have to specify the index of the cell you want (in x and y):</p>
-<div class="highlight"><pre><code class="language-" data-lang="">   global {
+</code></pre></div></div>
+
+<p>The operator <code class="highlighter-rouge">grid_at</code> also exists to get a particular cell. You just have to specify the index of the cell you want (in x and y):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   global {
          init {
              agent cellAgent &lt;- cell grid_at {5,8};
              write "cell [5,8] :" + cellAgent;
@@ -3743,23 +3751,29 @@ It is preferable to use the <code>inside</code> operator:</p>
    }
    grid cell width: 10 height: 10 neighbors: 4 {
    }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="display-grid">Display Grid</h2>
 
 <p>You can easily display your grid in your experiment as followed :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment MyExperiment type: gui {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment MyExperiment type: gui {
     output {
         display MyDisplay type: opengl {
             grid MyGrid;
         }
     }
 }
-</code></pre></div>
-<p>The grid will be displayed, using the color you defined for each cell (with the &quot;color&quot; built-in attribute). You can also show border of each cell by using the facet &quot;line:&quot; and choosing a rgb color:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid MyGrid line:#black;
-</code></pre></div>
-<p>An other way to display a grid will be to define an aspect in your grid agent (the same way as for a <a href="RegularSpecies">regular species</a>), and define your grid as a regular species then in your experiment, choosing your aspect : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid MyGrid {
+</code></pre></div></div>
+
+<p>The grid will be displayed, using the color you defined for each cell (with the “color” built-in attribute). You can also show border of each cell by using the facet “line:” and choosing a rgb color:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid MyGrid line:#black;
+</code></pre></div></div>
+
+<p>An other way to display a grid will be to define an aspect in your grid agent (the same way as for a <a href="RegularSpecies">regular species</a>), and define your grid as a regular species then in your experiment, choosing your aspect :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid MyGrid {
     aspect firstAspect {
         draw square(1);
     }
@@ -3775,13 +3789,15 @@ experiment MyExperiment type: gui {
         }
     }
 }
-</code></pre></div>
-<p>Beware : don&#39;t use this second display when you have large grids : it&#39;s much slower.</p>
+</code></pre></div></div>
+
+<p>Beware : don’t use this second display when you have large grids : it’s much slower.</p>
 
 <h2 id="grid-from-a-matrix">Grid from a matrix</h2>
 
-<p>An easy way to load some values in a grid is to use matrix data. A <code>matrix</code> is a type of container (we invite you to learn some more about this useful type <a href="DataTypes#matrix">here</a>). Once you have declared your matrix, you can set the values of your cells using the <code>ask</code> statement :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+<p>An easy way to load some values in a grid is to use matrix data. A <code class="highlighter-rouge">matrix</code> is a type of container (we invite you to learn some more about this useful type <a href="DataTypes#matrix">here</a>). Once you have declared your matrix, you can set the values of your cells using the <code class="highlighter-rouge">ask</code> statement :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
   init {
     matrix data &lt;- matrix([[0,1,1],[1,2,0]]);
     ask cell {
@@ -3789,14 +3805,16 @@ experiment MyExperiment type: gui {
     } 
   }
 }
-</code></pre></div>
-<p>Declaring larger matrix in GAML can be boring as you can imagine. You can load your matrix directly from a csv file with the operator <code>matrix</code> (used for the contruction of the matrix).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">file my_file &lt;- csv_file("path/file.csv","separator");
+</code></pre></div></div>
+
+<p>Declaring larger matrix in GAML can be boring as you can imagine. You can load your matrix directly from a csv file with the operator <code class="highlighter-rouge">matrix</code> (used for the contruction of the matrix).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file my_file &lt;- csv_file("path/file.csv","separator");
 matrix my_matrix &lt;- matrix(my_file);
-</code></pre></div>
-<p>You can try to read the following csv :
-<code>
-0,0,0,0,0,0,0,0,0,0,0
+</code></pre></div></div>
+
+<p>You can try to read the following csv :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0,0,0,0,0,0,0,0,0,0,0
 0,0,0,1,1,1,1,1,0,0,0
 0,0,1,1,0,0,0,1,1,0,0
 0,1,1,0,0,0,0,0,0,0,0
@@ -3804,10 +3822,11 @@ matrix my_matrix &lt;- matrix(my_file);
 0,0,1,1,0,0,1,1,1,0,0
 0,0,0,1,1,1,1,0,1,0,0
 0,0,0,0,0,0,0,0,0,0,0
-</code></p>
+</code></pre></div></div>
 
 <p>With the following model :</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">import_csv</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">import_csv</span>
 
 <span class="n">global</span> <span class="p">{</span>
   <span class="n">file</span> <span class="n">my_csv_file</span> <span class="p">&lt;-</span> <span class="n">csv_file</span><span class="p">(</span><span class="s2">"../includes/test.csv"</span><span class="p">,</span><span class="s2">","</span><span class="p">);</span>
@@ -3834,66 +3853,77 @@ matrix my_matrix &lt;- matrix(my_file);
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>For more complicated models, you can read some other files, such as ASCII files (asc), DEM files...</p>
+</code></pre></div></div>
+
+<p>For more complicated models, you can read some other files, such as ASCII files (asc), DEM files…</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_load_file)">//</a>: # (endConcept</td>
+      <td>grid)</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="example">Example</h2>
 
-<p>To practice a bit those notions, we will build a quick model. A &quot;regular&quot; species will move randomly on the environment. A grid is displayed, and its cells becomes red when an instance of the regular species is waking inside this cell, and yellow when the regular agent is in the surrounding of this cell. If no regular agent is on the surrounding, the cell turns green.</p>
+<p>To practice a bit those notions, we will build a quick model. A “regular” species will move randomly on the environment. A grid is displayed, and its cells becomes red when an instance of the regular species is waking inside this cell, and yellow when the regular agent is in the surrounding of this cell. If no regular agent is on the surrounding, the cell turns green.</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/my_grid_model.png" alt="images/my_grid_model.png"></p>
+<p><img src="resources/images/definingAdvancedSpecies/my_grid_model.png" alt="images/my_grid_model.png" /></p>
 
 <p>Here is an example of implementation:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">my_grid_model</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">my_grid_model</span>
 
 <span class="n">global</span><span class="p">{</span>
-    <span class="n">float</span> <span class="n">max_range</span> <span class="p">&lt;-</span> <span class="m">5.0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_agents</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">my_species</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">180</span><span class="p">;</span>    
-            <span class="n">ask</span> <span class="n">my_grid</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">max_range</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">self</span> <span class="n">overlaps</span> <span class="n">myself</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="c1">!= 2)
-</span>                <span class="p">{</span>
-                    <span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">ask</span> <span class="n">my_grid</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
-        <span class="p">}</span>   
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">max_range</span> <span class="p">&lt;-</span> <span class="m">5.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_agents</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">my_species</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">180</span><span class="p">;</span>	
+			<span class="n">ask</span> <span class="n">my_grid</span> <span class="n">at_distance</span><span class="p">(</span><span class="n">max_range</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">self</span> <span class="n">overlaps</span> <span class="n">myself</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="c1">!= 2)
+</span>				<span class="p">{</span>
+					<span class="n">self</span><span class="p">.</span><span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">my_grid</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">update_color</span><span class="p">;</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">my_species</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">my_grid</span> <span class="n">width</span><span class="p">:</span><span class="m">30</span> <span class="n">height</span><span class="p">:</span><span class="m">30</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">action</span> <span class="n">update_color</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">action</span> <span class="n">update_color</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color_value</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">color_value</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">MyExperiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
@@ -3904,7 +3934,8 @@ matrix my_matrix &lt;- matrix(my_file);
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

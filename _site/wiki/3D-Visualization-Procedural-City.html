@@ -3615,71 +3615,73 @@ function closeRightMenu() {
 
 <p>Model with a 3D Display representing buildings with a random size. The model proposes two experiments : the first one represents the buildings with 3D shapes with textures, the second one without textures but the color of the buildings depends on the rotation of a ball-shaped light</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">procedural_city</span>   
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">number_of_building</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">300</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">number_of_building</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">300</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">width_and_height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="p">&lt;-</span> <span class="m">500</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span>
+	
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
+		
+	<span class="n">file</span> <span class="n">roof_texture</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/roof_top.png'</span><span class="p">)</span> <span class="p">;</span>		
+	<span class="k">list</span> <span class="n">textures</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture1.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture2.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture3.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture4.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture5.jpg'</span><span class="p">),</span>
+	<span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture6.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture7.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture8.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture9.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture10.jpg'</span><span class="p">)];</span>
 
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">width_and_height_of_environment</span><span class="p">);</span>
-
-    <span class="n">file</span> <span class="n">roof_texture</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/roof_top.png'</span><span class="p">)</span> <span class="p">;</span>      
-    <span class="k">list</span> <span class="n">textures</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture1.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture2.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture3.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture4.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture5.jpg'</span><span class="p">),</span>
-    <span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture6.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture7.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture8.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture9.jpg'</span><span class="p">),</span><span class="n">file</span><span class="p">(</span><span class="s1">'../images/building_texture/texture10.jpg'</span><span class="p">)];</span>
-
-    <span class="n">init</span> <span class="p">{</span> 
+	<span class="n">init</span> <span class="p">{</span> 
       <span class="nb">create</span> <span class="n">Building</span> <span class="n">number</span><span class="p">:</span><span class="n">number_of_building</span><span class="p">{</span>
-             <span class="n">width</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*</span><span class="m">50</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
-             <span class="n">depth</span> <span class="p">&lt;-</span>   <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">*</span><span class="n">width</span><span class="p">)*</span><span class="m">10</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">box</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span> <span class="n">rotated_by</span> <span class="n">rnd</span><span class="p">(</span><span class="m">360</span><span class="p">);</span>
-            <span class="n">texture</span> <span class="p">&lt;-</span> <span class="n">textures</span><span class="p">[</span><span class="n">rnd</span><span class="p">(</span><span class="m">9</span><span class="p">)];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>  
+      	     <span class="n">width</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*</span><span class="m">50</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
+			 <span class="n">depth</span> <span class="p">&lt;-</span>	<span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">*</span><span class="n">width</span><span class="p">)*</span><span class="m">10</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">box</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span> <span class="n">rotated_by</span> <span class="n">rnd</span><span class="p">(</span><span class="m">360</span><span class="p">);</span>
+			<span class="n">texture</span> <span class="p">&lt;-</span> <span class="n">textures</span><span class="p">[</span><span class="n">rnd</span><span class="p">(</span><span class="m">9</span><span class="p">)];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>  
 
 <span class="p">}</span> 
 
 <span class="n">species</span> <span class="n">Building</span><span class="p">{</span>
-    <span class="n">float</span> <span class="n">width</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">height</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">depth</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">angle</span><span class="p">;</span>          
-    <span class="n">file</span> <span class="n">texture</span><span class="p">;</span>
-
-    <span class="n">reflex</span> <span class="n">shuffle</span><span class="p">{</span>
-         <span class="n">width</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*</span><span class="m">50</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
-         <span class="n">depth</span> <span class="p">&lt;-</span>   <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">*</span><span class="n">width</span><span class="p">)*</span><span class="m">10</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">box</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span> <span class="n">rotated_by</span> <span class="n">rnd</span><span class="p">(</span><span class="m">360</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">textured</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">texture</span><span class="p">:[</span><span class="n">roof_texture</span><span class="p">.</span><span class="n">path</span><span class="p">,</span><span class="n">texture</span><span class="p">.</span><span class="n">path</span><span class="p">]</span> <span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>   
+	<span class="n">float</span> <span class="n">width</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">height</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">depth</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">angle</span><span class="p">;</span>			
+	<span class="n">file</span> <span class="n">texture</span><span class="p">;</span>
+	
+	<span class="n">reflex</span> <span class="n">shuffle</span><span class="p">{</span>
+		 <span class="n">width</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*</span><span class="m">50</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
+		 <span class="n">depth</span> <span class="p">&lt;-</span>	<span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">)*(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)/</span><span class="m">100</span><span class="p">*</span><span class="n">width</span><span class="p">)*</span><span class="m">10</span><span class="p">+</span><span class="m">10</span><span class="p">;</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">box</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span> <span class="n">rotated_by</span> <span class="n">rnd</span><span class="p">(</span><span class="m">360</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">textured</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">texture</span><span class="p">:[</span><span class="n">roof_texture</span><span class="p">.</span><span class="n">path</span><span class="p">,</span><span class="n">texture</span><span class="p">.</span><span class="n">path</span><span class="p">]</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>	
 
 
 <span class="n">experiment</span> <span class="n">DisplayTextured</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-      <span class="n">display</span> <span class="n">City</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">){</span>
-            <span class="n">species</span> <span class="n">Building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">textured</span><span class="p">;</span>                           
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+	  <span class="n">display</span> <span class="n">City</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">){</span>
+			<span class="n">species</span> <span class="n">Building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">textured</span><span class="p">;</span>							
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 <span class="n">experiment</span> <span class="n">DisplayWithDynamicDiffuseLight</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-      <span class="n">display</span> <span class="n">City</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">){</span>
-            <span class="n">light</span> <span class="m">1</span> <span class="n">type</span><span class="p">:</span><span class="n">point</span> <span class="n">color</span><span class="p">:</span><span class="n">hsb</span><span class="p">((</span><span class="n">time</span> <span class="k">mod</span> <span class="m">255</span><span class="p">)</span> <span class="p">/</span><span class="m">255</span><span class="p">,</span><span class="m">1.0</span> <span class="p">,</span><span class="m">0.5</span><span class="p">)</span> <span class="n">position</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.5</span><span class="p">+</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">1.5</span><span class="p">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">time</span><span class="p">*</span><span class="m">2</span><span class="p">),</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.5</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">time</span><span class="p">*</span><span class="m">2</span><span class="p">)}</span> <span class="n">draw_light</span><span class="p">:</span><span class="nb">true</span> <span class="n">update</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">Building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>                                   
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+	  <span class="n">display</span> <span class="n">City</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">){</span>
+	  		<span class="n">light</span> <span class="m">1</span> <span class="n">type</span><span class="p">:</span><span class="n">point</span> <span class="n">color</span><span class="p">:</span><span class="n">hsb</span><span class="p">((</span><span class="n">time</span> <span class="k">mod</span> <span class="m">255</span><span class="p">)</span> <span class="p">/</span><span class="m">255</span><span class="p">,</span><span class="m">1.0</span> <span class="p">,</span><span class="m">0.5</span><span class="p">)</span> <span class="n">position</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.5</span><span class="p">+</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">1.5</span><span class="p">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">time</span><span class="p">*</span><span class="m">2</span><span class="p">),</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="m">0.5</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">time</span><span class="p">*</span><span class="m">2</span><span class="p">)}</span> <span class="n">draw_light</span><span class="p">:</span><span class="nb">true</span> <span class="n">update</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">Building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>									
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

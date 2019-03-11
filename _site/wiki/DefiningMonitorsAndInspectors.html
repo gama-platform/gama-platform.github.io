@@ -3616,75 +3616,96 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#define-a-monitor">Define a monitor</a></li>
-<li><a href="#define-an-inspector">Define an inspector</a></li>
+  <li><a href="#define-a-monitor">Define a monitor</a></li>
+  <li><a href="#define-an-inspector">Define an inspector</a></li>
 </ul>
 
 <h2 id="define-a-monitor">Define a monitor</h2>
 
-<p>A <a href="InspectorsAndMonitors#monitor">monitor</a> allows to follow the value of an arbitrary expression in GAML. It will appear, in the User Interface, in a small window on its own and be recomputed every time step (or according to its refresh facet). </p>
+<p>A <a href="InspectorsAndMonitors#monitor">monitor</a> allows to follow the value of an arbitrary expression in GAML. It will appear, in the User Interface, in a small window on its own and be recomputed every time step (or according to its refresh facet).</p>
 
-<p>Definition of a monitor: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">monitor monitor_name value: an_expression refresh:boolean_statement;
-</code></pre></div>
-<p>with:
-* <code>value:</code> mandatory, the expression whose value will be displayed by the monitor.
-* <code>refresh:</code> bool statement, optional : the new value is computed if the bool statement returns true.</p>
+<p>Definition of a monitor:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monitor monitor_name value: an_expression refresh:boolean_statement;
+</code></pre></div></div>
+
+<p>with:</p>
+<ul>
+  <li><code class="highlighter-rouge">value:</code> mandatory, the expression whose value will be displayed by the monitor.</li>
+  <li><code class="highlighter-rouge">refresh:</code> bool statement, optional : the new value is computed if the bool statement returns true.</li>
+</ul>
 
 <p>Example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type: gui {
-    output {
-        monitor monitor_name value: cycle refresh:every(1);
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
+	output {
+		monitor monitor_name value: cycle refresh:every(1);
+	}
 }
-</code></pre></div>
-<p>NB : you can also declare monitors during the simulation, by clicking on the button &quot;Add new monitor&quot;, and specifying the name of the variable you want to follow.</p>
+</code></pre></div></div>
+
+<p>NB : you can also declare monitors during the simulation, by clicking on the button “Add new monitor”, and specifying the name of the variable you want to follow.</p>
 
 <h2 id="define-an-inspector">Define an inspector</h2>
 
 <p>During the simulation, the user interface of GAMA provides the user the possibility to <a href="InspectorsAndMonitors">inspect an agent</a>, or a group of agents. But you can also define the inspector you want directly from your model, as an output of the experiment.</p>
 
-<p>Use the statement <code>inspect</code> to define your inspector, in the output scope of your gui experiment. The inspector has to be named (using the facet <code>name</code>), a value has to be specified (with the <code>value</code> facet).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">inspect name:"inspector_name" value:the_value_you_want_to_display;
-</code></pre></div>
-<p>Note that you can inspect any type of species (regular species, grid species, even the world...).</p>
+<p>Use the statement <code class="highlighter-rouge">inspect</code> to define your inspector, in the output scope of your gui experiment. The inspector has to be named (using the facet <code class="highlighter-rouge">name</code>), a value has to be specified (with the <code class="highlighter-rouge">value</code> facet).</p>
 
-<p>The optional facet <code>type</code> is used to specify the type of your inspector. 2 values are possible : 
-* <em>agent</em> (default value) if you want to display the information as a regular <a href="InspectorsAndMonitors#agent-inspector">agent inspector</a>. Note that if you want to inspect a large number of agents, this can take a lot of time. In this case, prefer the other type <em>table</em>
-* <em>table</em> if you want to display the information as an <a href="InspectorsAndMonitors#agent-browser">agent browser</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inspect name:"inspector_name" value:the_value_you_want_to_display;
+</code></pre></div></div>
 
-<p>The optional facet <code>attribute</code> is used to filter the attributes you want to be displayed in your inspector.</p>
+<p>Note that you can inspect any type of species (regular species, grid species, even the world…).</p>
 
-<p><strong>Beware</strong> : only one agent inspector (<code>type:agent</code>) can be used for an experiment. Beside, you can add as many agent browser (<code>type:table</code>) as you want for your experiment.</p>
+<p>The optional facet <code class="highlighter-rouge">type</code> is used to specify the type of your inspector. 2 values are possible :</p>
+<ul>
+  <li><em>agent</em> (default value) if you want to display the information as a regular <a href="InspectorsAndMonitors#agent-inspector">agent inspector</a>. Note that if you want to inspect a large number of agents, this can take a lot of time. In this case, prefer the other type <em>table</em></li>
+  <li><em>table</em> if you want to display the information as an <a href="InspectorsAndMonitors#agent-browser">agent browser</a></li>
+</ul>
+
+<p>The optional facet <code class="highlighter-rouge">attribute</code> is used to filter the attributes you want to be displayed in your inspector.</p>
+
+<p><strong>Beware</strong> : only one agent inspector (<code class="highlighter-rouge">type:agent</code>) can be used for an experiment. Beside, you can add as many agent browser (<code class="highlighter-rouge">type:table</code>) as you want for your experiment.</p>
 
 <p>Example of implementation :</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">new</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">new</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">3</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">3</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">int_attr</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">str_attr</span> <span class="p">&lt;-</span> <span class="s2">"my_value"</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">str_attr_not_important</span> <span class="p">&lt;-</span> <span class="s2">"blabla"</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">int_attr</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">str_attr</span> <span class="p">&lt;-</span> <span class="s2">"my_value"</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">str_attr_not_important</span> <span class="p">&lt;-</span> <span class="s2">"blabla"</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">my_grid_species</span> <span class="n">width</span><span class="p">:</span> <span class="m">10</span> <span class="n">height</span><span class="p">:</span> <span class="m">10</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">rnd_value</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">rnd_value</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_inspector"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">attributes</span><span class="p">:[</span><span class="s2">"int_attr"</span><span class="p">,</span><span class="s2">"str_attr"</span><span class="p">];</span>
-        <span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
-        <span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_grid_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="m">5</span> <span class="n">among</span> <span class="n">my_grid_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_inspector"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">attributes</span><span class="p">:[</span><span class="s2">"int_attr"</span><span class="p">,</span><span class="s2">"str_attr"</span><span class="p">];</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="n">my_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
+		<span class="n">inspect</span> <span class="n">name</span><span class="p">:</span><span class="s2">"my_grid_species_browser"</span> <span class="n">value</span><span class="p">:</span><span class="m">5</span> <span class="n">among</span> <span class="n">my_grid_species</span> <span class="n">type</span><span class="p">:</span><span class="n">table</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Another statement, <code>browse</code>, is doing a similar thing, but preferring the <em>table</em> type (if you want to browse an agent species, the default type will be the <em>table</em> type).</p>
+</code></pre></div></div>
+
+<p>Another statement, <code class="highlighter-rouge">browse</code>, is doing a similar thing, but preferring the <em>table</em> type (if you want to browse an agent species, the default type will be the <em>table</em> type).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|statement_inspector)">//</a>: # (endConcept</td>
+      <td>monitors_and_inspectors)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

@@ -3615,114 +3615,116 @@ function closeRightMenu() {
 
 <p>A model which shows how to use spatial operators like rotated_by, scaled_by and convex_hull</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">example_spatial_operators</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">example_spatial_operators</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">shapefiles</span>
-    <span class="n">file</span> <span class="n">shape_file_name_init</span>  <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../gis/init.shp'</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">file</span> <span class="n">shape_file_name_background</span>  <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../gis/background.shp'</span><span class="p">);</span>
+	<span class="p">//</span> <span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">shapefiles</span>
+	<span class="n">file</span> <span class="n">shape_file_name_init</span>  <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../gis/init.shp'</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">shape_file_name_background</span>  <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../gis/background.shp'</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">agents</span>		
+	<span class="n">float</span> <span class="n">dying_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="p">&lt;-</span><span class="m">10000.0</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">crossover_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="p">&lt;-</span> <span class="m">1000.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">minimum_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span> <span class="p">&lt;-</span> <span class="m">500.0</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">time_wthout_co</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">7</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span>  <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">crossover_rate</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span>  <span class="p">&lt;-</span> <span class="m">0.95</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">scaling_factor</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.001</span> <span class="p">&lt;-</span> <span class="m">1.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">angle_rotation_max</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="p">&lt;-</span> <span class="m">45.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_partners_max</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span>  <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">max_side_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">background_size_side</span> <span class="k">min</span><span class="p">:</span> <span class="m">20</span> <span class="k">max</span><span class="p">:</span> <span class="m">100</span> <span class="p">&lt;-</span> <span class="m">80</span> <span class="p">;</span>
+	
+	<span class="p">//</span> <span class="n">Environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_name_background</span><span class="p">);</span>
+	
 
-    <span class="p">//</span><span class="k">Parameters</span> <span class="n">for</span> <span class="n">the</span> <span class="n">agents</span>     
-    <span class="n">float</span> <span class="n">dying_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="p">&lt;-</span><span class="m">10000.0</span> <span class="p">;</span> 
-    <span class="n">float</span> <span class="n">crossover_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="p">&lt;-</span> <span class="m">1000.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">minimum_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span> <span class="p">&lt;-</span> <span class="m">500.0</span><span class="p">;</span> 
-    <span class="n">int</span> <span class="n">time_wthout_co</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">7</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span>  <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">crossover_rate</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span>  <span class="p">&lt;-</span> <span class="m">0.95</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">scaling_factor</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.001</span> <span class="p">&lt;-</span> <span class="m">1.05</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">angle_rotation_max</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="p">&lt;-</span> <span class="m">45.0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_partners_max</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span>  <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">max_side_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>  
-    <span class="n">int</span> <span class="n">background_size_side</span> <span class="k">min</span><span class="p">:</span> <span class="m">20</span> <span class="k">max</span><span class="p">:</span> <span class="m">100</span> <span class="p">&lt;-</span> <span class="m">80</span> <span class="p">;</span>
-
-    <span class="p">//</span> <span class="n">Environment</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_name_background</span><span class="p">);</span>
-
-
-    <span class="n">reflex</span> <span class="nf">stop</span> <span class="n">when</span><span class="p">:</span> <span class="n">empty</span> <span class="p">(</span> <span class="n">object</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
-    <span class="p">}</span> 
+	<span class="n">reflex</span> <span class="nf">stop</span> <span class="n">when</span><span class="p">:</span> <span class="n">empty</span> <span class="p">(</span> <span class="n">object</span> <span class="p">)</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
+  	<span class="p">}</span> 
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">object</span> <span class="n">topology</span><span class="p">:</span> <span class="n">topology</span><span class="p">(</span><span class="n">shape_file_name_init</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span> <span class="p">[</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">]);</span>
-    <span class="n">point</span> <span class="n">location_new_Ag</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color_new_Ag</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="n">making</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">growing</span> <span class="k">and</span> <span class="n">rotate</span> <span class="n">it</span> <span class="n">randomly</span>
-    <span class="n">reflex</span> <span class="n">evolve</span> <span class="p">{</span>
-        <span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="n">nb_last_rep</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="n">scaled_by</span> <span class="n">scaling_factor</span><span class="p">;</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="n">rotated_by</span> <span class="p">((</span><span class="n">rnd</span> <span class="p">(</span> <span class="m">100</span> <span class="p">*</span> <span class="n">angle_rotation_max</span><span class="p">))/</span> <span class="m">100.0</span><span class="p">);</span>       
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span><span class="p">,</span> <span class="n">kill</span> <span class="n">it</span> <span class="k">if</span> <span class="n">is</span> <span class="n">area</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="n">the</span> <span class="n">dying</span> <span class="n">size</span> <span class="k">or</span> <span class="n">intersecting</span> <span class="n">contours</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span>
-    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">+</span> <span class="p">{</span> <span class="n">speed</span> <span class="p">*</span> <span class="p">(</span> <span class="m">1</span> <span class="p">-</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">,</span> <span class="n">speed</span> <span class="p">*</span> <span class="p">(</span> <span class="m">1</span> <span class="p">-</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">};</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">&gt;</span> <span class="n">dying_size</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">shape</span> <span class="n">intersects</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">contour</span><span class="p">))</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">die</span><span class="p">;</span> 
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">intersects</span> <span class="n">an</span> <span class="n">other</span> <span class="n">agent</span> <span class="k">and</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">convex</span> <span class="n">hull</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">agent</span> <span class="n">resulting</span> <span class="k">in</span> <span class="n">the</span> <span class="n">intersection</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">and</span> <span class="n">an</span> <span class="n">other</span> <span class="n">one</span>
-    <span class="n">reflex</span> <span class="n">crossover</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span> <span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">&gt;</span> <span class="n">crossover_size</span> <span class="p">)</span> <span class="k">and</span> <span class="p">(</span> <span class="n">nb_last_rep</span> <span class="p">&gt;</span> <span class="n">time_wthout_co</span> <span class="p">)</span> <span class="p">{</span> 
-        <span class="n">int</span> <span class="n">nb_partners</span>  <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">object</span><span class="p">&gt;</span> <span class="n">list_people</span> <span class="p">&lt;-</span> <span class="n">shuffle</span> <span class="p">(</span> <span class="n">object</span> <span class="p">);</span>
-        <span class="n">loop</span> <span class="n">p</span> <span class="n">over</span><span class="p">:</span> <span class="n">list_people</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">p</span> <span class="c1">!= self ) and ( nb_partners &lt;= nb_partners_max ) and (rnd ( 100 ) &lt; ( crossover_rate * 100 ) ) and ( (p.shape).area &gt; crossover_size ) and ( p . nb_last_rep &gt; time_wthout_co ) and (shape intersects p.shape) {
-</span>                <span class="n">nb_partners</span> <span class="p">&lt;-</span> <span class="n">nb_partners</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-                <span class="n">geometry</span> <span class="n">new_ag</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shape</span> <span class="k">inter</span> <span class="n">p</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span> <span class="n">new_ag</span> <span class="c1">!= nil ) and ( new_ag.area &gt; minimum_size ) {
-</span>                    <span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-                    <span class="n">ask</span> <span class="n">p</span> <span class="p">{</span>
-                        <span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-                    <span class="p">}</span>
-                    <span class="nb">create</span> <span class="n">object</span>  <span class="p">{</span>
-                        <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">color</span> <span class="p">+</span> <span class="n">p</span><span class="p">.</span><span class="n">color</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
-                        <span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">convex_hull</span><span class="p">(</span><span class="n">new_ag</span><span class="p">);</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>   
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">geometry</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span> <span class="p">[</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">,</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">255</span> <span class="p">)</span> <span class="p">]);</span>
+	<span class="n">point</span> <span class="n">location_new_Ag</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color_new_Ag</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+		
+	<span class="p">//</span><span class="n">Reflex</span> <span class="n">making</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">growing</span> <span class="k">and</span> <span class="n">rotate</span> <span class="n">it</span> <span class="n">randomly</span>
+	<span class="n">reflex</span> <span class="n">evolve</span> <span class="p">{</span>
+		<span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="n">nb_last_rep</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="n">scaled_by</span> <span class="n">scaling_factor</span><span class="p">;</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">shape</span> <span class="n">rotated_by</span> <span class="p">((</span><span class="n">rnd</span> <span class="p">(</span> <span class="m">100</span> <span class="p">*</span> <span class="n">angle_rotation_max</span><span class="p">))/</span> <span class="m">100.0</span><span class="p">);</span>		
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span><span class="p">,</span> <span class="n">kill</span> <span class="n">it</span> <span class="k">if</span> <span class="n">is</span> <span class="n">area</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="n">the</span> <span class="n">dying</span> <span class="n">size</span> <span class="k">or</span> <span class="n">intersecting</span> <span class="n">contours</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">+</span> <span class="p">{</span> <span class="n">speed</span> <span class="p">*</span> <span class="p">(</span> <span class="m">1</span> <span class="p">-</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">,</span> <span class="n">speed</span> <span class="p">*</span> <span class="p">(</span> <span class="m">1</span> <span class="p">-</span> <span class="n">rnd</span> <span class="p">(</span> <span class="m">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">};</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">&gt;</span> <span class="n">dying_size</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">shape</span> <span class="n">intersects</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">contour</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span> 
+		<span class="p">}</span>
+			
+	<span class="p">}</span>
+	
+	
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">intersects</span> <span class="n">an</span> <span class="n">other</span> <span class="n">agent</span> <span class="k">and</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">convex</span> <span class="n">hull</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">agent</span> <span class="n">resulting</span> <span class="k">in</span> <span class="n">the</span> <span class="n">intersection</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">and</span> <span class="n">an</span> <span class="n">other</span> <span class="n">one</span>
+	<span class="n">reflex</span> <span class="n">crossover</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span> <span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">&gt;</span> <span class="n">crossover_size</span> <span class="p">)</span> <span class="k">and</span> <span class="p">(</span> <span class="n">nb_last_rep</span> <span class="p">&gt;</span> <span class="n">time_wthout_co</span> <span class="p">)</span> <span class="p">{</span> 
+		<span class="n">int</span> <span class="n">nb_partners</span>  <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">object</span><span class="p">&gt;</span> <span class="n">list_people</span> <span class="p">&lt;-</span> <span class="n">shuffle</span> <span class="p">(</span> <span class="n">object</span> <span class="p">);</span>
+		<span class="n">loop</span> <span class="n">p</span> <span class="n">over</span><span class="p">:</span> <span class="n">list_people</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span> <span class="n">p</span> <span class="c1">!= self ) and ( nb_partners &lt;= nb_partners_max ) and (rnd ( 100 ) &lt; ( crossover_rate * 100 ) ) and ( (p.shape).area &gt; crossover_size ) and ( p . nb_last_rep &gt; time_wthout_co ) and (shape intersects p.shape) {
+</span>				<span class="n">nb_partners</span> <span class="p">&lt;-</span> <span class="n">nb_partners</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+				<span class="n">geometry</span> <span class="n">new_ag</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shape</span> <span class="k">inter</span> <span class="n">p</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
+				<span class="k">if</span> <span class="p">(</span> <span class="n">new_ag</span> <span class="c1">!= nil ) and ( new_ag.area &gt; minimum_size ) {
+</span>					<span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+					<span class="n">ask</span> <span class="n">p</span> <span class="p">{</span>
+						<span class="n">nb_last_rep</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+					<span class="p">}</span>
+					<span class="nb">create</span> <span class="n">object</span>  <span class="p">{</span>
+						<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">color</span> <span class="p">+</span> <span class="n">p</span><span class="p">.</span><span class="n">color</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+						<span class="n">shape</span> <span class="p">&lt;-</span>  <span class="n">convex_hull</span><span class="p">(</span><span class="n">new_ag</span><span class="p">);</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">geometry</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
 
 <span class="n">experiment</span> <span class="n">example_spatial_operators</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s1">'Path of shapefile to load for the initial agent:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_name_init</span>  <span class="n">category</span><span class="p">:</span> <span class="s1">'GIS specific'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Path of shapefile to load for the background:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_name_background</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'GIS specific'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Size (area) from which an agent dies:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">dying_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
-    <span class="n">parameter</span> <span class="s1">'Min size (area) for crossover:'</span> <span class="n">var</span><span class="p">:</span><span class="n">crossover_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Minimum size (area) of a agent produced by a crossover:'</span> <span class="n">var</span><span class="p">:</span><span class="n">minimum_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Number of steps without crossing-over for an agent:'</span> <span class="n">var</span><span class="p">:</span><span class="n">time_wthout_co</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Agent deplacement speed:'</span> <span class="n">var</span><span class="p">:</span><span class="n">speed</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span> 
-    <span class="n">parameter</span> <span class="s1">'Rate of crossover'</span> <span class="n">var</span><span class="p">:</span><span class="n">crossover_rate</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
-    <span class="n">parameter</span> <span class="s1">'Scaling factor for agent geometry (at each step):'</span> <span class="n">var</span><span class="p">:</span><span class="n">scaling_factor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Max rotation angle for agent geometry (at each step):'</span> <span class="n">var</span><span class="p">:</span><span class="n">angle_rotation_max</span> <span class="n">category</span><span class="p">:</span><span class="s1">'Population'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Max number of possible partners for crossing-overs (per step)'</span> <span class="n">var</span><span class="p">:</span><span class="n">nb_partners_max</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Size max of the initiale side of an agent:'</span> <span class="n">var</span><span class="p">:</span><span class="n">max_side_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
-    <span class="n">parameter</span> <span class="s1">'Size background side:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">background_size_side</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Path of shapefile to load for the initial agent:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_name_init</span>  <span class="n">category</span><span class="p">:</span> <span class="s1">'GIS specific'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Path of shapefile to load for the background:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_name_background</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'GIS specific'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Size (area) from which an agent dies:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">dying_size</span> <span class="k">min</span><span class="p">:</span> <span class="m">100.0</span>  <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Min size (area) for crossover:'</span> <span class="n">var</span><span class="p">:</span><span class="n">crossover_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Minimum size (area) of a agent produced by a crossover:'</span> <span class="n">var</span><span class="p">:</span><span class="n">minimum_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Number of steps without crossing-over for an agent:'</span> <span class="n">var</span><span class="p">:</span><span class="n">time_wthout_co</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Agent deplacement speed:'</span> <span class="n">var</span><span class="p">:</span><span class="n">speed</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Rate of crossover'</span> <span class="n">var</span><span class="p">:</span><span class="n">crossover_rate</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Scaling factor for agent geometry (at each step):'</span> <span class="n">var</span><span class="p">:</span><span class="n">scaling_factor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Max rotation angle for agent geometry (at each step):'</span> <span class="n">var</span><span class="p">:</span><span class="n">angle_rotation_max</span> <span class="n">category</span><span class="p">:</span><span class="s1">'Population'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Max number of possible partners for crossing-overs (per step)'</span> <span class="n">var</span><span class="p">:</span><span class="n">nb_partners_max</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Size max of the initiale side of an agent:'</span> <span class="n">var</span><span class="p">:</span><span class="n">max_side_size</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span><span class="p">;</span> 
+	<span class="n">parameter</span> <span class="s1">'Size background side:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">background_size_side</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Population'</span> <span class="p">;</span>
 
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">space_display</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"background"</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">([</span> <span class="m">255</span> <span class="p">,</span> <span class="m">240</span> <span class="p">,</span> <span class="m">240</span> <span class="p">]);</span>
-            <span class="p">}</span>
-            <span class="n">species</span> <span class="n">object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometry</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">space_display</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"background"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">world</span><span class="p">.</span><span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span> <span class="p">([</span> <span class="m">255</span> <span class="p">,</span> <span class="m">240</span> <span class="p">,</span> <span class="m">240</span> <span class="p">]);</span>
+			<span class="p">}</span>
+			<span class="n">species</span> <span class="n">object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geometry</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

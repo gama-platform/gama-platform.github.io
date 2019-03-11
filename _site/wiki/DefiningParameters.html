@@ -3616,66 +3616,85 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#defining-parameters">Defining parameters</a></li>
-<li><a href="#additional-facets">Additional facets</a></li>
+  <li><a href="#defining-parameters">Defining parameters</a></li>
+  <li><a href="#additional-facets">Additional facets</a></li>
 </ul>
 
-<h2 id="defining-parameters">Defining parameters</h2>
+<h2 id="defining-parameters-1">Defining parameters</h2>
 
-<p>You can define parameters inside the global scope, when defining your global variables with the facet <code>parameter</code>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<p>You can define parameters inside the global scope, when defining your global variables with the facet <code class="highlighter-rouge">parameter</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    int my_integer_global_value &lt;- 5 parameter: "My integer global value";
+	int my_integer_global_value &lt;- 5 parameter: "My integer global value";
 }
-</code></pre></div>
-<p>When launching your experiment, the parameter will appear in your &quot;Parameters&quot; panel, with the name you chose for the <code>parameter</code> facet.</p>
+</code></pre></div></div>
 
-<p><img src="resources/images/definingGUIExperiment/parameter1.png" alt="images/parameter1.png"></p>
+<p>When launching your experiment, the parameter will appear in your “Parameters” panel, with the name you chose for the <code class="highlighter-rouge">parameter</code> facet.</p>
 
-<p>You can also define your parameter inside the experiment, using the statement parameter. You have to specify first the name of your parameter, then the name of the global variable through the facet <code>var</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<p><img src="resources/images/definingGUIExperiment/parameter1.png" alt="images/parameter1.png" /></p>
+
+<p>You can also define your parameter inside the experiment, using the statement parameter. You have to specify first the name of your parameter, then the name of the global variable through the facet <code class="highlighter-rouge">var</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    int my_integer_global_value &lt;- 5;
+	int my_integer_global_value &lt;- 5;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>experiment MyExperiment type: gui {
-    parameter &quot;My integer global value&quot; var:my_integer_global_value;
+	parameter “My integer global value” var:my_integer_global_value;
 }</p>
 
-<p>NB: This variable has to be initialized with a value. If you don&#39;t want to initialize your value on the <code>global</code> scope, you can initialize the value directly on the parameter statement, using the facet <code>init</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<p>NB: This variable has to be initialized with a value. If you don’t want to initialize your value on the <code class="highlighter-rouge">global</code> scope, you can initialize the value directly on the parameter statement, using the facet <code class="highlighter-rouge">init</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    int my_integer_global_value;
+	int my_integer_global_value;
 }
 
 experiment MyExperiment type: gui {
-    parameter "My integer global value" var:my_integer_global_value init:5;
+	parameter "My integer global value" var:my_integer_global_value init:5;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="additional-facets">Additional facets</h2>
 
-<p>You can use some facets to arrange your parameters. For example, you can categorize your parameters under a label, using the facet <code>category</code>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
-{
-    int attr_1 &lt;- 5 parameter:"attr 1" category:"category 1";
-    int attr_2 &lt;- 5 parameter:"attr 2" category:"category 1";
-    int attr_3 &lt;- 5 parameter:"attr 3" category:"category 2";
-}
-</code></pre></div>
-<p><img src="resources/images/definingGUIExperiment/parameter2.png" alt="images/parameter2.png"></p>
+<p>You can use some facets to arrange your parameters. For example, you can categorize your parameters under a label, using the facet <code class="highlighter-rouge">category</code>:</p>
 
-<p>You also can add some facets such as <code>min</code>, <code>max</code> or <code>among</code> to improve the declaration of the parameter.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    string fruit &lt;- "none" among:["none","apple","banana"] parameter:"fruit" category:"food";
-    string vegetable &lt;- "none" among:["none","cabbage","carrot"] parameter:"vegetable" category:"food";
-    int integer_variable &lt;- 5 parameter:"integer variable" min:0 max:100  category:"other";
+	int attr_1 &lt;- 5 parameter:"attr 1" category:"category 1";
+	int attr_2 &lt;- 5 parameter:"attr 2" category:"category 1";
+	int attr_3 &lt;- 5 parameter:"attr 3" category:"category 2";
+}
+</code></pre></div></div>
+
+<p><img src="resources/images/definingGUIExperiment/parameter2.png" alt="images/parameter2.png" /></p>
+
+<p>You also can add some facets such as <code class="highlighter-rouge">min</code>, <code class="highlighter-rouge">max</code> or <code class="highlighter-rouge">among</code> to improve the declaration of the parameter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
+{
+	string fruit &lt;- "none" among:["none","apple","banana"] parameter:"fruit" category:"food";
+	string vegetable &lt;- "none" among:["none","cabbage","carrot"] parameter:"vegetable" category:"food";
+	int integer_variable &lt;- 5 parameter:"integer variable" min:0 max:100  category:"other";
 }
 
 experiment MyExperiment type: gui {
 }
-</code></pre></div>
-<p><img src="resources/images/definingGUIExperiment/parameter3.png" alt="images/parameter3.png"></p>
+</code></pre></div></div>
+
+<p><img src="resources/images/definingGUIExperiment/parameter3.png" alt="images/parameter3.png" /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_gui)">//</a>: # (endConcept</td>
+      <td>define_parameters)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

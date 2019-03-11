@@ -3615,113 +3615,115 @@ function closeRightMenu() {
 
 <p>A model using a cellular automata to represent the Game of Life, the most famous example of cellular automata. Each cell will see if the number of living neighbors meets the condition to emerge or to live.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">life</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">life</span>
 
 <span class="p">//</span><span class="n">Declare</span> <span class="n">the</span> <span class="n">world</span> <span class="k">as</span> <span class="n">a</span> <span class="n">torus</span> <span class="k">or</span> <span class="k">not</span> <span class="n">torus</span> <span class="n">environment</span>
 <span class="n">global</span> <span class="n">torus</span><span class="p">:</span> <span class="n">torus_environment</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-    <span class="n">int</span> <span class="n">environment_width</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">environment_height</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">environment_width</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">environment_height</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="k">min</span><span class="p">:</span> <span class="m">10</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">Declare</span> <span class="k">as</span> <span class="n">torus</span> <span class="k">or</span> <span class="k">not</span>
+	<span class="n">bool</span> <span class="n">torus_environment</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Density</span> 
+	<span class="n">int</span> <span class="n">density</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">99</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">live</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">living_conditions</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">];</span>
+	<span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">birth</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">birth_conditions</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">3</span><span class="p">];</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">living</span> <span class="n">cells</span>
+	<span class="n">rgb</span> <span class="n">livingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">white</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">dying</span> <span class="n">cells</span>
+	<span class="n">rgb</span> <span class="n">dyingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">emerging</span> <span class="n">cells</span>
+	<span class="n">rgb</span> <span class="n">emergingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">orange</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">dead</span> <span class="n">cells</span>
+	<span class="n">rgb</span> <span class="n">deadcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">environment_height</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="n">by</span> <span class="n">writing</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="k">in</span> <span class="n">the</span> <span class="n">console</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">description</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">Ask</span> <span class="n">at</span> <span class="n">each</span> <span class="n">life_cell</span> <span class="k">to</span> <span class="n">evolve</span> <span class="k">and</span> <span class="n">update</span>
+	<span class="n">reflex</span> <span class="n">generation</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">life_cell</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">evolve</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">//</span><span class="n">Declare</span> <span class="k">as</span> <span class="n">torus</span> <span class="k">or</span> <span class="k">not</span>
-    <span class="n">bool</span> <span class="n">torus_environment</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Density</span> 
-    <span class="n">int</span> <span class="n">density</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">99</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">live</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">living_conditions</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">];</span>
-    <span class="p">//</span><span class="n">Conditions</span> <span class="k">to</span> <span class="n">birth</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">birth_conditions</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="m">3</span><span class="p">];</span>
-    <span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">living</span> <span class="n">cells</span>
-    <span class="n">rgb</span> <span class="n">livingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">white</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">dying</span> <span class="n">cells</span>
-    <span class="n">rgb</span> <span class="n">dyingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">emerging</span> <span class="n">cells</span>
-    <span class="n">rgb</span> <span class="n">emergingcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">orange</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Color</span> <span class="n">for</span> <span class="n">dead</span> <span class="n">cells</span>
-    <span class="n">rgb</span> <span class="n">deadcolor</span> <span class="p">&lt;-</span> <span class="err">°</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">environment_height</span><span class="p">);</span>
+		<span class="n">ask</span> <span class="n">life_cell</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">update</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="n">by</span> <span class="n">writing</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="k">in</span> <span class="n">the</span> <span class="n">console</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">description</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Ask</span> <span class="n">at</span> <span class="n">each</span> <span class="n">life_cell</span> <span class="k">to</span> <span class="n">evolve</span> <span class="k">and</span> <span class="n">update</span>
-    <span class="n">reflex</span> <span class="n">generation</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">life_cell</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">evolve</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">ask</span> <span class="n">life_cell</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">update</span><span class="p">;</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Write</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="k">in</span> <span class="n">the</span> <span class="n">console</span>
-    <span class="n">action</span> <span class="n">description</span> <span class="p">{</span>
-        <span class="nb">write</span>
-        <span class="s1">'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur: \\n\\t 1.Any live cell with fewer than two live neighbors dies, as if caused by underpopulation. \\n\\t 2.Any live cell with more than three live neighbors dies, as if by overcrowding. \\n\\t 3.Any live cell with two or three live neighbors lives on to the next generation. \\n\\t 4.Any dead cell with exactly three live neighbors becomes a live cell. The initial pattern constitutes the seed of the system. The first(generation) is created by applying the above rules simultaneously to every cell in the seed�births and deaths happen simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the one before). The rules continue to be applied repeatedly to create further generations.'</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Write</span> <span class="n">the</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="k">in</span> <span class="n">the</span> <span class="n">console</span>
+	<span class="n">action</span> <span class="n">description</span> <span class="p">{</span>
+		<span class="nb">write</span>
+		<span class="s1">'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur: \\n\\t 1.Any live cell with fewer than two live neighbors dies, as if caused by underpopulation. \\n\\t 2.Any live cell with more than three live neighbors dies, as if by overcrowding. \\n\\t 3.Any live cell with two or three live neighbors lives on to the next generation. \\n\\t 4.Any dead cell with exactly three live neighbors becomes a live cell. The initial pattern constitutes the seed of the system. The first(generation) is created by applying the above rules simultaneously to every cell in the seed�births and deaths happen simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the one before). The rules continue to be applied repeatedly to create further generations.'</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Grid</span> <span class="n">species</span> <span class="n">representing</span> <span class="n">a</span> <span class="n">cellular</span> <span class="n">automata</span>
 <span class="n">grid</span> <span class="n">life_cell</span> <span class="n">width</span><span class="p">:</span> <span class="n">environment_width</span> <span class="n">height</span><span class="p">:</span> <span class="n">environment_height</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">8</span>  <span class="n">use_individual_shapes</span><span class="p">:</span> <span class="nb">false</span> <span class="n">use_regular_agents</span><span class="p">:</span> <span class="nb">false</span> <span class="n">frequency</span><span class="p">:</span> <span class="m">0</span>
 <span class="n">use_neighbors_cache</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
-    <span class="p">//</span><span class="k">Boolean</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">new</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
-    <span class="n">bool</span> <span class="n">new_state</span><span class="p">;</span>
-    <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbors</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">life_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
-    <span class="p">//</span><span class="k">Boolean</span>  <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="n">living</span> <span class="k">or</span> <span class="n">dead</span> <span class="n">cell</span>
-    <span class="n">bool</span> <span class="n">alive</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">))</span> <span class="p">&lt;</span> <span class="n">density</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">Boolean</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">new</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">bool</span> <span class="n">new_state</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbors</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">life_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">1</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">Boolean</span>  <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="n">living</span> <span class="k">or</span> <span class="n">dead</span> <span class="n">cell</span>
+	<span class="n">bool</span> <span class="n">alive</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">))</span> <span class="p">&lt;</span> <span class="n">density</span><span class="p">;</span>
+	
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">alive</span> <span class="p">?</span> <span class="n">livingcolor</span> <span class="p">:</span> <span class="n">deadcolor</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">evolve</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">neighbors</span>
+	<span class="n">action</span> <span class="n">evolve</span> <span class="p">{</span>
+		<span class="p">//</span><span class="k">Count</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">neighbors</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span>
+		<span class="n">int</span> <span class="n">living</span> <span class="p">&lt;-</span> <span class="n">neighbors</span> <span class="k">count</span> <span class="n">each</span><span class="p">.</span><span class="n">alive</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">alive</span> <span class="p">{</span>
+			<span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">respect</span> <span class="n">the</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">still</span> <span class="n">alive</span>
+			<span class="n">new_state</span> <span class="p">&lt;-</span> <span class="n">living</span> <span class="k">in</span> <span class="n">living_conditions</span><span class="p">;</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">new_state</span> <span class="p">?</span> <span class="n">livingcolor</span> <span class="p">:</span> <span class="n">dyingcolor</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">meets</span> <span class="n">the</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">go</span> <span class="k">to</span> <span class="n">born</span>
+			<span class="n">new_state</span> <span class="p">&lt;-</span> <span class="n">living</span> <span class="k">in</span> <span class="n">birth_conditions</span><span class="p">;</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">new_state</span> <span class="p">?</span> <span class="n">emergingcolor</span> <span class="p">:</span> <span class="n">deadcolor</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">alive</span> <span class="p">?</span> <span class="n">livingcolor</span> <span class="p">:</span> <span class="n">deadcolor</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">evolve</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">neighbors</span>
-    <span class="n">action</span> <span class="n">evolve</span> <span class="p">{</span>
-        <span class="p">//</span><span class="k">Count</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">neighbors</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cells</span>
-        <span class="n">int</span> <span class="n">living</span> <span class="p">&lt;-</span> <span class="n">neighbors</span> <span class="k">count</span> <span class="n">each</span><span class="p">.</span><span class="n">alive</span><span class="p">;</span>
-        <span class="k">if</span> <span class="n">alive</span> <span class="p">{</span>
-            <span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">respect</span> <span class="n">the</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">still</span> <span class="n">alive</span>
-            <span class="n">new_state</span> <span class="p">&lt;-</span> <span class="n">living</span> <span class="k">in</span> <span class="n">living_conditions</span><span class="p">;</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">new_state</span> <span class="p">?</span> <span class="n">livingcolor</span> <span class="p">:</span> <span class="n">dyingcolor</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">living</span> <span class="n">meets</span> <span class="n">the</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">go</span> <span class="k">to</span> <span class="n">born</span>
-            <span class="n">new_state</span> <span class="p">&lt;-</span> <span class="n">living</span> <span class="k">in</span> <span class="n">birth_conditions</span><span class="p">;</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">new_state</span> <span class="p">?</span> <span class="n">emergingcolor</span> <span class="p">:</span> <span class="n">deadcolor</span><span class="p">;</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">new</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
-    <span class="n">action</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">alive</span> <span class="p">&lt;-</span> <span class="n">new_state</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Action</span> <span class="k">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">new</span> <span class="n">state</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">action</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">alive</span> <span class="p">&lt;-</span> <span class="n">new_state</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="s2">"Game of Life"</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s1">'Width:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">environment_width</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Height:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">environment_height</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Torus?:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">torus_environment</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Initial density of live cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">density</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Numbers of live neighbors required to stay alive:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">living_conditions</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Numbers of live neighbors required to become alive:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">birth_conditions</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Color of live cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">livingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Color of dying cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">dyingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Color of emerging cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">emergingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Color of dead cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">deadcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">Life</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
-            <span class="n">grid</span> <span class="n">life_cell</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s1">'Width:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">environment_width</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Height:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">environment_height</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Torus?:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">torus_environment</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Board'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Initial density of live cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">density</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Numbers of live neighbors required to stay alive:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">living_conditions</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Numbers of live neighbors required to become alive:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">birth_conditions</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Cells'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Color of live cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">livingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Color of dying cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">dyingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Color of emerging cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">emergingcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Color of dead cells:'</span> <span class="n">var</span><span class="p">:</span> <span class="n">deadcolor</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Colors'</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Life</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span><span class="p">{</span>
+			<span class="n">grid</span> <span class="n">life_cell</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

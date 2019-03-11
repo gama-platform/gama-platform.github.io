@@ -3611,42 +3611,58 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="mirror-species">Mirror species</h1>
 
-<p>A mirror species is a species whose population is automatically managed with respect to another species. Whenever an agent is created or destroyed from the other species, an instance of the mirror species is created or destroyed. Each of these &#39;mirror agents&#39; has access to its reference agent (called its target).
+<p>A mirror species is a species whose population is automatically managed with respect to another species. Whenever an agent is created or destroyed from the other species, an instance of the mirror species is created or destroyed. Each of these ‘mirror agents’ has access to its reference agent (called its target).
 Mirror species can be used in different situations but the one we describe here is more oriented towards visualization purposes.</p>
 
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#declaration">Declaration</a></li>
-<li><a href="#example">Example</a></li>
+  <li><a href="#declaration">Declaration</a></li>
+  <li><a href="#example">Example</a></li>
 </ul>
 
 <h2 id="declaration">Declaration</h2>
 
-<p>A mirror species can be defined using the <code>mirrors</code> keyword as following:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species B mirrors: A{
+<p>A mirror species can be defined using the <code class="highlighter-rouge">mirrors</code> keyword as following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species B mirrors: A{
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>In this case the species B mirrors the species A.</p>
 
-<p>By default the location of the species B will be random but in many cases, once want to place the mirror agent at the same location of the reference species. This can be achieve by simply adding the following lines in the mirror species : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">species B mirrors: A{
+<p>By default the location of the species B will be random but in many cases, once want to place the mirror agent at the same location of the reference species. This can be achieve by simply adding the following lines in the mirror species :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species B mirrors: A{
     point location &lt;- target.location update: target.location;
 }
-</code></pre></div>
-<p><strong><code>target</code></strong> is a built-in attribute of a mirror species. It refers to the instance of the species tracked.</p>
+</code></pre></div></div>
 
-<p>In the same spirit any attribute of a reference species can be reach using the same syntax. For instance if the species A has an attribute called <code>attribute1</code> of type <code>int</code> is is possible to get this attribute from the mirror species B using the following syntax: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">int value &lt;- target.attribute1;
-</code></pre></div>
+<p><strong><code class="highlighter-rouge">target</code></strong> is a built-in attribute of a mirror species. It refers to the instance of the species tracked.</p>
+
+<p>In the same spirit any attribute of a reference species can be reach using the same syntax. For instance if the species A has an attribute called <code class="highlighter-rouge">attribute1</code> of type <code class="highlighter-rouge">int</code> is is possible to get this attribute from the mirror species B using the following syntax:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int value &lt;- target.attribute1;
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_mirror)">//</a>: # (endConcept</td>
+      <td>mirror_species)</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="example">Example</h2>
 
 <p>To practice a bit with the mirror notion, we will now build a simple model displaying a species A (aspect: white circle) moving randomly, and another species B (aspect: blue sphere) with the species A location on x and y, with an upper value for the z axis.</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/mirror_model.png" alt="images/mirror_model.png"></p>
+<p><img src="resources/images/definingAdvancedSpecies/mirror_model.png" alt="images/mirror_model.png" /></p>
 
 <p>Here is an example of implementation for this model:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">Mirror</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Mirror</span>
 
 <span class="n">global</span> <span class="p">{</span>
   <span class="n">init</span><span class="p">{</span>
@@ -3677,7 +3693,8 @@ Mirror species can be used in different situations but the one we describe here 
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

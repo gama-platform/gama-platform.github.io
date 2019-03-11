@@ -3611,169 +3611,204 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="regular-species">Regular species</h1>
 
-<p>Regular species are composed of attributes, actions, reflex, aspect etc... They describes the behavior of our agents. You can instantiate as much as you want agents from a regular species, and you can define as much as you want different regular species. You can see a species as a &quot;class&quot; in OOP.</p>
+<p>Regular species are composed of attributes, actions, reflex, aspect etc… They describes the behavior of our agents. You can instantiate as much as you want agents from a regular species, and you can define as much as you want different regular species. You can see a species as a “class” in OOP.</p>
 
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#declaration">Declaration</a></li>
-<li><a href="#built-in-attributes">Built-in Attributes</a></li>
-<li><a href="#built-in-actions">Built-in Actions</a></li>
-<li><a href="#the-init-statement">The init statement</a></li>
-<li><a href="#the-aspect-statement">The aspect statement</a></li>
-<li><a href="#instantiate-an-agent">Instantiate an agent</a></li>
+  <li><a href="#declaration">Declaration</a></li>
+  <li><a href="#built-in-attributes">Built-in Attributes</a></li>
+  <li><a href="#built-in-actions">Built-in Actions</a></li>
+  <li><a href="#the-init-statement">The init statement</a></li>
+  <li><a href="#the-aspect-statement">The aspect statement</a></li>
+  <li><a href="#instantiate-an-agent">Instantiate an agent</a></li>
 </ul>
 
 <h2 id="declaration">Declaration</h2>
 
-<p>The regular species declaration starts with the keyword <code>species</code> followed by the name (or followed by the facet <code>name:</code>) :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_specie {
+<p>The regular species declaration starts with the keyword <code class="highlighter-rouge">species</code> followed by the name (or followed by the facet <code class="highlighter-rouge">name:</code>) :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_specie {
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>or:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species name:my_specie {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species name:my_specie {
 }
-</code></pre></div>
-<p>Directly in the &quot;species&quot; scope, you have to declare all your attributes (or &quot;member&quot; in OOP). You declare them exactly the way you declare basic variables. Those attributes are accessible wherever you want inside the species scope.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_specie {
-    int variableA;
+</code></pre></div></div>
+
+<p>Directly in the “species” scope, you have to declare all your attributes (or “member” in OOP). You declare them exactly the way you declare basic variables. Those attributes are accessible wherever you want inside the species scope.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_specie {
+	int variableA;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="built-in-attributes">Built-in attributes</h2>
 
 <p>As for the global species, some attributes exist already by default in a regular species. Here is the list of built-in attributes:</p>
 
 <ul>
-<li><strong>name</strong> (type: string) is used to name your agent. By default, the name is equal to the name of your species + an incremental number. This name is the one visible on the species inspector.</li>
-<li><strong>location</strong> (type: point) is used to control the position of your agent. It refers to the center of the envelop of the shape associated to the agent.</li>
-<li><strong>shape</strong> (type: geometry) is used to describe the geometry of your agent. If you want to use some intersection operator between agents for instance, it is this geometry that is computed (nb : it can be totally different from the aspect you want to display for your agent !). By default, the shape is a point.</li>
-<li><strong>host</strong> (type: agent) is used when your agent is part of another agent. We will see this concept a bit further, in the topic <a href="MultiLevelArchitecture">multi-level architecture</a>.</li>
+  <li><strong>name</strong> (type: string) is used to name your agent. By default, the name is equal to the name of your species + an incremental number. This name is the one visible on the species inspector.</li>
+  <li><strong>location</strong> (type: point) is used to control the position of your agent. It refers to the center of the envelop of the shape associated to the agent.</li>
+  <li><strong>shape</strong> (type: geometry) is used to describe the geometry of your agent. If you want to use some intersection operator between agents for instance, it is this geometry that is computed (nb : it can be totally different from the aspect you want to display for your agent !). By default, the shape is a point.</li>
+  <li><strong>host</strong> (type: agent) is used when your agent is part of another agent. We will see this concept a bit further, in the topic <a href="MultiLevelArchitecture">multi-level architecture</a>.</li>
 </ul>
 
 <p>All those 4 built-in attributes can be accessed in both reading and writing very easily:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_species {
-    init {
-        name &lt;- "custom_name";
-        location &lt;- {0,1};
-        shape &lt;- rectangle(5,1);
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
+	init {
+		name &lt;- "custom_name";
+		location &lt;- {0,1};
+		shape &lt;- rectangle(5,1);
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>All those built-in attributes are attributes of an agent (an instance of a species). Species has also their own attributes, which can be accessed with the following syntax (read only) :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">name_of_your_species.attribute_you_want
-</code></pre></div>
-<p>Notice that the world agent is also an agent ! It has all the built-in attributes declared above. The world agent is defined inside the <code>global</code> scope. From the <code>global</code> scope then, you can for example access to the center of the envelop of the world shape :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name_of_your_species.attribute_you_want
+</code></pre></div></div>
+
+<p>Notice that the world agent is also an agent ! It has all the built-in attributes declared above. The world agent is defined inside the <code class="highlighter-rouge">global</code> scope. From the <code class="highlighter-rouge">global</code> scope then, you can for example access to the center of the envelop of the world shape :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
     init {
-        write location; // writes {50.0,50.0,0.0}
+    	write location; // writes {50.0,50.0,0.0}
     }
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Here is the list of those attributes:</p>
 
 <ul>
-<li><strong>name</strong> (type: string) returns the name of your species</li>
-<li><strong>attributes</strong> (type: list of string) returns the list of the names of the attributes of your species</li>
-<li><strong>population</strong> (type: list) returns the list of agent that belong to it </li>
-<li><strong>subspecies</strong> (type: list of string) returns the list of species that inherit directly from this species (we will talk about the concept of <a href="Inheritance">inheritance</a> later)</li>
-<li><strong>parent</strong> (type: species) returns its parent species if it belongs to the model, or <code>nil</code> otherwise (we will talk about the concept of <a href="Inheritance">inheritance</a> later)</li>
+  <li><strong>name</strong> (type: string) returns the name of your species</li>
+  <li><strong>attributes</strong> (type: list of string) returns the list of the names of the attributes of your species</li>
+  <li><strong>population</strong> (type: list) returns the list of agent that belong to it</li>
+  <li><strong>subspecies</strong> (type: list of string) returns the list of species that inherit directly from this species (we will talk about the concept of <a href="Inheritance">inheritance</a> later)</li>
+  <li><strong>parent</strong> (type: species) returns its parent species if it belongs to the model, or <code class="highlighter-rouge">nil</code> otherwise (we will talk about the concept of <a href="Inheritance">inheritance</a> later)</li>
 </ul>
 
 <h2 id="built-in-action">Built-in action</h2>
 
-<p>Some actions are define by default for a minimal agent. We already saw quickly the action <code>write</code>, used to display a message in the console.
-Another very useful built-in action is the action <code>die</code>, used to destroy an agent.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_species{
+<p>Some actions are define by default for a minimal agent. We already saw quickly the action <code class="highlighter-rouge">write</code>, used to display a message in the console.
+Another very useful built-in action is the action <code class="highlighter-rouge">die</code>, used to destroy an agent.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species{
     reflex being_killed {
         do die;
     }
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Here is the list of the other built-in actions which you can find in the documentation: debug, message, tell.</p>
 
 <h2 id="the-init-statement">The init statement</h2>
 
-<p>After declaring all the attributes of your species, you can define an initial state (before launching the simulation). It can be seen as the &quot;constructor of the class&quot; in OOP.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_species {
-    int variableA;
-    init {
-        variableA &lt;- 5;
-    }
+<p>After declaring all the attributes of your species, you can define an initial state (before launching the simulation). It can be seen as the “constructor of the class” in OOP.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
+	int variableA;
+	init {
+		variableA &lt;- 5;
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="the-aspect-statement">The aspect statement</h2>
 
 <p>Inside each species, you can define one or several aspects. This scope allows you to define how you want your species to be represented in the simulation.
-Each aspect has a special name (so that they can be called from the experiment). Once again, you can name your aspect by using the facet <code>name:</code>, or simply by naming it just after the <code>aspect</code> keyword.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_species {
-    aspect standard_aspect { // or "aspect name:standard_aspect"
-    }
+Each aspect has a special name (so that they can be called from the experiment). Once again, you can name your aspect by using the facet <code class="highlighter-rouge">name:</code>, or simply by naming it just after the <code class="highlighter-rouge">aspect</code> keyword.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species {
+	aspect standard_aspect { // or "aspect name:standard_aspect"
+	}
 }
-</code></pre></div>
-<p>You can then define your aspect by using the statement <code>draw</code>. You can then choose a geometry for your aspect (facet <code>geometry</code>), a color (facet <code>color</code>), an image (facet <code>image</code>), a text (facet <code>text</code>)... We invite you to read the documentation about the draw statement to know more about.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species name:my_species {
-    aspect name:standard_aspect {
-        draw geometry:circle(1) color:#blue;
-    }
+</code></pre></div></div>
+
+<p>You can then define your aspect by using the statement <code class="highlighter-rouge">draw</code>. You can then choose a geometry for your aspect (facet <code class="highlighter-rouge">geometry</code>), a color (facet <code class="highlighter-rouge">color</code>), an image (facet <code class="highlighter-rouge">image</code>), a text (facet <code class="highlighter-rouge">text</code>)… We invite you to read the documentation about the draw statement to know more about.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species name:my_species {
+	aspect name:standard_aspect {
+		draw geometry:circle(1) color:#blue;
+	}
 }
-</code></pre></div>
-<p>In the experiment scope, you have to tell the program to display a particular species with a particular aspect (nb : you can also choose to display your species with several aspect in the same display). </p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type:gui
+</code></pre></div></div>
+
+<p>In the experiment scope, you have to tell the program to display a particular species with a particular aspect (nb : you can also choose to display your species with several aspect in the same display).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type:gui
 {
-    output{
-        display my_display {
-            species my_species aspect:standard_aspect;
-        }
-    }
+	output{
+		display my_display {
+			species my_species aspect:standard_aspect;
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Now there is only one thing missing to display our agent: we have to instantiate them.</p>
 
 <h2 id="instantiate-an-agent">Instantiate an agent</h2>
 
-<p>As already said quickly in the last session, the instantiation of the agents is most often in the init scope of the global species (this is not mandatory of course. You can instantiate your agents from an action / behavior of any specie). Use the statement <code>create</code> to instantiate an agent. 
+<p>As already said quickly in the last session, the instantiation of the agents is most often in the init scope of the global species (this is not mandatory of course. You can instantiate your agents from an action / behavior of any specie). Use the statement <code class="highlighter-rouge">create</code> to instantiate an agent. 
 The facet species is used to specify which species you want to instantiate. 
 The facet number is used to tell how many instantiation you want. 
 The facet with is used to specify some default values for some attributes of your instance. For example, you can specify the location.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global{
-    init{
-        create species:my_species number:1 with:(location:{0,0},vA:8);
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{
+	init{
+		create species:my_species number:1 with:(location:{0,0},vA:8);
+	}
 }
 
 
 species name:my_specie {
-    int vA;
+	int vA;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Here is an example of model that display an agent with a circle aspect in the center of the environment:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">display_one_agent</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">display_one_agent</span>
 
 <span class="n">global</span><span class="p">{</span>
-    <span class="n">float</span> <span class="n">worldDimension</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">#</span><span class="n">m</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">worldDimension</span><span class="p">);</span>
-    <span class="n">init</span><span class="p">{</span>
-        <span class="n">point</span> <span class="n">center</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">worldDimension</span><span class="p">/</span><span class="m">2</span><span class="p">),(</span><span class="n">worldDimension</span><span class="p">/</span><span class="m">2</span><span class="p">)};</span>
-        <span class="nb">create</span> <span class="n">species</span><span class="p">:</span><span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">1</span> <span class="k">with</span><span class="p">:(</span><span class="n">location</span><span class="p">:</span><span class="n">center</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">worldDimension</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">#</span><span class="n">m</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="n">worldDimension</span><span class="p">);</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">point</span> <span class="n">center</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">worldDimension</span><span class="p">/</span><span class="m">2</span><span class="p">),(</span><span class="n">worldDimension</span><span class="p">/</span><span class="m">2</span><span class="p">)};</span>
+		<span class="nb">create</span> <span class="n">species</span><span class="p">:</span><span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">1</span> <span class="k">with</span><span class="p">:(</span><span class="n">location</span><span class="p">:</span><span class="n">center</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">name</span><span class="p">:</span><span class="n">my_species</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">name</span><span class="p">:</span><span class="n">standard_aspect</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">geometry</span><span class="p">:</span><span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">#</span><span class="n">m</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">name</span><span class="p">:</span><span class="n">standard_aspect</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">geometry</span><span class="p">:</span><span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">#</span><span class="n">m</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">my_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span><span class="p">{</span>
-        <span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">standard_aspect</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span><span class="p">{</span>
+		<span class="n">display</span> <span class="n">myDisplay</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">standard_aspect</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|statement_create)">//</a>: # (endConcept</td>
+      <td>regular_species)</td>
+    </tr>
+  </tbody>
+</table>
+
     </div>
     </div>
     </div>

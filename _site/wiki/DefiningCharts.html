@@ -3616,54 +3616,61 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#define-a-chart">Define a chart</a></li>
-<li><a href="#data-definition">Data definition</a></li>
-<li><a href="#different-type-of-charts">Different types of charts</a></li>
+  <li><a href="#define-a-chart">Define a chart</a></li>
+  <li><a href="#data-definition">Data definition</a></li>
+  <li><a href="#different-type-of-charts">Different types of charts</a></li>
 </ul>
 
 <h2 id="define-a-chart">Define a chart</h2>
 
-<p>To define a chart, we have to use the <code>chart</code> statement. A chart has to be named (with the <code>name</code> facet), and the type has to be specified (with the <code>type</code> facet). The value of the <code>type</code> facet can be <code>histogram</code>, <code>pie</code>, <code>series</code>, <code>scatter</code>, <code>xy</code>. A chart has to be defined inside a display.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment my_experiment type: gui {
-    output {
-        display "my_display" {
-            chart "my_chart" type:pie {
-            }
-        }
-    }
+<p>To define a chart, we have to use the <code class="highlighter-rouge">chart</code> statement. A chart has to be named (with the <code class="highlighter-rouge">name</code> facet), and the type has to be specified (with the <code class="highlighter-rouge">type</code> facet). The value of the <code class="highlighter-rouge">type</code> facet can be <code class="highlighter-rouge">histogram</code>, <code class="highlighter-rouge">pie</code>, <code class="highlighter-rouge">series</code>, <code class="highlighter-rouge">scatter</code>, <code class="highlighter-rouge">xy</code>. A chart has to be defined inside a display.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment my_experiment type: gui {
+	output {
+		display "my_display" {
+			chart "my_chart" type:pie {
+			}
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>After declaring your chart, you have to define the data you want to display in your chart.</p>
 
 <h2 id="data-definition">Data definition</h2>
 
-<p>Data can be specified with:
-* several data statements to specify each series
-* one datalist statement to give a list of series. It can be useful if the number of series is unknown, variable or too high.</p>
+<p>Data can be specified with:</p>
+<ul>
+  <li>several data statements to specify each series</li>
+  <li>one datalist statement to give a list of series. It can be useful if the number of series is unknown, variable or too high.</li>
+</ul>
 
-<p>The <code>data</code> statement is used to specify which variable will be displayed. You have to give your data a name (that will be displayed in your chart), the value of the variable you want to follow (using the <code>value</code> facet). You can add come optional facets such as <code>color</code> to specify the color of your data.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<p>The <code class="highlighter-rouge">data</code> statement is used to specify which variable will be displayed. You have to give your data a name (that will be displayed in your chart), the value of the variable you want to follow (using the <code class="highlighter-rouge">value</code> facet). You can add come optional facets such as <code class="highlighter-rouge">color</code> to specify the color of your data.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    int numberA &lt;- 2 update:numberA*2;
-    int numberB &lt;- 10000 update:numberB-1000;
+	int numberA &lt;- 2 update:numberA*2;
+	int numberB &lt;- 10000 update:numberB-1000;
 }
 
 experiment my_experiment type: gui {
-    output {
-        display "my_display" {
-            chart "my_chart" type:pie {
-                data "numberA" value:numberA color:#red;
-                data "numberB" value:numberB color:#blue;
-            }
-        }
-    }
+	output {
+		display "my_display" {
+			chart "my_chart" type:pie {
+				data "numberA" value:numberA color:#red;
+				data "numberB" value:numberB color:#blue;
+			}
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>(TODO_IMAGE)</p>
 
-<p>The <code>datalist</code> statement is used several variables in one statement.  Instead of giving simple values, datalist is used with lists. </p>
-<div class="highlight"><pre><code class="language-" data-lang="">datalist ["numberA","numberB"] value:[numberA,numberB] color:[#red,#blue];
-</code></pre></div>
+<p>The <code class="highlighter-rouge">datalist</code> statement is used several variables in one statement.  Instead of giving simple values, datalist is used with lists.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datalist ["numberA","numberB"] value:[numberA,numberB] color:[#red,#blue];
+</code></pre></div></div>
 <p>[TODO]
 Datalist provides you some additional facets you can use. If you want to learn more about them, please read the documentation [URL]</p>
 
@@ -3674,6 +3681,15 @@ Datalist provides you some additional facets you can use. If you want to learn m
 <p>The histograms:</p>
 
 <p>[TODO]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (startConcept|defining_charts)">//</a>: # (endConcept</td>
+      <td>defining_charts)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

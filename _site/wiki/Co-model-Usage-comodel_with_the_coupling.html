@@ -3613,53 +3613,56 @@ function closeRightMenu() {
 
 <p><em>Author : HUYNH Quang Nghi</em></p>
 
-<p>This is a simple comodel serve to demonstrate the importation and instatiation of micro-model using the couplings  </p>
+<p>This is a simple comodel serve to demonstrate the importation and instatiation of micro-model using the couplings</p>
 
-<p>Imported models : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">M2</span>
+<p>Imported models :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M2</span>
 
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">B</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">B</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">B</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-    <span class="n">reflex</span> <span class="n">dolive</span>
-    <span class="p">{</span>
-        <span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">reflex</span> <span class="n">dolive</span>
+	<span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">M2_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="s2">"m2_disp"</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">B</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"m2_disp"</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">B</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">M2_coupling</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M2_coupling</span>
 <span class="n">import</span> <span class="s2">"m2.gaml"</span>
 
 <span class="n">global</span>
@@ -3668,62 +3671,66 @@ function closeRightMenu() {
 
 <span class="n">experiment</span> <span class="n">M2_coupling_exp</span> <span class="n">parent</span><span class="p">:</span><span class="n">M2_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;</span> <span class="n">getB</span><span class="p">{</span>
-        <span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;</span> <span class="n">getB</span><span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">M1</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M1</span>
 
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">A</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">n</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">A</span> <span class="n">number</span><span class="p">:</span> <span class="n">n</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">A</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-    <span class="n">reflex</span> <span class="n">dolive</span>
-    <span class="p">{</span>
-        <span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">IQ</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">reflex</span> <span class="n">dolive</span>
+	<span class="p">{</span>
+		<span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="s2">"i'm alive !!"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">M1_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="s2">"m1_disp"</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">A</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"m1_disp"</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">A</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">M1_coupling</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">M1_coupling</span>
 <span class="n">import</span> <span class="s2">"m1.gaml"</span>
 
 <span class="n">global</span>
@@ -3732,57 +3739,60 @@ function closeRightMenu() {
 
 <span class="n">experiment</span> <span class="n">M1_coupling_exp</span> <span class="n">parent</span><span class="p">:</span><span class="n">M1_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">getA</span><span class="p">{</span>
-        <span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">getA</span><span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
-</code></pre></div>
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">comodel_with_the_coupling</span>
+</code></pre></div></div>
+
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">comodel_with_the_coupling</span>
 
 <span class="n">import</span> <span class="s2">"m1_coupling.gaml"</span> <span class="k">as</span> <span class="n">micro_model_1</span>
 <span class="n">import</span> <span class="s2">"m2_coupling.gaml"</span> <span class="k">as</span> <span class="n">micro_model_2</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
-    <span class="n">init</span><span class="p">{</span>
-        <span class="p">//</span><span class="n">micro_model</span> <span class="n">must</span> <span class="n">be</span> <span class="n">instantiated</span> <span class="n">by</span> <span class="nb">create</span> <span class="n">statement</span><span class="p">.</span> <span class="n">We</span> <span class="nb">create</span> <span class="n">an</span> <span class="n">experiment</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="k">and</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">will</span> <span class="n">be</span> <span class="n">created</span> <span class="n">implicitly</span> <span class="p">(</span><span class="m">1</span> <span class="n">experiment</span> <span class="n">have</span> <span class="n">only</span> <span class="m">1</span> <span class="n">simulation</span><span class="p">).</span>
-        <span class="nb">create</span> <span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span> <span class="n">number</span><span class="p">:</span><span class="m">5</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">simulate_micro_models</span><span class="p">{</span>
-
-        <span class="p">//</span><span class="n">tell</span> <span class="n">all</span> <span class="n">experiments</span> <span class="k">of</span> <span class="n">micro_model_1</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">){</span>
-            <span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">tell</span> <span class="n">the</span> <span class="n">first</span> <span class="n">experiment</span> <span class="k">of</span> <span class="n">micro_model_2</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">){</span>
-            <span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="p">//</span><span class="n">micro_model</span> <span class="n">must</span> <span class="n">be</span> <span class="n">instantiated</span> <span class="n">by</span> <span class="nb">create</span> <span class="n">statement</span><span class="p">.</span> <span class="n">We</span> <span class="nb">create</span> <span class="n">an</span> <span class="n">experiment</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="k">and</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">will</span> <span class="n">be</span> <span class="n">created</span> <span class="n">implicitly</span> <span class="p">(</span><span class="m">1</span> <span class="n">experiment</span> <span class="n">have</span> <span class="n">only</span> <span class="m">1</span> <span class="n">simulation</span><span class="p">).</span>
+		<span class="nb">create</span> <span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span> <span class="n">number</span><span class="p">:</span><span class="m">5</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">simulate_micro_models</span><span class="p">{</span>
+		
+		<span class="p">//</span><span class="n">tell</span> <span class="n">all</span> <span class="n">experiments</span> <span class="k">of</span> <span class="n">micro_model_1</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">){</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">tell</span> <span class="n">the</span> <span class="n">first</span> <span class="n">experiment</span> <span class="k">of</span> <span class="n">micro_model_2</span> <span class="k">do</span> <span class="m">1</span> <span class="n">step</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">){</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">comodel_with_the_coupling</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span><span class="p">{</span>
-    <span class="n">output</span><span class="p">{</span>
-        <span class="n">display</span> <span class="s2">"comodel"</span> <span class="p">{</span>
-            <span class="p">//</span><span class="k">to</span> <span class="n">display</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="n">models</span><span class="p">,</span> <span class="n">we</span> <span class="n">use</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">layer</span> <span class="k">with</span> <span class="n">the</span> <span class="n">values</span> <span class="n">come</span> <span class="k">from</span> <span class="n">the</span> <span class="n">coupling</span><span class="p">.</span>
-            <span class="n">agents</span> <span class="s2">"agentA"</span> <span class="n">value</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span><span class="p">).</span><span class="n">getA</span><span class="p">();</span>
-            <span class="n">agents</span> <span class="s2">"agentB"</span> <span class="n">value</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span><span class="p">).</span><span class="n">getB</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span><span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"comodel"</span> <span class="p">{</span>
+			<span class="p">//</span><span class="k">to</span> <span class="n">display</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="n">models</span><span class="p">,</span> <span class="n">we</span> <span class="n">use</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">layer</span> <span class="k">with</span> <span class="n">the</span> <span class="n">values</span> <span class="n">come</span> <span class="k">from</span> <span class="n">the</span> <span class="n">coupling</span><span class="p">.</span>
+			<span class="n">agents</span> <span class="s2">"agentA"</span> <span class="n">value</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">micro_model_1</span><span class="p">.</span><span class="n">M1_coupling_exp</span><span class="p">).</span><span class="n">getA</span><span class="p">();</span>
+			<span class="n">agents</span> <span class="s2">"agentB"</span> <span class="n">value</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">micro_model_2</span><span class="p">.</span><span class="n">M2_coupling_exp</span><span class="p">).</span><span class="n">getB</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

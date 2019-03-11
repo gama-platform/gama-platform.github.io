@@ -3609,48 +3609,53 @@ function closeRightMenu() {
 </div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <p>Using SavedAgent kind of GamlAgent, it is now possible to serialize and unserialize agents and simulations as a string. It can be done using the operators: <code>serializeSimulation</code>, <code>unserializeSimulation</code>, <code>saveSimulation</code> of <code>ummisco.gama.serialize</code>.</p>
+        <p>Using SavedAgent kind of GamlAgent, it is now possible to serialize and unserialize agents and simulations as a string. It can be done using the operators: <code class="highlighter-rouge">serializeSimulation</code>, <code class="highlighter-rouge">unserializeSimulation</code>, <code class="highlighter-rouge">saveSimulation</code> of <code class="highlighter-rouge">ummisco.gama.serialize</code>.</p>
 
-<p>Need to be improved:
-* serialization of random generator
-* serialization of shapes
-* to allow any agent to be serialized</p>
+<p>Need to be improved:</p>
+<ul>
+  <li>serialization of random generator</li>
+  <li>serialization of shapes</li>
+  <li>to allow any agent to be serialized</li>
+</ul>
 
-<p>Example of use of the two operators:
-```
-experiment toto {
-    list<string> history &lt;- [];</p>
-<div class="highlight"><pre><code class="language-" data-lang="">reflex store when: (cycle &lt; 6){
-    add serializeSimulation(cycle) to: history;
+<p>Example of use of the two operators:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment toto {
+	list&lt;string&gt; history &lt;- [];
+
+	reflex store when: (cycle &lt; 6){
+		add serializeSimulation(cycle) to: history;
+	}
+	
+	reflex restore when: (cycle = 6){
+		int i &lt;- unSerializeSimulation(string(history[0]));
+	} 
+	
+	reflex store22 when: cycle=2{
+		write "Sauvegarde de la simulation " + saveSimulation("file.xml");
+	}
 }
-
-reflex restore when: (cycle = 6){
-    int i &lt;- unSerializeSimulation(string(history[0]));
-} 
-
-reflex store22 when: cycle=2{
-    write "Sauvegarde de la simulation " + saveSimulation("file.xml");
-}
-</code></pre></div>
-<p>}
-```</p>
+</code></pre></div></div>
 
 <h2 id="syntax-in-gaml">Syntax in GAML</h2>
 
 <p>How to make it as simple as possible for the modeler to save and restore simulation states, or come back in time ?
-(like the creation of new simulations, for instance, which reuses exactly the same syntax than the creation of agents) ? </p>
+(like the creation of new simulations, for instance, which reuses exactly the same syntax than the creation of agents) ?</p>
 
 <h3 id="statements">Statements</h3>
 
-<p><code>store</code> (to differentiate it from <code>save</code>) ?
-* <code>to:</code> a file </p>
+<p><code class="highlighter-rouge">store</code> (to differentiate it from <code class="highlighter-rouge">save</code>) ?</p>
+<ul>
+  <li><code class="highlighter-rouge">to: </code> a file</li>
+</ul>
 
-<p><code>restore</code> with facets that could allow to precise:
-* <code>at:</code> a cycle number (to come back at a certain point in time)
-* <code>at:</code> a negative number (to come back relatively in time)
-* <code>at:</code> a date ? 
-* <code>from:</code> a file
-* `</p>
+<p><code class="highlighter-rouge">restore</code> with facets that could allow to precise:</p>
+<ul>
+  <li><code class="highlighter-rouge">at:</code> a cycle number (to come back at a certain point in time)</li>
+  <li><code class="highlighter-rouge">at: </code> a negative number (to come back relatively in time)</li>
+  <li><code class="highlighter-rouge">at: </code> a date ?</li>
+  <li><code class="highlighter-rouge">from:</code> a file</li>
+  <li>`</li>
+</ul>
 
     </div>
     </div>

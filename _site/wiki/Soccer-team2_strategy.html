@@ -3615,481 +3615,485 @@ function closeRightMenu() {
 
 <p>This model contains one of the 2 team strategy. This strategy is very stupid : when you have the ball, run to the ennemy goal, else run to the ball</p>
 
-<p>Imported model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Imported model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">soccerbase</span>
 
 <span class="n">species</span> <span class="n">soccer_game</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">global</span> <span class="n">informations</span> <span class="k">of</span> <span class="n">the</span> <span class="n">game</span>
-    <span class="n">rgb</span> <span class="n">back_color_team</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">front_color_team</span><span class="p">;</span>
-
-    <span class="n">ball_sp</span> <span class="n">ball</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">agent</span>
-    <span class="n">goal_sp</span> <span class="n">front_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">at</span> <span class="n">the</span> <span class="n">front</span> <span class="k">of</span> <span class="n">the</span> <span class="n">field</span> <span class="p">(</span><span class="n">y</span> <span class="p">=</span> <span class="m">120</span><span class="p">)</span>
-    <span class="n">goal_sp</span> <span class="n">back_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">at</span> <span class="n">the</span> <span class="n">back</span> <span class="k">of</span> <span class="n">the</span> <span class="n">field</span> <span class="p">(</span><span class="n">y</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">base_team</span><span class="p">&gt;</span> <span class="n">teams</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="m">2</span> <span class="n">teams</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">base_player</span><span class="p">&gt;</span> <span class="n">players</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">game</span>
-
-    <span class="n">base_team</span> <span class="n">team_possession</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">last</span> <span class="n">team</span> <span class="n">which</span> <span class="n">possess</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span> <span class="n">This</span> <span class="n">value</span> <span class="n">is</span> <span class="n">used</span> <span class="k">to</span> <span class="n">determine</span> <span class="k">if</span> <span class="n">the</span> <span class="n">behavior</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span> <span class="n">has</span> <span class="k">to</span> <span class="n">be</span> <span class="n">defensive</span> <span class="k">or</span> <span class="n">offensive</span><span class="p">.</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">entities</span> <span class="n">ball</span> <span class="k">and</span> <span class="n">the</span> <span class="m">2</span> <span class="n">goals</span>
-        <span class="nb">create</span> <span class="n">ball_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_ball</span><span class="p">;</span>
-        <span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_ball</span><span class="p">);</span>
-        <span class="nb">create</span> <span class="n">goal_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">120</span><span class="p">},</span><span class="n">position</span><span class="p">::</span><span class="s2">"front"</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_goal1</span><span class="p">;</span>
-        <span class="n">front_goal</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_goal1</span><span class="p">);</span>
-        <span class="nb">create</span> <span class="n">goal_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">0</span><span class="p">},</span><span class="n">position</span><span class="p">::</span><span class="s2">"back"</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_goal2</span><span class="p">;</span>
-        <span class="n">back_goal</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_goal2</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">reinit_phase</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="n">this</span> <span class="n">action</span> <span class="n">is</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">goal</span> <span class="n">has</span> <span class="n">been</span> <span class="n">scored</span> <span class="p">:</span> <span class="n">the</span> <span class="n">players</span> <span class="n">are</span> <span class="n">placed</span> <span class="k">with</span> <span class="n">their</span> <span class="n">initial</span> <span class="n">position</span><span class="p">,</span> <span class="k">and</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="nb">reset</span> <span class="k">to</span> <span class="n">the</span> <span class="n">center</span>
-        <span class="n">ask</span> <span class="n">players</span> <span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
-            <span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">ball</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">ball</span><span class="p">.</span><span class="n">destination</span> <span class="p">&lt;-</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">ball</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">global</span> <span class="n">informations</span> <span class="k">of</span> <span class="n">the</span> <span class="n">game</span>
+	<span class="n">rgb</span> <span class="n">back_color_team</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">front_color_team</span><span class="p">;</span>
+	
+	<span class="n">ball_sp</span> <span class="n">ball</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">agent</span>
+	<span class="n">goal_sp</span> <span class="n">front_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">at</span> <span class="n">the</span> <span class="n">front</span> <span class="k">of</span> <span class="n">the</span> <span class="n">field</span> <span class="p">(</span><span class="n">y</span> <span class="p">=</span> <span class="m">120</span><span class="p">)</span>
+	<span class="n">goal_sp</span> <span class="n">back_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">at</span> <span class="n">the</span> <span class="n">back</span> <span class="k">of</span> <span class="n">the</span> <span class="n">field</span> <span class="p">(</span><span class="n">y</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">base_team</span><span class="p">&gt;</span> <span class="n">teams</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">the</span> <span class="m">2</span> <span class="n">teams</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">base_player</span><span class="p">&gt;</span> <span class="n">players</span><span class="p">;</span> <span class="p">//</span> <span class="n">contains</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">game</span>
+	
+	<span class="n">base_team</span> <span class="n">team_possession</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">last</span> <span class="n">team</span> <span class="n">which</span> <span class="n">possess</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span> <span class="n">This</span> <span class="n">value</span> <span class="n">is</span> <span class="n">used</span> <span class="k">to</span> <span class="n">determine</span> <span class="k">if</span> <span class="n">the</span> <span class="n">behavior</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span> <span class="n">has</span> <span class="k">to</span> <span class="n">be</span> <span class="n">defensive</span> <span class="k">or</span> <span class="n">offensive</span><span class="p">.</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">entities</span> <span class="n">ball</span> <span class="k">and</span> <span class="n">the</span> <span class="m">2</span> <span class="n">goals</span>
+		<span class="nb">create</span> <span class="n">ball_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_ball</span><span class="p">;</span>
+		<span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_ball</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">goal_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">120</span><span class="p">},</span><span class="n">position</span><span class="p">::</span><span class="s2">"front"</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_goal1</span><span class="p">;</span>
+		<span class="n">front_goal</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_goal1</span><span class="p">);</span>
+		<span class="nb">create</span> <span class="n">goal_sp</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">0</span><span class="p">},</span><span class="n">position</span><span class="p">::</span><span class="s2">"back"</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">var_goal2</span><span class="p">;</span>
+		<span class="n">back_goal</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">var_goal2</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">reinit_phase</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">this</span> <span class="n">action</span> <span class="n">is</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">goal</span> <span class="n">has</span> <span class="n">been</span> <span class="n">scored</span> <span class="p">:</span> <span class="n">the</span> <span class="n">players</span> <span class="n">are</span> <span class="n">placed</span> <span class="k">with</span> <span class="n">their</span> <span class="n">initial</span> <span class="n">position</span><span class="p">,</span> <span class="k">and</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="nb">reset</span> <span class="k">to</span> <span class="n">the</span> <span class="n">center</span>
+		<span class="n">ask</span> <span class="n">players</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
+			<span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ball</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">ball</span><span class="p">.</span><span class="n">destination</span> <span class="p">&lt;-</span> <span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">ball</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">base_player</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="p">////////////////////////////////////////////////</span>
+	<span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="p">////////////////////////////////////////////////</span>
+	
+	<span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">ONLY</span> <span class="n">USED</span> <span class="k">IN</span> <span class="n">THIS</span> <span class="n">BASE</span> <span class="n">CLASSE</span><span class="p">,</span> <span class="n">SHOULD</span> <span class="n">NEVER</span> <span class="n">BEEN</span> <span class="n">CALLED</span> <span class="k">IN</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
+	<span class="n">float</span> <span class="n">recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span> <span class="p">//</span> <span class="n">a</span> <span class="n">mark</span> <span class="k">from</span> <span class="m">0</span> <span class="k">to</span> <span class="m">1</span> <span class="k">to</span> <span class="n">be</span> <span class="n">able</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">if</span> <span class="n">another</span> <span class="n">player</span> <span class="n">has</span> <span class="n">it</span>
+	<span class="n">float</span> <span class="n">speed_without_ball</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed_with_ball</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">previous_pos</span><span class="p">;</span> <span class="p">//</span> <span class="n">used</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">inertia</span>
+	<span class="n">bool</span> <span class="n">displacement_effectued</span><span class="p">&lt;-</span><span class="nb">false</span> <span class="n">update</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span> <span class="p">//</span> <span class="n">we</span> <span class="n">can</span> <span class="n">apply</span> <span class="n">only</span> <span class="n">one</span> <span class="n">displacement</span> <span class="n">by</span> <span class="n">step</span> <span class="c1">!
+</span>	
+	<span class="p">//</span> <span class="n">ATTRIBUTE</span> <span class="n">USEFUL</span> <span class="k">TO</span> <span class="n">BE</span> <span class="n">READ</span> <span class="k">IN</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRATEGY</span> <span class="n">FILE</span> <span class="p">(</span><span class="n">READ</span> <span class="n">ONLY</span> <span class="c1">!)
+</span>	<span class="n">base_team</span> <span class="n">team</span><span class="p">;</span>
+	<span class="n">soccer_game</span> <span class="n">game</span><span class="p">;</span>
+	<span class="n">base_team</span> <span class="n">ennemy_team</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">teams</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="c1">!= team.position));
+</span>	<span class="n">ball_sp</span> <span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">ball_sp</span><span class="p">);</span>
+	<span class="n">goal_sp</span> <span class="n">own_goal</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">goal_sp</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">team</span><span class="p">.</span><span class="n">position</span><span class="p">));</span>
+	<span class="n">goal_sp</span> <span class="n">ennemy_goal</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">goal_sp</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="c1">!= team.position));
+</span>	<span class="p">//</span> <span class="n">ratio</span> <span class="k">of</span> <span class="n">avancement</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="p">(</span><span class="k">from</span> <span class="n">the</span> <span class="n">point</span> <span class="k">of</span> <span class="n">view</span> <span class="k">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">team</span><span class="p">)</span>
+	<span class="n">float</span> <span class="n">ball_advancement</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="s2">"back"</span><span class="p">)</span> <span class="p">?</span> <span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">/</span> <span class="m">120</span> <span class="p">:</span> <span class="m">1</span> <span class="p">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">/</span> <span class="m">120</span><span class="p">;</span>
+	
+	<span class="n">bool</span> <span class="n">possess_ball</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">init_pos</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">init_pos_in_percent</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">distance_to_closest_ennemy_player</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">closest_ennemy_player</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">ennemy</span> <span class="n">players</span> <span class="k">in</span> <span class="n">a</span> <span class="k">range</span> <span class="k">of</span> <span class="m">15</span> <span class="n">meters</span>
+	<span class="n">int</span> <span class="n">number_of_ennemy_player_in_range</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span><span class="n">length</span><span class="p">((</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team)) where ((each intersects circle(15))=true));
+</span>	<span class="n">float</span> <span class="n">distance_to_ball</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="m">100.0</span> <span class="p">:</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">ball</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">distance_to_goal</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">ennemy_goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="m">100.0</span> <span class="p">:</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">ennemy_goal</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">player</span> <span class="k">of</span> <span class="n">this</span> <span class="n">team</span>
+	<span class="n">base_player</span> <span class="n">closest_friend_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="n">base_player</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self)) 
+</span>		<span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">=</span> <span class="k">min</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self)) collect (each distance_to self) ) ) 
+</span>	<span class="p">);</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">ennemy</span> <span class="n">player</span>
+	<span class="n">base_player</span> <span class="n">closest_ennemy_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="n">base_player</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team and each != self)) 
+</span>		<span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">=</span> <span class="k">min</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team and each != self)) collect (each distance_to self) ) ) 
+</span>	<span class="p">);</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">player</span> <span class="k">of</span> <span class="n">this</span> <span class="n">team</span> <span class="n">wich</span> <span class="n">has</span> <span class="n">the</span> <span class="n">best</span> <span class="s2">"position_mark"</span>
+	<span class="n">base_player</span> <span class="n">best_position_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">((</span><span class="n">team</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= self)) 
+</span>		<span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position_mark</span> <span class="p">=</span> <span class="k">max</span><span class="p">((</span><span class="n">team</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= self)) collect (each.position_mark)))
+</span>	<span class="p">);</span>
+	<span class="n">float</span> <span class="n">current_speed</span><span class="p">&lt;-</span><span class="m">1.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">possess_ball</span><span class="p">)</span> <span class="p">?</span> <span class="n">speed_with_ball</span> <span class="p">:</span> <span class="n">speed_without_ball</span><span class="p">;</span>
+	
+	<span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">WICH</span> <span class="n">CAN</span> <span class="n">BE</span> <span class="n">CHANGED</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRAGEGY</span> <span class="n">FILE</span>
+	<span class="n">float</span> <span class="n">position_mark</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:-</span><span class="n">distance_to_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">a</span> <span class="n">mark</span> <span class="n">attributed</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">position</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">the</span> <span class="n">higher</span> <span class="n">the</span> <span class="n">note</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">best</span> <span class="n">the</span> <span class="n">position</span> <span class="n">is</span><span class="p">).</span> 
+	<span class="p">//</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">mark</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="p">-</span><span class="n">distance_to_goal</span><span class="p">.</span>
+	<span class="k">string</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">useful</span> <span class="k">to</span> <span class="n">build</span> <span class="n">the</span> <span class="k">model</span><span class="p">)</span>
+	<span class="n">geometry</span> <span class="n">influence_area</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">circle</span><span class="p">(</span><span class="m">15</span><span class="p">);</span> <span class="p">//</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">interest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span><span class="p">.</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span> <span class="n">a</span> <span class="n">circle</span> <span class="m">15</span><span class="n">m</span> <span class="n">diameter</span> <span class="n">centered</span> <span class="k">in</span> <span class="n">the</span> <span class="n">player</span> <span class="n">location</span><span class="p">.</span>
 
-    <span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">ONLY</span> <span class="n">USED</span> <span class="k">IN</span> <span class="n">THIS</span> <span class="n">BASE</span> <span class="n">CLASSE</span><span class="p">,</span> <span class="n">SHOULD</span> <span class="n">NEVER</span> <span class="n">BEEN</span> <span class="n">CALLED</span> <span class="k">IN</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
-    <span class="n">float</span> <span class="n">recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span> <span class="p">//</span> <span class="n">a</span> <span class="n">mark</span> <span class="k">from</span> <span class="m">0</span> <span class="k">to</span> <span class="m">1</span> <span class="k">to</span> <span class="n">be</span> <span class="n">able</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">if</span> <span class="n">another</span> <span class="n">player</span> <span class="n">has</span> <span class="n">it</span>
-    <span class="n">float</span> <span class="n">speed_without_ball</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed_with_ball</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">previous_pos</span><span class="p">;</span> <span class="p">//</span> <span class="n">used</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">inertia</span>
-    <span class="n">bool</span> <span class="n">displacement_effectued</span><span class="p">&lt;-</span><span class="nb">false</span> <span class="n">update</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span> <span class="p">//</span> <span class="n">we</span> <span class="n">can</span> <span class="n">apply</span> <span class="n">only</span> <span class="n">one</span> <span class="n">displacement</span> <span class="n">by</span> <span class="n">step</span> <span class="c1">!
-</span>
-    <span class="p">//</span> <span class="n">ATTRIBUTE</span> <span class="n">USEFUL</span> <span class="k">TO</span> <span class="n">BE</span> <span class="n">READ</span> <span class="k">IN</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRATEGY</span> <span class="n">FILE</span> <span class="p">(</span><span class="n">READ</span> <span class="n">ONLY</span> <span class="c1">!)
-</span>    <span class="n">base_team</span> <span class="n">team</span><span class="p">;</span>
-    <span class="n">soccer_game</span> <span class="n">game</span><span class="p">;</span>
-    <span class="n">base_team</span> <span class="n">ennemy_team</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">teams</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="c1">!= team.position));
-</span>    <span class="n">ball_sp</span> <span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">ball_sp</span><span class="p">);</span>
-    <span class="n">goal_sp</span> <span class="n">own_goal</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">goal_sp</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">team</span><span class="p">.</span><span class="n">position</span><span class="p">));</span>
-    <span class="n">goal_sp</span> <span class="n">ennemy_goal</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">goal_sp</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="c1">!= team.position));
-</span>    <span class="p">//</span> <span class="n">ratio</span> <span class="k">of</span> <span class="n">avancement</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="p">(</span><span class="k">from</span> <span class="n">the</span> <span class="n">point</span> <span class="k">of</span> <span class="n">view</span> <span class="k">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">team</span><span class="p">)</span>
-    <span class="n">float</span> <span class="n">ball_advancement</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="s2">"back"</span><span class="p">)</span> <span class="p">?</span> <span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">/</span> <span class="m">120</span> <span class="p">:</span> <span class="m">1</span> <span class="p">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">/</span> <span class="m">120</span><span class="p">;</span>
-
-    <span class="n">bool</span> <span class="n">possess_ball</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">init_pos</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">init_pos_in_percent</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">distance_to_closest_ennemy_player</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">closest_ennemy_player</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">ennemy</span> <span class="n">players</span> <span class="k">in</span> <span class="n">a</span> <span class="k">range</span> <span class="k">of</span> <span class="m">15</span> <span class="n">meters</span>
-    <span class="n">int</span> <span class="n">number_of_ennemy_player_in_range</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:</span><span class="n">length</span><span class="p">((</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team)) where ((each intersects circle(15))=true));
-</span>    <span class="n">float</span> <span class="n">distance_to_ball</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="m">100.0</span> <span class="p">:</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">ball</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">distance_to_goal</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">ennemy_goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="m">100.0</span> <span class="p">:</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">ennemy_goal</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">player</span> <span class="k">of</span> <span class="n">this</span> <span class="n">team</span>
-    <span class="n">base_player</span> <span class="n">closest_friend_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="n">base_player</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self)) 
-</span>        <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">=</span> <span class="k">min</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self)) collect (each distance_to self) ) ) 
-</span>    <span class="p">);</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">ennemy</span> <span class="n">player</span>
-    <span class="n">base_player</span> <span class="n">closest_ennemy_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:(</span><span class="n">ball</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">?</span> <span class="n">base_player</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team and each != self)) 
-</span>        <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">=</span> <span class="k">min</span><span class="p">(</span> <span class="p">(</span><span class="n">game</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team and each != self)) collect (each distance_to self) ) ) 
-</span>    <span class="p">);</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">player</span> <span class="k">of</span> <span class="n">this</span> <span class="n">team</span> <span class="n">wich</span> <span class="n">has</span> <span class="n">the</span> <span class="n">best</span> <span class="s2">"position_mark"</span>
-    <span class="n">base_player</span> <span class="n">best_position_player</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">((</span><span class="n">team</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= self)) 
-</span>        <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position_mark</span> <span class="p">=</span> <span class="k">max</span><span class="p">((</span><span class="n">team</span><span class="p">.</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= self)) collect (each.position_mark)))
-</span>    <span class="p">);</span>
-    <span class="n">float</span> <span class="n">current_speed</span><span class="p">&lt;-</span><span class="m">1.0</span> <span class="n">update</span><span class="p">:(</span><span class="n">possess_ball</span><span class="p">)</span> <span class="p">?</span> <span class="n">speed_with_ball</span> <span class="p">:</span> <span class="n">speed_without_ball</span><span class="p">;</span>
-
-    <span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">WICH</span> <span class="n">CAN</span> <span class="n">BE</span> <span class="n">CHANGED</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRAGEGY</span> <span class="n">FILE</span>
-    <span class="n">float</span> <span class="n">position_mark</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:-</span><span class="n">distance_to_goal</span><span class="p">;</span> <span class="p">//</span> <span class="n">a</span> <span class="n">mark</span> <span class="n">attributed</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">position</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">the</span> <span class="n">higher</span> <span class="n">the</span> <span class="n">note</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">best</span> <span class="n">the</span> <span class="n">position</span> <span class="n">is</span><span class="p">).</span> 
-    <span class="p">//</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">mark</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="p">-</span><span class="n">distance_to_goal</span><span class="p">.</span>
-    <span class="k">string</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">useful</span> <span class="k">to</span> <span class="n">build</span> <span class="n">the</span> <span class="k">model</span><span class="p">)</span>
-    <span class="n">geometry</span> <span class="n">influence_area</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">circle</span><span class="p">(</span><span class="m">15</span><span class="p">);</span> <span class="p">//</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">interest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span><span class="p">.</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span> <span class="n">a</span> <span class="n">circle</span> <span class="m">15</span><span class="n">m</span> <span class="n">diameter</span> <span class="n">centered</span> <span class="k">in</span> <span class="n">the</span> <span class="n">player</span> <span class="n">location</span><span class="p">.</span>
-
-
-    <span class="p">//</span> <span class="n">CONSTRUCTOR</span> <span class="p">/////////////////////////////////////////////</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">init_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="n">speed_with_ball</span> <span class="p">&lt;-</span> <span class="m">0.4</span><span class="p">;</span>
-        <span class="n">speed_without_ball</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span> <span class="n">ACTIONS</span> <span class="p">////////////////////////////////////////////////////</span>
-
-    <span class="p">//</span> <span class="n">ACTIONS</span> <span class="k">TO</span> <span class="n">CALL</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
-    <span class="p">//</span> <span class="n">action</span> <span class="k">to</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">a</span> <span class="n">particular</span> <span class="n">position</span>
-    <span class="n">action</span> <span class="n">run_to</span><span class="p">(</span><span class="n">point</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="cm">(!displacement_effectued) {
-                do goto target:target speed:current_speed;
-            if (possess_ball) {
-                ball.location &lt;- location;
-            }
-            displacement_effectued &lt;- true;
-        }
-        else {
-            write "WARNING : only ONE action of displacement is allowed each step";
-        }
-    }
-
-    // action to run to the ball
-    action run_to_ball {
-        point targetPos;
-        if (ball.ball_direction intersects circle(1)) {
-            targetPos &lt;- ball.location;
-        }
-        else {
-            targetPos &lt;- (ball.ball_direction closest_points_with self) at 0;
-        }
-        do run_to(targetPos);
-    }
-
-    // action to run to the ennemy goal
-    action run_to_ennemy_goal {
-        do run_to( ennemy_goal.location );
-    }
-
-    // action to run to its own goal
-    action run_to_own_goal {
-        do run_to( own_goal.location );
-    }
-
-    // action to mark a player
-    action mark_player (base_player player) {
-        float rnd_area &lt;- 4.0; // the player will choose a position in a square of rnd_area m.
-        point pos &lt;- (team.position = "front") ? {player.location.x,player.location.y-rnd_area/2} : {player.location.x,player.location.y+rnd_area/2};
-        do run_to( {pos.x-rnd_area/2+rnd(rnd_area),pos.y-rnd_area/2+rnd(rnd_area)} );
-    }
-
-    // action ot shoot the ball to the ennemy goal
-    action shoot {
-        do loose_ball;
-        ask ball {
-            do shooted speed_atr:3.0 target_position:myself.ennemy_goal.location;
-        }
-    }
-
-    // action to pass the ball to an ally
-    action pass_the_ball (base_player target_player) {
-        do loose_ball;
-        ask ball {
-            do shooted target_position:target_player.location speed_atr:target_player.distance_to_ball/15;
-        }
-        team.called_player &lt;- target_player;
-    }
-
-    // action to pass the ball to an ally
-    action pass_the_ball_ahead (base_player target_player,float number_of_meter_ahead) {
-        do loose_ball;
-        ask ball {
-            float offset &lt;- ((myself.team.position = "back") ? number_of_meter_ahead : -number_of_meter_ahead);
-            point target_point &lt;- {target_player.location.x,target_player.location.y+offset};
-            do shooted target_position:target_point speed_atr:target_player.distance_to_ball/15;
-        }
-        team.called_player &lt;- target_player;
-    }
-
-    // ACTION AUTOMATICALLY CALLED IN THE BASE CLASSE
-    // try to take the ball if it is close enough
-    action try_to_take_ball {
-        // if no player has the ball
-        if (!team.possess_ball and !ennemy_team.possess_ball) {
-            // if the player is the one called (result of a pass)
-            if (team.called_player = self) {
-                do take_ball;
-            }
-            // if the player is not the one called (interception of the ball), probability to catch the ball inversly proportionnal with the speed of the ball
-            else {
-                if (flip(1/(1+2*ball.speed))) {
-                    do take_ball;
-                }
-            }
-        }
-        // the ball is possessed by the ennemy team
-        else if (ennemy_team.possess_ball) {
-            // try to catch the ball from the other player
-            if flip(recuperation_ability) {
-                do take_ball;
-            }
-        }
-    }
-
-    // action of taking the ball
-    action take_ball {
-        if (ennemy_team.possess_ball) {
-            ask ennemy_team.player_with_ball {
-                do loose_ball;
-            }
-        }
-        possess_ball &lt;- true;
-        ball.speed &lt;- 0.0;
-        ball.destination &lt;- ball.location;
-        team.called_player &lt;- nil;
-        team.player_with_ball &lt;- self;
-        team.possess_ball &lt;- true;
-        game.team_possession &lt;- team;
-    }
-
-    // action of loosing the ball
-    action loose_ball {
-        possess_ball &lt;- false;
-        team.player_with_ball &lt;- nil;
-        team.possess_ball &lt;- false;
-    }
-
-    // apply the inertia
-    action apply_inertia {
-        point prev_pos &lt;- location;
-        point inertia_vect &lt;- {(location.x-previous_pos.x)*0.7,(location.y-previous_pos.y)*0.7};
-        float max_inertia &lt;- current_speed;
-        if (norm(inertia_vect) &gt; max_inertia) {
-            float inertia_x &lt;-  sqrt(abs(max_inertia*max_inertia-inertia_vect.y*inertia_vect.y));
-            float inertia_y &lt;-  sqrt(abs(max_inertia*max_inertia-inertia_vect.x*inertia_vect.x));
-            inertia_x &lt;- (inertia_vect.x &lt; 0) ? -inertia_x : inertia_x;
-            inertia_y &lt;- (inertia_vect.y &lt; 0) ? -inertia_y : inertia_y;
-            inertia_vect &lt;- {inertia_x,inertia_y};
-        }
-        location &lt;- location + inertia_vect;
-        previous_pos &lt;- prev_pos;
-    }
-
-    // useful functions
-    // this function returns the real x if we pass a percentage : 0 is the extreme left point, 100 is the extreme right point.
-    float getXPos(float x_ratio) {
-        float result;
-        if (team.position="back") {
-            result &lt;- 90-x_ratio*90;
-        }
-        else {
-            result &lt;- x_ratio*90;
-        }
-        return result;
-    }
-
-    // this function returns the real y if we pass a percentage : 0 is the extreme defensive point, 100 is the extreme attack point.
-    float getYPos(float y_ratio) {
-        float result;
-        if (team.position="back") {
-            result &lt;- y_ratio*120;
-        }
-        else {
-            result &lt;- 120-y_ratio*120;
-        }
-        return result;
-    }
-
-    ///////////////////////////////////////////////////////
-
-    // The update function, calls the adequate behavior
-    reflex update when:cycle&gt;1 {
-        do apply_inertia;
-        // verify if it is a non-offside position
-        if ( (((team.position = "back") and (location.y &gt; team.offside_pos))
-            or ((team.position = "front") and (location.y &lt; team.offside_pos))) 
-            and (!possess_ball) and (self != team.called_player)
-        ) {
-            // offside position, go back to a correct position
-            point target_pos &lt;- {location.x,(team.position = "back") ? location.y-current_speed:location.y+current_speed};
-            do run_to(target_pos);
-            status &lt;- "offside position !";
-        }
-        else if ((distance_to_ball &lt; 2) and !possess_ball) {
-            do try_to_take_ball;
-        }
-        else if (game.team_possession = team) {
-            do offensive_behavior;
-        }
-        else {
-            do defensive_behavior;
-        }
-    }
-
-    // defensive behavior, need to be redefined in the strategy file.
-    // this action is called when the last player who was holding the ball was a player of the ennemy team
-    action defensive_behavior virtual:true {
-
-    }
-    // defensive behavior, need to be redefined in the strategy file.
-    // this action is called when the last player who was holding the ball was a player of this team
-    action offensive_behavior virtual:true {
-
-    }
-
-
-    // ASPECT ////////////////////////////////////////////////////////
-    aspect player {
-        // the player wich possess the ball is displayed with a square. It is displayed with a circle otherwise.
-        if (possess_ball) {
-            draw square(2) color:(team.position = "back") ? game.back_color_team : game.front_color_team;
-        }
-        else {
-            draw circle(1) color:(team.position = "back") ? game.back_color_team : game.front_color_team;
-        }
-    }
+	
+	<span class="p">//</span> <span class="n">CONSTRUCTOR</span> <span class="p">/////////////////////////////////////////////</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">init_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="n">speed_with_ball</span> <span class="p">&lt;-</span> <span class="m">0.4</span><span class="p">;</span>
+		<span class="n">speed_without_ball</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span> <span class="n">ACTIONS</span> <span class="p">////////////////////////////////////////////////////</span>
+	
+	<span class="p">//</span> <span class="n">ACTIONS</span> <span class="k">TO</span> <span class="n">CALL</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
+	<span class="p">//</span> <span class="n">action</span> <span class="k">to</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">a</span> <span class="n">particular</span> <span class="n">position</span>
+	<span class="n">action</span> <span class="n">run_to</span><span class="p">(</span><span class="n">point</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="cm">(!displacement_effectued) {
+				do goto target:target speed:current_speed;
+			if (possess_ball) {
+				ball.location &lt;- location;
+			}
+			displacement_effectued &lt;- true;
+		}
+		else {
+			write "WARNING : only ONE action of displacement is allowed each step";
+		}
+	}
+	
+	// action to run to the ball
+	action run_to_ball {
+		point targetPos;
+		if (ball.ball_direction intersects circle(1)) {
+			targetPos &lt;- ball.location;
+		}
+		else {
+			targetPos &lt;- (ball.ball_direction closest_points_with self) at 0;
+		}
+		do run_to(targetPos);
+	}
+	
+	// action to run to the ennemy goal
+	action run_to_ennemy_goal {
+		do run_to( ennemy_goal.location );
+	}
+	
+	// action to run to its own goal
+	action run_to_own_goal {
+		do run_to( own_goal.location );
+	}
+	
+	// action to mark a player
+	action mark_player (base_player player) {
+		float rnd_area &lt;- 4.0; // the player will choose a position in a square of rnd_area m.
+		point pos &lt;- (team.position = "front") ? {player.location.x,player.location.y-rnd_area/2} : {player.location.x,player.location.y+rnd_area/2};
+		do run_to( {pos.x-rnd_area/2+rnd(rnd_area),pos.y-rnd_area/2+rnd(rnd_area)} );
+	}
+	
+	// action ot shoot the ball to the ennemy goal
+	action shoot {
+		do loose_ball;
+		ask ball {
+			do shooted speed_atr:3.0 target_position:myself.ennemy_goal.location;
+		}
+	}
+	
+	// action to pass the ball to an ally
+	action pass_the_ball (base_player target_player) {
+		do loose_ball;
+		ask ball {
+			do shooted target_position:target_player.location speed_atr:target_player.distance_to_ball/15;
+		}
+		team.called_player &lt;- target_player;
+	}
+	
+	// action to pass the ball to an ally
+	action pass_the_ball_ahead (base_player target_player,float number_of_meter_ahead) {
+		do loose_ball;
+		ask ball {
+			float offset &lt;- ((myself.team.position = "back") ? number_of_meter_ahead : -number_of_meter_ahead);
+			point target_point &lt;- {target_player.location.x,target_player.location.y+offset};
+			do shooted target_position:target_point speed_atr:target_player.distance_to_ball/15;
+		}
+		team.called_player &lt;- target_player;
+	}
+	
+	// ACTION AUTOMATICALLY CALLED IN THE BASE CLASSE
+	// try to take the ball if it is close enough
+	action try_to_take_ball {
+		// if no player has the ball
+		if (!team.possess_ball and !ennemy_team.possess_ball) {
+			// if the player is the one called (result of a pass)
+			if (team.called_player = self) {
+				do take_ball;
+			}
+			// if the player is not the one called (interception of the ball), probability to catch the ball inversly proportionnal with the speed of the ball
+			else {
+				if (flip(1/(1+2*ball.speed))) {
+					do take_ball;
+				}
+			}
+		}
+		// the ball is possessed by the ennemy team
+		else if (ennemy_team.possess_ball) {
+			// try to catch the ball from the other player
+			if flip(recuperation_ability) {
+				do take_ball;
+			}
+		}
+	}
+	
+	// action of taking the ball
+	action take_ball {
+		if (ennemy_team.possess_ball) {
+			ask ennemy_team.player_with_ball {
+				do loose_ball;
+			}
+		}
+		possess_ball &lt;- true;
+		ball.speed &lt;- 0.0;
+		ball.destination &lt;- ball.location;
+		team.called_player &lt;- nil;
+		team.player_with_ball &lt;- self;
+		team.possess_ball &lt;- true;
+		game.team_possession &lt;- team;
+	}
+	
+	// action of loosing the ball
+	action loose_ball {
+		possess_ball &lt;- false;
+		team.player_with_ball &lt;- nil;
+		team.possess_ball &lt;- false;
+	}
+	
+	// apply the inertia
+	action apply_inertia {
+		point prev_pos &lt;- location;
+		point inertia_vect &lt;- {(location.x-previous_pos.x)*0.7,(location.y-previous_pos.y)*0.7};
+		float max_inertia &lt;- current_speed;
+		if (norm(inertia_vect) &gt; max_inertia) {
+			float inertia_x &lt;-  sqrt(abs(max_inertia*max_inertia-inertia_vect.y*inertia_vect.y));
+			float inertia_y &lt;-  sqrt(abs(max_inertia*max_inertia-inertia_vect.x*inertia_vect.x));
+			inertia_x &lt;- (inertia_vect.x &lt; 0) ? -inertia_x : inertia_x;
+			inertia_y &lt;- (inertia_vect.y &lt; 0) ? -inertia_y : inertia_y;
+			inertia_vect &lt;- {inertia_x,inertia_y};
+		}
+		location &lt;- location + inertia_vect;
+		previous_pos &lt;- prev_pos;
+	}
+	
+	// useful functions
+	// this function returns the real x if we pass a percentage : 0 is the extreme left point, 100 is the extreme right point.
+	float getXPos(float x_ratio) {
+		float result;
+		if (team.position="back") {
+			result &lt;- 90-x_ratio*90;
+		}
+		else {
+			result &lt;- x_ratio*90;
+		}
+		return result;
+	}
+	
+	// this function returns the real y if we pass a percentage : 0 is the extreme defensive point, 100 is the extreme attack point.
+	float getYPos(float y_ratio) {
+		float result;
+		if (team.position="back") {
+			result &lt;- y_ratio*120;
+		}
+		else {
+			result &lt;- 120-y_ratio*120;
+		}
+		return result;
+	}
+	
+	///////////////////////////////////////////////////////
+	
+	// The update function, calls the adequate behavior
+	reflex update when:cycle&gt;1 {
+		do apply_inertia;
+		// verify if it is a non-offside position
+		if ( (((team.position = "back") and (location.y &gt; team.offside_pos))
+			or ((team.position = "front") and (location.y &lt; team.offside_pos))) 
+			and (!possess_ball) and (self != team.called_player)
+		) {
+			// offside position, go back to a correct position
+			point target_pos &lt;- {location.x,(team.position = "back") ? location.y-current_speed:location.y+current_speed};
+			do run_to(target_pos);
+			status &lt;- "offside position !";
+		}
+		else if ((distance_to_ball &lt; 2) and !possess_ball) {
+			do try_to_take_ball;
+		}
+		else if (game.team_possession = team) {
+			do offensive_behavior;
+		}
+		else {
+			do defensive_behavior;
+		}
+	}
+	
+	// defensive behavior, need to be redefined in the strategy file.
+	// this action is called when the last player who was holding the ball was a player of the ennemy team
+	action defensive_behavior virtual:true {
+		
+	}
+	// defensive behavior, need to be redefined in the strategy file.
+	// this action is called when the last player who was holding the ball was a player of this team
+	action offensive_behavior virtual:true {
+		
+	}
+	
+	
+	// ASPECT ////////////////////////////////////////////////////////
+	aspect player {
+		// the player wich possess the ball is displayed with a square. It is displayed with a circle otherwise.
+		if (possess_ball) {
+			draw square(2) color:(team.position = "back") ? game.back_color_team : game.front_color_team;
+		}
+		else {
+			draw circle(1) color:(team.position = "back") ? game.back_color_team : game.front_color_team;
+		}
+	}
 }
 
 
 
 species base_team {
-    // ATTRIBUTES ////////////////////////////////////////////////
-
-    // ATTRIBUTES ONLY USED IN THIS BASE CLASSE, SHOULD NEVER BEEN CALLED IN STRATEGY FILE
-    float offside_pos &lt;- 0.0 update: (position = "back") ? max((game.players where (each.team != self)) collect (each.location.y))
-        : min((game.players where (each.team != self)) collect (each.location.y));
-
-    // ATTRIBUTES USEFUL TO BE READ IN THE TEAM STRATEGY FILE (READ ONLY !)</span>
-    <span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">base_player</span><span class="p">&gt;</span> <span class="n">players</span><span class="p">;</span> <span class="p">//</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
-    <span class="n">soccer_game</span> <span class="n">game</span><span class="p">;</span>
-
-    <span class="n">base_player</span> <span class="n">closest_player_to_ball</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">each</span><span class="p">.</span><span class="n">ball</span> <span class="p">=</span> <span class="k">min</span> <span class="p">(</span><span class="n">players</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">each</span><span class="p">.</span><span class="n">ball</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
-    <span class="n">base_player</span> <span class="n">called_player</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;//</span> <span class="n">update</span><span class="p">:</span> <span class="c1">! empty ( players where (each.possess_ball=true) );
-</span>    <span class="n">base_player</span> <span class="n">player_with_ball</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;//</span> <span class="n">update</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">possess_ball</span> <span class="p">=</span> <span class="nb">true</span><span class="p">));</span>
-
-    <span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">WICH</span> <span class="n">CAN</span> <span class="n">BE</span> <span class="n">CHANGED</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">player_init_position</span><span class="p">;</span>
+	// ATTRIBUTES ////////////////////////////////////////////////
+	
+	// ATTRIBUTES ONLY USED IN THIS BASE CLASSE, SHOULD NEVER BEEN CALLED IN STRATEGY FILE
+	float offside_pos &lt;- 0.0 update: (position = "back") ? max((game.players where (each.team != self)) collect (each.location.y))
+		: min((game.players where (each.team != self)) collect (each.location.y));
+	
+	// ATTRIBUTES USEFUL TO BE READ IN THE TEAM STRATEGY FILE (READ ONLY !)</span>
+	<span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">base_player</span><span class="p">&gt;</span> <span class="n">players</span><span class="p">;</span> <span class="p">//</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
+	<span class="n">soccer_game</span> <span class="n">game</span><span class="p">;</span>
+	
+	<span class="n">base_player</span> <span class="n">closest_player_to_ball</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span> <span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">each</span><span class="p">.</span><span class="n">ball</span> <span class="p">=</span> <span class="k">min</span> <span class="p">(</span><span class="n">players</span> <span class="n">collect</span> <span class="p">(</span><span class="n">each</span> <span class="n">distance_to</span> <span class="n">each</span><span class="p">.</span><span class="n">ball</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+	<span class="n">base_player</span> <span class="n">called_player</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;//</span> <span class="n">update</span><span class="p">:</span> <span class="c1">! empty ( players where (each.possess_ball=true) );
+</span>	<span class="n">base_player</span> <span class="n">player_with_ball</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;//</span> <span class="n">update</span><span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">players</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">possess_ball</span> <span class="p">=</span> <span class="nb">true</span><span class="p">));</span>
+	
+	<span class="p">//</span> <span class="n">ATTRIBUTES</span> <span class="n">WICH</span> <span class="n">CAN</span> <span class="n">BE</span> <span class="n">CHANGED</span> <span class="k">FROM</span> <span class="n">THE</span> <span class="n">TEAM</span> <span class="n">STRATEGY</span> <span class="n">FILE</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">player_init_position</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">ball_sp</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">The</span> <span class="n">ball</span> <span class="n">agent</span><span class="p">.</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">ball_direction</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="n">used</span> <span class="k">to</span> <span class="n">be</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">player</span>
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">*</span><span class="m">0.95</span><span class="p">;</span>
-        <span class="n">float</span> <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">;</span>
-        <span class="n">point</span> <span class="n">tmpPos</span><span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="m">10</span> <span class="p">{</span>
-            <span class="n">tmpPos</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">};</span>
-            <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">future_speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">ball_direction</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">]);</span>
-        <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
-
-        <span class="p">//</span> <span class="n">anticipation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">position</span> <span class="k">to</span> <span class="n">detect</span> <span class="n">a</span> <span class="n">goal</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">120</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="s2">"back team score a goal !!"</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="s2">"front team score a goal !!"</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">action</span> <span class="n">shooted</span> <span class="p">(</span><span class="n">point</span> <span class="n">target_position</span><span class="p">,</span> <span class="n">float</span> <span class="n">speed_atr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="n">action</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="n">shoots</span> <span class="n">the</span> <span class="n">ball</span>
-        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed_atr</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_position</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">ball</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span> <span class="n">The</span> <span class="n">ball</span> <span class="n">agent</span><span class="p">.</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">ball_direction</span><span class="p">;</span> <span class="p">//</span> <span class="n">the</span> <span class="n">direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="n">used</span> <span class="k">to</span> <span class="n">be</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">player</span>
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">*</span><span class="m">0.95</span><span class="p">;</span>
+		<span class="n">float</span> <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">;</span>
+		<span class="n">point</span> <span class="n">tmpPos</span><span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="m">10</span> <span class="p">{</span>
+			<span class="n">tmpPos</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">};</span>
+			<span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">future_speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ball_direction</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">]);</span>
+		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
+		
+		<span class="p">//</span> <span class="n">anticipation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">position</span> <span class="k">to</span> <span class="n">detect</span> <span class="n">a</span> <span class="n">goal</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">120</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s2">"back team score a goal !!"</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s2">"front team score a goal !!"</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">shooted</span> <span class="p">(</span><span class="n">point</span> <span class="n">target_position</span><span class="p">,</span> <span class="n">float</span> <span class="n">speed_atr</span><span class="p">)</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">action</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="n">shoots</span> <span class="n">the</span> <span class="n">ball</span>
+		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed_atr</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_position</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">ball</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goal_sp</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">goal_keeper</span> <span class="k">with</span><span class="p">:[</span><span class="n">position</span><span class="p">::</span><span class="n">position</span><span class="p">];</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">goal</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">7.32</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">goal_keeper</span> <span class="k">with</span><span class="p">:[</span><span class="n">position</span><span class="p">::</span><span class="n">position</span><span class="p">];</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">goal</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">7.32</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goal_keeper</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">has</span> <span class="n">a</span> <span class="n">basic</span> <span class="n">behavior</span> <span class="p">:</span> <span class="n">he</span> <span class="n">tries</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">it</span> <span class="n">is</span> <span class="n">close</span> <span class="n">enough</span><span class="p">,</span> <span class="k">and</span> <span class="n">when</span> 
-    <span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
-    <span class="n">ball_sp</span> <span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">ball_sp</span><span class="p">);</span>
-
-    <span class="n">reflex</span> <span class="n">update</span> <span class="n">when</span><span class="p">:</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">0</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">/</span><span class="m">90</span><span class="p">*</span><span class="m">12</span><span class="p">+(</span><span class="m">90</span><span class="p">-</span><span class="m">12</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">ball</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="m">1</span><span class="p">+</span><span class="m">2</span><span class="p">*</span><span class="n">ball</span><span class="p">.</span><span class="n">speed</span><span class="p">)))</span> <span class="p">{</span>
-                <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">teams</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">));</span>
-                <span class="n">ask</span> <span class="n">ball</span> <span class="p">{</span>
-                    <span class="k">do</span> <span class="n">shooted</span> <span class="p">({</span><span class="m">30</span><span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">30</span><span class="p">),</span><span class="m">60</span><span class="p">},</span><span class="m">5.0</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">45</span><span class="p">,(</span><span class="n">position</span><span class="p">=</span><span class="s2">"front"</span><span class="p">)</span> <span class="p">?</span> <span class="m">117</span> <span class="p">:</span> <span class="m">3</span><span class="p">};</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">offensive_behavior</span> <span class="p">{</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">defensive_behavior</span> <span class="p">{</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">goal_keeper</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:(</span><span class="n">position</span> <span class="p">=</span> <span class="s2">"back"</span><span class="p">)</span> <span class="p">?</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">back_color_team</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">front_color_team</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">has</span> <span class="n">a</span> <span class="n">basic</span> <span class="n">behavior</span> <span class="p">:</span> <span class="n">he</span> <span class="n">tries</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">it</span> <span class="n">is</span> <span class="n">close</span> <span class="n">enough</span><span class="p">,</span> <span class="k">and</span> <span class="n">when</span> 
+	<span class="k">string</span> <span class="n">position</span><span class="p">;</span> <span class="p">//</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
+	<span class="n">ball_sp</span> <span class="n">ball</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="n">update</span><span class="p">:</span><span class="n">first</span><span class="p">(</span><span class="n">ball_sp</span><span class="p">);</span>
+	
+	<span class="n">reflex</span> <span class="n">update</span> <span class="n">when</span><span class="p">:</span><span class="n">cycle</span><span class="p">&gt;</span><span class="m">0</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">ball</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">/</span><span class="m">90</span><span class="p">*</span><span class="m">12</span><span class="p">+(</span><span class="m">90</span><span class="p">-</span><span class="m">12</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">ball</span> <span class="n">distance_to</span> <span class="n">self</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="m">1</span><span class="p">+</span><span class="m">2</span><span class="p">*</span><span class="n">ball</span><span class="p">.</span><span class="n">speed</span><span class="p">)))</span> <span class="p">{</span>
+				<span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">teams</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">));</span>
+				<span class="n">ask</span> <span class="n">ball</span> <span class="p">{</span>
+					<span class="k">do</span> <span class="n">shooted</span> <span class="p">({</span><span class="m">30</span><span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">30</span><span class="p">),</span><span class="m">60</span><span class="p">},</span><span class="m">5.0</span><span class="p">);</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">45</span><span class="p">,(</span><span class="n">position</span><span class="p">=</span><span class="s2">"front"</span><span class="p">)</span> <span class="p">?</span> <span class="m">117</span> <span class="p">:</span> <span class="m">3</span><span class="p">};</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">offensive_behavior</span> <span class="p">{</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">defensive_behavior</span> <span class="p">{</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">goal_keeper</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:(</span><span class="n">position</span> <span class="p">=</span> <span class="s2">"back"</span><span class="p">)</span> <span class="p">?</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">back_color_team</span> <span class="p">:</span> <span class="n">first</span><span class="p">(</span><span class="n">soccer_game</span><span class="p">).</span><span class="n">front_color_team</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+</code></pre></div></div>
+
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">team2strategy</span>
 
 <span class="n">import</span> <span class="s2">"./soccer_base.gaml"</span>
 
 <span class="n">species</span> <span class="n">player_stupidTeam</span> <span class="n">parent</span><span class="p">:</span><span class="n">base_player</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">READ</span> <span class="n">ONLY</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
-    <span class="p">//</span> <span class="n">position</span> <span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">players</span> <span class="p">:</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">game</span>
-    <span class="p">//</span><span class="n">closest_player_to_ball</span>
-    <span class="p">//</span> <span class="n">called_player</span> <span class="p">:</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">for</span> <span class="n">a</span> <span class="n">pass</span>
-    <span class="p">//</span> <span class="n">possess_ball</span> <span class="p">:</span> <span class="nb">true</span> <span class="k">or</span> <span class="nb">false</span>
-    <span class="p">//</span> <span class="n">player_with_ball</span> <span class="p">:</span> <span class="n">player</span> <span class="n">currently</span> <span class="k">with</span> <span class="n">the</span> <span class="n">ball</span>
-
-    <span class="p">//</span> <span class="n">READ</span> <span class="k">AND</span> <span class="n">WRITE</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
-    <span class="p">//</span> <span class="n">position_mark</span>
-    <span class="p">//</span> <span class="n">status</span> <span class="p">:</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">useful</span> <span class="k">to</span> <span class="n">build</span> <span class="n">the</span> <span class="k">model</span><span class="p">)</span>
-    <span class="p">//</span> <span class="n">influence_area</span> <span class="p">:</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">interest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span><span class="p">.</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span> <span class="n">a</span> <span class="n">circle</span> <span class="m">15</span><span class="n">m</span> <span class="n">diameter</span> <span class="n">centered</span> <span class="k">in</span> <span class="n">the</span> <span class="n">player</span> <span class="n">location</span><span class="p">.</span> 
-
-    <span class="n">action</span> <span class="n">defensive_behavior</span> <span class="p">{</span> 
-        <span class="p">//</span> <span class="n">very</span> <span class="n">basic</span> <span class="n">defensive</span> <span class="n">behavior</span> <span class="p">:</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">the</span> <span class="n">ball</span>
-        <span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">offensive_behavior</span> <span class="p">{</span> 
-        <span class="p">//</span> <span class="n">very</span> <span class="n">basic</span> <span class="n">offensive</span> <span class="n">behavior</span> <span class="p">:</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">the</span> <span class="n">ennemy</span> <span class="n">goal</span><span class="p">,</span> <span class="k">or</span> <span class="n">shoot</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">close</span> <span class="n">enough</span> <span class="k">from</span> <span class="n">the</span> <span class="n">ennemy</span> <span class="n">goal</span><span class="p">.</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">possess_ball</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">distance_to_goal</span> <span class="p">&lt;</span> <span class="m">30</span><span class="p">))</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">shoot</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">run_to_ennemy_goal</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
+	<span class="p">//</span> <span class="n">READ</span> <span class="n">ONLY</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
+	<span class="p">//</span> <span class="n">position</span> <span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">players</span> <span class="p">:</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">game</span>
+	<span class="p">//</span><span class="n">closest_player_to_ball</span>
+	<span class="p">//</span> <span class="n">called_player</span> <span class="p">:</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">for</span> <span class="n">a</span> <span class="n">pass</span>
+	<span class="p">//</span> <span class="n">possess_ball</span> <span class="p">:</span> <span class="nb">true</span> <span class="k">or</span> <span class="nb">false</span>
+	<span class="p">//</span> <span class="n">player_with_ball</span> <span class="p">:</span> <span class="n">player</span> <span class="n">currently</span> <span class="k">with</span> <span class="n">the</span> <span class="n">ball</span>
+	
+	<span class="p">//</span> <span class="n">READ</span> <span class="k">AND</span> <span class="n">WRITE</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
+	<span class="p">//</span> <span class="n">position_mark</span>
+	<span class="p">//</span> <span class="n">status</span> <span class="p">:</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">useful</span> <span class="k">to</span> <span class="n">build</span> <span class="n">the</span> <span class="k">model</span><span class="p">)</span>
+	<span class="p">//</span> <span class="n">influence_area</span> <span class="p">:</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">interest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span><span class="p">.</span> <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span> <span class="n">a</span> <span class="n">circle</span> <span class="m">15</span><span class="n">m</span> <span class="n">diameter</span> <span class="n">centered</span> <span class="k">in</span> <span class="n">the</span> <span class="n">player</span> <span class="n">location</span><span class="p">.</span>	
+	
+	<span class="n">action</span> <span class="n">defensive_behavior</span> <span class="p">{</span>	
+		<span class="p">//</span> <span class="n">very</span> <span class="n">basic</span> <span class="n">defensive</span> <span class="n">behavior</span> <span class="p">:</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">the</span> <span class="n">ball</span>
+		<span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">offensive_behavior</span> <span class="p">{</span>	
+		<span class="p">//</span> <span class="n">very</span> <span class="n">basic</span> <span class="n">offensive</span> <span class="n">behavior</span> <span class="p">:</span> <span class="nf">run</span> <span class="k">to</span> <span class="n">the</span> <span class="n">ennemy</span> <span class="n">goal</span><span class="p">,</span> <span class="k">or</span> <span class="n">shoot</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">close</span> <span class="n">enough</span> <span class="k">from</span> <span class="n">the</span> <span class="n">ennemy</span> <span class="n">goal</span><span class="p">.</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">possess_ball</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">distance_to_goal</span> <span class="p">&lt;</span> <span class="m">30</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">shoot</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">run_to_ennemy_goal</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">stupidTeam</span> <span class="n">parent</span><span class="p">:</span><span class="n">base_team</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="n">READ</span> <span class="n">ONLY</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
-    <span class="p">//</span> <span class="n">position</span> <span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">players</span> <span class="p">:</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">game</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">closest_player_to_ball</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">called_player</span> <span class="p">:</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">for</span> <span class="n">a</span> <span class="n">pass</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">possess_ball</span> <span class="p">:</span> <span class="nb">true</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span> <span class="n">possess</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">player_with_ball</span>
-
-    <span class="p">//</span> <span class="n">READ</span> <span class="k">AND</span> <span class="n">WRITE</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
-    <span class="p">//</span> <span class="n">player_init_position</span>
-
-    <span class="p">//</span> <span class="n">initial</span> <span class="n">position</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="k">in</span> <span class="n">percentage</span> <span class="p">:</span> <span class="n">for</span> <span class="n">each</span> <span class="n">point</span><span class="p">,</span>
-    <span class="p">//</span>    <span class="n">the</span> <span class="n">first</span> <span class="n">value</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">percentage</span> <span class="k">from</span> <span class="n">left</span> <span class="k">to</span> <span class="n">right</span> <span class="p">(</span><span class="m">0</span> <span class="n">for</span> <span class="n">the</span> <span class="n">point</span> <span class="n">the</span> <span class="n">most</span> <span class="k">in</span> <span class="n">the</span> <span class="n">left</span> <span class="n">side</span><span class="p">)</span>
-    <span class="p">//</span>    <span class="n">the</span> <span class="n">second</span> <span class="n">value</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">percentage</span> <span class="k">from</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">position</span> <span class="k">to</span> <span class="n">the</span> <span class="n">mid</span> <span class="n">position</span> <span class="p">(</span><span class="m">0</span> <span class="n">for</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">position</span><span class="p">)</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">player_init_position</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">30</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">70</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">70</span><span class="p">},{</span><span class="m">30</span><span class="p">,</span><span class="m">90</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">90</span><span class="p">},{</span><span class="m">70</span><span class="p">,</span><span class="m">90</span><span class="p">}];</span>
+	<span class="p">//</span> <span class="n">READ</span> <span class="n">ONLY</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
+	<span class="p">//</span> <span class="n">position</span> <span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="s2">"front"</span> <span class="k">or</span> <span class="s2">"back"</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">players</span> <span class="p">:</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">players</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">game</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">closest_player_to_ball</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">called_player</span> <span class="p">:</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">for</span> <span class="n">a</span> <span class="n">pass</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">possess_ball</span> <span class="p">:</span> <span class="nb">true</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span> <span class="n">possess</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">player_with_ball</span>
+	
+	<span class="p">//</span> <span class="n">READ</span> <span class="k">AND</span> <span class="n">WRITE</span> <span class="n">ATTRIBUTES</span> <span class="p">:</span>
+	<span class="p">//</span> <span class="n">player_init_position</span>
+	
+	<span class="p">//</span> <span class="n">initial</span> <span class="n">position</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="k">in</span> <span class="n">percentage</span> <span class="p">:</span> <span class="n">for</span> <span class="n">each</span> <span class="n">point</span><span class="p">,</span>
+	<span class="p">//</span>    <span class="n">the</span> <span class="n">first</span> <span class="n">value</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">percentage</span> <span class="k">from</span> <span class="n">left</span> <span class="k">to</span> <span class="n">right</span> <span class="p">(</span><span class="m">0</span> <span class="n">for</span> <span class="n">the</span> <span class="n">point</span> <span class="n">the</span> <span class="n">most</span> <span class="k">in</span> <span class="n">the</span> <span class="n">left</span> <span class="n">side</span><span class="p">)</span>
+	<span class="p">//</span>    <span class="n">the</span> <span class="n">second</span> <span class="n">value</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">percentage</span> <span class="k">from</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">position</span> <span class="k">to</span> <span class="n">the</span> <span class="n">mid</span> <span class="n">position</span> <span class="p">(</span><span class="m">0</span> <span class="n">for</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">position</span><span class="p">)</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">player_init_position</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">20</span><span class="p">},{</span><span class="m">30</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">70</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">70</span><span class="p">},{</span><span class="m">30</span><span class="p">,</span><span class="m">90</span><span class="p">},{</span><span class="m">50</span><span class="p">,</span><span class="m">90</span><span class="p">},{</span><span class="m">70</span><span class="p">,</span><span class="m">90</span><span class="p">}];</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

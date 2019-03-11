@@ -3613,152 +3613,154 @@ function closeRightMenu() {
 
 <p><em>Author : Arnaud Grignard</em></p>
 
-<p>This is a model that shows how the physics engine work without gravity. Balls can collide each other and can&#39;t go further than the wall and the ground agents.</p>
+<p>This is a model that shows how the physics engine work without gravity. Balls can collide each other and can’t go further than the wall and the ground agents.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">Perfect_Gas</span>
+<p>Code of the model :</p>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Perfect_Gas</span>
 
-
+ 
+ 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-    <span class="n">int</span> <span class="n">width_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span><span class="m">200</span> <span class="p">;</span> 
-    <span class="n">int</span> <span class="n">height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span><span class="m">200</span>  <span class="p">;</span> 
+	<span class="p">//</span><span class="n">Bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">width_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span><span class="m">200</span> <span class="p">;</span> 
+	<span class="n">int</span> <span class="n">height_of_environment</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Dimensions'</span> <span class="n">init</span><span class="p">:</span><span class="m">200</span>  <span class="p">;</span> 
+	
+	<span class="p">//</span><span class="k">Range</span><span class="p">,</span> <span class="n">Speed</span> <span class="n">ans</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">range_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Range of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Speed of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span>  <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">;</span> 
+	<span class="n">int</span> <span class="n">size_of_agents</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	
+	
+	<span class="n">float</span> <span class="n">size_of_the_wall</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">offset</span><span class="p">&lt;-</span><span class="m">10</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span> <span class="n">height_of_environment</span><span class="p">);</span>
 
-    <span class="p">//</span><span class="k">Range</span><span class="p">,</span> <span class="n">Speed</span> <span class="n">ans</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
-    <span class="n">int</span> <span class="n">range_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Range of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">25</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Speed of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span>  <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">;</span> 
-    <span class="n">int</span> <span class="n">size_of_agents</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Physic</span> <span class="n">engines</span> <span class="n">that</span> <span class="n">will</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">forces</span>
+	<span class="n">physic_world</span> <span class="n">world2</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">ball</span> <span class="n">number</span><span class="p">:</span> <span class="m">1000</span><span class="p">{</span>
+			<span class="n">radius</span> <span class="p">&lt;-</span><span class="m">2</span><span class="p">;</span>
+			<span class="n">location</span> <span class="p">&lt;-</span>  <span class="p">{</span><span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">-</span><span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">),</span> <span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">height_of_environment</span><span class="p">-</span> <span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">),</span><span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">-</span><span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">)};</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.001</span><span class="p">;</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"sphere"</span><span class="p">,</span><span class="s2">"radius"</span><span class="p">::</span><span class="n">radius</span><span class="p">];</span>
+		<span class="p">}</span>
+		
+		<span class="nb">create</span> <span class="n">ground</span> 
+		<span class="p">{</span>   
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span> <span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">];</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Sky</span>
+		<span class="nb">create</span> <span class="n">ground</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">width_of_environment</span><span class="p">};</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span> <span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">];</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
 
-
-    <span class="n">float</span> <span class="n">size_of_the_wall</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">offset</span><span class="p">&lt;-</span><span class="m">10</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span> <span class="n">height_of_environment</span><span class="p">);</span>
-
-    <span class="p">//</span><span class="n">Physic</span> <span class="n">engines</span> <span class="n">that</span> <span class="n">will</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">forces</span>
-    <span class="n">physic_world</span> <span class="n">world2</span><span class="p">;</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">ball</span> <span class="n">number</span><span class="p">:</span> <span class="m">1000</span><span class="p">{</span>
-            <span class="n">radius</span> <span class="p">&lt;-</span><span class="m">2</span><span class="p">;</span>
-            <span class="n">location</span> <span class="p">&lt;-</span>  <span class="p">{</span><span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">-</span><span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">),</span> <span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">height_of_environment</span><span class="p">-</span> <span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">),</span><span class="n">offset</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">-</span><span class="n">offset</span><span class="p">*</span><span class="m">2</span><span class="p">)};</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.001</span><span class="p">;</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"sphere"</span><span class="p">,</span><span class="s2">"radius"</span><span class="p">::</span><span class="n">radius</span><span class="p">];</span>
-        <span class="p">}</span>
-
-        <span class="nb">create</span> <span class="n">ground</span> 
-        <span class="p">{</span>   
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span> <span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">];</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Sky</span>
-        <span class="nb">create</span> <span class="n">ground</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">width_of_environment</span><span class="p">};</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span> <span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">];</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">down</span> <span class="n">wall</span>
-        <span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-            <span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="m">2</span><span class="p">);</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">upper</span> <span class="n">wall</span>
-        <span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-            <span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="m">2</span><span class="p">);</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">left</span> <span class="n">wall</span>
-        <span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0.0</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.0</span><span class="p">};</span>
-            <span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>         
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">right</span> <span class="n">wall</span>
-        <span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-            <span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
-            <span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
-            <span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
-
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">physic</span> <span class="n">engine</span> <span class="n">without</span> <span class="n">gravity</span> <span class="n">computed</span>
-        <span class="nb">create</span> <span class="n">physic_world</span> <span class="p">{</span>
-            <span class="n">gravity</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="n">world2</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Add</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">their</span> <span class="n">forces</span>
-        <span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span><span class="n">agents</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">ball</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">ground</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">wall</span> <span class="k">as</span> <span class="k">list</span><span class="p">);}</span>
-
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">forces</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span>
-    <span class="n">reflex</span> <span class="n">computeForces</span>  <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span><span class="k">do</span> <span class="n">compute_forces</span> <span class="n">step</span><span class="p">:</span> <span class="m">1</span><span class="p">;}</span>
-    <span class="p">}</span> 
-
+		<span class="p">//</span><span class="n">down</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="m">2</span><span class="p">);</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">upper</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">,</span><span class="m">2</span><span class="p">);</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">width_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">left</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0.0</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0.0</span><span class="p">};</span>
+			<span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>			
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">right</span> <span class="n">wall</span>
+		<span class="nb">create</span> <span class="n">wall</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">width_of_environment</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">height</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">width_of_environment</span><span class="p">);</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="n">height_of_environment</span><span class="p">);</span>
+			<span class="n">collisionBound</span> <span class="p">&lt;-</span>  <span class="p">[</span><span class="s2">"shape"</span><span class="p">::</span><span class="s2">"floor"</span><span class="p">,</span><span class="s2">"x"</span><span class="p">::</span><span class="n">size_of_the_wall</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">::</span> <span class="n">height_of_environment</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">::</span><span class="n">height</span><span class="p">];</span>
+			<span class="n">mass</span> <span class="p">&lt;-</span><span class="m">0.0</span><span class="p">;</span>
+			
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Create</span> <span class="n">the</span> <span class="n">physic</span> <span class="n">engine</span> <span class="n">without</span> <span class="n">gravity</span> <span class="n">computed</span>
+		<span class="nb">create</span> <span class="n">physic_world</span> <span class="p">{</span>
+			<span class="n">gravity</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">world2</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Add</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">their</span> <span class="n">forces</span>
+		<span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span><span class="n">agents</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">ball</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">ground</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">wall</span> <span class="k">as</span> <span class="k">list</span><span class="p">);}</span>
+		
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">forces</span> <span class="n">at</span> <span class="n">each</span> <span class="n">step</span>
+	<span class="n">reflex</span> <span class="n">computeForces</span>  <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">world2</span> <span class="p">{</span><span class="k">do</span> <span class="n">compute_forces</span> <span class="n">step</span><span class="p">:</span> <span class="m">1</span><span class="p">;}</span>
+	<span class="p">}</span> 
+			
 <span class="p">}</span> 
 <span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">physic</span> <span class="n">engine</span><span class="p">,</span> <span class="n">derivated</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Physical3DWorld</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">species</span>
 <span class="n">species</span> <span class="n">physic_world</span> <span class="n">parent</span><span class="p">:</span> <span class="n">physical_world</span> <span class="p">;</span>
-
+ 
 <span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">ground</span> <span class="n">using</span> <span class="n">the</span> <span class="n">physical3D</span> <span class="n">skill</span>
 <span class="n">species</span> <span class="n">ground</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]{</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">wall</span> <span class="n">using</span> <span class="n">the</span> <span class="n">physical3D</span> <span class="n">skill</span>
 <span class="n">species</span> <span class="n">wall</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]{</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">height</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">height</span><span class="p">;</span>
     <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span><span class="n">height</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">depth</span><span class="p">:</span><span class="n">height</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+ 	
 <span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">using</span> <span class="n">the</span> <span class="n">physical3D</span> <span class="n">skill</span>
 <span class="n">species</span> <span class="n">ball</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">physics</span><span class="p">]</span> <span class="p">{</span>  
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">radius</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">size</span>  <span class="p">&lt;-</span> <span class="n">size_of_agents</span><span class="p">;</span>
-    <span class="n">int</span> <span class="k">range</span>  <span class="p">&lt;-</span> <span class="n">range_of_agents</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">speed</span>  <span class="p">&lt;-</span> <span class="n">speed_of_agents</span><span class="p">;</span>  
-    <span class="n">int</span> <span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">359</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">radius</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">size</span>  <span class="p">&lt;-</span> <span class="n">size_of_agents</span><span class="p">;</span>
+	<span class="n">int</span> <span class="k">range</span>  <span class="p">&lt;-</span> <span class="n">range_of_agents</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">speed</span>  <span class="p">&lt;-</span> <span class="n">speed_of_agents</span><span class="p">;</span>  
+	<span class="n">int</span> <span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">359</span><span class="p">);</span>
 
-    <span class="n">aspect</span> <span class="n">sphere</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">135</span><span class="p">,</span><span class="m">201</span><span class="p">,</span><span class="m">255</span><span class="p">)</span> <span class="p">;</span>
-    <span class="p">}</span>   
+	<span class="n">aspect</span> <span class="n">sphere</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">135</span><span class="p">,</span><span class="m">201</span><span class="p">,</span><span class="m">255</span><span class="p">)</span> <span class="p">;</span>
+	<span class="p">}</span>	
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">perfect_gas</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">init</span><span class="p">{</span>
-        <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span><span class="m">0.001</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">Cube</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">79</span><span class="p">,</span><span class="m">127</span><span class="p">)</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
-            <span class="n">species</span> <span class="n">ground</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.5</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">wall</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.5</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">ball</span> <span class="n">aspect</span><span class="p">:</span><span class="n">sphere</span><span class="p">;</span>         
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">init</span><span class="p">{</span>
+		<span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span><span class="m">0.001</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">Cube</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">79</span><span class="p">,</span><span class="m">127</span><span class="p">)</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">ground</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.5</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">wall</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.5</span><span class="p">;</span>
+	    	<span class="n">species</span> <span class="n">ball</span> <span class="n">aspect</span><span class="p">:</span><span class="n">sphere</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3613,101 +3613,103 @@ function closeRightMenu() {
 
 <p><em>Author :  Martine Taillandier</em></p>
 
-<p>Model representing how to make a weighted graph and the impacts of the weights on the time to follow the path for the agents. Two agents are represented to show this difference : one knowing the weights and following a fast path, an other following a path longer without knowing it&#39;s a longer path.</p>
+<p>Model representing how to make a weighted graph and the impacts of the weights on the time to follow the path for the agents. Two agents are represented to show this difference : one knowing the weights and following a fast path, an other following a path longer without knowing it’s a longer path.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">weightperagents</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;</span> <span class="n">roads_weight</span><span class="p">;</span>
-    <span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">slow_coeff</span> <span class="p">&lt;-</span> <span class="m">3.0</span><span class="p">;</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">This</span> <span class="n">road</span> <span class="n">will</span> <span class="n">be</span> <span class="n">slow</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>
-            <span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">The</span> <span class="n">others</span> <span class="n">will</span> <span class="n">be</span> <span class="n">faster</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">}]);</span>
-            <span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">10</span><span class="p">}]);</span>
-            <span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">90</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>
-            <span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Weights</span> <span class="n">map</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">for</span> <span class="n">those</span> <span class="n">who</span> <span class="n">will</span> <span class="n">know</span> <span class="n">the</span> <span class="n">shortest</span> <span class="n">road</span> <span class="n">by</span> <span class="n">taking</span> <span class="n">into</span> <span class="n">account</span> <span class="n">the</span> <span class="n">weight</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edges</span>
-        <span class="n">roads_weight</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">*</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">slow</span> <span class="p">?</span> <span class="n">slow_coeff</span> <span class="p">:</span> <span class="m">1.0</span><span class="p">));</span>
-        <span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
-
-        <span class="p">//</span><span class="n">people</span> <span class="k">with</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">traffic</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-            <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-            <span class="n">roads_knowledge</span> <span class="p">&lt;-</span> <span class="n">roads_weight</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">people</span> <span class="n">without</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">traffic</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
-            <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-            <span class="n">roads_knowledge</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
+	<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;</span> <span class="n">roads_weight</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">slow_coeff</span> <span class="p">&lt;-</span> <span class="m">3.0</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">This</span> <span class="n">road</span> <span class="n">will</span> <span class="n">be</span> <span class="n">slow</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>
+			<span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">others</span> <span class="n">will</span> <span class="n">be</span> <span class="n">faster</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">}]);</span>
+			<span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">10</span><span class="p">}]);</span>
+			<span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">line</span> <span class="p">([{</span><span class="m">90</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">}]);</span>
+			<span class="n">slow</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Weights</span> <span class="n">map</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">for</span> <span class="n">those</span> <span class="n">who</span> <span class="n">will</span> <span class="n">know</span> <span class="n">the</span> <span class="n">shortest</span> <span class="n">road</span> <span class="n">by</span> <span class="n">taking</span> <span class="n">into</span> <span class="n">account</span> <span class="n">the</span> <span class="n">weight</span> <span class="k">of</span> <span class="n">the</span> <span class="n">edges</span>
+		<span class="n">roads_weight</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span> <span class="p">*</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">slow</span> <span class="p">?</span> <span class="n">slow_coeff</span> <span class="p">:</span> <span class="m">1.0</span><span class="p">));</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+		
+		<span class="p">//</span><span class="n">people</span> <span class="k">with</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">traffic</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="n">size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+			<span class="n">roads_knowledge</span> <span class="p">&lt;-</span> <span class="n">roads_weight</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">people</span> <span class="n">without</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">traffic</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+			<span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+			<span class="n">roads_knowledge</span> <span class="p">&lt;-</span> <span class="n">road</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">perimeter</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-    <span class="n">bool</span> <span class="n">slow</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">slow</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">bool</span> <span class="n">slow</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">slow</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+	
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;</span> <span class="n">roads_knowledge</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">the_target</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">size</span><span class="p">;</span>
-    <span class="n">path</span> <span class="n">path_to_follow</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">movement</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="c1">!= the_target{
-</span>        <span class="k">if</span> <span class="p">(</span><span class="n">path_to_follow</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
-
-            <span class="p">//</span><span class="n">Find</span> <span class="n">the</span> <span class="n">shortest</span> <span class="n">path</span> <span class="n">using</span> <span class="n">the</span> <span class="n">agent</span><span class="s1">'s own weights to compute the shortest path
-            path_to_follow &lt;- path_between(road_network with_weights roads_knowledge, location,the_target);
-        }
-        //the agent follows the path it computed but with the real weights of the graph
-        do follow path:path_to_follow speed: 5 move_weights: roads_weight;
-    }
-
-    aspect base {
-        draw circle(size) color: color;
-    }
+	<span class="n">map</span><span class="p">&lt;</span><span class="n">road</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;</span> <span class="n">roads_knowledge</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">the_target</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">size</span><span class="p">;</span>
+	<span class="n">path</span> <span class="n">path_to_follow</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">90</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">50</span><span class="p">};</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">movement</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="c1">!= the_target{
+</span>		<span class="k">if</span> <span class="p">(</span><span class="n">path_to_follow</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+			
+			<span class="p">//</span><span class="n">Find</span> <span class="n">the</span> <span class="n">shortest</span> <span class="n">path</span> <span class="n">using</span> <span class="n">the</span> <span class="n">agent</span><span class="s1">'s own weights to compute the shortest path
+			path_to_follow &lt;- path_between(road_network with_weights roads_knowledge, location,the_target);
+		}
+		//the agent follows the path it computed but with the real weights of the graph
+		do follow path:path_to_follow speed: 5 move_weights: roads_weight;
+	}
+		
+	aspect base {
+		draw circle(size) color: color;
+	}
 }
 
 experiment weightperagents type: gui {
-    float minimum_cycle_duration &lt;- 0.1;
-    output {
-        display map {
-            species road aspect: geom;
-            species people aspect: base;
-        }
-    }
+	float minimum_cycle_duration &lt;- 0.1;
+	output {
+		display map {
+			species road aspect: geom;
+			species people aspect: base;
+		}
+	}
 }
-</span></code></pre></div>
+</span></code></pre></div></div>
+
     </div>
     </div>
     </div>

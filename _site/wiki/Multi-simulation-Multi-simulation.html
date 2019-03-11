@@ -3613,57 +3613,59 @@ function closeRightMenu() {
 
 <p><em>Author : Patrick Taillandier</em></p>
 
-<p>Model to show how to use multi-simulation, i.e. to run several times the same GUI experiment with potentially different parameter sets </p>
+<p>Model to show how to use multi-simulation, i.e. to run several times the same GUI experiment with potentially different parameter sets</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">multi_simulation</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">three</span> <span class="n">global</span> <span class="n">variables</span> <span class="k">of</span> <span class="n">which</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">values</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">by</span> <span class="n">the</span> <span class="n">first</span> <span class="n">simulation</span> 
-    <span class="n">int</span> <span class="n">nb_agents</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">agent_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">agent_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">dummy</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_agents</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">three</span> <span class="n">global</span> <span class="n">variables</span> <span class="k">of</span> <span class="n">which</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">values</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">by</span> <span class="n">the</span> <span class="n">first</span> <span class="n">simulation</span> 
+	<span class="n">int</span> <span class="n">nb_agents</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">agent_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">agent_color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_agents</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">definition</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">species</span> <span class="n">that</span> <span class="n">just</span> <span class="n">move</span> <span class="n">randomly</span> <span class="n">at</span> <span class="n">a</span> <span class="n">given</span> <span class="n">speed</span>
 <span class="n">species</span> <span class="n">dummy</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">agent_speed</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">agent_color</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">agent_speed</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">agent_color</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">a</span> <span class="n">minimal</span> <span class="n">duration</span> <span class="n">for</span> <span class="n">each</span> <span class="n">cycle</span><span class="p">.</span> <span class="k">As</span> <span class="n">the</span> <span class="k">model</span> <span class="n">is</span> <span class="n">very</span> <span class="n">simple</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="nf">run</span> <span class="n">too</span> <span class="n">fast</span> <span class="k">to</span> <span class="n">observe</span> <span class="n">the</span> <span class="n">results</span><span class="p">,</span> <span class="n">so</span> <span class="n">we</span> <span class="n">slow</span> <span class="n">it</span> <span class="n">down</span><span class="p">.</span>
-    <span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">0.1</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">we</span> <span class="n">define</span> <span class="n">a</span> <span class="n">init</span> <span class="n">block</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">new</span> <span class="n">simulations</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">we</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">second</span> <span class="n">simulation</span> <span class="p">(</span><span class="n">the</span> <span class="n">first</span> <span class="n">simulation</span> <span class="n">is</span> <span class="n">always</span> <span class="n">created</span> <span class="n">by</span> <span class="n">default</span><span class="p">)</span> <span class="k">with</span> <span class="n">the</span> <span class="n">given</span> <span class="k">parameters</span>
-        <span class="nb">create</span> <span class="n">simulation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">nb_agents</span><span class="p">::</span> <span class="m">5</span><span class="p">,</span> <span class="n">agent_speed</span><span class="p">::</span> <span class="m">3.0</span><span class="p">,</span> <span class="n">agent_color</span><span class="p">::</span> <span class="p">#</span><span class="n">red</span><span class="p">];</span>
-
-    <span class="p">}</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">we</span> <span class="n">use</span> <span class="n">an</span> <span class="n">overlay</span> <span class="k">to</span> <span class="n">display</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">in</span> <span class="n">the</span> <span class="n">simulation</span>
-            <span class="n">overlay</span> <span class="s2">"Overlay"</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span> <span class="p">}</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span> <span class="m">180</span> <span class="p">#</span><span class="n">px</span><span class="p">,</span> <span class="m">30</span> <span class="p">#</span><span class="n">px</span> <span class="p">}</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">rounded</span><span class="p">:</span> <span class="nb">true</span>
+	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">a</span> <span class="n">minimal</span> <span class="n">duration</span> <span class="n">for</span> <span class="n">each</span> <span class="n">cycle</span><span class="p">.</span> <span class="k">As</span> <span class="n">the</span> <span class="k">model</span> <span class="n">is</span> <span class="n">very</span> <span class="n">simple</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="nf">run</span> <span class="n">too</span> <span class="n">fast</span> <span class="k">to</span> <span class="n">observe</span> <span class="n">the</span> <span class="n">results</span><span class="p">,</span> <span class="n">so</span> <span class="n">we</span> <span class="n">slow</span> <span class="n">it</span> <span class="n">down</span><span class="p">.</span>
+	<span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">0.1</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">we</span> <span class="n">define</span> <span class="n">a</span> <span class="n">init</span> <span class="n">block</span> <span class="k">to</span> <span class="nb">create</span> <span class="n">new</span> <span class="n">simulations</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">we</span> <span class="nb">create</span> <span class="n">a</span> <span class="n">second</span> <span class="n">simulation</span> <span class="p">(</span><span class="n">the</span> <span class="n">first</span> <span class="n">simulation</span> <span class="n">is</span> <span class="n">always</span> <span class="n">created</span> <span class="n">by</span> <span class="n">default</span><span class="p">)</span> <span class="k">with</span> <span class="n">the</span> <span class="n">given</span> <span class="k">parameters</span>
+		<span class="nb">create</span> <span class="n">simulation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">nb_agents</span><span class="p">::</span> <span class="m">5</span><span class="p">,</span> <span class="n">agent_speed</span><span class="p">::</span> <span class="m">3.0</span><span class="p">,</span> <span class="n">agent_color</span><span class="p">::</span> <span class="p">#</span><span class="n">red</span><span class="p">];</span>
+		
+	<span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">we</span> <span class="n">use</span> <span class="n">an</span> <span class="n">overlay</span> <span class="k">to</span> <span class="n">display</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">in</span> <span class="n">the</span> <span class="n">simulation</span>
+			<span class="n">overlay</span> <span class="s2">"Overlay"</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span> <span class="p">}</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span> <span class="m">180</span> <span class="p">#</span><span class="n">px</span><span class="p">,</span> <span class="m">30</span> <span class="p">#</span><span class="n">px</span> <span class="p">}</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">rounded</span><span class="p">:</span> <span class="nb">true</span>
             <span class="p">{</span>
                <span class="n">draw</span> <span class="s2">"agent_speed: "</span> <span class="p">+</span> <span class="n">agent_speed</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">white</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"SansSerif"</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="p">#</span><span class="n">bold</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span> <span class="m">10</span><span class="err">°</span><span class="n">px</span><span class="p">,</span> <span class="m">20</span><span class="err">°</span><span class="n">px</span> <span class="p">};</span>
             <span class="p">}</span>
-            <span class="n">species</span> <span class="n">dummy</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+			<span class="n">species</span> <span class="n">dummy</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

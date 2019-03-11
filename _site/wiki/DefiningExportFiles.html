@@ -3614,69 +3614,90 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#the-save-statement">The Save Statement</a></li>
-<li><a href="#export-files-in-experiment">Export files in experiment</a></li>
-<li><a href="#autosave">Autosave</a></li>
+  <li><a href="#the-save-statement">The Save Statement</a></li>
+  <li><a href="#export-files-in-experiment">Export files in experiment</a></li>
+  <li><a href="#autosave">Autosave</a></li>
 </ul>
 
 <h2 id="the-save-statement">The Save Statement</h2>
 
-<p>Allows to save data in a file. The type of file can be &quot;shp&quot;, &quot;text&quot; or &quot;csv&quot;. The <strong><code>save</code></strong> statement can be use in an init block, a reflex, an action or in a user command. Do not use it in experiments.</p>
+<p>Allows to save data in a file. The type of file can be “shp”, “text” or “csv”. The <strong><code class="highlighter-rouge">save</code></strong> statement can be use in an init block, a reflex, an action or in a user command. Do not use it in experiments.</p>
 
 <h3 id="facets">Facets</h3>
 
 <ul>
-<li><strong><code>to</code></strong> (string): an expression that evaluates to an string, the path to the file</li>
-<li><code>data</code> (any type), (omissible) : any expression, that will be saved in the file</li>
-<li><code>crs</code> (any type): the name of the projectsion, e.g. crs:&quot;EPSG:4326&quot; or its EPSG id, e.g. crs:4326. Here a list of the CRS codes (and EPSG id): <a href="http://spatialreference.org">http://spatialreference.org</a></li>
-<li><code>rewrite</code> (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it</li>
-<li><code>type</code> (an identifier): an expression that evaluates to an string, the type of the output file (it can be only &quot;shp&quot;, &quot;text&quot; or &quot;csv&quot;)</li>
-<li><code>with</code> (map):<br></li>
+  <li><strong><code class="highlighter-rouge">to</code></strong> (string): an expression that evaluates to an string, the path to the file</li>
+  <li><code class="highlighter-rouge">data</code> (any type), (omissible) : any expression, that will be saved in the file</li>
+  <li><code class="highlighter-rouge">crs</code> (any type): the name of the projectsion, e.g. crs:”EPSG:4326” or its EPSG id, e.g. crs:4326. Here a list of the CRS codes (and EPSG id): http://spatialreference.org</li>
+  <li><code class="highlighter-rouge">rewrite</code> (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it</li>
+  <li><code class="highlighter-rouge">type</code> (an identifier): an expression that evaluates to an string, the type of the output file (it can be only “shp”, “text” or “csv”)</li>
+  <li><code class="highlighter-rouge">with</code> (map):</li>
 </ul>
 
 <h3 id="usages">Usages</h3>
 
 <ul>
-<li>Its simple syntax is:</li>
+  <li>Its simple syntax is:</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">save data to: output_file type: a_type_file;
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save data to: output_file type: a_type_file;
+</code></pre></div></div>
+
 <ul>
-<li>To save data in a text file:</li>
+  <li>To save data in a text file:</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">save (string(cycle) + "-&gt;"  + name + ":" + location) to: "save_data.txt" type: "text";
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save (string(cycle) + "-&gt;"  + name + ":" + location) to: "save_data.txt" type: "text";
+</code></pre></div></div>
+
 <ul>
-<li>To save the values of some attributes of the current agent in csv file:</li>
+  <li>To save the values of some attributes of the current agent in csv file:</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">save [name, location, host] to: "save_data.csv" type: "csv";
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save [name, location, host] to: "save_data.csv" type: "csv";
+</code></pre></div></div>
+
 <ul>
-<li>To save the geometries of all the agents of a species into a shapefile (with optional attributes):</li>
+  <li>To save the geometries of all the agents of a species into a shapefile (with optional attributes):</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">save species_of(self) to: "save_shapefile.shp" type: "shp" with: [name::"nameAgent", location::"locationAgent"] crs: "EPSG:4326";
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save species_of(self) to: "save_shapefile.shp" type: "shp" with: [name::"nameAgent", location::"locationAgent"] crs: "EPSG:4326";
+</code></pre></div></div>
+
 <h2 id="export-files-in-experiment">Export files in experiment</h2>
 
-<p>Displays are not the only output you can manage in GAMA. Saving data to a file during an experiment can also be achieved in several ways, depending on the needs of the modeler. One way is provided by the <code>save</code> statement, which can be used everywhere in a model or a species. The other way, described here, is to include an <strong><code>output_file</code></strong> statement in the output section.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">output_file name:"file_name" type:file_type data:data_to_write; 
-</code></pre></div>
+<p>Displays are not the only output you can manage in GAMA. Saving data to a file during an experiment can also be achieved in several ways, depending on the needs of the modeler. One way is provided by the <code class="highlighter-rouge">save</code> statement, which can be used everywhere in a model or a species. The other way, described here, is to include an <strong><code class="highlighter-rouge">output_file</code></strong> statement in the output section.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output_file name:"file_name" type:file_type data:data_to_write; 
+</code></pre></div></div>
+
 <p>with:</p>
 
-<p><code>file_type</code>: text, csv or xml
-<code>file_name</code>: string
-<code>data_to_write</code>: string</p>
+<p><code class="highlighter-rouge">file_type</code>: text, csv or xml
+<code class="highlighter-rouge">file_name</code>: string
+<code class="highlighter-rouge">data_to_write</code>: string</p>
 
 <h3 id="example">Example:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">file name: "results" type: text data: time + "; " + nb_preys + ";" + nb_predators refresh:every(2);  
-</code></pre></div>
-<p>Each time step (or according to the frequency defined in the <code>refresh</code> facet of the file output), a new line will be added at the end of the file. If <code>rewrite: false</code> is defined in its facets, a new file will be created for each simulation (identified by a timestamp in its name).</p>
 
-<p>Optionally, a <code>footer</code> and a <code>header</code> can also be described with the corresponding facets (of type string).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file name: "results" type: text data: time + "; " + nb_preys + ";" + nb_predators refresh:every(2);  
+</code></pre></div></div>
+
+<p>Each time step (or according to the frequency defined in the <code class="highlighter-rouge">refresh</code> facet of the file output), a new line will be added at the end of the file. If <code class="highlighter-rouge">rewrite: false</code> is defined in its facets, a new file will be created for each simulation (identified by a timestamp in its name).</p>
+
+<p>Optionally, a <code class="highlighter-rouge">footer</code> and a <code class="highlighter-rouge">header</code> can also be described with the corresponding facets (of type string).</p>
 
 <h2 id="autosave">Autosave</h2>
 
-<p>Image files can be exported also through the <code>autosave</code> facet of the display, as explained in <a href="DefiningDisplaysGeneralities#displays-and-layers">this previous part</a>.</p>
+<p>Image files can be exported also through the <code class="highlighter-rouge">autosave</code> facet of the display, as explained in <a href="DefiningDisplaysGeneralities#displays-and-layers">this previous part</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_autosave)">//</a>: # (endConcept</td>
+      <td>export_files)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

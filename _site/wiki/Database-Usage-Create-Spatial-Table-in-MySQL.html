@@ -3615,36 +3615,37 @@ function closeRightMenu() {
 
 <p>This model shows how to create a database and a table in MySQL using GAMA</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">CreateBuildingTableMySQL</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">CreateBuildingTableMySQL</span>
 
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">test_species</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">test_species</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">PARAMS</span><span class="p">])</span>
-            <span class="p">{</span>
-                <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE DATABASE spatial_DB_GAMA"</span><span class="p">;</span>
-                <span class="nb">write</span> <span class="s2">"spatial_BD_GAMA database was created "</span><span class="p">;</span>
-                <span class="n">remove</span> <span class="s2">"database"</span> <span class="k">from</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
-                <span class="n">put</span> <span class="s2">"spatial_DB_GAMA"</span> <span class="n">key</span><span class="p">:</span> <span class="s2">"database"</span> <span class="k">in</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
-                <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE bounds"</span> <span class="p">+</span> <span class="s2">"( "</span> <span class="p">+</span> <span class="s2">" geom GEOMETRY "</span> <span class="p">+</span> <span class="s2">")"</span><span class="p">;</span>
-                <span class="nb">write</span> <span class="s2">"bounds table was created "</span><span class="p">;</span>
-                <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE buildings "</span> <span class="p">+</span> <span class="s2">"( "</span> <span class="p">+</span> <span class="s2">" name VARCHAR(255), "</span> <span class="p">+</span> <span class="s2">" type VARCHAR(255), "</span> <span class="p">+</span> <span class="s2">" geom GEOMETRY "</span> <span class="p">+</span> <span class="s2">")"</span><span class="p">;</span>
-                <span class="nb">write</span> <span class="s2">"buildings table was created "</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">else</span>
-            <span class="p">{</span>
-                <span class="nb">write</span> <span class="s2">"Connection to MySQL can not be established "</span><span class="p">;</span>
-            <span class="p">}</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">test_species</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">test_species</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="n">testConnection</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span><span class="n">PARAMS</span><span class="p">])</span>
+			<span class="p">{</span>
+				<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE DATABASE spatial_DB_GAMA"</span><span class="p">;</span>
+				<span class="nb">write</span> <span class="s2">"spatial_BD_GAMA database was created "</span><span class="p">;</span>
+				<span class="n">remove</span> <span class="s2">"database"</span> <span class="k">from</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
+				<span class="n">put</span> <span class="s2">"spatial_DB_GAMA"</span> <span class="n">key</span><span class="p">:</span> <span class="s2">"database"</span> <span class="k">in</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
+				<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE bounds"</span> <span class="p">+</span> <span class="s2">"( "</span> <span class="p">+</span> <span class="s2">" geom GEOMETRY "</span> <span class="p">+</span> <span class="s2">")"</span><span class="p">;</span>
+				<span class="nb">write</span> <span class="s2">"bounds table was created "</span><span class="p">;</span>
+				<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE buildings "</span> <span class="p">+</span> <span class="s2">"( "</span> <span class="p">+</span> <span class="s2">" name VARCHAR(255), "</span> <span class="p">+</span> <span class="s2">" type VARCHAR(255), "</span> <span class="p">+</span> <span class="s2">" geom GEOMETRY "</span> <span class="p">+</span> <span class="s2">")"</span><span class="p">;</span>
+				<span class="nb">write</span> <span class="s2">"buildings table was created "</span><span class="p">;</span>
+			<span class="p">}</span> <span class="k">else</span>
+			<span class="p">{</span>
+				<span class="nb">write</span> <span class="s2">"Connection to MySQL can not be established "</span><span class="p">;</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
@@ -3655,7 +3656,8 @@ function closeRightMenu() {
 <span class="n">experiment</span> <span class="n">default_expr</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

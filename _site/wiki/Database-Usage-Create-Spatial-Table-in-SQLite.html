@@ -3615,34 +3615,35 @@ function closeRightMenu() {
 
 <p>This model shows how to create a database and a table in SQLite using GAMA</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">SQLite_selectNUpdate</span>
-
+  
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">map</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlite'</span><span class="p">,</span><span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span><span class="p">];</span>
+	<span class="n">map</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'sqlite'</span><span class="p">,</span><span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span><span class="p">];</span>
 
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">dummy</span> <span class="p">;</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">dummy</span><span class="p">)</span> 
-        <span class="p">{</span> 
-            <span class="k">do</span>  <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> 
-                    <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE bounds; "</span> <span class="p">;</span>
-            <span class="k">do</span>  <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> 
-                    <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE buildings; "</span> <span class="p">;</span>
-
-            <span class="nb">write</span> <span class="s2">"dropped tables!"</span><span class="p">;</span>
-            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE bounds "</span> <span class="p">+</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">dummy</span> <span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">dummy</span><span class="p">)</span>	
+		<span class="p">{</span> 
+			<span class="k">do</span>  <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> 
+					<span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE bounds; "</span> <span class="p">;</span>
+ 			<span class="k">do</span>  <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> 
+ 					<span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE buildings; "</span> <span class="p">;</span>
+  
+ 			<span class="nb">write</span> <span class="s2">"dropped tables!"</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE bounds "</span> <span class="p">+</span>
                    <span class="s2">"(id INTEGER PRIMARY KEY, "</span> <span class="p">+</span>
-                   <span class="s2">" geom BLOB NOT NULL); "</span>  <span class="p">;</span>
-            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE buildings "</span> <span class="p">+</span>
+				   <span class="s2">" geom BLOB NOT NULL); "</span>  <span class="p">;</span>
+ 			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE buildings "</span> <span class="p">+</span>
                    <span class="s2">"(id INTEGER PRIMARY KEY, "</span> <span class="p">+</span>
                    <span class="s2">" name TEXT NOT NULL,"</span> <span class="p">+</span>
                    <span class="s2">" type TEXT NOT NULL,"</span> <span class="p">+</span>
                    <span class="s2">" geom BLOB NOT NULL); "</span>  <span class="p">;</span>
 
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>  
 
 <span class="n">species</span> <span class="n">dummy</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">]</span> <span class="p">{</span> <span class="p">}</span> 
@@ -3650,7 +3651,8 @@ function closeRightMenu() {
 <span class="n">experiment</span> <span class="n">default_expr</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
 
 <span class="p">}</span>     
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

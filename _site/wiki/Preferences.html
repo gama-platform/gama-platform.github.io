@@ -3618,213 +3618,212 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#preferences">Preferences</a>
-
-<ul>
-<li><a href="#opening-preferences">Opening Preferences</a></li>
-<li><a href="#simulation">Simulation</a></li>
-<li><a href="#display">Display</a></li>
-<li><a href="#editor">Editor</a></li>
-<li><a href="#external">External</a></li>
-<li><a href="#advanced-preferences">Advanced Preferences</a></li>
-</ul></li>
+  <li><a href="#preferences">Preferences</a>
+    <ul>
+      <li><a href="#opening-preferences">Opening Preferences</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#display">Display</a></li>
+      <li><a href="#editor">Editor</a></li>
+      <li><a href="#external">External</a></li>
+      <li><a href="#advanced-preferences">Advanced Preferences</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="opening-preferences">Opening Preferences</h2>
+<p>To open the preferences dialog of GAMA, either click on the small “form” button on the top-left corner of the window or select “Preferences…” from the Gama, “Help” or “Views” menu depending on your OS.</p>
 
-<p>To open the preferences dialog of GAMA, either click on the small &quot;form&quot; button on the top-left corner of the window or select &quot;Preferences...&quot; from the Gama, &quot;Help&quot; or &quot;Views&quot; menu depending on your OS.</p>
-
-<p><img src="resources/images/preferences/open_prefs.png" alt="images/open_prefs.png"></p>
+<p><img src="resources/images/preferences/open_prefs.png" alt="images/open_prefs.png" /></p>
 
 <h2 id="simulation">Simulation</h2>
 
-<p><img src="resources/images/preferences/simulation.png" alt="images/simulation.png"></p>
+<p><img src="resources/images/preferences/simulation.png" alt="images/simulation.png" /></p>
 
 <ul>
-<li><strong>Random Number Generation</strong>: all the options pertaining to generating random numbers in simulations
-
-<ul>
-<li>Random Number Generator: the name of the generator to use by default (if none is specified in the model).</li>
-<li>Define a default seed: whether or not a default seed should be used if none is specified in the model  (otherwise it is chosen randomly by GAMA)</li>
-<li>Default Seed value: the value of this default seed</li>
-<li>Include in the parameters of models: whether the choice of generator and seed is included by default in the <a href="ParametersView">parameters views</a> of experiments or not.</li>
-</ul></li>
-<li><strong>Errors</strong>: how to manage and consider simulation errors
-
-<ul>
-<li>Display Errors: whether errors should be displayed or not.</li>
-<li>Number of errors to display: how many errors should be displayed at once</li>
-<li>Display most recent first: errors will be sorted in the inverse chronological order if true.</li>
-<li>Stop simulation at first error: if false, the simulations will display the errors and continue (or try to).</li>
-<li>Treat warnings as errors: if true, no more distinction is made between warnings (which do not stop the simulation) and errors (which can potentially stop it.</li>
-</ul></li>
-<li><strong>Runtime</strong>: various settings regarding the execution of experiments.
-
-<ul>
-<li>Default Step for Delay Slider: the number of seconds that one step of the slider used to impose a delay between two cycles of a simulation lasts.</li>
-<li>Auto-run experiments when they are launched: see <a href="LaunchingExperiments#Running_Experiments_Automatically">this page</a>.</li>
-<li>Ask to close the previous simulation before launching a new one: if false, previous simulations (if any) will be closed without warning.</li>
-</ul></li>
+  <li><strong>Random Number Generation</strong>: all the options pertaining to generating random numbers in simulations
+    <ul>
+      <li>Random Number Generator: the name of the generator to use by default (if none is specified in the model).</li>
+      <li>Define a default seed: whether or not a default seed should be used if none is specified in the model  (otherwise it is chosen randomly by GAMA)</li>
+      <li>Default Seed value: the value of this default seed</li>
+      <li>Include in the parameters of models: whether the choice of generator and seed is included by default in the <a href="ParametersView">parameters views</a> of experiments or not.</li>
+    </ul>
+  </li>
+  <li><strong>Errors</strong>: how to manage and consider simulation errors
+    <ul>
+      <li>Display Errors: whether errors should be displayed or not.</li>
+      <li>Number of errors to display: how many errors should be displayed at once</li>
+      <li>Display most recent first: errors will be sorted in the inverse chronological order if true.</li>
+      <li>Stop simulation at first error: if false, the simulations will display the errors and continue (or try to).</li>
+      <li>Treat warnings as errors: if true, no more distinction is made between warnings (which do not stop the simulation) and errors (which can potentially stop it.</li>
+    </ul>
+  </li>
+  <li><strong>Runtime</strong>: various settings regarding the execution of experiments.
+    <ul>
+      <li>Default Step for Delay Slider: the number of seconds that one step of the slider used to impose a delay between two cycles of a simulation lasts.</li>
+      <li>Auto-run experiments when they are launched: see <a href="LaunchingExperiments#Running_Experiments_Automatically">this page</a>.</li>
+      <li>Ask to close the previous simulation before launching a new one: if false, previous simulations (if any) will be closed without warning.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="ui">UI</h2>
 
-<p><img src="resources/images/preferences/UI.png" alt="images/UI.png"></p>
+<p><img src="resources/images/preferences/UI.png" alt="images/UI.png" /></p>
 
 <ul>
-<li><strong>Menus</strong>
-
-<ul>
-<li>Break down agents in menu every: when <a href="InspectorsAndMonitors">inspecting</a> a large number of agents, how many should be displayed before the decision is made to separate the population in sub-menus.</li>
-<li>Sort colors menu by</li>
-<li>Sort operators menu by</li>
-</ul></li>
-<li><strong>Console</strong>
-
-<ul>
-<li>Max. number of characters to display in the console (-1 means no limit)</li>
-<li>Max. number of characters to keep in memory when console is paused (-1 means no limit)</li>
-</ul></li>
-<li><strong>Icons</strong>
-
-<ul>
-<li>Icons and buttons dark mode (restart to see the change): Change the highlight for the icons and the button.</li>
-<li>Size of icons in the UI (restart to see the change): Size of the icons in pixel</li>
-</ul></li>
-<li><strong>Viewers</strong>
-
-<ul>
-<li>Default shapefile viewer fill color:</li>
-<li>Default shapefile viewer line color:</li>
-<li>Default image viewer background color: Background color for the image viewer (when you select an image from the model explorer for example)</li>
-</ul></li>
+  <li><strong>Menus</strong>
+    <ul>
+      <li>Break down agents in menu every: when <a href="InspectorsAndMonitors">inspecting</a> a large number of agents, how many should be displayed before the decision is made to separate the population in sub-menus.</li>
+      <li>Sort colors menu by</li>
+      <li>Sort operators menu by</li>
+    </ul>
+  </li>
+  <li><strong>Console</strong>
+    <ul>
+      <li>Max. number of characters to display in the console (-1 means no limit)</li>
+      <li>Max. number of characters to keep in memory when console is paused (-1 means no limit)</li>
+    </ul>
+  </li>
+  <li><strong>Icons</strong>
+    <ul>
+      <li>Icons and buttons dark mode (restart to see the change): Change the highlight for the icons and the button.</li>
+      <li>Size of icons in the UI (restart to see the change): Size of the icons in pixel</li>
+    </ul>
+  </li>
+  <li><strong>Viewers</strong>
+    <ul>
+      <li>Default shapefile viewer fill color:</li>
+      <li>Default shapefile viewer line color:</li>
+      <li>Default image viewer background color: Background color for the image viewer (when you select an image from the model explorer for example)</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="general">General</h2>
 
-<p><img src="resources/images/preferences/general.png" alt="images/general.png"></p>
+<p><img src="resources/images/preferences/general.png" alt="images/general.png" /></p>
 
 <ul>
-<li><strong>Startup</strong>
-
-<ul>
-<li>Display welcome page at startup: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
-</ul></li>
+  <li><strong>Startup</strong>
+    <ul>
+      <li>Display welcome page at startup: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="display">Display</h2>
 
-<p><img src="resources/images/preferences/display.png" alt="images/display.png"></p>
+<p><img src="resources/images/preferences/display.png" alt="images/display.png" /></p>
 
 <ul>
-<li><strong>Properties</strong>: various properties of displays
-
-<ul>
-<li>Default display method: use either &#39;Java2D&#39; or &#39;OpenGL&#39; if nothing is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
-<li>Synchronize displays with simulations: if true, simulation cycles will wait for the displays to have finished their rendering before passing to the next cycle (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
-<li>Show display overlay: if true, the <a href="Displays">bottom overlay</a> is visible when opening a display.</li>
-<li>Show scale bar in overlay: if true, the scale bar is displayed in the bottom overlay.</li>
-<li>Apply antialiasing: if true, displays are drawn using antialiasing, which is slower but renders a better quality of image and text (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
-<li>Default background color: indicates which color to use when none is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
-<li>Default highlight color: indicates which color to use for highlighting agents in the displays.</li>
-<li>Stack displays on screen...: if true, the <a href="Displays">display views</a>, in case they are stacked on one another, will put the first <a href="DefiningDisplaysGeneralities">display declared in the model</a> on top of the stack.</li>
-</ul></li>
-<li><strong>Default Aspect</strong>: which aspect to use when an <a href="G__DefiningOtherLayers">&#39;agent&#39; or &#39;species&#39; layer</a> does not indicate it
-
-<ul>
-<li>Default shape: a choice between &#39;shape&#39; (which represents the actual geometrical shape of the agent) and geometrical operators (&#39;square&#39;, etc.).</li>
-<li>Default size: what size to use. This expression must be a constant.</li>
-<li>Default color: what color to use.</li>
-<li>Default font to use in text layers or draw statements when none is specified</li>
-</ul></li>
-<li><strong>OpenGL</strong>: various properties specific to OpenGL-based displays
-
-<ul>
-<li>Use improved z positioning: if true, two agents positioned at the same z value will be slightly shifted in z in order to draw them more accurately.</li>
-<li>Draw 3D referential: if true, the shape of the world and the 3 axes are drawn</li>
-<li>Show number of frames per second</li>
-<li>Enable lighting: if true, lights can be defined in the display</li>
-<li>Draw normals to objects: if true, the &#39;normal&#39; of each object is displayed together with it.</li>
-<li>Display as a cube: if true, the scene is drawn on all the facets of a cube.</li>
-</ul></li>
+  <li><strong>Properties</strong>: various properties of displays
+    <ul>
+      <li>Default display method: use either ‘Java2D’ or ‘OpenGL’ if nothing is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
+      <li>Synchronize displays with simulations: if true, simulation cycles will wait for the displays to have finished their rendering before passing to the next cycle (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
+      <li>Show display overlay: if true, the <a href="Displays">bottom overlay</a> is visible when opening a display.</li>
+      <li>Show scale bar in overlay: if true, the scale bar is displayed in the bottom overlay.</li>
+      <li>Apply antialiasing: if true, displays are drawn using antialiasing, which is slower but renders a better quality of image and text (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
+      <li>Default background color: indicates which color to use when none is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
+      <li>Default highlight color: indicates which color to use for highlighting agents in the displays.</li>
+      <li>Stack displays on screen…: if true, the <a href="Displays">display views</a>, in case they are stacked on one another, will put the first <a href="DefiningDisplaysGeneralities">display declared in the model</a> on top of the stack.</li>
+    </ul>
+  </li>
+  <li><strong>Default Aspect</strong>: which aspect to use when an <a href="G__DefiningOtherLayers">‘agent’ or ‘species’ layer</a> does not indicate it
+    <ul>
+      <li>Default shape: a choice between ‘shape’ (which represents the actual geometrical shape of the agent) and geometrical operators (‘square’, etc.).</li>
+      <li>Default size: what size to use. This expression must be a constant.</li>
+      <li>Default color: what color to use.</li>
+      <li>Default font to use in text layers or draw statements when none is specified</li>
+    </ul>
+  </li>
+  <li><strong>OpenGL</strong>: various properties specific to OpenGL-based displays
+    <ul>
+      <li>Use improved z positioning: if true, two agents positioned at the same z value will be slightly shifted in z in order to draw them more accurately.</li>
+      <li>Draw 3D referential: if true, the shape of the world and the 3 axes are drawn</li>
+      <li>Show number of frames per second</li>
+      <li>Enable lighting: if true, lights can be defined in the display</li>
+      <li>Draw normals to objects: if true, the ‘normal’ of each object is displayed together with it.</li>
+      <li>Display as a cube: if true, the scene is drawn on all the facets of a cube.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="editor">Editor</h2>
 
-<p><img src="resources/images/preferences/editor.png" alt="images/editor.png"></p>
+<p><img src="resources/images/preferences/editor.png" alt="images/editor.png" /></p>
 
 <p>Most of the settings and preferences regarding editors can be found in the <a href="#advanced-preferences">advanced preferences</a>.</p>
 
 <ul>
-<li><strong>Options</strong>
-
-<ul>
-<li>Automatically switch to Modeling Persepective: if true, if a model is edited in the Simulation Perspective, then the perspective is automatically switched to Modeling (<em>inactive for the moment</em>)</li>
-<li>Automatically close curly brackets ({)</li>
-<li>Automatically close square brackets (])</li>
-<li>Automatically close parenthesis</li>
-<li>Mark occurrences of symbols in models: if true, when a symbol is selected in a model, all its occurrences are also highlighted.</li>
-<li>Applying formatting to models on save: if true, every time a model file is saved, its code is formatted.</li>
-<li>Save all model files before launching an experiment</li>
-<li>Ask before saving each file</li>
-</ul></li>
-<li><strong>Validation</strong>
-
-<ul>
-<li>Show warning markers when editing a model</li>
-<li>Show information markers when editing a model</li>
-</ul></li>
-<li><strong>Presentation</strong>
-
-<ul>
-<li>Turn on colorization of code sections by default</li>
-<li>Font of editors</li>
-<li>Background color of editors</li>
-</ul></li>
-<li><strong>Toolbars</strong>
-
-<ul>
-<li>Show edition toolbar by default</li>
-<li>Show other models&#39; experiments in toolbar: if true, you are able to launch other models&#39; experiments from a particular model.</li>
-</ul></li>
+  <li><strong>Options</strong>
+    <ul>
+      <li>Automatically switch to Modeling Persepective: if true, if a model is edited in the Simulation Perspective, then the perspective is automatically switched to Modeling (<em>inactive for the moment</em>)</li>
+      <li>Automatically close curly brackets ({)</li>
+      <li>Automatically close square brackets (])</li>
+      <li>Automatically close parenthesis</li>
+      <li>Mark occurrences of symbols in models: if true, when a symbol is selected in a model, all its occurrences are also highlighted.</li>
+      <li>Applying formatting to models on save: if true, every time a model file is saved, its code is formatted.</li>
+      <li>Save all model files before launching an experiment</li>
+      <li>Ask before saving each file</li>
+    </ul>
+  </li>
+  <li><strong>Validation</strong>
+    <ul>
+      <li>Show warning markers when editing a model</li>
+      <li>Show information markers when editing a model</li>
+    </ul>
+  </li>
+  <li><strong>Presentation</strong>
+    <ul>
+      <li>Turn on colorization of code sections by default</li>
+      <li>Font of editors</li>
+      <li>Background color of editors</li>
+    </ul>
+  </li>
+  <li><strong>Toolbars</strong>
+    <ul>
+      <li>Show edition toolbar by default</li>
+      <li>Show other models’ experiments in toolbar: if true, you are able to launch other models’ experiments from a particular model.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="external">External</h2>
 
-<p><img src="resources/images/preferences/external.png" alt="images/external.png"></p>
+<p><img src="resources/images/preferences/external.png" alt="images/external.png" /></p>
 
 <p>These preferences pertain to the use of external libraries or data with GAMA.</p>
 
 <ul>
-<li><strong>Paths</strong>
-
-<ul>
-<li>Path to Spatialite: the path to the Spatialite library (<a href="http://www.gaia-gis.it/gaia-sins/">http://www.gaia-gis.it/gaia-sins/</a>) in the system.</li>
-<li>Path to RScript: the path to the RScript library (<a href="http://www.r-project.org">http://www.r-project.org</a>) in the system.</li>
-</ul></li>
-<li><strong>GIS Coordinate Reference Systems</strong>: settings about CRS to use when loading or saving GIS files
-
-<ul>
-<li>Let GAMA decide which CRS to use to project GIS data: if true, GAMA will decide which CRS, based on input, should be used to project GIS data. Default is false (i.e. only one CRS, entered below, is used to project data in the models)</li>
-<li>...or use the following CRS (EPSG code): choose a CRS that will be applied to all GIS data when projected in the models. Please refer to <a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for a list of EPSG codes.</li>
-<li>When no .prj file or CRS is supplied, consider GIS data to be already projected: if true, GIS data that is not accompanied by a CRS information will be considered as projected using the above code.</li>
-<li>...or use the following CRS (EPSG code): choose a CRS that will represent the default code for loading uninformed GIS data.</li>
-<li>When no CRS is provided, save the GIS data with the current CRS: if true, saving GIS data will use the projected CRS unless a CRS is provided.</li>
-<li>...or use the following CRS (EPSG code): otherwise, you might enter a CRS to use to save files.</li>
-</ul></li>
+  <li><strong>Paths</strong>
+    <ul>
+      <li>Path to Spatialite: the path to the Spatialite library (http://www.gaia-gis.it/gaia-sins/) in the system.</li>
+      <li>Path to RScript: the path to the RScript library (http://www.r-project.org) in the system.</li>
+    </ul>
+  </li>
+  <li><strong>GIS Coordinate Reference Systems</strong>: settings about CRS to use when loading or saving GIS files
+    <ul>
+      <li>Let GAMA decide which CRS to use to project GIS data: if true, GAMA will decide which CRS, based on input, should be used to project GIS data. Default is false (i.e. only one CRS, entered below, is used to project data in the models)</li>
+      <li>…or use the following CRS (EPSG code): choose a CRS that will be applied to all GIS data when projected in the models. Please refer to http://spatialreference.org/ref/epsg/ for a list of EPSG codes.</li>
+      <li>When no .prj file or CRS is supplied, consider GIS data to be already projected: if true, GIS data that is not accompanied by a CRS information will be considered as projected using the above code.</li>
+      <li>…or use the following CRS (EPSG code): choose a CRS that will represent the default code for loading uninformed GIS data.</li>
+      <li>When no CRS is provided, save the GIS data with the current CRS: if true, saving GIS data will use the projected CRS unless a CRS is provided.</li>
+      <li>…or use the following CRS (EPSG code): otherwise, you might enter a CRS to use to save files.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="advanced-preferences">Advanced Preferences</h2>
 
-<p>The set of preferences described above are specific to GAMA. But there are other preferences or settings that are inherited from the Eclipse underpinnings of GAMA, which concern either the &quot;core&quot; of the platform (workspace, editors, updates, etc.) or plugins (like SVN, for instance) that are part of the distribution of GAMA.</p>
+<p>The set of preferences described above are specific to GAMA. But there are other preferences or settings that are inherited from the Eclipse underpinnings of GAMA, which concern either the “core” of the platform (workspace, editors, updates, etc.) or plugins (like SVN, for instance) that are part of the distribution of GAMA.</p>
 
-<p>These &quot;advanced&quot; preferences are accessible by clicking on the &quot;Advanced...&quot; button in the Preferences view.</p>
+<p>These “advanced” preferences are accessible by clicking on the “Advanced…” button in the Preferences view.</p>
 
-<p><img src="resources/images/preferences/advanced.png" alt="images/advanced.png"></p>
+<p><img src="resources/images/preferences/advanced.png" alt="images/advanced.png" /></p>
 
-<p>Depending on what is installed, the second view that appears will contain a tree of options on the left and preference pages on the right. <strong>Contrary to the first set of preferences, please note that these preferences will be saved in the current workspace</strong>, which means that changing workspace will revert them to their default values. It is however possible to import them in the new workspace using of the wizards provided in the standard &quot;Import...&quot; command (see <a href="ImportingModels">here</a>).</p>
+<p>Depending on what is installed, the second view that appears will contain a tree of options on the left and preference pages on the right. <strong>Contrary to the first set of preferences, please note that these preferences will be saved in the current workspace</strong>, which means that changing workspace will revert them to their default values. It is however possible to import them in the new workspace using of the wizards provided in the standard “Import…” command (see <a href="ImportingModels">here</a>).</p>
 
-<p><img src="resources/images/preferences/advanced_2.png" alt="images/advanced_2.png"></p>
+<p><img src="resources/images/preferences/advanced_2.png" alt="images/advanced_2.png" /></p>
 
     </div>
     </div>

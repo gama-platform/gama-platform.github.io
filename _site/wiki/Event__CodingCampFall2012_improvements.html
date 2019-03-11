@@ -3612,89 +3612,93 @@ function closeRightMenu() {
         <p>Improvements and Enhancements</p>
 
 <h1 id="possibility-to-directly-create-agents-from-a-csv-file">Possibility to directly create agents from a CSV file</h1>
-
 <p>The create statement has been extended in order to let the possibility to create agents of specified species directly from a CSV file.
 An agent is created by line of the CSV file. It is also possible to read the different column of the file using the read operator: <strong>read (column_index) (start at 0)</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang="">read(1)
-</code></pre></div>
-<p>For example:
-<code>
-create people from: &quot;data_file.csv&quot; with: [speed::read(0), age:: read(1)];
-</code></p>
 
-<p>It is also possible to specify that the CSV file has a header that can give the name of the different column using the <strong>header</strong> facet (<strong>boolean</strong>). It this case, it is possible to directly use this name to read the column value: <strong>read(&quot;attribute1&quot;)</strong>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>read(1)
+</code></pre></div></div>
 
-<p>For example:
-<code>
-create people from: &quot;data_file.csv&quot; with: [speed::read(&quot;SPEED&quot;), age:: read(&quot;AGE&quot;)] header: true;
-</code></p>
+<p>For example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read(0), age:: read(1)];
+</code></pre></div></div>
+
+<p>It is also possible to specify that the CSV file has a header that can give the name of the different column using the <strong>header</strong> facet (<strong>boolean</strong>). It this case, it is possible to directly use this name to read the column value: <strong>read(“attribute1”)</strong>.</p>
+
+<p>For example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create people from: "data_file.csv" with: [speed::read("SPEED"), age:: read("AGE")] header: true;
+</code></pre></div></div>
 
 <h1 id="improving-and-simplifying-the-syntax-of-gaml">Improving and simplifying the syntax of GAML</h1>
+<p>New features:</p>
+<ul>
+  <li>Possibility to define 3D points with the <strong>{x,y,z}</strong> syntax:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let pt type: point &lt;- {2, 5, 3};
+</code></pre></div>    </div>
+    <h1 id="documenting-and-enhancing-the-command-line-version">Documenting and enhancing the command line version</h1>
+  </li>
+</ul>
 
-<p>New features:
-  * Possibility to define 3D points with the <strong>{x,y,z}</strong> syntax:
-<code>
-let pt type: point &lt;- {2, 5, 3};
-</code></p>
-
-<h1 id="documenting-and-enhancing-the-command-line-version">Documenting and enhancing the command line version</h1>
-
-<h1 id="summary-one-sentence-summary-of-this-page">summary One-sentence summary of this page.</h1>
+<p>#summary One-sentence summary of this page.</p>
 
 <p>The aim of this feature is to run models and experiments on a grid or a cluster without GUI and to take advantages of High Performance Computing. It promises efficient running by accelerating each simulation and experiment plan computing. The GUI is not loaded and managed. Several simulations could be run in parallel, at same time.</p>
 
 <p>There is two ways to run a GAMA experiment in headless mode: using command-line launcher or Java command line. These commands take 2 arguments: an experiment file and an output directory.</p>
 
-<p>For the command-line :
-<code>
- sh gamaHeadless.sh $1 $2
-</code>
-  * with:
-    * $1 input parameter file : an xml file determining experiment parameters and attended outputs
-    * $2 output directory path : a directory which contains simulation results (numerical data and simulation snapshot)</p>
+<p>For the command-line :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sh gamaHeadless.sh $1 $2
+</code></pre></div></div>
+<ul>
+  <li>with:
+    <ul>
+      <li>$1 input parameter file : an xml file determining experiment parameters and attended outputs</li>
+      <li>$2 output directory path : a directory which contains simulation results (numerical data and simulation snapshot)</li>
+    </ul>
+  </li>
+</ul>
 
 <p><a href="Headless">go to headless documentation</a></p>
 
 <h1 id="torus-environment">Torus environment</h1>
-
 <p>It is now possible to use toroidal environment for grid and continuous environments (even with complex GIS geometries).  The only thing to do is to use the <strong>torus</strong> facet.</p>
 
-<p>For a grid:
-<code>
-grid cell width: 5 height: 5 neighbors: 8 torus: true 
-</code></p>
+<p>For a grid:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 5 height: 5 neighbors: 8 torus: true 
+</code></pre></div></div>
 
-<p>For the continuous environment:
-<code>
-environment bounds: {50,50} torus: true;
-</code></p>
+<p>For the continuous environment:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment bounds: {50,50} torus: true;
+</code></pre></div></div>
 
 <p>Be careful concerning toroidal continuous environment: the computation required by these environment is high, thus they should be used only when they are really necessary.</p>
 
 <p>A demonstration of a continuous toroidal environment is given in the experimental model: testTorus-&gt; continuous_torus.</p>
 
-<p><img src="http://gama-platform.googlecode.com/files/toroidalEnv.png" alt="http://gama-platform.googlecode.com/files/toroidalEnv.png"></p>
+<p><img src="http://gama-platform.googlecode.com/files/toroidalEnv.png" alt="http://gama-platform.googlecode.com/files/toroidalEnv.png" /></p>
 
 <h1 id="communication-skill">Communication Skill</h1>
-
 <p>Plugin-needed: msi.gaml.extensions.fipa</p>
 
-<p>The communicating skill now re-works on GAMA 1.5. Sample toy models are found in &quot;models/fipa&quot;.</p>
+<p>The communicating skill now re-works on GAMA 1.5. Sample toy models are found in “models/fipa”.</p>
 
-<h1 id="update-of-the-trust-skill-to-gama-1-5">Update of the Trust Skill to Gama 1.5</h1>
+<h1 id="update-of-the-trust-skill-to-gama-15">Update of the Trust Skill to Gama 1.5</h1>
 
 <h1 id="hexgonal-geometry-and-grid">Hexgonal geometry and grid</h1>
-
 <p>It is now possible to create a hexagon of with the given width and height (point) thanks to the operator <strong>hexagon({width, height})</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang="">hexagon({3,4})
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hexagon({3,4})
+</code></pre></div></div>
+
 <p>In the same way, an operator has been defined in order to decomposed a geometry into a set of hexagons of a given a number of columns and rows. This operator returns a set of hexagons: geometry as_hexagonal_grid({nb_cols, nb_rows})</p>
-<div class="highlight"><pre><code class="language-" data-lang="">shape as_hexagonal_grid({50, 40})
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shape as_hexagonal_grid({50, 40})
+</code></pre></div></div>
+
 <p>At last, it is now possible to define a hexagonal grid. To do so, the neighbors should is set to <strong>6</strong>. It is possible to use torus environment with hexagonal grid.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid cell width: 20 height: 20 neighbors: 6 torus: true;
-</code></pre></div>
-<p><img src="http://gama-platform.googlecode.com/files/imageHexGrid.png" alt="http://gama-platform.googlecode.com/files/imageHexGrid.png"></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 20 height: 20 neighbors: 6 torus: true;
+</code></pre></div></div>
+
+<p><img src="http://gama-platform.googlecode.com/files/imageHexGrid.png" alt="http://gama-platform.googlecode.com/files/imageHexGrid.png" /></p>
 
 <h1 id="using-hsb-color">Using HSB color</h1>
 
@@ -3703,12 +3707,13 @@ environment bounds: {50,50} torus: true;
 <p>Example:</p>
 
 <p>The association of the orientation of agents is enhanced by mapping the orientation of the agent to a hue.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">color hsb_to_rgb ([heading/360,1.0,1.0]);
-</code></pre></div>
-<p>In the following example boids are represented by a triangle with the colors depending on their heading. <a href="http://gama-platform.googlecode.com/files/Dynamic_Color_HSB.mov"><img src="http://gama-platform.googlecode.com/files/HSB_Color.png" alt=""></a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>color hsb_to_rgb ([heading/360,1.0,1.0]);
+</code></pre></div></div>
+
+<p>In the following example boids are represented by a triangle with the colors depending on their heading. <a href="http://gama-platform.googlecode.com/files/Dynamic_Color_HSB.mov"><img src="http://gama-platform.googlecode.com/files/HSB_Color.png" alt="" /></a></p>
 
 <h1 id="multicore-runner-in-headless-mode">Multicore runner in Headless Mode</h1>
-
 <p>Results: distribution of command-line version on multicore machine, integration with GAMA interface, visualisation of outputs.</p>
 
 <h1 id="defining-interaction-in-a-model">Defining interaction in a model</h1>
@@ -3716,24 +3721,24 @@ environment bounds: {50,50} torus: true;
 <p>One statement have been added to facilitate the proposal of serious game on which user could interact through a map. It is now possible to catch event done on 2D display in order to do an action and to modify clicked agent attributes.</p>
 
 <h2 id="attributes">Attributes</h2>
-
 <ul>
-<li><strong>name</strong> (omissible) <code>[mouse_down , mouse_up]</code></li>
-<li><strong>action</strong> name of the action to be run</li>
+  <li><strong>name</strong> (omissible) ` [mouse_down , mouse_up] `</li>
+  <li><strong>action</strong> name of the action to be run</li>
 </ul>
 
 <h2 id="definition">Definition</h2>
-
 <p>Allows to interact with the simulation by capturing mouse event and do an action. This action could apply a change on environment or on agents, according to the goal.</p>
 
 <p>Events are determine for a display. Thus, they can be play a different behavior</p>
-<div class="highlight"><pre><code class="language-" data-lang="">event [event_type] action: myAction
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event [event_type] action: myAction
+</code></pre></div></div>
 <ul>
-<li>event_type (mouse_down or mouse_up</li>
-<li>myAction is an action written in the global block. This action have to follow the specification below.</li>
+  <li>event_type (mouse_down or mouse_up</li>
+  <li>myAction is an action written in the global block. This action have to follow the specification below.</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
  global
  {
    ...
@@ -3741,60 +3746,63 @@ environment bounds: {50,50} torus: true;
    {
      arg location type: point; // contains le location of the click in the environment
      arg selected_agents type: list; // contains agents clicked by the event
-
+    
     ... //code written by the authors ...
    } 
  }
 
  experiment Simple type:gui {
-    parameter 'Evaporation Rate:' var: evaporation_rate;
-    parameter 'Diffusion Rate:' var: diffusion_rate;
-    output { 
-        display Ants refresh_every: 2 { 
-            grid ant_grid;
-            species ant aspect: default;
-            text tt value: string ( food_remaining ) size: 24.0 position: { 20 , 20 } color: rgb ( 'white' );
-            event mouse_up action: myAction;
-        }  
+	parameter 'Evaporation Rate:' var: evaporation_rate;
+	parameter 'Diffusion Rate:' var: diffusion_rate;
+	output { 
+		display Ants refresh_every: 2 { 
+			grid ant_grid;
+			species ant aspect: default;
+			text tt value: string ( food_remaining ) size: 24.0 position: { 20 , 20 } color: rgb ( 'white' );
+			event mouse_up action: myAction;
+		}  
 
 ...
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h1 id="driving-skill-in-2d-skill-driving2d">Driving skill in 2D (skill: driving2d)</h1>
 
 <p>A skill (inherited from moving skill) permits agent to move to the target and avoid the others.</p>
 
-<h2 id="attributes">Attributes</h2>
-
+<h2 id="attributes-1">Attributes</h2>
 <ul>
-<li><strong>heading</strong> initial heading of agent</li>
-<li><strong>obstacle_species</strong> list of species to avoid</li>
-<li><strong>background_species</strong> list of species on which agent move</li>
+  <li><strong>heading</strong> initial heading of agent</li>
+  <li><strong>obstacle_species</strong> list of species to avoid</li>
+  <li><strong>background_species</strong> list of species on which agent move</li>
 </ul>
 
 <h2 id="action">Action</h2>
+<p>The action inherits the “goto” action of moving skill.</p>
 
-<p>The action inherits the &quot;goto&quot; action of moving skill.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
+</code></pre></div></div>
+
 <ul>
-<li><strong>target</strong> the goal (in type of location) for agent to go</li>
-<li><strong>speed</strong> maximum of moving distance for each step</li>
-<li><strong>on</strong> the topology on which agent moves. By default, the topology is the graph and agent uses the shortest path algorithm to move</li>
-<li><strong>target_type</strong> if &quot;true&quot;, agent goes to the exact location of the target. Otherwise (in the case of false target), agent go to an point on the topology that is nearest to the target.</li>
-<li><strong>returns</strong> the action returns an integer with the meaning: -1: failed to move; 0: success to move closer and closer to the target; 1: arrive the false target; 2: arrive the target</li>
+  <li><strong>target</strong> the goal (in type of location) for agent to go</li>
+  <li><strong>speed</strong> maximum of moving distance for each step</li>
+  <li><strong>on</strong> the topology on which agent moves. By default, the topology is the graph and agent uses the shortest path algorithm to move</li>
+  <li><strong>target_type</strong> if “true”, agent goes to the exact location of the target. Otherwise (in the case of false target), agent go to an point on the topology that is nearest to the target.</li>
+  <li><strong>returns</strong> the action returns an integer with the meaning: -1: failed to move; 0: success to move closer and closer to the target; 1: arrive the false target; 2: arrive the target</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">
- reflex move_with_vehicle_goto when: target != nil{
-            let moving_status type: int &lt;- -1;
-            do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
-            if (int(moving_status) &gt; 0){
-                let temp_targets &lt;- list(targetpoint) - target;
-                set target &lt;- one_of(temp_targets);
-            }
 
-        }
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ reflex move_with_vehicle_goto when: target != nil{
+			let moving_status type: int &lt;- -1;
+			do vehicle_goto target: target on: the_graph speed: speed target_type: true returns: moving_status;
+			if (int(moving_status) &gt; 0){
+				let temp_targets &lt;- list(targetpoint) - target;
+				set target &lt;- one_of(temp_targets);
+			}
+			
+		}
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

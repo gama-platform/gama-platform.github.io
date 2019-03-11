@@ -3615,119 +3615,121 @@ function closeRightMenu() {
 
 <p>A 3D model which show how to represent an evacuation system with obstacles, cohesion factor and velocity. The people are placed randomly and have to escape by going to a target point</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">continuous_move</span> 
-<span class="n">global</span> <span class="p">{</span> 
-    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
-    <span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">maximal_turn</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span> <span class="p">//</span><span class="k">in</span> <span class="n">degree</span>
-    <span class="n">int</span> <span class="n">cohesion_factor</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span>
-    <span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Space</span> <span class="n">without</span> <span class="n">buildings</span>
-    <span class="n">geometry</span> <span class="n">free_space</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agent</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Point</span> <span class="k">to</span> <span class="n">evacuate</span>
-    <span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
-    <span class="n">init</span> <span class="p">{</span> 
+<p>Code of the model :</p>
 
-        <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildinds</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span> <span class="n">by</span> <span class="n">removing</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">different</span> <span class="n">buildings</span> <span class="n">existing</span>
-            <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="p">-</span> <span class="p">(</span><span class="n">shape</span> <span class="p">+</span> <span class="n">people_size</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Simplification</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free_space</span> <span class="k">to</span> <span class="n">remove</span> <span class="n">sharp</span> <span class="n">edges</span>
-        <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="n">simplification</span><span class="p">(</span><span class="m">1.0</span><span class="p">);</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">People</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">free_space</span><span class="p">);</span>
-            <span class="n">target_loc</span> <span class="p">&lt;-</span>  <span class="n">target_point</span><span class="p">;</span>
-        <span class="p">}</span>           
-    <span class="p">}</span>   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">continuous_move</span> 
+<span class="n">global</span> <span class="p">{</span> 
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">maximal_turn</span> <span class="p">&lt;-</span> <span class="m">90</span><span class="p">;</span> <span class="p">//</span><span class="k">in</span> <span class="n">degree</span>
+	<span class="n">int</span> <span class="n">cohesion_factor</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span>
+	<span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Space</span> <span class="n">without</span> <span class="n">buildings</span>
+	<span class="n">geometry</span> <span class="n">free_space</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Point</span> <span class="k">to</span> <span class="n">evacuate</span>
+	<span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+	<span class="n">init</span> <span class="p">{</span> 
+		
+		<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildinds</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span> <span class="n">by</span> <span class="n">removing</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">different</span> <span class="n">buildings</span> <span class="n">existing</span>
+			<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="p">-</span> <span class="p">(</span><span class="n">shape</span> <span class="p">+</span> <span class="n">people_size</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Simplification</span> <span class="k">of</span> <span class="n">the</span> <span class="n">free_space</span> <span class="k">to</span> <span class="n">remove</span> <span class="n">sharp</span> <span class="n">edges</span>
+		<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="n">simplification</span><span class="p">(</span><span class="m">1.0</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">People</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">free</span> <span class="n">space</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">free_space</span><span class="p">);</span>
+			<span class="n">target_loc</span> <span class="p">&lt;-</span>  <span class="n">target_point</span><span class="p">;</span>
+		<span class="p">}</span> 		 	
+	<span class="p">}</span>	
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">which</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">building</span> 
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
-    <span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">3.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">Height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">3.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 <span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">which</span> <span class="n">move</span> <span class="k">to</span> <span class="n">the</span> <span class="n">evacuation</span> <span class="n">point</span> <span class="n">using</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span>
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
-    <span class="p">//</span><span class="n">Target</span> <span class="n">point</span> <span class="k">to</span> <span class="n">evacuate</span>
-    <span class="n">point</span> <span class="n">target_loc</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-    <span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-    <span class="p">//</span><span class="n">Direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">taking</span> <span class="k">in</span> <span class="n">consideration</span> <span class="n">the</span> <span class="n">maximal</span> <span class="n">turn</span> <span class="n">an</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">able</span> <span class="k">to</span> <span class="n">make</span>
-    <span class="n">int</span> <span class="n">heading</span> <span class="k">max</span><span class="p">:</span> <span class="n">heading</span> <span class="p">+</span> <span class="n">maximal_turn</span> <span class="k">min</span><span class="p">:</span> <span class="n">heading</span> <span class="p">-</span> <span class="n">maximal_turn</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
-    <span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">people_size</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">kill</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">when</span> <span class="n">it</span> <span class="n">has</span> <span class="n">evacuated</span> <span class="n">the</span> <span class="n">area</span>
-    <span class="n">reflex</span> <span class="k">end</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="n">distance_to</span> <span class="n">target_loc</span> <span class="p">&lt;=</span> <span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">{</span>
-        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s2">" is arrived"</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">the</span> <span class="n">cohesion</span> <span class="n">factor</span>
-    <span class="n">reflex</span> <span class="n">follow_goal</span>  <span class="p">{</span>
-        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">((</span><span class="n">target_loc</span> <span class="p">-</span> <span class="n">location</span><span class="p">)</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">separation</span> <span class="n">when</span> <span class="n">people</span> <span class="n">are</span> <span class="n">too</span> <span class="n">close</span> <span class="k">from</span> <span class="n">each</span> <span class="n">other</span>
-    <span class="n">reflex</span> <span class="n">separation</span> <span class="p">{</span>
-        <span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">people</span> <span class="n">at_distance</span> <span class="n">size</span><span class="p">)</span>  <span class="p">{</span>
-            <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">location</span> <span class="p">-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
-        <span class="p">}</span>  
-        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">the</span> <span class="n">different</span> <span class="n">obstacles</span>
-    <span class="n">reflex</span> <span class="n">avoid</span> <span class="p">{</span> 
-        <span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">nearby_obstacles</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">building</span> <span class="n">at_distance</span> <span class="n">people_size</span><span class="p">);</span>
-        <span class="n">loop</span> <span class="n">obs</span> <span class="n">over</span><span class="p">:</span> <span class="n">nearby_obstacles</span> <span class="p">{</span>
-            <span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">location</span> <span class="p">-</span> <span class="n">location</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span> 
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">location</span><span class="p">,</span> <span class="n">target</span> <span class="k">and</span> <span class="n">velocity</span>
-    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-        <span class="n">point</span> <span class="n">old_location</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="n">velocity</span> <span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">building</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">))</span> <span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">((</span><span class="n">location</span> <span class="n">closest_points_with</span> <span class="n">free_space</span><span class="p">)[</span><span class="m">1</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">-</span> <span class="n">old_location</span><span class="p">;</span>
-    <span class="p">}</span>   
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">pyramid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">size</span><span class="p">/</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">Target</span> <span class="n">point</span> <span class="k">to</span> <span class="n">evacuate</span>
+	<span class="n">point</span> <span class="n">target_loc</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Speed</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+	<span class="p">//</span><span class="n">Direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">taking</span> <span class="k">in</span> <span class="n">consideration</span> <span class="n">the</span> <span class="n">maximal</span> <span class="n">turn</span> <span class="n">an</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">able</span> <span class="k">to</span> <span class="n">make</span>
+	<span class="n">int</span> <span class="n">heading</span> <span class="k">max</span><span class="p">:</span> <span class="n">heading</span> <span class="p">+</span> <span class="n">maximal_turn</span> <span class="k">min</span><span class="p">:</span> <span class="n">heading</span> <span class="p">-</span> <span class="n">maximal_turn</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="n">people_size</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">255</span><span class="p">));</span>
+		
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">kill</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">when</span> <span class="n">it</span> <span class="n">has</span> <span class="n">evacuated</span> <span class="n">the</span> <span class="n">area</span>
+	<span class="n">reflex</span> <span class="k">end</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="n">distance_to</span> <span class="n">target_loc</span> <span class="p">&lt;=</span> <span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s2">" is arrived"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">velocity</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">the</span> <span class="n">cohesion</span> <span class="n">factor</span>
+	<span class="n">reflex</span> <span class="n">follow_goal</span>  <span class="p">{</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="p">((</span><span class="n">target_loc</span> <span class="p">-</span> <span class="n">location</span><span class="p">)</span> <span class="p">/</span> <span class="n">cohesion_factor</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">apply</span> <span class="n">separation</span> <span class="n">when</span> <span class="n">people</span> <span class="n">are</span> <span class="n">too</span> <span class="n">close</span> <span class="k">from</span> <span class="n">each</span> <span class="n">other</span>
+	<span class="n">reflex</span> <span class="n">separation</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">people</span> <span class="n">at_distance</span> <span class="n">size</span><span class="p">)</span>  <span class="p">{</span>
+			<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">location</span> <span class="p">-</span> <span class="n">myself</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+		<span class="p">}</span>  
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">the</span> <span class="n">different</span> <span class="n">obstacles</span>
+	<span class="n">reflex</span> <span class="n">avoid</span> <span class="p">{</span> 
+		<span class="n">point</span> <span class="n">acc</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">nearby_obstacles</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">building</span> <span class="n">at_distance</span> <span class="n">people_size</span><span class="p">);</span>
+		<span class="n">loop</span> <span class="n">obs</span> <span class="n">over</span><span class="p">:</span> <span class="n">nearby_obstacles</span> <span class="p">{</span>
+			<span class="n">acc</span> <span class="p">&lt;-</span> <span class="n">acc</span> <span class="p">-</span> <span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">location</span> <span class="p">-</span> <span class="n">location</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">velocity</span> <span class="p">+</span> <span class="n">acc</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">considering</span> <span class="n">its</span> <span class="n">location</span><span class="p">,</span> <span class="n">target</span> <span class="k">and</span> <span class="n">velocity</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">old_location</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">location</span> <span class="p">+</span> <span class="n">velocity</span> <span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">building</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">))</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">((</span><span class="n">location</span> <span class="n">closest_points_with</span> <span class="n">free_space</span><span class="p">)[</span><span class="m">1</span><span class="p">]);</span>
+		<span class="p">}</span>
+		<span class="n">velocity</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">-</span> <span class="n">old_location</span><span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">pyramid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">size</span><span class="p">/</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"nb people"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span><span class="p">;</span>
-            <span class="n">graphics</span> <span class="s2">"exit"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target_point</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>    
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"nb people"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"exit"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span> <span class="p">*</span> <span class="n">people_size</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target_point</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

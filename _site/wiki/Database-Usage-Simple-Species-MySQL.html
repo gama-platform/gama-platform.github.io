@@ -3616,114 +3616,141 @@ function closeRightMenu() {
 <p>This model illustrates the use of the AgentDB species (instead of the SQLSKILL), and in particular following actions:</p>
 
 <ul>
-<li><ul>
-<li>testConection</li>
-</ul></li>
-<li><ul>
-<li>isConnected</li>
-</ul></li>
-<li><ul>
-<li>close </li>
-</ul></li>
-<li><ul>
-<li>executeUpdate</li>
-</ul></li>
-<li><ul>
-<li>insert</li>
-</ul></li>
-<li><ul>
-<li>select</li>
-</ul></li>
-<li><ul>
-<li>getParameter </li>
-</ul></li>
-<li><p>This model does SQl query commands:</p></li>
-<li><ul>
-<li>Create table </li>
-</ul></li>
-<li><ul>
-<li>Insert data</li>
-</ul></li>
-<li><ul>
-<li>Select data</li>
-</ul></li>
-<li><ul>
-<li>Delete data</li>
-</ul></li>
-<li><ul>
-<li>Drop table </li>
-</ul></li>
-<li><p>NOTE: YOU SHOULD HAVE ALREADY CREATED YOUR DATABASE (meteo_DB here) AND IMPORTED THE FILE (../../includes/meteo_DB_dump.sql)</p></li>
-<li><div class="highlight"><pre><code class="language-" data-lang="">   IN ORDER THAT THE MODEL CAN RUN PROPERLY.
-</code></pre></div></li>
+  <li>
+    <ul>
+      <li>testConection</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>isConnected</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>close</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>executeUpdate</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>insert</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>select</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>getParameter</li>
+    </ul>
+  </li>
+  <li>
+    <p>This model does SQl query commands:</p>
+  </li>
+  <li>
+    <ul>
+      <li>Create table</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Insert data</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Select data</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Delete data</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Drop table</li>
+    </ul>
+  </li>
+  <li>NOTE: YOU SHOULD HAVE ALREADY CREATED YOUR DATABASE (meteo_DB here) AND IMPORTED THE FILE (../../includes/meteo_DB_dump.sql)</li>
+  <li>IN ORDER THAT THE MODEL CAN RUN PROPERLY.</li>
 </ul>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">simpleSQL_DBSpecies_MySQL</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">simpleSQL_DBSpecies_MySQL</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">'meteo_DB'</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">DB_Accessor</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="n">testConnection</span> <span class="p">(</span><span class="n">params</span><span class="p">::</span><span class="n">PARAMS</span><span class="p">)</span> <span class="p">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nb">write</span> <span class="s2">"Impossible connection"</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nb">write</span> <span class="s2">"Connection of "</span> <span class="p">+</span> <span class="n">self</span><span class="p">;</span>
-                <span class="k">do</span> <span class="nf">connect</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
-            <span class="p">}</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span> <span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s1">'host'</span><span class="p">::</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dbtype'</span><span class="p">::</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">::</span><span class="s1">'meteo_DB'</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">::</span><span class="s1">'8889'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">::</span><span class="s1">'root'</span><span class="p">];</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">DB_Accessor</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="n">testConnection</span> <span class="p">(</span><span class="n">params</span><span class="p">::</span><span class="n">PARAMS</span><span class="p">)</span> <span class="p">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nb">write</span> <span class="s2">"Impossible connection"</span><span class="p">;</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nb">write</span> <span class="s2">"Connection of "</span> <span class="p">+</span> <span class="n">self</span><span class="p">;</span>
+				<span class="k">do</span> <span class="nf">connect</span> <span class="n">params</span><span class="p">:</span> <span class="n">PARAMS</span><span class="p">;</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="n">isConnected</span> <span class="p">[]</span> <span class="p">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="s2">"No connection."</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="p">(</span><span class="n">AgentDB</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">close</span><span class="p">;</span>
-            <span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="n">isConnected</span> <span class="p">[]</span> <span class="p">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s2">"No connection."</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="p">(</span><span class="n">AgentDB</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">close</span><span class="p">;</span>
+			<span class="p">}</span>
 
-            <span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="n">first</span><span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="n">getParameter</span> <span class="p">();</span>
-        <span class="p">}</span>
+			<span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="s2">""</span> <span class="p">+</span> <span class="n">first</span><span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="n">getParameter</span> <span class="p">();</span>
+		<span class="p">}</span>
 
-        <span class="n">ask</span> <span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE registration"</span> <span class="p">+</span> <span class="s2">"(id INTEGER PRIMARY KEY, "</span> <span class="p">+</span> <span class="s2">" first TEXT NOT NULL, "</span> <span class="p">+</span> <span class="s2">" last TEXT NOT NULL, "</span> <span class="p">+</span> <span class="s2">" age INTEGER);"</span><span class="p">;</span>
-            <span class="nb">write</span> <span class="s2">"REGISTRATION table has been created."</span><span class="p">;</span>
-            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"INSERT INTO registration "</span> <span class="p">+</span> <span class="s2">"VALUES(100, 'Zara', 'Ali', 18);"</span><span class="p">;</span>
-            <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"INSERT INTO registration "</span> <span class="p">+</span> <span class="s2">"VALUES(?, ?, ?, ?);"</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">101</span><span class="p">,</span> <span class="s1">'Mr'</span><span class="p">,</span> <span class="s1">'Mme'</span><span class="p">,</span> <span class="m">45</span><span class="p">];</span>
-            <span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">102</span><span class="p">,</span> <span class="s1">'Mahnaz'</span><span class="p">,</span> <span class="s1">'Fatma'</span><span class="p">,</span> <span class="m">25</span><span class="p">];</span>
-            <span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"first"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">]</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">103</span><span class="p">,</span> <span class="s1">'Zaid tim'</span><span class="p">,</span> <span class="s1">'Kha'</span><span class="p">];</span>
-            <span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"first"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">]</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">104</span><span class="p">,</span> <span class="s1">'Bill'</span><span class="p">,</span> <span class="s1">'Clark'</span><span class="p">];</span>
-            <span class="nb">write</span> <span class="s2">"Five records have been inserted."</span><span class="p">;</span>
-            <span class="nb">write</span> <span class="s2">"Click on &lt;&lt;Step&gt;&gt; button to view selected data"</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">DB_Accessor</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"CREATE TABLE registration"</span> <span class="p">+</span> <span class="s2">"(id INTEGER PRIMARY KEY, "</span> <span class="p">+</span> <span class="s2">" first TEXT NOT NULL, "</span> <span class="p">+</span> <span class="s2">" last TEXT NOT NULL, "</span> <span class="p">+</span> <span class="s2">" age INTEGER);"</span><span class="p">;</span>
+			<span class="nb">write</span> <span class="s2">"REGISTRATION table has been created."</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"INSERT INTO registration "</span> <span class="p">+</span> <span class="s2">"VALUES(100, 'Zara', 'Ali', 18);"</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"INSERT INTO registration "</span> <span class="p">+</span> <span class="s2">"VALUES(?, ?, ?, ?);"</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">101</span><span class="p">,</span> <span class="s1">'Mr'</span><span class="p">,</span> <span class="s1">'Mme'</span><span class="p">,</span> <span class="m">45</span><span class="p">];</span>
+			<span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">102</span><span class="p">,</span> <span class="s1">'Mahnaz'</span><span class="p">,</span> <span class="s1">'Fatma'</span><span class="p">,</span> <span class="m">25</span><span class="p">];</span>
+			<span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"first"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">]</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">103</span><span class="p">,</span> <span class="s1">'Zaid tim'</span><span class="p">,</span> <span class="s1">'Kha'</span><span class="p">];</span>
+			<span class="k">do</span> <span class="n">insert</span> <span class="n">into</span><span class="p">:</span> <span class="s2">"registration"</span> <span class="n">columns</span><span class="p">:</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"first"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">]</span> <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="m">104</span><span class="p">,</span> <span class="s1">'Bill'</span><span class="p">,</span> <span class="s1">'Clark'</span><span class="p">];</span>
+			<span class="nb">write</span> <span class="s2">"Five records have been inserted."</span><span class="p">;</span>
+			<span class="nb">write</span> <span class="s2">"Click on &lt;&lt;Step&gt;&gt; button to view selected data"</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">DB_Accessor</span> <span class="n">parent</span><span class="p">:</span> <span class="n">AgentDB</span> <span class="p">{</span>
-    <span class="n">reflex</span> <span class="n">select</span> <span class="p">{</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">t</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">(</span><span class="n">select</span><span class="p">::</span><span class="s2">"SELECT * FROM registration"</span><span class="p">));</span>
-        <span class="nb">write</span> <span class="s2">"Select before updated "</span> <span class="p">+</span> <span class="n">t</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">select</span> <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">t</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">(</span><span class="n">select</span><span class="p">::</span><span class="s2">"SELECT * FROM registration"</span><span class="p">));</span>
+		<span class="nb">write</span> <span class="s2">"Select before updated "</span> <span class="p">+</span> <span class="n">t</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM registration where id=103 "</span><span class="p">;</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">t</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">(</span><span class="n">select</span><span class="p">::</span><span class="s2">"SELECT * FROM registration"</span><span class="p">));</span>
-        <span class="nb">write</span> <span class="s2">"Select after updated "</span> <span class="p">+</span> <span class="n">t</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DELETE FROM registration where id=103 "</span><span class="p">;</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">t</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">(</span><span class="n">select</span><span class="p">::</span><span class="s2">"SELECT * FROM registration"</span><span class="p">));</span>
+		<span class="nb">write</span> <span class="s2">"Select after updated "</span> <span class="p">+</span> <span class="n">t</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">drop</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE registration"</span><span class="p">;</span>
-        <span class="nb">write</span> <span class="s2">"Registration table has been dropped."</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">drop</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">executeUpdate</span> <span class="n">updateComm</span><span class="p">:</span> <span class="s2">"DROP TABLE registration"</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"Registration table has been dropped."</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">simple_SQL_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 <span class="p">}</span>     
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3613,216 +3613,218 @@ function closeRightMenu() {
 
 <p>_Author : _</p>
 
-<p>This model shows how to use multi-level architecture. Two corridors are presented : one which can capture the pedestrians going through it and computing for them the time before releasing them at the end of the corridor, and an other doing nothing, letting the pedestrians moving by themselves in the corridor. </p>
+<p>This model shows how to use multi-level architecture. Two corridors are presented : one which can capture the pedestrians going through it and computing for them the time before releasing them at the end of the corridor, and an other doing nothing, letting the pedestrians moving by themselves in the corridor.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">pedestrian_corridor_Hybrid_vs_ABM</span>
 
 <span class="n">global</span> 
 <span class="p">{</span>
+	
+	<span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
+	<span class="n">int</span> <span class="n">environment_width</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">environment_height</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">environment_height</span><span class="p">);</span>	
+	
+	
+	<span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">pedestrian</span> <span class="n">agents</span>
+	<span class="n">rgb</span> <span class="n">pedestrian_green</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">pedestrian_size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">pedestrian_shape</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">pedestrian_speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+ 
+ 	<span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">corridors</span>
+	<span class="n">rgb</span> <span class="n">corridor_color</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s1">'blue'</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">corridor_width</span> <span class="p">&lt;-</span> <span class="m">160</span> <span class="n">depends_on</span><span class="p">:</span> <span class="p">[</span><span class="n">environment_width</span><span class="p">];</span>
+	<span class="n">int</span> <span class="n">corridor_height</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">environment_height</span> <span class="p">*</span> <span class="m">0.05</span><span class="p">));</span>
 
-    <span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">environment</span>
-    <span class="n">int</span> <span class="n">environment_width</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">environment_height</span> <span class="p">&lt;-</span> <span class="m">200</span> <span class="n">const</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">environment_height</span><span class="p">);</span> 
+	<span class="n">point</span> <span class="n">corridor_location_0</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_height</span> <span class="p">/</span> <span class="m">4</span><span class="p">};</span>
+	<span class="n">geometry</span> <span class="n">corridor_shape_0</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location_0</span><span class="p">)</span> <span class="p">;</span>
 
+	<span class="n">point</span> <span class="n">corridor_location_1</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_height</span> <span class="p">*</span> <span class="m">0.75</span><span class="p">};</span>
+	<span class="n">geometry</span> <span class="n">corridor_shape_1</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location_1</span><span class="p">)</span> <span class="p">;</span>
 
-    <span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">pedestrian</span> <span class="n">agents</span>
-    <span class="n">rgb</span> <span class="n">pedestrian_green</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">pedestrian</span> <span class="n">generation</span>
+	<span class="n">int</span> <span class="n">new_pedestian_generate_frequency</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">pedestrian_source_0</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="n">corridor_location_0</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">;</span>
+	<span class="n">point</span> <span class="n">pedestrian_source_1</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="n">corridor_location_1</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">;</span>
+	 
+	 
+	 
+	<span class="n">init</span> 
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">corridor</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_corridors</span><span class="p">;</span>
+		
+		<span class="n">ask</span> <span class="p">(</span><span class="n">new_corridors</span> <span class="n">at</span> <span class="m">0</span><span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">init_corridor</span> <span class="n">corridor_shape</span><span class="p">:</span> <span class="n">corridor_shape_0</span> <span class="n">is_hybrid</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="n">float</span> <span class="n">pedestrian_size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">pedestrian_shape</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="n">pedestrian_size</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">pedestrian_speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">new_corridors</span> <span class="n">at</span> <span class="m">1</span><span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">init_corridor</span> <span class="n">corridor_shape</span><span class="p">:</span> <span class="n">corridor_shape_1</span> <span class="n">is_hybrid</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span> 
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">the</span> <span class="n">corridors</span>
-    <span class="n">rgb</span> <span class="n">corridor_color</span> <span class="p">&lt;-</span> <span class="n">rgb</span> <span class="p">(</span><span class="s1">'blue'</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">corridor_width</span> <span class="p">&lt;-</span> <span class="m">160</span> <span class="n">depends_on</span><span class="p">:</span> <span class="p">[</span><span class="n">environment_width</span><span class="p">];</span>
-    <span class="n">int</span> <span class="n">corridor_height</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">environment_height</span> <span class="p">*</span> <span class="m">0.05</span><span class="p">));</span>
-
-    <span class="n">point</span> <span class="n">corridor_location_0</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_height</span> <span class="p">/</span> <span class="m">4</span><span class="p">};</span>
-    <span class="n">geometry</span> <span class="n">corridor_shape_0</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location_0</span><span class="p">)</span> <span class="p">;</span>
-
-    <span class="n">point</span> <span class="n">corridor_location_1</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">,</span> <span class="n">environment_height</span> <span class="p">*</span> <span class="m">0.75</span><span class="p">};</span>
-    <span class="n">geometry</span> <span class="n">corridor_shape_1</span> <span class="p">&lt;-</span> <span class="p">(</span> <span class="p">(</span><span class="n">rectangle</span> <span class="p">({</span><span class="n">corridor_width</span><span class="p">,</span> <span class="n">corridor_height</span><span class="p">}))</span> <span class="n">at_location</span> <span class="n">corridor_location_1</span><span class="p">)</span> <span class="p">;</span>
-
-    <span class="p">//</span><span class="k">Parameters</span> <span class="k">of</span> <span class="n">pedestrian</span> <span class="n">generation</span>
-    <span class="n">int</span> <span class="n">new_pedestian_generate_frequency</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">pedestrian_source_0</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="n">corridor_location_0</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">;</span>
-    <span class="n">point</span> <span class="n">pedestrian_source_1</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="n">corridor_location_1</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">;</span>
-
-
-
-    <span class="n">init</span> 
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">corridor</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_corridors</span><span class="p">;</span>
-
-        <span class="n">ask</span> <span class="p">(</span><span class="n">new_corridors</span> <span class="n">at</span> <span class="m">0</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">init_corridor</span> <span class="n">corridor_shape</span><span class="p">:</span> <span class="n">corridor_shape_0</span> <span class="n">is_hybrid</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">ask</span> <span class="p">(</span><span class="n">new_corridors</span> <span class="n">at</span> <span class="m">1</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">init_corridor</span> <span class="n">corridor_shape</span><span class="p">:</span> <span class="n">corridor_shape_1</span> <span class="n">is_hybrid</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span> 
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Generation</span> <span class="k">of</span> <span class="n">pedestrians</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">frequency</span> <span class="k">of</span> <span class="n">generation</span> <span class="p">:</span> <span class="n">one</span> <span class="n">for</span> <span class="n">each</span> <span class="n">corridor</span>
-    <span class="n">reflex</span> <span class="n">generate_pedestrians</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">new_pedestian_generate_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="p">)</span> 
-    <span class="p">{</span> 
-        <span class="nb">create</span> <span class="n">pedestrian</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_pedestrians</span><span class="p">;</span>
-
-        <span class="n">ask</span> <span class="p">(</span><span class="n">new_pedestrians</span> <span class="n">at</span> <span class="m">0</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="n">pedestrian_source_0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">ask</span> <span class="p">(</span><span class="n">new_pedestrians</span> <span class="n">at</span> <span class="m">1</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="n">pedestrian_source_1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>   
+	<span class="p">//</span><span class="n">Generation</span> <span class="k">of</span> <span class="n">pedestrians</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">frequency</span> <span class="k">of</span> <span class="n">generation</span> <span class="p">:</span> <span class="n">one</span> <span class="n">for</span> <span class="n">each</span> <span class="n">corridor</span>
+	<span class="n">reflex</span> <span class="n">generate_pedestrians</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="n">cycle</span> <span class="k">mod</span> <span class="n">new_pedestian_generate_frequency</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="p">)</span> 
+	<span class="p">{</span> 
+		<span class="nb">create</span> <span class="n">pedestrian</span> <span class="n">number</span><span class="p">:</span> <span class="m">2</span> <span class="n">returns</span><span class="p">:</span> <span class="n">new_pedestrians</span><span class="p">;</span>
+		
+		<span class="n">ask</span> <span class="p">(</span><span class="n">new_pedestrians</span> <span class="n">at</span> <span class="m">0</span><span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="n">pedestrian_source_0</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="n">ask</span> <span class="p">(</span><span class="n">new_pedestrians</span> <span class="n">at</span> <span class="m">1</span><span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">init_location</span> <span class="n">loc</span><span class="p">:</span> <span class="n">pedestrian_source_1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>	
 <span class="p">}</span>
 
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">for</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">which</span> <span class="n">can</span> <span class="n">move</span>
 <span class="n">species</span> <span class="n">pedestrian</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">corridor</span> <span class="n">last_corridor</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="n">pedestrian_size</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">corridor</span> <span class="n">last_corridor</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">Initialisation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">target</span> <span class="n">location</span> <span class="n">according</span> <span class="k">to</span> <span class="n">its</span> <span class="n">generation</span> <span class="n">location</span>
+	<span class="n">action</span> <span class="n">init_location</span> <span class="p">(</span><span class="n">point</span> <span class="n">loc</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
+		<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+		<span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="p">//</span><span class="n">Initialisation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">target</span> <span class="n">location</span> <span class="n">according</span> <span class="k">to</span> <span class="n">its</span> <span class="n">generation</span> <span class="n">location</span>
-    <span class="n">action</span> <span class="n">init_location</span> <span class="p">(</span><span class="n">point</span> <span class="n">loc</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
-        <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">environment_width</span><span class="p">,</span> <span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-        <span class="n">heading</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">location</span> <span class="k">and</span> <span class="n">make</span> <span class="n">it</span> <span class="n">die</span> <span class="n">once</span> <span class="n">it</span> <span class="n">reached</span> <span class="n">its</span> <span class="n">target</span>
-    <span class="n">reflex</span> <span class="n">move_left</span> 
-    <span class="p">{</span>
-        <span class="k">do</span> <span class="n">move</span> <span class="n">heading</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span> 
-
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">target_location</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="n">speed</span> <span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">default</span> 
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">location</span> <span class="k">and</span> <span class="n">make</span> <span class="n">it</span> <span class="n">die</span> <span class="n">once</span> <span class="n">it</span> <span class="n">reached</span> <span class="n">its</span> <span class="n">target</span>
+	<span class="n">reflex</span> <span class="n">move_left</span> 
+	<span class="p">{</span>
+		<span class="k">do</span> <span class="n">move</span> <span class="n">heading</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">towards</span> <span class="p">(</span><span class="n">target_location</span><span class="p">);</span> 
+		
+		<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">target_location</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="n">speed</span> <span class="p">)</span> 
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	 
+	<span class="n">aspect</span> <span class="n">default</span> 
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">for</span> <span class="n">the</span> <span class="n">corridor</span> <span class="n">which</span> <span class="n">can</span> <span class="n">capture</span> <span class="n">pedestrians</span>
 <span class="n">species</span> <span class="n">corridor</span>  <span class="p">{</span>
-    <span class="n">bool</span> <span class="n">capture_pedestrians</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">capture_pedestrians</span><span class="p">;</span>
+	
+	
+	<span class="n">action</span> <span class="n">init_corridor</span> <span class="p">(</span><span class="n">geometry</span> <span class="n">corridor_shape</span><span class="p">,</span> <span class="n">bool</span> <span class="n">is_hybrid</span><span class="p">)</span> 
+	<span class="p">{</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_shape</span><span class="p">;</span>
+		<span class="n">capture_pedestrians</span> <span class="p">&lt;-</span> <span class="n">is_hybrid</span><span class="p">;</span>
+	<span class="p">}</span>
 
-
-    <span class="n">action</span> <span class="n">init_corridor</span> <span class="p">(</span><span class="n">geometry</span> <span class="n">corridor_shape</span><span class="p">,</span> <span class="n">bool</span> <span class="n">is_hybrid</span><span class="p">)</span> 
-    <span class="p">{</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">corridor_shape</span><span class="p">;</span>
-        <span class="n">capture_pedestrians</span> <span class="p">&lt;-</span> <span class="n">is_hybrid</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">float</span> <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">macro_length</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">corridor_width</span><span class="p">);</span> <span class="p">//</span> <span class="n">the</span> <span class="n">length</span> <span class="k">of</span> <span class="n">macro_patch</span>
-
-    <span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="k">model</span> <span class="n">the</span> <span class="n">pedestrian</span> <span class="n">captured</span> <span class="n">by</span> <span class="n">the</span> <span class="n">corridor</span>
-    <span class="n">species</span> <span class="n">captured_pedestrian</span> <span class="n">parent</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="n">schedules</span><span class="p">:</span> <span class="p">[]</span> 
-    <span class="p">{</span>
-        <span class="n">float</span> <span class="n">released_time</span><span class="p">;</span>  
-
-        <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">init</span> 
-    <span class="p">{</span> 
-        <span class="nb">create</span> <span class="n">corridor_info_drawer</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">target</span> <span class="p">::</span> <span class="n">self</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">capture</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">corridor</span> <span class="n">ie</span> <span class="n">entering</span> <span class="n">the</span> <span class="n">corridor</span> 
-    <span class="n">reflex</span> <span class="n">aggregate</span> <span class="n">when</span><span class="p">:</span> <span class="n">capture_pedestrians</span> 
-    <span class="p">{</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">pedestrian</span><span class="p">&gt;</span> <span class="n">tobe_captured_pedestrians</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">pedestrian</span> <span class="n">overlapping</span> <span class="n">shape</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">last_corridor</span> <span class="c1">!= self) and ((each.location).x &lt; (self.location).x) ) ; 
-</span>
-        <span class="k">if</span> <span class="c1">!(empty (tobe_captured_pedestrians)) 
-</span>        <span class="p">{</span>
-            <span class="n">capture</span> <span class="n">tobe_captured_pedestrians</span> <span class="k">as</span><span class="p">:</span> <span class="n">captured_pedestrian</span> <span class="n">returns</span><span class="p">:</span> <span class="n">cps</span> <span class="p">{</span> 
-                <span class="n">last_corridor</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="c1">!(empty (cps)) 
-</span>            <span class="p">{</span>
-                    <span class="p">//</span><span class="n">Computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">time</span> <span class="n">when</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">captured</span> <span class="n">will</span> <span class="n">be</span> <span class="n">released</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">speed</span>
-                    <span class="p">//</span> <span class="k">and</span> <span class="n">the</span> <span class="n">time</span> <span class="n">they</span> <span class="n">should</span> <span class="n">make</span> <span class="k">to</span> <span class="n">pass</span> <span class="n">the</span> <span class="n">corridor</span> <span class="k">if</span> <span class="n">they</span> <span class="n">move</span> <span class="n">by</span> <span class="n">themselves</span>
-                    <span class="n">float</span> <span class="n">group_outgoing_time</span> <span class="p">&lt;-</span> <span class="n">time</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="p">(</span><span class="n">pedestrian_speed</span><span class="p">)</span> <span class="p">);</span> 
-                    <span class="n">loop</span> <span class="n">cp</span> <span class="n">over</span><span class="p">:</span> <span class="n">cps</span> 
-                    <span class="p">{</span>
-                            <span class="n">cp</span><span class="p">.</span><span class="n">released_time</span> <span class="p">&lt;-</span> <span class="n">group_outgoing_time</span><span class="p">;</span>
-                    <span class="p">}</span>
-            <span class="p">}</span>
-
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">release</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">when</span> <span class="n">we</span> <span class="n">consider</span> <span class="n">they</span> <span class="n">were</span> <span class="n">enough</span> <span class="n">time</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">corridor</span> 
-    <span class="n">reflex</span> <span class="n">disaggregate</span>  
-    <span class="p">{</span>
-        <span class="k">list</span> <span class="n">tobe_released_pedestrians</span> <span class="p">&lt;-</span> <span class="n">members</span> <span class="n">where</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;=</span> <span class="p">(</span><span class="n">captured_pedestrian</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">released_time</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="c1">!(empty (tobe_released_pedestrians)) 
-</span>        <span class="p">{</span>
-
-            <span class="n">release</span> <span class="n">tobe_released_pedestrians</span> <span class="k">as</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="k">in</span><span class="p">:</span> <span class="n">world</span> <span class="n">returns</span><span class="p">:</span> <span class="n">released_pedestrians</span><span class="p">;</span>
-
-            <span class="n">loop</span> <span class="n">rp</span> <span class="n">over</span><span class="p">:</span> <span class="n">released_pedestrians</span> 
-            <span class="p">{</span>
-                <span class="n">rp</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
-                <span class="n">rp</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{((</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)),</span> <span class="p">((</span><span class="n">corridor_shape_1</span><span class="p">).</span><span class="n">location</span><span class="p">).</span><span class="n">y</span><span class="p">};</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">default</span> 
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">corridor_color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">macro_length</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="n">corridor_width</span><span class="p">);</span> <span class="p">//</span> <span class="n">the</span> <span class="n">length</span> <span class="k">of</span> <span class="n">macro_patch</span>
+	
+	<span class="p">//</span><span class="n">Species</span> <span class="k">to</span> <span class="k">model</span> <span class="n">the</span> <span class="n">pedestrian</span> <span class="n">captured</span> <span class="n">by</span> <span class="n">the</span> <span class="n">corridor</span>
+	<span class="n">species</span> <span class="n">captured_pedestrian</span> <span class="n">parent</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="n">schedules</span><span class="p">:</span> <span class="p">[]</span> 
+	<span class="p">{</span>
+		<span class="n">float</span> <span class="n">released_time</span><span class="p">;</span>  
+		
+		<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> <span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">init</span> 
+	<span class="p">{</span> 
+		<span class="nb">create</span> <span class="n">corridor_info_drawer</span> <span class="n">number</span><span class="p">:</span> <span class="m">1</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">target</span> <span class="p">::</span> <span class="n">self</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">capture</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">corridor</span> <span class="n">ie</span> <span class="n">entering</span> <span class="n">the</span> <span class="n">corridor</span> 
+	<span class="n">reflex</span> <span class="n">aggregate</span> <span class="n">when</span><span class="p">:</span> <span class="n">capture_pedestrians</span> 
+	<span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">pedestrian</span><span class="p">&gt;</span> <span class="n">tobe_captured_pedestrians</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">pedestrian</span> <span class="n">overlapping</span> <span class="n">shape</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">last_corridor</span> <span class="c1">!= self) and ((each.location).x &lt; (self.location).x) ) ; 
+</span>		
+		<span class="k">if</span> <span class="c1">!(empty (tobe_captured_pedestrians)) 
+</span>		<span class="p">{</span>
+			<span class="n">capture</span> <span class="n">tobe_captured_pedestrians</span> <span class="k">as</span><span class="p">:</span> <span class="n">captured_pedestrian</span> <span class="n">returns</span><span class="p">:</span> <span class="n">cps</span> <span class="p">{</span> 
+				<span class="n">last_corridor</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="c1">!(empty (cps)) 
+</span>			<span class="p">{</span>
+					<span class="p">//</span><span class="n">Computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">time</span> <span class="n">when</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">captured</span> <span class="n">will</span> <span class="n">be</span> <span class="n">released</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">speed</span>
+					<span class="p">//</span> <span class="k">and</span> <span class="n">the</span> <span class="n">time</span> <span class="n">they</span> <span class="n">should</span> <span class="n">make</span> <span class="k">to</span> <span class="n">pass</span> <span class="n">the</span> <span class="n">corridor</span> <span class="k">if</span> <span class="n">they</span> <span class="n">move</span> <span class="n">by</span> <span class="n">themselves</span>
+					<span class="n">float</span> <span class="n">group_outgoing_time</span> <span class="p">&lt;-</span> <span class="n">time</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="p">(</span><span class="n">pedestrian_speed</span><span class="p">)</span> <span class="p">);</span> 
+					<span class="n">loop</span> <span class="n">cp</span> <span class="n">over</span><span class="p">:</span> <span class="n">cps</span> 
+					<span class="p">{</span>
+							<span class="n">cp</span><span class="p">.</span><span class="n">released_time</span> <span class="p">&lt;-</span> <span class="n">group_outgoing_time</span><span class="p">;</span>
+	 				<span class="p">}</span>
+			<span class="p">}</span>
+		
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">release</span> <span class="n">the</span> <span class="n">pedestrians</span> <span class="n">when</span> <span class="n">we</span> <span class="n">consider</span> <span class="n">they</span> <span class="n">were</span> <span class="n">enough</span> <span class="n">time</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">corridor</span> 
+	<span class="n">reflex</span> <span class="n">disaggregate</span>  
+	<span class="p">{</span>
+		<span class="k">list</span> <span class="n">tobe_released_pedestrians</span> <span class="p">&lt;-</span> <span class="n">members</span> <span class="n">where</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;=</span> <span class="p">(</span><span class="n">captured_pedestrian</span> <span class="p">(</span><span class="n">each</span><span class="p">)).</span><span class="n">released_time</span><span class="p">);</span>
+		
+		<span class="k">if</span> <span class="c1">!(empty (tobe_released_pedestrians)) 
+</span>		<span class="p">{</span>
+			
+			<span class="n">release</span> <span class="n">tobe_released_pedestrians</span> <span class="k">as</span><span class="p">:</span> <span class="n">pedestrian</span> <span class="k">in</span><span class="p">:</span> <span class="n">world</span> <span class="n">returns</span><span class="p">:</span> <span class="n">released_pedestrians</span><span class="p">;</span>
+			
+			<span class="n">loop</span> <span class="n">rp</span> <span class="n">over</span><span class="p">:</span> <span class="n">released_pedestrians</span> 
+			<span class="p">{</span>
+				<span class="n">rp</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">pedestrian_speed</span><span class="p">;</span>
+				<span class="n">rp</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{((</span><span class="n">environment_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">corridor_width</span> <span class="p">/</span> <span class="m">2</span><span class="p">)),</span> <span class="p">((</span><span class="n">corridor_shape_1</span><span class="p">).</span><span class="n">location</span><span class="p">).</span><span class="n">y</span><span class="p">};</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+		
+	<span class="n">aspect</span> <span class="n">default</span> 
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">corridor_color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+ 
 <span class="n">species</span> <span class="n">corridor_info_drawer</span> 
 <span class="p">{</span>
-    <span class="n">corridor</span> <span class="n">target</span><span class="p">;</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> 
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="n">target</span><span class="p">.</span><span class="n">capture_pedestrians</span> 
-        <span class="p">{</span>
-            <span class="n">draw</span> <span class="s1">'Hybrid model (coupling: ABM and Mathematical Model)'</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">90</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">-</span> <span class="m">10</span><span class="p">};</span>
-            <span class="n">draw</span>  <span class="s1">'Aggregated agents: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">members</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">30</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">+</span> <span class="m">2</span><span class="p">};</span>
-        <span class="p">}</span> 
-        <span class="k">else</span> 
-        <span class="p">{</span>
-            <span class="n">draw</span> <span class="s1">'Agent-Based Model (ABM)'</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">40</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">-</span> <span class="m">10</span><span class="p">};</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">corridor</span> <span class="n">target</span><span class="p">;</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> 
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="n">target</span><span class="p">.</span><span class="n">capture_pedestrians</span> 
+		<span class="p">{</span>
+			<span class="n">draw</span> <span class="s1">'Hybrid model (coupling: ABM and Mathematical Model)'</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">90</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">-</span> <span class="m">10</span><span class="p">};</span>
+			<span class="n">draw</span>  <span class="s1">'Aggregated agents: '</span> <span class="p">+</span> <span class="k">string</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">members</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">30</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">+</span> <span class="m">2</span><span class="p">};</span>
+		<span class="p">}</span> 
+		<span class="k">else</span> 
+		<span class="p">{</span>
+			<span class="n">draw</span> <span class="s1">'Agent-Based Model (ABM)'</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="n">size</span><span class="p">:</span> <span class="m">7</span> <span class="n">at</span><span class="p">:</span> <span class="p">{(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">x</span> <span class="p">-</span> <span class="m">40</span><span class="p">,</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">location</span><span class="p">).</span><span class="n">y</span> <span class="p">-</span> <span class="m">10</span><span class="p">};</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">default_experiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> 
 <span class="p">{</span>
-    <span class="n">output</span> 
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="n">default_display</span> 
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">pedestrian</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">corridor</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.8</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">corridor_info_drawer</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> 
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">default_display</span> 
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">pedestrian</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">corridor</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.8</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">corridor_info_drawer</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

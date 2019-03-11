@@ -3617,18 +3617,20 @@ function closeRightMenu() {
 
 <p>To disable your video card, open the control panel, click on Hardware and Sound / Devices and Printers / Device manager, and then right click on your video card (as shown in the following image)</p>
 
-<p><img src="resources/images/recipes/disable_amd_radeon.png" alt="resources/images/recipes/disable_amd_radeon.png"></p>
+<p><img src="resources/images/recipes/disable_amd_radeon.png" alt="resources/images/recipes/disable_amd_radeon.png" /></p>
 
 <h2 id="grid-not-displayed-right-using-opengl">Grid not displayed right using openGL</h2>
 
 <p>When you try to display a grid with opengl, the cells have not a regular shape (as it is shown in the following image)</p>
 
-<p><img src="resources/images/recipes/grid_display_problem.png" alt="resources/images/recipes/grid_display_problem.png"></p>
+<p><img src="resources/images/recipes/grid_display_problem.png" alt="resources/images/recipes/grid_display_problem.png" /></p>
 
-<p>The reason of this problem is that we can only map a grid of 2^n*2^n cells in the plan. Here are some solutions for this problem :
-- Choose a grid with 2^n*2^n dimension (such as 16x16, or 32x32)
-- Display the grid in java2D
-- Display the grid as <em>species</em>, and not as <em>grid</em> (note that the difference in term of performance between displaying a grid as a <em>grid</em> and as a <em>species</em> is not so important for opengl displays. It has originally been done for java2D displays)</p>
+<p>The reason of this problem is that we can only map a grid of 2^n*2^n cells in the plan. Here are some solutions for this problem :</p>
+<ul>
+  <li>Choose a grid with 2^n*2^n dimension (such as 16x16, or 32x32)</li>
+  <li>Display the grid in java2D</li>
+  <li>Display the grid as <em>species</em>, and not as <em>grid</em> (note that the difference in term of performance between displaying a grid as a <em>grid</em> and as a <em>species</em> is not so important for opengl displays. It has originally been done for java2D displays)</li>
+</ul>
 
     </div>
     </div>

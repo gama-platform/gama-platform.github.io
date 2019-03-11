@@ -3617,11 +3617,11 @@ function closeRightMenu() {
 
 <h2 id="install-eclipse-mars-sr2">Install Eclipse Mars SR2</h2>
 
-<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/mars2">&quot;Eclipse IDE for Java and DSL Developers&quot;</a> version (If Java is not installed on your computer you can download it <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>). </p>
+<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/mars2">“Eclipse IDE for Java and DSL Developers”</a> version (If Java is not installed on your computer you can download it <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>).</p>
 
 <p>Unpack it and launch it. Please refer to this <a href="http://help.eclipse.org/mars/index.jsp?nav=%2F0">link</a> for more information on running Eclipse.</p>
 
-<p><strong>One important step</strong> required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, &quot;General&quot;, then &quot;Workspace&quot;, then &quot;Text file encoding&quot; and choosing &quot;UTF-8&quot; in the drop-down menu available in &quot;Other:&quot;.</p>
+<p><strong>One important step</strong> required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, “General”, then “Workspace”, then “Text file encoding” and choosing “UTF-8” in the drop-down menu available in “Other:”.</p>
 
 <p>If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.9.1 (see <a href="http://www.eclipse.org/Xtext/download.html">here</a> to obtain it).</p>
 
@@ -3630,100 +3630,102 @@ function closeRightMenu() {
 <p>The source is to be downloaded from GitHub in two steps: by creating a local clone of the GitHub repository and then importing the different projects that constitute GAMA into the Eclipse workspace.</p>
 
 <ol>
-<li>Open the Git perspective:
+  <li>Open the Git perspective:
+    <ul>
+      <li>Windows &gt; Perspective &gt; Open Perspective &gt; Other…</li>
+      <li>Choose <code class="highlighter-rouge">Git</code>
+<img src="resources/images/developpingExtension/GIT_open_perspective.png" alt="Open GIT perspective" /></li>
+    </ul>
+  </li>
+  <li>Click on “Clone a Git repository”
+<img src="resources/images/developpingExtension/GIT_Clone_Repository.png" alt="Clone Repository" />
+    <ul>
+      <li>In <strong>Source Git repository</strong> window:</li>
+    </ul>
+    <ul>
+      <li>Fill in the URI label with: <code class="highlighter-rouge">https://github.com/gama-platform/gama.git</code></li>
+      <li>Other fields will be automatically filled in.
+<img src="resources/images/developpingExtension/GIT_source_git_repository.png" alt="Source GIT repository" />  <br />
+      * In <strong>Branch Selection</strong> windows,</li>
+      <li>check the mars branch</li>
+      <li>Next</li>
+      <li>Note: If you are using Ubuntu 16 and you did not find any branch in this windows, may be your eclipse has a bug related with the OS. The workaround should be:
+        <ul>
+          <li>Close eclipse</li>
+          <li>Open eclipse.ini</li>
+          <li>Add these 2 lines before <strong>–launcher.appendVmargs</strong>:</li>
+        </ul>
 
-<ul>
-<li>Windows &gt; Perspective &gt; Open Perspective &gt; Other...</li>
-<li>Choose <code>Git</code>
-<img src="resources/images/developpingExtension/GIT_open_perspective.png" alt="Open GIT perspective"></li>
-</ul></li>
-<li><p>Click on &quot;Clone a Git repository&quot;
-<img src="resources/images/developpingExtension/GIT_Clone_Repository.png" alt="Clone Repository"></p>
-
-<ul>
-<li>In <strong>Source Git repository</strong> window: </li>
-<li>Fill in the URI label with: <code>https://github.com/gama-platform/gama.git</code></li>
-<li>Other fields will be automatically filled in.
-<img src="resources/images/developpingExtension/GIT_source_git_repository.png" alt="Source GIT repository"><br></li>
-<li>In <strong>Branch Selection</strong> windows, </li>
-<li>check the mars branch </li>
-<li>Next</li>
-<li><p>Note: If you are using Ubuntu 16 and you did not find any branch in this windows, may be your eclipse has a bug related with the OS. The workaround should be: </p>
-
-<ul>
-<li>Close eclipse</li>
-<li>Open eclipse.ini</li>
-<li>Add these 2 lines before <strong>--launcher.appendVmargs</strong>:</li>
-</ul>
-
-<p>--launcher.GTK_version<br>
-2
-* Change required version of java from : -Dosgi.requiredJavaVersion=1.7 into -Dosgi.requiredJavaVersion=1.8
-* Remove this line: -XX:MaxPermSize=256m
-* Save and close eclipse.ini
-* Start eclipse and redo from step 1</p></li>
-</ul></li>
+        <p>–launcher.GTK_version <br />
+  2</p>
+        <ul>
+          <li>Change required version of java from : -Dosgi.requiredJavaVersion=1.7 into -Dosgi.requiredJavaVersion=1.8</li>
+          <li>Remove this line: -XX:MaxPermSize=256m</li>
+          <li>Save and close eclipse.ini</li>
+          <li>Start eclipse and redo from step 1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ol>
 
 <ul>
-<li>In <strong>Local Destination</strong> windows,
-
-<ul>
-<li>Choose a Directory (where the source files will be downloaded).</li>
-<li>Everything else should be unchecked </li>
-<li>Finish</li>
-</ul></li>
+  <li>In <strong>Local Destination</strong> windows,
+    <ul>
+      <li>Choose a Directory (where the source files will be downloaded).</li>
+      <li>Everything else should be unchecked</li>
+      <li>Finish</li>
+    </ul>
+  </li>
 </ul>
 
-<p><img src="resources/images/developpingExtension/GIT_local_destination.png" alt="Local destination"></p>
+<p><img src="resources/images/developpingExtension/GIT_local_destination.png" alt="Local destination" /></p>
 
-<p>This can take a while...</p>
+<p>This can take a while…</p>
 
 <h3 id="import-projects-into-workspace">Import projects into workspace</h3>
-
 <p>You have now to import projects into the workspace (notice that the folders downloaded during the clone will neither be copied nor moved).</p>
 
 <ol>
-<li>In the <strong>Git perspective</strong> and the <strong>Git Repositories</strong> view, Right-Click on &quot;Working Tree&quot; inside the <code>gama</code> repository, and choose &quot;Import projects&quot;
-<img src="resources/images/developpingExtension/GIT_Context_WorkingDirectory.png" alt="Context Working tree">
-
-<ul>
-<li>In the <strong>Select a wizard to use for importing projects</strong> window:</li>
-<li>&quot;Import existing projects&quot; should be checked</li>
-<li>&quot;Working Tree&quot; should be selected
-<img src="resources/images/developpingExtension/GIT_Import_projects.png" alt="GIT Import projects"><br></li>
-<li>In <strong>Import Projects</strong> window:</li>
-<li><strong>Uncheck « Search for nested project »</strong></li>
-<li>Check the projects you want to import</li>
-<li>Finish
-<img src="resources/images/developpingExtension/GIT_ChooseProjectToImport.png" alt="Choose Projects to import"></li>
-</ul></li>
-<li>Go back to the Java perspective</li>
-<li>Clean project (Project menu &gt; Clean ...)</li>
+  <li>In the <strong>Git perspective</strong> and the <strong>Git Repositories</strong> view, Right-Click on “Working Tree” inside the <code class="highlighter-rouge">gama</code> repository, and choose “Import projects”
+<img src="resources/images/developpingExtension/GIT_Context_WorkingDirectory.png" alt="Context Working tree" />
+    <ul>
+      <li>In the <strong>Select a wizard to use for importing projects</strong> window:</li>
+    </ul>
+    <ul>
+      <li>“Import existing projects” should be checked</li>
+      <li>“Working Tree” should be selected
+<img src="resources/images/developpingExtension/GIT_Import_projects.png" alt="GIT Import projects" />  <br />
+      * In <strong>Import Projects</strong> window:</li>
+      <li><strong>Uncheck « Search for nested project »</strong></li>
+      <li>Check the projects you want to import</li>
+      <li>Finish
+<img src="resources/images/developpingExtension/GIT_ChooseProjectToImport.png" alt="Choose Projects to import" /></li>
+    </ul>
+  </li>
+  <li>Go back to the Java perspective</li>
+  <li>Clean project (Project menu &gt; Clean …)</li>
 </ol>
 
-<h3 id="if-you-have-errors">If you have errors...</h3>
-
-<p>If errors continue to show on in the different projects, be sure to correctly set the JDK used in the Eclipse preferences. GAMA is targeting JDK 1.8, and Eclipse will produce errors if it not found in your environment. So, either you set the compatibility to 1.8 by default (in Preferences &gt; Java &gt; Compiler &gt; Compiler Compliance Level) or you change the error produced by Eclipse to a warning only (in Preferences &gt; Java &gt; Compiler &gt; Building &gt; &quot;No strictly compatible JRE for execution environment available).</p>
+<h3 id="if-you-have-errors">If you have errors…</h3>
+<p>If errors continue to show on in the different projects, be sure to correctly set the JDK used in the Eclipse preferences. GAMA is targeting JDK 1.8, and Eclipse will produce errors if it not found in your environment. So, either you set the compatibility to 1.8 by default (in Preferences &gt; Java &gt; Compiler &gt; Compiler Compliance Level) or you change the error produced by Eclipse to a warning only (in Preferences &gt; Java &gt; Compiler &gt; Building &gt; “No strictly compatible JRE for execution environment available).</p>
 
 <h3 id="run-gama">Run GAMA</h3>
-
 <ol>
-<li>In the <code>ummisco.gama.product</code> plugin, open the <code>gama.runtime.product</code> file (<code>gama.product</code> is used to produce the release).</li>
-<li>Go to &quot;Contents&quot; tab and click on &quot;Add required&quot;</li>
-<li>Go to &quot;Overview&quot; tab and click on Synchronize</li>
-<li>Click on Launch an Eclipse Application</li>
+  <li>In the <code class="highlighter-rouge">ummisco.gama.product</code> plugin, open the <code class="highlighter-rouge">gama.runtime.product</code> file (<code class="highlighter-rouge">gama.product</code> is used to produce the release).</li>
+  <li>Go to “Contents” tab and click on “Add required”</li>
+  <li>Go to “Overview” tab and click on Synchronize</li>
+  <li>Click on Launch an Eclipse Application</li>
 </ol>
 
-<h3 id="git-tutorials">GIT Tutorials</h3>
-
-<p>For those who want learn more about Git and Egit, please consult the following tutorials/papers</p>
+<p>###GIT Tutorials
+For those who want learn more about Git and Egit, please consult the following tutorials/papers</p>
 
 <ol>
-<li>EGIT/User Guide <a href="http://wiki.eclipse.org/EGit/User_Guide">http://wiki.eclipse.org/EGit/User_Guide</a></li>
-<li>Git version control with Eclipse (EGIT) - Tutorial <a href="http://www.vogella.com/tutorials/EclipseGit/article.html">http://www.vogella.com/tutorials/EclipseGit/article.html</a></li>
-<li>10 things I hate about Git <a href="http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/">http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/</a></li>
-<li>Learn Git and GitHub Tutorial <a href="https://www.youtube.com/playlist?list=PL1F56EA413018EEE1">https://www.youtube.com/playlist?list=PL1F56EA413018EEE1</a></li>
+  <li>EGIT/User Guide http://wiki.eclipse.org/EGit/User_Guide</li>
+  <li>Git version control with Eclipse (EGIT) - Tutorial http://www.vogella.com/tutorials/EclipseGit/article.html</li>
+  <li>10 things I hate about Git http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/</li>
+  <li>Learn Git and GitHub Tutorial https://www.youtube.com/playlist?list=PL1F56EA413018EEE1</li>
 </ol>
 
     </div>

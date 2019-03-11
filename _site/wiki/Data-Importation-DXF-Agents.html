@@ -3615,54 +3615,56 @@ function closeRightMenu() {
 
 <p>Model which shows how to create agents by importing data of a DXF file</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">DXFAgents</span> 
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">house_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/house.dxf"</span><span class="p">);</span>
-
-    <span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">dxf</span> <span class="n">file</span> <span class="n">envelope</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">house_file</span><span class="p">);</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="nb">create</span> <span class="n">house_element</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">dxf</span> <span class="n">file</span> <span class="k">and</span> <span class="n">initialized</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">attribute</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">the</span> <span class="n">file</span>
-        <span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
-                <span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
-                        <span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
-        <span class="p">//</span><span class="n">define</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="n">for</span> <span class="n">each</span> <span class="n">layer</span>
-        <span class="n">map</span> <span class="n">layers</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">house_element</span><span class="p">)</span> <span class="n">group_by</span> <span class="n">each</span><span class="p">.</span><span class="n">layer</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">la</span> <span class="n">over</span><span class="p">:</span> <span class="n">layers</span><span class="p">.</span><span class="n">keys</span> <span class="p">{</span>
-            <span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-            <span class="n">ask</span> <span class="n">layers</span><span class="p">[</span><span class="n">la</span><span class="p">]</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">file</span> <span class="n">house_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/house.dxf"</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">size</span> <span class="k">from</span> <span class="n">the</span> <span class="n">dxf</span> <span class="n">file</span> <span class="n">envelope</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">house_file</span><span class="p">);</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">house_element</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">dxf</span> <span class="n">file</span> <span class="k">and</span> <span class="n">initialized</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">attribute</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">the</span> <span class="n">file</span>
+		<span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
+				<span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
+						<span class="nb">create</span> <span class="n">house_element</span> <span class="k">from</span><span class="p">:</span> <span class="n">house_file</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">layer</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">))];</span>
+		<span class="p">//</span><span class="n">define</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="n">for</span> <span class="n">each</span> <span class="n">layer</span>
+		<span class="n">map</span> <span class="n">layers</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">house_element</span><span class="p">)</span> <span class="n">group_by</span> <span class="n">each</span><span class="p">.</span><span class="n">layer</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">la</span> <span class="n">over</span><span class="p">:</span> <span class="n">layers</span><span class="p">.</span><span class="n">keys</span> <span class="p">{</span>
+			<span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+			<span class="n">ask</span> <span class="n">layers</span><span class="p">[</span><span class="n">la</span><span class="p">]</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">house_element</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">layer</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">layer</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span> 
 
 <span class="n">experiment</span> <span class="n">DXFAgents</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">house_element</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">display</span> <span class="s2">"As_Image"</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"House"</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">house_file</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">brown</span> <span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">house_element</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="n">display</span> <span class="s2">"As_Image"</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"House"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">house_file</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">brown</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

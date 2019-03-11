@@ -3611,25 +3611,27 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="iscope-interface">IScope interface</h1>
 
-<p>An object of type IScope represents the context of execution of an agent (including experiments, simulations, and &quot;regular&quot; agents). Everywhere it is accessible (either passed as a parameter or available as an instance variable in some objects), it provides an easy access to a number of features: the current active agent, the shared random number generator, the global clock, the current simulation and experiment agents, the local variables declared in the current block, etc.</p>
+<p>An object of type IScope represents the context of execution of an agent (including experiments, simulations, and “regular” agents). Everywhere it is accessible (either passed as a parameter or available as an instance variable in some objects), it provides an easy access to a number of features: the current active agent, the shared random number generator, the global clock, the current simulation and experiment agents, the local variables declared in the current block, etc.</p>
 
 <p>It also allows modifying this context, like changing values of local variables, adding new variables, although these functions should be reserved to very specific usages. Ordinarily, the scope is simply passed to core methods that allow to evaluate expressions, cast values, and so on.</p>
 
 <h2 id="use-of-an-iscope">Use of an IScope</h2>
 
-<p>A variable <code>scope</code> of type <code>IScope</code> can be used to:
-  * get the current agent with: <code>scope.getAgentScope()</code>
-<code>
-IAgent agent = scope.getAgentScope();
-</code>
-  * evaluate an expression in the current scope:
-<code>
-String mes = Cast.asString(scope, message.value(scope));
-</code>
-  * know whether the scope has been interrupted:
-<code>
-boolean b = scope.interrupted();
-</code></p>
+<p>A variable <code class="highlighter-rouge">scope</code> of type <code class="highlighter-rouge">IScope</code> can be used to:</p>
+<ul>
+  <li>get the current agent with: <code class="highlighter-rouge">scope.getAgentScope()</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IAgent agent = scope.getAgentScope();
+</code></pre></div>    </div>
+  </li>
+  <li>evaluate an expression in the current scope:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String mes = Cast.asString(scope, message.value(scope));
+</code></pre></div>    </div>
+  </li>
+  <li>know whether the scope has been interrupted:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boolean b = scope.interrupted();
+</code></pre></div>    </div>
+  </li>
+</ul>
 
     </div>
     </div>

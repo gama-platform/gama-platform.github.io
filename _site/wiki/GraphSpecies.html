@@ -3616,59 +3616,62 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#declaration">Declaration</a>
-
-<ul>
-<li><a href="#declare-a-graph-with-handmade-agents">Declare a graph with handmade agents</a></li>
-<li><a href="#declare-a-graph-by-using-an-geometry-file">Declare a graph by using an geometry file</a></li>
-<li><a href="#declare-a-graph-with-nodes-and-edges">Declare a graph with nodes and edges</a></li>
-</ul></li>
-<li><a href="#useful-operators-with-graph">Useful operators with graph</a>
-
-<ul>
-<li><a href="#knowing-the-degree-of-a-node">Knowing the degree of a node</a></li>
-<li><a href="#get-the-neighbors-of-a-node">Get the neighbors of a node</a></li>
-<li><a href="#compute-the-shortest-path">Compute the shortest path</a></li>
-<li><a href="#control-the-weight-in-graph">Control the weight in graph</a></li>
-</ul></li>
-<li><a href="#example">Example</a></li>
+  <li><a href="#declaration">Declaration</a>
+    <ul>
+      <li><a href="#declare-a-graph-with-handmade-agents">Declare a graph with handmade agents</a></li>
+      <li><a href="#declare-a-graph-by-using-an-geometry-file">Declare a graph by using an geometry file</a></li>
+      <li><a href="#declare-a-graph-with-nodes-and-edges">Declare a graph with nodes and edges</a></li>
+    </ul>
+  </li>
+  <li><a href="#useful-operators-with-graph">Useful operators with graph</a>
+    <ul>
+      <li><a href="#knowing-the-degree-of-a-node">Knowing the degree of a node</a></li>
+      <li><a href="#get-the-neighbors-of-a-node">Get the neighbors of a node</a></li>
+      <li><a href="#compute-the-shortest-path">Compute the shortest path</a></li>
+      <li><a href="#control-the-weight-in-graph">Control the weight in graph</a></li>
+    </ul>
+  </li>
+  <li><a href="#example">Example</a></li>
 </ul>
 
 <h2 id="declaration">Declaration</h2>
 
 <h3 id="declare-a-graph-with-handmade-agents">Declare a graph with handmade agents</h3>
 
-<p>To instantiate this <code>graph</code> species, several steps must be followed. First the graph species must inherit from the abstract species <code>graph_node</code>, then the method <code>related_to</code> must be redefined and finally an auxiliary species that inherits from <code>base_edge</code> used to represent the edges of the generated graph must be declared.
-A graph node is an abstract species that must redefine one method called <code>related_to</code>. </p>
-<div class="highlight"><pre><code class="language-" data-lang="">species graph_agent parent: graph_node edge_species: edge_agent{
+<p>To instantiate this <code class="highlighter-rouge">graph</code> species, several steps must be followed. First the graph species must inherit from the abstract species <code class="highlighter-rouge">graph_node</code>, then the method <code class="highlighter-rouge">related_to</code> must be redefined and finally an auxiliary species that inherits from <code class="highlighter-rouge">base_edge</code> used to represent the edges of the generated graph must be declared.
+A graph node is an abstract species that must redefine one method called <code class="highlighter-rouge">related_to</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species graph_agent parent: graph_node edge_species: edge_agent{
   bool related_to(graph_agent other){
-    return true;
+  	return true;
   }
 }
 
 species edge_agent parent: base_edge {
 }
-</code></pre></div>
-<p>The method <code>related_to</code> returns a boolean, and take the agents from the current species in argument. If the method returns true, the two agents (the current instance and the one as argument) will be linked.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global{
-    int number_of_agents &lt;- 5;
-    init {
-        create graph_agent number:number_of_agents;
-    }
+</code></pre></div></div>
+
+<p>The method <code class="highlighter-rouge">related_to</code> returns a boolean, and take the agents from the current species in argument. If the method returns true, the two agents (the current instance and the one as argument) will be linked.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{
+	int number_of_agents &lt;- 5;
+	init {
+		create graph_agent number:number_of_agents;
+	}
 }
 
 species graph_agent parent: graph_node edge_species: edge_agent{
   bool related_to(graph_agent other){
-    return true;
+  	return true;
   }
   aspect base {
-    draw circle(1) color:#green;
+  	draw circle(1) color:#green;
   }
 }
 
 species edge_agent parent: base_edge {
-    aspect base {
-    draw shape color:#blue;
+	aspect base {
+  	draw shape color:#blue;
   }
 }
 
@@ -3680,359 +3683,393 @@ experiment MyExperiment type: gui {
         }
     }
 }
-</code></pre></div>
-<p><img src="resources/images/definingAdvancedSpecies/graph_related_to.png" alt="graph_related_to.png"></p>
+</code></pre></div></div>
+
+<p><img src="resources/images/definingAdvancedSpecies/graph_related_to.png" alt="graph_related_to.png" /></p>
 
 <p>You can for example link 2 agents when they are closer than a certain distance.
-Beware: The topology used in graph species is the graph topology, and not the continuous topology. You can force the use of the continuous topology with the action <code>using</code> as follow:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">bool related_to(graph_agent other){
-    using topology:topology(world) {
-        return (self.location distance_to other.location &lt; 20);
-    }
-}
-</code></pre></div>
-<p><img src="resources/images/definingAdvancedSpecies/graph_related_to2.png" alt="graph_related_to2.png"></p>
+Beware: The topology used in graph species is the graph topology, and not the continuous topology. You can force the use of the continuous topology with the action <code class="highlighter-rouge">using</code> as follow:</p>
 
-<p>The abstract mother species &quot;graph_node&quot; has an attribute &quot;my_graph&quot;, with the type &quot;graph&quot;. The graph type represent a graph composed of vertices linked with edges. This type has built-in attributes such as <code>edges</code> (the list of all the edges agents), or <code>vertices</code> (the list of all the vertices agents).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool related_to(graph_agent other){
+  	using topology:topology(world) {
+  		return (self.location distance_to other.location &lt; 20);
+  	}
+}
+</code></pre></div></div>
+
+<p><img src="resources/images/definingAdvancedSpecies/graph_related_to2.png" alt="graph_related_to2.png" /></p>
+
+<p>The abstract mother species “graph_node” has an attribute “my_graph”, with the type “graph”. The graph type represent a graph composed of vertices linked with edges. This type has built-in attributes such as <code class="highlighter-rouge">edges</code> (the list of all the edges agents), or <code class="highlighter-rouge">vertices</code> (the list of all the vertices agents).</p>
 
 <h3 id="declare-a-graph-by-using-an-geometry-file">Declare a graph by using an geometry file</h3>
 
-<p>In most cases, you will have to construct a graph from an existing file (example: a &quot;shp&quot; file). In that case, you will have to first instantiate a species from the shape file (with the <code>create</code> statement, using the facet <code>from</code>). When, you will have to extract a graph from the agent, using the operator <code>as_edge_graph</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">load_shape_file</span> 
+<p>In most cases, you will have to construct a graph from an existing file (example: a “shp” file). In that case, you will have to first instantiate a species from the shape file (with the <code class="highlighter-rouge">create</code> statement, using the facet <code class="highlighter-rouge">from</code>). When, you will have to extract a graph from the agent, using the operator <code class="highlighter-rouge">as_edge_graph</code>.</p>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">load_shape_file</span> 
+ 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
-    <span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
 
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
-        <span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>       
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>		
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="declare-a-graph-with-nodes-and-edges">Declare a graph with nodes and edges</h3>
 
-<p>Another way to create a graph is building it manually nodes by nodes, and then edges by edges, without using agent structures. Use the <code>add_node</code> operator and the <code>add_edge</code> operator to do so. Here is an example of how to do:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">add point(0.0,0.0) to:nodes;
+<p>Another way to create a graph is building it manually nodes by nodes, and then edges by edges, without using agent structures. Use the <code class="highlighter-rouge">add_node</code> operator and the <code class="highlighter-rouge">add_edge</code> operator to do so. Here is an example of how to do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add point(0.0,0.0) to:nodes;
 add point(90.0,90.0) to:nodes;
 add point(20.0,20.0) to:nodes;
 add point(40.0,50.0) to:nodes;
 add point(100.0,0.0) to:nodes;
 
 loop nod over:nodes {
-    my_graph &lt;- my_graph add_node(nod);
+	my_graph &lt;- my_graph add_node(nod);
 }
-
+		
 my_graph &lt;- my_graph add_edge (nodes at 0::nodes at 2);
 my_graph &lt;- my_graph add_edge (nodes at 2::nodes at 3);
 my_graph &lt;- my_graph add_edge (nodes at 3::nodes at 1);
 my_graph &lt;- my_graph add_edge (nodes at 0::nodes at 4);
 my_graph &lt;- my_graph add_edge (nodes at 4::nodes at 1);
-</code></pre></div>
-<p>Using this solution, my_graph can have two types: it can be an a-spatial graph, or a spatial graph. The spatial graph will have a proper geometry, with segments that follow the position of your graph (you can access to the segments by using the built-in &quot;segments&quot;). The a-spatial graph will not have any shape.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
-{
-    graph my_spatial_graph&lt;-spatial_graph([]);
-    graph my_aspatial_graph&lt;-graph([]);
+</code></pre></div></div>
 
-    init {
-        point node1 &lt;- {0.0,0.0};
-        point node2 &lt;- {10.0,10.0};
-        my_spatial_graph &lt;- my_spatial_graph add_node(node1);
-        my_spatial_graph &lt;- my_spatial_graph add_node(node2);
-        my_spatial_graph &lt;- my_spatial_graph add_edge(node1::node2);
-        write my_spatial_graph.edges;
-        // the output is [polyline ([{0.0,0.0,0.0},{10.0,10.0,0.0}])]
-        my_aspatial_graph &lt;- my_aspatial_graph add_node(node1);
-        my_aspatial_graph &lt;- my_aspatial_graph add_node(node2);
-        my_aspatial_graph &lt;- my_aspatial_graph add_edge(node1::node2);
-        write my_aspatial_graph.edges;
-        // the output is [{0.0,0.0,0.0}::{10.0,10.0,0.0}]
-    }
+<p>Using this solution, my_graph can have two types: it can be an a-spatial graph, or a spatial graph. The spatial graph will have a proper geometry, with segments that follow the position of your graph (you can access to the segments by using the built-in “segments”). The a-spatial graph will not have any shape.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
+{
+	graph my_spatial_graph&lt;-spatial_graph([]);
+	graph my_aspatial_graph&lt;-graph([]);
+	
+	init {
+		point node1 &lt;- {0.0,0.0};
+		point node2 &lt;- {10.0,10.0};
+		my_spatial_graph &lt;- my_spatial_graph add_node(node1);
+		my_spatial_graph &lt;- my_spatial_graph add_node(node2);
+		my_spatial_graph &lt;- my_spatial_graph add_edge(node1::node2);
+		write my_spatial_graph.edges;
+		// the output is [polyline ([{0.0,0.0,0.0},{10.0,10.0,0.0}])]
+		my_aspatial_graph &lt;- my_aspatial_graph add_node(node1);
+		my_aspatial_graph &lt;- my_aspatial_graph add_node(node2);
+		my_aspatial_graph &lt;- my_aspatial_graph add_edge(node1::node2);
+		write my_aspatial_graph.edges;
+		// the output is [{0.0,0.0,0.0}::{10.0,10.0,0.0}]
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="useful-operators-with-graph">Useful operators with graph</h2>
 
 <h3 id="knowing-the-degree-of-a-node">Knowing the degree of a node</h3>
 
-<p>The operator <code>degree_of</code> returns the number of edge attached to a node. To use it, you have to specify a graph (on the left side of the operator), and a node (on the right side of the operator).</p>
+<p>The operator <code class="highlighter-rouge">degree_of</code> returns the number of edge attached to a node. To use it, you have to specify a graph (on the left side of the operator), and a node (on the right side of the operator).</p>
 
 <p>The following code (to put inside the node species) displays the number of edges attached to each node:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">aspect base
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect base
 {
-    draw text:string(my_graph degree_of node(5)) color:# black;
-    status &lt;- 0;
+	draw text:string(my_graph degree_of node(5)) color:# black;
+	status &lt;- 0;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="get-the-neighbors-of-a-node">Get the neighbors of a node</h3>
 
 <p>To get the list of neighbors of a node, you should use the neighbors_of operator. On the left side of the operator, specify the graph you are using, and on the right side, specify the node. The operator returns the list of nodes located at a distance inferior or equal to 1, considering the graph topology.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species graph_agent parent: graph_node edge_species: edge_agent
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species graph_agent parent: graph_node edge_species: edge_agent
 {
   list&lt;graph_agent&gt; list_neighbors &lt;- list&lt;graph_agent&gt;(my_graph neighbors_of (self));
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Here is an example of model using those two previous concepts (a random node is chosen each step, displayed in red, and his neighbors are displayed in yellow):</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/graph_model.png" alt="graph_model.png"></p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">graph_model</span>
+<p><img src="resources/images/definingAdvancedSpecies/graph_model.png" alt="graph_model.png" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">graph_model</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">graph_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">graph_agent</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">graph_agent</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">status</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
-            <span class="k">do</span> <span class="n">update_neighbors</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">graph_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">graph_agent</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">graph_agent</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">status</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">update_neighbors</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">graph_agent</span> <span class="n">parent</span><span class="p">:</span> <span class="n">graph_node</span> <span class="n">edge_species</span><span class="p">:</span> <span class="n">edge_agent</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">list_connected_index</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">list_connected_index</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
+				<span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">i</span> <span class="p">&lt;-</span> <span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">bool</span> <span class="n">related_to</span><span class="p">(</span><span class="n">graph_agent</span> <span class="n">other</span><span class="p">){</span>
+	  	<span class="k">if</span> <span class="p">(</span><span class="n">list_connected_index</span> <span class="n">contains</span> <span class="p">(</span><span class="n">graph_agent</span> <span class="n">index_of</span> <span class="n">other</span><span class="p">))</span> <span class="p">{</span>
+	  		<span class="n">return</span> <span class="nb">true</span><span class="p">;</span>
+	  	<span class="p">}</span>
+	  	<span class="n">return</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">update_neighbors</span> <span class="p">{</span>
 
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">i</span> <span class="p">&lt;-</span> <span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">graph_agent</span><span class="p">&gt;</span> <span class="n">list_neighbors</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">graph_agent</span><span class="p">&gt;(</span><span class="n">my_graph</span> <span class="n">neighbors_of</span> <span class="p">(</span><span class="n">self</span><span class="p">));</span>
 
-    <span class="n">bool</span> <span class="n">related_to</span><span class="p">(</span><span class="n">graph_agent</span> <span class="n">other</span><span class="p">){</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">list_connected_index</span> <span class="n">contains</span> <span class="p">(</span><span class="n">graph_agent</span> <span class="n">index_of</span> <span class="n">other</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">return</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+		<span class="n">loop</span> <span class="n">neighb</span> <span class="n">over</span><span class="p">:</span><span class="n">list_neighbors</span> <span class="p">{</span>
+			<span class="n">neighb</span><span class="p">.</span><span class="n">status</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">action</span> <span class="n">update_neighbors</span> <span class="p">{</span>
-
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">graph_agent</span><span class="p">&gt;</span> <span class="n">list_neighbors</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">graph_agent</span><span class="p">&gt;(</span><span class="n">my_graph</span> <span class="n">neighbors_of</span> <span class="p">(</span><span class="n">self</span><span class="p">));</span>
-
-        <span class="n">loop</span> <span class="n">neighb</span> <span class="n">over</span><span class="p">:</span><span class="n">list_neighbors</span> <span class="p">{</span>
-            <span class="n">neighb</span><span class="p">.</span><span class="n">status</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">yellow</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">draw</span> <span class="n">text</span><span class="p">:</span><span class="k">string</span><span class="p">(</span><span class="n">my_graph</span> <span class="n">degree_of</span> <span class="n">self</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span> <span class="n">black</span> <span class="n">size</span><span class="p">:</span><span class="m">4</span> <span class="n">at</span><span class="p">:</span><span class="n">point</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="m">1</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="m">2</span><span class="p">);</span>
-        <span class="n">status</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">yellow</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">draw</span> <span class="n">text</span><span class="p">:</span><span class="k">string</span><span class="p">(</span><span class="n">my_graph</span> <span class="n">degree_of</span> <span class="n">self</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span> <span class="n">black</span> <span class="n">size</span><span class="p">:</span><span class="m">4</span> <span class="n">at</span><span class="p">:</span><span class="n">point</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="m">1</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="m">2</span><span class="p">);</span>
+		<span class="n">status</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">parent</span><span class="p">:</span> <span class="n">base_edge</span>
 <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">base</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">MyExperiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">graph_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">graph_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="compute-the-shortest-path">Compute the shortest path</h3>
 
 <p>To compute the shortest path to go from a point to another, pick a source and a destination among the vertices you have for your graph. Store those values as point type.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">point source;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>point source;
 point destination;
 source &lt;- point(one_of(my_graph.vertices));
 destination &lt;- point(one_of(my_graph.vertices));
-</code></pre></div>
-<p>Then, you can use the operator <code>path_between</code> to return the shortest path. To use this action, you have to give the graph, then the source point, and the destination point. This action returns a path type.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">path shortest_path;
+</code></pre></div></div>
+
+<p>Then, you can use the operator <code class="highlighter-rouge">path_between</code> to return the shortest path. To use this action, you have to give the graph, then the source point, and the destination point. This action returns a path type.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path shortest_path;
 shortest_path &lt;- path_between (my_graph, source,destination);
-</code></pre></div>
-<p>Another operator exists, <code>paths_between</code>, that returns a list of shortest paths between two points. Please read the documentation to learn more about this operator.</p>
+</code></pre></div></div>
+
+<p>Another operator exists, <code class="highlighter-rouge">paths_between</code>, that returns a list of shortest paths between two points. Please read the documentation to learn more about this operator.</p>
 
 <p>Here is an example of code that show the shortest path between two points of a graph:</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/shortest_path.png" alt="shortest_path.png"></p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">graph_model</span>
+<p><img src="resources/images/definingAdvancedSpecies/shortest_path.png" alt="shortest_path.png" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">graph_model</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">source</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">graph</span> <span class="n">my_graph</span><span class="p">;</span>
-    <span class="n">path</span> <span class="n">shortest_path</span><span class="p">;</span>
-
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">graph_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">pick_two_points</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">=</span><span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">ask</span> <span class="n">graph_agent</span> <span class="p">{</span>
-                <span class="n">myself</span><span class="p">.</span><span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">.</span><span class="n">my_graph</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="k">while</span><span class="p">:</span><span class="n">shortest_path</span><span class="p">=</span><span class="n">nil</span> <span class="p">{</span>
-            <span class="n">source</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">vertices</span><span class="p">));</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">vertices</span><span class="p">));</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="c1">!= target) {
-</span>                <span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">path_between</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span><span class="n">target</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="p">&lt;-</span> <span class="m">50</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">source</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">my_graph</span><span class="p">;</span>
+	<span class="n">path</span> <span class="n">shortest_path</span><span class="p">;</span>
+		
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">graph_agent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">pick_two_points</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">=</span><span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">ask</span> <span class="n">graph_agent</span> <span class="p">{</span>
+				<span class="n">myself</span><span class="p">.</span><span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">.</span><span class="n">my_graph</span><span class="p">;</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="k">while</span><span class="p">:</span><span class="n">shortest_path</span><span class="p">=</span><span class="n">nil</span> <span class="p">{</span>
+			<span class="n">source</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">vertices</span><span class="p">));</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">point</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">vertices</span><span class="p">));</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="c1">!= target) {
+</span>				<span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">path_between</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span><span class="n">target</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">graph_agent</span> <span class="n">parent</span><span class="p">:</span> <span class="n">graph_node</span> <span class="n">edge_species</span><span class="p">:</span> <span class="n">edge_agent</span>
 <span class="p">{</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">list_connected_index</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">int</span><span class="p">&gt;</span> <span class="n">list_connected_index</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
+				<span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">i</span> <span class="p">&lt;-</span> <span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">bool</span> <span class="n">related_to</span><span class="p">(</span><span class="n">graph_agent</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+	  	<span class="n">using</span> <span class="n">topology</span><span class="p">:</span><span class="n">topology</span><span class="p">(</span><span class="n">world</span><span class="p">)</span> <span class="p">{</span>
+  			<span class="n">return</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">other</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;</span> <span class="m">20</span><span class="p">);</span>
+  		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">i</span> <span class="p">&lt;-</span> <span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">bool</span> <span class="n">related_to</span><span class="p">(</span><span class="n">graph_agent</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">using</span> <span class="n">topology</span><span class="p">:</span><span class="n">topology</span><span class="p">(</span><span class="n">world</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">return</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">other</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;</span> <span class="m">20</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span>	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">parent</span><span class="p">:</span> <span class="n">base_edge</span>
 <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span>	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">MyExperiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">graph_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-            <span class="n">graphics</span> <span class="s2">"shortest path"</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">shortest_path</span> <span class="c1">!= nil) {
-</span>                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">source</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
-                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">cyan</span><span class="p">;</span>
-                    <span class="n">draw</span> <span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">shape</span><span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">magenta</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">graph_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"shortest path"</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">shortest_path</span> <span class="c1">!= nil) {
+</span>					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">source</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">cyan</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">shape</span><span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">magenta</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="control-the-weight-in-graph">Control the weight in graph</h3>
 
-<p>You can add a map of weight for the edges that compose the graph. Use the operator <code>with_weights</code> to put weights in your graph. The graph has to be on the left side of the operator, and the map has to be on the right side. In the map, you have to put edges as key, and the weight for that edge as value. One common use is to put the distance as weight:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">my_graph &lt;- my_graph with_weights (my_graph.edges as_map (each::geometry(each).perimeter));
-</code></pre></div>
+<p>You can add a map of weight for the edges that compose the graph. Use the operator <code class="highlighter-rouge">with_weights</code> to put weights in your graph. The graph has to be on the left side of the operator, and the map has to be on the right side. In the map, you have to put edges as key, and the weight for that edge as value. One common use is to put the distance as weight:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_graph &lt;- my_graph with_weights (my_graph.edges as_map (each::geometry(each).perimeter));
+</code></pre></div></div>
+
 <p>The calculation of shortest path can change according to the weight you choose for your edges. For example, here is the result of the calculation of the shortest path when all the edges have 1 as weight value (it is the default graph topology), and when the edges have their length as weight.</p>
 
-<p><img src="resources/images/definingAdvancedSpecies/path_weight.png" alt="path_weight.png"></p>
+<p><img src="resources/images/definingAdvancedSpecies/path_weight.png" alt="path_weight.png" /></p>
 
 <p>Here is an example of implementation:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">shortest_path_with_weight</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">shortest_path_with_weight</span>
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">graph</span> <span class="n">my_graph</span><span class="p">&lt;-</span><span class="n">spatial_graph</span><span class="p">([]);</span>
-    <span class="n">path</span> <span class="n">shortest_path</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">my_graph</span><span class="p">&lt;-</span><span class="n">spatial_graph</span><span class="p">([]);</span>
+	<span class="n">path</span> <span class="n">shortest_path</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+		
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">10.0</span><span class="p">,</span><span class="m">10.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
+		<span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">90.0</span><span class="p">,</span><span class="m">90.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
+		<span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="m">20.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
+		<span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">80.0</span><span class="p">,</span><span class="m">50.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
+		<span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">90.0</span><span class="p">,</span><span class="m">20.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
 
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">10.0</span><span class="p">,</span><span class="m">10.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
-        <span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">90.0</span><span class="p">,</span><span class="m">90.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
-        <span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="m">20.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
-        <span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">80.0</span><span class="p">,</span><span class="m">50.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
-        <span class="n">add</span> <span class="n">point</span><span class="p">(</span><span class="m">90.0</span><span class="p">,</span><span class="m">20.0</span><span class="p">)</span> <span class="k">to</span><span class="p">:</span><span class="n">nodes</span><span class="p">;</span>
-
-        <span class="n">loop</span> <span class="n">nod</span> <span class="n">over</span><span class="p">:</span><span class="n">nodes</span> <span class="p">{</span>
-            <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_node</span><span class="p">(</span><span class="n">nod</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">2</span><span class="p">);</span>
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">2</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">3</span><span class="p">);</span>
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">3</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">4</span><span class="p">);</span>
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">4</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
-
-        <span class="p">//</span> <span class="n">comment</span><span class="p">/</span><span class="n">decomment</span> <span class="n">the</span> <span class="n">following</span> <span class="n">line</span> <span class="k">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">difference</span><span class="p">.</span>
-        <span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">with_weights</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span><span class="n">geometry</span><span class="p">(</span><span class="n">each</span><span class="p">).</span><span class="n">perimeter</span><span class="p">));</span>
-
-        <span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">path_between</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">,</span> <span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="n">loop</span> <span class="n">nod</span> <span class="n">over</span><span class="p">:</span><span class="n">nodes</span> <span class="p">{</span>
+			<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_node</span><span class="p">(</span><span class="n">nod</span><span class="p">);</span>
+		<span class="p">}</span>
+		
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">2</span><span class="p">);</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">2</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">3</span><span class="p">);</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">3</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">4</span><span class="p">);</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">add_edge</span> <span class="p">(</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">4</span><span class="p">::</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
+		
+		<span class="p">//</span> <span class="n">comment</span><span class="p">/</span><span class="n">decomment</span> <span class="n">the</span> <span class="n">following</span> <span class="n">line</span> <span class="k">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">difference</span><span class="p">.</span>
+		<span class="n">my_graph</span> <span class="p">&lt;-</span> <span class="n">my_graph</span> <span class="n">with_weights</span> <span class="p">(</span><span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="n">as_map</span> <span class="p">(</span><span class="n">each</span><span class="p">::</span><span class="n">geometry</span><span class="p">(</span><span class="n">each</span><span class="p">).</span><span class="n">perimeter</span><span class="p">));</span>
+		
+		<span class="n">shortest_path</span> <span class="p">&lt;-</span> <span class="n">path_between</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span><span class="n">nodes</span> <span class="n">at</span> <span class="m">0</span><span class="p">,</span> <span class="n">nodes</span> <span class="n">at</span> <span class="m">1</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">MyExperiment</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"shortest path"</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">shortest_path</span> <span class="c1">!= nil) {
-</span>                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">source</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
-                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">target</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">cyan</span><span class="p">;</span>
-                    <span class="n">draw</span> <span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">shape</span><span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">magenta</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="n">loop</span> <span class="n">edges</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">edges</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">MyDisplay</span> <span class="n">type</span><span class="p">:</span> <span class="n">java2D</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"shortest path"</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">shortest_path</span> <span class="c1">!= nil) {
+</span>					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">source</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">target</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">cyan</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="p">(</span><span class="n">shortest_path</span><span class="p">.</span><span class="n">shape</span><span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">magenta</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">loop</span> <span class="n">edges</span> <span class="n">over</span><span class="p">:</span> <span class="n">my_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">edges</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|operator_with_weights)">//</a>: # (endConcept</td>
+      <td>graph)</td>
+    </tr>
+  </tbody>
+</table>
+
     </div>
     </div>
     </div>

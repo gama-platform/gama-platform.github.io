@@ -3611,15 +3611,13 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="extension">Extension</h1>
 
-<hr>
+<hr />
 
 <p>idees.gama.mapcomparison</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
-
 <h3 id="operators">Operators</h3>
-
-<p><a href="#fuzzy_kappa">fuzzy_kappa</a>, <a href="#fuzzy_kappa_sim">fuzzy_kappa_sim</a>, <a href="#kappa">kappa</a>, <a href="#kappa_sim">kappa_sim</a>, <a href="#percent_absolute_deviation">percent_absolute_deviation</a>, </p>
+<p><a href="#fuzzy_kappa">fuzzy_kappa</a>, <a href="#fuzzy_kappa_sim">fuzzy_kappa_sim</a>, <a href="#kappa">kappa</a>, <a href="#kappa_sim">kappa_sim</a>, <a href="#percent_absolute_deviation">percent_absolute_deviation</a>,</p>
 
 <h3 id="statements">Statements</h3>
 
@@ -3629,125 +3627,121 @@ function closeRightMenu() {
 
 <h3 id="species">Species</h3>
 
-<hr>
+<hr />
 
-<h2 id="operators">Operators</h2>
+<h2 id="operators-1">Operators</h2>
 
-<hr>
+<hr />
 
-<h3 id="fuzzy_kappa"><code>fuzzy_kappa</code></h3>
+<h3 id="fuzzy_kappa"><code class="highlighter-rouge">fuzzy_kappa</code></h3>
 
 <h4 id="possible-use">Possible use:</h4>
-
 <ul>
-<li> <strong><code>fuzzy_kappa</code></strong> (<code>list&lt;agent&gt;</code>, <code>list</code>, <code>list</code>, <code>list&lt;float&gt;</code>, <code>list</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>) ---&gt;  <code>float</code></li>
-<li> <strong><code>fuzzy_kappa</code></strong> (<code>list&lt;agent&gt;</code>, <code>list</code>, <code>list</code>, <code>list&lt;float&gt;</code>, <code>list</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>, <code>list</code>) ---&gt;  <code>float</code> </li>
+  <li><strong><code class="highlighter-rouge">fuzzy_kappa</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">fuzzy_kappa</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result">Result:</h4>
-
 <p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
 
 <h4 id="examples">Examples:</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
 fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h3 id="fuzzy_kappa_sim"><code>fuzzy_kappa_sim</code></h3>
+<hr />
 
-<h4 id="possible-use">Possible use:</h4>
+<h3 id="fuzzy_kappa_sim"><code class="highlighter-rouge">fuzzy_kappa_sim</code></h3>
 
+<h4 id="possible-use-1">Possible use:</h4>
 <ul>
-<li> <strong><code>fuzzy_kappa_sim</code></strong> (<code>list&lt;agent&gt;</code>, <code>list</code>, <code>list</code>, <code>list</code>, <code>list&lt;float&gt;</code>, <code>list</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>) ---&gt;  <code>float</code></li>
-<li> <strong><code>fuzzy_kappa_sim</code></strong> (<code>list&lt;agent&gt;</code>, <code>list</code>, <code>list</code>, <code>list</code>, <code>list&lt;float&gt;</code>, <code>list</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>, <code>list</code>) ---&gt;  <code>float</code> </li>
+  <li><strong><code class="highlighter-rouge">fuzzy_kappa_sim</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">fuzzy_kappa_sim</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result">Result:</h4>
-
+<h4 id="result-1">Result:</h4>
 <p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, </p>
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
-<h4 id="examples">Examples:</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
+<h4 id="examples-1">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
 fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h3 id="kappa"><code>kappa</code></h3>
+<hr />
 
-<h4 id="possible-use">Possible use:</h4>
+<h3 id="kappa"><code class="highlighter-rouge">kappa</code></h3>
 
+<h4 id="possible-use-2">Possible use:</h4>
 <ul>
-<li> <strong><code>kappa</code></strong> (<code>list</code>, <code>list</code>, <code>list</code>) ---&gt;  <code>float</code></li>
-<li> <strong><code>kappa</code></strong> (<code>list</code>, <code>list</code>, <code>list</code>, <code>list</code>) ---&gt;  <code>float</code> </li>
+  <li><strong><code class="highlighter-rouge">kappa</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">kappa</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result">Result:</h4>
-
+<h4 id="result-2">Result:</h4>
 <p>kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. </p>
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.</p>
 
-<h4 id="examples">Examples:</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])
-float var1 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]);   // var1 equals the similarity between 0 and 1
-float var2 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]);   // var2 equals 1.0
+<h4 id="examples-2">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])
+float var1 &lt;- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); 	// var1 equals the similarity between 0 and 1
+float var2 &lt;- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); 	// var2 equals 1.0
 kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3], [1.0, 2.0, 3.0, 1.0, 5.0])
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h3 id="kappa_sim"><code>kappa_sim</code></h3>
+<hr />
 
-<h4 id="possible-use">Possible use:</h4>
+<h3 id="kappa_sim"><code class="highlighter-rouge">kappa_sim</code></h3>
 
+<h4 id="possible-use-3">Possible use:</h4>
 <ul>
-<li> <strong><code>kappa_sim</code></strong> (<code>list</code>, <code>list</code>, <code>list</code>, <code>list</code>) ---&gt;  <code>float</code></li>
-<li> <strong><code>kappa_sim</code></strong> (<code>list</code>, <code>list</code>, <code>list</code>, <code>list</code>, <code>list</code>) ---&gt;  <code>float</code> </li>
+  <li><strong><code class="highlighter-rouge">kappa_sim</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">kappa_sim</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result">Result:</h4>
-
+<h4 id="result-3">Result:</h4>
 <p>kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)</p>
 
-<h4 id="examples">Examples:</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3])
+<h4 id="examples-3">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3])
 kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3,cat3], [cat1,cat2,cat3],[1.0, 2.0, 3.0, 1.0, 5.0])
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h3 id="percent_absolute_deviation"><code>percent_absolute_deviation</code></h3>
+<hr />
 
-<h4 id="possible-use">Possible use:</h4>
+<h3 id="percent_absolute_deviation"><code class="highlighter-rouge">percent_absolute_deviation</code></h3>
 
+<h4 id="possible-use-4">Possible use:</h4>
 <ul>
-<li><code>list&lt;float&gt;</code> <strong><code>percent_absolute_deviation</code></strong> <code>list&lt;float&gt;</code> ---&gt;  <code>float</code></li>
-<li> <strong><code>percent_absolute_deviation</code></strong> (<code>list&lt;float&gt;</code> , <code>list&lt;float&gt;</code>) ---&gt;  <code>float</code> </li>
+  <li><code class="highlighter-rouge">list&lt;float&gt;</code> <strong><code class="highlighter-rouge">percent_absolute_deviation</code></strong> <code class="highlighter-rouge">list&lt;float&gt;</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">percent_absolute_deviation</code></strong> (<code class="highlighter-rouge">list&lt;float&gt;</code> , <code class="highlighter-rouge">list&lt;float&gt;</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result">Result:</h4>
-
+<h4 id="result-4">Result:</h4>
 <p>percent absolute deviation indicator for 2 series of values: percent_absolute_deviation(list_vals_observe,list_vals_sim)</p>
 
-<h4 id="examples">Examples:</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">percent_absolute_deviation([200,300,150,150,200],[250,250,100,200,200])
-</code></pre></div>
-<hr>
+<h4 id="examples-4">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>percent_absolute_deviation([200,300,150,150,200],[250,250,100,200,200])
+</code></pre></div></div>
 
-<h2 id="skills">Skills</h2>
+<hr />
 
-<hr>
+<h2 id="skills-1">Skills</h2>
 
-<h2 id="statements">Statements</h2>
+<hr />
 
-<hr>
+<h2 id="statements-1">Statements</h2>
 
-<h2 id="species">Species</h2>
+<hr />
 
-<hr>
+<h2 id="species-1">Species</h2>
 
-<h2 id="architectures">Architectures</h2>
+<hr />
+
+<h2 id="architectures-1">Architectures</h2>
+
 
     </div>
     </div>
