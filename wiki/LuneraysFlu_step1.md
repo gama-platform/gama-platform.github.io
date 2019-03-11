@@ -49,7 +49,7 @@ species people {
 }
 ```
 
-In addition, we want add a new capability to our agent: the possibility to move randomly. for that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provide the modeler a self-contain and relevant set of actions and variables. The [moving](__BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
+In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provide the modeler a self-contain and relevant set of actions and variables. The [moving](__BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
 
 ```
    species people skills: [moving]{
