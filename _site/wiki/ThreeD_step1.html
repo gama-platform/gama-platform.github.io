@@ -3614,81 +3614,85 @@ function closeRightMenu() {
 <p>In this first step, we will see how to define a 3D environment and populate it.</p>
 
 <h2 id="formulation">Formulation</h2>
+<p>Initialize a 3D world with a population of cells placed randomly in a 3D 100x100x100 cube.</p>
+<ul>
+  <li>Definition of the <strong>cells</strong> species</li>
+  <li>Definition of the <strong>nb_cells</strong> parameter</li>
+  <li>Creation of <strong>nb_cells</strong> <strong>cells</strong> agents randomly located in the 3D environment size: 100x100x100.</li>
+</ul>
 
-<p>Initialize a 3D world with a population of cells placed randomly in a 3D 100x100x100 cube.
-  * Definition of the <strong>cells</strong> species
-  * Definition of the <strong>nb_cells</strong> parameter
-  * Creation of <strong>nb_cells</strong> <strong>cells</strong> agents randomly located in the 3D environment size: 100x100x100.</p>
-
-<p><img src="resources/images/tutorials/3D_model_LQ.png" alt="images/3D_model_LQ.png"></p>
+<p><img src="resources/images/tutorials/3D_model_LQ.png" alt="images/3D_model_LQ.png" /></p>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <p>In this model we define one species of agent: the <strong>cells</strong> agents. The agents will be just displayed as a blue sphere of radius 1.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species cells{                      
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species cells{                      
   aspect default {
     draw sphere(1) color:#blue;   
   }
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="global-section">Global Section</h3>
 
 <h4 id="global-variable">Global variable</h4>
 
 <p>Definition of a global variable <strong>nb_cells</strong> of type <em>int</em> representing the number of <strong>cells</strong> agents.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    int nb_cells &lt;-100;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h4 id="model-initialization">Model initialization</h4>
 
 <p>Definition of the init block in order to create <em>nb_cells</em> <strong>cells</strong> agents. By default an agent is created with a random location in x and y, and a z value equal to 0. In our case we want to place the <strong>cells</strong> randomly in the 3D environment so we set a random value for <em>x</em>, <em>y</em> and <em>z</em>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">create cells number: nb_cells {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create cells number: nb_cells {
   location &lt;- {rnd(100), rnd(100), rnd(100)};
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="experiment">Experiment</h3>
 
-<p>In our model, we define a basic gui experiment called <em>Tuto3D</em> :
-<code>
-experiment Tuto3D type: gui {
+<p>In our model, we define a basic gui experiment called <em>Tuto3D</em> :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Tuto3D type: gui {
 }
-</code></p>
+</code></pre></div></div>
 
 <h4 id="input">Input</h4>
-
-<p>Definition of a parameter from the the global variable <em>nb_cells</em> :
-<code>
-experiment Tuto3D type: gui {
-   parameter &quot;Initial number of cells: &quot; var: nb_cells min: 1 max: 1000 category: &quot;Cells&quot;;  
+<p>Definition of a parameter from the the global variable <em>nb_cells</em> :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment Tuto3D type: gui {
+   parameter "Initial number of cells: " var: nb_cells min: 1 max: 1000 category: "Cells";	
 }
-</code></p>
+</code></pre></div></div>
 
 <h4 id="output">Output</h4>
 
-<p>In our model, we define a display to draw the <strong>cells</strong> agents in a 3D environment.
-<code>
-output {
+<p>In our model, we define a display to draw the <strong>cells</strong> agents in a 3D environment.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
   display View1 type:opengl {
     species cells;
   }
 }
-</code></p>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
 
-<p>This model is available in the model library (under Tutorials &gt; 3D) and the GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/3D/models/Model%2001.gaml">Model 01.gaml</a></p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">Tuto3D</span>
+<p>This model is available in the model library (under Tutorials &gt; 3D) and the GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/3D/models/Model 01.gaml">Model 01.gaml</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Tuto3D</span>
 
 <span class="n">global</span> <span class="p">{</span>
-  <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>   
+  <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>	
   <span class="n">init</span> <span class="p">{</span> 
     <span class="nb">create</span> <span class="n">cells</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="p">{</span> 
       <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)};</span>       
     <span class="p">}</span> 
   <span class="p">}</span>  
 <span class="p">}</span> 
-
+  
 <span class="n">species</span> <span class="n">cells</span><span class="p">{</span>                      
   <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
     <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>   
@@ -3696,14 +3700,15 @@ output {
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">Tuto3D</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-  <span class="n">parameter</span> <span class="s2">"Initial number of cells: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Cells"</span> <span class="p">;</span>  
+  <span class="n">parameter</span> <span class="s2">"Initial number of cells: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Cells"</span> <span class="p">;</span>	
   <span class="n">output</span> <span class="p">{</span>
     <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
       <span class="n">species</span> <span class="n">cells</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3615,212 +3615,226 @@ function closeRightMenu() {
 
 <h2 id="defining-the-class">Defining the class</h2>
 
-<p>A new statement must be a Java class that:
-  * either implements the interface <code>IStatement</code> or extends an existing implementation of this interface (like <code>AbstractStatement</code> or <code>AbstractSequenceStatement</code>).
-  * begins by the 2 following mandatory annotations:
-    * <a href="DevelopingIndexAnnotations#@symbol">@symbol</a>: <code>@symbol(name = &quot;name_of_the_statement_gaml&quot;, kind = &quot;kind_of_statement&quot;, with_sequence = true/false)</code>,
-    * <a href="DevelopingIndexAnnotations#@inside">@inside</a>: <code>@symbol(kinds = {&quot;kind_of_statement_1&quot;,&quot;kind_of_statement_2&quot;,&quot;...&quot;}</code></p>
+<p>A new statement must be a Java class that:</p>
+<ul>
+  <li>either implements the interface <code class="highlighter-rouge">IStatement</code> or extends an existing implementation of this interface (like <code class="highlighter-rouge">AbstractStatement</code> or <code class="highlighter-rouge">AbstractSequenceStatement</code>).</li>
+  <li>begins by the 2 following mandatory annotations:
+    <ul>
+      <li><a href="DevelopingIndexAnnotations#@symbol">@symbol</a>: <code class="highlighter-rouge">@symbol(name = "name_of_the_statement_gaml", kind = "kind_of_statement", with_sequence = true/false)</code>,</li>
+      <li><a href="DevelopingIndexAnnotations#@inside">@inside</a>: <code class="highlighter-rouge">@symbol(kinds = {"kind_of_statement_1","kind_of_statement_2","..."}</code></li>
+    </ul>
+  </li>
+</ul>
 
-<p>In addition the 4 following optional annotations can be added:
-  * <a href="DevelopingIndexAnnotations#@facets">@facets</a>: to describe the set of <a href="DevelopingIndexAnnotations#@facet">@facet</a> annotations,
-  * <a href="DevelopingIndexAnnotations#@doc">@doc</a>: to document the statement.
-  * <a href="DevelopingIndexAnnotations#@serializer">@serializer</a>: in addition, statements can benefit from a custom serializer, by declaring <code>@serializer(CustomSerializer.class)</code>, with a class extending <code>SymbolSerializer</code>.
-  * <a href="DevelopingIndexAnnotations#@validator">@validator</a>: in addition, statements can benefit from a custom validation during the validation process, by declaring <code>@validator(CustomValidator.class)</code> with a class implementing <code>IDescriptionValidator</code> as value. This class will receive the <code>IDescription</code> of the statement and be able to execute further validations on the type of expressions, etc. or even to change the <code>IDescription</code>  (by adding new information, changing the value of facets, etc.).</p>
+<p>In addition the 4 following optional annotations can be added:</p>
+<ul>
+  <li><a href="DevelopingIndexAnnotations#@facets">@facets</a>: to describe the set of <a href="DevelopingIndexAnnotations#@facet">@facet</a> annotations,</li>
+  <li><a href="DevelopingIndexAnnotations#@doc">@doc</a>: to document the statement.</li>
+  <li><a href="DevelopingIndexAnnotations#@serializer">@serializer</a>: in addition, statements can benefit from a custom serializer, by declaring <code class="highlighter-rouge">@serializer(CustomSerializer.class)</code>, with a class extending <code class="highlighter-rouge">SymbolSerializer</code>.</li>
+  <li><a href="DevelopingIndexAnnotations#@validator">@validator</a>: in addition, statements can benefit from a custom validation during the validation process, by declaring <code class="highlighter-rouge">@validator(CustomValidator.class)</code> with a class implementing <code class="highlighter-rouge">IDescriptionValidator</code> as value. This class will receive the <code class="highlighter-rouge">IDescription</code> of the statement and be able to execute further validations on the type of expressions, etc. or even to change the <code class="highlighter-rouge">IDescription</code>  (by adding new information, changing the value of facets, etc.).</li>
+</ul>
 
-<p>Note: GAMA annotations are classes defined into the <code>msi.gama.precompiler.GamlAnnotations</code> class.</p>
+<p>Note: GAMA annotations are classes defined into the <code class="highlighter-rouge">msi.gama.precompiler.GamlAnnotations</code> class.</p>
 
 <h2 id="examples">Examples</h2>
 
-<h3 id="the-write-statement">The <code>write</code> statement</h3>
+<h3 id="the-write-statement">The <code class="highlighter-rouge">write</code> statement</h3>
 
-<p>The <code>write</code> statement is an example of a SINGLE_STATEMENT (i.e. statement that does not embed a sequence of statements).
-It can used inside a BEHAVIOR statement (i.e. <code>reflex</code>, <code>init</code>...), a SEQUENCE_STATEMENT (e.g. <code>loop</code>, <code>ask</code>, <code>if</code>...) or a LAYER statement.
-It defines a single facet (&quot;message&quot;) mandatory and omissible.
-<code>
-@symbol(name = IKeyword.WRITE, kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
+<p>The <code class="highlighter-rouge">write</code> statement is an example of a SINGLE_STATEMENT (i.e. statement that does not embed a sequence of statements).
+It can used inside a BEHAVIOR statement (i.e. <code class="highlighter-rouge">reflex</code>, <code class="highlighter-rouge">init</code>…), a SEQUENCE_STATEMENT (e.g. <code class="highlighter-rouge">loop</code>, <code class="highlighter-rouge">ask</code>, <code class="highlighter-rouge">if</code>…) or a LAYER statement.
+It defines a single facet (“message”) mandatory and omissible.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.WRITE, kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
 @inside(kinds = { ISymbolKind.BEHAVIOR, ISymbolKind.SEQUENCE_STATEMENT, ISymbolKind.LAYER })
 @facets(value = { 
         @facet(name = IKeyword.MESSAGE, type = IType.NONE, optional = false) 
    }, omissible = IKeyword.MESSAGE)
 public class WriteStatement extends AbstractStatement {
-</code></p>
+</code></pre></div></div>
 
-<h3 id="the-aspect-statement">The <code>aspect</code> statement</h3>
+<h3 id="the-aspect-statement">The <code class="highlighter-rouge">aspect</code> statement</h3>
 
-<p>The <code>aspect</code> statement defines an example of BEHAVIOR statement (i.e. a statement that can written at the same level as <code>init</code>, <code>reflex</code>...), containing a sequence of embedded statements. It can only be used inside a <code>species</code> statement (i.e. the definition of a new species) and the <code>global</code> block. It defines a single facet <code>name</code> mandatory and omissible.
-<code>
-@symbol(name = { IKeyword.ASPECT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
+<p>The <code class="highlighter-rouge">aspect</code> statement defines an example of BEHAVIOR statement (i.e. a statement that can written at the same level as <code class="highlighter-rouge">init</code>, <code class="highlighter-rouge">reflex</code>…), containing a sequence of embedded statements. It can only be used inside a <code class="highlighter-rouge">species</code> statement (i.e. the definition of a new species) and the <code class="highlighter-rouge">global</code> block. It defines a single facet <code class="highlighter-rouge">name</code> mandatory and omissible.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = { IKeyword.ASPECT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.MODEL })
 @facets(value = { @facet(name = IKeyword.NAME, type = IType.ID, optional = true) 
    }, omissible = IKeyword.NAME)
 public class AspectStatement extends AbstractStatementSequence {
-</code></p>
+</code></pre></div></div>
 
-<h3 id="the-action-statement">The <code>action</code> statement</h3>
+<h3 id="the-action-statement">The <code class="highlighter-rouge">action</code> statement</h3>
 
-<p>The <code>action</code> statement defines an example of ACTION statement containing a sequence of embedded statements and that can have arguments.
-It can be used (to define an action) in any species, experiment or global statement. It defines several facets and uses a custom validator and a custom serializer.
-<code>
-@symbol(name = IKeyword.ACTION, kind = ISymbolKind.ACTION, with_sequence = true, with_args = true, unique_name = true)
+<p>The <code class="highlighter-rouge">action</code> statement defines an example of ACTION statement containing a sequence of embedded statements and that can have arguments.
+It can be used (to define an action) in any species, experiment or global statement. It defines several facets and uses a custom validator and a custom serializer.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = IKeyword.ACTION, kind = ISymbolKind.ACTION, with_sequence = true, with_args = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.EXPERIMENT, ISymbolKind.MODEL })
 @facets(value = {
-    @facet(name = IKeyword.NAME, type = IType.ID, optional = false),
-    @facet(name = IKeyword.TYPE, type = IType.TYPE_ID, optional = true, internal = true),
-    @facet(name = IKeyword.OF, type = IType.TYPE_ID, optional = true, internal = true),
-    @facet(name = IKeyword.INDEX, type = IType.TYPE_ID, optional = true, internal = true),
-    @facet(name = IKeyword.VIRTUAL, type = IType.BOOL, optional = true) 
+	@facet(name = IKeyword.NAME, type = IType.ID, optional = false),
+	@facet(name = IKeyword.TYPE, type = IType.TYPE_ID, optional = true, internal = true),
+	@facet(name = IKeyword.OF, type = IType.TYPE_ID, optional = true, internal = true),
+	@facet(name = IKeyword.INDEX, type = IType.TYPE_ID, optional = true, internal = true),
+	@facet(name = IKeyword.VIRTUAL, type = IType.BOOL, optional = true) 
     }, omissible = IKeyword.NAME)
 @validator(ActionValidator.class)
 @serializer(ActionSerializer.class)
 public class ActionStatement extends AbstractStatementSequenceWithArgs {
-</code></p>
+</code></pre></div></div>
 
 <h2 id="implementation">Implementation</h2>
 
-<p>All the statements inherits from the abstract class <code>AbstractStatement</code>. Statements with a sequence of embedded statements inherit from the class <code>AbstractStatementSequence</code> (which extends <code>AbstractStatement</code>).</p>
+<p>All the statements inherits from the abstract class <code class="highlighter-rouge">AbstractStatement</code>. Statements with a sequence of embedded statements inherit from the class <code class="highlighter-rouge">AbstractStatementSequence</code> (which extends <code class="highlighter-rouge">AbstractStatement</code>).</p>
 
-<p>The main methods of a statement class are:
-  * its constructor, that is executed at the compilation of the model.
-  * <code>executeOn(final IScope scope)</code>, it executes the statement on a given scope. <strong>This method is executed at each call of the statement in the model</strong>,
-  * <code>privateExecuteIn(IScope scope)</code>: the <code>executeOn(final IScope scope)</code> method implemented in <code>AbstractStatement</code> does some verification and call the <code>privateExecuteIn(IScope scope)</code> method to perform the statement. <strong>The execution of any statement should be redefined in this method.</strong></p>
+<p>The main methods of a statement class are:</p>
+<ul>
+  <li>its constructor, that is executed at the compilation of the model.</li>
+  <li><code class="highlighter-rouge">executeOn(final IScope scope)</code>, it executes the statement on a given scope. <strong>This method is executed at each call of the statement in the model</strong>,</li>
+  <li><code class="highlighter-rouge">privateExecuteIn(IScope scope)</code>: the <code class="highlighter-rouge">executeOn(final IScope scope)</code> method implemented in <code class="highlighter-rouge">AbstractStatement</code> does some verification and call the <code class="highlighter-rouge">privateExecuteIn(IScope scope)</code> method to perform the statement. <strong>The execution of any statement should be redefined in this method.</strong></li>
+</ul>
 
 <h3 id="define-a-single_statement-statement">Define a SINGLE_STATEMENT statement</h3>
 
-<p>To define a SINGLE_STATEMENT statement that can be executed in any behavior and sequence of statements and with 2 facets, we first define a new Java class that extends <code>AbstractStatement</code> such as:
-<code>
-@symbol(name = &quot;testStatement&quot;, kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
+<p>To define a SINGLE_STATEMENT statement that can be executed in any behavior and sequence of statements and with 2 facets, we first define a new Java class that extends <code class="highlighter-rouge">AbstractStatement</code> such as:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@symbol(name = "testStatement", kind = ISymbolKind.SINGLE_STATEMENT, with_sequence = false)
 @inside(kinds = { ISymbolKind.BEHAVIOR, ISymbolKind.SEQUENCE_STATEMENT})
 @facets(value = { 
         @facet(name = IKeyword.NAME, type = IType.NONE, optional = false),
-        @facet(name = &quot;test_facet&quot;, type = IType.NONE, optional = true)     
+        @facet(name = "test_facet", type = IType.NONE, optional = true)     
    }, omissible = IKeyword.NAME)
 public class SingleStatementExample extends AbstractStatement {
-</code></p>
+</code></pre></div></div>
 
-<p>The class should at least implement:
-  * a <strong>constructor</strong>: the constructor is called at the compilation. It is usually used to get the expressions given to the facets (using the <code>getFacet(String)</code> method) and to store it into an attribute of the class.
+<p>The class should at least implement:</p>
+<ul>
+  <li>a <strong>constructor</strong>: the constructor is called at the compilation. It is usually used to get the expressions given to the facets (using the <code class="highlighter-rouge">getFacet(String)</code> method) and to store it into an attribute of the class.
 ```
-final IExpression name;</p>
+final IExpression name;</li>
+</ul>
 
 <p>public SingleStatementExample(final IDescription desc) {
-    super(desc);
-    name = getFacet(IKeyword.NAME);
-}
-<code>
-  * the **method privateExecuteIn**: this method is executed each time the statement is called in the model.
-</code>
-protected Object privateExecuteIn(IScope scope) throws GamaRuntimeException { 
-    IAgent agent = stack.getAgentScope();
-    String nameStr = null;
-    if ( agent != null &amp;&amp; !agent.dead() ) {
-        nameStr = Cast.asString(stack, name.value(stack));
-        if ( nameStr == null ) {
-            nameStr = &quot;nil&quot;;
-        }
-        GuiUtils.informConsole(nameStr);
-    }
-    return nameStr;
-}<br>
-``<code>
-The variable</code>scope<code>of type</code>IScope<code>can be used to:
-  * get the current agent with:</code>scope.getAgentScope()<code>
-  * evaluate an expression in the current scope:</code>Cast.asString(scope, message.value(scope))`</p>
+	super(desc);
+	name = getFacet(IKeyword.NAME);
+}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  * the **method privateExecuteIn**: this method is executed each time the statement is called in the model.
+</code></pre></div></div>
+<p>protected Object privateExecuteIn(IScope scope) throws GamaRuntimeException { 
+	IAgent agent = stack.getAgentScope();
+	String nameStr = null;
+	if ( agent != null &amp;&amp; !agent.dead() ) {
+		nameStr = Cast.asString(stack, name.value(stack));
+		if ( nameStr == null ) {
+			nameStr = “nil”;
+		}
+		GuiUtils.informConsole(nameStr);
+	}
+	return nameStr;
+}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The variable `scope` of type `IScope` can be used to:
+  * get the current agent with: `scope.getAgentScope()`
+  * evaluate an expression in the current scope: `Cast.asString(scope, message.value(scope))`
 
-<h3 id="define-a-statement-with-sequence">Define a statement with sequence</h3>
 
-<p>This kind of statements includes SEQUENCE_STATEMENT (e.g. <code>if</code>, <code>loop</code>,...), BEHAVIOR (e.g. <code>reflex</code>,...)...</p>
+### Define a statement with sequence
 
-<p>Such a statement is defined in a class extending the <code>AbstractStatementSequence</code> class, e.g.:
-```
-@symbol(name = { IKeyword.REFLEX, IKeyword.INIT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
+This kind of statements includes SEQUENCE\_STATEMENT (e.g. `if`, `loop`,...), BEHAVIOR (e.g. `reflex`,...)...
+
+Such a statement is defined in a class extending the `AbstractStatementSequence` class, e.g.:
+</code></pre></div></div>
+<p>@symbol(name = { IKeyword.REFLEX, IKeyword.INIT }, kind = ISymbolKind.BEHAVIOR, with_sequence = true, unique_name = true)
 @inside(kinds = { ISymbolKind.SPECIES, ISymbolKind.EXPERIMENT, ISymbolKind.MODEL })
 @facets(value = { @facet(name = IKeyword.WHEN, type = IType.BOOL, optional = true),
-    @facet(name = IKeyword.NAME, type = IType.ID, optional = true) }, omissible = IKeyword.NAME)
+	@facet(name = IKeyword.NAME, type = IType.ID, optional = true) }, omissible = IKeyword.NAME)
 @validator(ValidNameValidator.class)</p>
 
-<p>public class ReflexStatement extends AbstractStatementSequence {
+<p>public class ReflexStatement extends AbstractStatementSequence {</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+This class should only implement a constructor. The class `AbstractStatementSequence` provides a generic implementation for:
+  * `privateExecuteIn(IScope scope)`: it executes each embedded statement with the scope.
+  * `executeOn(final IScope scope)`: it executes the statement with a given scope.
+
+
+### Additional methods that can implemented
+
+The following methods have a default implementation, but can be overridden if necessary:
+  * the **`String getTrace(final IScope scope)` method** is called to trace the execution of statements using [trace statement](Statements#trace).
+</code></pre></div></div>
+<p>public String getTrace(final IScope scope) {
+	// We dont trace write statements
+	return “”;
+}
 ```</p>
-
-<p>This class should only implement a constructor. The class <code>AbstractStatementSequence</code> provides a generic implementation for:
-  * <code>privateExecuteIn(IScope scope)</code>: it executes each embedded statement with the scope.
-  * <code>executeOn(final IScope scope)</code>: it executes the statement with a given scope.</p>
-
-<h3 id="additional-methods-that-can-implemented">Additional methods that can implemented</h3>
-
-<p>The following methods have a default implementation, but can be overridden if necessary:
-  * the <strong><code>String getTrace(final IScope scope)</code> method</strong> is called to trace the execution of statements using <a href="Statements#trace">trace statement</a>.
-<code>
-public String getTrace(final IScope scope) {
-    // We dont trace write statements
-    return &quot;&quot;;
-} 
-</code>
-  * the <code>setChildren(final List&lt;? extends ISymbol&gt; commands)</code> is used to define which are the statement children to the sequence statement. By default, all the embedded statements are taken as children</p>
+<ul>
+  <li>the <code class="highlighter-rouge">setChildren(final List&lt;? extends ISymbol&gt; commands)</code> is used to define which are the statement children to the sequence statement. By default, all the embedded statements are taken as children</li>
+</ul>
 
 <h2 id="annotations">Annotations</h2>
-
 <h3 id="symbol">@symbol</h3>
+<p>This annotation represents a “statement” in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
 
-<p>This annotation represents a &quot;statement&quot; in GAML, and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
-
-<p>This annotation contains:
-  * <strong>name</strong> (set of string, empty by default): <em>names of the statement</em>.
-  * <strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.
-  * <strong>with_scope</strong> (boolean, true by default): <em>indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope</em>.
-  * <strong>with_sequence</strong> (boolean): <em>indicates wether or not a sequence can or should follow the symbol denoted by this class</em>.
-  * <strong>with_args</strong> (boolean, false by default): <em>indicates wether or not the symbol denoted by this class will accept arguments</em>.
-  * <strong>remote_context</strong> (boolean, false by default): <em>indicates that the context of this statement is actually an hybrid context: although it will be executed in a remote context, any temporary variables declared in the enclosing scopes should be passed on as if the statement was executed in the current context</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this symbol</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (set of string, empty by default): <em>names of the statement</em>.</li>
+  <li><strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</li>
+  <li><strong>with_scope</strong> (boolean, true by default): <em>indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope</em>.</li>
+  <li><strong>with_sequence</strong> (boolean): <em>indicates wether or not a sequence can or should follow the symbol denoted by this class</em>.</li>
+  <li><strong>with_args</strong> (boolean, false by default): <em>indicates wether or not the symbol denoted by this class will accept arguments</em>.</li>
+  <li><strong>remote_context</strong> (boolean, false by default): <em>indicates that the context of this statement is actually an hybrid context: although it will be executed in a remote context, any temporary variables declared in the enclosing scopes should be passed on as if the statement was executed in the current context</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation attached to this symbol</em>.</li>
+</ul>
 
 <h3 id="inside">@inside</h3>
-
 <p>This annotation is used in conjunction with symbol. Provides a way to tell where this symbol should be located in a model (i.e. what its parents should be). Either direct symbol names (in symbols) or generic symbol kinds can be used.</p>
 
-<p>This annotation contains:
-  * <strong>symbols</strong> (set of Strings, empty by default): <em>symbol names of the parents</em>.
-  * <strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>symbols</strong> (set of Strings, empty by default): <em>symbol names of the parents</em>.</li>
+  <li><strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.processor/src/msi/gama/precompiler/ISymbolKind.java">ISymbolKind.java</a> for more details)</em>.</li>
+</ul>
 
 <h3 id="facets">@facets</h3>
-
 <p>This annotation describes a list of facets used by a statement in GAML.</p>
 
-<p>This annotation contains:
-  * <strong>value</strong> (set of @facet): array of @facet, each representing a facet name, type..
-  * <strong>ommissible</strong> (string): <em>the facet that can be safely omitted by the modeler (provided its value is the first following the keyword of the statement)</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>value</strong> (set of @facet): array of @facet, each representing a facet name, type..</li>
+  <li><strong>ommissible</strong> (string): <em>the facet that can be safely omitted by the modeler (provided its value is the first following the keyword of the statement)</em>.</li>
+</ul>
 
 <h3 id="facet">@facet</h3>
-
 <p>This facet describes a facet in a list of facets.</p>
 
-<p>This annotation contains:
-  * <strong>name</strong> (String): <em>the name of the facet. Must be unique within a symbol</em>.
-  * <strong>type</strong> (set of Strings): <em>the string values of the different types that can be taken by this facet</em>.
-  * <strong>values</strong> (set of Strings): <em>the values that can be taken by this facet. The value of the facet expression will be chosen among the values described here</em>.
-  * <strong>optional</strong> (boolean, false by default): <em>whether or not this facet is optional or mandatory</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the facet</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (String): <em>the name of the facet. Must be unique within a symbol</em>.</li>
+  <li><strong>type</strong> (set of Strings): <em>the string values of the different types that can be taken by this facet</em>.</li>
+  <li><strong>values</strong> (set of Strings): <em>the values that can be taken by this facet. The value of the facet expression will be chosen among the values described here</em>.</li>
+  <li><strong>optional</strong> (boolean, false by default): <em>whether or not this facet is optional or mandatory</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the facet</em>.</li>
+</ul>
 
 <h3 id="doc">@doc</h3>
-
-<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.
-  * <strong>value</strong> (String, &quot;&quot; by default): <em>a String representing the documentation of a GAML element</em>.
-  * <strong>deprecated</strong> (String, &quot;&quot; by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.
-  * <strong>returns</strong> (String, &quot;&quot; by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.
-  * <strong>comment</strong> (String, &quot;&quot; by default): <em>an optional comment that will appear differently from the documentation itself</em>.
-  * <strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the &quot;special cases&quot; in which the documented element takes part</em>.
-  * <strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.
-  * <strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</p>
+<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.</p>
+<ul>
+  <li><strong>value</strong> (String, “” by default): <em>a String representing the documentation of a GAML element</em>.</li>
+  <li><strong>deprecated</strong> (String, “” by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.</li>
+  <li><strong>returns</strong> (String, “” by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.</li>
+  <li><strong>comment</strong> (String, “” by default): <em>an optional comment that will appear differently from the documentation itself</em>.</li>
+  <li><strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the “special cases” in which the documented element takes part</em>.</li>
+  <li><strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.</li>
+  <li><strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</li>
+</ul>
 
 <h3 id="serializer">@serializer</h3>
-
-<p>It allows to declare a custom serializer for Symbols (statements, var declarations, species ,experiments, etc.). This serializer will be called instead of the standard serializer, superseding this last one. Serializers must be sublasses of the SymbolSerializer class.
-  * <strong>value</strong> (Class): <em>the serializer class</em>.</p>
+<p>It allows to declare a custom serializer for Symbols (statements, var declarations, species ,experiments, etc.). This serializer will be called instead of the standard serializer, superseding this last one. Serializers must be sublasses of the SymbolSerializer class.</p>
+<ul>
+  <li><strong>value</strong> (Class): <em>the serializer class</em>.</li>
+</ul>
 
 <h3 id="validator">@validator</h3>
+<p>It allows to declare a custom validator for Symbols (statements, var declarations, species ,experiments, etc.). This validator, if declared on subclasses of Symbol, will be called after the standard validation is done. The validator must be subclass of IDescriptionValidator.</p>
+<ul>
+  <li><strong>value</strong> (Class): <em>the validator class</em>.</li>
+</ul>
 
-<p>It allows to declare a custom validator for Symbols (statements, var declarations, species ,experiments, etc.). This validator, if declared on subclasses of Symbol, will be called after the standard validation is done. The validator must be subclass of IDescriptionValidator.
-  * <strong>value</strong> (Class): <em>the validator class</em>.</p>
-
-<p>All these annotations are defined in the <code>GamlAnnotations.java</code> file of the <code>msi.gama.processor</code> plug-in.</p>
+<p>All these annotations are defined in the <code class="highlighter-rouge">GamlAnnotations.java</code> file of the <code class="highlighter-rouge">msi.gama.processor</code> plug-in.</p>
 
     </div>
     </div>

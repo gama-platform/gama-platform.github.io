@@ -3614,239 +3614,240 @@ function closeRightMenu() {
 <p>This third step presents how to create a road system from GIS data. More precisely, it shows how to build a graph from a list of polylines and to constrain the movement of an agent according to this graph.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Definition of day_time global variable that will indicate, according to the simulation step, the time of the day: each simulation step will represent 10 minutes, then the day_time variable will be ranged between 0 and 144.</li>
-<li>For each <strong>people</strong> agent: define a living_place(building of type &#39;Residential&#39;) and working place (building of type &#39;Industrial&#39;).</li>
-<li>For each <strong>people</strong> agent: define start_work and end_work hours that respectively represent when the agent leaves its house to go to work and when it leaves its working_place to go back home. These hours will be randomly define between 36 (6 a.m;) and 60 (10 a.m.) for the start_work and 84 (2p.m.) and 132 (10p.m.) for the end_work.</li>
-<li>For each <strong>people</strong> agent: define a objective variable: this one can &#39;go home&#39; or &#39;working&#39;.</li>
-<li>For each <strong>people</strong> agent: define a speed. The speed will be randomly define between 50 and 100.</li>
-<li>The <strong>people</strong> agents move along the road, taking the shortest path.</li>
+  <li>Definition of day_time global variable that will indicate, according to the simulation step, the time of the day: each simulation step will represent 10 minutes, then the day_time variable will be ranged between 0 and 144.</li>
+  <li>For each <strong>people</strong> agent: define a living_place(building of type ‘Residential’) and working place (building of type ‘Industrial’).</li>
+  <li>For each <strong>people</strong> agent: define start_work and end_work hours that respectively represent when the agent leaves its house to go to work and when it leaves its working_place to go back home. These hours will be randomly define between 36 (6 a.m;) and 60 (10 a.m.) for the start_work and 84 (2p.m.) and 132 (10p.m.) for the end_work.</li>
+  <li>For each <strong>people</strong> agent: define a objective variable: this one can ‘go home’ or ‘working’.</li>
+  <li>For each <strong>people</strong> agent: define a speed. The speed will be randomly define between 50 and 100.</li>
+  <li>The <strong>people</strong> agents move along the road, taking the shortest path.</li>
 </ul>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="people-agents">people agents</h3>
-
 <p>First, we have to change the skill of the <strong>people</strong> agents: as we want to use an action of the <strong>moving</strong> skill (<strong>goto</strong>), we will provide the <strong>people</strong> agents with this skill. A <a href="AttachingSkills">skill</a> is a built-in module that provide the modeler a self-contain and relevant set of actions and variables.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">   species people skills: [moving]{
-       ...
-   }
-</code></pre></div>
-<p>Then, we have to add new variables to the people agents: living_place, working_place, start_work, end_work, objective. In addition, we will add a &quot;the_target&quot; variable that will represents the point toward which the agent will be currently moving.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">   species people skills: [moving]{
-    rgb color &lt;- #yellow ;
-    building living_place &lt;- nil ;
-    building working_place &lt;- nil ;
-    int start_work ;
-    int end_work  ;
-    string objective ; 
-    point the_target &lt;- nil ;
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species people skills: [moving]{
        ...
    }
-</code></pre></div>
+</code></pre></div></div>
+
+<p>Then, we have to add new variables to the people agents: living_place, working_place, start_work, end_work, objective. In addition, we will add a “the_target” variable that will represents the point toward which the agent will be currently moving.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species people skills: [moving]{
+	rgb color &lt;- #yellow ;
+	building living_place &lt;- nil ;
+	building working_place &lt;- nil ;
+	int start_work ;
+	int end_work  ;
+	string objective ; 
+	point the_target &lt;- nil ;
+      
+       ...
+   }
+</code></pre></div></div>
+
 <p>We define two reflex methods that allow to change the objective (and the_target) of the agent at the start_work and en_work hours. Concerning the <em>target value</em>, we choose a random point in the objective building (working_place or living_place) by using the <strong>any_location_in</strong> operator.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">   species people skills: [moving]{  
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species people skills: [moving]{  
       ...
       reflex time_to_work when: current_hour = start_work and objective = "resting"{
            objective &lt;- "working" ;
-       the_target &lt;- any_location_in (working_place);
+	   the_target &lt;- any_location_in (working_place);
       }
-
+		
       reflex time_to_go_home when: current_hour = end_work and objective = "working"{
-       objective &lt;- "resting" ;
-       the_target &lt;- any_location_in (living_place); 
+	   objective &lt;- "resting" ;
+	   the_target &lt;- any_location_in (living_place); 
       } 
       ...
   }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>At last, we define a reflex method that allows the agent to move. If a target point is defined (the_target != nil), the agent moves in direction to its target using the <strong>goto</strong> action (provided by the moving skill). Note that we specified a graph to constraint the movement of the agents on the road network with the facet <strong>on</strong>. We will see later how this graph is built. The agent uses the shortest path (according to the graph) to go to the target point. When the agent arrives at destination (the_target = location), the target is set to nil (the agent will stop moving).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">  species people skills: [moving]{
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  species people skills: [moving]{
       ...
       reflex move when: the_target != nil {
-      do goto target: the_target on: the_graph ; 
-      if the_target = location {
-        the_target &lt;- nil ;
-      }
+	  do goto target: the_target on: the_graph ; 
+	  if the_target = location {
+		the_target &lt;- nil ;
+	  }
      }
   }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="parameters">parameters</h3>
+<p>We add several parameters (<strong>min_work_start</strong>, <strong>max_work_start</strong>, <strong>min_work_end</strong>, <strong>max_work_end</strong>, <strong>min_speed</strong> and <strong>max_speed</strong>) and two global variables: <strong>the_graph</strong> (graph computed from the road network) and <strong>current_hour</strong> (current hour of the day). The value of the <strong>current_hour</strong> variable is automatically computed at each simulation step and is equals to “(time(the simulation step <strong>step) / 1 hour) modulo 24”.</strong></p>
 
-<p>We add several parameters (<strong>min_work_start</strong>, <strong>max_work_start</strong>, <strong>min_work_end</strong>, <strong>max_work_end</strong>, <strong>min_speed</strong> and <strong>max_speed</strong>) and two global variables: <strong>the_graph</strong> (graph computed from the road network) and <strong>current_hour</strong> (current hour of the day). The value of the <strong>current_hour</strong> variable is automatically computed at each simulation step and is equals to &quot;(time(the simulation step <strong>step) / 1 hour) modulo 24&quot;.</strong></p>
-
-<p>In the global section:
-<code>
-global {
+<p>In the global section:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
         ...
         int current_hour update: (time / #hour) mod 24;
-    int min_work_start &lt;- 6;
-    int max_work_start &lt;- 8;
-    int min_work_end &lt;- 16; 
-    int max_work_end &lt;- 20; 
-    float min_speed &lt;- 1.0 #km / #h;
-    float max_speed &lt;- 5.0 #km / #h; 
-    graph the_graph;
+	int min_work_start &lt;- 6;
+	int max_work_start &lt;- 8;
+	int min_work_end &lt;- 16; 
+	int max_work_end &lt;- 20; 
+	float min_speed &lt;- 1.0 #km / #h;
+	float max_speed &lt;- 5.0 #km / #h; 
+	graph the_graph;
         ...
 }
-</code></p>
+</code></pre></div></div>
 
-<p>In the experiment section:
-<code>
-experiment road_traffic type: gui {
+<p>In the experiment section:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment road_traffic type: gui {
         ... 
-    parameter &quot;Earliest hour to start work&quot; var: min_work_start category: &quot;People&quot; min: 2 max: 8;
-    parameter &quot;Latest hour to start work&quot; var: max_work_start category: &quot;People&quot; min: 8 max: 12;
-    parameter &quot;Earliest hour to end work&quot; var: min_work_end category: &quot;People&quot; min: 12 max: 16;
-    parameter &quot;Latest hour to end work&quot; var: max_work_end category: &quot;People&quot; min: 16 max: 23;
-    parameter &quot;minimal speed&quot; var: min_speed category: &quot;People&quot; min: 0.1 #km/#h ;
-    parameter &quot;maximal speed&quot; var: max_speed category: &quot;People&quot; max: 10 #km/#h;
+	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 2 max: 8;
+	parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
+	parameter "Earliest hour to end work" var: min_work_end category: "People" min: 12 max: 16;
+	parameter "Latest hour to end work" var: max_work_end category: "People" min: 16 max: 23;
+	parameter "minimal speed" var: min_speed category: "People" min: 0.1 #km/#h ;
+	parameter "maximal speed" var: max_speed category: "People" max: 10 #km/#h;
         ...
 }
-</code></p>
-
+</code></pre></div></div>
 <h3 id="initialization">initialization</h3>
-
-<p>First, we need to compute from the <strong>road</strong> agents, a graph for the moving of the <strong>people</strong> agents. The operator <strong>as_edge_graph</strong> allows to do that. It automatically builds from a set of agents or geometries a graph where the agents are the edges of the graph, a node represent the extremities of the agent geometry.
-<code>
-   init {
+<p>First, we need to compute from the <strong>road</strong> agents, a graph for the moving of the <strong>people</strong> agents. The operator <strong>as_edge_graph</strong> allows to do that. It automatically builds from a set of agents or geometries a graph where the agents are the edges of the graph, a node represent the extremities of the agent geometry.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   init {
       ...
       create road from: shape_file_roads ;
       the_graph &lt;- as_edge_graph(road);
       ...
    }
-</code></p>
+</code></pre></div></div>
 
-<p>We randomly assign one working place and one house to each <strong>people</strong> agent. To simplify the GAML code, we define two temporary variables: the list of buildings of type &#39;Residential&#39; and the list of buildings of type &#39;Industrial&#39; (by using the <strong>where</strong> command). At the creation of each <strong>people</strong> agent, we define a speed, a start_work and end_work to each <strong>people</strong> agent (according to the min and max define in the parameters). We define as well an initial objective (&quot;resting&quot;). Concerning the definition of the living_place and working_place, these ones are randomly chosen in the residential_buildings and industrial_buildings lists.
-<code>
-   init {
+<p>We randomly assign one working place and one house to each <strong>people</strong> agent. To simplify the GAML code, we define two temporary variables: the list of buildings of type ‘Residential’ and the list of buildings of type ‘Industrial’ (by using the <strong>where</strong> command). At the creation of each <strong>people</strong> agent, we define a speed, a start_work and end_work to each <strong>people</strong> agent (according to the min and max define in the parameters). We define as well an initial objective (“resting”). Concerning the definition of the living_place and working_place, these ones are randomly chosen in the residential_buildings and industrial_buildings lists.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   init {
       ...
-      list&lt;building&gt; residential_buildings &lt;- building where (each.type=&quot;Residential&quot;);
-      list&lt;building&gt;  industrial_buildings &lt;- building  where (each.type=&quot;Industrial&quot;) ;
+      list&lt;building&gt; residential_buildings &lt;- building where (each.type="Residential");
+      list&lt;building&gt;  industrial_buildings &lt;- building  where (each.type="Industrial") ;
       create people number: nb_people {
           speed &lt;- min_speed + rnd (max_speed - min_speed) ;
           start_work &lt;- min_work_start + rnd (max_work_start - min_work_start) ;
           end_work &lt;- min_work_end + rnd (max_work_end - min_work_end) ;
           living_place &lt;- one_of(residential_buildings) ;
           working_place &lt;- one_of(industrial_buildings) ;
-          objective &lt;- &quot;resting&quot;;
+          objective &lt;- "resting";
           location &lt;- any_location_in (living_place); 
       }
       ...
   }
-</code></p>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">tutorial_gis_city_traffic</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">tutorial_gis_city_traffic</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="n">file</span> <span class="n">shape_file_roads</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
-    <span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/bounds.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">/</span> <span class="p">#</span><span class="n">hour</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">min_work_start</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">max_work_start</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">min_work_end</span> <span class="p">&lt;-</span> <span class="m">16</span><span class="p">;</span> 
-    <span class="n">int</span> <span class="n">max_work_end</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">min_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">#</span><span class="n">km</span> <span class="p">/</span> <span class="p">#</span><span class="n">h</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span> <span class="p">/</span> <span class="p">#</span><span class="n">h</span><span class="p">;</span> 
-    <span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))]</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span> <span class="p">{</span>
-                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="p">;</span>
-        <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
-
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">residential_buildings</span> <span class="p">&lt;-</span> <span class="n">building</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span><span class="p">=</span><span class="s2">"Residential"</span><span class="p">);</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span>  <span class="n">industrial_buildings</span> <span class="p">&lt;-</span> <span class="n">building</span>  <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span><span class="p">)</span> <span class="p">;</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">min_speed</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_speed</span> <span class="p">-</span> <span class="n">min_speed</span><span class="p">)</span> <span class="p">;</span>
-            <span class="n">start_work</span> <span class="p">&lt;-</span> <span class="n">min_work_start</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_start</span> <span class="p">-</span> <span class="n">min_work_start</span><span class="p">)</span> <span class="p">;</span>
-            <span class="n">end_work</span> <span class="p">&lt;-</span> <span class="n">min_work_end</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_end</span> <span class="p">-</span> <span class="n">min_work_end</span><span class="p">)</span> <span class="p">;</span>
-            <span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">residential_buildings</span><span class="p">)</span> <span class="p">;</span>
-            <span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">industrial_buildings</span><span class="p">)</span> <span class="p">;</span>
-            <span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"resting"</span><span class="p">;</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">living_place</span><span class="p">);</span> 
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_roads</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">shape_file_bounds</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/bounds.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_bounds</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">/</span> <span class="p">#</span><span class="n">hour</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">min_work_start</span> <span class="p">&lt;-</span> <span class="m">6</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">max_work_start</span> <span class="p">&lt;-</span> <span class="m">8</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">min_work_end</span> <span class="p">&lt;-</span> <span class="m">16</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">max_work_end</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">min_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">#</span><span class="n">km</span> <span class="p">/</span> <span class="p">#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span> <span class="p">/</span> <span class="p">#</span><span class="n">h</span><span class="p">;</span> 
+	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="nb">read</span> <span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))]</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span> <span class="p">{</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="p">;</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">);</span>
+		
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span> <span class="n">residential_buildings</span> <span class="p">&lt;-</span> <span class="n">building</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span><span class="p">=</span><span class="s2">"Residential"</span><span class="p">);</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">building</span><span class="p">&gt;</span>  <span class="n">industrial_buildings</span> <span class="p">&lt;-</span> <span class="n">building</span>  <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">type</span><span class="p">=</span><span class="s2">"Industrial"</span><span class="p">)</span> <span class="p">;</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">min_speed</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_speed</span> <span class="p">-</span> <span class="n">min_speed</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">start_work</span> <span class="p">&lt;-</span> <span class="n">min_work_start</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_start</span> <span class="p">-</span> <span class="n">min_work_start</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">end_work</span> <span class="p">&lt;-</span> <span class="n">min_work_end</span> <span class="p">+</span> <span class="n">rnd</span> <span class="p">(</span><span class="n">max_work_end</span> <span class="p">-</span> <span class="n">min_work_end</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">residential_buildings</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">industrial_buildings</span><span class="p">)</span> <span class="p">;</span>
+			<span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"resting"</span><span class="p">;</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">living_place</span><span class="p">);</span> 
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">type</span><span class="p">;</span> 
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">gray</span>  <span class="p">;</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">gray</span>  <span class="p">;</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span>  <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">;</span>
-    <span class="n">building</span> <span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
-    <span class="n">building</span> <span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
-    <span class="n">int</span> <span class="n">start_work</span> <span class="p">;</span>
-    <span class="n">int</span> <span class="n">end_work</span>  <span class="p">;</span>
-    <span class="k">string</span> <span class="n">objective</span> <span class="p">;</span> 
-    <span class="n">point</span> <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
-
-    <span class="n">reflex</span> <span class="n">time_to_work</span> <span class="n">when</span><span class="p">:</span> <span class="n">current_hour</span> <span class="p">=</span> <span class="n">start_work</span> <span class="k">and</span> <span class="n">objective</span> <span class="p">=</span> <span class="s2">"resting"</span><span class="p">{</span>
-        <span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"working"</span> <span class="p">;</span>
-        <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">working_place</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">time_to_go_home</span> <span class="n">when</span><span class="p">:</span> <span class="n">current_hour</span> <span class="p">=</span> <span class="n">end_work</span> <span class="k">and</span> <span class="n">objective</span> <span class="p">=</span> <span class="s2">"working"</span><span class="p">{</span>
-        <span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"resting"</span> <span class="p">;</span>
-        <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">living_place</span><span class="p">);</span> 
-    <span class="p">}</span> 
-
-    <span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">the_target</span> <span class="c1">!= nil {
-</span>        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_target</span> <span class="n">on</span><span class="p">:</span> <span class="n">the_graph</span> <span class="p">;</span> 
-        <span class="k">if</span> <span class="n">the_target</span> <span class="p">=</span> <span class="n">location</span> <span class="p">{</span>
-            <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">yellow</span> <span class="p">;</span>
+	<span class="n">building</span> <span class="n">living_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+	<span class="n">building</span> <span class="n">working_place</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">start_work</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">end_work</span>  <span class="p">;</span>
+	<span class="k">string</span> <span class="n">objective</span> <span class="p">;</span> 
+	<span class="n">point</span> <span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+		
+	<span class="n">reflex</span> <span class="n">time_to_work</span> <span class="n">when</span><span class="p">:</span> <span class="n">current_hour</span> <span class="p">=</span> <span class="n">start_work</span> <span class="k">and</span> <span class="n">objective</span> <span class="p">=</span> <span class="s2">"resting"</span><span class="p">{</span>
+		<span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"working"</span> <span class="p">;</span>
+		<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">working_place</span><span class="p">);</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">time_to_go_home</span> <span class="n">when</span><span class="p">:</span> <span class="n">current_hour</span> <span class="p">=</span> <span class="n">end_work</span> <span class="k">and</span> <span class="n">objective</span> <span class="p">=</span> <span class="s2">"working"</span><span class="p">{</span>
+		<span class="n">objective</span> <span class="p">&lt;-</span> <span class="s2">"resting"</span> <span class="p">;</span>
+		<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">living_place</span><span class="p">);</span> 
+	<span class="p">}</span> 
+	 
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">the_target</span> <span class="c1">!= nil {
+</span>		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_target</span> <span class="n">on</span><span class="p">:</span> <span class="n">the_graph</span> <span class="p">;</span> 
+		<span class="k">if</span> <span class="n">the_target</span> <span class="p">=</span> <span class="n">location</span> <span class="p">{</span>
+			<span class="n">the_target</span> <span class="p">&lt;-</span> <span class="n">nil</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">road_traffic</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_bounds</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Number of people agents"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Earliest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">8</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Latest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">8</span> <span class="k">max</span><span class="p">:</span> <span class="m">12</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Earliest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">12</span> <span class="k">max</span><span class="p">:</span> <span class="m">16</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Latest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">16</span> <span class="k">max</span><span class="p">:</span> <span class="m">23</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"minimal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"maximal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">max</span><span class="p">:</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the buildings:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the roads:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_roads</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Shapefile for the bounds:"</span> <span class="n">var</span><span class="p">:</span> <span class="n">shape_file_bounds</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"GIS"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of people agents"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_people</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Earliest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">8</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Latest hour to start work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_start</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">8</span> <span class="k">max</span><span class="p">:</span> <span class="m">12</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Earliest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">12</span> <span class="k">max</span><span class="p">:</span> <span class="m">16</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Latest hour to end work"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_work_end</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">16</span> <span class="k">max</span><span class="p">:</span> <span class="m">23</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"minimal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">min_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.1</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"maximal speed"</span> <span class="n">var</span><span class="p">:</span> <span class="n">max_speed</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"People"</span> <span class="k">max</span><span class="p">:</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

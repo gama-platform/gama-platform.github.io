@@ -3615,87 +3615,89 @@ function closeRightMenu() {
 
 <p>Model representing how to directed graph using GIS Data for the road networks : the GIS contains a column defining the direction of the roads and people moving from one random point to another on this graph</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">simplemodel</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">road_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/gis/roads.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">road_file</span><span class="p">);</span>
-    <span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span> 
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">road_file</span> <span class="k">with</span><span class="p">:[</span><span class="n">direction</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"DIRECTION"</span><span class="p">))]</span> <span class="p">{</span>
-            <span class="n">switch</span> <span class="n">direction</span> <span class="p">{</span>
-                <span class="n">match</span> <span class="m">0</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;}</span>
-                <span class="n">match</span> <span class="m">1</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-                    <span class="p">//</span><span class="n">inversion</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">geometry</span>
-                    <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
-                <span class="p">}</span>
-                <span class="n">match</span> <span class="m">2</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-                    <span class="p">//</span><span class="n">bidirectional</span><span class="p">:</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">inverse</span> <span class="n">road</span>
-                    <span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
-                        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
-                        <span class="n">direction</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
-                        <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span> 
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">directed</span> <span class="n">modify</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">created</span> <span class="n">by</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">)</span> <span class="k">to</span> <span class="n">a</span> <span class="n">directed</span> <span class="n">graph</span>
-        <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">directed</span><span class="p">(</span><span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
-
-
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">1000</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">any_location_in</span> <span class="n">returns</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">point</span> <span class="n">located</span> <span class="k">in</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>
-            <span class="n">source</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="p">}</span> 
-    <span class="p">}</span>
+	<span class="n">file</span> <span class="n">road_file</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/gis/roads.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">road_file</span><span class="p">);</span>
+	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span> 
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">road_file</span> <span class="k">with</span><span class="p">:[</span><span class="n">direction</span><span class="p">::</span><span class="n">int</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">"DIRECTION"</span><span class="p">))]</span> <span class="p">{</span>
+			<span class="n">switch</span> <span class="n">direction</span> <span class="p">{</span>
+				<span class="n">match</span> <span class="m">0</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;}</span>
+				<span class="n">match</span> <span class="m">1</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+					<span class="p">//</span><span class="n">inversion</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">geometry</span>
+					<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
+				<span class="p">}</span>
+				<span class="n">match</span> <span class="m">2</span> <span class="p">{</span><span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+					<span class="p">//</span><span class="n">bidirectional</span><span class="p">:</span> <span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">inverse</span> <span class="n">road</span>
+					<span class="nb">create</span> <span class="n">road</span> <span class="p">{</span>
+						<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">polyline</span><span class="p">(</span><span class="nb">reverse</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">));</span>
+						<span class="n">direction</span> <span class="p">&lt;-</span> <span class="m">2</span><span class="p">;</span>
+						<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+					<span class="p">}</span>
+				<span class="p">}</span> 
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">directed</span> <span class="n">modify</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">created</span> <span class="n">by</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">)</span> <span class="k">to</span> <span class="n">a</span> <span class="n">directed</span> <span class="n">graph</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">directed</span><span class="p">(</span><span class="n">as_edge_graph</span><span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
+		
+		
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">1000</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">any_location_in</span> <span class="n">returns</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">point</span> <span class="n">located</span> <span class="k">in</span> <span class="n">one</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">road</span><span class="p">));</span>
+			<span class="n">source</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">direction</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">direction</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 <span class="p">//</span><span class="n">The</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">use</span> <span class="n">the</span> <span class="n">skill</span> <span class="n">moving</span> <span class="n">which</span> <span class="n">have</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">variables</span> <span class="n">such</span> <span class="k">as</span> <span class="n">speed</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">heading</span> <span class="k">and</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">operators</span>
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">path</span> <span class="n">my_path</span><span class="p">;</span> 
-    <span class="n">point</span> <span class="n">source</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">r_s</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">r_t</span><span class="p">;</span> 
-    <span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">movement</span> <span class="p">{</span>
-
-        <span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">goto</span> <span class="n">is</span> <span class="n">a</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">operator</span> <span class="n">derivated</span> <span class="k">from</span> <span class="n">the</span> <span class="n">moving</span> <span class="n">skill</span><span class="p">,</span> <span class="n">moving</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">from</span> <span class="n">its</span> <span class="n">location</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span><span class="p">,</span> 
-        <span class="p">//</span>   <span class="n">restricted</span> <span class="n">by</span> <span class="n">the</span> <span class="n">on</span> <span class="n">variable</span><span class="p">,</span> <span class="k">with</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">and</span> <span class="n">returning</span> <span class="n">the</span> <span class="n">path</span> <span class="n">followed</span>
-        <span class="n">my_path</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">goto</span> <span class="p">(</span><span class="n">on</span><span class="p">:</span><span class="n">the_graph</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span><span class="m">10</span><span class="p">,</span> <span class="n">return_path</span><span class="p">:</span> <span class="nb">true</span><span class="p">);</span>
-
-        <span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">arrived</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">location</span><span class="p">,</span> <span class="k">then</span> <span class="n">it</span> <span class="n">choose</span> <span class="n">randomly</span> <span class="n">an</span> <span class="n">other</span> <span class="n">target</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span> <span class="p">{</span>            
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
-            <span class="n">source</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">path</span> <span class="n">my_path</span><span class="p">;</span> 
+	<span class="n">point</span> <span class="n">source</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">r_s</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">r_t</span><span class="p">;</span> 
+	<span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">movement</span> <span class="p">{</span>
+		
+		<span class="p">//</span><span class="n">The</span> <span class="n">operator</span> <span class="n">goto</span> <span class="n">is</span> <span class="n">a</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">operator</span> <span class="n">derivated</span> <span class="k">from</span> <span class="n">the</span> <span class="n">moving</span> <span class="n">skill</span><span class="p">,</span> <span class="n">moving</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">from</span> <span class="n">its</span> <span class="n">location</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span><span class="p">,</span> 
+		<span class="p">//</span>   <span class="n">restricted</span> <span class="n">by</span> <span class="n">the</span> <span class="n">on</span> <span class="n">variable</span><span class="p">,</span> <span class="k">with</span> <span class="n">the</span> <span class="n">speed</span> <span class="k">and</span> <span class="n">returning</span> <span class="n">the</span> <span class="n">path</span> <span class="n">followed</span>
+		<span class="n">my_path</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">goto</span> <span class="p">(</span><span class="n">on</span><span class="p">:</span><span class="n">the_graph</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span><span class="m">10</span><span class="p">,</span> <span class="n">return_path</span><span class="p">:</span> <span class="nb">true</span><span class="p">);</span>
+		
+		<span class="p">//</span><span class="k">If</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">arrived</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">location</span><span class="p">,</span> <span class="k">then</span> <span class="n">it</span> <span class="n">choose</span> <span class="n">randomly</span> <span class="n">an</span> <span class="n">other</span> <span class="n">target</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span> <span class="p">{</span>			
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">road</span><span class="p">))</span> <span class="p">;</span>
+			<span class="n">source</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">simplemodel</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">circle</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">circle</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3615,49 +3615,51 @@ function closeRightMenu() {
 
 <p>Model using shapefiles to create buildings, linking their height and type attributes to the height and nature columns of the shapefiles to finally save the data in an other shapefile.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
 
 <span class="k">model</span> <span class="n">saveGIS</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings_simple.shp"</span><span class="p">);</span>
-    <span class="k">string</span> <span class="n">new_shape_file_buildings</span> <span class="p">&lt;-</span> <span class="s2">"../results/buildings_final.shp"</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">geometry</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">agent</span> <span class="p">(</span><span class="n">environment</span><span class="p">)</span> <span class="k">as</span> <span class="n">the</span> <span class="n">envelope</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_buildings</span><span class="p">);</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">:</span> <span class="n">the</span> <span class="n">height</span> <span class="k">and</span> <span class="n">type</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">initialized</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">HEIGHT</span> <span class="k">and</span> <span class="n">NATURE</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:[</span><span class="n">height</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"HEIGHT"</span><span class="p">)),</span> <span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))];</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">when</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">save</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="k">in</span> <span class="n">a</span> <span class="n">shapefile</span> <span class="k">with</span> <span class="n">the</span> <span class="n">attributes</span> <span class="n">height</span><span class="p">,</span> <span class="n">type</span> <span class="k">and</span> <span class="n">price</span><span class="p">.</span>
-    <span class="n">reflex</span> <span class="n">save_data</span> <span class="n">when</span><span class="p">:</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">5</span> <span class="p">{</span>
-        <span class="n">save</span> <span class="n">building</span> <span class="k">to</span><span class="p">:</span> <span class="n">new_shape_file_buildings</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">height</span><span class="p">::</span><span class="s2">"HEIGHT"</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span><span class="s2">"NATURE"</span><span class="p">,</span> <span class="n">price</span><span class="p">::</span><span class="s2">"PRICE"</span><span class="p">];</span>
-    <span class="p">}</span>
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings_simple.shp"</span><span class="p">);</span>
+	<span class="k">string</span> <span class="n">new_shape_file_buildings</span> <span class="p">&lt;-</span> <span class="s2">"../results/buildings_final.shp"</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">definition</span> <span class="k">of</span> <span class="n">the</span> <span class="n">geometry</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">agent</span> <span class="p">(</span><span class="n">environment</span><span class="p">)</span> <span class="k">as</span> <span class="n">the</span> <span class="n">envelope</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_buildings</span><span class="p">);</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">:</span> <span class="n">the</span> <span class="n">height</span> <span class="k">and</span> <span class="n">type</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">are</span> <span class="n">initialized</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">HEIGHT</span> <span class="k">and</span> <span class="n">NATURE</span> <span class="n">attributes</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="k">with</span><span class="p">:[</span><span class="n">height</span><span class="p">::</span><span class="n">float</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"HEIGHT"</span><span class="p">)),</span> <span class="n">type</span><span class="p">::</span><span class="k">string</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s2">"NATURE"</span><span class="p">))];</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">when</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">save</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="k">in</span> <span class="n">a</span> <span class="n">shapefile</span> <span class="k">with</span> <span class="n">the</span> <span class="n">attributes</span> <span class="n">height</span><span class="p">,</span> <span class="n">type</span> <span class="k">and</span> <span class="n">price</span><span class="p">.</span>
+	<span class="n">reflex</span> <span class="n">save_data</span> <span class="n">when</span><span class="p">:</span> <span class="n">cycle</span> <span class="p">=</span> <span class="m">5</span> <span class="p">{</span>
+		<span class="n">save</span> <span class="n">building</span> <span class="k">to</span><span class="p">:</span> <span class="n">new_shape_file_buildings</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">height</span><span class="p">::</span><span class="s2">"HEIGHT"</span><span class="p">,</span> <span class="n">type</span><span class="p">::</span><span class="s2">"NATURE"</span><span class="p">,</span> <span class="n">price</span><span class="p">::</span><span class="s2">"PRICE"</span><span class="p">];</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">height</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">price</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">*</span> <span class="n">height</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="m">0.5</span><span class="p">:</span> <span class="m">1</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">price</span> <span class="p">*</span> <span class="p">(</span><span class="m">90</span> <span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">20</span><span class="p">))</span> <span class="p">/</span> <span class="m">100</span><span class="p">;</span> 
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="p">#</span><span class="n">pink</span> <span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
-
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
-
+	<span class="n">float</span> <span class="n">height</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">price</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">area</span> <span class="p">*</span> <span class="n">height</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="m">0.5</span><span class="p">:</span> <span class="m">1</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">price</span> <span class="p">*</span> <span class="p">(</span><span class="m">90</span> <span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">20</span><span class="p">))</span> <span class="p">/</span> <span class="m">100</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"Industrial"</span> <span class="p">?</span> <span class="p">#</span><span class="n">pink</span> <span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">GIS_agentification</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">building</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

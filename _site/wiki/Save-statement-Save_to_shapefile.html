@@ -3615,40 +3615,42 @@ function closeRightMenu() {
 
 <p>This is a model that shows how to save agents inside a Shapefile to reuse it later or to keep it.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">Savetoshapefile</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">geometry</span> <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
-
-        <span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">5.0</span><span class="p">);</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">free_space</span> <span class="p">-</span> <span class="m">5.0</span><span class="p">);</span>
-            <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="p">-</span> <span class="n">shape</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">save</span> <span class="n">building</span> <span class="n">geometry</span> <span class="n">into</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">:</span> <span class="n">add</span> <span class="n">the</span> <span class="n">attribute</span> <span class="n">TYPE</span> <span class="n">which</span> <span class="n">value</span> <span class="n">is</span> <span class="k">set</span> <span class="n">by</span> <span class="n">the</span> <span class="n">type</span> <span class="n">variable</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agent</span>
-        <span class="n">save</span> <span class="n">building</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../results/buildings.shp"</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">type</span><span class="p">::</span><span class="s2">"TYPE"</span><span class="p">];</span>
-    <span class="p">}</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">geometry</span> <span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+		
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span> <span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">5.0</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">free_space</span> <span class="p">-</span> <span class="m">5.0</span><span class="p">);</span>
+			<span class="n">free_space</span> <span class="p">&lt;-</span> <span class="n">free_space</span> <span class="p">-</span> <span class="n">shape</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">save</span> <span class="n">building</span> <span class="n">geometry</span> <span class="n">into</span> <span class="n">the</span> <span class="n">shapefile</span><span class="p">:</span> <span class="n">add</span> <span class="n">the</span> <span class="n">attribute</span> <span class="n">TYPE</span> <span class="n">which</span> <span class="n">value</span> <span class="n">is</span> <span class="k">set</span> <span class="n">by</span> <span class="n">the</span> <span class="n">type</span> <span class="n">variable</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agent</span>
+		<span class="n">save</span> <span class="n">building</span> <span class="k">to</span><span class="p">:</span><span class="s2">"../results/buildings.shp"</span> <span class="n">type</span><span class="p">:</span><span class="s2">"shp"</span> <span class="k">with</span><span class="p">:[</span><span class="n">type</span><span class="p">::</span><span class="s2">"TYPE"</span><span class="p">];</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">species</span> <span class="n">that</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span>
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">type</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.8</span><span class="p">)</span> <span class="p">?</span> <span class="s2">"residential"</span> <span class="p">:</span> <span class="s2">"industrial"</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"residential"</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="p">#</span><span class="n">pink</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">type</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.8</span><span class="p">)</span> <span class="p">?</span> <span class="s2">"residential"</span> <span class="p">:</span> <span class="s2">"industrial"</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">type</span> <span class="p">=</span> <span class="s2">"residential"</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="p">#</span><span class="n">pink</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">building</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">building</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

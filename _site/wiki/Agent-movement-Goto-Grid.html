@@ -3615,75 +3615,77 @@ function closeRightMenu() {
 
 <p>Model to represent how the agents move from one point to a target agent on a grid of cells with obstacles, following the shortest path and coloring in magenta the cells intersecting the path of an agent</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">Grid</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">init</span> <span class="p">{</span>    
-        <span class="nb">create</span> <span class="n">goal</span><span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">10</span> <span class="p">{</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">goal</span><span class="p">);</span>
-            <span class="n">location</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span> 
+	<span class="n">init</span> <span class="p">{</span>    
+		<span class="nb">create</span> <span class="n">goal</span><span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">10</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">goal</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">one_of</span> <span class="p">(</span><span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">)).</span><span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span> 
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
-    <span class="n">bool</span> <span class="n">is_obstacle</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.2</span><span class="p">);</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">is_obstacle</span> <span class="p">?</span> <span class="p">#</span><span class="n">black</span> <span class="p">:</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_obstacle</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.2</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">is_obstacle</span> <span class="p">?</span> <span class="p">#</span><span class="n">black</span> <span class="p">:</span> <span class="p">#</span><span class="n">white</span><span class="p">;</span>
 <span class="p">}</span> 
-
+	 
 <span class="n">species</span> <span class="n">goal</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span> 
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>  
-
-
+	
+	  
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">goal</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
-
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="c1">!= target{
-</span>        <span class="p">//</span><span class="n">Neighs</span> <span class="n">contains</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbors</span> <span class="n">cells</span> <span class="n">that</span> <span class="n">are</span> <span class="n">reachable</span> <span class="n">by</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">plus</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">where</span> <span class="n">it</span><span class="s1">'s located
-        list&lt;cell&gt; neighs &lt;- (cell(location) neighbors_at speed) + cell(location); 
-
-        //We restrain the movements of the agents only at the grid of cells that are not obstacle using the on facet of the goto operator and we return the path
-        //followed by the agent
-        //the recompute_path is used to precise that we do not need to recompute the shortest path at each movement (gain of computation time): the obtsacles on the grid never change.
-        path followed_path &lt;- self goto (on:(cell where not each.is_obstacle), target:target, speed:speed, return_path:true, recompute_path: false);
-
-        //As a side note, it is also possible to use the path_between operator and follow action with a grid
-        //Add a my_path attribute of type path to the people species
-        //if my_path = nil {my_path &lt;- path_between((cell where not each.is_obstacle), location, target);}
-        //path followed_path &lt;- self follow (path: my_path,  return_path:true);
-
-        if (followed_path != nil) and not empty(followed_path.segments) {
-            geometry path_geom &lt;- geometry(followed_path.segments);
-
-            //The cells intersecting the path followed by the agent are colored in magenta
-            ask (neighs where (each.shape intersects path_geom)) { color &lt;- #magenta;}
-        }   
-    }
+	<span class="n">goal</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+	
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">move</span> <span class="n">when</span><span class="p">:</span> <span class="n">location</span> <span class="c1">!= target{
+</span>		<span class="p">//</span><span class="n">Neighs</span> <span class="n">contains</span> <span class="n">all</span> <span class="n">the</span> <span class="n">neighbors</span> <span class="n">cells</span> <span class="n">that</span> <span class="n">are</span> <span class="n">reachable</span> <span class="n">by</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">plus</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">where</span> <span class="n">it</span><span class="s1">'s located
+		list&lt;cell&gt; neighs &lt;- (cell(location) neighbors_at speed) + cell(location); 
+		
+		//We restrain the movements of the agents only at the grid of cells that are not obstacle using the on facet of the goto operator and we return the path
+		//followed by the agent
+		//the recompute_path is used to precise that we do not need to recompute the shortest path at each movement (gain of computation time): the obtsacles on the grid never change.
+		path followed_path &lt;- self goto (on:(cell where not each.is_obstacle), target:target, speed:speed, return_path:true, recompute_path: false);
+		
+		//As a side note, it is also possible to use the path_between operator and follow action with a grid
+		//Add a my_path attribute of type path to the people species
+		//if my_path = nil {my_path &lt;- path_between((cell where not each.is_obstacle), location, target);}
+		//path followed_path &lt;- self follow (path: my_path,  return_path:true);
+		
+		if (followed_path != nil) and not empty(followed_path.segments) {
+			geometry path_geom &lt;- geometry(followed_path.segments);
+			
+			//The cells intersecting the path followed by the agent are colored in magenta
+			ask (neighs where (each.shape intersects path_geom)) { color &lt;- #magenta;}
+		}	
+	}
 }
 
 experiment goto_grid type: gui {
-    output {
-        display objects_display {
-            grid cell lines: #black;
-            species goal aspect: default ;
-            species people aspect: default ;
-        }
-    }
+	output {
+		display objects_display {
+			grid cell lines: #black;
+			species goal aspect: default ;
+			species people aspect: default ;
+		}
+	}
 }
-</span></code></pre></div>
+</span></code></pre></div></div>
+
     </div>
     </div>
     </div>

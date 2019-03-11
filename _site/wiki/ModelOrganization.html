@@ -3616,96 +3616,88 @@ function closeRightMenu() {
 <p>This conceptual structure is respected in the definition of model files, which follows a similar pattern:</p>
 
 <ol>
-<li>Definition of the <em>global species</em>, preceded by a <em>header</em>, in order to represent the <em>model species</em></li>
-<li>Definition of the different micro-species (either nested inside the <em>global species</em> or at the same level)</li>
-<li>Definition of the different <em>experiment plans</em> that target this model</li>
+  <li>Definition of the <em>global species</em>, preceded by a <em>header</em>, in order to represent the <em>model species</em></li>
+  <li>Definition of the different micro-species (either nested inside the <em>global species</em> or at the same level)</li>
+  <li>Definition of the different <em>experiment plans</em> that target this model</li>
 </ol>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#model-header-model-species">Model Header (model species)</a></li>
-<li><a href="#species-declarations">Species declarations</a></li>
-<li><a href="#experiment-declarations">Experiment declarations</a></li>
-<li><a href="#basic-skeleton-of_a_model">Basic skeleton of a model</a></li>
+  <li><a href="#model-header-model-species">Model Header (model species)</a></li>
+  <li><a href="#species-declarations">Species declarations</a></li>
+  <li><a href="#experiment-declarations">Experiment declarations</a></li>
+  <li><a href="#basic-skeleton-of_a_model">Basic skeleton of a model</a></li>
 </ul>
 
 <h2 id="model-header-model-species">Model Header (<em>model species</em>)</h2>
 
-<p>The header of a model file begins with the declaration of the name of the model. Contrarily to other statements, this declaration <strong>does not</strong> end with a semi-colon.
-<code>
-model name_of_the_model
-</code>
-The name of the model is not necessarily the same as the name of the file. It must conform to the general rule for naming species, i.e. be a valid identifier (beginning with a letter, containing only letters, digits and dashes). This name will be used for building the name of the model species, from which <em>simulations</em> will be instantiated. For instance, the following declaration:
-<code>
-model dummy
-</code>
-will internally create a species called <code>dummy_model</code>, child of the abstract species <code>model</code>, from which simulations (called <code>dummy_model0</code>, <code>dummy_model1</code>, etc.) will be instantiated.</p>
+<p>The header of a model file begins with the declaration of the name of the model. Contrarily to other statements, this declaration <strong>does not</strong> end with a semi-colon.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">name_of_the_model</span>
+</code></pre></div></div>
+<p>The name of the model is not necessarily the same as the name of the file. It must conform to the general rule for naming species, i.e. be a valid identifier (beginning with a letter, containing only letters, digits and dashes). This name will be used for building the name of the model species, from which <em>simulations</em> will be instantiated. For instance, the following declaration:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">dummy</span>
+</code></pre></div></div>
+<p>will internally create a species called <code class="highlighter-rouge">dummy_model</code>, child of the abstract species <code class="highlighter-rouge">model</code>, from which simulations (called <code class="highlighter-rouge">dummy_model0</code>, <code class="highlighter-rouge">dummy_model1</code>, etc.) will be instantiated.</p>
 
 <p>This declaration is followed by optional import statements that indicate which other models this model is importing. Import statements <strong>do not</strong> end with a semi-colon.</p>
 
-<p>Importing a model can take two forms. The first one, called <em>inheritance import</em>, is declared as follows:
-<code>
-import &quot;relative_path_to_a_model_file&quot;
-import &quot;relative_path_to_another_model_file&quot;
-</code>
-The second one, called <em>usage import</em>, is declared as follows:
-<code>
-import &quot;relative_path_to_a_model_file&quot; as model_identifier
-</code>
-When importing models using the first form, all the declarations of the model(s) imported will be merged with those of the current model (in the order with which the import statements are declared, i.e. the latest definitions of global attributes or behaviors superseding the previous ones).
+<p>Importing a model can take two forms. The first one, called <em>inheritance import</em>, is declared as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import "relative_path_to_a_model_file"
+import "relative_path_to_another_model_file"
+</code></pre></div></div>
+<p>The second one, called <em>usage import</em>, is declared as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import "relative_path_to_a_model_file" as model_identifier
+</code></pre></div></div>
+<p>When importing models using the first form, all the declarations of the model(s) imported will be merged with those of the current model (in the order with which the import statements are declared, i.e. the latest definitions of global attributes or behaviors superseding the previous ones).
 The second form is reserved for using models as <em>micro-models</em> of the current model. This possibility is still experimental in the current version of GAMA.</p>
 
-<p>The last part of the <em>header</em> is the definition of the <a href="GlobalSpecies"><code>global</code> species</a>, which is the actual definition of the <em>model species</em> itself.
-<code>
-global {
+<p>The last part of the <em>header</em> is the definition of the <a href="GlobalSpecies"><code class="highlighter-rouge">global</code> species</a>, which is the actual definition of the <em>model species</em> itself.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
     // Definition of [global attributes](GlobalSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)
 }
-</code></p>
+</code></pre></div></div>
 
-<p>Note that neither the imports nor the definition of <code>global</code> are mandatory. Only the <code>model</code> statement is.</p>
+<p>Note that neither the imports nor the definition of <code class="highlighter-rouge">global</code> are mandatory. Only the <code class="highlighter-rouge">model</code> statement is.</p>
 
 <h2 id="species-declarations">Species declarations</h2>
 
 <p>The header is followed by the declaration of the different species of agents that populate the model.</p>
 
-<p>The <a href="GlobalSpecies">special species <code>global</code></a> is the world species. You will declare here all the global attributes/actions/behaviors. The global species does not have name, and is unique in your model.
-<code>
-global {
+<p>The <a href="GlobalSpecies">special species <code class="highlighter-rouge">global</code></a> is the world species. You will declare here all the global attributes/actions/behaviors. The global species does not have name, and is unique in your model.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
     // definition of global attributes, actions, behaviors
 }
-</code>
-<a href="RegularSpecies">Regular species</a> can be declared with the keyword <code>species</code>. You can declare several regular species, and they all have to be named.
-<code>
-species nameOfSpecies {
-    // definition of your [species attributes](RegularSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)
+</code></pre></div></div>
+<p><a href="RegularSpecies">Regular species</a> can be declared with the keyword <code class="highlighter-rouge">species</code>. You can declare several regular species, and they all have to be named.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species nameOfSpecies {
+	// definition of your [species attributes](RegularSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)
 }
-</code>
-Note that the possibility to define the species <em>after</em> the <code>global</code> definition is actually a convenience: these species are micro-species of the model species and, hence, could be perfectly defined as nested species of <code>global</code>. For instance:
-```
-global {
+</code></pre></div></div>
+<p>Note that the possibility to define the species <em>after</em> the <code class="highlighter-rouge">global</code> definition is actually a convenience: these species are micro-species of the model species and, hence, could be perfectly defined as nested species of <code class="highlighter-rouge">global</code>. For instance:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
     // definition of global attributes, actions, behaviors
-}</p>
+}
 
-<p>species A {...}</p>
-
-<p>species B {...}
-<code>
-is completely equivalent to:
-</code>
-global {
-    // definition of <a href="GlobalSpecies#declaration">global attributes</a>, actions, behaviors</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species A {...}
+species A {...}
 
 species B {...}
-</code></pre></div>
-<p>}
-```</p>
+</code></pre></div></div>
+<p>is completely equivalent to:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+    // definition of [global attributes](GlobalSpecies#declaration), actions, behaviors
+
+    species A {...}
+
+    species B {...}
+}
+</code></pre></div></div>
 
 <h2 id="experiment-declarations">Experiment declarations</h2>
 
-<p>Experiments are usually declared at the end of the file. They start with the keyword <code>experiment</code>. They contains the <a href="DefiningParameters">simulation parameters</a>, and the definition of the output (such as <a href="DefiningDisplaysGeneralities">displays</a>, <a href="DefiningMonitorsAndInspectors">monitors or inspectors</a>). You can declare as much experiments as you want.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment first_experiment {
+<p>Experiments are usually declared at the end of the file. They start with the keyword <code class="highlighter-rouge">experiment</code>. They contains the <a href="DefiningParameters">simulation parameters</a>, and the definition of the output (such as <a href="DefiningDisplaysGeneralities">displays</a>, <a href="DefiningMonitorsAndInspectors">monitors or inspectors</a>). You can declare as much experiments as you want.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment first_experiment {
     // definition of parameters (intputs)
 
     // definition of output
@@ -3717,45 +3709,52 @@ experiment second_experiment {
 
     // definition of output
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Note that you have two types of experiments:
-A <a href="DefiningGUIExperiment">GUI experiment</a> allows to display a graphical interface with input parameters and outputs. It is declared with the following structure :
-<code>
-experiment gui_experiment type:gui {
-    [...]
+A <a href="DefiningGUIExperiment">GUI experiment</a> allows to display a graphical interface with input parameters and outputs. It is declared with the following structure :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment gui_experiment type:gui {
+	[...]
 }
-</code>
-A <a href="BatchExperiments">Batch experiment</a> allows to execute numerous successive simulation runs (often used for model exploration). It is declared with the following structure :
-<code>
-experiment batch_experiment type:batch {
-    [...]
+</code></pre></div></div>
+<p>A <a href="BatchExperiments">Batch experiment</a> allows to execute numerous successive simulation runs (often used for model exploration). It is declared with the following structure :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment batch_experiment type:batch {
+	[...]
 }
-</code> </p>
+</code></pre></div></div>
 
 <h2 id="basic-skeleton-of-a-model">Basic skeleton of a model</h2>
 
-<p>Here is the basic skeleton of a model :
-```
-model name_of_the_model</p>
+<p>Here is the basic skeleton of a model :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">name_of_the_model</span>
 
-<p>global {
-    // definition of <a href="GlobalSpecies#declaration">global attributes</a>, actions, behaviours
-}</p>
+<span class="n">global</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="n">definition</span> <span class="k">of</span> <span class="p">[</span><span class="n">global</span> <span class="n">attributes</span><span class="p">](</span><span class="n">GlobalSpecies</span><span class="p">#</span><span class="n">declaration</span><span class="p">),</span> <span class="n">actions</span><span class="p">,</span> <span class="n">behaviours</span>
+<span class="p">}</span>
 
-<p>species my_specie {
-    // definition of attributes, actions, behaviours
-}</p>
+<span class="n">species</span> <span class="n">my_specie</span> <span class="p">{</span>
+	<span class="p">//</span> <span class="n">definition</span> <span class="k">of</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">actions</span><span class="p">,</span> <span class="n">behaviours</span>
+<span class="p">}</span>
 
-<p>experiment my_experiment /* + specify the type : &quot;type:gui&quot; or &quot;type:batch&quot; */
-{
-    // here the definition of your experiment, with...
-    // ... your inputs
-    output {
-        // ... and your outputs
-    }
-}
-```
-Don&#39;t forget this structure ! This will be the basis for all the models you will create from now.</p>
+<span class="n">experiment</span> <span class="n">my_experiment</span> <span class="p">/*</span> <span class="p">+</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">type</span> <span class="p">:</span> <span class="s2">"type:gui"</span> <span class="k">or</span> <span class="s2">"type:batch"</span> <span class="p">*/</span>
+<span class="p">{</span>
+	<span class="p">//</span> <span class="n">here</span> <span class="n">the</span> <span class="n">definition</span> <span class="k">of</span> <span class="n">your</span> <span class="n">experiment</span><span class="p">,</span> <span class="k">with</span><span class="p">...</span>
+	<span class="p">//</span> <span class="p">...</span> <span class="n">your</span> <span class="n">inputs</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="p">...</span> <span class="k">and</span> <span class="n">your</span> <span class="n">outputs</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Don’t forget this structure ! This will be the basis for all the models you will create from now.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_import)">//</a>: # (endConcept</td>
+      <td>model_structure)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

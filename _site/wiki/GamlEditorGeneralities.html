@@ -3609,109 +3609,107 @@ function closeRightMenu() {
 </div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <h1 id="the-gaml-editor-generalities">The GAML Editor - Generalities</h1>
+        <h1 id="the-gaml-editor---generalities">The GAML Editor - Generalities</h1>
 
 <p>The GAML Editor is a text editor that proposes several services to support the modeler in writing correct models: an integrated live validation system, a ribbon header that gives access to <a href="LaunchingExperiments">experiments</a>, information, warning and error markers.</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#the-gaml-editor-generalities">The GAML Editor - Generalities</a>
-
-<ul>
-<li><a href="#creating-a-first-model">Creating a first model</a></li>
-<li><a href="#status-of-models-in-editors">Status of models in editors</a></li>
-<li><a href="#editor-preferences">Editor Preferences</a></li>
-<li><a href="#multiple-editors">Multiple editors</a></li>
-<li><a href="#local-history">Local history</a></li>
-</ul></li>
+  <li><a href="#the-gaml-editor-generalities">The GAML Editor - Generalities</a>
+    <ul>
+      <li><a href="#creating-a-first-model">Creating a first model</a></li>
+      <li><a href="#status-of-models-in-editors">Status of models in editors</a></li>
+      <li><a href="#editor-preferences">Editor Preferences</a></li>
+      <li><a href="#multiple-editors">Multiple editors</a></li>
+      <li><a href="#local-history">Local history</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="creating-a-first-model">Creating a first model</h2>
 
-<p>Editing a model requires that at least one <strong>project</strong> is created in <em>User Models</em>. If there is none, right-click on <em>User Models</em> and choose &quot;New... &gt; Gama Project...&quot; (if you already have user projects and want to create a model in one of them, skip the next step).</p>
+<p>Editing a model requires that at least one <strong>project</strong> is created in <em>User Models</em>. If there is none, right-click on <em>User Models</em> and choose “New… &gt; Gama Project…” (if you already have user projects and want to create a model in one of them, skip the next step).</p>
 
-<p><img src="resources/images/editingModels/1.new_project.png" alt="images/1.new_project.png"></p>
+<p><img src="resources/images/editingModels/1.new_project.png" alt="images/1.new_project.png" /></p>
 
-<p>A dialog is then displayed, offering you to enter the name of the project as well as its location on the filesystem. Unless you are absolutely sure of what you are doing, keep the &quot;Use default location&quot; option checked. An error will be displayed if the project name already exists in the workspace, in which case you will have to change it. Two projects with similar names can not coexist in the workspace (even if they belong to different categories).</p>
+<p>A dialog is then displayed, offering you to enter the name of the project as well as its location on the filesystem. Unless you are absolutely sure of what you are doing, keep the “Use default location” option checked. An error will be displayed if the project name already exists in the workspace, in which case you will have to change it. Two projects with similar names can not coexist in the workspace (even if they belong to different categories).</p>
 
-<p><img src="resources/images/editingModels/2.new_project2.png" alt="images/2.new_project2.png"></p>
+<p><img src="resources/images/editingModels/2.new_project2.png" alt="images/2.new_project2.png" /></p>
 
-<p>Once the project is created (or if you have an existing project), navigate to it and right-click on it. This time, choose &quot;New...&gt;Model file...&quot; to create a new model.</p>
+<p>Once the project is created (or if you have an existing project), navigate to it and right-click on it. This time, choose “New…&gt;Model file…” to create a new model.</p>
 
-<p><img src="resources/images/editingModels/3.new_model.png" alt="images/3.new_model.png"></p>
+<p><img src="resources/images/editingModels/3.new_model.png" alt="images/3.new_model.png" /></p>
 
 <p>A new dialog is displayed, which asks for several required or optional information. The <em>Container</em> is normally the name of the project you have selected, but you can choose to place the file elsewhere. An error will be displayed if the container does not exist (yet) in the workspace. You can then choose whether you want to use a template or not for producing the initial file, and you are invited to give this file a name. An error is displayed if this name already exists in this project. The name of the model, which is by default computed with respect to the name of the file, can be actually completely different (but it may not contain white spaces or punctuation characters). The name of the author, as well as the textual description of the model and the creation of an HTML documentation, are optional.</p>
 
-<p><img src="resources/images/editingModels/4.new_model2.png" alt="images/4.new_model2.png"></p>
+<p><img src="resources/images/editingModels/4.new_model2.png" alt="images/4.new_model2.png" /></p>
 
 <h2 id="status-of-models-in-editors">Status of models in editors</h2>
 
-<p>Once this dialog is filled and accepted, GAMA will display the new &quot;empty&quot; model.</p>
+<p>Once this dialog is filled and accepted, GAMA will display the new “empty” model.</p>
 
-<p><img src="resources/images/editingModels/5.view_model.png" alt="images/5.view_model.png"></p>
+<p><img src="resources/images/editingModels/5.view_model.png" alt="images/5.view_model.png" /></p>
 
 <p>Although GAML files are just plain text files, and can therefore be produced or modified in any text processor, using the dedicated GAML editor offers a number of advantages, among which the live display of errors and model statuses. A model can actually be in four different states, which are visually accessible above the editing area: <em>Functional</em> (orange color), <em>Experimentable</em> (green color), <em>InError</em> (red color), InImportedError_(yellow color). See <a href="ValidationOfModels">the section on model compilation</a> for more precise information about these statuses._</p>
 
 <p>In its initial state, a model is always in the <em>Functional</em> state, which means it compiles without problems, but cannot be used to launch experiments. The <em>InError</em> state, depicted below, occurs when the file contains errors (syntactic or semantic ones).</p>
 
-<p><img src="resources/images/editingModels/6.view_model_with_error.png" alt="images/6.view_model_with_error.png"></p>
+<p><img src="resources/images/editingModels/6.view_model_with_error.png" alt="images/6.view_model_with_error.png" /></p>
 
-<p>While the file is not saved, these errors remain displayed in the editor and nowhere else. If you save the file, they are now considered as &quot;workspace errors&quot; and get displayed in the &quot;Problems&quot; view below the editor.</p>
+<p>While the file is not saved, these errors remain displayed in the editor and nowhere else. If you save the file, they are now considered as “workspace errors” and get displayed in the “Problems” view below the editor.</p>
 
-<p><img src="resources/images/editingModels/7.view_model_with_error_saved.png" alt="images/7.view_model_with_error_saved.png"></p>
+<p><img src="resources/images/editingModels/7.view_model_with_error_saved.png" alt="images/7.view_model_with_error_saved.png" /></p>
 
 <p>Reaching the <em>Experimentable</em> state requires that all errors are eliminated and that at least one experiment is defined in the model, which is the case now in our toy model. The experiment is immediately displayed as a button in the toolbar, and clicking on it will allow to launch this experiment on your model. See <a href="RunningExperiments">the section about running experiments</a> for more information on this point.</p>
 
-<p><img src="resources/images/editingModels/8.view_model_with_experiment.png" alt="images/8.view_model_with_experiment.png"></p>
+<p><img src="resources/images/editingModels/8.view_model_with_experiment.png" alt="images/8.view_model_with_experiment.png" /></p>
 
-<p>Experiment buttons are updated in real-time to reflect what&#39;s in your code. If more than one experiment is defined, corresponding buttons will be displayed in addition to the first one.</p>
+<p>Experiment buttons are updated in real-time to reflect what’s in your code. If more than one experiment is defined, corresponding buttons will be displayed in addition to the first one.</p>
 
-<p><img src="resources/images/editingModels/9.view_model_with_3_experiments.png" alt="images/9.view_model_with_3_experiments.png"></p>
+<p><img src="resources/images/editingModels/9.view_model_with_3_experiments.png" alt="images/9.view_model_with_3_experiments.png" /></p>
 
 <h2 id="editor-preferences">Editor Preferences</h2>
 
-<p>Text editing in general, and especially in Eclipse-based editors, sports a number of options and preferences. You might want to turn off/on the numbering of the lines, change the fonts used, change the colors used to highlight the code, etc. All of these preferences are accessible from the &quot;Preferences...&quot; item of the editor contextual menu.</p>
+<p>Text editing in general, and especially in Eclipse-based editors, sports a number of options and preferences. You might want to turn off/on the numbering of the lines, change the fonts used, change the colors used to highlight the code, etc. All of these preferences are accessible from the “Preferences…” item of the editor contextual menu.</p>
 
-<p><img src="resources/images/editingModels/10.view_model_with_preferences.png" alt="images/10.view_model_with_preferences.png"></p>
+<p><img src="resources/images/editingModels/10.view_model_with_preferences.png" alt="images/10.view_model_with_preferences.png" /></p>
 
 <p>Explore the different items present there, keeping in mind that these preferences will apply to all the editors of GAMA and will be stored in your workspace.</p>
 
-<p><img src="resources/images/editingModels/11.editor_preferences.png" alt="images/11.editor_preferences.png"></p>
+<p><img src="resources/images/editingModels/11.editor_preferences.png" alt="images/11.editor_preferences.png" /></p>
 
 <h2 id="additional-informations-in-the-editor">Additional informations in the Editor</h2>
 
-<p><img src="resources/images/editingModels/additional_informations_in_editor.png" alt="images/additional_informations_in_editor.png"></p>
+<p><img src="resources/images/editingModels/additional_informations_in_editor.png" alt="images/additional_informations_in_editor.png" /></p>
 
 <p>You can choose to display or not some informations in your Editor</p>
 
-<p>One particular option, shipped by default with GAMA, is the possibility to not only highlight the code of your model, but also its structure (complementing, in that sense, the <em>Outline</em> view). It is a slightly modified version of a plugin called <a href="http://sourceforge.net/projects/editbox/">EditBox</a>, which can be activated by clicking on the &quot;green square&quot; icon in the toolbar.</p>
+<p>One particular option, shipped by default with GAMA, is the possibility to not only highlight the code of your model, but also its structure (complementing, in that sense, the <em>Outline</em> view). It is a slightly modified version of a plugin called <a href="http://sourceforge.net/projects/editbox/">EditBox</a>, which can be activated by clicking on the “green square” icon in the toolbar.</p>
 
-<p><img src="resources/images/editingModels/12.view_model_with_editbox_default.png" alt="images/12.view_model_with_editbox_default.png"></p>
+<p><img src="resources/images/editingModels/12.view_model_with_editbox_default.png" alt="images/12.view_model_with_editbox_default.png" /></p>
 
-<p>The Default theme of <a href="http://sourceforge.net/projects/editbox/">EditBox</a> might not suit everyone&#39;s tastes, so the preferences allow to entirely customize how the &quot;boxes&quot; are displayed and how they can support the modeler in better understanding &quot;where&quot; it is in the code. The &quot;themes&quot; defined in this way are stored in the workspace, but can also be exported for reuse in other workspaces, or sharing them with other modelers.</p>
+<p>The Default theme of <a href="http://sourceforge.net/projects/editbox/">EditBox</a> might not suit everyone’s tastes, so the preferences allow to entirely customize how the “boxes” are displayed and how they can support the modeler in better understanding “where” it is in the code. The “themes” defined in this way are stored in the workspace, but can also be exported for reuse in other workspaces, or sharing them with other modelers.</p>
 
-<p><img src="resources/images/editingModels/13.editbox_preferences.png" alt="images/13.editbox_preferences.png"></p>
+<p><img src="resources/images/editingModels/13.editbox_preferences.png" alt="images/13.editbox_preferences.png" /></p>
 
 <h2 id="multiple-editors">Multiple editors</h2>
+<p>GAMA inherits from <a href="http://www.eclipse.org">Eclipse</a> the possibility to entirely configure the placement of the views, editors, etc. This can be done by rearranging their position using the mouse (click and hold on an editor’s title and move it around). In particular, you can have several editors side by side, which can be useful for viewing the documentation while coding a model.</p>
 
-<p>GAMA inherits from <a href="http://www.eclipse.org">Eclipse</a> the possibility to entirely configure the placement of the views, editors, etc. This can be done by rearranging their position using the mouse (click and hold on an editor&#39;s title and move it around). In particular, you can have several editors side by side, which can be useful for viewing the documentation while coding a model.</p>
-
-<p><img src="resources/images/editingModels/14.view_model_side_by_side.png" alt="images/14.view_model_side_by_side.png"></p>
+<p><img src="resources/images/editingModels/14.view_model_side_by_side.png" alt="images/14.view_model_side_by_side.png" /></p>
 
 <h2 id="local-history">Local history</h2>
-
 <p>Among the various options present to work with models, which you are invited to try out and test at will, one, called <em>Local history</em> is particularly interesting and worth a small explanation. When you edit models, GAMA keeps in the background all the successive versions you save (the history duration is configurable in the preferences), whether or not you are using a versioning system like SVN or Git. This local history is accessible from different places in GAMA (the <em>Navigator</em>, the <em>Views</em> menu, etc.), including the contextual menu of the editor.</p>
 
-<p><img src="resources/images/editingModels/15.view_model_with_local_history_menu.png" alt="images/15.view_model_with_local_history_menu.png"></p>
+<p><img src="resources/images/editingModels/15.view_model_with_local_history_menu.png" alt="images/15.view_model_with_local_history_menu.png" /></p>
 
 <p>This command invokes the opening of a new view, which you can see on the figure below, and which lists the different versions of your file so far. You can then choose one and, right-clicking on it, either open it in a new editor, or compare it to your current version.</p>
 
-<p><img src="resources/images/editingModels/16.view_model_with_local_history_compare_menu.png" alt="images/16.view_model_with_local_history_compare_menu.png"></p>
+<p><img src="resources/images/editingModels/16.view_model_with_local_history_compare_menu.png" alt="images/16.view_model_with_local_history_compare_menu.png" /></p>
 
 <p>This allows you to precisely pinpoint the modifications brought to the file and, in case of problems, to revert them easily, or even revert the entire file to a previous version. Never lose your work again !</p>
 
-<p><img src="resources/images/editingModels/17.view_model_with_local_history_side_by_side.png" alt="images/17.view_model_with_local_history_side_by_side.png"></p>
+<p><img src="resources/images/editingModels/17.view_model_with_local_history_side_by_side.png" alt="images/17.view_model_with_local_history_side_by_side.png" /></p>
 
 <p>This short introduction to GAML editors is now over. You might want to take a look, now, at <a href="ValidationOfModels">how the models you edit are parsed, validated and compiled</a>, and how this information is accessible to the modeler.</p>
 

@@ -3616,39 +3616,39 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#simulation-initialization">Simulation initialization</a></li>
-<li><a href="#agents-creation">Agents Creation</a></li>
-<li><a href="#agents-step">Agents Step</a></li>
-<li><a href="#schedule-agents">Schedule Agents</a></li>
+  <li><a href="#simulation-initialization">Simulation initialization</a></li>
+  <li><a href="#agents-creation">Agents Creation</a></li>
+  <li><a href="#agents-step">Agents Step</a></li>
+  <li><a href="#schedule-agents">Schedule Agents</a></li>
 </ul>
 
 <h2 id="simulation-initialization">Simulation initialization</h2>
-
 <p>Once the user launches an experiment, GAMA starts the initialization of the simulation.
-First it creates a <a href="GlobalSpecies"><code>world</code> agent</a>.</p>
+First it creates a <a href="GlobalSpecies"><code class="highlighter-rouge">world</code> agent</a>.</p>
 
 <p>It initializes all its attributes with their init values. This includes its shape (that will be used as environment of the simulation).</p>
 
 <p>If a species of type <a href="GridSpecies">grid</a> exists in the model, agents of species are created.</p>
 
-<p>Finally the <code>init</code> statement is executed. It should include the creation of all the other agents of <a href="RegularSpecies">regular species</a> of the simulation. After their creation and initialization, they are added in the list <code>members</code> the <code>world</code> (that contains all the micro-agent of the <code>world</code>).</p>
+<p>Finally the <code class="highlighter-rouge">init</code> statement is executed. It should include the creation of all the other agents of <a href="RegularSpecies">regular species</a> of the simulation. After their creation and initialization, they are added in the list <code class="highlighter-rouge">members</code> the <code class="highlighter-rouge">world</code> (that contains all the micro-agent of the <code class="highlighter-rouge">world</code>).</p>
 
 <h2 id="agents-creation">Agents Creation</h2>
-
-<p>Except <a href="GridSpecies"><code>grid</code></a> agents, other agents are created using the <a href="Statements#create"><code>create</code> statement</a>. It is used to allocate memory for each agent and to initialize all its attributes.</p>
+<p>Except <a href="GridSpecies"><code class="highlighter-rouge">grid</code></a> agents, other agents are created using the <a href="Statements#create"><code class="highlighter-rouge">create</code> statement</a>. It is used to allocate memory for each agent and to initialize all its attributes.</p>
 
 <p>If no explicit initialization exists for an attribute, it will get the default value corresponding to its <a href="DataTypes">type</a>.</p>
 
-<p>The initialization of an attribute can be located at several places in the code; they are executed in the following order (which means that, if several ways are used, the attribute will finally have the value of the last applied one):
-* using the <code>from:</code> facet of the <code>create</code> statement;
-* in the embedded block of the <code>create</code> statement;
-* in the attribute declaration, using the <code>init</code> facet;
-* in the <code>init</code> block of the species.</p>
+<p>The initialization of an attribute can be located at several places in the code; they are executed in the following order (which means that, if several ways are used, the attribute will finally have the value of the last applied one):</p>
+<ul>
+  <li>using the <code class="highlighter-rouge">from:</code> facet of the <code class="highlighter-rouge">create</code> statement;</li>
+  <li>in the embedded block of the <code class="highlighter-rouge">create</code> statement;</li>
+  <li>in the attribute declaration, using the <code class="highlighter-rouge">init</code> facet;</li>
+  <li>in the <code class="highlighter-rouge">init</code> block of the species.</li>
+</ul>
 
 <h2 id="agents-step">Agents Step</h2>
-
 <p>When an agent is asked to <em>step</em>, it means that it is expected to update its variables, run its behaviors and then <em>step</em> its micro-agents (if any).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">step of agent agent_a
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>step of agent agent_a
     {
         species_a &lt;- agent_a.species
         architecture_a &lt;- species_a.architecture
@@ -3663,52 +3663,74 @@ First it creates a <a href="GlobalSpecies"><code>world</code> agent</a>.</p>
         }
     }
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="schedule-agents">Schedule Agents</h2>
 
-<p>The global scheduling of agents is then simply the application of this previous <em>step</em> to the <em>experiment agent</em>, keeping in mind that this agent has only one micro-population (of simulation agents, each instance of the model species), and that the simulation(s) inside this population contain(s), in turn, all the &quot;regular&quot; populations of agents of the model.</p>
+<p>The global scheduling of agents is then simply the application of this previous <em>step</em> to the <em>experiment agent</em>, keeping in mind that this agent has only one micro-population (of simulation agents, each instance of the model species), and that the simulation(s) inside this population contain(s), in turn, all the “regular” populations of agents of the model.</p>
 
-<p>To influence this schedule, then, one possible way is to change the way populations compute their lists of agents to schedule, which can be done in a model by providing custom definitions to the &quot;schedules:&quot; facet of one or several species.</p>
+<p>To influence this schedule, then, one possible way is to change the way populations compute their lists of agents to schedule, which can be done in a model by providing custom definitions to the “schedules:” facet of one or several species.</p>
 
 <p>A practical application of this facet is to reduce simulation artifacts created by the default scheduling of populations, which is sequential (i.e. their agents are executed in turn in their order of creation). To enable a pseudo-parallel scheduling based on a random scheduling recomputed at each step, one has simply to define the corresponding species like in the following example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species A schedules: shuffle(A) {...}
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species A schedules: shuffle(A) {...}
+</code></pre></div></div>
+
 <p>Moving further, it is possible to enable a completely random scheduling that will eliminate the sequential scheduling of populations:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global schedules: [world] + shuffle(A + B + C) {...}
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [world] + shuffle(A + B + C) {...}
 
 species A schedules: [] {...}
 species B schedules: [] {...}
 species C schedules: [] {...}
-</code></pre></div>
-<p>It is important to (1) explicitly invoke the scheduling of the world (although it doesn&#39;t have to be the first); (2) suppress the population-based scheduling to avoid having agent being scheduled 2 times (one time in the custom definition, one time by their population).</p>
+</code></pre></div></div>
+
+<p>It is important to (1) explicitly invoke the scheduling of the world (although it doesn’t have to be the first); (2) suppress the population-based scheduling to avoid having agent being scheduled 2 times (one time in the custom definition, one time by their population).</p>
 
 <p>Other schemes are possible. For instance, the following definition will completely suppress the default scheduling mechanism to replace it with a custom scheduler that will execute the world, then all agents of species A in a random way and then all agents of species B in their order of creation:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global schedules: [world] + shuffle(A) + B {...} // explicit scheduling in the world
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [world] + shuffle(A) + B {...} // explicit scheduling in the world
 
 species A schedules [];
 
 species B schedules: [];
 
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Complex conditions can be used to express which agents need to be scheduled each step. For instance, in the following definition, only agents of A that return true to a particular condition are scheduled:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species A schedules: A where each.can_be_scheduled() {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species A schedules: A where each.can_be_scheduled() {
 
     bool can_be_scheduled() {
          ...
          returns true_or_false;
     }
 }
-</code></pre></div>
-<p>Be aware that enabling a custom scheduling can potentially end up in non-functional simulations. For example, the following definitions will result in a simulation that will <strong>never be executed</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global schedules: [] {}; // the world is NEVER scheduled
+</code></pre></div></div>
 
+<p>Be aware that enabling a custom scheduling can potentially end up in non-functional simulations. For example, the following definitions will result in a simulation that will <strong>never be executed</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global schedules: [] {}; // the world is NEVER scheduled
+ 
 species my_scheduler schedules: [world] ; // so its micro-species 'my_scheduler' is NOT scheduled either. 
-</code></pre></div>
+</code></pre></div></div>
+
 <p>and this one will result in an <strong>infinite loop</strong> (which will trigger a stack overflow at some point):</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {} // The world is normally scheduled...
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {} // The world is normally scheduled...
 
 species my_scheduler schedules: [world]; // ... but schedules itself again as a consequence of scheduling the micro-species 'my_scheduler'
-</code></pre></div>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_random)">//</a>: # (endConcept</td>
+      <td>runtime_and_schedulers)</td>
+    </tr>
+  </tbody>
+</table>
+
     </div>
     </div>
     </div>

@@ -3616,32 +3616,37 @@ function closeRightMenu() {
 <h2 id="index">Index</h2>
 
 <ul>
-<li><a href="#catch-mouse-event">Catch Mouse Event</a></li>
-<li><a href="#define-user-command">Define User command</a>
-
-<ul>
-<li><a href="#defining-user-command-in-gui-experiment-scope">... in the GUI Experiment scope</a></li>
-<li><a href="#defining-user-command-in-a-global-or-regular-species">... in global or regular species</a></li>
-<li><a href="#user_location">user_location</a></li>
-<li><a href="#user_input">user_input</a></li>
-</ul></li>
-<li><a href="#user-control-architecture">User Control Architecture</a></li>
+  <li><a href="#catch-mouse-event">Catch Mouse Event</a></li>
+  <li><a href="#define-user-command">Define User command</a>
+    <ul>
+      <li><a href="#defining-user-command-in-gui-experiment-scope">… in the GUI Experiment scope</a></li>
+      <li><a href="#defining-user-command-in-a-global-or-regular-species">… in global or regular species</a></li>
+      <li><a href="#user_location">user_location</a></li>
+      <li><a href="#user_input">user_input</a></li>
+    </ul>
+  </li>
+  <li><a href="#user-control-architecture">User Control Architecture</a></li>
 </ul>
 
 <h2 id="catch-mouse-event">Catch Mouse Event</h2>
 
-<p>You can catch mouse event during the simulation using the statement <code>event</code>. This statement has 2 required facets:
-* <strong><code>name</code></strong> (identifier) : Specify which event do you want to trigger (among the following values : <code>mouse_down</code>, <code>mouse_up</code>, <code>mouse_move</code>, <code>mouse_enter</code>, <code>mouse_exit</code> or any alphanumeric symbol/key of the keyboard, such as, <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>...).
-* <strong><code>action</code></strong> (identifier) : Specify the name of the global action to call.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">event mouse_down action: my_action;
-</code></pre></div>
-<p>The <code>event</code> statement has to be defined in the <code>experiment</code>/<code>output</code>/<code>display</code> scope. Once the event is triggered, the global action linked will be called. The action linked cannot have arguments. To get the location of the mouse click, the <code>#user_location</code> can be used; to get the agents on which the mouse has clicked, you can use spatial query (e.g. <code>my_species overlapping #user_location</code>).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global
+<p>You can catch mouse event during the simulation using the statement <code class="highlighter-rouge">event</code>. This statement has 2 required facets:</p>
+<ul>
+  <li><strong><code class="highlighter-rouge">name</code></strong> (identifier) : Specify which event do you want to trigger (among the following values : <code class="highlighter-rouge">mouse_down</code>, <code class="highlighter-rouge">mouse_up</code>, <code class="highlighter-rouge">mouse_move</code>, <code class="highlighter-rouge">mouse_enter</code>, <code class="highlighter-rouge">mouse_exit</code> or any alphanumeric symbol/key of the keyboard, such as, <code class="highlighter-rouge">'a'</code>, <code class="highlighter-rouge">'b'</code>…).</li>
+  <li><strong><code class="highlighter-rouge">action</code></strong> (identifier) : Specify the name of the global action to call.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event mouse_down action: my_action;
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">event</code> statement has to be defined in the <code class="highlighter-rouge">experiment</code>/<code class="highlighter-rouge">output</code>/<code class="highlighter-rouge">display</code> scope. Once the event is triggered, the global action linked will be called. The action linked cannot have arguments. To get the location of the mouse click, the <code class="highlighter-rouge">#user_location</code> can be used; to get the agents on which the mouse has clicked, you can use spatial query (e.g. <code class="highlighter-rouge">my_species overlapping #user_location</code>).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global
 {
-    action my_action
-    {
-        write "do action";
-    }
+	action my_action
+	{
+		write "do action";
+	}
 
 }
 
@@ -3651,130 +3656,148 @@ species my_species
 
 experiment my_experiment type: gui
 {
-    output
-    {
-        display my_display
-        {
-            species my_species;
-            event mouse_down action: my_action;
-        }
-    }
+	output
+	{
+		display my_display
+		{
+			species my_species;
+			event mouse_down action: my_action;
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="define-user-command">Define User command</h2>
 
-<p>Anywhere in the global block, in a species or in an (GUI) experiment, <code>user_command</code> statements can be implemented. They can either call directly an existing action (with or without arguments) or be followed by a block that describes what to do when this command is run.</p>
+<p>Anywhere in the global block, in a species or in an (GUI) experiment, <code class="highlighter-rouge">user_command</code> statements can be implemented. They can either call directly an existing action (with or without arguments) or be followed by a block that describes what to do when this command is run.</p>
 
 <p>Their syntax can be (depending of the modeler needs) either:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">user_command cmd_name action: action_without_arg_name;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_command cmd_name action: action_without_arg_name;
 //or
 user_command cmd_name action: action_name with: [arg1::val1, arg2::val2];
 //or
 user_command cmd_name {
    // statements
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>For instance:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">user_command kill_myself action: die;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_command kill_myself action: die;
 //or
 user_command kill_myself action: some_action with: [arg1::5, arg2::3];
 //or
 user_command kill_myself {
     do die;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="defining-user-command-in-gui-experiment-scope">Defining User command in GUI Experiment scope</h3>
 
 <p>The user command can be defined directly inside the GUI experiment scope. In that case, the implemented action appears as a button in the top of the parameter view.</p>
 
 <p>Here is a very short code example :</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">quick_user_command_model</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">action</span> <span class="n">createAgent</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">my_species</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">action</span> <span class="n">createAgent</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
-    <span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">createAgent</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">createAgent</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>And here is screenshots of the execution :</p>
 
-<p><img src="resources/images/definingGUIExperiment/user_command_inside_expe.png" alt="images/user_command_inside_expe.png"></p>
+<p><img src="resources/images/definingGUIExperiment/user_command_inside_expe.png" alt="images/user_command_inside_expe.png" /></p>
 
 <h3 id="defining-user-command-in-a-global-or-regular-species">Defining User command in a global or regular species</h3>
 
 <p>The user command can also be defined inside a species scope (either global or regular one). Here is a quick example of model :</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">quick_user_command_model</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">10</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span><span class="m">10</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
-    <span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">die</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">user_command</span> <span class="n">cmd_inside_experiment</span> <span class="n">action</span><span class="p">:</span><span class="n">die</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>During the execution, you have 2 ways to access to the action :
-* When the agent is inspected, they appear as buttons above the agents&#39; attributes</p>
+</code></pre></div></div>
 
-<p><img src="resources/images/definingGUIExperiment/user_command_inside_species1.png" alt="images/user_command_inside_species1.png">
-* When the agent is selected by a right-click in a display, these command appear under the usual &quot;Inspect&quot;, &quot;Focus&quot; and &quot;Highlight&quot; commands in the pop-up menu.</p>
+<p>During the execution, you have 2 ways to access to the action :</p>
+<ul>
+  <li>When the agent is inspected, they appear as buttons above the agents’ attributes</li>
+</ul>
 
-<p><img src="resources/images/definingGUIExperiment/user_command_inside_species2.png" alt="images/user_command_inside_species2.png"></p>
+<p><img src="resources/images/definingGUIExperiment/user_command_inside_species1.png" alt="images/user_command_inside_species1.png" /></p>
+<ul>
+  <li>When the agent is selected by a right-click in a display, these command appear under the usual “Inspect”, “Focus” and “Highlight” commands in the pop-up menu.</li>
+</ul>
 
-<p>Remark: The execution of a command obeys the following rules:
-* when the command is called from right-click pop-menu, it is executed immediately
-* when the command is called from panels, its execution is postponed until the end of the current step and then executed at that time.</p>
+<p><img src="resources/images/definingGUIExperiment/user_command_inside_species2.png" alt="images/user_command_inside_species2.png" /></p>
+
+<p>Remark: The execution of a command obeys the following rules:</p>
+<ul>
+  <li>when the command is called from right-click pop-menu, it is executed immediately</li>
+  <li>when the command is called from panels, its execution is postponed until the end of the current step and then executed at that time.</li>
+</ul>
 
 <h3 id="user_location">user_location</h3>
 
-<p>In the special case when the <code>user_command</code> is called from the pop-up menu (from a right-click on an agent in a display), the location chosen by the user (translated into the model coordinates) is passed to the execution scope under the name <code>user_location</code>.</p>
+<p>In the special case when the <code class="highlighter-rouge">user_command</code> is called from the pop-up menu (from a right-click on an agent in a display), the location chosen by the user (translated into the model coordinates) is passed to the execution scope under the name <code class="highlighter-rouge">user_location</code>.</p>
 
 <p>Example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    user_command "Create agents here" {
       create my_species number: 10 with: [location::user_location];
    }
 }
-</code></pre></div>
-<p>This will allow the user to click on a display, choose the world (always present now), and select the menu item &quot;Create agents here&quot;.</p>
+</code></pre></div></div>
 
-<p>Note that if the world is inspected (this <code>user_command</code> appears thus as a button) and the user chooses to push the button, the agent will be created at a random location.</p>
+<p>This will allow the user to click on a display, choose the world (always present now), and select the menu item “Create agents here”.</p>
+
+<p>Note that if the world is inspected (this <code class="highlighter-rouge">user_command</code> appears thus as a button) and the user chooses to push the button, the agent will be created at a random location.</p>
 
 <h3 id="user_input">user_input</h3>
 
-<p>As it is also, sometimes, necessary to ask the user for some values (not defined as parameters), the <code>user_input</code> unary operator has been introduced. This operator takes a map [string::value] as argument (the key is the name of the chosen parameter, the value is the default value), displays a dialog asking the user for these values, and returns the same map with the modified values (if any). You can also add a text as first argument of the operator, which will be displayed as a title for your dialog popup. The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section like the following one to force the user to input new values instead of relying on the initial values of parameters.</p>
+<p>As it is also, sometimes, necessary to ask the user for some values (not defined as parameters), the <code class="highlighter-rouge">user_input</code> unary operator has been introduced. This operator takes a map [string::value] as argument (the key is the name of the chosen parameter, the value is the default value), displays a dialog asking the user for these values, and returns the same map with the modified values (if any). You can also add a text as first argument of the operator, which will be displayed as a title for your dialog popup. The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section like the following one to force the user to input new values instead of relying on the initial values of parameters.</p>
 
 <p>Here is an example of implementation:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">quick_user_command_model</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">quick_user_command_model</span>
 
 <span class="n">global</span> <span class="p">{</span>
    <span class="n">init</span> <span class="p">{</span>
@@ -3784,22 +3807,23 @@ user_command kill_myself {
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">my_species</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">expe</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">my_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">my_species</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>When running this model, you will first have to input a number:</p>
 
-<p><img src="resources/images/definingGUIExperiment/input_cmd.png" alt="images/input_cmd.png"></p>
+<p><img src="resources/images/definingGUIExperiment/input_cmd.png" alt="images/input_cmd.png" /></p>
 
 <h2 id="user-control-architecture">User Control Architecture</h2>
 

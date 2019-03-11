@@ -3617,138 +3617,151 @@ function closeRightMenu() {
 
 <h2 id="install-eclipse-oxygen">Install Eclipse <strong>Oxygen</strong></h2>
 
-<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3a">&quot;Eclipse Oxygen 3A IDE for Java and DSL Developers&quot;</a> version. This is the latest version under which GAMA is certified to work. Regarding Java, we <strong>strongly</strong> recommend to install the Java Oracle 1.8 JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">that can be downloaded here</a>. </p>
+<p>Download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3a">“Eclipse Oxygen 3A IDE for Java and DSL Developers”</a> version. This is the latest version under which GAMA is certified to work. Regarding Java, we <strong>strongly</strong> recommend to install the Java Oracle 1.8 JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">that can be downloaded here</a>.</p>
 
 <p>Unpack it and launch it. Please refer to this <a href="http://help.eclipse.org/oxygen/index.jsp?nav=%2F0">link</a> for more information on running Eclipse.</p>
 
-<p><strong>One important step</strong> required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, &quot;General&quot;, then &quot;Workspace&quot;, then &quot;Text file encoding&quot; and choosing &quot;UTF-8&quot; in the drop-down menu available in &quot;Other:&quot;.</p>
+<p><strong>One important step</strong> required for GAMA to correctly produce its supporting files once it will have been installed is to set the default encoding of the workspace to UTF-8. It can be done by selecting, in the Preferences, “General”, then “Workspace”, then “Text file encoding” and choosing “UTF-8” in the drop-down menu available in “Other:”.</p>
 
 <p>If you install another version of Eclipse, please keep in mind that GAMA is compatible only, for the moment, with XText 2.14.0 (see <a href="http://www.eclipse.org/Xtext/download.html">here</a> to obtain it).</p>
 
 <h2 id="install-additional-required-components-to-eclipse">Install additional required components to Eclipse</h2>
 
-<p>The Xtext plugin provided with the Eclipse release should be updated to XText 2.14.
-1. Open the install window:
-  * Help &gt; Install new softwares
-2. Choose the plugin to install
-  * Copy the following address in <code>Work with</code> text field: <code>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</code>
-  * Uncheck <code>Show only the latest versions of available software</code>
-  * In <code>Xtext</code>, check:
-    * <code>Xtext Complete SDK   2.14.xxx</code>
-  * Next
-3. Accept the licence and restart.</p>
+<p>The Xtext plugin provided with the Eclipse release should be updated to XText 2.14.</p>
+<ol>
+  <li>Open the install window:
+    <ul>
+      <li>Help &gt; Install new softwares</li>
+    </ul>
+  </li>
+  <li>Choose the plugin to install
+    <ul>
+      <li>Copy the following address in <code class="highlighter-rouge">Work with</code> text field: <code class="highlighter-rouge">http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</code></li>
+      <li>Uncheck <code class="highlighter-rouge">Show only the latest versions of available software</code></li>
+      <li>In <code class="highlighter-rouge">Xtext</code>, check:</li>
+    </ul>
+    <ul>
+      <li><code class="highlighter-rouge">Xtext Complete SDK	2.14.xxx</code>
+      * Next</li>
+    </ul>
+  </li>
+  <li>Accept the licence and restart.</li>
+</ol>
 
 <h2 id="install-gama-source-code">Install GAMA source code</h2>
 
 <p>The source is to be downloaded from GitHub in two steps: by creating a local clone of the GitHub repository and then importing the different projects that constitute GAMA into the Eclipse workspace.</p>
 
 <ol>
-<li>Open the Git perspective:
-
-<ul>
-<li>Windows &gt; Perspective &gt; Open Perspective &gt; Other...</li>
-<li>Choose <code>Git</code>
-<img src="resources/images/developpingExtension/GIT_open_perspective.png" alt="Open GIT perspective"></li>
-</ul></li>
-<li>Click on &quot;Clone a Git repository&quot;
-<img src="resources/images/developpingExtension/GIT_Clone_Repository.png" alt="Clone Repository">
-
-<ul>
-<li>In <strong>Source Git repository</strong> window: </li>
-<li>Fill in the URI label with: <code>https://github.com/gama-platform/gama.git</code></li>
-<li>Other fields will be automatically filled in.
-<img src="resources/images/developpingExtension/GIT_source_git_repository.png" alt="Source GIT repository"><br></li>
-<li>In <strong>Branch Selection</strong> windows, </li>
-<li>check the master branch </li>
-<li>Next</li>
-</ul></li>
+  <li>Open the Git perspective:
+    <ul>
+      <li>Windows &gt; Perspective &gt; Open Perspective &gt; Other…</li>
+      <li>Choose <code class="highlighter-rouge">Git</code>
+<img src="resources/images/developpingExtension/GIT_open_perspective.png" alt="Open GIT perspective" /></li>
+    </ul>
+  </li>
+  <li>Click on “Clone a Git repository”
+<img src="resources/images/developpingExtension/GIT_Clone_Repository.png" alt="Clone Repository" />
+    <ul>
+      <li>In <strong>Source Git repository</strong> window:</li>
+    </ul>
+    <ul>
+      <li>Fill in the URI label with: <code class="highlighter-rouge">https://github.com/gama-platform/gama.git</code></li>
+      <li>Other fields will be automatically filled in.
+<img src="resources/images/developpingExtension/GIT_source_git_repository.png" alt="Source GIT repository" />  <br />
+      * In <strong>Branch Selection</strong> windows,</li>
+      <li>check the master branch</li>
+      <li>Next</li>
+    </ul>
+  </li>
 </ol>
 
-<p><img src="resources/images/developpingExtension/GIT_branch_selection.png" alt="Git branch selection">
-  * In <strong>Local Destination</strong> windows,
-    * Choose a Directory (where the source files will be downloaded).
-    * Everything else should be unchecked 
-    * Finish</p>
+<p><img src="resources/images/developpingExtension/GIT_branch_selection.png" alt="Git branch selection" /></p>
+<ul>
+  <li>In <strong>Local Destination</strong> windows,
+    <ul>
+      <li>Choose a Directory (where the source files will be downloaded).</li>
+      <li>Everything else should be unchecked</li>
+      <li>Finish</li>
+    </ul>
+  </li>
+</ul>
 
-<p><img src="resources/images/developpingExtension/GIT_local_destination.png" alt="Local destination"></p>
+<p><img src="resources/images/developpingExtension/GIT_local_destination.png" alt="Local destination" /></p>
 
-<p>This can take a while...</p>
+<p>This can take a while…</p>
 
 <h3 id="import-projects-into-workspace">Import projects into workspace</h3>
-
 <p>You have now to import projects into the workspace (notice that the folders downloaded during the clone will neither be copied nor moved).</p>
 
 <p><em><strong>Note:</strong> contrarily to previous Eclipse versions, import project from the Git perspective does not work properly for GAMA.</em></p>
 
 <ol>
-<li>In the <strong>Java perspective</strong>, choose:
-
-<ul>
-<li><code>File</code> / <code>Import...</code>,</li>
-</ul></li>
+  <li>In the <strong>Java perspective</strong>, choose:
+    <ul>
+      <li><code class="highlighter-rouge">File</code> / <code class="highlighter-rouge">Import...</code>,</li>
+    </ul>
+  </li>
 </ol>
 
-<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportProjects.png" alt="Context Working tree"></p>
+<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportProjects.png" alt="Context Working tree" /></p>
 
 <ul>
-<li>In the install window, select <code>Git</code> / <code>Projects from Git</code>,</li>
-<li>Click on Next,</li>
-<li>In the <code>Project from Git</code> window, select <code>Existing local repository.</code>,</li>
+  <li>In the install window, select <code class="highlighter-rouge">Git</code> / <code class="highlighter-rouge">Projects from Git</code>,</li>
+  <li>Click on Next,</li>
+  <li>In the <code class="highlighter-rouge">Project from Git</code> window, select <code class="highlighter-rouge">Existing local repository.</code>,</li>
 </ul>
 
-<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportRespositorySource.png" alt="Context Local Repository"></p>
+<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportRespositorySource.png" alt="Context Local Repository" /></p>
 
 <ul>
-<li>Click on Next,</li>
-<li>In the newt window, select your Git repository,</li>
-<li>Click on Next,</li>
-<li>In the <strong>Select a wizard to used to import projects</strong>, check that 
-
-<ul>
-<li>Import existing Eclipse projects is selected</li>
-<li>Working Tree is selected</li>
-</ul></li>
+  <li>Click on Next,</li>
+  <li>In the newt window, select your Git repository,</li>
+  <li>Click on Next,</li>
+  <li>In the <strong>Select a wizard to used to import projects</strong>, check that
+    <ul>
+      <li>Import existing Eclipse projects is selected</li>
+      <li>Working Tree is selected</li>
+    </ul>
+  </li>
 </ul>
 
-<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportWizard.png" alt="GIT Import projects">    </p>
+<p><img src="resources/images/developpingExtension/dialog_install_EOxy_ImportWizard.png" alt="GIT Import projects" /></p>
 
 <ul>
-<li>Click on Next,</li>
-<li><p>In the <strong>Import project</strong> window,</p>
-
-<ul>
-<li><strong>Uncheck Search for nested projects</strong></li>
-<li>Select all the projects
-<img src="resources/images/developpingExtension/GIT_ChooseProjectToImport.png" alt="Choose Projects to import"></li>
-</ul></li>
-<li><p>Finish</p>
-
-<ol>
-<li>Clean project (Project menu &gt; Clean ...)</li>
-</ol></li>
+  <li>Click on Next,</li>
+  <li>In the <strong>Import project</strong> window,
+    <ul>
+      <li><strong>Uncheck Search for nested projects</strong></li>
+      <li>Select all the projects
+<img src="resources/images/developpingExtension/GIT_ChooseProjectToImport.png" alt="Choose Projects to import" /></li>
+    </ul>
+  </li>
+  <li>Finish
+    <ol>
+      <li>Clean project (Project menu &gt; Clean …)</li>
+    </ol>
+  </li>
 </ul>
 
-<h3 id="if-you-have-errors">If you have errors...</h3>
-
-<p>If errors continue to show on in the different projects, be sure to correctly set the JDK used in the Eclipse preferences. GAMA is targeting JDK 1.8, and Eclipse will produce errors if it not found in your environment. So, either you set the compatibility to 1.8 by default (in Preferences &gt; Java &gt; Compiler &gt; Compiler Compliance Level) or you change the error produced by Eclipse to a warning only (in Preferences &gt; Java &gt; Compiler &gt; Building &gt; &quot;No strictly compatible JRE for execution environment available).</p>
+<h3 id="if-you-have-errors">If you have errors…</h3>
+<p>If errors continue to show on in the different projects, be sure to correctly set the JDK used in the Eclipse preferences. GAMA is targeting JDK 1.8, and Eclipse will produce errors if it not found in your environment. So, either you set the compatibility to 1.8 by default (in Preferences &gt; Java &gt; Compiler &gt; Compiler Compliance Level) or you change the error produced by Eclipse to a warning only (in Preferences &gt; Java &gt; Compiler &gt; Building &gt; “No strictly compatible JRE for execution environment available).</p>
 
 <h3 id="run-gama">Run GAMA</h3>
-
 <ol>
-<li>In the <code>ummisco.gama.product</code> plugin, open the <code>gama.runtime.product</code> file (<code>gama.product</code> is used to produce the release).</li>
-<li>Go to &quot;Overview&quot; tab and click on Synchronize</li>
-<li>Click on Launch an Eclipse Application</li>
+  <li>In the <code class="highlighter-rouge">ummisco.gama.product</code> plugin, open the <code class="highlighter-rouge">gama.runtime.product</code> file (<code class="highlighter-rouge">gama.product</code> is used to produce the release).</li>
+  <li>Go to “Overview” tab and click on Synchronize</li>
+  <li>Click on Launch an Eclipse Application</li>
 </ol>
 
 <h3 id="git-tutorials">GIT Tutorials</h3>
-
 <p>For those who want learn more about Git and Egit, please consult the following tutorials/papers</p>
 
 <ol>
-<li>EGIT/User Guide <a href="http://wiki.eclipse.org/EGit/User_Guide">http://wiki.eclipse.org/EGit/User_Guide</a></li>
-<li>Git version control with Eclipse (EGIT) - Tutorial <a href="http://www.vogella.com/tutorials/EclipseGit/article.html">http://www.vogella.com/tutorials/EclipseGit/article.html</a></li>
-<li>10 things I hate about Git <a href="http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/">http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/</a></li>
-<li>Learn Git and GitHub Tutorial <a href="https://www.youtube.com/playlist?list=PL1F56EA413018EEE1">https://www.youtube.com/playlist?list=PL1F56EA413018EEE1</a></li>
+  <li>EGIT/User Guide http://wiki.eclipse.org/EGit/User_Guide</li>
+  <li>Git version control with Eclipse (EGIT) - Tutorial http://www.vogella.com/tutorials/EclipseGit/article.html</li>
+  <li>10 things I hate about Git http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/</li>
+  <li>Learn Git and GitHub Tutorial https://www.youtube.com/playlist?list=PL1F56EA413018EEE1</li>
 </ol>
 
     </div>

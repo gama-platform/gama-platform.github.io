@@ -3611,199 +3611,201 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="agent-based-clustering">Agent Based Clustering</h1>
 
-<p><em>Author : Jean-Daniel Zucker with Patrick Taillandier&#39;s and Arnaud Grignard&#39;s Help</em></p>
+<p><em>Author : Jean-Daniel Zucker with Patrick Taillandier’s and Arnaud Grignard’s Help</em></p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">MASKMEANS</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">MASKMEANS</span>
 
 
 <span class="n">global</span>
 <span class="p">{</span>
 <span class="p">//</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">classes</span> <span class="k">to</span> <span class="nb">create</span> <span class="p">(</span><span class="n">kmeans</span><span class="p">)</span>
 <span class="p">//</span> <span class="n">It</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">centroids</span>
-    <span class="n">int</span> <span class="n">k</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">points</span>
-    <span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">dimensions</span>
-    <span class="n">int</span> <span class="n">dimensions</span><span class="p">;</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-    <span class="p">//</span><span class="nb">create</span> <span class="n">datapoints</span> <span class="n">agents</span>
-        <span class="nb">create</span> <span class="n">datapoints</span> <span class="n">number</span><span class="p">:</span> <span class="n">N</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
-            <span class="p">}</span>
+	<span class="n">int</span> <span class="n">k</span> <span class="p">&lt;-</span> <span class="m">4</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">points</span>
+	<span class="n">int</span> <span class="n">N</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">number</span> <span class="k">of</span> <span class="n">dimensions</span>
+	<span class="n">int</span> <span class="n">dimensions</span><span class="p">;</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+	<span class="p">//</span><span class="nb">create</span> <span class="n">datapoints</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">datapoints</span> <span class="n">number</span><span class="p">:</span> <span class="n">N</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
+			<span class="p">}</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
-            <span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-        <span class="p">//</span><span class="nb">create</span> <span class="n">centroid</span> <span class="n">agents</span>
-        <span class="nb">create</span> <span class="n">centroids</span> <span class="n">number</span><span class="p">:</span> <span class="n">k</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
-            <span class="p">}</span>
+		<span class="p">//</span><span class="nb">create</span> <span class="n">centroid</span> <span class="n">agents</span>
+		<span class="nb">create</span> <span class="n">centroids</span> <span class="n">number</span><span class="p">:</span> <span class="n">k</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
+			<span class="p">}</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
-            <span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">dimensions</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="p">};</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-        <span class="p">//</span><span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">centroid</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">datapoints</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
-        <span class="n">loop</span> <span class="n">c</span> <span class="n">over</span><span class="p">:</span> <span class="n">centroids</span>
-        <span class="p">{</span>
-            <span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
-            <span class="n">ask</span> <span class="n">c</span>
-            <span class="p">{</span>
-                <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;</span>
-            <span class="p">}</span>
+		<span class="p">//</span><span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">centroid</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">datapoints</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
+		<span class="n">loop</span> <span class="n">c</span> <span class="n">over</span><span class="p">:</span> <span class="n">centroids</span>
+		<span class="p">{</span>
+			<span class="n">rgb</span> <span class="n">col</span> <span class="p">&lt;-</span> <span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
+			<span class="n">ask</span> <span class="n">c</span>
+			<span class="p">{</span>
+				<span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">col</span><span class="p">;</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">assign_points_to_centroid</span> <span class="n">when</span><span class="p">:</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="p">//</span> <span class="n">The</span> <span class="s2">"assignment"</span> <span class="n">step</span> <span class="n">is</span> <span class="n">also</span> <span class="n">referred</span> <span class="k">to</span> <span class="k">as</span> <span class="n">expectation</span> <span class="n">step</span><span class="p">,</span>
-        <span class="n">ask</span> <span class="n">centroids</span>
-        <span class="p">{</span>
-            <span class="n">mypoints</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">datapoints</span><span class="p">&gt;</span> <span class="p">([]);</span>
-        <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">assign_points_to_centroid</span> <span class="n">when</span><span class="p">:</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+	<span class="p">{</span>
+	<span class="p">//</span> <span class="n">The</span> <span class="s2">"assignment"</span> <span class="n">step</span> <span class="n">is</span> <span class="n">also</span> <span class="n">referred</span> <span class="k">to</span> <span class="k">as</span> <span class="n">expectation</span> <span class="n">step</span><span class="p">,</span>
+		<span class="n">ask</span> <span class="n">centroids</span>
+		<span class="p">{</span>
+			<span class="n">mypoints</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">datapoints</span><span class="p">&gt;</span> <span class="p">([]);</span>
+		<span class="p">}</span>
 
-        <span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">datapoints</span>
-        <span class="p">{</span>
-            <span class="n">ask</span> <span class="n">pt</span>
-            <span class="p">{</span>
-                <span class="n">mycenter</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">centroids</span><span class="p">)</span> <span class="n">closest_to</span> <span class="n">self</span><span class="p">;</span>
-                <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">mycenter</span><span class="p">.</span><span class="n">color_kmeans</span><span class="p">;</span>
-                <span class="n">add</span> <span class="n">self</span> <span class="k">to</span><span class="p">:</span> <span class="n">mycenter</span><span class="p">.</span><span class="n">mypoints</span><span class="p">;</span>
-            <span class="p">}</span>
+		<span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">datapoints</span>
+		<span class="p">{</span>
+			<span class="n">ask</span> <span class="n">pt</span>
+			<span class="p">{</span>
+				<span class="n">mycenter</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">centroids</span><span class="p">)</span> <span class="n">closest_to</span> <span class="n">self</span><span class="p">;</span>
+				<span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="n">mycenter</span><span class="p">.</span><span class="n">color_kmeans</span><span class="p">;</span>
+				<span class="n">add</span> <span class="n">self</span> <span class="k">to</span><span class="p">:</span> <span class="n">mycenter</span><span class="p">.</span><span class="n">mypoints</span><span class="p">;</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">update_centroids</span> <span class="n">when</span><span class="p">:</span> <span class="k">not</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="s2">"update step"</span> <span class="k">as</span> <span class="n">maximization</span> <span class="n">step</span><span class="p">,</span>
-    <span class="p">//</span> <span class="n">making</span> <span class="n">this</span> <span class="n">algorithm</span> <span class="n">a</span> <span class="n">variant</span> <span class="k">of</span> <span class="n">the</span> <span class="n">generalized</span> <span class="n">expectation</span><span class="p">-</span><span class="n">maximization</span> <span class="n">algorithm</span><span class="p">.</span>
+	<span class="n">reflex</span> <span class="n">update_centroids</span> <span class="n">when</span><span class="p">:</span> <span class="k">not</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+	<span class="p">{</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="s2">"update step"</span> <span class="k">as</span> <span class="n">maximization</span> <span class="n">step</span><span class="p">,</span>
+	<span class="p">//</span> <span class="n">making</span> <span class="n">this</span> <span class="n">algorithm</span> <span class="n">a</span> <span class="n">variant</span> <span class="k">of</span> <span class="n">the</span> <span class="n">generalized</span> <span class="n">expectation</span><span class="p">-</span><span class="n">maximization</span> <span class="n">algorithm</span><span class="p">.</span>
 
-    <span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">datapoints</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
-        <span class="n">loop</span> <span class="n">center</span> <span class="n">over</span><span class="p">:</span> <span class="n">centroids</span>
-        <span class="p">{</span>
-        <span class="p">//</span><span class="n">old</span> <span class="n">code</span><span class="p">...</span> <span class="n">center</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">center</span><span class="p">.</span><span class="n">mypoints</span><span class="p">).</span><span class="n">location</span><span class="p">;</span>
-            <span class="n">center</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">center</span><span class="p">.</span><span class="n">mypoints</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
-        <span class="p">}</span>
+	<span class="p">//</span><span class="n">We</span> <span class="n">give</span> <span class="n">a</span> <span class="nb">random</span> <span class="n">color</span> <span class="k">to</span> <span class="n">each</span> <span class="n">group</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="k">to</span> <span class="n">each</span> <span class="n">datapoints</span> <span class="n">agents</span> <span class="k">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
+		<span class="n">loop</span> <span class="n">center</span> <span class="n">over</span><span class="p">:</span> <span class="n">centroids</span>
+		<span class="p">{</span>
+		<span class="p">//</span><span class="n">old</span> <span class="n">code</span><span class="p">...</span> <span class="n">center</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">geometry</span><span class="p">(</span><span class="n">center</span><span class="p">.</span><span class="n">mypoints</span><span class="p">).</span><span class="n">location</span><span class="p">;</span>
+			<span class="n">center</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">center</span><span class="p">.</span><span class="n">mypoints</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">datapoints</span>
 <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">grey</span><span class="p">;</span>
-    <span class="n">centroids</span> <span class="n">mycenter</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">kmeans_aspect2D</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">grey</span><span class="p">;</span>
+	<span class="n">centroids</span> <span class="n">mycenter</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">kmeans_aspect2D</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">kmeans_aspect3D</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">kmeans_aspect3D</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">centroids</span>
 <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">grey</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">datapoints</span><span class="p">&gt;</span> <span class="n">mypoints</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">kmeans_aspect2D</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">cross</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">mypoints</span>
-        <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span> <span class="n">pt</span><span class="p">])</span> <span class="p">+</span> <span class="m">0.1</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color_kmeans</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">grey</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">datapoints</span><span class="p">&gt;</span> <span class="n">mypoints</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">kmeans_aspect2D</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">cross</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">mypoints</span>
+		<span class="p">{</span>
+			<span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span> <span class="n">pt</span><span class="p">])</span> <span class="p">+</span> <span class="m">0.1</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">kmeans_aspect3D</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">mypoints</span>
-        <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span> <span class="n">pt</span><span class="p">],</span> <span class="m">0.2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">kmeans_aspect3D</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span> <span class="n">black</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="n">mypoints</span>
+		<span class="p">{</span>
+			<span class="n">draw</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span> <span class="n">pt</span><span class="p">],</span> <span class="m">0.2</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color_kmeans</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">clustering2D</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Number of points to be clustered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">N</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Number of dimensions"</span> <span class="n">var</span><span class="p">:</span> <span class="n">dimensions</span> <span class="n">init</span><span class="p">:</span> <span class="m">2</span> <span class="k">min</span><span class="p">:</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
-    <span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
+	<span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of points to be clustered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">N</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of dimensions"</span> <span class="n">var</span><span class="p">:</span> <span class="n">dimensions</span> <span class="n">init</span><span class="p">:</span> <span class="m">2</span> <span class="k">min</span><span class="p">:</span> <span class="m">2</span> <span class="k">max</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+	<span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
+		
+	<span class="n">point</span> <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">20</span><span class="p">,</span> <span class="m">95</span> <span class="p">};</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">map_kmeans</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">datapoints</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect2D</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">centroids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect2D</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"Full target"</span>
+			<span class="p">{</span>
+				<span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">yellow</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
+				<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">))</span>
+				<span class="p">{</span>
+				<span class="p">//</span> <span class="n">the</span> <span class="s2">"update step"</span> <span class="k">as</span> <span class="n">maximization</span> <span class="n">step</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="n">mean</span> <span class="n">is</span> <span class="n">done</span> <span class="k">to</span> <span class="n">recenter</span><span class="p">)</span>
+					<span class="n">draw</span> <span class="s2">"Next step is maximisation step the centroid will move to the means of its points"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> <span class="k">else</span>
+				<span class="p">{</span>
+					<span class="n">draw</span> <span class="s2">"Next step is estimation Step (each point is assigned the color of his nearest centroid"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+				<span class="p">}</span>
 
-    <span class="n">point</span> <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">20</span><span class="p">,</span> <span class="m">95</span> <span class="p">};</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map_kmeans</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">datapoints</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect2D</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">centroids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect2D</span><span class="p">;</span>
-            <span class="n">graphics</span> <span class="s2">"Full target"</span>
-            <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">yellow</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">30</span><span class="p">,</span> <span class="m">0</span> <span class="p">};</span>
-                <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">even</span><span class="p">(</span><span class="n">cycle</span><span class="p">))</span>
-                <span class="p">{</span>
-                <span class="p">//</span> <span class="n">the</span> <span class="s2">"update step"</span> <span class="k">as</span> <span class="n">maximization</span> <span class="n">step</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="n">mean</span> <span class="n">is</span> <span class="n">done</span> <span class="k">to</span> <span class="n">recenter</span><span class="p">)</span>
-                    <span class="n">draw</span> <span class="s2">"Next step is maximisation step the centroid will move to the means of its points"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> <span class="k">else</span>
-                <span class="p">{</span>
-                    <span class="n">draw</span> <span class="s2">"Next step is estimation Step (each point is assigned the color of his nearest centroid"</span> <span class="n">at</span><span class="p">:</span> <span class="n">target</span> <span class="p">+</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">regular</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-                <span class="p">}</span>
+			<span class="p">}</span>
 
-            <span class="p">}</span>
+		<span class="p">}</span>
 
-        <span class="p">}</span>
-
-    <span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">clustering3D</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Number of points to be clustered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">N</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
-    <span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
-    <span class="n">point</span> <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">20</span><span class="p">,</span> <span class="m">95</span> <span class="p">};</span>
-    <span class="n">parameter</span> <span class="s2">"Number of dimensions"</span> <span class="n">var</span><span class="p">:</span> <span class="n">dimensions</span> <span class="n">init</span><span class="p">:</span> <span class="m">3</span> <span class="k">min</span><span class="p">:</span> <span class="m">3</span> <span class="k">max</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
-    <span class="n">action</span> <span class="n">_init_</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">MASKMEANS_model</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">dimensions</span><span class="p">::</span><span class="m">3</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map_kmeans</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">datapoints</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect3D</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">centroids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect3D</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Number of clusters to split the data into"</span> <span class="n">var</span><span class="p">:</span> <span class="n">k</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"KMEANS"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Number of points to be clustered"</span> <span class="n">var</span><span class="p">:</span> <span class="n">N</span> <span class="n">init</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+	<span class="n">font</span> <span class="n">regular</span> <span class="p">&lt;-</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="p">#</span> <span class="n">bold</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">target</span> <span class="p">&lt;-</span> <span class="p">{</span> <span class="m">20</span><span class="p">,</span> <span class="m">95</span> <span class="p">};</span>
+	<span class="n">parameter</span> <span class="s2">"Number of dimensions"</span> <span class="n">var</span><span class="p">:</span> <span class="n">dimensions</span> <span class="n">init</span><span class="p">:</span> <span class="m">3</span> <span class="k">min</span><span class="p">:</span> <span class="m">3</span> <span class="k">max</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">action</span> <span class="n">_init_</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">MASKMEANS_model</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">dimensions</span><span class="p">::</span><span class="m">3</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">map_kmeans</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">datapoints</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect3D</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">centroids</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">kmeans_aspect3D</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

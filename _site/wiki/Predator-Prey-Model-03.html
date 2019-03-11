@@ -3613,74 +3613,76 @@ function closeRightMenu() {
 
 <p>Third part of the tutorial : Predator Prey</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">prey_predator</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_max_transfert</span> <span class="p">&lt;-</span> <span class="m">0.1</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_max_transfert</span> <span class="p">&lt;-</span> <span class="m">0.1</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">prey</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">prey_max_energy</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_transfert</span> <span class="p">&lt;-</span> <span class="n">prey_max_transfert</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">prey_energy_consum</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">prey_max_energy</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_transfert</span> <span class="p">&lt;-</span> <span class="n">prey_max_transfert</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">prey_energy_consum</span> <span class="p">;</span>
+		
+	<span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">energy</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="n">max_energy</span>  <span class="n">update</span><span class="p">:</span> <span class="n">energy</span> <span class="p">-</span> <span class="n">energy_consum</span> <span class="k">max</span><span class="p">:</span> <span class="n">max_energy</span> <span class="p">;</span>
+		
+	<span class="n">init</span> <span class="p">{</span> 
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span> 
+		<span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="p">;</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span> 
+		<span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">max_transfert</span><span class="p">,</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span><span class="p">])</span> <span class="p">;</span>
+		<span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="n">energy_transfert</span> <span class="p">;</span>
+		<span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">die</span> <span class="n">when</span><span class="p">:</span> <span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span> 
-    <span class="n">float</span> <span class="n">energy</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="n">max_energy</span>  <span class="n">update</span><span class="p">:</span> <span class="n">energy</span> <span class="p">-</span> <span class="n">energy_consum</span> <span class="k">max</span><span class="p">:</span> <span class="n">max_energy</span> <span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span> 
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span> 
-        <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="p">;</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span> 
-        <span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">max_transfert</span><span class="p">,</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span><span class="p">])</span> <span class="p">;</span>
-        <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="n">energy_transfert</span> <span class="p">;</span>
-        <span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">die</span> <span class="n">when</span><span class="p">:</span> <span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey max transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
-            <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey max transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

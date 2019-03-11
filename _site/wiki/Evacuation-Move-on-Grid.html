@@ -3613,121 +3613,123 @@ function closeRightMenu() {
 
 <p>_Author : _</p>
 
-<p>A 3D model which show how to represent an evacuation system with obstacles, cohesion factor and velocity. The people are placed randomly and have to escape by going to a target point, within a discretized space by a grid. The agents don&#39;t use the skill moving to move.</p>
+<p>A 3D model which show how to represent an evacuation system with obstacles, cohesion factor and velocity. The people are placed randomly and have to escape by going to a target point, within a discretized space by a grid. The agents don’t use the skill moving to move.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">grid_move</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">grid_move</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
-    <span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Maximum</span> <span class="n">memory</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">loop</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
-    <span class="n">int</span> <span class="n">max_memory</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
-    <span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agents</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Evacuation</span> <span class="n">point</span> <span class="n">for</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
-    <span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">building_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shape</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">building_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Maximum</span> <span class="n">memory</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">to</span> <span class="n">avoid</span> <span class="n">loop</span> <span class="k">of</span> <span class="n">the</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">max_memory</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">float</span> <span class="n">people_size</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Evacuation</span> <span class="n">point</span> <span class="n">for</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span>
+	<span class="n">point</span> <span class="n">target_point</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">world</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">};</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span>
+		<span class="p">{</span>
+			<span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_obstacle</span> <span class="n">attribute</span>
+			<span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">{</span>
+				<span class="n">is_obstacle</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">building_shapefile</span>
-        <span class="p">{</span>
-            <span class="p">//</span><span class="n">Initialization</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is_obstacle</span> <span class="n">attribute</span>
-            <span class="n">ask</span> <span class="n">cell</span> <span class="n">overlapping</span> <span class="n">self</span> <span class="p">{</span>
-                <span class="n">is_obstacle</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">free_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">);</span>
-        <span class="n">cell</span> <span class="n">the_target_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">closest_to</span> <span class="n">target_point</span><span class="p">;</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">People</span> <span class="n">agent</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">which</span> <span class="n">haven</span><span class="s1">'t people or obstacle
-            current_cell &lt;- one_of(free_cell);
-            current_cell.is_free &lt;- false;
-            remove current_cell from: free_cell;
-            location &lt;- current_cell.location;
-            target_cell &lt;- the_target_cell;
-            memory &lt;&lt; current_cell;
-
-        }
-    }
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">cell</span><span class="p">&gt;</span> <span class="n">free_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">where</span> <span class="k">not</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_obstacle</span><span class="p">);</span>
+		<span class="n">cell</span> <span class="n">the_target_cell</span> <span class="p">&lt;-</span> <span class="n">cell</span> <span class="n">closest_to</span> <span class="n">target_point</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agent</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">People</span> <span class="n">agent</span> <span class="n">are</span> <span class="n">placed</span> <span class="n">randomly</span> <span class="n">among</span> <span class="n">the</span> <span class="n">cells</span> <span class="n">which</span> <span class="n">haven</span><span class="s1">'t people or obstacle
+			current_cell &lt;- one_of(free_cell);
+			current_cell.is_free &lt;- false;
+			remove current_cell from: free_cell;
+			location &lt;- current_cell.location;
+			target_cell &lt;- the_target_cell;
+			memory &lt;&lt; current_cell;
+			
+		}
+	}
 }
 //Species which represent the buildings
 species building {
-    float height &lt;- 3.0 + rnd(5);
-    aspect default {
-        draw shape color: #gray depth: height;
-    }
+	float height &lt;- 3.0 + rnd(5);
+	aspect default {
+		draw shape color: #gray depth: height;
+	}
 }
 //Species which represent the people agent moving from one cell to its neighbors
 species people {
-    //Current cell of the agent
-    cell current_cell;
-    //Evacuation cell of the agent
-    cell target_cell;
-    //List of the cells already passed by the agents and mesmorized
-    list&lt;cell&gt; memory;
-    //Size of the agent
-    float size &lt;- people_size;
-    rgb color &lt;- rgb(rnd(255),rnd(255),rnd(255));
-
-
-    //Reflex to kill the agent once it is close enough to an evacuation point
-    reflex end when: location distance_to target_cell.location &lt;= 2 * people_size {
-        current_cell.is_free &lt;- true;
-        do die;
-    }
-    //Reflex to move the agent
-    reflex move {
-        //List of all the cells possible (which aren'</span><span class="n">t</span> <span class="n">obstacles</span><span class="p">,</span> <span class="n">without</span> <span class="n">people</span> <span class="n">on</span> <span class="n">it</span> <span class="k">and</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">hasn</span><span class="s1">'t already passed
-        list&lt;cell&gt; possible_cells &lt;- current_cell neighbors_at 1 where (not (each.is_obstacle) and each.is_free and not (each in memory));
-        //If there is possible cell, the agent move on the closest one to the evacuation point
-        if not empty(possible_cells) {
-            current_cell.is_free &lt;- true;
-            current_cell &lt;- shuffle(possible_cells) with_min_of (each.location distance_to target_cell.location);
-            location &lt;- current_cell.location;
-            current_cell.is_free &lt;- false;
-            //Management of the memory of the agents
-            memory &lt;&lt; current_cell; 
-            if (length(memory) &gt; max_memory) {
-                remove memory[0] from: memory;
-            }
-        }
-    }
-
-    aspect default {
-        draw pyramid(size) color: color;
-        draw sphere(size/3) at: {location.x,location.y,size} color: color;
-    }
+	//Current cell of the agent
+	cell current_cell;
+	//Evacuation cell of the agent
+	cell target_cell;
+	//List of the cells already passed by the agents and mesmorized
+	list&lt;cell&gt; memory;
+	//Size of the agent
+	float size &lt;- people_size;
+	rgb color &lt;- rgb(rnd(255),rnd(255),rnd(255));
+	
+	
+	//Reflex to kill the agent once it is close enough to an evacuation point
+	reflex end when: location distance_to target_cell.location &lt;= 2 * people_size {
+		current_cell.is_free &lt;- true;
+		do die;
+	}
+	//Reflex to move the agent
+	reflex move {
+		//List of all the cells possible (which aren'</span><span class="n">t</span> <span class="n">obstacles</span><span class="p">,</span> <span class="n">without</span> <span class="n">people</span> <span class="n">on</span> <span class="n">it</span> <span class="k">and</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">hasn</span><span class="s1">'t already passed
+		list&lt;cell&gt; possible_cells &lt;- current_cell neighbors_at 1 where (not (each.is_obstacle) and each.is_free and not (each in memory));
+		//If there is possible cell, the agent move on the closest one to the evacuation point
+		if not empty(possible_cells) {
+			current_cell.is_free &lt;- true;
+			current_cell &lt;- shuffle(possible_cells) with_min_of (each.location distance_to target_cell.location);
+			location &lt;- current_cell.location;
+			current_cell.is_free &lt;- false;
+			//Management of the memory of the agents
+			memory &lt;&lt; current_cell; 
+			if (length(memory) &gt; max_memory) {
+				remove memory[0] from: memory;
+			}
+		}
+	}
+	
+	aspect default {
+		draw pyramid(size) color: color;
+		draw sphere(size/3) at: {location.x,location.y,size} color: color;
+	}
 }
 //Grid species to discretize space
 grid cell width: 150 height: 150  neighbors: 8 frequency: 0 {
-    bool is_obstacle &lt;- false;
-    bool is_free &lt;- true;
-    rgb color &lt;- #white;
+	bool is_obstacle &lt;- false;
+	bool is_free &lt;- true;
+	rgb color &lt;- #white;
 }
 
 experiment main type: gui {
-    parameter "nb people" var: nb_people min: 1 max: 1000;
-    output {
-        display map type: opengl camera_pos: {world.location.x,-world.shape.height*1.5,70}
+	parameter "nb people" var: nb_people min: 1 max: 1000;
+	output {
+		display map type: opengl camera_pos: {world.location.x,-world.shape.height*1.5,70}
                         camera_look_pos:{world.location.x,0,0}    {
-            image '</span><span class="p">../</span><span class="n">images</span><span class="p">/</span><span class="n">soil</span><span class="p">.</span><span class="n">jpg</span><span class="s1">';
-            species building refresh: false;
-            species people;
-            graphics "exit" refresh: false {
-                draw sphere(2 * people_size) at: target_point color: #green;    
-            }
-        }
-    }
+			image '</span><span class="p">../</span><span class="n">images</span><span class="p">/</span><span class="n">soil</span><span class="p">.</span><span class="n">jpg</span><span class="s1">';
+			species building refresh: false;
+			species people;
+			graphics "exit" refresh: false {
+				draw sphere(2 * people_size) at: target_point color: #green;	
+			}
+		}
+	}
 }
-</span></code></pre></div>
+</span></code></pre></div></div>
+
     </div>
     </div>
     </div>

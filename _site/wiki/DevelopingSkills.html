@@ -3615,155 +3615,159 @@ function closeRightMenu() {
 
 <h2 id="defining-the-class">Defining the class</h2>
 
-<p>A Skill is basically a <strong>singleton</strong> and <strong>stateless</strong> Java class that:
-  * extends the abstract class <code>Skill</code>,
-  * begins by the annotation <a href="DevelopingIndexAnnotations#@skill">@skill</a>: <code>@skill(name = &quot;name_of_the_skill_in_gaml&quot;)</code>.</p>
+<p>A Skill is basically a <strong>singleton</strong> and <strong>stateless</strong> Java class that:</p>
+<ul>
+  <li>extends the abstract class <code class="highlighter-rouge">Skill</code>,</li>
+  <li>begins by the annotation <a href="DevelopingIndexAnnotations#@skill">@skill</a>: <code class="highlighter-rouge">@skill(name = "name_of_the_skill_in_gaml")</code>.</li>
+</ul>
 
-<p>Note: GAMA annotations are classes defined into the <code>msi.gama.precompiler.GamlAnnotations</code> class.</p>
+<p>Note: GAMA annotations are classes defined into the <code class="highlighter-rouge">msi.gama.precompiler.GamlAnnotations</code> class.</p>
 
 <h2 id="defining-new-attributes">Defining new attributes</h2>
 
-<p>To add new attributes to the species that declares this skill, developers have to define them before the class using the <a href="DevelopingIndexAnnotations#@vars">@vars</a> and <code>@variable</code> annotations.
-The <code>@vars</code> annotation contains a set of <code>@variable</code> elements.</p>
+<p>To add new attributes to the species that declares this skill, developers have to define them before the class using the <a href="DevelopingIndexAnnotations#@vars">@vars</a> and <code class="highlighter-rouge">@variable</code> annotations.
+The <code class="highlighter-rouge">@vars</code> annotation contains a set of <code class="highlighter-rouge">@variable</code> elements.</p>
 
-<p>In a <a href="DevelopingIndexAnnotations#@variable">@variable</a> element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:
-<code>
-@vars({
-  @variable(name = IKeyword.SPEED, type = IType.FLOAT, init = &quot;1.0&quot;),
-  @variable(name = IKeyword.HEADING, type = IType.INT, init = &quot;rnd(359)&quot;)
+<p>In a <a href="DevelopingIndexAnnotations#@variable">@variable</a> element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@vars({
+  @variable(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),
+  @variable(name = IKeyword.HEADING, type = IType.INT, init = "rnd(359)")
 })
-</code></p>
+</code></pre></div></div>
 
-<p>In order to detail how to access these new attributes (if needed), developers have to define a getter (using <code>@getter</code>) and a setter (using <code>@setter</code>) methods.
+<p>In order to detail how to access these new attributes (if needed), developers have to define a getter (using <code class="highlighter-rouge">@getter</code>) and a setter (using <code class="highlighter-rouge">@setter</code>) methods.
 If no getter (and setter) is defined, the attribute can nevertheless be set and get, using implicit by default getter and setter. But as soon as a getter and/or a setter is defined, they replace the implicit default ones.
-For example:
-```
-@getter(IKeyword.SPEED)
+For example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@getter(IKeyword.SPEED)
 public double getSpeed(final IAgent agent) {
     return (Double) agent.getAttribute(IKeyword.SPEED);
-}</p>
+}
 
-<p>@setter(IKeyword.SPEED)
+@setter(IKeyword.SPEED)
 public void setSpeed(final IAgent agent, final double s) {
     agent.setAttribute(IKeyword.SPEED, s);
 }
-```</p>
+</code></pre></div></div>
 
 <h2 id="defining-new-actions">Defining new actions</h2>
+<p>An action (also called <code class="highlighter-rouge">primitive</code>) is basically a Java method that can be called from the GAML language using the same syntax as the one used for calling actions defined in a model. The method should be annotated with <code class="highlighter-rouge">@action</code>, supplying the name of the action as it will be available in GAML.</p>
 
-<p>An action (also called <code>primitive</code>) is basically a Java method that can be called from the GAML language using the same syntax as the one used for calling actions defined in a model. The method should be annotated with <code>@action</code>, supplying the name of the action as it will be available in GAML.</p>
-
-<p>The developer can also define parameters for this action using the annotation <code>@arg</code> will a set of parameters names. For example, the action <code>goto</code> of the MovingSkill is defined as follows:
-```
-@action(name=&quot;goto&quot;, args={ 
-    @arg(name = &quot;target&quot;, type = { IType.AGENT, IType.POINT,IType.GEOMETRY }, optional = false),
+<p>The developer can also define parameters for this action using the annotation <code class="highlighter-rouge">@arg</code> will a set of parameters names. For example, the action <code class="highlighter-rouge">goto</code> of the MovingSkill is defined as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@action(name="goto", args={ 
+    @arg(name = "target", type = { IType.AGENT, IType.POINT,IType.GEOMETRY }, optional = false),
     @arg(name = IKeyword.SPEED, type = IType.FLOAT, optional = true),
-    @arg(name = &quot;on&quot;, type = { IType.GRAPH }, optional = true)
+    @arg(name = "on", type = { IType.GRAPH }, optional = true)
     }
-)</p>
+)
 
-<p>public IPath primGoto(final IScope scope) throws GamaRuntimeException {
+public IPath primGoto(final IScope scope) throws GamaRuntimeException {
 ...
 }
-<code>
-It is called in GAMA models with:
-</code>
-do goto (target: the_target, on: the_graph);
-<code>
-or
-</code>
-path path_followed &lt;- self goto (target: the_target, on: the_graph, return_path: true);
-```</p>
+</code></pre></div></div>
+<p>It is called in GAMA models with:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do goto (target: the_target, on: the_graph);
+</code></pre></div></div>
+<p>or</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path path_followed &lt;- self goto (target: the_target, on: the_graph, return_path: true);
+</code></pre></div></div>
 
 <h3 id="access-to-parameters-in-actions">Access to parameters in actions</h3>
-
-<p>To get the value of the arguments passed in GAML to the Java code, two methods can be useful:
-  * <code>scope.hasArg(&quot;name_of_argument&quot;)</code> returns a boolean value testing whether the argument &quot;name_of_argument&quot; has been defined by the modeler, since all the arguments to actions should be considered as optional.
-  * <code>getArg(name_arg,IType)</code>, <code>getFloatArg(name_param_of_float)</code>, <code>getIntArg(name_param_of_int)</code> and their variants return the value of the given parameter using a given (or predefined) type to cast it.</p>
+<p>To get the value of the arguments passed in GAML to the Java code, two methods can be useful:</p>
+<ul>
+  <li><code class="highlighter-rouge">scope.hasArg("name_of_argument")</code> returns a boolean value testing whether the argument “name_of_argument” has been defined by the modeler, since all the arguments to actions should be considered as optional.</li>
+  <li><code class="highlighter-rouge">getArg(name_arg,IType)</code>, <code class="highlighter-rouge">getFloatArg(name_param_of_float)</code>, <code class="highlighter-rouge">getIntArg(name_param_of_int)</code> and their variants return the value of the given parameter using a given (or predefined) type to cast it.</li>
+</ul>
 
 <h3 id="warnings">Warnings</h3>
-
-<p>Developers should notice that:
-  * the method associated with an action has to return a non-void object.
-  * the method should have only one parameter: the scope (type IScope).
-  * the method can only throw <code>GamaRuntimeException</code>s. Other exceptions should be caught in the method and wrapped in a <code>GamaRuntimeException</code> before being thrown.</p>
+<p>Developers should notice that:</p>
+<ul>
+  <li>the method associated with an action has to return a non-void object.</li>
+  <li>the method should have only one parameter: the scope (type IScope).</li>
+  <li>the method can only throw <code class="highlighter-rouge">GamaRuntimeException</code>s. Other exceptions should be caught in the method and wrapped in a <code class="highlighter-rouge">GamaRuntimeException</code> before being thrown.</li>
+</ul>
 
 <h2 id="annotations">Annotations</h2>
-
 <h3 id="skill">@skill</h3>
-
 <p>This annotations Allows to define a new skill (class grouping variables and actions that can be used by agents).</p>
 
-<p>This annotation contains:
-  * <strong>name</strong> (String): <em>a String representing the skill name in GAML (must be unique throughout GAML)</em>.
-  * <strong>attach_to</strong> (set of strings): <em>an array of species names to which the skill will be automatically added (complements the &quot;skills&quot; parameter of species)</em>.
-  * <strong>internal</strong> (boolean, false by default): <em>return whether this skill is for internal use only</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the skill</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (String): <em>a String representing the skill name in GAML (must be unique throughout GAML)</em>.</li>
+  <li><strong>attach_to</strong> (set of strings): <em>an array of species names to which the skill will be automatically added (complements the “skills” parameter of species)</em>.</li>
+  <li><strong>internal</strong> (boolean, false by default): <em>return whether this skill is for internal use only</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the skill</em>.</li>
+</ul>
 
 <h3 id="variable">@variable</h3>
-
 <p>This annotations is used to describe a single variable or field.</p>
 
-<p>This annotation contains:
-  * <strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.
-  * <strong>type</strong> (int): <em>The textual representation of the type of the variable (see IType)</em>.
-  * <strong>of</strong> (int, 0 by default): <em>The textual representation of the content type of the variable (see IType#defaultContentType())</em>.
-  * <strong>index</strong> (int, 0 by default): <em>The textual representation of the index type of the variable (see IType#defaultKeyType())</em>.
-  * <strong>constant</strong> (int, false by default): <em>returns whether or not this variable should be considered as non modifiable</em>.
-  * <strong>init</strong> (String, &quot;&quot; by default): <em>the initial value of this variable as a String that will be interpreted by GAML</em>.
-  * <strong>depend_on</strong> (set of Strings, empty by default): <em>an array of String representing the names of the variables on which this variable depends (so that they are computed before)</em>.
-  * <strong>internal</strong> (boolean, false by default): <em>return whether this var is for internal use only</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the variable</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.</li>
+  <li><strong>type</strong> (int): <em>The textual representation of the type of the variable (see IType)</em>.</li>
+  <li><strong>of</strong> (int, 0 by default): <em>The textual representation of the content type of the variable (see IType#defaultContentType())</em>.</li>
+  <li><strong>index</strong> (int, 0 by default): <em>The textual representation of the index type of the variable (see IType#defaultKeyType())</em>.</li>
+  <li><strong>constant</strong> (int, false by default): <em>returns whether or not this variable should be considered as non modifiable</em>.</li>
+  <li><strong>init</strong> (String, “” by default): <em>the initial value of this variable as a String that will be interpreted by GAML</em>.</li>
+  <li><strong>depend_on</strong> (set of Strings, empty by default): <em>an array of String representing the names of the variables on which this variable depends (so that they are computed before)</em>.</li>
+  <li><strong>internal</strong> (boolean, false by default): <em>return whether this var is for internal use only</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the variable</em>.</li>
+</ul>
 
 <h3 id="doc">@doc</h3>
-
-<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.
-  * <strong>value</strong> (String, &quot;&quot; by default): <em>a String representing the documentation of a GAML element</em>.
-  * <strong>deprecated</strong> (String, &quot;&quot; by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.
-  * <strong>returns</strong> (String, &quot;&quot; by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.
-  * <strong>comment</strong> (String, &quot;&quot; by default): <em>an optional comment that will appear differently from the documentation itself</em>.
-  * <strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the &quot;special cases&quot; in which the documented element takes part</em>.
-  * <strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.
-  * <strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</p>
+<p>It provides a unified way of attaching documentation to the various GAML elements tagged by the other annotations. The documentation is automatically assembled at compile time and also used at runtime in GAML editors.</p>
+<ul>
+  <li><strong>value</strong> (String, “” by default): <em>a String representing the documentation of a GAML element</em>.</li>
+  <li><strong>deprecated</strong> (String, “” by default): <em>a String indicating (if it is not empty) that the element is deprecated and defining, if possible, what to use instead</em>.</li>
+  <li><strong>returns</strong> (String, “” by default): <em>the documentation concerning the value(s) returned by this element (if any).</em>.</li>
+  <li><strong>comment</strong> (String, “” by default): <em>an optional comment that will appear differently from the documentation itself</em>.</li>
+  <li><strong>special_cases</strong> (set of Strings, empty by default): <em>an array of String representing the documentation of the “special cases” in which the documented element takes part</em>.</li>
+  <li><strong>examples</strong> (set of Strings, empty by default): <em>an array of String representing some examples or use-cases about how to use this element</em>.</li>
+  <li><strong>see</strong> (set of Strings, empty by default): <em>an array of String representing cross-references to other elements in GAML</em>.</li>
+</ul>
 
 <h3 id="getter">@getter</h3>
-
 <p>This annotations is used to indicate that a method is to be used as a getter for a variable defined in the class. The variable must be defined on its own (in vars).</p>
 
-<p>This annotation contains:
-  * <strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a getter.
-  * <strong>initializer</strong> (boolean, false by default): returns whether or not this getter should also be used as an initializer</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a getter.</li>
+  <li><strong>initializer</strong> (boolean, false by default): returns whether or not this getter should also be used as an initializer</li>
+</ul>
 
 <h3 id="setter">@setter</h3>
-
 <p>This annotations is used to indicate that a method is to be used as a setter for a variable defined in the class. The variable must be defined on its own (in vars).</p>
 
-<p>This annotation contains:
-  * <strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a setter.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>value</strong> (String): the name of the variable for which the annotated method is to be considered as a setter.</li>
+</ul>
 
 <h3 id="action">@action</h3>
-
 <p>This annotations is used to tag a method that will be considered as an action (or primitive) in GAML.
-The method must have the following signature: <code>
+The method must have the following signature: <code class="highlighter-rouge">
 Object methodName(IScope) throws GamaRuntimeException</code> and be contained in a class annotated with @species or @skill (or a related class, like a subclass or an interface).</p>
 
-<p>This annotation contains:
-  * <strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.
-  * <strong>virtual</strong> (boolean, false by default): <em>if true the action is virtual, i.e. equivalent to abstract method in java</em>.
-  * <strong>args</strong> (set of arg, empty by default): <em>the list of arguments passed to this action. Each argument is an instance of arg</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the action</em>.</p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (String): <em>the name of the variable as it can be used in GAML</em>.</li>
+  <li><strong>virtual</strong> (boolean, false by default): <em>if true the action is virtual, i.e. equivalent to abstract method in java</em>.</li>
+  <li><strong>args</strong> (set of arg, empty by default): <em>the list of arguments passed to this action. Each argument is an instance of arg</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the action</em>.</li>
+</ul>
 
 <h3 id="arg">@arg</h3>
-
 <p>This annotations describes an argument passed to an action.</p>
 
-<p>This annotation contains:
-  * <strong>name</strong> (String, &quot;&quot; by default): <em>the name of the argument as it can be used in GAML</em>.
-  * <strong>type</strong> (set of ints, empty by default): <em>An array containing the textual representation of the types that can be taken by the argument (see IType)</em>.
-  * <strong>optional</strong> (boolean, true by default): <em>whether this argument is optional or not</em>.
-  * <strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the argument.</em></p>
+<p>This annotation contains:</p>
+<ul>
+  <li><strong>name</strong> (String, “” by default): <em>the name of the argument as it can be used in GAML</em>.</li>
+  <li><strong>type</strong> (set of ints, empty by default): <em>An array containing the textual representation of the types that can be taken by the argument (see IType)</em>.</li>
+  <li><strong>optional</strong> (boolean, true by default): <em>whether this argument is optional or not</em>.</li>
+  <li><strong>doc</strong> (set of @doc, empty by default): <em>the documentation associated to the argument.</em></li>
+</ul>
 
-<p>All these annotations are defined in the <code>GamlAnnotations.java</code> file of the <code>msi.gama.processor</code> plug-in.</p>
+<p>All these annotations are defined in the <code class="highlighter-rouge">GamlAnnotations.java</code> file of the <code class="highlighter-rouge">msi.gama.processor</code> plug-in.</p>
 
     </div>
     </div>

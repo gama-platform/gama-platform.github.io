@@ -3615,559 +3615,561 @@ function closeRightMenu() {
 
 <p>This model shows how can we make an easy simulation of collective games, such as soccer. 
 Each player have an offensive and a defensive position, and a behavior associated. Each player of the defensive team can either search to catch the ball or mark an other player (offensive player) according to his defensive position.
-Each player of the offensive team can either run to its offensive place (when he does not have the ball), run with the balloon / pass the ball / try to score a goal (when he has the ball). By changing the different parameters, you can see the concequences in real time. </p>
+Each player of the offensive team can either run to its offensive place (when he does not have the ball), run with the balloon / pass the ball / try to score a goal (when he has the ball). By changing the different parameters, you can see the concequences in real time.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">soccer</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">120</span><span class="p">#</span><span class="n">m</span><span class="p">,</span><span class="m">90</span><span class="p">#</span><span class="n">m</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">red_players_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue_players_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">red_size_play_area</span> <span class="p">&lt;-</span> <span class="m">30.0</span> <span class="k">min</span><span class="p">:</span><span class="m">1.0</span> <span class="k">max</span><span class="p">:</span><span class="m">100.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue_size_play_area</span> <span class="p">&lt;-</span> <span class="m">30.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="k">max</span><span class="p">:</span><span class="m">100.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">previous_red_size_play_area</span> <span class="p">&lt;-</span> <span class="n">red_size_play_area</span><span class="p">;</span> <span class="p">//</span> <span class="n">just</span> <span class="k">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">parameter</span> <span class="n">value</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span>
-    <span class="n">float</span> <span class="n">previous_blue_size_play_area</span> <span class="p">&lt;-</span> <span class="n">blue_size_play_area</span><span class="p">;</span> <span class="p">//</span> <span class="n">just</span> <span class="k">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">parameter</span> <span class="n">value</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span>
-    <span class="n">float</span> <span class="n">red_collective_play</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue_collective_play</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">red_recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue_recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
-
-    <span class="n">int</span> <span class="n">red_score</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">red_possession</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_red_pass</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_red_pass_succeed</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_red_interception</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">blue_score</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">blue_possession</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_blue_pass</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_blue_pass_succeed</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_blue_interception</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="n">bool</span> <span class="n">show_status</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">show_area</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">show_marked_player</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">show_ball_indicator</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-
-    <span class="n">bool</span> <span class="n">play_with_offside</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">bluePlayerPosition</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">8</span><span class="p">,</span><span class="m">10</span><span class="p">},</span> <span class="p">{</span><span class="m">8</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">},</span>
-        <span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">28</span><span class="p">,</span><span class="m">45</span><span class="p">},</span> <span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">65</span><span class="p">},</span>
-        <span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">65</span><span class="p">},</span> <span class="p">{</span><span class="m">55</span><span class="p">,</span><span class="m">45</span><span class="p">}</span>
-    <span class="p">];</span>
-
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">redPlayerPosition</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">120</span><span class="p">-</span><span class="m">8</span><span class="p">,</span><span class="m">10</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">8</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">10</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">},</span>
-        <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">30</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">28</span><span class="p">,</span><span class="m">45</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">30</span><span class="p">,</span><span class="m">65</span><span class="p">},</span>
-        <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">50</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">50</span><span class="p">,</span><span class="m">65</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">55</span><span class="p">,</span><span class="m">45</span><span class="p">}</span>
-    <span class="p">];</span>
-
-    <span class="n">ball</span> <span class="n">ball_agent</span><span class="p">;</span>
-    <span class="n">player</span> <span class="n">closest_red_player_from_the_ball</span><span class="p">;</span>
-    <span class="n">player</span> <span class="n">closest_blue_player_from_the_ball</span><span class="p">;</span>
-    <span class="n">player</span> <span class="n">called_player</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="m">120.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">loop</span> <span class="n">pos</span> <span class="n">over</span><span class="p">:</span><span class="n">redPlayerPosition</span> <span class="p">{</span>
-            <span class="nb">create</span> <span class="n">player</span> <span class="k">with</span><span class="p">:[</span><span class="n">team</span><span class="p">::</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">location</span><span class="p">::</span><span class="n">pos</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="n">loop</span> <span class="n">pos</span> <span class="n">over</span><span class="p">:</span><span class="n">bluePlayerPosition</span> <span class="p">{</span>
-            <span class="nb">create</span> <span class="n">player</span> <span class="k">with</span><span class="p">:[</span><span class="n">team</span><span class="p">::</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">location</span><span class="p">::</span><span class="n">pos</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">ball</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">location</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">ball_agt</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">&lt;-</span><span class="n">ball_agt</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">goal</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="m">0</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">},</span> <span class="n">team</span><span class="p">::</span><span class="s2">"blue"</span><span class="p">];</span>
-        <span class="nb">create</span> <span class="n">goal</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="m">120</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">},</span> <span class="n">team</span><span class="p">::</span><span class="s2">"red"</span><span class="p">];</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">float</span> <span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
-        <span class="n">float</span> <span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ball</span> <span class="p">&lt;</span> <span class="n">shortest_distance</span> <span class="k">and</span> <span class="n">inactivity_time</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">closest_red_player_from_the_ball</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-                <span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="n">distance_to_ball</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">offside_pos</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-                <span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="n">offside_pos</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">play_with_offside</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="m">120.0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
-        <span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ball</span> <span class="p">&lt;</span> <span class="n">shortest_distance</span> <span class="k">and</span> <span class="n">inactivity_time</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">closest_blue_player_from_the_ball</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-                <span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="n">distance_to_ball</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">offside_pos</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-                <span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="n">offside_pos</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">play_with_offside</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">previous_red_size_play_area</span> <span class="c1">!= red_size_play_area) {
-</span>            <span class="n">ask</span> <span class="n">area</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">update_size</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">previous_red_size_play_area</span> <span class="p">&lt;-</span> <span class="n">red_size_play_area</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">previous_blue_size_play_area</span> <span class="c1">!= blue_size_play_area) {
-</span>            <span class="n">ask</span> <span class="n">area</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">update_size</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">previous_blue_size_play_area</span> <span class="p">&lt;-</span> <span class="n">blue_size_play_area</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">blue_possession</span> <span class="p">&lt;-</span> <span class="n">blue_possession</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">red_possession</span> <span class="p">&lt;-</span> <span class="n">red_possession</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">reinit_phase</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">player</span> <span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
-            <span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">destination</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">120</span><span class="p">#</span><span class="n">m</span><span class="p">,</span><span class="m">90</span><span class="p">#</span><span class="n">m</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">red_players_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue_players_speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">red_size_play_area</span> <span class="p">&lt;-</span> <span class="m">30.0</span> <span class="k">min</span><span class="p">:</span><span class="m">1.0</span> <span class="k">max</span><span class="p">:</span><span class="m">100.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue_size_play_area</span> <span class="p">&lt;-</span> <span class="m">30.0</span> <span class="k">min</span><span class="p">:</span> <span class="m">1.0</span> <span class="k">max</span><span class="p">:</span><span class="m">100.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">previous_red_size_play_area</span> <span class="p">&lt;-</span> <span class="n">red_size_play_area</span><span class="p">;</span> <span class="p">//</span> <span class="n">just</span> <span class="k">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">parameter</span> <span class="n">value</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span>
+	<span class="n">float</span> <span class="n">previous_blue_size_play_area</span> <span class="p">&lt;-</span> <span class="n">blue_size_play_area</span><span class="p">;</span> <span class="p">//</span> <span class="n">just</span> <span class="k">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">parameter</span> <span class="n">value</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span>
+	<span class="n">float</span> <span class="n">red_collective_play</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue_collective_play</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">red_recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue_recuperation_ability</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="k">min</span><span class="p">:</span><span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.0</span><span class="p">;</span>
+	
+	<span class="n">int</span> <span class="n">red_score</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">red_possession</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_red_pass</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_red_pass_succeed</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_red_interception</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">blue_score</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">blue_possession</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_blue_pass</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_blue_pass_succeed</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_blue_interception</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+	
+	<span class="n">bool</span> <span class="n">show_status</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">show_area</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">show_marked_player</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">show_ball_indicator</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	
+	<span class="n">bool</span> <span class="n">play_with_offside</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">bluePlayerPosition</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">8</span><span class="p">,</span><span class="m">10</span><span class="p">},</span> <span class="p">{</span><span class="m">8</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">},</span>
+		<span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">28</span><span class="p">,</span><span class="m">45</span><span class="p">},</span> <span class="p">{</span><span class="m">30</span><span class="p">,</span><span class="m">65</span><span class="p">},</span>
+		<span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">50</span><span class="p">,</span><span class="m">65</span><span class="p">},</span> <span class="p">{</span><span class="m">55</span><span class="p">,</span><span class="m">45</span><span class="p">}</span>
+	<span class="p">];</span>
+	
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">redPlayerPosition</span> <span class="p">&lt;-</span> <span class="p">[{</span><span class="m">120</span><span class="p">-</span><span class="m">8</span><span class="p">,</span><span class="m">10</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">8</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">10</span><span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">10</span><span class="p">,</span><span class="m">60</span><span class="p">},</span>
+		<span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">30</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">28</span><span class="p">,</span><span class="m">45</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">30</span><span class="p">,</span><span class="m">65</span><span class="p">},</span>
+		<span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">50</span><span class="p">,</span><span class="m">25</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">50</span><span class="p">,</span><span class="m">65</span><span class="p">},</span> <span class="p">{</span><span class="m">120</span><span class="p">-</span><span class="m">55</span><span class="p">,</span><span class="m">45</span><span class="p">}</span>
+	<span class="p">];</span>
+	
+	<span class="n">ball</span> <span class="n">ball_agent</span><span class="p">;</span>
+	<span class="n">player</span> <span class="n">closest_red_player_from_the_ball</span><span class="p">;</span>
+	<span class="n">player</span> <span class="n">closest_blue_player_from_the_ball</span><span class="p">;</span>
+	<span class="n">player</span> <span class="n">called_player</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="m">120.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">pos</span> <span class="n">over</span><span class="p">:</span><span class="n">redPlayerPosition</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">player</span> <span class="k">with</span><span class="p">:[</span><span class="n">team</span><span class="p">::</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">location</span><span class="p">::</span><span class="n">pos</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="n">loop</span> <span class="n">pos</span> <span class="n">over</span><span class="p">:</span><span class="n">bluePlayerPosition</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">player</span> <span class="k">with</span><span class="p">:[</span><span class="n">team</span><span class="p">::</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">location</span><span class="p">::</span><span class="n">pos</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">ball</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">location</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">ball_agt</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">&lt;-</span><span class="n">ball_agt</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">goal</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="m">0</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">},</span> <span class="n">team</span><span class="p">::</span><span class="s2">"blue"</span><span class="p">];</span>
+		<span class="nb">create</span> <span class="n">goal</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::{</span><span class="m">120</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">},</span> <span class="n">team</span><span class="p">::</span><span class="s2">"red"</span><span class="p">];</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">float</span> <span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+		<span class="n">float</span> <span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ball</span> <span class="p">&lt;</span> <span class="n">shortest_distance</span> <span class="k">and</span> <span class="n">inactivity_time</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">closest_red_player_from_the_ball</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+				<span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="n">distance_to_ball</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">offside_pos</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+				<span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="n">offside_pos</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">play_with_offside</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">red_offside_pos</span> <span class="p">&lt;-</span> <span class="m">120.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+		<span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ball</span> <span class="p">&lt;</span> <span class="n">shortest_distance</span> <span class="k">and</span> <span class="n">inactivity_time</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">closest_blue_player_from_the_ball</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+				<span class="n">shortest_distance</span> <span class="p">&lt;-</span> <span class="n">distance_to_ball</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">offside_pos</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">offside_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+				<span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="n">offside_pos</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">play_with_offside</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">blue_offside_pos</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="n">previous_red_size_play_area</span> <span class="c1">!= red_size_play_area) {
+</span>			<span class="n">ask</span> <span class="n">area</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">update_size</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">previous_red_size_play_area</span> <span class="p">&lt;-</span> <span class="n">red_size_play_area</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">previous_blue_size_play_area</span> <span class="c1">!= blue_size_play_area) {
+</span>			<span class="n">ask</span> <span class="n">area</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">update_size</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">previous_blue_size_play_area</span> <span class="p">&lt;-</span> <span class="n">blue_size_play_area</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">blue_possession</span> <span class="p">&lt;-</span> <span class="n">blue_possession</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">red_possession</span> <span class="p">&lt;-</span> <span class="n">red_possession</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">reinit_phase</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">player</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
+			<span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">init_pos</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">destination</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">player</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span> <span class="p">//</span> <span class="n">value</span> <span class="p">:</span> <span class="s2">"blue"</span> <span class="p">(</span><span class="n">left</span> <span class="n">side</span><span class="p">)</span> <span class="k">or</span> <span class="s2">"red"</span> <span class="p">(</span><span class="n">right</span> <span class="n">side</span><span class="p">)</span>
-    <span class="n">bool</span> <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:(</span><span class="n">inactivity_time</span><span class="p">&lt;=</span><span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">inactivity_time</span><span class="p">-</span><span class="m">1</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">seed</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-    <span class="n">point</span> <span class="n">init_pos</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">previous_pos</span><span class="p">;</span>
-
-    <span class="p">//</span> <span class="n">strategy</span>
-    <span class="n">area</span> <span class="n">defensive_pos</span><span class="p">;</span>
-    <span class="n">area</span> <span class="n">offensive_pos</span><span class="p">;</span>
-    <span class="n">player</span> <span class="n">marked_player</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">collective_mark</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_collective_play</span> <span class="p">:</span> <span class="n">blue_collective_play</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">recuperation_mark</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_recuperation_ability</span> <span class="p">:</span> <span class="n">blue_recuperation_ability</span><span class="p">;</span>
-
-    <span class="k">string</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-
-    <span class="p">//</span> <span class="n">moving</span> <span class="n">attributes</span>
-    <span class="n">float</span> <span class="n">running_speed_without_ball</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_players_speed</span><span class="p">*</span><span class="m">0.8</span> <span class="p">:</span> <span class="n">blue_players_speed</span><span class="p">*</span><span class="m">0.8</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">running_speed_with_ball</span> <span class="p">&lt;-</span> <span class="m">0.6</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_players_speed</span><span class="p">*</span><span class="m">0.5</span> <span class="p">:</span> <span class="n">blue_players_speed</span><span class="p">*</span><span class="m">0.5</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.2</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-
-    <span class="n">float</span> <span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">distance_to_ennemy_goal</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="p">(</span> <span class="p">(</span><span class="n">goal</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team)) at 0);
-</span>    <span class="n">float</span> <span class="n">distance_to_ball</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">ball_agent</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">init_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">area</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">init_pos</span><span class="p">,</span> <span class="n">team</span><span class="p">::</span><span class="n">self</span><span class="p">.</span><span class="n">team</span><span class="p">,</span> <span class="n">position</span><span class="p">::</span><span class="n">init_pos</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">def_pos</span><span class="p">;</span>
-        <span class="n">defensive_pos</span> <span class="p">&lt;-</span> <span class="n">def_pos</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-        <span class="n">point</span> <span class="n">offensivePos</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">init_pos</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="m">60</span> <span class="p">:</span> <span class="n">init_pos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="m">60</span><span class="p">,</span><span class="n">init_pos</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-        <span class="nb">create</span> <span class="n">area</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">offensivePos</span><span class="p">,</span> <span class="n">team</span><span class="p">::</span><span class="n">self</span><span class="p">.</span><span class="n">team</span><span class="p">,</span> <span class="n">position</span><span class="p">::</span><span class="n">offensivePos</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">off_pos</span><span class="p">;</span>
-        <span class="n">offensive_pos</span> <span class="p">&lt;-</span> <span class="n">off_pos</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">update_status</span> <span class="p">{</span>
-        <span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">pl</span> <span class="n">over</span><span class="p">:</span><span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team) {
-</span>            <span class="n">float</span> <span class="n">distance_to_ennemy</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">pl</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ennemy</span> <span class="p">&lt;</span> <span class="n">distance_to_closest_ennemy</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="n">distance_to_ennemy</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">defensive_behavior</span> <span class="n">when</span><span class="p">:</span><span class="n">team_possession</span> <span class="c1">!= team {
-</span>        <span class="p">//</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="k">not</span> <span class="n">possessed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
-        <span class="k">do</span> <span class="n">apply_inertia</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">closest_red_player_from_the_ball</span> <span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">closest_blue_player_from_the_ball</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">defensive_move</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">offensive_behavior</span> <span class="n">when</span><span class="p">:</span><span class="n">team_possession</span> <span class="p">=</span> <span class="n">team</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">apply_inertia</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">possess_ball</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">run_with_ball</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ennemy_goal</span> <span class="p">&lt;</span> <span class="m">30</span> <span class="k">and</span> <span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="n">distance_to_ennemy_goal</span><span class="p">*</span><span class="n">distance_to_ennemy_goal</span><span class="p">/</span><span class="m">10</span><span class="p">+</span><span class="m">1</span><span class="p">)))</span> <span class="p">{</span>
-                <span class="p">//</span> <span class="n">shoot</span> <span class="c1">!
-</span>                <span class="k">do</span> <span class="n">kick_ball_to_goal</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="p">//</span> <span class="n">pass</span> <span class="c1">!
-</span>                <span class="k">if</span> <span class="p">(</span><span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">collective_mark</span><span class="p">))</span> <span class="p">{</span>
-                        <span class="k">do</span> <span class="n">pass_the_ball</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-                <span class="k">else</span> <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">collective_mark</span><span class="p">/</span><span class="m">50</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">do</span> <span class="n">pass_the_ball</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">=</span> <span class="s2">""</span> <span class="k">and</span>
-            <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">closest_red_player_from_the_ball</span> <span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">closest_blue_player_from_the_ball</span>
-            <span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span>
-        <span class="p">)</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">offensive_move</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">choose_player_to_mark</span> <span class="n">when</span><span class="p">:(</span><span class="n">cycle</span> <span class="k">mod</span> <span class="m">20</span><span class="p">=</span><span class="n">seed</span> <span class="k">or</span> <span class="n">cycle</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">player</span> <span class="n">where</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">offensive_pos</span> <span class="n">intersects</span> <span class="n">defensive_pos</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="n">marked_player</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="n">among</span> <span class="p">(</span><span class="n">player</span> <span class="n">where</span><span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">offensive_pos</span> <span class="n">intersects</span> <span class="n">defensive_pos</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team))) at 0;
-</span>        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">apply_inertia</span> <span class="p">{</span>
-        <span class="n">point</span> <span class="n">prev_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-        <span class="n">point</span> <span class="n">inertia_vect</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">previous_pos</span><span class="p">.</span><span class="n">x</span><span class="p">)*</span><span class="m">0.8</span><span class="p">,(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">previous_pos</span><span class="p">.</span><span class="n">y</span><span class="p">)*</span><span class="m">0.8</span><span class="p">};</span>
-        <span class="n">float</span> <span class="n">max_inertia</span> <span class="p">&lt;-</span> <span class="n">running_speed_without_ball</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">inertia_vect</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">max_inertia</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">float</span> <span class="n">inertia_x</span> <span class="p">&lt;-</span>  <span class="nb">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">max_inertia</span><span class="p">*</span><span class="n">max_inertia</span><span class="p">-</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span><span class="p">*</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
-            <span class="n">float</span> <span class="n">inertia_y</span> <span class="p">&lt;-</span>  <span class="nb">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">max_inertia</span><span class="p">*</span><span class="n">max_inertia</span><span class="p">-</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span><span class="p">));</span>
-            <span class="n">inertia_x</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">-</span><span class="n">inertia_x</span> <span class="p">:</span> <span class="n">inertia_x</span><span class="p">;</span>
-            <span class="n">inertia_y</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">-</span><span class="n">inertia_y</span> <span class="p">:</span> <span class="n">inertia_y</span><span class="p">;</span>
-            <span class="n">inertia_vect</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">inertia_x</span><span class="p">,</span><span class="n">inertia_y</span><span class="p">};</span>
-        <span class="p">}</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">+</span> <span class="n">inertia_vect</span><span class="p">;</span>
-        <span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">prev_pos</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">run_to_ball</span> <span class="p">{</span>
-        <span class="n">point</span> <span class="n">targetPos</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">ball_direction</span> <span class="n">intersects</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">targetPos</span> <span class="p">&lt;-</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="n">targetPos</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">ball_direction</span> <span class="n">closest_points_with</span> <span class="n">self</span><span class="p">)</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">targetPos</span><span class="p">,</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_without_ball</span><span class="p">];</span>
-
-        <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to the ball"</span><span class="p">;</span>
-
-        <span class="p">//</span> <span class="k">if</span> <span class="n">close</span> <span class="n">enough</span><span class="p">,</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;</span> <span class="m">1.5</span><span class="p">#</span><span class="n">m</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span><span class="p">*</span><span class="n">recuperation_mark</span><span class="p">+</span><span class="m">1</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="n">team</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="p">//</span> <span class="n">result</span> <span class="k">of</span> <span class="n">a</span> <span class="n">long</span> <span class="n">pass</span> <span class="n">for</span> <span class="n">instance</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">recuperation_mark</span><span class="p">*</span><span class="m">1.5</span><span class="p">))</span> <span class="p">{</span>
-                        <span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-                <span class="k">else</span> <span class="p">{</span>
-                    <span class="p">//</span> <span class="n">interception</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">recuperation_mark</span><span class="p">*</span><span class="m">0.8</span><span class="p">))</span> <span class="p">{</span>
-                        <span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">run_with_ball</span> <span class="p">{</span>
-        <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run with the ball"</span><span class="p">;</span>
-        <span class="n">point</span> <span class="n">goal_pos</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">goal</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team) {
-</span>                <span class="n">goal_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">goal_pos</span><span class="p">,</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_with_ball</span><span class="p">];</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">offensive_move</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="n">try</span> <span class="k">to</span> <span class="n">reach</span> <span class="n">an</span> <span class="n">offensive</span> <span class="n">postion</span>
-        <span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
-        <span class="n">geometry</span> <span class="n">possible_pos</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">world</span> <span class="k">inter</span> <span class="p">(</span><span class="n">rectangle</span><span class="p">({</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="m">120</span><span class="p">,</span><span class="m">90</span><span class="p">}))</span>
-        <span class="p">:</span> <span class="n">world</span> <span class="k">inter</span> <span class="p">(</span><span class="n">rectangle</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}));</span>
-
-
-        <span class="p">//</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">is</span> <span class="k">in</span> <span class="n">the</span> <span class="n">field</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">90</span><span class="p">};</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="m">90</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-        <span class="p">}</span>
-        <span class="p">//</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">is</span> <span class="k">in</span> <span class="n">offside</span> <span class="n">position</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">red_offside_pos</span> <span class="k">and</span> <span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">blue_offside_pos</span> <span class="k">and</span> <span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">{</span><span class="m">120</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-            <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to a non offside position"</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to a offensive place"</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">possible_pos</span> <span class="n">intersects</span> <span class="n">offensive_pos</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
-            <span class="p">}</span>
-            <span class="k">else</span>
-            <span class="p">{</span>
-                <span class="n">target_location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">offensive_pos</span> <span class="k">inter</span> <span class="n">possible_pos</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_location</span> <span class="n">speed</span><span class="p">:</span><span class="n">running_speed_without_ball</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">defensive_move</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="n">try</span> <span class="k">to</span> <span class="n">mark</span> <span class="n">an</span> <span class="n">ennemy</span> <span class="n">player</span>
-        <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"mark ennemy player"</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">marked_player</span> <span class="p">=</span> <span class="n">nil</span><span class="p">))</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">+((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)?{</span><span class="m">2</span><span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">5.0</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">2.0</span><span class="p">)-</span><span class="m">1</span><span class="p">}</span> <span class="p">:</span> <span class="p">{-</span><span class="m">2</span><span class="p">-</span><span class="n">rnd</span><span class="p">(</span><span class="m">5.0</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">2.0</span><span class="p">)-</span><span class="m">1</span><span class="p">}),</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_without_ball</span><span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">kick_ball_to_goal</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">ball_agent</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">shooted</span> <span class="n">speed_atr</span><span class="p">:</span><span class="m">4.0</span> <span class="n">target_position</span><span class="p">:((</span><span class="n">goal</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team)) at 0).location;
-</span>        <span class="p">}</span>
-        <span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">pass_the_ball</span> <span class="p">{</span>
-        <span class="n">float</span> <span class="n">wisest_choice_mark</span> <span class="p">&lt;-</span> <span class="p">-</span><span class="m">100.0</span><span class="p">;</span>
-        <span class="n">player</span> <span class="n">wisest_target</span><span class="p">;</span>
-        <span class="n">ask</span> <span class="n">player</span>  <span class="n">where</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self and (self distance_to each &gt; 15)) {
-</span>            <span class="n">int</span> <span class="n">number_of_ennemies_on_range</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">player</span> <span class="n">at_distance</span> <span class="m">5</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team));
-</span>            <span class="n">float</span> <span class="n">wise_choice_mark</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">-</span><span class="n">distance_to_ball</span><span class="p">+</span><span class="n">number_of_ennemies_on_range</span><span class="p">*</span><span class="m">10</span><span class="p">-</span><span class="m">2</span><span class="p">*</span><span class="n">distance_to_ennemy_goal</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">wise_choice_mark</span> <span class="p">&gt;</span> <span class="n">wisest_choice_mark</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">wisest_target</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-                <span class="n">wisest_choice_mark</span> <span class="p">&lt;-</span> <span class="n">wise_choice_mark</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">wisest_choice_mark</span> <span class="p">&gt;</span> <span class="p">-</span><span class="m">100.0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="p">//</span> <span class="n">a</span> <span class="n">target</span> <span class="n">has</span> <span class="n">been</span> <span class="n">found</span>
-            <span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">ball_agent</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">shooted</span> <span class="n">target_position</span><span class="p">:</span><span class="n">wisest_target</span><span class="p">.</span><span class="n">location</span> <span class="n">speed_atr</span><span class="p">:</span><span class="n">wisest_target</span><span class="p">.</span><span class="n">distance_to_ball</span><span class="p">/</span><span class="m">8</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">called_player</span> <span class="p">&lt;-</span> <span class="n">wisest_target</span><span class="p">;</span>
-            <span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_pass</span> <span class="p">&lt;-</span> <span class="n">nb_red_pass</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-            <span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_pass</span> <span class="p">&lt;-</span> <span class="n">nb_blue_pass</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">take_ball</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="c1">!= "" and ball_agent.belong_to_team != team) {
-</span>            <span class="n">ask</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_player</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="n">team</span><span class="p">;</span>
-        <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="n">team</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_player</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_pass_succeed</span> <span class="p">&lt;-</span> <span class="n">nb_red_pass_succeed</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-            <span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_pass_succeed</span> <span class="p">&lt;-</span> <span class="n">nb_blue_pass_succeed</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_interception</span> <span class="p">&lt;-</span> <span class="n">nb_red_interception</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-            <span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_interception</span> <span class="p">&lt;-</span> <span class="n">nb_blue_interception</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
-        <span class="p">}</span>
-        <span class="n">called_player</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">loose_ball</span> <span class="p">{</span>
-        <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">show_status</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">marked_player</span> <span class="c1">!= nil) {
-</span>                <span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">]);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">marked_player</span> <span class="c1">!= nil and show_marked_player) {
-</span>            <span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1</span> <span class="n">color</span><span class="p">:#</span><span class="n">chartreuse</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span> <span class="p">//</span> <span class="n">value</span> <span class="p">:</span> <span class="s2">"blue"</span> <span class="p">(</span><span class="n">left</span> <span class="n">side</span><span class="p">)</span> <span class="k">or</span> <span class="s2">"red"</span> <span class="p">(</span><span class="n">right</span> <span class="n">side</span><span class="p">)</span>
+	<span class="n">bool</span> <span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">0</span> <span class="n">update</span><span class="p">:(</span><span class="n">inactivity_time</span><span class="p">&lt;=</span><span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">inactivity_time</span><span class="p">-</span><span class="m">1</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">seed</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">init_pos</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">previous_pos</span><span class="p">;</span>
+	
+	<span class="p">//</span> <span class="n">strategy</span>
+	<span class="n">area</span> <span class="n">defensive_pos</span><span class="p">;</span>
+	<span class="n">area</span> <span class="n">offensive_pos</span><span class="p">;</span>
+	<span class="n">player</span> <span class="n">marked_player</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">collective_mark</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_collective_play</span> <span class="p">:</span> <span class="n">blue_collective_play</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">recuperation_mark</span> <span class="p">&lt;-</span> <span class="m">0.5</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_recuperation_ability</span> <span class="p">:</span> <span class="n">blue_recuperation_ability</span><span class="p">;</span>
+	
+	<span class="k">string</span> <span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	
+	<span class="p">//</span> <span class="n">moving</span> <span class="n">attributes</span>
+	<span class="n">float</span> <span class="n">running_speed_without_ball</span> <span class="p">&lt;-</span> <span class="m">0.8</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_players_speed</span><span class="p">*</span><span class="m">0.8</span> <span class="p">:</span> <span class="n">blue_players_speed</span><span class="p">*</span><span class="m">0.8</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">running_speed_with_ball</span> <span class="p">&lt;-</span> <span class="m">0.6</span> <span class="n">update</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">red_players_speed</span><span class="p">*</span><span class="m">0.5</span> <span class="p">:</span> <span class="n">blue_players_speed</span><span class="p">*</span><span class="m">0.5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span><span class="m">1.2</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">velocity</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+	
+	<span class="n">float</span> <span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">distance_to_ennemy_goal</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="p">(</span> <span class="p">(</span><span class="n">goal</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team)) at 0);
+</span>	<span class="n">float</span> <span class="n">distance_to_ball</span> <span class="p">&lt;-</span> <span class="m">100.0</span> <span class="n">update</span><span class="p">:</span><span class="n">self</span> <span class="n">distance_to</span> <span class="n">ball_agent</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">init_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">area</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">init_pos</span><span class="p">,</span> <span class="n">team</span><span class="p">::</span><span class="n">self</span><span class="p">.</span><span class="n">team</span><span class="p">,</span> <span class="n">position</span><span class="p">::</span><span class="n">init_pos</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">def_pos</span><span class="p">;</span>
+		<span class="n">defensive_pos</span> <span class="p">&lt;-</span> <span class="n">def_pos</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+		<span class="n">point</span> <span class="n">offensivePos</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">init_pos</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="m">60</span> <span class="p">:</span> <span class="n">init_pos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="m">60</span><span class="p">,</span><span class="n">init_pos</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+		<span class="nb">create</span> <span class="n">area</span> <span class="k">with</span><span class="p">:[</span><span class="n">location</span><span class="p">::</span><span class="n">offensivePos</span><span class="p">,</span> <span class="n">team</span><span class="p">::</span><span class="n">self</span><span class="p">.</span><span class="n">team</span><span class="p">,</span> <span class="n">position</span><span class="p">::</span><span class="n">offensivePos</span><span class="p">]</span> <span class="n">returns</span><span class="p">:</span><span class="n">off_pos</span><span class="p">;</span>
+		<span class="n">offensive_pos</span> <span class="p">&lt;-</span> <span class="n">off_pos</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">update_status</span> <span class="p">{</span>
+		<span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="m">100.0</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">pl</span> <span class="n">over</span><span class="p">:</span><span class="n">player</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team) {
+</span>			<span class="n">float</span> <span class="n">distance_to_ennemy</span> <span class="p">&lt;-</span> <span class="n">self</span> <span class="n">distance_to</span> <span class="n">pl</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ennemy</span> <span class="p">&lt;</span> <span class="n">distance_to_closest_ennemy</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;-</span> <span class="n">distance_to_ennemy</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">defensive_behavior</span> <span class="n">when</span><span class="p">:</span><span class="n">team_possession</span> <span class="c1">!= team {
+</span>		<span class="p">//</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="k">not</span> <span class="n">possessed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span>
+		<span class="k">do</span> <span class="n">apply_inertia</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">closest_red_player_from_the_ball</span> <span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">closest_blue_player_from_the_ball</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">defensive_move</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">offensive_behavior</span> <span class="n">when</span><span class="p">:</span><span class="n">team_possession</span> <span class="p">=</span> <span class="n">team</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">apply_inertia</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">possess_ball</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">run_with_ball</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">distance_to_ennemy_goal</span> <span class="p">&lt;</span> <span class="m">30</span> <span class="k">and</span> <span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="n">distance_to_ennemy_goal</span><span class="p">*</span><span class="n">distance_to_ennemy_goal</span><span class="p">/</span><span class="m">10</span><span class="p">+</span><span class="m">1</span><span class="p">)))</span> <span class="p">{</span>
+				<span class="p">//</span> <span class="n">shoot</span> <span class="c1">!
+</span>				<span class="k">do</span> <span class="n">kick_ball_to_goal</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="p">{</span>
+				<span class="p">//</span> <span class="n">pass</span> <span class="c1">!
+</span>				<span class="k">if</span> <span class="p">(</span><span class="n">distance_to_closest_ennemy</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+					<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">collective_mark</span><span class="p">))</span> <span class="p">{</span>
+						<span class="k">do</span> <span class="n">pass_the_ball</span><span class="p">;</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+				<span class="k">else</span> <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">collective_mark</span><span class="p">/</span><span class="m">50</span><span class="p">)</span> <span class="p">{</span>
+					<span class="k">do</span> <span class="n">pass_the_ball</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">=</span> <span class="s2">""</span> <span class="k">and</span>
+			<span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">closest_red_player_from_the_ball</span> <span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">closest_blue_player_from_the_ball</span>
+			<span class="k">or</span> <span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span>
+		<span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">run_to_ball</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">offensive_move</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">choose_player_to_mark</span> <span class="n">when</span><span class="p">:(</span><span class="n">cycle</span> <span class="k">mod</span> <span class="m">20</span><span class="p">=</span><span class="n">seed</span> <span class="k">or</span> <span class="n">cycle</span><span class="p">=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="k">not</span> <span class="n">empty</span><span class="p">(</span><span class="n">player</span> <span class="n">where</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">offensive_pos</span> <span class="n">intersects</span> <span class="n">defensive_pos</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span>
+			<span class="n">marked_player</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="n">among</span> <span class="p">(</span><span class="n">player</span> <span class="n">where</span><span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">offensive_pos</span> <span class="n">intersects</span> <span class="n">defensive_pos</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= team))) at 0;
+</span>		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">apply_inertia</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">prev_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+		<span class="n">point</span> <span class="n">inertia_vect</span> <span class="p">&lt;-</span> <span class="p">{(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">previous_pos</span><span class="p">.</span><span class="n">x</span><span class="p">)*</span><span class="m">0.8</span><span class="p">,(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">previous_pos</span><span class="p">.</span><span class="n">y</span><span class="p">)*</span><span class="m">0.8</span><span class="p">};</span>
+		<span class="n">float</span> <span class="n">max_inertia</span> <span class="p">&lt;-</span> <span class="n">running_speed_without_ball</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">inertia_vect</span><span class="p">)</span> <span class="p">&gt;</span> <span class="n">max_inertia</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">float</span> <span class="n">inertia_x</span> <span class="p">&lt;-</span>  <span class="nb">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">max_inertia</span><span class="p">*</span><span class="n">max_inertia</span><span class="p">-</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span><span class="p">*</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
+			<span class="n">float</span> <span class="n">inertia_y</span> <span class="p">&lt;-</span>  <span class="nb">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">max_inertia</span><span class="p">*</span><span class="n">max_inertia</span><span class="p">-</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span><span class="p">));</span>
+			<span class="n">inertia_x</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">-</span><span class="n">inertia_x</span> <span class="p">:</span> <span class="n">inertia_x</span><span class="p">;</span>
+			<span class="n">inertia_y</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">inertia_vect</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">-</span><span class="n">inertia_y</span> <span class="p">:</span> <span class="n">inertia_y</span><span class="p">;</span>
+			<span class="n">inertia_vect</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">inertia_x</span><span class="p">,</span><span class="n">inertia_y</span><span class="p">};</span>
+		<span class="p">}</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="p">+</span> <span class="n">inertia_vect</span><span class="p">;</span>
+		<span class="n">previous_pos</span> <span class="p">&lt;-</span> <span class="n">prev_pos</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">run_to_ball</span> <span class="p">{</span>
+		<span class="n">point</span> <span class="n">targetPos</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">ball_direction</span> <span class="n">intersects</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">targetPos</span> <span class="p">&lt;-</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">targetPos</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">ball_direction</span> <span class="n">closest_points_with</span> <span class="n">self</span><span class="p">)</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">targetPos</span><span class="p">,</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_without_ball</span><span class="p">];</span>
+		
+		<span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to the ball"</span><span class="p">;</span>
+		
+		<span class="p">//</span> <span class="k">if</span> <span class="n">close</span> <span class="n">enough</span><span class="p">,</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;</span> <span class="m">1.5</span><span class="p">#</span><span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">1</span><span class="p">/(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span><span class="p">*</span><span class="n">recuperation_mark</span><span class="p">+</span><span class="m">1</span><span class="p">))</span> <span class="p">{</span>
+					<span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span> <span class="p">=</span> <span class="n">team</span><span class="p">)</span> <span class="p">{</span>
+					<span class="p">//</span> <span class="n">result</span> <span class="k">of</span> <span class="n">a</span> <span class="n">long</span> <span class="n">pass</span> <span class="n">for</span> <span class="n">instance</span>
+					<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">recuperation_mark</span><span class="p">*</span><span class="m">1.5</span><span class="p">))</span> <span class="p">{</span>
+						<span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+				<span class="k">else</span> <span class="p">{</span>
+					<span class="p">//</span> <span class="n">interception</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span>
+					<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">recuperation_mark</span><span class="p">*</span><span class="m">0.8</span><span class="p">))</span> <span class="p">{</span>
+						<span class="k">do</span> <span class="n">take_ball</span><span class="p">;</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">run_with_ball</span> <span class="p">{</span>
+		<span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run with the ball"</span><span class="p">;</span>
+		<span class="n">point</span> <span class="n">goal_pos</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">goal</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team) {
+</span>				<span class="n">goal_pos</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">goal_pos</span><span class="p">,</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_with_ball</span><span class="p">];</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">offensive_move</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">try</span> <span class="k">to</span> <span class="n">reach</span> <span class="n">an</span> <span class="n">offensive</span> <span class="n">postion</span>
+		<span class="n">point</span> <span class="n">target_location</span><span class="p">;</span>
+		<span class="n">geometry</span> <span class="n">possible_pos</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">world</span> <span class="k">inter</span> <span class="p">(</span><span class="n">rectangle</span><span class="p">({</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="m">120</span><span class="p">,</span><span class="m">90</span><span class="p">}))</span>
+		<span class="p">:</span> <span class="n">world</span> <span class="k">inter</span> <span class="p">(</span><span class="n">rectangle</span><span class="p">({</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}));</span>
+		
+		
+		<span class="p">//</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">is</span> <span class="k">in</span> <span class="n">the</span> <span class="n">field</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">90</span><span class="p">};</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="m">90</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="p">}</span>
+		<span class="p">//</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">is</span> <span class="k">in</span> <span class="n">offside</span> <span class="n">position</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">red_offside_pos</span> <span class="k">and</span> <span class="n">team</span> <span class="p">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">blue_offside_pos</span> <span class="k">and</span> <span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">{</span><span class="m">120</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+			<span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to a non offside position"</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"run to a offensive place"</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">possible_pos</span> <span class="n">intersects</span> <span class="n">offensive_pos</span><span class="p">))</span> <span class="p">{</span>
+				<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+			<span class="p">}</span>
+			<span class="k">else</span>
+			<span class="p">{</span>
+				<span class="n">target_location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">offensive_pos</span> <span class="k">inter</span> <span class="n">possible_pos</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_location</span> <span class="n">speed</span><span class="p">:</span><span class="n">running_speed_without_ball</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">defensive_move</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">try</span> <span class="k">to</span> <span class="n">mark</span> <span class="n">an</span> <span class="n">ennemy</span> <span class="n">player</span>
+		<span class="n">status</span> <span class="p">&lt;-</span> <span class="s2">"mark ennemy player"</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="p">(</span><span class="n">marked_player</span> <span class="p">=</span> <span class="n">nil</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">goto</span> <span class="k">with</span><span class="p">:[</span><span class="n">target</span><span class="p">::</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">+((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)?{</span><span class="m">2</span><span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">5.0</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">2.0</span><span class="p">)-</span><span class="m">1</span><span class="p">}</span> <span class="p">:</span> <span class="p">{-</span><span class="m">2</span><span class="p">-</span><span class="n">rnd</span><span class="p">(</span><span class="m">5.0</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="m">2.0</span><span class="p">)-</span><span class="m">1</span><span class="p">}),</span> <span class="n">speed</span><span class="p">::</span><span class="n">running_speed_without_ball</span><span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">kick_ball_to_goal</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">ball_agent</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">shooted</span> <span class="n">speed_atr</span><span class="p">:</span><span class="m">4.0</span> <span class="n">target_position</span><span class="p">:((</span><span class="n">goal</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team)) at 0).location;
+</span>		<span class="p">}</span>
+		<span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">pass_the_ball</span> <span class="p">{</span>
+		<span class="n">float</span> <span class="n">wisest_choice_mark</span> <span class="p">&lt;-</span> <span class="p">-</span><span class="m">100.0</span><span class="p">;</span>
+		<span class="n">player</span> <span class="n">wisest_target</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">player</span>  <span class="n">where</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="p">=</span> <span class="n">team</span> <span class="k">and</span> <span class="n">each</span> <span class="c1">!= self and (self distance_to each &gt; 15)) {
+</span>			<span class="n">int</span> <span class="n">number_of_ennemies_on_range</span> <span class="p">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">player</span> <span class="n">at_distance</span> <span class="m">5</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">team</span> <span class="c1">!= myself.team));
+</span>			<span class="n">float</span> <span class="n">wise_choice_mark</span> <span class="p">&lt;-</span> <span class="m">100</span><span class="p">-</span><span class="n">distance_to_ball</span><span class="p">+</span><span class="n">number_of_ennemies_on_range</span><span class="p">*</span><span class="m">10</span><span class="p">-</span><span class="m">2</span><span class="p">*</span><span class="n">distance_to_ennemy_goal</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">wise_choice_mark</span> <span class="p">&gt;</span> <span class="n">wisest_choice_mark</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">wisest_target</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+				<span class="n">wisest_choice_mark</span> <span class="p">&lt;-</span> <span class="n">wise_choice_mark</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">wisest_choice_mark</span> <span class="p">&gt;</span> <span class="p">-</span><span class="m">100.0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">a</span> <span class="n">target</span> <span class="n">has</span> <span class="n">been</span> <span class="n">found</span>
+			<span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">ball_agent</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">shooted</span> <span class="n">target_position</span><span class="p">:</span><span class="n">wisest_target</span><span class="p">.</span><span class="n">location</span> <span class="n">speed_atr</span><span class="p">:</span><span class="n">wisest_target</span><span class="p">.</span><span class="n">distance_to_ball</span><span class="p">/</span><span class="m">8</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">called_player</span> <span class="p">&lt;-</span> <span class="n">wisest_target</span><span class="p">;</span>
+			<span class="n">inactivity_time</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_pass</span> <span class="p">&lt;-</span> <span class="n">nb_red_pass</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+			<span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_pass</span> <span class="p">&lt;-</span> <span class="n">nb_blue_pass</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">take_ball</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="c1">!= "" and ball_agent.belong_to_team != team) {
+</span>			<span class="n">ask</span> <span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_player</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">loose_ball</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">team_possession</span> <span class="p">&lt;-</span> <span class="n">team</span><span class="p">;</span>
+		<span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="n">team</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_player</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="p">=</span> <span class="n">called_player</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_pass_succeed</span> <span class="p">&lt;-</span> <span class="n">nb_red_pass_succeed</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+			<span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_pass_succeed</span> <span class="p">&lt;-</span> <span class="n">nb_blue_pass_succeed</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">team</span> <span class="p">=</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><span class="n">nb_red_interception</span> <span class="p">&lt;-</span> <span class="n">nb_red_interception</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+			<span class="k">else</span> <span class="p">{</span><span class="n">nb_blue_interception</span> <span class="p">&lt;-</span> <span class="n">nb_blue_interception</span><span class="p">+</span><span class="m">1</span><span class="p">;}</span>
+		<span class="p">}</span>
+		<span class="n">called_player</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">loose_ball</span> <span class="p">{</span>
+		<span class="n">possess_ball</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="n">ball_agent</span><span class="p">.</span><span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">show_status</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">marked_player</span> <span class="c1">!= nil) {
+</span>				<span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">]);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">marked_player</span> <span class="c1">!= nil and show_marked_player) {
+</span>			<span class="n">draw</span> <span class="n">polyline</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">marked_player</span><span class="p">.</span><span class="n">location</span><span class="p">])</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1</span> <span class="n">color</span><span class="p">:#</span><span class="n">chartreuse</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">area</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">position</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="p">((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="n">red_size_play_area</span><span class="p">)</span> <span class="p">:</span> <span class="n">square</span><span class="p">(</span><span class="n">blue_size_play_area</span><span class="p">))</span> <span class="k">inter</span> <span class="n">world</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="n">update_size</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">position</span><span class="p">;</span>
-        <span class="n">shape</span> <span class="p">&lt;-</span> <span class="p">((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="n">red_size_play_area</span><span class="p">)</span> <span class="p">:</span> <span class="n">square</span><span class="p">(</span><span class="n">blue_size_play_area</span><span class="p">))</span> <span class="k">inter</span> <span class="n">world</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">show_area</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">128</span><span class="p">,</span><span class="m">128</span><span class="p">,</span><span class="m">128</span><span class="p">,</span><span class="m">50</span><span class="p">)</span> <span class="n">border</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">rgb</span><span class="p">(</span><span class="m">256</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">100</span><span class="p">)</span> <span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">256.0</span><span class="p">,</span><span class="m">100</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">position</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="p">((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="n">red_size_play_area</span><span class="p">)</span> <span class="p">:</span> <span class="n">square</span><span class="p">(</span><span class="n">blue_size_play_area</span><span class="p">))</span> <span class="k">inter</span> <span class="n">world</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">action</span> <span class="n">update_size</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">position</span><span class="p">;</span>
+		<span class="n">shape</span> <span class="p">&lt;-</span> <span class="p">((</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">square</span><span class="p">(</span><span class="n">red_size_play_area</span><span class="p">)</span> <span class="p">:</span> <span class="n">square</span><span class="p">(</span><span class="n">blue_size_play_area</span><span class="p">))</span> <span class="k">inter</span> <span class="n">world</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">show_area</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">128</span><span class="p">,</span><span class="m">128</span><span class="p">,</span><span class="m">128</span><span class="p">,</span><span class="m">50</span><span class="p">)</span> <span class="n">border</span><span class="p">:(</span><span class="n">team</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">?</span> <span class="n">rgb</span><span class="p">(</span><span class="m">256</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">100</span><span class="p">)</span> <span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">256.0</span><span class="p">,</span><span class="m">100</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">ball</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>
-    <span class="k">string</span> <span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="n">player</span> <span class="n">belong_to_player</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">nextPlace</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">ball_direction</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
-        <span class="n">float</span> <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">;</span>
-        <span class="n">point</span> <span class="n">tmpPos</span><span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="m">10</span> <span class="p">{</span>
-            <span class="n">tmpPos</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">};</span>
-            <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">future_speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">ball_direction</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">]);</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">120</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">blue_score</span> <span class="p">&lt;-</span> <span class="n">blue_score</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">world</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">red_score</span> <span class="p">&lt;-</span> <span class="n">red_score</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">world</span> <span class="p">{</span>
-                <span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">action</span> <span class="n">shooted</span> <span class="p">(</span><span class="n">point</span> <span class="n">target_position</span><span class="p">,</span> <span class="n">float</span> <span class="n">speed_atr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed_atr</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_position</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">show_ball_indicator</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">ball_direction</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1</span> <span class="n">color</span><span class="p">:#</span><span class="n">chartreuse</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkred</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span><span class="p">=</span><span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkblue</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">belong_to_team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="n">player</span> <span class="n">belong_to_player</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">point</span><span class="p">&gt;</span> <span class="n">nextPlace</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">ball_direction</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">update</span> <span class="p">{</span>
+		<span class="n">float</span> <span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">speed</span><span class="p">;</span>
+		<span class="n">point</span> <span class="n">tmpPos</span><span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="m">10</span> <span class="p">{</span>
+			<span class="n">tmpPos</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">};</span>
+			<span class="n">future_speed</span> <span class="p">&lt;-</span> <span class="n">future_speed</span><span class="p">*</span><span class="m">0.9</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ball_direction</span> <span class="p">&lt;-</span> <span class="n">line</span><span class="p">([</span><span class="n">location</span><span class="p">,</span><span class="n">tmpPos</span><span class="p">]);</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">120</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">blue_score</span> <span class="p">&lt;-</span> <span class="n">blue_score</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">world</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">)*</span><span class="n">speed</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">red_score</span> <span class="p">&lt;-</span> <span class="n">red_score</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">world</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">reinit_phase</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">action</span> <span class="n">shooted</span> <span class="p">(</span><span class="n">point</span> <span class="n">target_position</span><span class="p">,</span> <span class="n">float</span> <span class="n">speed_atr</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">speed</span> <span class="p">&lt;-</span> <span class="n">speed_atr</span><span class="p">;</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target_position</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">white</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">show_ball_indicator</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">ball_direction</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1</span> <span class="n">color</span><span class="p">:#</span><span class="n">chartreuse</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span><span class="p">=</span><span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkred</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">team_possession</span><span class="p">=</span><span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkblue</span> <span class="n">border</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goal</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">0.1</span><span class="p">,</span><span class="m">7.32</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">string</span> <span class="n">team</span> <span class="p">&lt;-</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">0.1</span><span class="p">,</span><span class="m">7.32</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">match</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"blue running speed"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_players_speed</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"red running speed"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_players_speed</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">players</span> <span class="n">when</span> <span class="n">they</span> <span class="nf">run</span><span class="p">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">player</span> <span class="n">which</span> <span class="n">have</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">will</span> <span class="nf">run</span> <span class="n">at</span> <span class="m">50</span><span class="p">%</span> <span class="k">of</span> <span class="n">his</span> <span class="k">max</span> <span class="n">capacity</span><span class="p">,</span> <span class="k">and</span> <span class="n">he</span> <span class="n">will</span> <span class="nf">run</span> <span class="n">at</span> <span class="m">80</span><span class="p">%</span> <span class="k">of</span> <span class="n">his</span> <span class="k">max</span> <span class="n">capacity</span> <span class="k">if</span> <span class="n">he</span> <span class="n">does</span> <span class="k">not</span> <span class="n">have</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"blue collective play"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_collective_play</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"red collective play"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_collective_play</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">propention</span> <span class="k">of</span> <span class="n">giving</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">to</span> <span class="n">an</span> <span class="n">other</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span> <span class="k">If</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="m">0</span><span class="p">,</span> <span class="n">the</span> <span class="n">player</span> <span class="n">will</span> <span class="n">never</span> <span class="n">pass</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"blue recuperation ability"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_recuperation_ability</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"red recuperation ability"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_recuperation_ability</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">ability</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">no</span> <span class="n">player</span> <span class="n">has</span> <span class="n">it</span> <span class="k">and</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">other</span> <span class="n">team</span> <span class="n">has</span> <span class="n">it</span><span class="p">.</span> <span class="m">1</span> <span class="n">for</span> <span class="n">very</span> <span class="n">good</span> <span class="n">hability</span><span class="p">,</span> <span class="m">0</span> <span class="n">for</span> <span class="n">very</span> <span class="n">poor</span> <span class="n">hability</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"blue play area size"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_size_play_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"red play area size"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_size_play_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">change</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">each</span> <span class="n">player</span><span class="p">.</span> <span class="n">The</span> <span class="n">bigger</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">less</span> <span class="n">players</span> <span class="n">will</span> <span class="n">maintains</span> <span class="n">their</span> <span class="n">position</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"display status"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_status</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">his</span> <span class="n">intentions</span><span class="p">)</span>
-
-    <span class="n">parameter</span> <span class="s2">"display play area"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">the</span> <span class="n">offensive</span> <span class="k">and</span> <span class="n">defensive</span> <span class="n">area</span> <span class="k">of</span> <span class="n">each</span> <span class="n">player</span><span class="p">.</span> <span class="n">The</span> <span class="n">bigger</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">less</span> <span class="n">players</span> <span class="n">will</span> <span class="n">maintains</span> <span class="n">their</span> <span class="n">position</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"display marked player"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_marked_player</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">an</span> <span class="n">arrow</span> <span class="n">between</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">are</span> <span class="n">marked</span> <span class="n">each</span> <span class="n">other</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"display ball indicators"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_ball_indicator</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">if</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="n">possessed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">blue</span> <span class="k">or</span> <span class="n">the</span> <span class="n">red</span> <span class="n">team</span><span class="p">.</span> <span class="n">Display</span> <span class="n">also</span> <span class="n">the</span> <span class="n">direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">it</span> <span class="n">has</span> <span class="n">been</span> <span class="n">shooted</span><span class="p">.</span>
-
-    <span class="n">parameter</span> <span class="s2">"play with offside position"</span> <span class="n">var</span><span class="p">:</span><span class="n">play_with_offside</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Rules"</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">play</span> <span class="k">with</span> <span class="k">or</span> <span class="n">without</span> <span class="n">the</span> <span class="s2">"offside"</span> <span class="n">rule</span><span class="p">.</span>
-
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="s2">"soccer_field"</span> <span class="p">{</span>
-            <span class="p">//</span> <span class="n">display</span> <span class="n">the</span> <span class="n">field</span><span class="p">.</span>
-            <span class="n">image</span> <span class="s2">"../images/soccer_field.png"</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">player</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">ball</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">goal</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">area</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
-            <span class="n">graphics</span> <span class="s2">"score_display"</span> <span class="p">{</span>
-                <span class="n">draw</span> <span class="s2">"Blue side - "</span><span class="p">+</span><span class="k">string</span><span class="p">(</span><span class="n">blue_score</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">18</span> <span class="p">*</span> <span class="p">#</span><span class="n">zoom</span><span class="p">,</span> <span class="p">#</span><span class="n">bold</span><span class="p">)</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
-                <span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">red_score</span><span class="p">)+</span><span class="s2">" - Red side"</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="m">100</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">18</span> <span class="p">*</span> <span class="p">#</span><span class="n">zoom</span><span class="p">,</span> <span class="p">#</span><span class="n">bold</span><span class="p">)</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">show_status</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}])</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-                    <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}])</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">display</span> <span class="s2">"match_stats"</span> <span class="p">{</span>
-            <span class="p">//</span> <span class="n">display</span> <span class="n">some</span> <span class="n">statistics</span> <span class="n">about</span> <span class="n">the</span> <span class="n">game</span>
-            <span class="n">chart</span> <span class="s2">"ball_possession"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"Red possession"</span> <span class="n">value</span><span class="p">:</span><span class="n">red_possession</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"Blue possession"</span> <span class="n">value</span><span class="p">:</span><span class="n">blue_possession</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">chart</span> <span class="s2">"red pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="p">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">pass</span> <span class="n">is</span> <span class="n">said</span> <span class="s2">"successful"</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">was</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">initially</span><span class="p">.</span> <span class="n">A</span> <span class="s2">"failed pass"</span> <span class="n">does</span> <span class="k">not</span> <span class="n">necessary</span> <span class="n">means</span> <span class="n">that</span> <span class="n">the</span> <span class="n">team</span> <span class="n">have</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
-                    <span class="n">data</span> <span class="s2">"Red pass succeed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_red_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-                    <span class="n">data</span> <span class="s2">"Red pass failed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_red_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="m">1</span><span class="p">-</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkred</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">chart</span> <span class="s2">"blue pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="p">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">pass</span> <span class="n">is</span> <span class="n">said</span> <span class="s2">"successful"</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">was</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">initially</span><span class="p">.</span> <span class="n">A</span> <span class="s2">"failed pass"</span> <span class="n">does</span> <span class="k">not</span> <span class="n">necessary</span> <span class="n">means</span> <span class="n">that</span> <span class="n">the</span> <span class="n">team</span> <span class="n">have</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
-                <span class="n">data</span> <span class="s2">"Blue pass succeed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_blue_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"Blue pass failed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_blue_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="m">1</span><span class="p">-</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkblue</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">chart</span> <span class="s2">"number pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">series</span> <span class="n">position</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"Number pass red"</span> <span class="n">value</span><span class="p">:</span><span class="n">nb_red_pass</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"Number pass blue"</span> <span class="n">value</span><span class="p">:</span><span class="n">nb_blue_pass</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"blue running speed"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_players_speed</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"red running speed"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_players_speed</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">speed</span> <span class="k">of</span> <span class="n">players</span> <span class="n">when</span> <span class="n">they</span> <span class="nf">run</span><span class="p">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">player</span> <span class="n">which</span> <span class="n">have</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">will</span> <span class="nf">run</span> <span class="n">at</span> <span class="m">50</span><span class="p">%</span> <span class="k">of</span> <span class="n">his</span> <span class="k">max</span> <span class="n">capacity</span><span class="p">,</span> <span class="k">and</span> <span class="n">he</span> <span class="n">will</span> <span class="nf">run</span> <span class="n">at</span> <span class="m">80</span><span class="p">%</span> <span class="k">of</span> <span class="n">his</span> <span class="k">max</span> <span class="n">capacity</span> <span class="k">if</span> <span class="n">he</span> <span class="n">does</span> <span class="k">not</span> <span class="n">have</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"blue collective play"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_collective_play</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"red collective play"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_collective_play</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">propention</span> <span class="k">of</span> <span class="n">giving</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">to</span> <span class="n">an</span> <span class="n">other</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">team</span><span class="p">.</span> <span class="k">If</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="m">0</span><span class="p">,</span> <span class="n">the</span> <span class="n">player</span> <span class="n">will</span> <span class="n">never</span> <span class="n">pass</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"blue recuperation ability"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_recuperation_ability</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"red recuperation ability"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_recuperation_ability</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">ability</span> <span class="k">to</span> <span class="n">catch</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">no</span> <span class="n">player</span> <span class="n">has</span> <span class="n">it</span> <span class="k">and</span> <span class="n">when</span> <span class="n">a</span> <span class="n">player</span> <span class="k">of</span> <span class="n">the</span> <span class="n">other</span> <span class="n">team</span> <span class="n">has</span> <span class="n">it</span><span class="p">.</span> <span class="m">1</span> <span class="n">for</span> <span class="n">very</span> <span class="n">good</span> <span class="n">hability</span><span class="p">,</span> <span class="m">0</span> <span class="n">for</span> <span class="n">very</span> <span class="n">poor</span> <span class="n">hability</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"blue play area size"</span> <span class="n">var</span><span class="p">:</span><span class="n">blue_size_play_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Blue Team"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"red play area size"</span> <span class="n">var</span><span class="p">:</span><span class="n">red_size_play_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Red Team"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">change</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">area</span> <span class="k">of</span> <span class="n">each</span> <span class="n">player</span><span class="p">.</span> <span class="n">The</span> <span class="n">bigger</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">less</span> <span class="n">players</span> <span class="n">will</span> <span class="n">maintains</span> <span class="n">their</span> <span class="n">position</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"display status"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_status</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">the</span> <span class="n">current</span> <span class="n">status</span> <span class="k">of</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">his</span> <span class="n">intentions</span><span class="p">)</span>
+	
+	<span class="n">parameter</span> <span class="s2">"display play area"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_area</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">the</span> <span class="n">offensive</span> <span class="k">and</span> <span class="n">defensive</span> <span class="n">area</span> <span class="k">of</span> <span class="n">each</span> <span class="n">player</span><span class="p">.</span> <span class="n">The</span> <span class="n">bigger</span> <span class="n">this</span> <span class="n">area</span> <span class="n">is</span><span class="p">,</span> <span class="n">the</span> <span class="n">less</span> <span class="n">players</span> <span class="n">will</span> <span class="n">maintains</span> <span class="n">their</span> <span class="n">position</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"display marked player"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_marked_player</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">displays</span> <span class="k">or</span> <span class="k">not</span> <span class="n">an</span> <span class="n">arrow</span> <span class="n">between</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">are</span> <span class="n">marked</span> <span class="n">each</span> <span class="n">other</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"display ball indicators"</span> <span class="n">var</span><span class="p">:</span><span class="n">show_ball_indicator</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Display"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="k">if</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">is</span> <span class="n">possessed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">blue</span> <span class="k">or</span> <span class="n">the</span> <span class="n">red</span> <span class="n">team</span><span class="p">.</span> <span class="n">Display</span> <span class="n">also</span> <span class="n">the</span> <span class="n">direction</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">when</span> <span class="n">it</span> <span class="n">has</span> <span class="n">been</span> <span class="n">shooted</span><span class="p">.</span>
+	
+	<span class="n">parameter</span> <span class="s2">"play with offside position"</span> <span class="n">var</span><span class="p">:</span><span class="n">play_with_offside</span> <span class="n">category</span><span class="p">:</span><span class="s2">"Rules"</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">play</span> <span class="k">with</span> <span class="k">or</span> <span class="n">without</span> <span class="n">the</span> <span class="s2">"offside"</span> <span class="n">rule</span><span class="p">.</span>
+	
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="s2">"soccer_field"</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">display</span> <span class="n">the</span> <span class="n">field</span><span class="p">.</span>
+			<span class="n">image</span> <span class="s2">"../images/soccer_field.png"</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">player</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">ball</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">goal</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">area</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"score_display"</span> <span class="p">{</span>
+				<span class="n">draw</span> <span class="s2">"Blue side - "</span><span class="p">+</span><span class="k">string</span><span class="p">(</span><span class="n">blue_score</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">18</span> <span class="p">*</span> <span class="p">#</span><span class="n">zoom</span><span class="p">,</span> <span class="p">#</span><span class="n">bold</span><span class="p">)</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+				<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">red_score</span><span class="p">)+</span><span class="s2">" - Red side"</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span> <span class="n">at</span><span class="p">:</span> <span class="p">{</span><span class="m">100</span><span class="p">,</span><span class="m">5</span><span class="p">}</span> <span class="n">font</span><span class="p">:</span> <span class="n">font</span><span class="p">(</span><span class="s2">"Helvetica"</span><span class="p">,</span> <span class="m">18</span> <span class="p">*</span> <span class="p">#</span><span class="n">zoom</span><span class="p">,</span> <span class="p">#</span><span class="n">bold</span><span class="p">)</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">show_status</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">red_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}])</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+					<span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">0</span><span class="p">},{</span><span class="n">blue_offside_pos</span><span class="p">,</span><span class="m">90</span><span class="p">}])</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="s2">"match_stats"</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">display</span> <span class="n">some</span> <span class="n">statistics</span> <span class="n">about</span> <span class="n">the</span> <span class="n">game</span>
+			<span class="n">chart</span> <span class="s2">"ball_possession"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"Red possession"</span> <span class="n">value</span><span class="p">:</span><span class="n">red_possession</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"Blue possession"</span> <span class="n">value</span><span class="p">:</span><span class="n">blue_possession</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"red pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="p">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">pass</span> <span class="n">is</span> <span class="n">said</span> <span class="s2">"successful"</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">was</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">initially</span><span class="p">.</span> <span class="n">A</span> <span class="s2">"failed pass"</span> <span class="n">does</span> <span class="k">not</span> <span class="n">necessary</span> <span class="n">means</span> <span class="n">that</span> <span class="n">the</span> <span class="n">team</span> <span class="n">have</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
+					<span class="n">data</span> <span class="s2">"Red pass succeed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_red_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+					<span class="n">data</span> <span class="s2">"Red pass failed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_red_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="m">1</span><span class="p">-</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_red_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkred</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"blue pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">pie</span> <span class="n">position</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="p">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">a</span> <span class="n">pass</span> <span class="n">is</span> <span class="n">said</span> <span class="s2">"successful"</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">was</span> <span class="n">the</span> <span class="n">player</span> <span class="n">called</span> <span class="n">initially</span><span class="p">.</span> <span class="n">A</span> <span class="s2">"failed pass"</span> <span class="n">does</span> <span class="k">not</span> <span class="n">necessary</span> <span class="n">means</span> <span class="n">that</span> <span class="n">the</span> <span class="n">team</span> <span class="n">have</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">ball</span><span class="p">.</span>
+				<span class="n">data</span> <span class="s2">"Blue pass succeed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_blue_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"Blue pass failed"</span> <span class="n">value</span><span class="p">:(</span><span class="n">nb_blue_pass</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="m">1</span><span class="p">-</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass_succeed</span><span class="p">)/</span><span class="n">float</span><span class="p">(</span><span class="n">nb_blue_pass</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">darkblue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"number pass"</span> <span class="n">type</span><span class="p">:</span><span class="n">series</span> <span class="n">position</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">size</span><span class="p">:{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"Number pass red"</span> <span class="n">value</span><span class="p">:</span><span class="n">nb_red_pass</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"Number pass blue"</span> <span class="n">value</span><span class="p">:</span><span class="n">nb_blue_pass</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

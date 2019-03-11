@@ -3610,175 +3610,189 @@ function closeRightMenu() {
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="2-charts">2. Charts</h1>
-
 <p>This step Illustrates how define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Definition of new global variables: current_hour, nb_people_infected, nb_people_not_infected, infected_rate</li>
-<li>Definition of a monitor to follow the current hour and the nb of people infected</li>
-<li>Definition of a series chart to follow the number of people infected and not infected</li>
-<li>Definition of a stopping condition (when infected rate = 1)</li>
+  <li>Definition of new global variables: current_hour, nb_people_infected, nb_people_not_infected, infected_rate</li>
+  <li>Definition of a monitor to follow the current hour and the nb of people infected</li>
+  <li>Definition of a series chart to follow the number of people infected and not infected</li>
+  <li>Definition of a stopping condition (when infected rate = 1)</li>
 </ul>
 
-<p><img src="resources/images/tutorials/Incremental_model2.jpg" alt="images/Incremental_model2.jpg"></p>
+<p><img src="resources/images/tutorials/Incremental_model2.jpg" alt="images/Incremental_model2.jpg" /></p>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="global-variables">global variables</h3>
-
 <p>In order to define dynamic variable able to update itself, we use the <strong>update</strong> facet of variable definition.
 Indeed, at each simulation step, all the agents (and the world agent) apply for each dynamic variable (in their definition order) its update expression.
-We define 4 new variables:
-  * <strong>current hour</strong> (int) : current simulation step (<strong>cycle</strong>) / 60 mod 24
-  * <strong>nb_people_infected</strong> (int): nb of people with is_infected = true (use of the <strong>list count condition</strong> operator that count the number of elements of the list for which the condition is true)
-  * <strong>nb_people_not_infected</strong> (int): nb_people - nb of people infected
-  * <strong>infected_rate</strong> (float): nb of people infected / nb of people
-<code>
-global{
-    ...
-        int current_hour update: (cycle / 60) mod 24;
-    int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    int nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-    float infected_rate update: nb_people_infected/nb_people;
-    ...
+We define 4 new variables:</p>
+<ul>
+  <li><strong>current hour</strong> (int) : current simulation step (<strong>cycle</strong>) / 60 mod 24</li>
+  <li><strong>nb_people_infected</strong> (int): nb of people with is_infected = true (use of the <strong>list count condition</strong> operator that count the number of elements of the list for which the condition is true)</li>
+  <li><strong>nb_people_not_infected</strong> (int): nb_people - nb of people infected</li>
+  <li><strong>infected_rate</strong> (float): nb of people infected / nb of people
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{
+...
+    int current_hour update: (cycle / 60) mod 24;
+int nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
+int nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
+float infected_rate update: nb_people_infected/nb_people;
+...
 }
-</code></p>
-
-<h3 id="stopping-condition">stopping condition</h3>
+</code></pre></div>    </div>
+    <h3 id="stopping-condition">stopping condition</h3>
+  </li>
+</ul>
 
 <p>We add a new reflex that stops the simulation if the <strong>infected_rate</strong> is equal to 1. To stop the simulation, we apply the <strong>halt</strong> action.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    ...
         reflex end_simulation when: infected_rate = 1.0 {
-        do halt;
-    }
+		do halt;
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Note that it would have been possible to use the <strong>pause</strong> action that pauses the simulation instead of the <strong>halt</strong> action that stops the simulation.</p>
 
 <h3 id="monitor">monitor</h3>
+<p>A monitor allows to follow the value of an arbitrary expression in GAML. It has to be defined in an output section. A monitor is defined as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      monitor monitor_name value: an_expression refresh:every(nb_steps);
+</code></pre></div></div>
 
-<p>A monitor allows to follow the value of an arbitrary expression in GAML. It has to be defined in an output section. A monitor is defined as follows:
-<code>
-      monitor monitor_name value: an_expression refresh:every(nb_steps);
-</code></p>
+<p>With:</p>
+<ul>
+  <li>value: mandatory, its value will be displayed in the monitor.</li>
+  <li>refresh: bool, optional : if the expression is true, compute (default is true).</li>
+</ul>
 
-<p>With:
-  * value: mandatory, its value will be displayed in the monitor.
-  * refresh: bool, optional : if the expression is true, compute (default is true).</p>
-
-<p>In this model, we define 2 monitors to follow the value of the variable <strong>current_hour</strong> and <strong>infected_rate</strong>:
-<code>
-experiment main_experiment type:gui{
-    ...
-    output {
-        monitor &quot;Current hour&quot; value: current_hour;
-        monitor &quot;Infected people rate&quot; value: infected_rate;
-        ...
-    }
+<p>In this model, we define 2 monitors to follow the value of the variable <strong>current_hour</strong> and <strong>infected_rate</strong>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
+	...
+	output {
+		monitor "Current hour" value: current_hour;
+		monitor "Infected people rate" value: infected_rate;
+		...
+	}
 }
-</code></p>
+</code></pre></div></div>
 
 <h3 id="chart">chart</h3>
 
-<p>GAMA can display various chart types:
-  * Time series
-  * Pie charts
-  * Histograms</p>
+<p>GAMA can display various chart types:</p>
+<ul>
+  <li>Time series</li>
+  <li>Pie charts</li>
+  <li>Histograms</li>
+</ul>
 
 <p>A chart must be defined in a display : it behaves exactly like any other layer.
 Definition of a chart :</p>
-<div class="highlight"><pre><code class="language-" data-lang="">chart chart_name type: chart_type  {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chart chart_name type: chart_type  {
      [data]
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>The data to draw are define inside the chart block:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">     data data_legend value: data_value
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     data data_legend value: data_value
+</code></pre></div></div>
+
 <p>We add a new display called <strong>chart</strong> refresh every 10 simulation steps.
-Inside this display, we define a chart of type <em>series</em>:
-  * &quot;Species evolution&quot;; background : white; size : {1, 0.5}; position : {0, 0}
-    * data1: susceptible; color : green
-    * data2: infected; color : red</p>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment main_experiment type:gui{
-    ...
-    output {
-        ...
-        display chart refresh:every(10) {
-            chart "Disease spreading" type: series {
-                data "susceptible" value: nb_people_not_infected color: #green;
-                data "infected" value: nb_people_infected color: #red;
-            }
-        }
-    }
+Inside this display, we define a chart of type <em>series</em>:</p>
+<ul>
+  <li>“Species evolution”; background : white; size : {1, 0.5}; position : {0, 0}
+    <ul>
+      <li>data1: susceptible; color : green</li>
+      <li>data2: infected; color : red</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type:gui{
+	...
+	output {
+		...
+		display chart refresh:every(10) {
+			chart "Disease spreading" type: series {
+				data "susceptible" value: nb_people_not_infected color: #green;
+				data "infected" value: nb_people_infected color: #red;
+			}
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">SI_city</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">SI_city</span>
 
 <span class="n">global</span><span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">500</span> <span class="p">#</span><span class="n">m</span><span class="p">));</span>
-    <span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">cycle</span> <span class="p">/</span> <span class="m">60</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
-
-    <span class="n">init</span><span class="p">{</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">#</span><span class="n">minutes</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span><span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="m">500</span> <span class="p">#</span><span class="n">m</span><span class="p">));</span>
+	<span class="n">float</span> <span class="n">infection_distance</span> <span class="p">&lt;-</span> <span class="m">2.0</span> <span class="p">#</span><span class="n">m</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_infection</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">current_hour</span> <span class="n">update</span><span class="p">:</span> <span class="p">(</span><span class="n">cycle</span> <span class="p">/</span> <span class="m">60</span><span class="p">)</span> <span class="k">mod</span> <span class="m">24</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+	
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="n">infected_rate</span> <span class="p">=</span> <span class="m">1.0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">halt</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>     
-    <span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
-        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="n">infection_distance</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="n">proba_infection</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">monitor</span> <span class="s2">"Current hour"</span> <span class="n">value</span><span class="p">:</span> <span class="n">current_hour</span><span class="p">;</span>
-        <span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>           
-        <span class="p">}</span>
-        <span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Infection distance"</span> <span class="n">var</span><span class="p">:</span> <span class="n">infection_distance</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Proba infection"</span> <span class="n">var</span><span class="p">:</span> <span class="n">proba_infection</span> <span class="k">min</span><span class="p">:</span> <span class="m">0.0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">monitor</span> <span class="s2">"Current hour"</span> <span class="n">value</span><span class="p">:</span> <span class="n">current_hour</span><span class="p">;</span>
+		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">chart</span> <span class="n">refresh</span><span class="p">:</span><span class="n">every</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

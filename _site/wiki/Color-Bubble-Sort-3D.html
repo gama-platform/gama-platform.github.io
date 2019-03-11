@@ -3613,10 +3613,11 @@ function closeRightMenu() {
 
 <p><em>Author :  Arnaud Grignard</em></p>
 
-<p>A model to show how to create color by using the rgb operator, the color depending on the position of cube in the xyz space. The cubes are randomly mixed to finally be sorted according to the color of each vertix of the whole big cube, using the bubble sort algorithm (<a href="https://en.wikipedia.org/wiki/Bubble_sort">https://en.wikipedia.org/wiki/Bubble_sort</a>). </p>
+<p>A model to show how to create color by using the rgb operator, the color depending on the position of cube in the xyz space. The cubes are randomly mixed to finally be sorted according to the color of each vertix of the whole big cube, using the bubble sort algorithm (https://en.wikipedia.org/wiki/Bubble_sort).</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">bubblesort3D</span>
 
 
@@ -3631,110 +3632,111 @@ function closeRightMenu() {
 <span class="n">bool</span> <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
 
 <span class="n">init</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">We</span> <span class="nb">create</span> <span class="n">nb_cells</span><span class="p">^</span><span class="m">3</span> <span class="n">cubes</span> <span class="k">and</span> <span class="n">we</span> <span class="n">define</span> <span class="n">their</span> <span class="n">color</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">their</span> <span class="n">position</span> <span class="k">in</span> <span class="n">XYZ</span>
-    <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
-        <span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
-            <span class="n">loop</span> <span class="n">k</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
-              <span class="nb">create</span> <span class="n">cells</span><span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-{</span><span class="n">i</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">,</span><span class="n">j</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">,</span> <span class="n">k</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">};</span>
-
-                <span class="p">//</span><span class="n">The</span> <span class="n">canal</span> <span class="n">RGB</span> <span class="n">limit</span> <span class="n">color</span> <span class="k">to</span> <span class="m">255</span> <span class="n">by</span> <span class="n">canal</span>
-                <span class="n">red</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">i</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
-                <span class="n">green</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">j</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)</span> <span class="p">*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
-                <span class="n">blue</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">k</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)</span> <span class="p">*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
-
-                <span class="p">//</span><span class="n">We</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">color</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span> <span class="k">and</span> <span class="n">blue</span> <span class="n">canals</span>
-                <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">);</span>
-              <span class="p">}</span> 
-            <span class="p">}</span>   
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="n">We</span> <span class="n">mix</span> <span class="n">all</span> <span class="n">the</span> <span class="n">cubes</span> <span class="n">randomly</span> <span class="n">by</span> <span class="n">permuting</span> <span class="n">two</span> <span class="n">randomly</span> <span class="n">chosen</span> <span class="n">cubes</span>
-    <span class="n">loop</span> <span class="n">times</span><span class="p">:</span> <span class="m">10000</span> <span class="p">{</span>
-            <span class="n">ask</span> <span class="n">one_of</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cells</span> <span class="n">one_cells</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">cells</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="c1">!= one_cells) {
-</span>                    <span class="n">point</span> <span class="n">loc</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
-                    <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">one_cells</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-                    <span class="n">one_cells</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-
+	<span class="p">//</span><span class="n">We</span> <span class="nb">create</span> <span class="n">nb_cells</span><span class="p">^</span><span class="m">3</span> <span class="n">cubes</span> <span class="k">and</span> <span class="n">we</span> <span class="n">define</span> <span class="n">their</span> <span class="n">color</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">their</span> <span class="n">position</span> <span class="k">in</span> <span class="n">XYZ</span>
+	<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+		<span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+			<span class="n">loop</span> <span class="n">k</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">nb_cells</span><span class="p">-</span><span class="m">1</span><span class="p">{</span>
+			  <span class="nb">create</span> <span class="n">cells</span><span class="p">{</span>
+				<span class="n">location</span> <span class="p">&lt;-{</span><span class="n">i</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">,</span><span class="n">j</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">,</span> <span class="n">k</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">};</span>
+				
+				<span class="p">//</span><span class="n">The</span> <span class="n">canal</span> <span class="n">RGB</span> <span class="n">limit</span> <span class="n">color</span> <span class="k">to</span> <span class="m">255</span> <span class="n">by</span> <span class="n">canal</span>
+				<span class="n">red</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">i</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
+				<span class="n">green</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">j</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)</span> <span class="p">*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
+				<span class="n">blue</span> <span class="p">&lt;-</span> <span class="n">float</span><span class="p">((</span><span class="n">k</span> <span class="k">mod</span> <span class="n">nb_cells</span><span class="p">)</span> <span class="p">*</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">/</span> <span class="n">nb_cells</span><span class="p">));</span>
+				
+				<span class="p">//</span><span class="n">We</span> <span class="nb">create</span> <span class="n">the</span> <span class="n">color</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span> <span class="k">and</span> <span class="n">blue</span> <span class="n">canals</span>
+				<span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">);</span>
+			  <span class="p">}</span>	
+			<span class="p">}</span>	
+	    <span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">We</span> <span class="n">mix</span> <span class="n">all</span> <span class="n">the</span> <span class="n">cubes</span> <span class="n">randomly</span> <span class="n">by</span> <span class="n">permuting</span> <span class="n">two</span> <span class="n">randomly</span> <span class="n">chosen</span> <span class="n">cubes</span>
+	<span class="n">loop</span> <span class="n">times</span><span class="p">:</span> <span class="m">10000</span> <span class="p">{</span>
+			<span class="n">ask</span> <span class="n">one_of</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">cells</span> <span class="n">one_cells</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">cells</span><span class="p">);</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="c1">!= one_cells) {
+</span>					<span class="n">point</span> <span class="n">loc</span> <span class="p">&lt;-</span> <span class="n">copy</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+					<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">one_cells</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+					<span class="n">one_cells</span><span class="p">.</span><span class="n">location</span> <span class="p">&lt;-</span> <span class="n">loc</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	
+		
 
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">finish</span> <span class="n">the</span> <span class="n">execution</span> <span class="k">of</span> <span class="n">the</span> <span class="k">model</span> <span class="n">when</span> <span class="n">nothing</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">during</span> <span class="n">the</span> <span class="n">cycle</span>
 <span class="n">reflex</span> <span class="k">end</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">change</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">pause</span><span class="p">;</span>   
-    <span class="p">}</span> 
-    <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="k">not</span> <span class="n">change</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>	
+	<span class="p">}</span> 
+	<span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">species</span> <span class="n">cells</span><span class="p">{</span>
 
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">red</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">green</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">blue</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">neigbhours</span> <span class="n">update</span><span class="p">:</span> <span class="n">cells</span> <span class="n">at_distance</span> <span class="p">(</span><span class="m">1.1</span><span class="p">);</span>
-
-    <span class="p">//</span><span class="n">Update</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighbors</span> <span class="n">cubes</span> <span class="n">at</span> <span class="n">each</span> <span class="n">cycle</span> <span class="k">of</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">location</span>
-    <span class="n">cells</span> <span class="n">upper_cell_y</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">cells</span> <span class="n">upper_cell_x</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">cells</span> <span class="n">upper_cell_z</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
-
-    <span class="p">//</span><span class="n">We</span> <span class="n">permute</span> <span class="n">the</span> <span class="n">cube</span> <span class="n">agent</span> <span class="k">with</span> <span class="n">its</span> <span class="n">neighbor</span> <span class="k">if</span> <span class="n">its</span> <span class="n">intensity</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">canal</span> <span class="n">related</span> <span class="k">to</span> <span class="n">its</span> <span class="n">axis</span> <span class="p">(</span><span class="n">z</span> <span class="n">for</span> <span class="n">canal</span> <span class="n">blue</span><span class="p">,</span> <span class="n">y</span> <span class="n">for</span> <span class="n">green</span> <span class="k">and</span> <span class="n">x</span> <span class="n">for</span> <span class="n">red</span><span class="p">)</span>
-    <span class="n">reflex</span> <span class="n">swap_z</span> <span class="n">when</span><span class="p">:</span> <span class="n">upper_cell_z</span> <span class="c1">!= nil and blue &lt; upper_cell_z.blue{ 
-</span>        <span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_z</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
-        <span class="n">upper_cell_z</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span>     
-        <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span> 
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">red</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">green</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">blue</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">cells</span><span class="p">&gt;</span> <span class="n">neigbhours</span> <span class="n">update</span><span class="p">:</span> <span class="n">cells</span> <span class="n">at_distance</span> <span class="p">(</span><span class="m">1.1</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="n">Update</span> <span class="k">of</span> <span class="n">the</span> <span class="n">neighbors</span> <span class="n">cubes</span> <span class="n">at</span> <span class="n">each</span> <span class="n">cycle</span> <span class="k">of</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">location</span>
+	<span class="n">cells</span> <span class="n">upper_cell_y</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+	<span class="n">cells</span> <span class="n">upper_cell_x</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+	<span class="n">cells</span> <span class="n">upper_cell_z</span> <span class="n">update</span><span class="p">:</span> <span class="n">neigbhours</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span> <span class="p">&gt;</span> <span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+	
+	<span class="p">//</span><span class="n">We</span> <span class="n">permute</span> <span class="n">the</span> <span class="n">cube</span> <span class="n">agent</span> <span class="k">with</span> <span class="n">its</span> <span class="n">neighbor</span> <span class="k">if</span> <span class="n">its</span> <span class="n">intensity</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">canal</span> <span class="n">related</span> <span class="k">to</span> <span class="n">its</span> <span class="n">axis</span> <span class="p">(</span><span class="n">z</span> <span class="n">for</span> <span class="n">canal</span> <span class="n">blue</span><span class="p">,</span> <span class="n">y</span> <span class="n">for</span> <span class="n">green</span> <span class="k">and</span> <span class="n">x</span> <span class="n">for</span> <span class="n">red</span><span class="p">)</span>
+	<span class="n">reflex</span> <span class="n">swap_z</span> <span class="n">when</span><span class="p">:</span> <span class="n">upper_cell_z</span> <span class="c1">!= nil and blue &lt; upper_cell_z.blue{ 
+</span>		<span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_z</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
+    	<span class="n">upper_cell_z</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span> 	
+	    <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>	
     <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">swap_y</span> <span class="n">when</span><span class="p">:</span> <span class="n">upper_cell_y</span> <span class="c1">!= nil and green &lt; upper_cell_y.green{ 
-</span>        <span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_y</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
-        <span class="n">upper_cell_y</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span>     
-        <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span> 
+	
+	<span class="n">reflex</span> <span class="n">swap_y</span> <span class="n">when</span><span class="p">:</span> <span class="n">upper_cell_y</span> <span class="c1">!= nil and green &lt; upper_cell_y.green{ 
+</span>		<span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_y</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
+    	<span class="n">upper_cell_y</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span> 	
+	    <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>	
     <span class="p">}</span>
-
+    
     <span class="n">reflex</span> <span class="n">swap_x</span> <span class="n">when</span><span class="p">:</span> <span class="n">upper_cell_x</span> <span class="c1">!= nil and red &lt; upper_cell_x.red{ 
-</span>        <span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_x</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
-        <span class="n">upper_cell_x</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span>     
-        <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span> 
+</span>		<span class="n">point</span> <span class="n">tmp1Loc</span> <span class="p">&lt;-</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">upper_cell_x</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>  
+    	<span class="n">upper_cell_x</span><span class="p">.</span><span class="n">location</span><span class="p">&lt;-</span><span class="n">tmp1Loc</span><span class="p">;</span> 	
+	    <span class="n">change</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>	
     <span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span> <span class="n">border</span><span class="p">:</span><span class="n">color</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
-    <span class="p">}</span>   
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span> <span class="n">border</span><span class="p">:</span><span class="n">color</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>	
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">Display</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
-            <span class="n">species</span> <span class="n">cells</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.1</span><span class="p">;</span>
-            <span class="n">graphics</span> <span class="s2">"di"</span><span class="p">{</span>
-             <span class="n">draw</span> <span class="s2">"black(0,0,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"red(1,0,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">red</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"green(0,1,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">green</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"blue(0,0,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">blue</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"yellow(1,1,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">yellow</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"magenta(1,0,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">magenta</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"cyan(0,1,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">cyan</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-             <span class="n">draw</span> <span class="s2">"white(1,1,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">white</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>   
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">cells</span> <span class="n">transparency</span><span class="p">:</span><span class="m">0.1</span><span class="p">;</span>
+			<span class="n">graphics</span> <span class="s2">"di"</span><span class="p">{</span>
+			 <span class="n">draw</span> <span class="s2">"black(0,0,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">black</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"red(1,0,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">red</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"green(0,1,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">green</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"blue(0,0,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">blue</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"yellow(1,1,0)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">yellow</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"magenta(1,0,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">magenta</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"cyan(0,1,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">cyan</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+			 <span class="n">draw</span> <span class="s2">"white(1,1,1)"</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">depth</span><span class="p">}</span> <span class="n">color</span><span class="p">:</span><span class="err">°</span><span class="n">white</span> <span class="n">perspective</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

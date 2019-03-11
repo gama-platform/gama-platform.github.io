@@ -3613,204 +3613,193 @@ function closeRightMenu() {
 
 <p>This page aims at presenting some tips to optimize the memory footprint or the execution time of a model in GAMA.</p>
 
-<p><em>Note:  since GAMA 1.6.1, some optimizations have become obsolete because they have been included in the compiler. They have, then, been removed from this page. For instance, writing &#39;rgb(0,0,0)&#39; is now compiled directly as &#39;#black&#39;.</em></p>
+<p><em>Note:  since GAMA 1.6.1, some optimizations have become obsolete because they have been included in the compiler. They have, then, been removed from this page. For instance, writing ‘rgb(0,0,0)’ is now compiled directly as ‘#black’.</em></p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#machinetime">machine_time</a></li>
-<li><a href="#scheduling">Scheduling</a></li>
-<li><a href="#grid">Grid</a>
-
-<ul>
-<li><a href="#optimization-facets">Optimization Facets</a>
-
-<ul>
-<li><a href="#useregularagents">use_regular_agents</a></li>
-<li><a href="#useindividualshapes">use_individual_shapes</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#operators">Operators</a>
-
-<ul>
-<li><a href="#list-operators">List operators</a>
-
-<ul>
-<li><a href="#firstwith">first_with</a></li>
-<li><a href="#where--count">where / count</a></li>
-</ul></li>
-<li><a href="#spatial-operators">Spatial operators</a>
-
-<ul>
-<li><a href="#container-of-agents-in-closestto-atdistance-overlapping-inside">container of agents in closest_to, at_distance, overlapping, inside</a></li>
-<li><a href="#accelerate--with-a-first-spatial-filtering">Accelerate  with a first spatial filtering</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#displays">Displays</a>
-
-<ul>
-<li><a href="#shape">shape</a></li>
-<li><a href="#circle-vs-square--sphere-vs-cube">circle vs square / sphere vs cube</a></li>
-<li><a href="#opengl-refresh-facets">OpenGL refresh facets</a></li>
-</ul></li>
+  <li><a href="#machinetime">machine_time</a></li>
+  <li><a href="#scheduling">Scheduling</a></li>
+  <li><a href="#grid">Grid</a>
+    <ul>
+      <li><a href="#optimization-facets">Optimization Facets</a>
+        <ul>
+          <li><a href="#useregularagents">use_regular_agents</a></li>
+          <li><a href="#useindividualshapes">use_individual_shapes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#operators">Operators</a>
+    <ul>
+      <li><a href="#list-operators">List operators</a>
+        <ul>
+          <li><a href="#firstwith">first_with</a></li>
+          <li><a href="#where--count">where / count</a></li>
+        </ul>
+      </li>
+      <li><a href="#spatial-operators">Spatial operators</a>
+        <ul>
+          <li><a href="#container-of-agents-in-closestto-atdistance-overlapping-inside">container of agents in closest_to, at_distance, overlapping, inside</a></li>
+          <li><a href="#accelerate--with-a-first-spatial-filtering">Accelerate  with a first spatial filtering</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#displays">Displays</a>
+    <ul>
+      <li><a href="#shape">shape</a></li>
+      <li><a href="#circle-vs-square--sphere-vs-cube">circle vs square / sphere vs cube</a></li>
+      <li><a href="#opengl-refresh-facets">OpenGL refresh facets</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="machine_time">machine_time</h2>
 
 <p>In order to optimize a model, it is important to exactly know which part of the model take times. The simplest to do that is to use the <strong>machine_time</strong> built-in global variable that gives the current time in milliseconds. Then to compute the time taken by a statement, a possible way is to write:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">float t &lt;- machine_time;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float t &lt;- machine_time;
 // here a block of instructions that you consider as "critical"
 // ...
 write "duration of the last instructions: " + (machine_time - t);
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="scheduling">Scheduling</h2>
 
-<p>If you have a species of agents that, once created, are not supposed to do anything more (i.e. no behavior, no reflex, their actions triggered by other agents, their attributes being simply read and written by other agents), such as a &quot;data&quot; grid, or agents representing a &quot;background&quot; (from a shape file, etc.), consider using the <code>schedules: []</code> facet on the definition of their species. This trick allows to tell GAMA to not schedule any of these agents.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid my_grid height: 100 width: 100 schedules: [] 
+<p>If you have a species of agents that, once created, are not supposed to do anything more (i.e. no behavior, no reflex, their actions triggered by other agents, their attributes being simply read and written by other agents), such as a “data” grid, or agents representing a “background” (from a shape file, etc.), consider using the <code class="highlighter-rouge">schedules: []</code> facet on the definition of their species. This trick allows to tell GAMA to not schedule any of these agents.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid my_grid height: 100 width: 100 schedules: [] 
 {
       ...
 }
-</code></pre></div>
-<p>The <code>schedules:</code> facet is dynamically computed (even if the agents are not scheduled), so, if you happen to define agents that only need to be scheduled every x cycles, or depending on a condition, you can also write <code>schedules:</code> to implement this. For instance, the following species will see its instances scheduled every 10 steps and only if a certain condition is met:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species my_species schedules: (every 10) ? (condition ? my_species : []) : [] 
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">schedules:</code> facet is dynamically computed (even if the agents are not scheduled), so, if you happen to define agents that only need to be scheduled every x cycles, or depending on a condition, you can also write <code class="highlighter-rouge">schedules:</code> to implement this. For instance, the following species will see its instances scheduled every 10 steps and only if a certain condition is met:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species schedules: (every 10) ? (condition ? my_species : []) : [] 
 {
      ...
 }
-</code></pre></div>
-<p>In the same way, modelers can use the frequency facet to define when the agents of a species are going to be activated. By setting this facet to 0, the agents are never activated.
-<code>
-species my_species frequency: 0
+</code></pre></div></div>
+
+<p>In the same way, modelers can use the frequency facet to define when the agents of a species are going to be activated. By setting this facet to 0, the agents are never activated.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species my_species frequency: 0
 {
      ...
 }
-</code></p>
+</code></pre></div></div>
 
 <h2 id="grid">Grid</h2>
 
 <h3 id="optimization-facets">Optimization Facets</h3>
-
 <p>In this section, we present some facets that allow to optimize the use of grid (in particular in terms of memories). Note that all these facet can be combined (see the Life model from the Models library).</p>
 
 <h4 id="use_regular_agents">use_regular_agents</h4>
-
-<p>If false, then a special class of agents is used. This special class of agents used less memories but has some limitation: the agents cannot inherit from a &quot;normal&quot; species, they cannot have sub-populations, their name cannot be modified, etc.
-<code>
-grid cell width: 50 height: 50 use_regular_agents: false ;
-</code></p>
+<p>If false, then a special class of agents is used. This special class of agents used less memories but has some limitation: the agents cannot inherit from a “normal” species, they cannot have sub-populations, their name cannot be modified, etc.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 50 height: 50 use_regular_agents: false ;
+</code></pre></div></div>
 
 <h4 id="use_individual_shapes">use_individual_shapes</h4>
-
 <p>If false, then only one geometry is used for all agents. This facet allows to gain a lot of memory, but should not be used if the geometries of the agents are often activated (for instance, by an aspect).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grid cell width: 50 height: 50 use_individual_shapes: false ;   
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid cell width: 50 height: 50 use_individual_shapes: false ;	
+</code></pre></div></div>
+
 <h2 id="operators">Operators</h2>
 
 <h3 id="list-operators">List operators</h3>
-
 <h4 id="first_with">first_with</h4>
-
 <p>It is sometimes necessary to randomly select an element of a list that verifies a certain condition.
-Many modelers use the <strong>one_of</strong> and the <strong>where</strong> operators to do this:
-<code>
-bug one_big_bug &lt;- one_of (bug where (each.size &gt; 10));
-</code>
-Whereas it is often more optimized to use the <strong>shuffle</strong> operator to shuffle the list, then the <strong>first_with</strong> operator to select the first element that verifies the condition:
-<code>
-bug one_big_bug &lt;- shuffle(bug) first_with (each.size &gt; 10);
-</code></p>
-
-<h4 id="where-count">where / count</h4>
-
+Many modelers use the <strong>one_of</strong> and the <strong>where</strong> operators to do this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bug one_big_bug &lt;- one_of (bug where (each.size &gt; 10));
+</code></pre></div></div>
+<p>Whereas it is often more optimized to use the <strong>shuffle</strong> operator to shuffle the list, then the <strong>first_with</strong> operator to select the first element that verifies the condition:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bug one_big_bug &lt;- shuffle(bug) first_with (each.size &gt; 10);
+</code></pre></div></div>
+<h4 id="where--count">where / count</h4>
 <p>It is quite common to want to count the number of elements of a list or a container that verify a condition.
-The obvious to do it is :
-<code>
-int n &lt;- length(my_container where (each.size &gt; 10));
-</code>
-This will however create an intermediary list before counting it, and this operation can be time consuming if the number of elements is important. To alleviate this problem, GAMA includes an operator called <strong>count</strong> that will count the elements that verify the condition by iterating directly on the container (no useless list created) :
-<code>
-int n &lt;- my_container count (each.size &gt; 10);
-</code></p>
-
+The obvious to do it is :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int n &lt;- length(my_container where (each.size &gt; 10));
+</code></pre></div></div>
+<p>This will however create an intermediary list before counting it, and this operation can be time consuming if the number of elements is important. To alleviate this problem, GAMA includes an operator called <strong>count</strong> that will count the elements that verify the condition by iterating directly on the container (no useless list created) :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int n &lt;- my_container count (each.size &gt; 10);
+</code></pre></div></div>
 <h3 id="spatial-operators">Spatial operators</h3>
-
 <h4 id="container-of-agents-in-closest_to-at_distance-overlapping-inside">container of agents in closest_to, at_distance, overlapping, inside</h4>
+<p>Several spatial query operators (such as <strong>closest_to</strong>, <strong>at_distance</strong>, <strong>overlapping</strong> or <strong>inside</strong>) allow to restrict the agents being queried to a container of agents. For instance, one can write:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- a_container_containing_agents closest_to self;
+</code></pre></div></div>
+<p>This expression is formally equivalent to :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- a_container_containing_agent with_min_of (each distance_to self);
+</code></pre></div></div>
+<p>But it is much faster <strong>if your container is large</strong>, as it will query the agents using a spatial index (instead of browsing through the whole container). Note that in some cases, when you have a small number of agents, the first syntax will be faster. The same applies for the other operators.</p>
 
-<p>Several spatial query operators (such as <strong>closest_to</strong>, <strong>at_distance</strong>, <strong>overlapping</strong> or <strong>inside</strong>) allow to restrict the agents being queried to a container of agents. For instance, one can write:
-<code>
-agent closest_agent &lt;- a_container_containing_agents closest_to self;
-</code>
-This expression is formally equivalent to :
-<code>
-agent closest_agent &lt;- a_container_containing_agent with_min_of (each distance_to self);
-</code>
-But it is much faster <strong>if your container is large</strong>, as it will query the agents using a spatial index (instead of browsing through the whole container). Note that in some cases, when you have a small number of agents, the first syntax will be faster. The same applies for the other operators. </p>
+<p>Now consider a very common case: you need to restrict the agents being queried, not to a container, but to a species (which, actually, acts as a container in most cases). For instance, you want to know which predator is the closest to the current agent. If we apply the pattern above, we would write:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predator closest_predator &lt;- predator with_min_of (each distance_to self);
+</code></pre></div></div>
+<p>or</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predator closest_predator &lt;- list(predator) closest_to self;
+</code></pre></div></div>
 
-<p>Now consider a very common case: you need to restrict the agents being queried, not to a container, but to a species (which, actually, acts as a container in most cases). For instance, you want to know which predator is the closest to the current agent. If we apply the pattern above, we would write:
-<code>
-predator closest_predator &lt;- predator with_min_of (each distance_to self);
-</code>
-or
-<code>
-predator closest_predator &lt;- list(predator) closest_to self;
-</code></p>
+<p>But these two operators can be painfully slow if your species has many instances (even in the second form). In that case, always prefer using <strong>directly</strong> the species as the left member:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predator closest_ predator &lt;- predator closest_to self;
+</code></pre></div></div>
+<p>Not only is the syntax clearer, but the speed gain can be phenomenal because, in that case, the list of instances is not used (we just check if the agent is an instance of the left species).</p>
 
-<p>But these two operators can be painfully slow if your species has many instances (even in the second form). In that case, always prefer using <strong>directly</strong> the species as the left member:
-<code>
-predator closest_ predator &lt;- predator closest_to self;
-</code>
-Not only is the syntax clearer, but the speed gain can be phenomenal because, in that case, the list of instances is not used (we just check if the agent is an instance of the left species).</p>
-
-<p>However, what happens if one wants to query instances belonging to 2 or more species ? If we follow our reasoning, the immediate way to write it would be (if predator 1 and predator 2 are two species):
-<code>
-agent closest_agent &lt;- (list(predator1) + list(predator2)) closest_to self; 
-</code>
-or, more simply:
-<code>
-agent closest_agent &lt;- (predator1 + predator2) closest_to self;
-</code>
-The first syntax suffers from the same problem than the previous syntax: GAMA has to browse through the list (created by the concatenation of the species populations) to filter agents. The solution, then, is again to use directly the species, as GAMA is clever enough to create a temporary &quot;fake&quot; population out of the concatenation of several species, which can be used exactly like a list of agents, but provides the advantages of a species population (no iteration made during filtering).</p>
+<p>However, what happens if one wants to query instances belonging to 2 or more species ? If we follow our reasoning, the immediate way to write it would be (if predator 1 and predator 2 are two species):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- (list(predator1) + list(predator2)) closest_to self; 
+</code></pre></div></div>
+<p>or, more simply:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- (predator1 + predator2) closest_to self;
+</code></pre></div></div>
+<p>The first syntax suffers from the same problem than the previous syntax: GAMA has to browse through the list (created by the concatenation of the species populations) to filter agents. The solution, then, is again to use directly the species, as GAMA is clever enough to create a temporary “fake” population out of the concatenation of several species, which can be used exactly like a list of agents, but provides the advantages of a species population (no iteration made during filtering).</p>
 
 <h4 id="accelerate-closest_to-with-a-first-spatial-filtering">Accelerate <strong>closest_to</strong> with a first spatial filtering</h4>
-
 <p>The <strong>closest_to</strong> operator can sometimes be slow if numerous agents are concerned by this query. If the modeler is just interested by a small subset of agents, it is possible to apply a first spatial filtering on the agent list by using the <strong>at_distance</strong> operator.
-For example, if the modeler wants first to do a spatial filtering of 10m:
-<code>
-agent closest_agent &lt;- (predator1 at_distance 10) closest_to self;
-</code></p>
+For example, if the modeler wants first to do a spatial filtering of 10m:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- (predator1 at_distance 10) closest_to self;
+</code></pre></div></div>
 
-<p>To be sure to find an agent, the modeler can use a test statement:
-<code>
-agent closest_agent &lt;- (predator1 at_distance 10) closest_to self;
+<p>To be sure to find an agent, the modeler can use a test statement:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>agent closest_agent &lt;- (predator1 at_distance 10) closest_to self;
 if (closest_agent = nil) {closest_agent  &lt;- predator1 closest_to self;}
-</code></p>
+</code></pre></div></div>
 
 <h2 id="displays">Displays</h2>
 
 <h3 id="shape">shape</h3>
-
 <p>It is quite common to want to display an agent as a circle or a square. A common mistake is to mix up the shape to draw and the geometry of the agent in the model. If the modeler just wants to display a particular shape, he/she should not modify the agent geometry (which is a point by default), but just specify the shape to draw in the agent aspect.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species bug {
-     int size &lt;- rnd(100);
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species bug {
+     int size &lt;- rnd(100);
+	
       aspect circle {
           draw circle(2) color: °blue;
       }
 }
-</code></pre></div>
-<h3 id="circle-vs-square-sphere-vs-cube">circle vs square / sphere vs cube</h3>
+</code></pre></div></div>
 
-<p>Note that in OpenGL and Java2D (the two rendering subsystems used in GAMA), creating and drawing a circle geometry is more time consuming than creating and drawing a square (or a rectangle). In the same way, drawing a sphere is more time consuming than drawing a cube. Hence, if you want to optimize your model displays and if the rendering does not explicitly need &quot;rounded&quot; agents, try to use squares/cubes rather than circles/spheres.</p>
+<h3 id="circle-vs-square--sphere-vs-cube">circle vs square / sphere vs cube</h3>
+<p>Note that in OpenGL and Java2D (the two rendering subsystems used in GAMA), creating and drawing a circle geometry is more time consuming than creating and drawing a square (or a rectangle). In the same way, drawing a sphere is more time consuming than drawing a cube. Hence, if you want to optimize your model displays and if the rendering does not explicitly need “rounded” agents, try to use squares/cubes rather than circles/spheres.</p>
 
 <h3 id="opengl-refresh-facets">OpenGL refresh facets</h3>
-
-<p>In OpenGL display, it is possible to specify that it is not necessary to refresh a layer with the facet <strong>refresh</strong>. If a species of agents is never modified in terms of visualization (location, shape or color), you can set <strong>refresh</strong> to false. Example:
-<code>
-display city_display_opengl type: opengl{
+<p>In OpenGL display, it is possible to specify that it is not necessary to refresh a layer with the facet <strong>refresh</strong>. If a species of agents is never modified in terms of visualization (location, shape or color), you can set <strong>refresh</strong> to false. Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>display city_display_opengl type: opengl{
      species building aspect: base refresh: false;
      species road aspect: base refresh: false;
      species people aspect: base;
 }
-</code></p>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_refresh)">//</a>: # (endConcept</td>
+      <td>optimizing_tips)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

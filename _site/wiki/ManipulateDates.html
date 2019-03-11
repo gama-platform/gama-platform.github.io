@@ -3618,105 +3618,101 @@ function closeRightMenu() {
 <p>First, GAMA allows to define the duration of a simulation step. It provides access to different time variables. At last, since GAMA 1.7, it provides a date variable type and some global variables allowing to use a real calendar to manage time.</p>
 
 <h2 id="definition-of-the-step-and-use-of-temporal-unity-values">Definition of the step and use of temporal unity values</h2>
-
 <p>GAMA provides three important <a href="GlobalSpecies#cycle">global variables to manage time</a>:</p>
 
 <ul>
-<li><code>cycle</code> (int - not modifiable): the current simulation step - this variable is incremented by 1 at each simulation step</li>
-<li><code>step</code> (float - can be modified): the duration of a simulation step (in seconds). By default the duration is one second.</li>
-<li><code>time</code> (float - not modifiable): the current time spent since the beginning of the simulation - this variable is computed at each simulation step by: time = cycle * step. </li>
+  <li><code class="highlighter-rouge">cycle</code> (int - not modifiable): the current simulation step - this variable is incremented by 1 at each simulation step</li>
+  <li><code class="highlighter-rouge">step</code> (float - can be modified): the duration of a simulation step (in seconds). By default the duration is one second.</li>
+  <li><code class="highlighter-rouge">time</code> (float - not modifiable): the current time spent since the beginning of the simulation - this variable is computed at each simulation step by: time = cycle * step.</li>
 </ul>
 
 <p>The value of the cycle and time variables are shown in the top left (green rectangle) of the simulation interface. Clicking on the green rectangle allows to display either the number cycles or the time variable. Concerning this variable, it is presented following a years - month - days - hours - minutes - seconds format. In this presentation, every months are considered as being composed of 30 days (the different number of days of months are not taken into account).</p>
 
 <p>Concerning the step facet, the variable can be modified by the modeler. A classic way of doing it consists in reediting the variable in the global section:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
        float step &lt;- 1 #hour;
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>In this example, each simulation step will represent 1 hour. This time will be taken into account for all actions based on time (e.g. moving actions).</p>
 
-<p>Note that the value of the step variable should be given in seconds. To facilitate the definition of the step value and of all expressions based on time, GAMA provides <a href="UnitsAndConstants#time-units">different built-in constant variables accessible with the &quot;<code>#</code>&quot; symbol</a>: </p>
+<p>Note that the value of the step variable should be given in seconds. To facilitate the definition of the step value and of all expressions based on time, GAMA provides <a href="UnitsAndConstants#time-units">different built-in constant variables accessible with the “<code class="highlighter-rouge">#</code>” symbol</a>:</p>
 
 <ul>
-<li><code>#s</code> : second - 1 second</li>
-<li><code>#mn</code> : minute - 60 seconds</li>
-<li><code>#hour</code> : hour - 60 minutes - 3600 seconds</li>
-<li><code>#day</code> : day - 24 hours - 86400 seconds</li>
-<li><code>#month</code> : month - 30 days - 2592000 seconds</li>
-<li><code>#year</code> : year - 12 month - 3.1104E7</li>
+  <li><code class="highlighter-rouge">#s</code> : second - 1 second</li>
+  <li><code class="highlighter-rouge">#mn</code> : minute - 60 seconds</li>
+  <li><code class="highlighter-rouge">#hour</code> : hour - 60 minutes - 3600 seconds</li>
+  <li><code class="highlighter-rouge">#day</code> : day - 24 hours - 86400 seconds</li>
+  <li><code class="highlighter-rouge">#month</code> : month - 30 days - 2592000 seconds</li>
+  <li><code class="highlighter-rouge">#year</code> : year - 12 month - 3.1104E7</li>
 </ul>
 
 <h2 id="the-date-variable-type-and-the-use-of-a-real-calendar">The date variable type and the use of a real calendar</h2>
-
 <p>Since GAMA 1.7, it is possible to use a real calendar to manage the time. For that, the modeler have just to define the starting date of the simulation. This variable is of type date which allow to represent a date and time. 
 A date variable has several attributes:</p>
 
 <ul>
-<li><code>year</code> (int): the year component of the date</li>
-<li><code>month</code> (int): the month component of the date</li>
-<li><code>day</code> (int): the day component of the date</li>
-<li><code>hour</code> (int): the hour component of the date</li>
-<li><code>minute</code> (int): the minute component of the date</li>
-<li><code>second</code> (int): the second component of the date</li>
-<li><code>day_of_week</code> (int): the day of the week</li>
-<li><code>week_of_year</code> (int): the week of the year</li>
+  <li><code class="highlighter-rouge">year</code> (int): the year component of the date</li>
+  <li><code class="highlighter-rouge">month</code> (int): the month component of the date</li>
+  <li><code class="highlighter-rouge">day</code> (int): the day component of the date</li>
+  <li><code class="highlighter-rouge">hour</code> (int): the hour component of the date</li>
+  <li><code class="highlighter-rouge">minute</code> (int): the minute component of the date</li>
+  <li><code class="highlighter-rouge">second</code> (int): the second component of the date</li>
+  <li><code class="highlighter-rouge">day_of_week</code> (int): the day of the week</li>
+  <li><code class="highlighter-rouge">week_of_year</code> (int): the week of the year</li>
 </ul>
 
-<p>Several ways can be used to define a date. The simplest consists in using a list of int values: [year,month of the year,day of the month, hour of the day, minute of the hour, second of the minute]
-<code>
-date my_date &lt;- date([2010,3,23,17,30,10]); // the 23th of March 2010, at 17:30:10
-</code>
-Another way consists in using a string with the good format:
-<code>
-date my_date &lt;- date(&quot;2010-3-23T17:30:10+07:00&quot;); 
-</code></p>
+<p>Several ways can be used to define a date. The simplest consists in using a list of int values: [year,month of the year,day of the month, hour of the day, minute of the hour, second of the minute]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>date my_date &lt;- date([2010,3,23,17,30,10]); // the 23th of March 2010, at 17:30:10
+</code></pre></div></div>
+<p>Another way consists in using a string with the good format:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>date my_date &lt;- date("2010-3-23T17:30:10+07:00"); 
+</code></pre></div></div>
 
 <p>Note that the current date can be access through the #now built-in variable (variable of type date).</p>
 
-<p>In addition, GAMA provides different useful operators working on dates. For instance, it is possible to compute the duration in seconds between 2 dates using the &quot;<code>-</code>&quot; operator. The result is given in seconds:
-<code>
-float d &lt;- starting_date - my_date;
-</code></p>
+<p>In addition, GAMA provides different useful operators working on dates. For instance, it is possible to compute the duration in seconds between 2 dates using the “<code class="highlighter-rouge">-</code>” operator. The result is given in seconds:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float d &lt;- starting_date - my_date;
+</code></pre></div></div>
 
-<p>It is also possible to add or subtract a duration (in seconds) to a date:
-<code>
-write &quot;my_date + 10: &quot; + (my_date + 10);
-write &quot;my_date - 10: &quot; + (my_date - 10);
-</code></p>
+<p>It is also possible to add or subtract a duration (in seconds) to a date:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write "my_date + 10: " + (my_date + 10);
+write "my_date - 10: " + (my_date - 10);
+</code></pre></div></div>
 
-<p>At last, it is possible to add or subtract a duration (in years, months, weeks, days, hours, minutes,  seconds) to a date:
-```
-write &quot;my_date add_years 1: &quot; + (my_date add_years 1);
-write &quot;my_date add_months 1: &quot; + (my_date add_months 1);
-write &quot;my_date add_weeks 1: &quot; + (my_date add_weeks 1);
-write &quot;my_date add_days 1: &quot; + (my_date add_days 1);
-write &quot;my_date add_hours 1: &quot; + (my_date add_hours 1);
-write &quot;my_date add_minutes 1: &quot; + (my_date add_minutes 1);
-write &quot;my_date add_seconds 1: &quot; + (my_date add_seconds 1);</p>
+<p>At last, it is possible to add or subtract a duration (in years, months, weeks, days, hours, minutes,  seconds) to a date:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write "my_date add_years 1: " + (my_date add_years 1);
+write "my_date add_months 1: " + (my_date add_months 1);
+write "my_date add_weeks 1: " + (my_date add_weeks 1);
+write "my_date add_days 1: " + (my_date add_days 1);
+write "my_date add_hours 1: " + (my_date add_hours 1);
+write "my_date add_minutes 1: " + (my_date add_minutes 1);
+write "my_date add_seconds 1: " + (my_date add_seconds 1);
+		  
+write "my_date subtract_years 1: " + (my_date subtract_years 1);
+write "my_date subtract_months 1: " + (my_date subtract_months 1);
+write "my_date subtract_weeks 1: " + (my_date subtract_weeks 1);
+write "my_date subtract_days 1: " + (my_date subtract_days 1);
+write "my_date subtract_hours 1: " + (my_date subtract_hours 1);
+write "my_date subtract_minutes 1: " + (my_date subtract_minutes 1);
+write "my_date subtract_seconds 1: " + (my_date subtract_seconds 1);
+</code></pre></div></div>
+<p>For the modelers, two global date variable are available:</p>
+<ul>
+  <li><code class="highlighter-rouge">starting_date</code>: date considered as the beginning of the simulation</li>
+  <li><code class="highlighter-rouge">current_date</code>: current date of the simulation</li>
+</ul>
 
-<p>write &quot;my_date subtract_years 1: &quot; + (my_date subtract_years 1);
-write &quot;my_date subtract_months 1: &quot; + (my_date subtract_months 1);
-write &quot;my_date subtract_weeks 1: &quot; + (my_date subtract_weeks 1);
-write &quot;my_date subtract_days 1: &quot; + (my_date subtract_days 1);
-write &quot;my_date subtract_hours 1: &quot; + (my_date subtract_hours 1);
-write &quot;my_date subtract_minutes 1: &quot; + (my_date subtract_minutes 1);
-write &quot;my_date subtract_seconds 1: &quot; + (my_date subtract_seconds 1);
-``<code>
-For the modelers, two global date variable are available:
-*</code>starting_date<code>: date considered as the beginning of the simulation
-*</code>current_date`: current date of the simulation</p>
-
-<p>By default, these variables are nil. Defining a value of the starting_date allows to change the normal time management of the simulation by a more realistic one (using calendar): 
-<code>
-global {
+<p>By default, these variables are nil. Defining a value of the starting_date allows to change the normal time management of the simulation by a more realistic one (using calendar):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
      date starting_date &lt;- date([1979,12,17,19,45,10]);
 }
-</code></p>
+</code></pre></div></div>
 
 <p>When a variable is set to this variable, the current_date variable is automatically initialized with the same value. However, at each simulation step, the current_date variable is incremented by the step variable. The value of the current_date will replace the value of the time variable in the top left green panel.</p>
 
-<p>Note that you have to be careful, when a real calendar is used, the built-in constants <code>#month</code> and <code>#year</code> should not be used as there are not consistent with the calendar (where month can be composed of 28, 29, 30 or 31 days).</p>
+<p>Note that you have to be careful, when a real calendar is used, the built-in constants <code class="highlighter-rouge">#month</code> and <code class="highlighter-rouge">#year</code> should not be used as there are not consistent with the calendar (where month can be composed of 28, 29, 30 or 31 days).</p>
 
     </div>
     </div>

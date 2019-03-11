@@ -3610,183 +3610,187 @@ function closeRightMenu() {
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="3-importation-of-gis-data">3. Importation of GIS data</h1>
-
 <p>This third step illustrates how load GIS data and to agentify them.</p>
 
-<p><img src="resources/images/tutorials/luneray3.png" alt="images/luneray3.png"></p>
+<p><img src="resources/images/tutorials/luneray3.png" alt="images/luneray3.png" /></p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Define 2 new species that will just be displayed: <em>road</em> and <em>building</em>.</li>
-<li>Define new global attributes to load GIS data (shape file).</li>
-<li>Use the GIS data to create the <em>road</em> and <em>building</em> agents.</li>
-<li>Add the <em>road</em> and <em>building</em> agents to the display.</li>
+  <li>Define 2 new species that will just be displayed: <em>road</em> and <em>building</em>.</li>
+  <li>Define new global attributes to load GIS data (shape file).</li>
+  <li>Use the GIS data to create the <em>road</em> and <em>building</em> agents.</li>
+  <li>Add the <em>road</em> and <em>building</em> agents to the display.</li>
 </ul>
 
 <h2 id="model-definition">Model Definition</h2>
 
-<p>For this step, you will need to add the shapefiles of the roads and buildings inside the <em>includes</em> folder of the project. The shapefiles (and all the other files) can be found <a href="https://github.com/gama-platform/gama/wiki/resources/other/models/Luneray_flu.zip">here</a>. </p>
+<p>For this step, you will need to add the shapefiles of the roads and buildings inside the <em>includes</em> folder of the project. The shapefiles (and all the other files) can be found <a href="https://github.com/gama-platform/gama/wiki/resources/other/models/Luneray_flu.zip">here</a>.</p>
 
 <h3 id="species">species</h3>
-
 <p>In this model, we have to define two species of agents: the <strong>road</strong> agents and the <strong>building</strong> ones. These agents will not have a particular behavior, they will just be displayed.
 For each of this species we define an aspect called <em>geom</em>. As we want to represent the geometry of the agent, we then use the keyword <strong>draw</strong> that allow to draw a given geometry. In order to draw the geometry of the agent we use the attribute <strong>shape</strong> (which is a built-in attribute of all agents). The road will be displayed in black and the building in gray.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species road {
-    aspect geom {
-        draw shape color: #black;
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species road {
+	aspect geom {
+		draw shape color: #black;
+	}
 }
 
 species building {
-    aspect geom {
-        draw shape color: #gray;
-    }
+	aspect geom {
+		draw shape color: #gray;
+	}
 }
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="global-section">global section</h3>
 
 <h4 id="global-variables">global variables</h4>
 
 <p>GAMA allows to automatically read GIS data that are formatted as shape files (or as OSM file). In our model, we define 2 shapefiles: one corresponding to the roads and the other ones to the buildings. Note that GAMA is able to manage the projection of the GIS data. 
 In order to set the right size (and position) of the world geometry, we define its value as the envelope of the road shapefile (and no more a square of 1500 meters).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global{
-    //... other attributes
-    file roads_shapefile &lt;- file("../includes/routes.shp");
-    file buildings_shapefile &lt;- file("../includes/batiments.shp");
-    geometry shape &lt;- envelope(roads_shapefile);    
-    //... init
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global{
+	//... other attributes
+	file roads_shapefile &lt;- file("../includes/routes.shp");
+	file buildings_shapefile &lt;- file("../includes/batiments.shp");
+	geometry shape &lt;- envelope(roads_shapefile);	
+	//... init
 }
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="agentification-of-gis-data">agentification of GIS data</h3>
 
 <p>In GAMA, the agentification of GIS data is very straightforward: it only requires to use the <strong>create</strong> command with the <strong>from</strong> facet to pass the shapefile. Each object of the shapefile will be directly used to instantiate an agent of the specified species. The reading of an attribute in a shapefile is also very simple. It only requires to use the <strong>with</strong> facet: the argument of this facet is a dictionary of which the keys are the names of the agent attributes and the value the <strong>read</strong> command followed by the name of the shapefile attribute.</p>
 
 <p>In our model, we modify the init section in order to first create the <em>road</em> agents from the road shapefile, and the <em>building</em> agents from the building shapefile. Then, when creating people agents, we choose for them a random location inside a random building.
-Note that it is possible to execute a sequence of statements at the creation of agents by using a block ({...}) rather than a simple line (;) when using the <em>create</em> statement. </p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
-    // world variable definition
+Note that it is possible to execute a sequence of statements at the creation of agents by using a block ({…}) rather than a simple line (;) when using the <em>create</em> statement.</p>
 
-    init{
-        create road from: roads_shapefile;
-        create building from: buildings_shapefile;
-        create people number:nb_people {
-            location &lt;- any_location_in(one_of(building));      }       
-        }
-        ask nb_infected_init among people {
-            is_infected &lt;- true;
-        }
-    }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+	// world variable definition
+
+	init{
+		create road from: roads_shapefile;
+		create building from: buildings_shapefile;
+		create people number:nb_people {
+			location &lt;- any_location_in(one_of(building));		}		
+		}
+		ask nb_infected_init among people {
+			is_infected &lt;- true;
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>We used here the <a href="Operators#one_of">one_of</a> operator that returns a random element from a list and the <a href="Operators#any_location_in">any_location_in</a> operator that returns a random location inside a geometry.</p>
 
 <h3 id="experiment">experiment</h3>
 
 <h4 id="output">Output</h4>
 
-<p>In the <em>map</em> display, we add the <em>road</em> and <em>building</em> species with their <em>geom</em> aspect just before the <em>people</em> species (in order to draw the people agents on the top of the roads and buildings). 
-```
-experiment main_experiment type: gui {
-    ... //parameter definition</p>
-<div class="highlight"><pre><code class="language-" data-lang="">output {
-... //monitor definition
+<p>In the <em>map</em> display, we add the <em>road</em> and <em>building</em> species with their <em>geom</em> aspect just before the <em>people</em> species (in order to draw the people agents on the top of the roads and buildings).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment main_experiment type: gui {
+	... //parameter definition
 
-    display map type: opengl{
-        species road aspect:geom;
-        species building aspect:geom;
-        species people aspect:circle;           
-    }
-    ... //chart display definition
+	output {
+	... //monitor definition
+
+		display map type: opengl{
+			species road aspect:geom;
+			species building aspect:geom;
+			species people aspect:circle;			
+		}
+		... //chart display definition
+	}
 }
-</code></pre></div>
-<p>}
-```</p>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">model3</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model3</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
-    <span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/roads.shp"</span><span class="p">);</span>
-    <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>    
-
-    <span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">nb_people</span><span class="p">;</span>
-
-
-    <span class="n">init</span><span class="p">{</span>
-        <span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>              
-        <span class="p">}</span>
-        <span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_people</span> <span class="p">&lt;-</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_infected_init</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">5</span> <span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/roads.shp"</span><span class="p">);</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/buildings.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>	
+	
+	<span class="n">int</span> <span class="n">nb_people_infected</span> <span class="p">&lt;-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">people</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">int</span> <span class="n">nb_people_not_infected</span> <span class="p">&lt;-</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_infected_init</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people</span> <span class="p">-</span> <span class="n">nb_people_infected</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">infected_rate</span> <span class="n">update</span><span class="p">:</span> <span class="n">nb_people_infected</span><span class="p">/</span><span class="n">nb_people</span><span class="p">;</span>
+	
+	
+	<span class="n">init</span><span class="p">{</span>
+		<span class="nb">create</span> <span class="n">road</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">building</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_people</span> <span class="p">{</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">building</span><span class="p">));</span>				
+		<span class="p">}</span>
+		<span class="n">ask</span> <span class="n">nb_infected_init</span> <span class="n">among</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>     
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
-        <span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">#</span><span class="n">m</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.05</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">#</span><span class="n">m</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.05</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">circle</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">10</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">road</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">building</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Nb people infected at init"</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_infected_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">2147</span><span class="p">;</span>
 
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
-
-        <span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>           
-        <span class="p">}</span>
-
-        <span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span> <span class="p">#</span><span class="n">cycle</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">monitor</span> <span class="s2">"Infected people rate"</span> <span class="n">value</span><span class="p">:</span> <span class="n">infected_rate</span><span class="p">;</span>
+		
+		<span class="n">display</span> <span class="n">map</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">road</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">building</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+		
+		<span class="n">display</span> <span class="n">chart_display</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">10</span> <span class="p">#</span><span class="n">cycle</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Disease spreading"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"susceptible"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_not_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"infected"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_people_infected</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p><a href="LuneraysFlu_step4">Next step: Use of a graph to constraint the movements of people</a></p>
 
     </div>

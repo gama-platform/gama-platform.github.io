@@ -3615,123 +3615,125 @@ function closeRightMenu() {
 
 <p>A model which shows how to use the different convert topologies operators : to_square, to_rectangle, points_on, triangulate, voronoi.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">discretization</span>
 
 <span class="n">global</span> 
 <span class="p">{</span>
-    <span class="p">//</span><span class="n">Geometry</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">each</span> <span class="n">display</span> <span class="p">:</span> <span class="n">a</span> <span class="n">circle</span>
-    <span class="n">geometry</span> <span class="n">init_geom</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="m">35</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Geometry</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">each</span> <span class="n">display</span> <span class="p">:</span> <span class="n">a</span> <span class="n">circle</span>
+	<span class="n">geometry</span> <span class="n">init_geom</span> <span class="p">&lt;-</span> <span class="n">circle</span> <span class="p">(</span><span class="m">35</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span>
-        <span class="n">display</span> <span class="n">decretization_squares</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">squares</span> <span class="k">of</span> <span class="m">5.0</span> 
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">5.0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">shape</span>
-        <span class="n">display</span> <span class="n">squares_overlapping</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"squares"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">squares</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">but</span> <span class="n">still</span> <span class="n">overlapping</span> <span class="n">it</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span><span class="m">5.0</span><span class="p">,</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">shape</span>
-        <span class="n">display</span> <span class="n">squares_inside</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"squares"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">squares</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">squares</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">5.0</span><span class="p">,</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="k">with</span> <span class="n">a</span> <span class="n">size</span> <span class="k">of</span> <span class="m">10.0</span> <span class="k">and</span> <span class="m">5.0</span>
-        <span class="n">display</span> <span class="n">decretization_rectangles</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">})</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">forming</span> <span class="n">a</span> <span class="n">grid</span> <span class="k">of</span> <span class="m">15</span> <span class="n">cols</span> <span class="k">and</span> <span class="m">20</span> <span class="n">rows</span>
-        <span class="n">display</span> <span class="n">decretization_rectangles_grid</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span><span class="m">20</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">shape</span>
-        <span class="n">display</span> <span class="n">rectangles_overlapping</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"rectangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">rectangles</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">but</span> <span class="n">still</span> <span class="n">overlapping</span> <span class="n">it</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span>  <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">},</span> <span class="nb">true</span><span class="p">){</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">shape</span>
-        <span class="n">display</span> <span class="n">rectangles_inside</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"rectangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">rectanges</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">},</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">triangulated</span>
-        <span class="n">display</span> <span class="n">triangles</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"triangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">init_geom</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span> 
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="k">with</span> <span class="n">points</span> <span class="n">on</span> <span class="n">its</span> <span class="n">perimeter</span> <span class="n">every</span> <span class="m">10.0</span>
-        <span class="n">display</span> <span class="n">points_on_contours</span> <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
-            <span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">points_on</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span><span class="m">10.0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span> 
-            <span class="p">}</span> 
-        <span class="p">}</span>
-
-        <span class="n">display</span> <span class="n">voronoi</span> <span class="p">{</span>
-            <span class="p">//</span><span class="n">Creates</span> <span class="n">a</span> <span class="n">voronoi</span> <span class="n">diagram</span> <span class="k">from</span> <span class="n">the</span> <span class="n">points</span> <span class="n">given</span> <span class="k">and</span> <span class="n">display</span> <span class="n">them</span>
-            <span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">voronoi</span><span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">80</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">40</span><span class="p">}])</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="n">graphics</span> <span class="s2">"points"</span> <span class="p">{</span>
-                <span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="p">[{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">80</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">40</span><span class="p">}]</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">pt</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span> 
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span>
+		<span class="n">display</span> <span class="n">decretization_squares</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">squares</span> <span class="k">of</span> <span class="m">5.0</span> 
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">5.0</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">shape</span>
+		<span class="n">display</span> <span class="n">squares_overlapping</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"squares"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">squares</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">but</span> <span class="n">still</span> <span class="n">overlapping</span> <span class="n">it</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span><span class="m">5.0</span><span class="p">,</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">squares</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">shape</span>
+		<span class="n">display</span> <span class="n">squares_inside</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"squares"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">squares</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">squares</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_squares</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">5.0</span><span class="p">,</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="k">with</span> <span class="n">a</span> <span class="n">size</span> <span class="k">of</span> <span class="m">10.0</span> <span class="k">and</span> <span class="m">5.0</span>
+		<span class="n">display</span> <span class="n">decretization_rectangles</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">})</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">forming</span> <span class="n">a</span> <span class="n">grid</span> <span class="k">of</span> <span class="m">15</span> <span class="n">cols</span> <span class="k">and</span> <span class="m">20</span> <span class="n">rows</span>
+		<span class="n">display</span> <span class="n">decretization_rectangles_grid</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span><span class="m">20</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">overlapping</span> <span class="n">the</span> <span class="n">shape</span>
+		<span class="n">display</span> <span class="n">rectangles_overlapping</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"rectangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">rectangles</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="n">but</span> <span class="n">still</span> <span class="n">overlapping</span> <span class="n">it</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span>  <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">},</span> <span class="nb">true</span><span class="p">){</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">converted</span> <span class="k">in</span> <span class="n">rectangles</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">shape</span>
+		<span class="n">display</span> <span class="n">rectangles_inside</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"rectangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="p">//</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">circle</span> <span class="n">into</span> <span class="n">rectangles</span> <span class="k">of</span> <span class="m">5.0</span> <span class="k">and</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">rectanges</span> <span class="n">going</span> <span class="n">out</span> <span class="k">of</span> <span class="n">the</span> <span class="n">borders</span> <span class="k">of</span> <span class="n">the</span> <span class="n">circle</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">to_rectangles</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span> <span class="p">{</span><span class="m">10.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">},</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="n">triangulated</span>
+		<span class="n">display</span> <span class="n">triangles</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"triangles"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">init_geom</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Display</span> <span class="n">that</span> <span class="n">will</span> <span class="n">show</span> <span class="n">a</span> <span class="n">circle</span> <span class="k">with</span> <span class="n">points</span> <span class="n">on</span> <span class="n">its</span> <span class="n">perimeter</span> <span class="n">every</span> <span class="m">10.0</span>
+		<span class="n">display</span> <span class="n">points_on_contours</span> <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"init_geom"</span> <span class="p">{</span><span class="n">draw</span> <span class="n">init_geom</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;}</span>
+			<span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">points_on</span><span class="p">(</span><span class="n">init_geom</span><span class="p">,</span><span class="m">10.0</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span> 
+			<span class="p">}</span> 
+		<span class="p">}</span>
+		
+		<span class="n">display</span> <span class="n">voronoi</span> <span class="p">{</span>
+			<span class="p">//</span><span class="n">Creates</span> <span class="n">a</span> <span class="n">voronoi</span> <span class="n">diagram</span> <span class="k">from</span> <span class="n">the</span> <span class="n">points</span> <span class="n">given</span> <span class="k">and</span> <span class="n">display</span> <span class="n">them</span>
+			<span class="n">graphics</span> <span class="s2">"geoms"</span> <span class="n">transparency</span><span class="p">:</span> <span class="m">0.5</span><span class="p">{</span>
+				<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span> <span class="n">voronoi</span><span class="p">([{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">80</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">40</span><span class="p">}])</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">g</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">red</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+			<span class="n">graphics</span> <span class="s2">"points"</span> <span class="p">{</span>
+				<span class="n">loop</span> <span class="n">pt</span> <span class="n">over</span><span class="p">:</span> <span class="p">[{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">80</span><span class="p">},{</span><span class="m">80</span><span class="p">,</span><span class="m">10</span><span class="p">},{</span><span class="m">10</span><span class="p">,</span><span class="m">80</span><span class="p">},</span> <span class="p">{</span><span class="m">40</span><span class="p">,</span><span class="m">40</span><span class="p">}]</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span> <span class="n">pt</span> <span class="n">color</span><span class="p">:</span> <span class="err">°</span><span class="n">black</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span> 
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3623,21 +3623,23 @@ function closeRightMenu() {
 <p>For parsing network files, we use the graphstream library which supports the top- 10 file formats. All these formats are supported by GAMA now.</p>
 
 <p>Till now, the GAML langage does not enables an easy way to create primitives that both take more than 3 args as an input and return an object. Thus loading a graph is defined as an action of a skill; one has to create an instance of agent with this skill for loading the network.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {  
-    var mongraphe type:graph;
-    graph_manager graph_util;
 
-    init { 
-        create graph_manager returns: graph_util;
-        ask graph_util {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {  
+	var mongraphe type:graph;
+	graph_manager graph_util;
 
-            set mongraphe value:load_graph_from_dgs_old(self, [edge_species::edgeSpecy, vertex_species::nodeSpecy,file::"../includes/BarabasiGenerated.dgs"]);
-
-        }
-    }  
+	init { 
+		create graph_manager returns: graph_util;
+		ask graph_util {
+			
+			set mongraphe value:load_graph_from_dgs_old(self, [edge_species::edgeSpecy, vertex_species::nodeSpecy,file::"../includes/BarabasiGenerated.dgs"]);
+		
+		}
+	}  
 }
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="graph-manipulators">graph manipulators</h3>
 
 <p>The structure for the manipulation of graphs is based on the existing GAMA graph type. As a consequence, novel algorithms, operators and visualizations will be usable for both spatial graphs (loading from GIS for instance, like roads) and more abstract graphs (not spatialized).</p>
@@ -3649,19 +3651,23 @@ function closeRightMenu() {
 <h3 id="graph-visualization">graph visualization</h3>
 
 <p>First of all, we had to disturb many GAMA-gurus for undertanding how to create a novel View (that is, another tab in the simulation perspective) from GAML. A novel display is defined for displaying a network.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">output {
-    graphdisplay nameOfMyDisplay graph: mongraphe {  
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
+	graphdisplay nameOfMyDisplay graph: mongraphe {	 
+	}
 }
-</code></pre></div>
-<p>This line indicates that we would like to display a graph defined in the variable &quot;mongraphe&quot;. This simple line will open the display.</p>
+</code></pre></div></div>
+
+<p>This line indicates that we would like to display a graph defined in the variable “mongraphe”. This simple line will open the display.</p>
 
 <h2 id="roadmap">Roadmap</h2>
 
-<p><strong>provide another (simpler !) syntax for loading networks</strong> visu:
-  * implement prefuse instead of graphstream for the visualisation
-  * map GAML aspects to the view of the network
-<strong>implement operators for graph manipulation</strong> add generators for simple graphs generation (with a simple syntax as well)</p>
+<p><strong>provide another (simpler !) syntax for loading networks</strong> visu:</p>
+<ul>
+  <li>implement prefuse instead of graphstream for the visualisation</li>
+  <li>map GAML aspects to the view of the network
+<strong>implement operators for graph manipulation</strong> add generators for simple graphs generation (with a simple syntax as well)</li>
+</ul>
 
     </div>
     </div>

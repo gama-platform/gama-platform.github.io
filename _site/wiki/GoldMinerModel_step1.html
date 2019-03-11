@@ -3610,144 +3610,144 @@ function closeRightMenu() {
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
         <h1 id="1-skeleton-model">1. Skeleton model</h1>
-
 <p>This first step consists in defining the skeleton model with the gold mines and the gold market.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Definition of the gold mine species</li>
-<li>Definition of the market species</li>
-<li>Creation of the gold mine and market agents</li>
-<li>Definition of a display with the gold mines and the market</li>
+  <li>Definition of the gold mine species</li>
+  <li>Definition of the market species</li>
+  <li>Creation of the gold mine and market agents</li>
+  <li>Definition of a display with the gold mines and the market</li>
 </ul>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="species">species</h3>
-
 <p>In this first model, we have to define two species of agents: the <strong>goldmine</strong> agents and the <strong>market</strong> ones. These agents will not have a particular behavior, they will just be displayed.
 For the goldmine species, we define a new attribute: <strong>quantity</strong> of type <em>int</em>, with for initial value a random integer between 0 and 20. We also define aspect called <strong>default</strong> that displays the goldmine as a triangle with a gray color if the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine. 
 Concerning the market species, we define a new attribute: <strong>golds</strong> of type <em>int</em>. We define as well an aspect called <strong>default</strong> that displays the market as a blue square.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species goldmine {
-    int quantity &lt;- rnd(1,20);
-    aspect default
-    {
-        if (quantity = 0) {
-            draw triangle(200) color: #gray border: #black; 
-        } else {
-            draw triangle(200 + quantity*50) color: #yellow border: #black; 
-        }
 
-    }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species goldmine {
+	int quantity &lt;- rnd(1,20);
+	aspect default
+	{
+		if (quantity = 0) {
+			draw triangle(200) color: #gray border: #black;	
+		} else {
+			draw triangle(200 + quantity*50) color: #yellow border: #black;	
+		}
+	 
+	}
 }
 
 species market {
-    int golds;
-    aspect default
-    {
-      draw square(1000) color: #black ;
-    }
+	int golds;
+	aspect default
+	{
+	  draw square(1000) color: #black ;
+	}
 }
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="global-variables">global variables</h3>
-
-<p>We define two global variables for the model: one called <strong>nb_mines</strong> that will be used to define the number of mines and that will be set to 10. One call <strong>the_market</strong> that will represent the market agent (that will be unique). </p>
+<p>We define two global variables for the model: one called <strong>nb_mines</strong> that will be used to define the number of mines and that will be set to 10. One call <strong>the_market</strong> that will represent the market agent (that will be unique).</p>
 
 <p>In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environnement by a square with a side size of 20 kilometers.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
-    int nb_mines &lt;- 10; 
-    market the_market;
-    float step &lt;- 10#mn;
-    geometry shape &lt;- square(20 #km);
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+	int nb_mines &lt;- 10; 
+	market the_market;
+	float step &lt;- 10#mn;
+	geometry shape &lt;- square(20 #km);
 }
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="global-init">global init</h3>
+<p>At the initialisation of the model, we create a market agent and <em>nb_mines</em> goldmine agents. For the market agent, we set the value of the <em>the_market</em> agent with the created agent.</p>
 
-<p>At the initialisation of the model, we create a market agent and <em>nb_mines</em> goldmine agents. For the market agent, we set the value of the <em>the_market</em> agent with the created agent. </p>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
    ...
    init
-    {
-        create market {
-            the_market &lt;- self;
-        }
-        create goldmine number:nb_mines;
-    }
+	{
+		create market {
+			the_market &lt;- self;
+		}
+		create goldmine number:nb_mines;
+	}
 }
-</code></pre></div>
-<h3 id="display">display</h3>
+</code></pre></div></div>
 
+<h3 id="display">display</h3>
 <p>We define a display to visualize the market and goldmine agents. We use for that the classic <strong>species</strong> keyword. In order to optimize the display we use an opengl display (facet <strong>type: opengl</strong>).</p>
 
-<p>In the <strong>experiment</strong> block:
-<code>
-output {
+<p>In the <strong>experiment</strong> block:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
    display map type: opengl {
-    species market ;
-    species goldmine ;
+	species market ;
+	species goldmine ;
    }
 }
-</code></p>
+</code></pre></div></div>
 
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">GoldBdi</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">GoldBdi</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
-    <span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
-
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
-
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
-            <span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
+	<span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">step</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">#</span><span class="n">mn</span><span class="p">;</span>
+	
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
+	
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">market</span> <span class="p">{</span>
+			<span class="n">the_market</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">goldmine</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span> 
-        <span class="p">}</span>
-
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">rnd</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">20</span><span class="p">);</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">quantity</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">draw</span> <span class="n">triangle</span><span class="p">(</span><span class="m">200</span> <span class="p">+</span> <span class="n">quantity</span><span class="p">*</span><span class="m">50</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">yellow</span> <span class="n">border</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>	
+		<span class="p">}</span>
+	 
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">market</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-      <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">golds</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+	  <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">GoldBdi</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="BDIAgents">Back to the start of the tutorial</a>
-  1. <a href="GoldMinerModel_step2">Definition of the BDI miners</a>
-  1. <a href="GoldMinerModel_step3">Definition of social relations between miners</a>
-  1. <a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a>
-  1. <a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></p>
+</code></pre></div></div>
+<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
+<ol>
+  <li><a href="GoldMinerModel_step2">Definition of the BDI miners</a></li>
+  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
+  <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
+  <li><a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></li>
+</ol>
 
     </div>
     </div>

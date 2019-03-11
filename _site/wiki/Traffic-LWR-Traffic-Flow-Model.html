@@ -3609,131 +3609,132 @@ function closeRightMenu() {
 </div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <h1 id="trafic-group-r2d2-maps7-lwr-model">Trafic Group (R2D2) MAPS7 - LWR Model</h1>
+        <h1 id="trafic-group-r2d2-maps7---lwr-model">Trafic Group (R2D2) MAPS7 - LWR Model</h1>
 
 <p><em>Author : A. Banos, N. Corson, C. Pivano, L. Rajaonarivo, P. Taillandier</em></p>
 
 <p>The LWR model was proposed by Lighthill and Whitham (1955) and by Richards (1956). It describes the trafic at a global level considering the speed, concentration and flows without taking into account the individual behavior af vehicles. Speed, concentration and flow are the three components of the LWR model. This models reproduces flow of traffic and congestion in specific conditions (homogeneous traffic), going from one equilibrium state to another (see the fundamental diagramm of traffic, which gives flow according to concentration).
 In this model, a road is divided into sections and we arbitrarily give to the middle section a lower speed and critical concentration.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 <span class="k">model</span> <span class="n">TraficGroup</span>
 
 <span class="n">global</span> <span class="p">{</span>
-
-    <span class="n">float</span> <span class="n">road_size</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span> <span class="p">;</span>                         <span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
-
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">road_size</span><span class="p">,</span> <span class="m">200</span> <span class="p">#</span><span class="n">m</span><span class="p">)</span> <span class="p">;</span>   <span class="p">//</span> <span class="n">The</span> <span class="n">world</span> <span class="n">is</span> <span class="n">a</span> <span class="n">rectangle</span> <span class="k">with</span> <span class="n">a</span> <span class="n">length</span> <span class="n">equals</span> <span class="k">to</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">a</span> <span class="n">height</span> <span class="k">of</span> <span class="m">200</span><span class="n">m</span>
-
-    <span class="n">float</span> <span class="n">time_step</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>                            <span class="p">//</span> <span class="n">Time</span> <span class="n">step</span> 
-    <span class="n">int</span> <span class="n">nb_sections</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">;</span>                             <span class="p">//</span> <span class="n">Number</span> <span class="k">of</span> <span class="n">sections</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
-    <span class="n">float</span> <span class="n">section_size</span> <span class="p">&lt;-</span> <span class="n">road_size</span> <span class="p">/</span> <span class="n">nb_sections</span> <span class="p">;</span>     <span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span>
-
-    <span class="n">float</span> <span class="n">car_size</span> <span class="p">&lt;-</span> <span class="m">4</span> <span class="p">#</span><span class="n">m</span> <span class="p">;</span>                                    <span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">car</span>
-    <span class="n">float</span> <span class="n">nb_max_cars_on_section</span> <span class="p">&lt;-</span> <span class="n">section_size</span> <span class="p">/</span> <span class="n">car_size</span> <span class="p">;</span>   <span class="p">//</span> <span class="n">Maximum</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cars</span> <span class="n">on</span> <span class="n">one</span> <span class="n">section</span> 
-
-       <span class="n">init</span><span class="p">{</span>
-
-            <span class="p">//</span> <span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">nb_sections</span> <span class="n">sections</span> <span class="n">which</span> <span class="n">compose</span> <span class="n">the</span> <span class="n">road</span><span class="p">.</span> 
-
-           <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_sections</span> <span class="p">-</span> <span class="m">1</span><span class="p">){</span>
-              <span class="nb">create</span> <span class="n">section</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span><span class="p">::</span> <span class="n">line</span><span class="p">([{</span><span class="n">i</span> <span class="p">*</span> <span class="n">section_size</span> <span class="p">,</span> <span class="m">100</span><span class="p">},{(</span><span class="n">i</span> <span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="p">*</span> <span class="n">section_size</span> <span class="p">,</span> <span class="m">100</span><span class="p">}])];</span>
-           <span class="p">}</span>
-
-            <span class="p">//</span> <span class="n">For</span> <span class="n">each</span> <span class="n">section</span><span class="p">,</span> <span class="k">as</span> <span class="n">we</span> <span class="n">need</span> <span class="k">to</span> <span class="n">have</span> <span class="n">information</span> <span class="n">concerning</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">and</span> <span class="n">the</span> <span class="k">next</span> <span class="n">one</span><span class="p">,</span> <span class="n">we</span> <span class="n">define</span> <span class="n">which</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">and</span> <span class="n">which</span> <span class="n">is</span> <span class="n">the</span> <span class="k">next</span><span class="p">.</span>
-            <span class="p">//</span> <span class="n">The</span> <span class="n">previous</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">one</span> <span class="n">which</span> <span class="n">last</span> <span class="n">point</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">first</span> <span class="n">point</span> <span class="k">of</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">section</span><span class="p">.</span> 
-            <span class="p">//</span> <span class="n">The</span> <span class="k">next</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">one</span> <span class="n">which</span> <span class="n">first</span> <span class="n">point</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">last</span> <span class="n">point</span> <span class="k">of</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">section</span><span class="p">.</span> 
-
-            <span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
-                <span class="n">previous</span> <span class="p">&lt;-</span> <span class="n">section</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">last</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="n">first</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">))</span> <span class="p">;</span>
-                <span class="k">next</span> <span class="p">&lt;-</span> <span class="n">section</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="n">last</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">))</span> <span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="p">//</span> <span class="n">For</span> <span class="n">each</span> <span class="n">section</span><span class="p">,</span> <span class="n">we</span> <span class="n">define</span> <span class="n">a</span> <span class="n">critical</span> <span class="n">concentration</span> <span class="p">(</span><span class="n">see</span> <span class="n">the</span> <span class="n">fundamental</span> <span class="n">diagram</span><span class="p">),</span> <span class="n">a</span> <span class="n">maximum</span> <span class="n">speed</span><span class="p">,</span> <span class="n">a</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">a</span> <span class="n">flow</span> <span class="p">(</span><span class="n">which</span> <span class="n">are</span> <span class="p">=</span> <span class="m">0</span> <span class="n">at</span> <span class="n">initialization</span><span class="p">).</span> 
-            <span class="p">//</span> <span class="n">A</span> <span class="n">fundamental</span> <span class="n">relation</span> <span class="n">about</span> <span class="n">trafic</span> <span class="n">gives</span> <span class="p">:</span> <span class="n">flow</span> <span class="p">=</span> <span class="n">concentration</span> <span class="p">*</span> <span class="n">speed</span><span class="p">.</span>
-
-            <span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
-                <span class="n">critical_concentration</span> <span class="p">&lt;-</span> <span class="m">125.0</span> <span class="p">;</span> <span class="p">//</span><span class="n">Kc</span>
-                <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span> <span class="p">//</span> <span class="n">Vl</span>
-                <span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="p">;</span>
-                <span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span>
-                <span class="n">max_flow</span> <span class="p">&lt;-</span> <span class="n">critical_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span> 
-            <span class="p">}</span>
-
-            <span class="p">//</span> <span class="n">The</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">flow</span> <span class="n">ot</span> <span class="n">first</span> <span class="n">section</span> <span class="n">are</span> <span class="n">initialized</span><span class="p">.</span>
-
-            <span class="n">ask</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">]{</span>
-                <span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="n">nb_max_cars_on_section</span> <span class="p">;</span>
-                <span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="p">//</span> <span class="n">The</span> <span class="n">middle</span> <span class="n">section</span> <span class="n">is</span> <span class="n">supposed</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">different</span> <span class="n">maximum</span> <span class="n">speed</span> <span class="k">and</span> <span class="n">a</span> <span class="n">different</span> <span class="n">critical</span> <span class="n">concentration</span> <span class="n">so</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">observe</span> <span class="n">congestion</span> <span class="n">phenomenon</span><span class="p">.</span>
-            <span class="p">//</span> <span class="n">This</span> <span class="n">middle</span> <span class="n">section</span> <span class="n">is</span> <span class="n">green</span><span class="p">.</span>
-
-            <span class="n">ask</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)]</span> <span class="p">{</span>
-                    <span class="n">critical_concentration</span> <span class="p">&lt;-</span> <span class="m">10.0</span> <span class="p">;</span> 
-                    <span class="n">max_flow</span> <span class="p">&lt;-</span> <span class="n">critical_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span> 
-                    <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span> 
-                    <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
+		
+	<span class="n">float</span> <span class="n">road_size</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span> <span class="p">;</span> 						<span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
+	
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">road_size</span><span class="p">,</span> <span class="m">200</span> <span class="p">#</span><span class="n">m</span><span class="p">)</span> <span class="p">;</span> 	<span class="p">//</span> <span class="n">The</span> <span class="n">world</span> <span class="n">is</span> <span class="n">a</span> <span class="n">rectangle</span> <span class="k">with</span> <span class="n">a</span> <span class="n">length</span> <span class="n">equals</span> <span class="k">to</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span> <span class="k">and</span> <span class="n">a</span> <span class="n">height</span> <span class="k">of</span> <span class="m">200</span><span class="n">m</span>
+		
+	<span class="n">float</span> <span class="n">time_step</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span> 							<span class="p">//</span> <span class="n">Time</span> <span class="n">step</span> 
+	<span class="n">int</span> <span class="n">nb_sections</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">;</span> 							<span class="p">//</span> <span class="n">Number</span> <span class="k">of</span> <span class="n">sections</span> <span class="k">of</span> <span class="n">the</span> <span class="n">road</span>
+	<span class="n">float</span> <span class="n">section_size</span> <span class="p">&lt;-</span> <span class="n">road_size</span> <span class="p">/</span> <span class="n">nb_sections</span> <span class="p">;</span> 	<span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span>
+	
+	<span class="n">float</span> <span class="n">car_size</span> <span class="p">&lt;-</span> <span class="m">4</span> <span class="p">#</span><span class="n">m</span> <span class="p">;</span>									<span class="p">//</span> <span class="n">Size</span> <span class="k">of</span> <span class="n">a</span> <span class="n">car</span>
+	<span class="n">float</span> <span class="n">nb_max_cars_on_section</span> <span class="p">&lt;-</span> <span class="n">section_size</span> <span class="p">/</span> <span class="n">car_size</span> <span class="p">;</span>	<span class="p">//</span> <span class="n">Maximum</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cars</span> <span class="n">on</span> <span class="n">one</span> <span class="n">section</span> 
+	
+	   <span class="n">init</span><span class="p">{</span>
+	   		
+	   		<span class="p">//</span> <span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">nb_sections</span> <span class="n">sections</span> <span class="n">which</span> <span class="n">compose</span> <span class="n">the</span> <span class="n">road</span><span class="p">.</span> 
+	   		
+		   <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span> <span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_sections</span> <span class="p">-</span> <span class="m">1</span><span class="p">){</span>
+		   	  <span class="nb">create</span> <span class="n">section</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span><span class="p">::</span> <span class="n">line</span><span class="p">([{</span><span class="n">i</span> <span class="p">*</span> <span class="n">section_size</span> <span class="p">,</span> <span class="m">100</span><span class="p">},{(</span><span class="n">i</span> <span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="p">*</span> <span class="n">section_size</span> <span class="p">,</span> <span class="m">100</span><span class="p">}])];</span>
+		   <span class="p">}</span>
+		   	
+		   	<span class="p">//</span> <span class="n">For</span> <span class="n">each</span> <span class="n">section</span><span class="p">,</span> <span class="k">as</span> <span class="n">we</span> <span class="n">need</span> <span class="k">to</span> <span class="n">have</span> <span class="n">information</span> <span class="n">concerning</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">and</span> <span class="n">the</span> <span class="k">next</span> <span class="n">one</span><span class="p">,</span> <span class="n">we</span> <span class="n">define</span> <span class="n">which</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">previous</span> <span class="k">and</span> <span class="n">which</span> <span class="n">is</span> <span class="n">the</span> <span class="k">next</span><span class="p">.</span>
+		   	<span class="p">//</span> <span class="n">The</span> <span class="n">previous</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">one</span> <span class="n">which</span> <span class="n">last</span> <span class="n">point</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">first</span> <span class="n">point</span> <span class="k">of</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">section</span><span class="p">.</span> 
+		   	<span class="p">//</span> <span class="n">The</span> <span class="k">next</span> <span class="n">section</span> <span class="n">is</span> <span class="n">the</span> <span class="n">one</span> <span class="n">which</span> <span class="n">first</span> <span class="n">point</span> <span class="n">corresponds</span> <span class="k">to</span> <span class="n">the</span> <span class="n">last</span> <span class="n">point</span> <span class="k">of</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">section</span><span class="p">.</span> 
+		   	
+	    	<span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
+	    		<span class="n">previous</span> <span class="p">&lt;-</span> <span class="n">section</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">last</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="n">first</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">))</span> <span class="p">;</span>
+	    		<span class="k">next</span> <span class="p">&lt;-</span> <span class="n">section</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">)</span> <span class="p">=</span> <span class="n">last</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">points</span><span class="p">))</span> <span class="p">;</span>
+	    	<span class="p">}</span>
+	
+	    	<span class="p">//</span> <span class="n">For</span> <span class="n">each</span> <span class="n">section</span><span class="p">,</span> <span class="n">we</span> <span class="n">define</span> <span class="n">a</span> <span class="n">critical</span> <span class="n">concentration</span> <span class="p">(</span><span class="n">see</span> <span class="n">the</span> <span class="n">fundamental</span> <span class="n">diagram</span><span class="p">),</span> <span class="n">a</span> <span class="n">maximum</span> <span class="n">speed</span><span class="p">,</span> <span class="n">a</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">a</span> <span class="n">flow</span> <span class="p">(</span><span class="n">which</span> <span class="n">are</span> <span class="p">=</span> <span class="m">0</span> <span class="n">at</span> <span class="n">initialization</span><span class="p">).</span> 
+	    	<span class="p">//</span> <span class="n">A</span> <span class="n">fundamental</span> <span class="n">relation</span> <span class="n">about</span> <span class="n">trafic</span> <span class="n">gives</span> <span class="p">:</span> <span class="n">flow</span> <span class="p">=</span> <span class="n">concentration</span> <span class="p">*</span> <span class="n">speed</span><span class="p">.</span>
+	    	
+	    	<span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
+	    		<span class="n">critical_concentration</span> <span class="p">&lt;-</span> <span class="m">125.0</span> <span class="p">;</span> <span class="p">//</span><span class="n">Kc</span>
+				<span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">50</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span> <span class="p">//</span> <span class="n">Vl</span>
+				<span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="p">;</span>
+				<span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span>
+				<span class="n">max_flow</span> <span class="p">&lt;-</span> <span class="n">critical_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span> 
+	    	<span class="p">}</span>
+	    		    	
+	    	<span class="p">//</span> <span class="n">The</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">flow</span> <span class="n">ot</span> <span class="n">first</span> <span class="n">section</span> <span class="n">are</span> <span class="n">initialized</span><span class="p">.</span>
+	    	
+	    	<span class="n">ask</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">]{</span>
+	    		<span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="n">nb_max_cars_on_section</span> <span class="p">;</span>
+				<span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span>
+	    	<span class="p">}</span>
+	    	
+	    	<span class="p">//</span> <span class="n">The</span> <span class="n">middle</span> <span class="n">section</span> <span class="n">is</span> <span class="n">supposed</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">different</span> <span class="n">maximum</span> <span class="n">speed</span> <span class="k">and</span> <span class="n">a</span> <span class="n">different</span> <span class="n">critical</span> <span class="n">concentration</span> <span class="n">so</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">observe</span> <span class="n">congestion</span> <span class="n">phenomenon</span><span class="p">.</span>
+	    	<span class="p">//</span> <span class="n">This</span> <span class="n">middle</span> <span class="n">section</span> <span class="n">is</span> <span class="n">green</span><span class="p">.</span>
+	    	
+	    	<span class="n">ask</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)]</span> <span class="p">{</span>
+	    			<span class="n">critical_concentration</span> <span class="p">&lt;-</span> <span class="m">10.0</span> <span class="p">;</span> 
+	    			<span class="n">max_flow</span> <span class="p">&lt;-</span> <span class="n">critical_concentration</span> <span class="p">*</span> <span class="n">max_speed</span> <span class="p">;</span> 
+				    <span class="n">max_speed</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">#</span><span class="n">km</span><span class="p">/#</span><span class="n">h</span><span class="p">;</span> 
+					<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	    	<span class="p">}</span>
+    	<span class="p">}</span>
+    	
    <span class="p">//</span> <span class="k">To</span> <span class="n">update</span> <span class="n">flow</span> <span class="k">and</span> <span class="n">concentration</span> <span class="n">at</span> <span class="n">each</span> <span class="n">time</span> <span class="n">step</span> <span class="k">in</span> <span class="n">each</span> <span class="n">section</span><span class="p">,</span> <span class="n">we</span> <span class="n">use</span> <span class="n">an</span> <span class="n">offer</span> <span class="k">and</span> <span class="n">a</span> <span class="n">demand</span> <span class="k">function</span><span class="p">.</span> 
    <span class="p">//</span> <span class="n">These</span> <span class="n">functions</span> <span class="n">define</span> <span class="n">the</span> <span class="n">welcome</span> <span class="n">capacity</span> <span class="p">(</span><span class="n">offer</span><span class="p">)</span> <span class="k">and</span> <span class="n">the</span> <span class="n">emission</span> <span class="n">capacity</span> <span class="p">(</span><span class="n">demand</span><span class="p">)</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span><span class="p">.</span>
-
+   
     <span class="n">reflex</span> <span class="n">offer_function</span> <span class="p">{</span>
-         <span class="n">ask</span> <span class="n">section</span> <span class="p">{</span>
-              <span class="k">if</span> <span class="n">current_concentration</span> <span class="p">&lt;=</span> <span class="n">critical_concentration</span> <span class="p">{</span>
-                <span class="n">offer</span> <span class="p">&lt;-</span> <span class="n">max_flow</span> <span class="p">;</span>
-              <span class="p">}</span>
-              <span class="k">else</span> <span class="p">{</span>
-                <span class="n">offer</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">([</span><span class="m">0</span> <span class="p">,</span> <span class="p">(-</span> <span class="n">max_flow</span> <span class="p">/</span> <span class="n">critical_concentration</span><span class="p">)</span> <span class="p">*</span> <span class="n">current_concentration</span> <span class="p">+</span> <span class="m">2</span> <span class="p">*</span> <span class="n">max_flow</span> <span class="p">]);</span>
-              <span class="p">}</span>
-
-      <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">demand_function</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
-              <span class="k">if</span> <span class="n">current_concentration</span> <span class="p">&lt;=</span> <span class="n">critical_concentration</span> <span class="p">{</span>
-                    <span class="n">demand</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">([</span><span class="m">0</span> <span class="p">,</span> <span class="p">(</span> <span class="n">max_flow</span> <span class="p">/</span> <span class="n">critical_concentration</span><span class="p">)</span> <span class="p">*</span> <span class="n">current_concentration</span><span class="p">])</span> <span class="p">;</span>
-              <span class="p">}</span>
-              <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">demand</span> <span class="p">&lt;-</span> <span class="n">max_flow</span> <span class="p">;</span>
-              <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span> <span class="n">The</span> <span class="n">flow</span> <span class="k">and</span> <span class="n">concentration</span> <span class="n">are</span> <span class="k">then</span> <span class="n">updated</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">offer</span> <span class="k">and</span> <span class="n">demand</span> <span class="n">functions</span> <span class="k">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">section</span><span class="p">,</span> <span class="n">but</span> <span class="n">also</span> <span class="k">of</span> <span class="n">the</span> <span class="k">next</span> <span class="k">and</span> <span class="n">previous</span> <span class="n">ones</span><span class="p">.</span>
-
-    <span class="p">//</span> <span class="n">During</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">flow</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span> <span class="n">take</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">value</span> <span class="n">between</span> <span class="n">its</span> <span class="n">demand</span> <span class="k">and</span> <span class="n">the</span> <span class="n">offer</span> <span class="k">of</span> <span class="n">the</span> <span class="k">next</span> <span class="n">section</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">The</span> <span class="n">flow</span> <span class="k">of</span> <span class="n">the</span> <span class="n">last</span> <span class="n">section</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">its</span> <span class="n">demand</span><span class="p">.</span> 
-
-    <span class="n">reflex</span> <span class="n">update_flow</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">section</span>  <span class="p">{</span>
-            <span class="n">float</span> <span class="n">next_offer</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">next</span> <span class="c1">!= nil) ? (self.next).offer : self.demand;
-</span>            <span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">demand</span><span class="p">,</span> <span class="n">next_offer</span><span class="p">]);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-
-    <span class="p">//</span> <span class="n">After</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">concentration</span> <span class="n">is</span> <span class="n">updated</span> <span class="k">from</span> <span class="n">the</span> <span class="n">current</span> <span class="n">concentration</span><span class="p">,</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">incoming</span> <span class="k">and</span> <span class="n">outgoing</span> <span class="n">concentrations</span><span class="p">.</span>
-    <span class="p">//</span> <span class="n">The</span> <span class="n">first</span> <span class="n">section</span> <span class="n">concentration</span> <span class="n">on</span> <span class="n">ly</span> <span class="n">takes</span> <span class="n">into</span> <span class="n">account</span> <span class="n">the</span> <span class="n">outgoing</span> <span class="n">concentration</span> <span class="k">of</span> <span class="n">vehicles</span><span class="p">.</span>
-
-    <span class="n">reflex</span> <span class="n">update_concentration</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">section</span>   <span class="p">{</span>
-            <span class="n">float</span> <span class="n">previous_flow</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">previous</span> <span class="c1">!= nil) ? (self.previous).current_flow : 0.0;
-</span>            <span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">+</span> <span class="n">time_step</span><span class="p">/</span><span class="n">section_size</span> <span class="p">*(</span><span class="n">previous_flow</span> <span class="p">-</span> <span class="n">self</span><span class="p">.</span><span class="n">current_flow</span><span class="p">)</span> <span class="p">;</span>
-        <span class="p">}</span>   
-    <span class="p">}</span>
-
-    <span class="p">//</span> <span class="n">When</span> <span class="n">there</span> <span class="n">is</span> <span class="n">less</span> <span class="n">than</span> <span class="n">one</span> <span class="n">car</span> <span class="n">left</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span><span class="p">,</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">stops</span><span class="p">.</span>
-
-    <span class="n">reflex</span> <span class="n">stop_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">section</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">current_concentration</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">1.0</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
-    <span class="p">}</span>
+	     <span class="n">ask</span> <span class="n">section</span> <span class="p">{</span>
+			  <span class="k">if</span> <span class="n">current_concentration</span> <span class="p">&lt;=</span> <span class="n">critical_concentration</span> <span class="p">{</span>
+			  	<span class="n">offer</span> <span class="p">&lt;-</span> <span class="n">max_flow</span> <span class="p">;</span>
+			  <span class="p">}</span>
+			  <span class="k">else</span> <span class="p">{</span>
+			  	<span class="n">offer</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">([</span><span class="m">0</span> <span class="p">,</span> <span class="p">(-</span> <span class="n">max_flow</span> <span class="p">/</span> <span class="n">critical_concentration</span><span class="p">)</span> <span class="p">*</span> <span class="n">current_concentration</span> <span class="p">+</span> <span class="m">2</span> <span class="p">*</span> <span class="n">max_flow</span> <span class="p">]);</span>
+			  <span class="p">}</span>
+		  
+	  <span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">demand_function</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">section</span><span class="p">{</span>
+			  <span class="k">if</span> <span class="n">current_concentration</span> <span class="p">&lt;=</span> <span class="n">critical_concentration</span> <span class="p">{</span>
+			  		<span class="n">demand</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">([</span><span class="m">0</span> <span class="p">,</span> <span class="p">(</span> <span class="n">max_flow</span> <span class="p">/</span> <span class="n">critical_concentration</span><span class="p">)</span> <span class="p">*</span> <span class="n">current_concentration</span><span class="p">])</span> <span class="p">;</span>
+			  <span class="p">}</span>
+			  <span class="k">else</span> <span class="p">{</span>
+			  		<span class="n">demand</span> <span class="p">&lt;-</span> <span class="n">max_flow</span> <span class="p">;</span>
+			  <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span> <span class="n">The</span> <span class="n">flow</span> <span class="k">and</span> <span class="n">concentration</span> <span class="n">are</span> <span class="k">then</span> <span class="n">updated</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">offer</span> <span class="k">and</span> <span class="n">demand</span> <span class="n">functions</span> <span class="k">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">section</span><span class="p">,</span> <span class="n">but</span> <span class="n">also</span> <span class="k">of</span> <span class="n">the</span> <span class="k">next</span> <span class="k">and</span> <span class="n">previous</span> <span class="n">ones</span><span class="p">.</span>
+	
+	<span class="p">//</span> <span class="n">During</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">flow</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span> <span class="n">take</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">value</span> <span class="n">between</span> <span class="n">its</span> <span class="n">demand</span> <span class="k">and</span> <span class="n">the</span> <span class="n">offer</span> <span class="k">of</span> <span class="n">the</span> <span class="k">next</span> <span class="n">section</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">The</span> <span class="n">flow</span> <span class="k">of</span> <span class="n">the</span> <span class="n">last</span> <span class="n">section</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">its</span> <span class="n">demand</span><span class="p">.</span>	
+	
+	<span class="n">reflex</span> <span class="n">update_flow</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">section</span>  <span class="p">{</span>
+			<span class="n">float</span> <span class="n">next_offer</span> <span class="p">&lt;-</span>  <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">next</span> <span class="c1">!= nil) ? (self.next).offer : self.demand;
+</span>			<span class="n">current_flow</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">demand</span><span class="p">,</span> <span class="n">next_offer</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	
+	<span class="p">//</span> <span class="n">After</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span><span class="p">,</span> <span class="n">the</span> <span class="n">concentration</span> <span class="n">is</span> <span class="n">updated</span> <span class="k">from</span> <span class="n">the</span> <span class="n">current</span> <span class="n">concentration</span><span class="p">,</span> <span class="n">according</span> <span class="k">to</span> <span class="n">the</span> <span class="n">incoming</span> <span class="k">and</span> <span class="n">outgoing</span> <span class="n">concentrations</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">The</span> <span class="n">first</span> <span class="n">section</span> <span class="n">concentration</span> <span class="n">on</span> <span class="n">ly</span> <span class="n">takes</span> <span class="n">into</span> <span class="n">account</span> <span class="n">the</span> <span class="n">outgoing</span> <span class="n">concentration</span> <span class="k">of</span> <span class="n">vehicles</span><span class="p">.</span>
+	
+	<span class="n">reflex</span> <span class="n">update_concentration</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">section</span>   <span class="p">{</span>
+			<span class="n">float</span> <span class="n">previous_flow</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">previous</span> <span class="c1">!= nil) ? (self.previous).current_flow : 0.0;
+</span>			<span class="n">current_concentration</span> <span class="p">&lt;-</span> <span class="n">current_concentration</span> <span class="p">+</span> <span class="n">time_step</span><span class="p">/</span><span class="n">section_size</span> <span class="p">*(</span><span class="n">previous_flow</span> <span class="p">-</span> <span class="n">self</span><span class="p">.</span><span class="n">current_flow</span><span class="p">)</span> <span class="p">;</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+	
+	<span class="p">//</span> <span class="n">When</span> <span class="n">there</span> <span class="n">is</span> <span class="n">less</span> <span class="n">than</span> <span class="n">one</span> <span class="n">car</span> <span class="n">left</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span><span class="p">,</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">stops</span><span class="p">.</span>
+	
+	<span class="n">reflex</span> <span class="n">stop_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">section</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">current_concentration</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">1.0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span> <span class="n">A</span> <span class="n">road</span> <span class="n">is</span> <span class="n">divided</span> <span class="n">into</span> <span class="n">sections</span><span class="p">.</span> 
@@ -3741,84 +3742,85 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
 <span class="p">//</span> <span class="k">and</span> <span class="n">a</span> <span class="n">previous</span> <span class="k">and</span> <span class="n">a</span> <span class="k">next</span> <span class="n">section</span><span class="p">.</span>
 
 <span class="n">species</span> <span class="n">section</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">current_concentration</span>  <span class="p">;</span>
-    <span class="n">float</span> <span class="n">current_flow</span>  <span class="p">;</span>
+	<span class="n">float</span> <span class="n">current_concentration</span>  <span class="p">;</span>
+	<span class="n">float</span> <span class="n">current_flow</span>  <span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">offer</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">demand</span>  <span class="p">;</span>
+	
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">critical_concentration</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">max_speed</span> <span class="p">;</span> 
+	<span class="n">float</span> <span class="n">max_flow</span> <span class="p">;</span> 
 
-    <span class="n">float</span> <span class="n">offer</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">demand</span>  <span class="p">;</span>
-
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-
-    <span class="n">float</span> <span class="n">critical_concentration</span> <span class="p">;</span> 
-    <span class="n">float</span> <span class="n">max_speed</span> <span class="p">;</span> 
-    <span class="n">float</span> <span class="n">max_flow</span> <span class="p">;</span> 
-
-    <span class="n">section</span> <span class="n">previous</span> <span class="p">;</span>
-    <span class="n">section</span> <span class="k">next</span> <span class="p">;</span>
-
-    <span class="p">//</span> <span class="n">The</span> <span class="n">width</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">its</span> <span class="n">concentration</span><span class="p">.</span>
-
-    <span class="n">aspect</span> <span class="n">shape_section</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="m">15</span> <span class="p">*</span> <span class="nb">ln</span> <span class="p">(</span><span class="n">current_concentration</span> <span class="p">+</span> <span class="m">1</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>        
-    <span class="p">}</span> 
+	<span class="n">section</span> <span class="n">previous</span> <span class="p">;</span>
+	<span class="n">section</span> <span class="k">next</span> <span class="p">;</span>
+	
+	<span class="p">//</span> <span class="n">The</span> <span class="n">width</span> <span class="k">of</span> <span class="n">a</span> <span class="n">section</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">its</span> <span class="n">concentration</span><span class="p">.</span>
+	
+	<span class="n">aspect</span> <span class="n">shape_section</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="m">15</span> <span class="p">*</span> <span class="nb">ln</span> <span class="p">(</span><span class="n">current_concentration</span> <span class="p">+</span> <span class="m">1</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>		
+	<span class="p">}</span> 
 
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">TraficGroup</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 
-    <span class="p">//</span> <span class="n">Users</span> <span class="n">can</span> <span class="n">chose</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">sections</span> <span class="k">and</span> <span class="n">the</span> <span class="n">time</span> <span class="n">step</span><span class="p">.</span>
+	<span class="p">//</span> <span class="n">Users</span> <span class="n">can</span> <span class="n">chose</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">sections</span> <span class="k">and</span> <span class="n">the</span> <span class="n">time</span> <span class="n">step</span><span class="p">.</span>
 
     <span class="n">parameter</span> <span class="s1">'Number of sections'</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_sections</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Section parameter"</span><span class="p">;</span>
     <span class="n">parameter</span> <span class="s1">'Time step - DeltaT'</span> <span class="n">var</span><span class="p">:</span> <span class="n">time_step</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Time parameter"</span><span class="p">;</span>
-
-    <span class="n">output</span> <span class="p">{</span>
-
-        <span class="p">//</span> <span class="n">A</span> <span class="n">monitor</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cars</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span> <span class="n">at</span> <span class="n">every</span> <span class="n">time</span> <span class="n">step</span><span class="p">.</span>
-
-        <span class="n">monitor</span> <span class="s2">"Sum Concentrations"</span> <span class="n">value</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">section</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">current_concentration</span><span class="p">);</span>
-
-        <span class="p">//</span> <span class="n">A</span> <span class="n">display</span> <span class="n">shows</span> <span class="n">the</span> <span class="n">road</span><span class="p">.</span> <span class="n">Section</span> <span class="n">width</span> <span class="n">depend</span> <span class="n">on</span> <span class="n">their</span> <span class="n">concentration</span><span class="p">.</span>
-
-        <span class="n">display</span> <span class="n">TheRoad</span><span class="p">{</span>
-            <span class="n">species</span> <span class="n">section</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">shape_section</span> <span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span> <span class="n">The</span> <span class="n">greeen</span> <span class="n">time</span> <span class="n">series</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">middle</span> <span class="n">section</span> <span class="p">(</span><span class="n">on</span> <span class="n">which</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">maximum</span> <span class="n">speed</span> <span class="n">are</span> <span class="n">lower</span><span class="p">).</span>
-        <span class="p">//</span> <span class="n">The</span> <span class="n">red</span> <span class="n">time</span> <span class="n">series</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">section</span> <span class="n">just</span> <span class="n">before</span> <span class="n">the</span> <span class="n">middle</span> <span class="n">one</span><span class="p">.</span>
-
-        <span class="n">display</span> <span class="n">Concentrations</span> <span class="p">{</span>
-            <span class="n">chart</span> <span class="s2">"Concentrations"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span>  <span class="p">{</span>
-                <span class="n">data</span> <span class="s1">'Section 0'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>               
-                <span class="n">data</span> <span class="s1">'Section 1'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 2'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 3'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>                
-                <span class="n">data</span> <span class="s1">'Section 4'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span> <span class="p">-</span> <span class="m">1</span> <span class="p">)</span> <span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 5'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 6'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">6</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>                
-                <span class="n">data</span> <span class="s1">'Section 7'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">7</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 8'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">8</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 9'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">9</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-
-            <span class="n">display</span> <span class="n">Flows</span> <span class="p">{</span>
-                <span class="n">chart</span> <span class="s2">"Flows"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span>  <span class="p">{</span>
-                <span class="n">data</span> <span class="s1">'Section 0'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>             
-                <span class="n">data</span> <span class="s1">'Section 1'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 2'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 3'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>             
-                <span class="n">data</span> <span class="s1">'Section 4'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span> <span class="p">-</span> <span class="m">1</span><span class="p">)].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 5'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 6'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">6</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>             
-                <span class="n">data</span> <span class="s1">'Section 7'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">7</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 8'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">8</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s1">'Section 9'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">9</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-    <span class="p">}</span>
+        
+	<span class="n">output</span> <span class="p">{</span>
+		
+		<span class="p">//</span> <span class="n">A</span> <span class="n">monitor</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">cars</span> <span class="n">on</span> <span class="n">the</span> <span class="n">road</span> <span class="n">at</span> <span class="n">every</span> <span class="n">time</span> <span class="n">step</span><span class="p">.</span>
+		
+		<span class="n">monitor</span> <span class="s2">"Sum Concentrations"</span> <span class="n">value</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">section</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">current_concentration</span><span class="p">);</span>
+		
+		<span class="p">//</span> <span class="n">A</span> <span class="n">display</span> <span class="n">shows</span> <span class="n">the</span> <span class="n">road</span><span class="p">.</span> <span class="n">Section</span> <span class="n">width</span> <span class="n">depend</span> <span class="n">on</span> <span class="n">their</span> <span class="n">concentration</span><span class="p">.</span>
+		
+		<span class="n">display</span> <span class="n">TheRoad</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">section</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">shape_section</span> <span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span> <span class="n">The</span> <span class="n">greeen</span> <span class="n">time</span> <span class="n">series</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">middle</span> <span class="n">section</span> <span class="p">(</span><span class="n">on</span> <span class="n">which</span> <span class="n">concentration</span> <span class="k">and</span> <span class="n">maximum</span> <span class="n">speed</span> <span class="n">are</span> <span class="n">lower</span><span class="p">).</span>
+		<span class="p">//</span> <span class="n">The</span> <span class="n">red</span> <span class="n">time</span> <span class="n">series</span> <span class="n">correspond</span> <span class="k">to</span> <span class="n">the</span> <span class="n">section</span> <span class="n">just</span> <span class="n">before</span> <span class="n">the</span> <span class="n">middle</span> <span class="n">one</span><span class="p">.</span>
+				
+		<span class="n">display</span> <span class="n">Concentrations</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Concentrations"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span>  <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'Section 0'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span> <span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 1'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 2'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 3'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 4'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span> <span class="p">-</span> <span class="m">1</span> <span class="p">)</span> <span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 5'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 6'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">6</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 7'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">7</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 8'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">8</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 9'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">9</span><span class="p">].</span><span class="n">current_concentration</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+			
+			<span class="n">display</span> <span class="n">Flows</span> <span class="p">{</span>
+			    <span class="n">chart</span> <span class="s2">"Flows"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span>  <span class="p">{</span>
+				<span class="n">data</span> <span class="s1">'Section 0'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 1'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 2'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 3'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 4'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span> <span class="p">-</span> <span class="m">1</span><span class="p">)].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 5'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="n">int</span><span class="p">(</span><span class="n">nb_sections</span><span class="p">/</span><span class="m">2</span><span class="p">)].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 6'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">6</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>				
+				<span class="n">data</span> <span class="s1">'Section 7'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">7</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 8'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">8</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s1">'Section 9'</span> <span class="n">value</span><span class="p">:</span> <span class="n">section</span><span class="p">[</span><span class="m">9</span><span class="p">].</span><span class="n">current_flow</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="n">marker</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

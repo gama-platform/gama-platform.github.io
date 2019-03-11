@@ -3615,104 +3615,106 @@ function closeRightMenu() {
 
 <p>Model to show how to create a graph using a polygon shapefile by skeletonizing it, and creating roads using the skeleton. All of the agents will use this graph to go to the same targeted location.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">polygon</span>
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Import</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">different</span> <span class="n">polygons</span>
-    <span class="n">file</span> <span class="n">shape_file_in</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/gis/squareHole.shp'</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
-
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_in</span><span class="p">);</span>
-
-    <span class="n">init</span> <span class="p">{</span>    
-        <span class="nb">create</span> <span class="n">object</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_in</span> <span class="p">;</span>
-        <span class="n">object</span> <span class="n">the_object</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
-
-        <span class="p">//</span><span class="n">triangulation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">different</span> <span class="n">triangles</span> <span class="k">of</span> <span class="n">the</span> <span class="n">polygons</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">triangulate</span><span class="p">(</span><span class="n">the_object</span><span class="p">));</span>
-
-        <span class="n">loop</span> <span class="n">trig</span> <span class="n">over</span><span class="p">:</span> <span class="n">triangles</span> <span class="p">{</span>
-            <span class="nb">create</span> <span class="n">triangle_obj</span> <span class="p">{</span>
-                <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">trig</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">skeleton</span> <span class="k">from</span> <span class="n">the</span> <span class="n">object</span> 
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">skeletons</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">skeletonize</span><span class="p">(</span><span class="n">the_object</span><span class="p">));</span>
-
-        <span class="p">//</span><span class="n">Split</span> <span class="k">of</span> <span class="n">the</span> <span class="n">skeletons</span> <span class="k">list</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">intersection</span> <span class="n">points</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">skeletons_split</span>  <span class="p">&lt;-</span> <span class="n">split_lines</span><span class="p">(</span><span class="n">skeletons</span><span class="p">);</span>
-        <span class="n">loop</span> <span class="n">sk</span> <span class="n">over</span><span class="p">:</span> <span class="n">skeletons_split</span> <span class="p">{</span>
-            <span class="nb">create</span> <span class="n">skeleton</span> <span class="p">{</span>
-                <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">sk</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">edges</span> <span class="n">resulting</span> <span class="k">of</span> <span class="n">the</span> <span class="n">splitted</span> <span class="n">skeleton</span>
-         <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">skeleton</span><span class="p">);</span>
-
-
-        <span class="nb">create</span> <span class="n">goal</span>  <span class="p">{</span>
-             <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">skeleton</span><span class="p">));</span> 
-        <span class="p">}</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span> <span class="p">{</span>
-             <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">goal</span><span class="p">)</span> <span class="p">;</span> 
-             <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">skeleton</span><span class="p">));</span>
-        <span class="p">}</span> 
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">Import</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">different</span> <span class="n">polygons</span>
+	<span class="n">file</span> <span class="n">shape_file_in</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../includes/gis/squareHole.shp'</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">graph</span> <span class="n">the_graph</span><span class="p">;</span>
+	
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_in</span><span class="p">);</span>
+	
+	<span class="n">init</span> <span class="p">{</span>    
+		<span class="nb">create</span> <span class="n">object</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_in</span> <span class="p">;</span>
+		<span class="n">object</span> <span class="n">the_object</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+		
+		<span class="p">//</span><span class="n">triangulation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">object</span> <span class="k">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">different</span> <span class="n">triangles</span> <span class="k">of</span> <span class="n">the</span> <span class="n">polygons</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">triangulate</span><span class="p">(</span><span class="n">the_object</span><span class="p">));</span>
+		
+		<span class="n">loop</span> <span class="n">trig</span> <span class="n">over</span><span class="p">:</span> <span class="n">triangles</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">triangle_obj</span> <span class="p">{</span>
+				<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">trig</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">skeleton</span> <span class="k">from</span> <span class="n">the</span> <span class="n">object</span> 
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">skeletons</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">(</span><span class="n">skeletonize</span><span class="p">(</span><span class="n">the_object</span><span class="p">));</span>
+		
+		<span class="p">//</span><span class="n">Split</span> <span class="k">of</span> <span class="n">the</span> <span class="n">skeletons</span> <span class="k">list</span> <span class="n">according</span> <span class="k">to</span> <span class="n">their</span> <span class="n">intersection</span> <span class="n">points</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">skeletons_split</span>  <span class="p">&lt;-</span> <span class="n">split_lines</span><span class="p">(</span><span class="n">skeletons</span><span class="p">);</span>
+		<span class="n">loop</span> <span class="n">sk</span> <span class="n">over</span><span class="p">:</span> <span class="n">skeletons_split</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">skeleton</span> <span class="p">{</span>
+				<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">sk</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">edges</span> <span class="n">resulting</span> <span class="k">of</span> <span class="n">the</span> <span class="n">splitted</span> <span class="n">skeleton</span>
+		 <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">skeleton</span><span class="p">);</span>
+		 
+		 
+		<span class="nb">create</span> <span class="n">goal</span>  <span class="p">{</span>
+			 <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">skeleton</span><span class="p">));</span> 
+		<span class="p">}</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">100</span> <span class="p">{</span>
+			 <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">goal</span><span class="p">)</span> <span class="p">;</span> 
+			 <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span> <span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">skeleton</span><span class="p">));</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">object</span>  <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">triangle_obj</span>  <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">150</span> <span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span><span class="m">150</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span><span class="m">150</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span> 
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">150</span> <span class="p">+</span><span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span><span class="m">150</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">),</span><span class="m">150</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">100</span><span class="p">));</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span> 
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">skeleton</span>  <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="m">0.2</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="p">+</span> <span class="m">0.2</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+	
 <span class="n">species</span> <span class="n">goal</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">red</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">goal</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">path</span> <span class="n">my_path</span><span class="p">;</span> 
-
-    <span class="n">reflex</span> <span class="n">goto</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">on</span><span class="p">:</span><span class="n">the_graph</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">speed</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">goal</span> <span class="n">target</span><span class="p">;</span>
+	<span class="n">path</span> <span class="n">my_path</span><span class="p">;</span> 
+	
+	<span class="n">reflex</span> <span class="n">goto</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">on</span><span class="p">:</span><span class="n">the_graph</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">speed</span><span class="p">:</span><span class="m">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">goto_polygon</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">objects_display</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">triangle_obj</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">skeleton</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">goal</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">objects_display</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">triangle_obj</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">skeleton</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">goal</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

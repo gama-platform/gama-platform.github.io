@@ -3615,146 +3615,148 @@ function closeRightMenu() {
 
 <p>This model shows how to create agent and make them move randomly in the world.Some agents are infected, and others can gain the infection if they are in a certain range. The people are now placed in buildings at the initial state. Those buildings are created thanks toa shapefile. Roads are also created thanks to an other shapefile. A graph is now created fromthe road agents, and the people move from their location to a targent on the graph. The displayis now a 3D display. The model adds a new level as people going inside a building will be nowa new species belonging to the building and that will be manage by the building agent concernedThe people_in_building agent will be infected inside a building respecting an ordinary differentialequation system.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">model6</span> 
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">model6</span> 
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">roads</span>
-    <span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">buildings</span>
-    <span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">of</span> <span class="n">roads</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">The</span> <span class="n">graph</span> <span class="k">of</span> <span class="n">roads</span> <span class="n">on</span> <span class="n">which</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">will</span> <span class="n">move</span>
-    <span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
-
-    <span class="p">//</span><span class="n">The</span> <span class="n">beta</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span>
-    <span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.4</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
-        <span class="nb">create</span> <span class="n">roads</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span> <span class="k">as</span> <span class="n">edge</span>
-        <span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">roads</span><span class="p">);</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
-        <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
-        <span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">a</span> <span class="n">building</span> <span class="n">randomly</span> <span class="n">chosen</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">1000</span> <span class="p">{</span>
-            <span class="n">buildings</span> <span class="n">init_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">);</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">init_place</span><span class="p">)</span> <span class="p">+</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="n">init_place</span><span class="p">.</span><span class="n">height</span><span class="p">};</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">roads</span>
+	<span class="n">file</span> <span class="n">roads_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/road.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Shapefile</span> <span class="k">of</span> <span class="n">buildings</span>
+	<span class="n">file</span> <span class="n">buildings_shapefile</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">world</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">bounds</span> <span class="k">of</span> <span class="n">the</span> <span class="n">shapefile</span> <span class="k">of</span> <span class="n">roads</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">roads_shapefile</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">The</span> <span class="n">graph</span> <span class="k">of</span> <span class="n">roads</span> <span class="n">on</span> <span class="n">which</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">will</span> <span class="n">move</span>
+	<span class="n">graph</span> <span class="n">road_network</span><span class="p">;</span>
+	
+	<span class="p">//</span><span class="n">The</span> <span class="n">beta</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span>
+	<span class="n">float</span> <span class="n">beta</span> <span class="p">&lt;-</span> <span class="m">0.4</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">roads</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">roads</span> <span class="k">from</span><span class="p">:</span> <span class="n">roads_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">using</span> <span class="n">the</span> <span class="n">road</span> <span class="n">agents</span> <span class="k">as</span> <span class="n">edge</span>
+		<span class="n">road_network</span> <span class="p">&lt;-</span> <span class="n">as_edge_graph</span><span class="p">(</span><span class="n">roads</span><span class="p">);</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">buildings</span> <span class="n">using</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="n">buildings_shapefile</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">people</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">a</span> <span class="n">building</span> <span class="n">randomly</span> <span class="n">chosen</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span><span class="m">1000</span> <span class="p">{</span>
+			<span class="n">buildings</span> <span class="n">init_place</span> <span class="p">&lt;-</span> <span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">);</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">init_place</span><span class="p">)</span> <span class="p">+</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="n">init_place</span><span class="p">.</span><span class="n">height</span><span class="p">};</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">infected</span> <span class="k">and</span> <span class="n">will</span> <span class="n">move</span> <span class="k">from</span> <span class="n">a</span> <span class="n">location</span> <span class="k">to</span> <span class="n">a</span> <span class="n">target</span>
-<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>     
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-    <span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">);</span>
-    <span class="n">point</span> <span class="n">target</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">from</span> <span class="n">its</span> <span class="n">location</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">on</span> <span class="n">the</span> <span class="n">graph</span>
-    <span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
-        <span class="p">//</span><span class="n">Change</span> <span class="n">the</span> <span class="n">target</span> <span class="n">once</span> <span class="n">it</span> <span class="n">has</span> <span class="n">been</span> <span class="n">reached</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">a</span> <span class="n">non</span><span class="p">-</span><span class="n">infected</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">infected</span> <span class="n">by</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">nearby</span>
-    <span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
-        <span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="n">species</span> <span class="n">people</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving</span><span class="p">]{</span>		
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">5.0</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">);</span>
+	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">move</span> <span class="k">from</span> <span class="n">its</span> <span class="n">location</span> <span class="k">to</span> <span class="n">its</span> <span class="n">target</span> <span class="n">on</span> <span class="n">the</span> <span class="n">graph</span>
+	<span class="n">reflex</span> <span class="n">move</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">target</span> <span class="n">on</span><span class="p">:</span> <span class="n">road_network</span><span class="p">;</span>
+		<span class="p">//</span><span class="n">Change</span> <span class="n">the</span> <span class="n">target</span> <span class="n">once</span> <span class="n">it</span> <span class="n">has</span> <span class="n">been</span> <span class="n">reached</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">location</span> <span class="p">=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">one_of</span><span class="p">(</span><span class="n">buildings</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">know</span> <span class="k">if</span> <span class="n">a</span> <span class="n">non</span><span class="p">-</span><span class="n">infected</span> <span class="n">agent</span> <span class="n">is</span> <span class="n">infected</span> <span class="n">by</span> <span class="n">the</span> <span class="n">agents</span> <span class="n">nearby</span>
+	<span class="n">reflex</span> <span class="n">infect</span> <span class="n">when</span><span class="p">:</span> <span class="n">is_infected</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="n">at_distance</span> <span class="m">10</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">flip</span><span class="p">(</span><span class="m">0.01</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">circle</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">is_infected</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">roads</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">//</span><span class="n">Species</span> <span class="n">buildings</span> <span class="n">that</span> <span class="n">will</span> <span class="n">change</span> <span class="n">the</span> <span class="n">people</span> <span class="n">agents</span> <span class="n">inside</span> <span class="n">it</span> <span class="k">to</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">agent</span>
 <span class="p">//</span><span class="n">Managing</span> <span class="n">them</span> <span class="n">once</span> <span class="n">they</span> <span class="n">have</span> <span class="n">been</span> <span class="n">captured</span><span class="p">,</span> <span class="k">and</span> <span class="n">releasing</span> <span class="n">them</span> <span class="n">once</span> <span class="n">they</span> <span class="n">reached</span> <span class="n">a</span>
 <span class="p">//</span><span class="n">leaving</span> <span class="n">time</span>
 <span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
-    <span class="p">//</span><span class="n">Variable</span> <span class="k">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">infected</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">buildings</span>
-    <span class="n">int</span> <span class="n">nb_I</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">members</span> <span class="k">count</span> <span class="p">(</span><span class="n">people_in_building</span><span class="p">(</span><span class="n">each</span><span class="p">).</span><span class="n">is_infected</span><span class="p">)};</span>
-    <span class="p">//</span><span class="n">Variable</span> <span class="k">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">building</span>
-    <span class="n">int</span> <span class="n">nbInhabitants</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">);</span>
-    <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="k">not</span> <span class="n">infected</span>                
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">membersS</span> <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!each.is_infected);
-</span>    <span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="n">infected</span>                
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">membersI</span> <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">t</span><span class="p">;</span>
-    <span class="p">//</span><span class="n">Float</span> <span class="n">used</span> <span class="k">in</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">non</span> <span class="n">infected</span> <span class="n">agents</span>    
-    <span class="n">float</span> <span class="n">S</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">membersS</span><span class="p">)</span> <span class="k">as</span> <span class="n">float</span><span class="p">;</span> 
-    <span class="p">//</span><span class="n">Float</span> <span class="n">used</span> <span class="k">in</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span> <span class="n">agents</span> 
-    <span class="n">float</span> <span class="n">I</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">membersI</span><span class="p">)</span> <span class="k">as</span> <span class="n">float</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">h</span><span class="p">&lt;-</span><span class="m">0.1</span><span class="p">;</span>
-
-    <span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">empty</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="p">(</span><span class="n">nb_I</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0.5</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span>
-    <span class="n">species</span> <span class="n">people_in_building</span> <span class="n">parent</span><span class="p">:</span> <span class="n">people</span> <span class="n">schedules</span><span class="p">:</span> <span class="p">[]</span> <span class="p">{</span>
-        <span class="n">int</span> <span class="n">leaving_time</span><span class="p">;</span>
-        <span class="n">aspect</span> <span class="n">circle</span><span class="p">{}</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">capture</span> <span class="n">the</span> <span class="n">people</span> <span class="n">entering</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">building</span><span class="p">,</span> <span class="n">changing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">species</span> <span class="k">and</span> <span class="n">puting</span> <span class="n">a</span> <span class="n">leaving</span> <span class="n">time</span> <span class="k">to</span> <span class="n">know</span> <span class="n">when</span> <span class="n">lettiing</span>
-    <span class="p">//</span> <span class="n">them</span> <span class="n">out</span>
-    <span class="n">reflex</span> <span class="n">let_people_enter</span> <span class="p">{</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;</span> <span class="n">entering_people</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">people</span> <span class="n">inside</span> <span class="n">self</span><span class="p">);</span>
-        <span class="k">if</span> <span class="c1">!(empty (entering_people)) {
-</span>            <span class="n">capture</span> <span class="n">entering_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people_in_building</span> <span class="n">returns</span><span class="p">:</span> <span class="n">people_captured</span><span class="p">;</span>
-            <span class="n">ask</span> <span class="n">people_captured</span> <span class="p">{</span>
-                <span class="n">leaving_time</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">time</span> <span class="p">+</span> <span class="m">50</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">50</span><span class="p">));</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">let</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="n">go</span> <span class="n">out</span> <span class="k">if</span> <span class="n">there</span> <span class="n">leaving</span> <span class="n">time</span> <span class="n">is</span> <span class="n">reached</span><span class="p">,</span> <span class="n">releasing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">the</span> <span class="n">world</span> <span class="k">as</span> <span class="n">people</span> <span class="n">agent</span>
-    <span class="n">reflex</span> <span class="n">let_people_leave</span>  <span class="p">{</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">leaving_people</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;=</span> <span class="n">each</span><span class="p">.</span><span class="n">leaving_time</span><span class="p">);</span>
-        <span class="k">if</span> <span class="c1">!(empty (leaving_people)) {
-</span>            <span class="n">release</span> <span class="n">leaving_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people</span> <span class="k">in</span><span class="p">:</span> <span class="n">world</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">ODE</span> <span class="nf">system</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">infection</span> <span class="n">among</span> <span class="n">the</span> <span class="n">building</span>
-    <span class="n">equation</span> <span class="n">SIR</span><span class="p">{</span> 
-        <span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">nbInhabitants</span><span class="p">)</span> <span class="p">;</span>
-        <span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span>  <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">nbInhabitants</span><span class="p">)</span> <span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">System</span> <span class="n">only</span> <span class="n">when</span> <span class="n">they</span> <span class="n">are</span> <span class="n">people</span> <span class="n">inside</span>
-    <span class="n">reflex</span> <span class="n">epidemic</span> <span class="n">when</span><span class="p">:(</span><span class="n">S</span><span class="p">&gt;</span><span class="m">0</span> <span class="k">and</span> <span class="n">I</span><span class="p">&gt;</span><span class="m">0</span><span class="p">){</span>     
-        <span class="n">float</span> <span class="n">I0</span> <span class="p">&lt;-</span> <span class="n">I</span><span class="p">;</span>
-        <span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span> <span class="p">;</span>
-        <span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="n">I_to_1</span> <span class="p">+</span> <span class="p">(</span><span class="n">I</span> <span class="p">-</span> <span class="n">I0</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">I_to_1</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">ask</span><span class="p">(</span><span class="n">membersS</span><span class="p">){</span>
-                <span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="n">myself</span><span class="p">.</span><span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">I_to_1</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+	<span class="n">float</span> <span class="n">height</span> <span class="p">&lt;-</span> <span class="m">10.0</span><span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+	<span class="p">//</span><span class="n">Variable</span> <span class="k">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">infected</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">buildings</span>
+	<span class="n">int</span> <span class="n">nb_I</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">members</span> <span class="k">count</span> <span class="p">(</span><span class="n">people_in_building</span><span class="p">(</span><span class="n">each</span><span class="p">).</span><span class="n">is_infected</span><span class="p">)};</span>
+	<span class="p">//</span><span class="n">Variable</span> <span class="k">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">people</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">building</span>
+	<span class="n">int</span> <span class="n">nbInhabitants</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">);</span>
+	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="k">not</span> <span class="n">infected</span>				
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">membersS</span> <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!each.is_infected);
+</span>	<span class="p">//</span><span class="k">List</span> <span class="k">of</span> <span class="n">all</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="n">infected</span>				
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">membersI</span> <span class="n">update</span><span class="p">:</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">is_infected</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">t</span><span class="p">;</span>
+	<span class="p">//</span><span class="n">Float</span> <span class="n">used</span> <span class="k">in</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">non</span> <span class="n">infected</span> <span class="n">agents</span>    
+	<span class="n">float</span> <span class="n">S</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">membersS</span><span class="p">)</span> <span class="k">as</span> <span class="n">float</span><span class="p">;</span> 
+	<span class="p">//</span><span class="n">Float</span> <span class="n">used</span> <span class="k">in</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">system</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">number</span> <span class="k">of</span> <span class="n">infected</span> <span class="n">agents</span> 
+   	<span class="n">float</span> <span class="n">I</span> <span class="n">update</span><span class="p">:</span> <span class="n">length</span><span class="p">(</span><span class="n">membersI</span><span class="p">)</span> <span class="k">as</span> <span class="n">float</span><span class="p">;</span>
+   	<span class="n">float</span> <span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+   	<span class="n">float</span> <span class="n">h</span><span class="p">&lt;-</span><span class="m">0.1</span><span class="p">;</span>
+   	
+	<span class="n">aspect</span> <span class="n">geom</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">empty</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">?</span> <span class="p">#</span><span class="n">gray</span> <span class="p">:</span> <span class="p">(</span><span class="n">nb_I</span><span class="p">/</span><span class="n">length</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0.5</span> <span class="p">?</span> <span class="p">#</span><span class="n">red</span> <span class="p">:</span> <span class="p">#</span><span class="n">green</span><span class="p">)</span> <span class="n">depth</span><span class="p">:</span> <span class="n">height</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Species</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">building</span> <span class="n">agents</span>
+	<span class="n">species</span> <span class="n">people_in_building</span> <span class="n">parent</span><span class="p">:</span> <span class="n">people</span> <span class="n">schedules</span><span class="p">:</span> <span class="p">[]</span> <span class="p">{</span>
+		<span class="n">int</span> <span class="n">leaving_time</span><span class="p">;</span>
+		<span class="n">aspect</span> <span class="n">circle</span><span class="p">{}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">capture</span> <span class="n">the</span> <span class="n">people</span> <span class="n">entering</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">building</span><span class="p">,</span> <span class="n">changing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">people</span> <span class="k">in</span> <span class="n">building</span> <span class="n">species</span> <span class="k">and</span> <span class="n">puting</span> <span class="n">a</span> <span class="n">leaving</span> <span class="n">time</span> <span class="k">to</span> <span class="n">know</span> <span class="n">when</span> <span class="n">lettiing</span>
+	<span class="p">//</span> <span class="n">them</span> <span class="n">out</span>
+	<span class="n">reflex</span> <span class="n">let_people_enter</span> <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">people</span><span class="p">&gt;</span> <span class="n">entering_people</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">people</span> <span class="n">inside</span> <span class="n">self</span><span class="p">);</span>
+		<span class="k">if</span> <span class="c1">!(empty (entering_people)) {
+</span>			<span class="n">capture</span> <span class="n">entering_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people_in_building</span> <span class="n">returns</span><span class="p">:</span> <span class="n">people_captured</span><span class="p">;</span>
+			<span class="n">ask</span> <span class="n">people_captured</span> <span class="p">{</span>
+				<span class="n">leaving_time</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="n">time</span> <span class="p">+</span> <span class="m">50</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="m">50</span><span class="p">));</span>
+			<span class="p">}</span>
+ 		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Reflex</span> <span class="k">to</span> <span class="n">let</span> <span class="n">the</span> <span class="n">people_in_building</span> <span class="n">agents</span> <span class="n">go</span> <span class="n">out</span> <span class="k">if</span> <span class="n">there</span> <span class="n">leaving</span> <span class="n">time</span> <span class="n">is</span> <span class="n">reached</span><span class="p">,</span> <span class="n">releasing</span> <span class="n">them</span> <span class="k">in</span> <span class="n">the</span> <span class="n">world</span> <span class="k">as</span> <span class="n">people</span> <span class="n">agent</span>
+	<span class="n">reflex</span> <span class="n">let_people_leave</span>  <span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;</span> <span class="n">leaving_people</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">people_in_building</span><span class="p">&gt;(</span><span class="n">members</span><span class="p">)</span> <span class="n">where</span> <span class="p">(</span><span class="n">time</span> <span class="p">&gt;=</span> <span class="n">each</span><span class="p">.</span><span class="n">leaving_time</span><span class="p">);</span>
+		<span class="k">if</span> <span class="c1">!(empty (leaving_people)) {
+</span>			<span class="n">release</span> <span class="n">leaving_people</span> <span class="k">as</span><span class="p">:</span> <span class="n">people</span> <span class="k">in</span><span class="p">:</span> <span class="n">world</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">ODE</span> <span class="nf">system</span> <span class="k">to</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">infection</span> <span class="n">among</span> <span class="n">the</span> <span class="n">building</span>
+	<span class="n">equation</span> <span class="n">SIR</span><span class="p">{</span> 
+		<span class="n">diff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(-</span> <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">nbInhabitants</span><span class="p">)</span> <span class="p">;</span>
+		<span class="n">diff</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span>  <span class="n">beta</span> <span class="p">*</span> <span class="n">S</span> <span class="p">*</span> <span class="n">I</span> <span class="p">/</span> <span class="n">nbInhabitants</span><span class="p">)</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="p">//</span><span class="n">Make</span> <span class="n">the</span> <span class="n">computation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">ODE</span> <span class="nf">System</span> <span class="n">only</span> <span class="n">when</span> <span class="n">they</span> <span class="n">are</span> <span class="n">people</span> <span class="n">inside</span>
+	<span class="n">reflex</span> <span class="n">epidemic</span> <span class="n">when</span><span class="p">:(</span><span class="n">S</span><span class="p">&gt;</span><span class="m">0</span> <span class="k">and</span> <span class="n">I</span><span class="p">&gt;</span><span class="m">0</span><span class="p">){</span> 	
+		<span class="n">float</span> <span class="n">I0</span> <span class="p">&lt;-</span> <span class="n">I</span><span class="p">;</span>
+    	<span class="n">solve</span> <span class="n">SIR</span> <span class="n">method</span><span class="p">:</span> <span class="s2">"rk4"</span> <span class="n">step</span><span class="p">:</span> <span class="n">h</span> <span class="p">;</span>
+    	<span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="n">I_to_1</span> <span class="p">+</span> <span class="p">(</span><span class="n">I</span> <span class="p">-</span> <span class="n">I0</span><span class="p">);</span>
+    	<span class="k">if</span><span class="p">(</span><span class="n">I_to_1</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+    		<span class="n">ask</span><span class="p">(</span><span class="n">membersS</span><span class="p">){</span>
+    			<span class="n">is_infected</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+    			<span class="n">myself</span><span class="p">.</span><span class="n">I_to_1</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">I_to_1</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+    		<span class="p">}</span>
+    	<span class="p">}</span>
     <span class="p">}</span>    
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">main_experiment</span> <span class="n">type</span><span class="p">:</span><span class="n">gui</span><span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>           
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">map</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">roads</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span><span class="n">geom</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span><span class="n">circle</span><span class="p">;</span>			
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

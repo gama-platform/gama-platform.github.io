@@ -3615,56 +3615,59 @@ function closeRightMenu() {
 
 <p>This model is used to show how to construct an anisotropic diffusion through a grid. The cell at the center of the grid emit a pheromon at each step, which is spread through the grid thanks to the diffusion mechanism, using a particular matrix of diffusion.</p>
 
-<p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Anisotropic Diffusion (Simple)/a-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Diffusion Statement/Diffusion Statement Anisotropic Diffusion (Simple)/a-10.png" alt="Eclipse folder." title="" class="img-responsive" /> == $0</p>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">anisotropic_diffusion</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">64</span><span class="p">;</span> <span class="p">//</span> <span class="n">better</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">pow</span> <span class="k">of</span> <span class="m">2</span> <span class="n">for</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="p">*</span> <span class="m">10</span><span class="p">);</span>
-    <span class="n">cells</span> <span class="n">selected_cells</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">64</span><span class="p">;</span> <span class="p">//</span> <span class="n">better</span> <span class="k">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">pow</span> <span class="k">of</span> <span class="m">2</span> <span class="n">for</span> <span class="n">the</span> <span class="n">size</span> <span class="k">of</span> <span class="n">the</span> <span class="n">grid</span>
+  	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="p">*</span> <span class="m">10</span><span class="p">);</span>
+  	<span class="n">cells</span> <span class="n">selected_cells</span><span class="p">;</span>
+  	
+  	<span class="p">//</span> <span class="n">Declare</span> <span class="n">the</span> <span class="n">anisotropic</span> <span class="n">matrix</span> <span class="p">(</span><span class="n">diffuse</span> <span class="k">to</span> <span class="n">the</span> <span class="n">left</span><span class="p">-</span><span class="n">upper</span> <span class="n">direction</span><span class="p">)</span>
+	<span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">mat_diff</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">([</span>
+									<span class="p">[</span><span class="m">4</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">2</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
+									<span class="p">[</span><span class="m">2</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0.0</span><span class="p">],</span>
+									<span class="p">[</span><span class="m">0</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">]]);</span>
+	
+	<span class="n">reflex</span> <span class="n">diff</span> <span class="p">{</span> 
+		<span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells</span> <span class="n">matrix</span><span class="p">:</span><span class="n">mat_diff</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="p">//</span> <span class="n">Declare</span> <span class="n">the</span> <span class="n">anisotropic</span> <span class="n">matrix</span> <span class="p">(</span><span class="n">diffuse</span> <span class="k">to</span> <span class="n">the</span> <span class="n">left</span><span class="p">-</span><span class="n">upper</span> <span class="n">direction</span><span class="p">)</span>
-    <span class="n">matrix</span><span class="p">&lt;</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">mat_diff</span> <span class="p">&lt;-</span> <span class="n">matrix</span><span class="p">([</span>
-                                    <span class="p">[</span><span class="m">4</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">2</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0</span><span class="p">/</span><span class="m">9</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="m">2</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">1</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0.0</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="m">0</span><span class="p">/</span><span class="m">9</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">]]);</span>
-
-    <span class="n">reflex</span> <span class="n">diff</span> <span class="p">{</span> 
-        <span class="n">diffuse</span> <span class="n">var</span><span class="p">:</span> <span class="n">phero</span> <span class="n">on</span><span class="p">:</span> <span class="n">cells</span> <span class="n">matrix</span><span class="p">:</span><span class="n">mat_diff</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cell</span> <span class="k">as</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">at</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">word</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">selected_cells</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="k">as</span> <span class="n">cells</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">reflex</span> <span class="n">new_Value</span> <span class="p">{</span>
-        <span class="n">ask</span> <span class="n">selected_cells</span> <span class="p">{</span>
-            <span class="n">phero</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="p">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">emiter</span> <span class="n">cell</span> <span class="k">as</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">at</span> <span class="n">the</span> <span class="n">center</span> <span class="k">of</span> <span class="n">the</span> <span class="n">word</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">selected_cells</span> <span class="p">&lt;-</span> <span class="n">location</span> <span class="k">as</span> <span class="n">cells</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">new_Value</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">selected_cells</span> <span class="p">{</span>
+			<span class="n">phero</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">grid</span> <span class="n">cells</span> <span class="n">height</span><span class="p">:</span> <span class="n">size</span> <span class="n">width</span><span class="p">:</span> <span class="n">size</span> <span class="p">{</span>
-    <span class="p">//</span> <span class="s2">"phero"</span> <span class="n">is</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
-    <span class="n">float</span> <span class="n">phero</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
-    <span class="p">//</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">linked</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="s2">"phero"</span><span class="p">.</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>
-    <span class="p">//</span> <span class="n">Update</span> <span class="n">the</span> <span class="s2">"grid_value"</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">elevation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
-    <span class="n">float</span> <span class="n">grid_value</span> <span class="n">update</span><span class="p">:</span> <span class="n">phero</span> <span class="p">*</span> <span class="m">100</span><span class="p">;</span>
+	<span class="p">//</span> <span class="s2">"phero"</span> <span class="n">is</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="n">the</span> <span class="n">diffusion</span>
+	<span class="n">float</span> <span class="n">phero</span>  <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+	<span class="p">//</span> <span class="n">the</span> <span class="n">color</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">is</span> <span class="n">linked</span> <span class="k">to</span> <span class="n">the</span> <span class="n">value</span> <span class="k">of</span> <span class="s2">"phero"</span><span class="p">.</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">)</span> <span class="n">update</span><span class="p">:</span> <span class="n">hsb</span><span class="p">(</span><span class="n">phero</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">);</span>
+	<span class="p">//</span> <span class="n">Update</span> <span class="n">the</span> <span class="s2">"grid_value"</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">for</span> <span class="n">the</span> <span class="n">elevation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">cell</span>
+	<span class="n">float</span> <span class="n">grid_value</span> <span class="n">update</span><span class="p">:</span> <span class="n">phero</span> <span class="p">*</span> <span class="m">100</span><span class="p">;</span>
 <span class="p">}</span> 
 
 
 <span class="n">experiment</span> <span class="n">diffusion</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">a</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-            <span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
-            <span class="n">grid</span> <span class="n">cells</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">a</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="p">//</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">elevation</span>
+			<span class="n">grid</span> <span class="n">cells</span> <span class="n">elevation</span><span class="p">:</span> <span class="nb">true</span> <span class="n">triangulation</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

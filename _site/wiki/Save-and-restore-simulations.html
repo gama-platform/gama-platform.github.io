@@ -3611,42 +3611,48 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="save-and-restore-simulations">Save and Restore simulations</h1>
 
-<p>Last version of GAMA has introduced new features to save the state of a simulation at a given simulation cycle. This has two main applications:
-  * The possibility to step forward and backward in a simulation,
-  * The possibility to save the state of a simulation in a file and to restore a simulation from this file.</p>
+<p>Last version of GAMA has introduced new features to save the state of a simulation at a given simulation cycle. This has two main applications:</p>
+<ul>
+  <li>The possibility to step forward and backward in a simulation,</li>
+  <li>The possibility to save the state of a simulation in a file and to restore a simulation from this file.</li>
+</ul>
 
 <h2 id="save-a-simulation">Save a simulation</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment saveSimu type: gui {
 
-    reflex store when: cycle = 5 {      
-        write "================ START SAVE + self " + " - " + cycle ;       
-        write "Save of simulation : " + saveSimulation('saveSimu.gsim');
-        write "================ END SAVE + self " + " - " + cycle ;         
-    }   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment saveSimu type: gui {
 
-    output {
-        display main_display {
-            species road aspect: geom;
-            species people aspect: base;                        
-        }
-    }   
+	reflex store when: cycle = 5 {		
+		write "================ START SAVE + self " + " - " + cycle ;		
+		write "Save of simulation : " + saveSimulation('saveSimu.gsim');
+		write "================ END SAVE + self " + " - " + cycle ;			
+	}	
+	
+	output {
+		display main_display {
+			species road aspect: geom;
+			species people aspect: base;						
+		}
+	}	
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="restore-a-simulation">Restore a simulation</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">experiment reloadSavedSimuOnly type: gui {
 
-    action _init_ {
-        create simulation from: saved_simulation_file("saveSimu.gsim"); 
-    }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>experiment reloadSavedSimuOnly type: gui {
+	
+	action _init_ {
+		create simulation from: saved_simulation_file("saveSimu.gsim");	
+	}
 
-    output {
-        display main_display {
-            species road aspect: geom;
-            species people aspect: base;                        
-        }
-    }   
+	output {
+		display main_display {
+			species road aspect: geom;
+			species people aspect: base;						
+		}
+	}	
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="saved-simulation-file-type-gsim">Saved simulation file type: gsim</h2>
 
 <h2 id="other-serialization-operators">Other serialization operators</h2>

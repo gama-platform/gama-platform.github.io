@@ -3617,22 +3617,28 @@ function closeRightMenu() {
 
 <h2 id="implementation">Implementation</h2>
 
-<p>A control architecture is a Java class, that:
-  * is annotated by the <a href="DevelopingIndexAnnotations#@skill">@skill</a> annotation,
-  * extends the <code>AbstractArchitecture</code> class (to get benefits of everything from the <code>reflex</code>-based control architecture, the <code>ReflexArchitecture</code> class can be extended instead).</p>
+<p>A control architecture is a Java class, that:</p>
+<ul>
+  <li>is annotated by the <a href="DevelopingIndexAnnotations#@skill">@skill</a> annotation,</li>
+  <li>extends the <code class="highlighter-rouge">AbstractArchitecture</code> class (to get benefits of everything from the <code class="highlighter-rouge">reflex</code>-based control architecture, the <code class="highlighter-rouge">ReflexArchitecture</code> class can be extended instead).</li>
+</ul>
 
-<p>The <code>AbstractArchitecture</code> extends the <code>ISkill</code> and <code>IStatement</code> interfaces and add the 2 following methods:
-  * <code>public abstract boolean init(IScope scope) throws GamaRuntimeException;</code>
-  * <code>public abstract void verifyBehaviors(ISpecies context);</code></p>
+<p>The <code class="highlighter-rouge">AbstractArchitecture</code> extends the <code class="highlighter-rouge">ISkill</code> and <code class="highlighter-rouge">IStatement</code> interfaces and add the 2 following methods:</p>
+<ul>
+  <li><code class="highlighter-rouge">public abstract boolean init(IScope scope) throws GamaRuntimeException;</code></li>
+  <li><code class="highlighter-rouge">public abstract void verifyBehaviors(ISpecies context);</code></li>
+</ul>
 
-<p>The three main methods to implement are thus:
-  * <code>public void setChildren(final List&lt;? extends ISymbol&gt; children)</code>: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in <code>children</code>) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:
-<code>
-for ( final ISymbol c : children ) {
+<p>The three main methods to implement are thus:</p>
+<ul>
+  <li><code class="highlighter-rouge">public void setChildren(final List&lt;? extends ISymbol&gt; children)</code>: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in <code class="highlighter-rouge">children</code>) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for ( final ISymbol c : children ) {
    if( IKeyword.INIT.equals(c.getFacet(IKeyword.KEYWORD).literalValue()) ) {
-</code>
-  * <code>public abstract boolean init(IScope scope) throws GamaRuntimeException</code>: this method is called only once, at the initialization of the agent.
-  * <code>public Object executeOn(final IScope scope) throws GamaRuntimeException</code>: this method is executed at each simulation step. It should manage the execution of the various embedded behaviors (e.g. their order or choose which one will be executed...)</p>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">public abstract boolean init(IScope scope) throws GamaRuntimeException</code>: this method is called only once, at the initialization of the agent.</li>
+  <li><code class="highlighter-rouge">public Object executeOn(final IScope scope) throws GamaRuntimeException</code>: this method is executed at each simulation step. It should manage the execution of the various embedded behaviors (e.g. their order or choose which one will be executed…)</li>
+</ul>
 
     </div>
     </div>

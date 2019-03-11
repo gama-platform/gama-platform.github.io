@@ -3613,208 +3613,210 @@ function closeRightMenu() {
 
 <p>11th part of the tutorial: Predator Prey</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">prey_predator</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_predators_init</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_max_transfert</span> <span class="p">&lt;-</span> <span class="m">0.1</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">predator_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">predator_energy_transfert</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">predator_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.02</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">prey_proba_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">prey_nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">prey_energy_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span> 
-    <span class="n">float</span> <span class="n">predator_proba_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">predator_nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">predator_energy_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
-
-    <span class="n">int</span> <span class="n">nb_preys</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">length</span> <span class="p">(</span><span class="n">prey</span><span class="p">)};</span>
-    <span class="n">int</span> <span class="n">nb_predators</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">length</span> <span class="p">(</span><span class="n">predator</span><span class="p">)};</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span> 
-        <span class="nb">create</span> <span class="n">predator</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_predators_init</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">save_result</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_preys</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">nb_predators</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">){</span>
-        <span class="n">save</span> <span class="p">(</span><span class="s2">"cycle: "</span><span class="p">+</span> <span class="n">cycle</span> <span class="p">+</span> <span class="s2">"; nbPreys: "</span> <span class="p">+</span> <span class="n">nb_preys</span>
-            <span class="p">+</span> <span class="s2">"; minEnergyPreys: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">prey</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">min_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span>
-            <span class="p">+</span> <span class="s2">"; maxSizePreys: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">prey</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">max_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span> 
-            <span class="p">+</span> <span class="s2">"; nbPredators: "</span> <span class="p">+</span> <span class="n">nb_predators</span>           
-            <span class="p">+</span> <span class="s2">"; minEnergyPredators: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">predator</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">min_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span>          
-            <span class="p">+</span> <span class="s2">"; maxSizePredators: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">predator</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">max_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">))</span> 
-            <span class="k">to</span><span class="p">:</span> <span class="s2">"results.txt"</span> <span class="n">type</span><span class="p">:</span> <span class="s2">"text"</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">stop_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_preys</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">nb_predators</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">halt</span> <span class="p">;</span>
-    <span class="p">}</span> 
+	<span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_predators_init</span> <span class="p">&lt;-</span> <span class="m">20</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_max_transfert</span> <span class="p">&lt;-</span> <span class="m">0.1</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.05</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_max_energy</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_energy_transfert</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_energy_consum</span> <span class="p">&lt;-</span> <span class="m">0.02</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">prey_proba_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">prey_nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="m">5</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">prey_energy_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span> 
+	<span class="n">float</span> <span class="n">predator_proba_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.01</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">predator_nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">predator_energy_reproduce</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
+	
+	<span class="n">int</span> <span class="n">nb_preys</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">length</span> <span class="p">(</span><span class="n">prey</span><span class="p">)};</span>
+	<span class="n">int</span> <span class="n">nb_predators</span> <span class="p">-&gt;</span> <span class="p">{</span><span class="n">length</span> <span class="p">(</span><span class="n">predator</span><span class="p">)};</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span> 
+		<span class="nb">create</span> <span class="n">predator</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_predators_init</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">save_result</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_preys</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">nb_predators</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">){</span>
+		<span class="n">save</span> <span class="p">(</span><span class="s2">"cycle: "</span><span class="p">+</span> <span class="n">cycle</span> <span class="p">+</span> <span class="s2">"; nbPreys: "</span> <span class="p">+</span> <span class="n">nb_preys</span>
+			<span class="p">+</span> <span class="s2">"; minEnergyPreys: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">prey</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">min_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span>
+			<span class="p">+</span> <span class="s2">"; maxSizePreys: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">prey</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">max_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span> 
+	   		<span class="p">+</span> <span class="s2">"; nbPredators: "</span> <span class="p">+</span> <span class="n">nb_predators</span>           
+	   		<span class="p">+</span> <span class="s2">"; minEnergyPredators: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">predator</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">min_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">)</span>          
+	   		<span class="p">+</span> <span class="s2">"; maxSizePredators: "</span> <span class="p">+</span> <span class="p">((</span><span class="n">predator</span> <span class="k">as</span> <span class="k">list</span><span class="p">)</span> <span class="n">max_of</span> <span class="n">each</span><span class="p">.</span><span class="n">energy</span><span class="p">))</span> 
+	   		<span class="k">to</span><span class="p">:</span> <span class="s2">"results.txt"</span> <span class="n">type</span><span class="p">:</span> <span class="s2">"text"</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">stop_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">nb_preys</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="n">nb_predators</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">halt</span> <span class="p">;</span>
+	<span class="p">}</span> 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">generic_species</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span>  <span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_energy</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_transfert</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_consum</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">nb_max_offsprings</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_reproduce</span><span class="p">;</span>
-    <span class="n">image_file</span> <span class="n">my_icon</span><span class="p">;</span>
-    <span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="n">max_energy</span>  <span class="n">update</span><span class="p">:</span> <span class="n">energy</span> <span class="p">-</span> <span class="n">energy_consum</span> <span class="k">max</span><span class="p">:</span> <span class="n">max_energy</span> <span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span>
-            <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">choose_cell</span><span class="p">();</span>
-            <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span> 
-    <span class="p">}</span> 
-
-    <span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-        <span class="n">return</span> <span class="n">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">die</span> <span class="n">when</span><span class="p">:</span> <span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">reproduce</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">energy</span> <span class="p">&gt;=</span> <span class="n">energy_reproduce</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">proba_reproduce</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">int</span> <span class="n">nb_offsprings</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">nb_max_offsprings</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
-            <span class="nb">create</span> <span class="n">species</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_offsprings</span> <span class="p">{</span>
-                <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">myCell</span> <span class="p">;</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span>
-                <span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">energy</span> <span class="p">/</span> <span class="n">nb_offsprings</span> <span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">/</span> <span class="n">nb_offsprings</span> <span class="p">;</span>
-        <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">icon</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">my_icon</span> <span class="n">size</span><span class="p">:</span> <span class="m">2</span> <span class="p">*</span> <span class="n">size</span> <span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">aspect</span> <span class="n">info</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-        <span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">energy</span> <span class="n">with_precision</span> <span class="m">2</span><span class="p">)</span> <span class="n">size</span><span class="p">:</span> <span class="m">3</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span>  <span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_energy</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_transfert</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_consum</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">nb_max_offsprings</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_reproduce</span><span class="p">;</span>
+	<span class="n">image_file</span> <span class="n">my_icon</span><span class="p">;</span>
+	<span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="n">max_energy</span>  <span class="n">update</span><span class="p">:</span> <span class="n">energy</span> <span class="p">-</span> <span class="n">energy_consum</span> <span class="k">max</span><span class="p">:</span> <span class="n">max_energy</span> <span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">basic_move</span> <span class="p">{</span>
+			<span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">choose_cell</span><span class="p">();</span>
+			<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span> 
+	<span class="p">}</span> 
+	
+	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
+		<span class="n">return</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="p">}</span>
+		
+	<span class="n">reflex</span> <span class="n">die</span> <span class="n">when</span><span class="p">:</span> <span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">reproduce</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">energy</span> <span class="p">&gt;=</span> <span class="n">energy_reproduce</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">proba_reproduce</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">int</span> <span class="n">nb_offsprings</span> <span class="p">&lt;-</span> <span class="n">int</span><span class="p">(</span><span class="m">1</span> <span class="p">+</span> <span class="n">rnd</span><span class="p">(</span><span class="n">nb_max_offsprings</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
+			<span class="nb">create</span> <span class="n">species</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_offsprings</span> <span class="p">{</span>
+				<span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">myCell</span> <span class="p">;</span>
+				<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span> <span class="p">;</span>
+				<span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">myself</span><span class="p">.</span><span class="n">energy</span> <span class="p">/</span> <span class="n">nb_offsprings</span> <span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">/</span> <span class="n">nb_offsprings</span> <span class="p">;</span>
+		<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">icon</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">my_icon</span> <span class="n">size</span><span class="p">:</span> <span class="m">2</span> <span class="p">*</span> <span class="n">size</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">info</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">square</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+		<span class="n">draw</span> <span class="k">string</span><span class="p">(</span><span class="n">energy</span> <span class="n">with_precision</span> <span class="m">2</span><span class="p">)</span> <span class="n">size</span><span class="p">:</span> <span class="m">3</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">prey</span> <span class="n">parent</span><span class="p">:</span> <span class="n">generic_species</span> <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">prey_max_energy</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_transfert</span> <span class="p">&lt;-</span> <span class="n">prey_max_transfert</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">prey_energy_consum</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">&lt;-</span> <span class="n">prey_proba_reproduce</span> <span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="n">prey_nb_max_offsprings</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_reproduce</span> <span class="p">&lt;-</span> <span class="n">prey_energy_reproduce</span> <span class="p">;</span>
-    <span class="n">file</span> <span class="n">my_icon</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/data/sheep.png"</span><span class="p">)</span> <span class="p">;</span>
-
-    <span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
-        <span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">max_transfert</span><span class="p">,</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span><span class="p">])</span> <span class="p">;</span>
-        <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="n">energy_transfert</span> <span class="p">;</span>
-        <span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-        <span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">prey_max_energy</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_transfert</span> <span class="p">&lt;-</span> <span class="n">prey_max_transfert</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">prey_energy_consum</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">&lt;-</span> <span class="n">prey_proba_reproduce</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="n">prey_nb_max_offsprings</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_reproduce</span> <span class="p">&lt;-</span> <span class="n">prey_energy_reproduce</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">my_icon</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/data/sheep.png"</span><span class="p">)</span> <span class="p">;</span>
+		
+	<span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">([</span><span class="n">max_transfert</span><span class="p">,</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span><span class="p">])</span> <span class="p">;</span>
+		<span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">food</span> <span class="p">-</span> <span class="n">energy_transfert</span> <span class="p">;</span>
+		<span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
+		<span class="n">return</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">with_max_of</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">food</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+	
 <span class="n">species</span> <span class="n">predator</span> <span class="n">parent</span><span class="p">:</span> <span class="n">generic_species</span> <span class="p">{</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">predator_max_energy</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="n">predator_energy_transfert</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">predator_energy_consum</span> <span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">prey</span><span class="p">&gt;</span> <span class="n">reachable_preys</span> <span class="n">update</span><span class="p">:</span> <span class="n">prey</span> <span class="n">inside</span> <span class="p">(</span><span class="n">myCell</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">&lt;-</span> <span class="n">predator_proba_reproduce</span> <span class="p">;</span>
-    <span class="n">int</span> <span class="n">nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="n">predator_nb_max_offsprings</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">energy_reproduce</span> <span class="p">&lt;-</span> <span class="n">predator_energy_reproduce</span> <span class="p">;</span>
-    <span class="n">file</span> <span class="n">my_icon</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/data/wolf.png"</span><span class="p">)</span> <span class="p">;</span>
-
-    <span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="c1">! empty(reachable_preys) {
-</span>        <span class="n">ask</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">reachable_preys</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
-        <span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
-</span>        <span class="k">if</span> <span class="n">myCell_tmp</span> <span class="c1">!= nil {
-</span>            <span class="n">return</span> <span class="n">myCell_tmp</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">);</span>
-        <span class="p">}</span> 
-    <span class="p">}</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">max_energy</span> <span class="p">&lt;-</span> <span class="n">predator_max_energy</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_transfert</span> <span class="p">&lt;-</span> <span class="n">predator_energy_transfert</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_consum</span> <span class="p">&lt;-</span> <span class="n">predator_energy_consum</span> <span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">prey</span><span class="p">&gt;</span> <span class="n">reachable_preys</span> <span class="n">update</span><span class="p">:</span> <span class="n">prey</span> <span class="n">inside</span> <span class="p">(</span><span class="n">myCell</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">proba_reproduce</span> <span class="p">&lt;-</span> <span class="n">predator_proba_reproduce</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_max_offsprings</span> <span class="p">&lt;-</span> <span class="n">predator_nb_max_offsprings</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">energy_reproduce</span> <span class="p">&lt;-</span> <span class="n">predator_energy_reproduce</span> <span class="p">;</span>
+	<span class="n">file</span> <span class="n">my_icon</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s2">"../includes/data/wolf.png"</span><span class="p">)</span> <span class="p">;</span>
+	
+	<span class="n">reflex</span> <span class="n">eat</span> <span class="n">when</span><span class="p">:</span> <span class="c1">! empty(reachable_preys) {
+</span>		<span class="n">ask</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">reachable_preys</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">die</span> <span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">energy</span> <span class="p">&lt;-</span> <span class="n">energy</span> <span class="p">+</span> <span class="n">energy_transfert</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">vegetation_cell</span> <span class="n">choose_cell</span> <span class="p">{</span>
+		<span class="n">vegetation_cell</span> <span class="n">myCell_tmp</span> <span class="p">&lt;-</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">)</span> <span class="n">first_with</span> <span class="p">(</span><span class="c1">!(empty (prey inside (each))));
+</span>		<span class="k">if</span> <span class="n">myCell_tmp</span> <span class="c1">!= nil {
+</span>			<span class="n">return</span> <span class="n">myCell_tmp</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">return</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">myCell</span><span class="p">.</span><span class="n">neighbors</span><span class="p">);</span>
+		<span class="p">}</span> 
+	<span class="p">}</span>
 <span class="p">}</span>
-
+	
 <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span> 
+	<span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">vegetation_cell</span><span class="p">&gt;</span> <span class="n">neighbors</span>  <span class="p">&lt;-</span> <span class="p">(</span><span class="n">self</span> <span class="n">neighbors_at</span> <span class="m">2</span><span class="p">);</span> 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span>  <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey max transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Prey energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Initial number of predators: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_predators_init</span>  <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">200</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Predator max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Predator energy transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Predator energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Prey probability reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_proba_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Prey nb max offsprings: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_nb_max_offsprings</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Prey energy reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Predator probability reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_proba_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Predator nb max offsprings: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_nb_max_offsprings</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
-    <span class="n">parameter</span> <span class="s1">'Predator energy reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
-
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
-            <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">icon</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">predator</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">icon</span> <span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">display</span> <span class="n">info_display</span> <span class="p">{</span>
-            <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">predator</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">display</span> <span class="n">Population_information</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">chart</span> <span class="s2">"Species evolution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"number_of_preys"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_preys</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"number_of_predator"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_predators</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">chart</span> <span class="s2">"Prey Energy Distribution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">histogram</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"]0;0.25]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.25</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.25;0.5]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.25</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.5</span><span class="p">))</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.5;0.75]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.75</span><span class="p">))</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.75;1]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.75</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">chart</span> <span class="s2">"Predator Energy Distribution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">histogram</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
-                <span class="n">data</span> <span class="s2">"]0;0.25]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.25</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.25;0.5]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.25</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.5</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.5;0.75]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.75</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
-                <span class="n">data</span> <span class="s2">"]0.75;1]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.75</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">monitor</span> <span class="s2">"Number of preys"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_preys</span><span class="p">;</span>
-        <span class="n">monitor</span> <span class="s2">"Number of predators"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_predators</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span>  <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey max transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_max_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Prey energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Initial number of predators: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_predators_init</span>  <span class="k">min</span><span class="p">:</span> <span class="m">0</span> <span class="k">max</span><span class="p">:</span> <span class="m">200</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Predator max energy: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_max_energy</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Predator energy transfert: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_transfert</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Predator energy consumption: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_consum</span>  <span class="n">category</span><span class="p">:</span> <span class="s2">"Predator"</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Prey probability reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_proba_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Prey nb max offsprings: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_nb_max_offsprings</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Prey energy reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">prey_energy_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Prey'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Predator probability reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_proba_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Predator nb max offsprings: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_nb_max_offsprings</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
+	<span class="n">parameter</span> <span class="s1">'Predator energy reproduce: '</span> <span class="n">var</span><span class="p">:</span> <span class="n">predator_energy_reproduce</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Predator'</span> <span class="p">;</span>
+	
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">icon</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">predator</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">icon</span> <span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">info_display</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">predator</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">info</span> <span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">display</span> <span class="n">Population_information</span> <span class="n">refresh</span><span class="p">:</span> <span class="n">every</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">chart</span> <span class="s2">"Species evolution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">series</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"number_of_preys"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_preys</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"number_of_predator"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_predators</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"Prey Energy Distribution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">histogram</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"]0;0.25]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.25</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.25;0.5]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.25</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.5</span><span class="p">))</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.5;0.75]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.75</span><span class="p">))</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.75;1]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">prey</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.75</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">chart</span> <span class="s2">"Predator Energy Distribution"</span> <span class="n">type</span><span class="p">:</span> <span class="n">histogram</span> <span class="n">background</span><span class="p">:</span> <span class="p">#</span><span class="n">lightgray</span> <span class="n">size</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">}</span> <span class="n">position</span><span class="p">:</span> <span class="p">{</span><span class="m">0.5</span><span class="p">,</span> <span class="m">0.5</span><span class="p">}</span> <span class="p">{</span>
+				<span class="n">data</span> <span class="s2">"]0;0.25]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.25</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.25;0.5]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.25</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.5</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.5;0.75]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">((</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.5</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&lt;=</span> <span class="m">0.75</span><span class="p">))</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span> <span class="p">;</span>
+				<span class="n">data</span> <span class="s2">"]0.75;1]"</span> <span class="n">value</span><span class="p">:</span> <span class="n">predator</span> <span class="k">count</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">energy</span> <span class="p">&gt;</span> <span class="m">0.75</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">monitor</span> <span class="s2">"Number of preys"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_preys</span><span class="p">;</span>
+		<span class="n">monitor</span> <span class="s2">"Number of predators"</span> <span class="n">value</span><span class="p">:</span> <span class="n">nb_predators</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

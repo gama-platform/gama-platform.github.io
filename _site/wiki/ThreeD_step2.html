@@ -3614,99 +3614,102 @@ function closeRightMenu() {
 <p>This second step model adds the <strong>moving3D</strong> skills to the <strong>cell</strong> agents and simply makes move the <strong>cells</strong> agent by defining a reflex that will call the action <strong>move</strong>. We will also add additional visual information to the display.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Redefining the shape of the world with a 3D Shape.</li>
-<li>Attaching new skills (<strong>moving3D</strong>) to <strong>cells</strong> agent.</li>
-<li>Modify <strong>cells</strong> aspect</li>
-<li>Add a graphics layer</li>
+  <li>Redefining the shape of the world with a 3D Shape.</li>
+  <li>Attaching new skills (<strong>moving3D</strong>) to <strong>cells</strong> agent.</li>
+  <li>Modify <strong>cells</strong> aspect</li>
+  <li>Add a graphics layer</li>
 </ul>
 
-<p><a href='http://www.youtube.com/watch?feature=player_embedded&v=_QqUbC0MWRU' target='_blank'><img src='http://img.youtube.com/vi/_QqUbC0MWRU/0.jpg' width='425' height=344 /></a></p>
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=_QqUbC0MWRU" target="_blank">&lt;img src=’http://img.youtube.com/vi/_QqUbC0MWRU/0.jpg’ width=’425’ height=344 /&gt;</a></p>
 
 <h2 id="model-definition">Model Definition</h2>
 
 <h3 id="global-section">Global Section</h3>
 
 <h4 id="global-variable">Global variable</h4>
-
 <p>We use a new global variable called _environmentSize_that to define the size of our 3D environment.
-In the global section we define the new variable
-<code>
-int environmentSize &lt;-100;
-</code></p>
+In the global section we define the new variable</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int environmentSize &lt;-100;
+</code></pre></div></div>
 
 <p>Then we redefine the shape of the world (by default the shape of the world is a 100x100 square) as cube that will have the size defined by the <em>environment_size</em> variable. To do so we change the shape of the world in the <strong>global</strong> section:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">geometry shape &lt;- cube(environmentSize);    
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry shape &lt;- cube(environmentSize);	
+</code></pre></div></div>
+
 <h4 id="model-initialization">Model initialization</h4>
 
 <p>When we create the <strong>cells</strong> agent we want to place them randomly in the 3D environement. To do so we set the location with a random value for <em>x</em>, <em>y</em> and <em>z</em> between 0 and <em>environmentSize</em>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">create cells number: nb_cells { 
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create cells number: nb_cells { 
   location &lt;- {rnd(environmentSize), rnd(environmentSize), rnd(environmentSize)};       
 }
-</code></pre></div>
-<h3 id="moving3d-skills">Moving3D skills</h3>
+</code></pre></div></div>
 
+<h3 id="moving3d-skills">Moving3D skills</h3>
 <p>In the previous example, we only created <strong>cells</strong> agent that did not have any behavior. In this step we want to make move the <strong>cells</strong> agent. To do so we add a <strong>moving3D</strong> skills to the cells.</p>
 
 <p>More information on built-in skills proposed by Gama can be found <a href="BuiltInSkills">here</a></p>
-<div class="highlight"><pre><code class="language-" data-lang="">species cells skills:[moving3D]{
-...     
-}
-</code></pre></div>
-<p>Then we define a new reflex for the species <strong>cells</strong> that consists in calling the action <em>move</em> bundled in <strong>moving3D</strong> skills.
-<code>
-reflex move{
-  do move;
-}                       
-</code></p>
 
-<p>Finally we modify a bit the aspect of the sphere to set its size according to the <em>environmentSize</em> global variable previously defined.
-<code>
-aspect default {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species cells skills:[moving3D]{
+...  	
+}
+</code></pre></div></div>
+
+<p>Then we define a new reflex for the species <strong>cells</strong> that consists in calling the action <em>move</em> bundled in <strong>moving3D</strong> skills.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex move{
+  do move;
+}	                    
+</code></pre></div></div>
+
+<p>Finally we modify a bit the aspect of the sphere to set its size according to the <em>environmentSize</em> global variable previously defined.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspect default {
   draw sphere(environmentSize*0.01) color:#blue;   
 }
-</code></p>
+</code></pre></div></div>
 
 <h3 id="experiment">Experiment</h3>
-
 <p>The experiment is the same as the previous one except that we will display the bounds of the environment by using the <strong>graphics</strong> layer.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">graphics "env"{
-  draw cube(environmentSize) color: #black empty:true;  
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graphics "env"{
+  draw cube(environmentSize) color: #black empty:true;	
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h4 id="output">Output</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">output {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output {
   display View1 type:opengl{
     graphics "env"{
-      draw cube(environmentSize) color: #black empty:true;  
+      draw cube(environmentSize) color: #black empty:true;	
     }
     species cells;  
   }
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="complete-model">Complete Model</h2>
 
-<p>The GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/3D/models/Model%2002.gaml">Model 02.gaml</a></p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">Tuto3D</span>   
+<p>The GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/3D/models/Model 02.gaml">Model 02.gaml</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">Tuto3D</span>   
 
 <span class="n">global</span> <span class="p">{</span>
   <span class="n">int</span> <span class="n">nb_cells</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
   <span class="n">int</span> <span class="n">environmentSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span>
-  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">);</span>  
+  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">);</span>	
   <span class="n">init</span> <span class="p">{</span> 
     <span class="nb">create</span> <span class="n">cells</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_cells</span> <span class="p">{</span> 
       <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)};</span>       
     <span class="p">}</span> 
   <span class="p">}</span>  
 <span class="p">}</span> 
-
+  
 <span class="n">species</span> <span class="n">cells</span> <span class="n">skills</span><span class="p">:[</span><span class="n">moving3D</span><span class="p">]{</span>  
-
+	
   <span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
-    <span class="k">do</span> <span class="n">move</span><span class="p">;</span>
-  <span class="p">}</span>                     
+  	<span class="k">do</span> <span class="n">move</span><span class="p">;</span>
+  <span class="p">}</span>	                    
   <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
     <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">*</span><span class="m">0.01</span><span class="p">)</span> <span class="n">color</span><span class="p">:#</span><span class="n">blue</span><span class="p">;</span>   
   <span class="p">}</span>
@@ -3717,14 +3720,16 @@ aspect default {
   <span class="n">output</span> <span class="p">{</span>
     <span class="n">display</span> <span class="n">View1</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span><span class="p">{</span>
       <span class="n">graphics</span> <span class="s2">"env"</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>    
+      	<span class="n">draw</span> <span class="n">cube</span><span class="p">(</span><span class="n">environmentSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="n">empty</span><span class="p">:</span><span class="nb">true</span><span class="p">;</span>	
       <span class="p">}</span>
       <span class="n">species</span> <span class="n">cells</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <blockquote>
+
 </blockquote>
 
     </div>

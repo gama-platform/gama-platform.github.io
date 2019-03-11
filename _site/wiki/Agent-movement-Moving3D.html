@@ -3615,216 +3615,217 @@ function closeRightMenu() {
 
 <p>This model illustrates the different action and effect offered by the movingSkill3D (move,wander,goto and follow)</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
 <span class="k">model</span> <span class="n">Moving3DModel</span>   
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">250</span> <span class="n">step</span><span class="p">:</span><span class="m">10</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span> 
-    <span class="n">int</span> <span class="n">envSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span> <span class="p">//</span><span class="k">max</span><span class="p">:</span><span class="m">100</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">mazeSize</span> <span class="p">&lt;-</span><span class="m">10</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">radius</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Radius'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">;</span>
-    <span class="n">int</span> <span class="n">directionSize</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'direction size'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">;</span>
-    <span class="k">string</span> <span class="n">effectType</span> <span class="p">&lt;-</span><span class="s2">""</span><span class="p">;//</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">,</span> <span class="s2">"blob"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
-    <span class="k">string</span> <span class="n">movingType</span> <span class="p">&lt;-</span><span class="s2">"move"</span><span class="p">;</span>
-    <span class="n">graph</span> <span class="n">mazeGraph</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">envSize</span><span class="p">);</span>
-    <span class="n">bool</span> <span class="n">trace</span> <span class="p">&lt;-</span><span class="nb">false</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"sphere"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"circle"</span><span class="p">,</span> <span class="s2">"sphere"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
+	<span class="n">int</span> <span class="n">number_of_agents</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Number of Agents'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">250</span> <span class="n">step</span><span class="p">:</span><span class="m">10</span> <span class="n">category</span><span class="p">:</span> <span class="s1">'Initialization'</span><span class="p">;</span> 
+	<span class="n">int</span> <span class="n">envSize</span> <span class="p">&lt;-</span><span class="m">100</span><span class="p">;</span> <span class="p">//</span><span class="k">max</span><span class="p">:</span><span class="m">100</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">mazeSize</span> <span class="p">&lt;-</span><span class="m">10</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">radius</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'Radius'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">1</span> <span class="p">;</span>
+	<span class="n">int</span> <span class="n">directionSize</span> <span class="n">parameter</span><span class="p">:</span> <span class="s1">'direction size'</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="p">&lt;-</span> <span class="m">10</span> <span class="p">;</span>
+	<span class="k">string</span> <span class="n">effectType</span> <span class="p">&lt;-</span><span class="s2">""</span><span class="p">;//</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">,</span> <span class="s2">"blob"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
+	<span class="k">string</span> <span class="n">movingType</span> <span class="p">&lt;-</span><span class="s2">"move"</span><span class="p">;</span>
+	<span class="n">graph</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">cube</span><span class="p">(</span><span class="n">envSize</span><span class="p">);</span>
+	<span class="n">bool</span> <span class="n">trace</span> <span class="p">&lt;-</span><span class="nb">false</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"sphere"</span> <span class="n">among</span><span class="p">:[</span><span class="s2">"circle"</span><span class="p">,</span> <span class="s2">"sphere"</span><span class="p">,</span><span class="s2">"direction"</span><span class="p">];</span>
 
-    <span class="n">init</span> <span class="p">{</span> 
-
-        <span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"move"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
-          <span class="nb">create</span> <span class="n">movingAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"firework"</span><span class="p">){</span>
-              <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">};</span>    
-            <span class="p">}</span>
-            <span class="k">else</span><span class="p">{</span>
-                <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
-            <span class="p">}</span>
-            <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">red</span><span class="p">;</span>   
-          <span class="p">}</span> 
-        <span class="p">}</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"wander"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
-            <span class="nb">create</span> <span class="n">wanderAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
-              <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
-              <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">green</span><span class="p">;</span>   
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"goto"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
-            <span class="nb">create</span> <span class="n">gotoAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
-              <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
-              <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
-              <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">yellow</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
-
-            <span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
-              <span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">mazeSize</span><span class="p">{</span>
-                <span class="n">loop</span> <span class="n">k</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
-                  <span class="nb">create</span> <span class="n">cell</span><span class="p">{</span>
-                    <span class="n">location</span> <span class="p">&lt;-{(</span><span class="n">i</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,(</span><span class="n">j</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">};</span>
-                  <span class="p">}</span> 
-                <span class="p">}</span>   
-              <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="nb">create</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
-              <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">};</span>
-              <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-              <span class="n">speed</span> <span class="p">&lt;-</span><span class="m">0.1</span><span class="p">;</span>
-              <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">orange</span><span class="p">;</span>      
-            <span class="p">}</span>
-            <span class="n">mazeGraph</span> <span class="p">&lt;-</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="p">[</span><span class="s2">"distance"</span><span class="p">::</span><span class="m">10.0</span><span class="p">,</span><span class="s2">"species"</span><span class="p">::</span><span class="n">edge_agent</span><span class="p">]);</span>
-        <span class="p">}</span>
-     <span class="p">}</span>
+	<span class="n">init</span> <span class="p">{</span> 
+		
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"move"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+		  <span class="nb">create</span> <span class="n">movingAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+		  	<span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"firework"</span><span class="p">){</span>
+		  	  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">envSize</span><span class="p">/</span><span class="m">2</span><span class="p">};</span>	
+		  	<span class="p">}</span>
+		  	<span class="k">else</span><span class="p">{</span>
+		  		<span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+		  	<span class="p">}</span>
+		    <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">red</span><span class="p">;</span>	
+		  <span class="p">}</span>	
+		<span class="p">}</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"wander"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">wanderAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">green</span><span class="p">;</span>	
+			<span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"goto"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+			<span class="nb">create</span> <span class="n">gotoAgent</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span> <span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">yellow</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="n">movingType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span> <span class="k">or</span> <span class="n">movingType</span> <span class="p">=</span> <span class="s2">"complete"</span><span class="p">){</span>
+			
+			<span class="n">loop</span> <span class="n">i</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
+		      <span class="n">loop</span> <span class="n">j</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span> <span class="n">mazeSize</span><span class="p">{</span>
+			    <span class="n">loop</span> <span class="n">k</span> <span class="k">from</span><span class="p">:</span><span class="m">0</span> <span class="k">to</span><span class="p">:</span><span class="n">mazeSize</span><span class="p">{</span>
+			      <span class="nb">create</span> <span class="n">cell</span><span class="p">{</span>
+				    <span class="n">location</span> <span class="p">&lt;-{(</span><span class="n">i</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,(</span><span class="n">j</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">)*</span><span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">};</span>
+			      <span class="p">}</span>	
+			    <span class="p">}</span>	
+	          <span class="p">}</span>
+		    <span class="p">}</span>
+		    <span class="nb">create</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">number</span><span class="p">:</span> <span class="n">number_of_agents</span><span class="p">{</span>
+			  <span class="n">location</span> <span class="p">&lt;-</span> <span class="p">{</span><span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)/</span><span class="n">mazeSize</span><span class="p">)*</span><span class="m">10</span><span class="p">};</span>
+			  <span class="n">myTarget</span> <span class="p">&lt;-{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			  <span class="n">speed</span> <span class="p">&lt;-</span><span class="m">0.1</span><span class="p">;</span>
+			  <span class="n">color</span><span class="p">&lt;-</span><span class="err">°</span><span class="n">orange</span><span class="p">;</span>		
+			<span class="p">}</span>
+		    <span class="n">mazeGraph</span> <span class="p">&lt;-</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="p">[</span><span class="s2">"distance"</span><span class="p">::</span><span class="m">10.0</span><span class="p">,</span><span class="s2">"species"</span><span class="p">::</span><span class="n">edge_agent</span><span class="p">]);</span>
+		<span class="p">}</span>
+	 <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">abstractAgent</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving3D</span><span class="p">]{</span>
-    <span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"sphere"</span><span class="p">){</span>
-            <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"circle"</span><span class="p">){</span>
-            <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"direction"</span><span class="p">){</span>
-          <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
-          <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">},{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">pitch</span><span class="p">)}])</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1.0</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>    
-        <span class="p">}</span>       
+	<span class="n">rgb</span> <span class="n">color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"sphere"</span><span class="p">){</span>
+			<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"circle"</span><span class="p">){</span>
+			<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">agentAspect</span> <span class="p">=</span> <span class="s2">"direction"</span><span class="p">){</span>
+		  <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>
+          <span class="n">draw</span> <span class="n">line</span><span class="p">([{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">},{</span><span class="n">location</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">cos</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">pitch</span><span class="p">)*</span><span class="nb">sin</span><span class="p">(</span><span class="n">heading</span><span class="p">),</span><span class="n">location</span><span class="p">.</span><span class="n">z</span><span class="p">+</span><span class="n">directionSize</span><span class="p">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">pitch</span><span class="p">)}])</span> <span class="n">end_arrow</span><span class="p">:</span><span class="m">1.0</span> <span class="n">color</span><span class="p">:</span><span class="n">color</span><span class="p">;</span>	
+		<span class="p">}</span>  	 	
     <span class="p">}</span>
 <span class="p">}</span> 
 
 <span class="n">species</span> <span class="n">movingAgent</span>  <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
-    <span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
-      <span class="k">do</span> <span class="n">move</span><span class="p">;</span>
-    <span class="p">}</span>       
+	<span class="n">reflex</span> <span class="n">move</span><span class="p">{</span>
+	  <span class="k">do</span> <span class="n">move</span><span class="p">;</span>
+	<span class="p">}</span>		
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
-    <span class="n">reflex</span> <span class="n">wander</span><span class="p">{</span>
-      <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">wander</span><span class="p">{</span>
+	  <span class="k">do</span> <span class="n">wander</span> <span class="n">amplitude</span><span class="p">:</span><span class="m">90</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
-    <span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"blob"</span><span class="p">){</span>
-            <span class="n">myTarget</span><span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
-        <span class="p">}</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>      
-    <span class="p">}</span>
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">effectType</span> <span class="p">=</span> <span class="s2">"blob"</span><span class="p">){</span>
+			<span class="n">myTarget</span><span class="p">&lt;-{</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">),</span><span class="n">rnd</span><span class="p">(</span><span class="n">envSize</span><span class="p">)};</span>
+		<span class="p">}</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>	  
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
-    <span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
-    <span class="p">}</span>       
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	<span class="p">}</span>		
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">followAgent</span> <span class="n">parent</span><span class="p">:</span><span class="n">abstractAgent</span><span class="p">{</span> 
-    <span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"goto"</span><span class="p">){</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span><span class="p">){</span>
-        <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
-      <span class="p">}</span>
-
-    <span class="p">}</span>   
+	<span class="n">point</span> <span class="n">myTarget</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">gotoType</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">goto</span><span class="p">{</span>
+	  <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"goto"</span><span class="p">){</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span><span class="p">;</span>
+	  <span class="p">}</span>
+	  <span class="k">if</span><span class="p">(</span><span class="n">gotoType</span> <span class="p">=</span> <span class="s2">"gotoOnNetwork"</span><span class="p">){</span>
+	  	<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span><span class="n">myTarget</span> <span class="n">on</span><span class="p">:</span> <span class="n">mazeGraph</span><span class="p">;</span>
+	  <span class="p">}</span>
+	  
+	<span class="p">}</span>	
 <span class="p">}</span>
-
+    
 <span class="n">species</span> <span class="n">cell</span> <span class="n">schedules</span><span class="p">:[]{</span>
-
-    <span class="n">aspect</span> <span class="n">myPoint</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">0.01</span> <span class="p">*</span> <span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0.5</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="p">;</span>
-    <span class="p">}</span>
-
+	
+	<span class="n">aspect</span> <span class="n">myPoint</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">sphere</span><span class="p">(</span><span class="m">0.01</span> <span class="p">*</span> <span class="n">envSize</span><span class="p">/</span><span class="n">mazeSize</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0.5</span><span class="p">)</span> <span class="n">at</span><span class="p">:</span><span class="n">location</span> <span class="p">;</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">schedules</span><span class="p">:[]{</span>
-    <span class="n">aspect</span> <span class="n">base2</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base2</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-
+	
 
 <span class="n">experiment</span> <span class="n">Moving</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"move"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Effect type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">];</span>
-    <span class="n">output</span> <span class="p">{</span>    
-        <span class="n">display</span> <span class="n">MovingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">movingAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"move"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Effect type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"firework"</span><span class="p">];</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">MovingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">movingAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">Wandering</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"wander"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>    
-        <span class="n">display</span> <span class="n">WanderingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"wander"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">WanderingAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">Goto</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"goto"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Effect Type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"blob"</span><span class="p">];</span>
-    <span class="n">output</span> <span class="p">{</span>    
-        <span class="n">display</span> <span class="n">GotoAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"goto"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Effect Type"</span> <span class="n">var</span><span class="p">:</span><span class="n">effectType</span> <span class="p">&lt;-</span> <span class="s2">""</span> <span class="n">among</span><span class="p">:[</span><span class="s2">""</span><span class="p">,</span><span class="s2">"blob"</span><span class="p">];</span>
+	<span class="n">output</span> <span class="p">{</span>	
+		<span class="n">display</span> <span class="n">GotoAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span>  <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">GotoOnNetwork</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"gotoOnNetwork"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-
-        <span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"gotoOnNetwork"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+			
+		<span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">Complete</span>  <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"complete"</span><span class="p">;</span>
-    <span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-
-        <span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">movingAgent</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-            <span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Trace"</span> <span class="n">var</span><span class="p">:</span><span class="n">trace</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Movement"</span> <span class="n">var</span><span class="p">:</span><span class="n">movingType</span> <span class="p">&lt;-</span> <span class="s2">"complete"</span><span class="p">;</span>
+	<span class="n">parameter</span> <span class="s2">"Agent Aspect"</span> <span class="n">var</span><span class="p">:</span><span class="n">agentAspect</span> <span class="p">&lt;-</span> <span class="s2">"direction"</span><span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+			
+		<span class="n">display</span> <span class="n">GotoOnNetworkAgent</span> <span class="n">type</span><span class="p">:</span><span class="n">opengl</span> <span class="n">background</span><span class="p">:</span><span class="n">rgb</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">40</span><span class="p">,</span><span class="m">55</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">movingAgent</span> <span class="n">position</span><span class="p">:{</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">wanderAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">gotoAgent</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">gotoAgentOnNetwork</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">}</span> <span class="n">trace</span><span class="p">:</span><span class="n">trace</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">cell</span> <span class="n">aspect</span><span class="p">:</span><span class="n">myPoint</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+			<span class="n">species</span> <span class="n">edge_agent</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base2</span> <span class="n">position</span><span class="p">:{</span><span class="n">envSize</span><span class="p">*</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
@@ -3833,7 +3834,8 @@ function closeRightMenu() {
 
 
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

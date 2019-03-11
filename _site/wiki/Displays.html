@@ -3611,213 +3611,231 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="displays">Displays</h1>
 
-<p>GAMA allows modelers to <a href="DefiningDisplaysGeneralities">define several kinds of displays</a> in a <a href="DefiningGUIExperiment">GUI experiment</a>:
-  * java 2D displays
-  * OpenGL displays</p>
+<p>GAMA allows modelers to <a href="DefiningDisplaysGeneralities">define several kinds of displays</a> in a <a href="DefiningGUIExperiment">GUI experiment</a>:</p>
+<ul>
+  <li>java 2D displays</li>
+  <li>OpenGL displays</li>
+</ul>
 
-<p>These 2 kinds of display allows the modeler to display the same objects (agents, charts, texts ...). The OpenGL display offers extended features in particular in terms of 3D visualisation.
+<p>These 2 kinds of display allows the modeler to display the same objects (agents, charts, texts …). The OpenGL display offers extended features in particular in terms of 3D visualisation.
 The OpenGL displays offers in addition better performance when zooming in and out.</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#displays">Displays</a>
-
-<ul>
-<li><a href="#classical-displays-java2d">Classical displays (java2D)</a></li>
-<li><a href="#opengl-displays">OpenGL displays</a></li>
-</ul></li>
+  <li><a href="#displays">Displays</a>
+    <ul>
+      <li><a href="#classical-displays-java2d">Classical displays (java2D)</a></li>
+      <li><a href="#opengl-displays">OpenGL displays</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="classical-displays-java2d">Classical displays (java2D)</h2>
 
-<p>The classical displays displaying any kind of content can be manipulated via the mouse (if no mouse event has been defined):
-* the <strong>mouse left</strong> press and move allows to move the camera (in 2D),
-* the <strong>mouse right</strong> click opens a context menu allowing the modeler to inspect displayed agents,
-* the <strong>wheel</strong> allows the modeler to zoom in or out.</p>
+<p>The classical displays displaying any kind of content can be manipulated via the mouse (if no mouse event has been defined):</p>
+<ul>
+  <li>the <strong>mouse left</strong> press and move allows to move the camera (in 2D),</li>
+  <li>the <strong>mouse right</strong> click opens a context menu allowing the modeler to inspect displayed agents,</li>
+  <li>the <strong>wheel</strong> allows the modeler to zoom in or out.</li>
+</ul>
 
-<p><img src="resources/images/runningExperiments/display-java2D.png" alt="images/display-java2D.png"></p>
+<p><img src="resources/images/runningExperiments/display-java2D.png" alt="images/display-java2D.png" /></p>
 
-<p>Each display provides several buttons to manipulate the display (from left to right):
-  * <strong>Show/hide side bar</strong>,
-  * <strong>Show/hide overlay</strong>,
-  * <strong>Browse through all displayed agents</strong>: open a context menu to inspect agents,
-  * <strong>Update every X step</strong>: configure the refresh frequence of the display,
-  * <strong>Pause the-display</strong>: when pressed, the display will not be displayed anymore, the simulation is still running,
-  * <strong>Synchronize the display and the execution of the model</strong>,
-  * <strong>Zoom in</strong>,
-  * <strong>Zoom to fit view</strong>,
-  * <strong>Zoom out</strong>,
-  * <strong>Take a snapshot</strong>: take a snapshot saved as a png image in the <code>snapshots</code> folder of the models folder.</p>
+<p>Each display provides several buttons to manipulate the display (from left to right):</p>
+<ul>
+  <li><strong>Show/hide side bar</strong>,</li>
+  <li><strong>Show/hide overlay</strong>,</li>
+  <li><strong>Browse through all displayed agents</strong>: open a context menu to inspect agents,</li>
+  <li><strong>Update every X step</strong>: configure the refresh frequence of the display,</li>
+  <li><strong>Pause the-display</strong>: when pressed, the display will not be displayed anymore, the simulation is still running,</li>
+  <li><strong>Synchronize the display and the execution of the model</strong>,</li>
+  <li><strong>Zoom in</strong>,</li>
+  <li><strong>Zoom to fit view</strong>,</li>
+  <li><strong>Zoom out</strong>,</li>
+  <li><strong>Take a snapshot</strong>: take a snapshot saved as a png image in the <code class="highlighter-rouge">snapshots</code> folder of the models folder.</li>
+</ul>
 
-<p>The Show/Hide side bar button opens a side panel in the display allowing the modeler to configure:
-  * <strong>Properties</strong> of the display: background and highlight color, display the scale bar
-  * For each layer, we can configure visibility, transparency, position and size of the layer. For grid layers, we can in addition show/hide grids. For species layers, we can also configure the displayed aspect. For text layers, we can the expression displayed with the color and the font.</p>
+<p>The Show/Hide side bar button opens a side panel in the display allowing the modeler to configure:</p>
+<ul>
+  <li><strong>Properties</strong> of the display: background and highlight color, display the scale bar</li>
+  <li>For each layer, we can configure visibility, transparency, position and size of the layer. For grid layers, we can in addition show/hide grids. For species layers, we can also configure the displayed aspect. For text layers, we can the expression displayed with the color and the font.</li>
+</ul>
 
-<p>The bottom overlay bar displays information about the way it is displayed:
-  * the position of the mouse in the display,
-  * the zoom ratio,
-  * the scale of the display (depending on the zoom).</p>
+<p>The bottom overlay bar displays information about the way it is displayed:</p>
+<ul>
+  <li>the position of the mouse in the display,</li>
+  <li>the zoom ratio,</li>
+  <li>the scale of the display (depending on the zoom).</li>
+</ul>
 
-<p><img src="resources/images/runningExperiments/display-sidebar-overlay.png" alt="images/display-sidebar-overlay.png"></p>
+<p><img src="resources/images/runningExperiments/display-sidebar-overlay.png" alt="images/display-sidebar-overlay.png" /></p>
 
 <h2 id="opengl-displays">OpenGL displays</h2>
 
-<p>The OpenGL display has an additional button <strong>3D Options</strong> providing 3D features:
-  * <strong>Use FreeFly camera</strong>/<strong>Use Arcball camera</strong>: switch between cameras, the default camera is the Arcball one,
-  * <strong>Use mouse to rotate</strong>/<strong>Use mouse to drag</strong> (only with Arcball camera): use left click for one of the 2 actions, left click + Ctrl for the other of the 2 actions.
-  * <strong>Apply inertia</strong> (only with Arcball camera): in inertia mode, when the modeler stops moving the camera, there is no straight halt but a kind of inertia.
-  * <strong>Rotate scene</strong>: rotate the scene around an axis orthogonal to the scene,
-  * <strong>Split layers</strong>/<strong>Merge layers</strong>: display each layer at a distinct height,
-  * <strong>Triangulate scene</strong>: display the polygon primitives.</p>
+<p>The OpenGL display has an additional button <strong>3D Options</strong> providing 3D features:</p>
+<ul>
+  <li><strong>Use FreeFly camera</strong>/<strong>Use Arcball camera</strong>: switch between cameras, the default camera is the Arcball one,</li>
+  <li><strong>Use mouse to rotate</strong>/<strong>Use mouse to drag</strong> (only with Arcball camera): use left click for one of the 2 actions, left click + Ctrl for the other of the 2 actions.</li>
+  <li><strong>Apply inertia</strong> (only with Arcball camera): in inertia mode, when the modeler stops moving the camera, there is no straight halt but a kind of inertia.</li>
+  <li><strong>Rotate scene</strong>: rotate the scene around an axis orthogonal to the scene,</li>
+  <li><strong>Split layers</strong>/<strong>Merge layers</strong>: display each layer at a distinct height,</li>
+  <li><strong>Triangulate scene</strong>: display the polygon primitives.</li>
+</ul>
 
-<p><img src="resources/images/runningExperiments/display-OpenGL.png" alt="images/display-OpenGL.png"></p>
+<p><img src="resources/images/runningExperiments/display-OpenGL.png" alt="images/display-OpenGL.png" /></p>
 
 <p>In addition, the bottom overlay bar provides the Camera position in 3D.</p>
 
 <h3 id="freefly-camera-commands">FreeFly camera commands</h3>
 
-<table><thead>
-<tr>
-<th style="text-align: left"><strong>Key</strong></th>
-<th style="text-align: left"><strong>Function</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>Double Click</strong></td>
-<td style="text-align: left">Zoom Fit</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>+</strong></td>
-<td style="text-align: left">Zoom In</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>-</strong></td>
-<td style="text-align: left">Zoom Out</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Up</strong></td>
-<td style="text-align: left">Move forward</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Down</strong></td>
-<td style="text-align: left">Move backward</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Left</strong></td>
-<td style="text-align: left">Strafe left</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Right</strong></td>
-<td style="text-align: left">Strafe right</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Up</strong></td>
-<td style="text-align: left">Look up</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Down</strong></td>
-<td style="text-align: left">Look down</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Left</strong></td>
-<td style="text-align: left">Look left</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Right</strong></td>
-<td style="text-align: left">Look right</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>MOUSE</strong></td>
-<td style="text-align: left">Makes the camera look up, down, left and right</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>MouseWheel</strong></td>
-<td style="text-align: left">Zoom-in/out to the current target (center of the screen)</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Key</strong></th>
+      <th style="text-align: left"><strong>Function</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Double Click</strong></td>
+      <td style="text-align: left">Zoom Fit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>+</strong></td>
+      <td style="text-align: left">Zoom In</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>-</strong></td>
+      <td style="text-align: left">Zoom Out</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Up</strong></td>
+      <td style="text-align: left">Move forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Down</strong></td>
+      <td style="text-align: left">Move backward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Left</strong></td>
+      <td style="text-align: left">Strafe left</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Right</strong></td>
+      <td style="text-align: left">Strafe right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Up</strong></td>
+      <td style="text-align: left">Look up</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Down</strong></td>
+      <td style="text-align: left">Look down</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Left</strong></td>
+      <td style="text-align: left">Look left</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Right</strong></td>
+      <td style="text-align: left">Look right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>MOUSE</strong></td>
+      <td style="text-align: left">Makes the camera look up, down, left and right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>MouseWheel</strong></td>
+      <td style="text-align: left">Zoom-in/out to the current target (center of the screen)</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="arcball-camera-commands">ArcBall camera commands</h3>
 
-<table><thead>
-<tr>
-<th style="text-align: left"><strong>Key</strong></th>
-<th style="text-align: left"><strong>Function</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>Double Click</strong></td>
-<td style="text-align: left">Zoom Fit</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>+</strong></td>
-<td style="text-align: left">Zoom In</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>-</strong></td>
-<td style="text-align: left">Zoom Out</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Up</strong></td>
-<td style="text-align: left">Horizontal movement to the top</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Down</strong></td>
-<td style="text-align: left">Horizontal movement to the bottom</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Left</strong></td>
-<td style="text-align: left">Horizontal movement to the left</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>Right</strong></td>
-<td style="text-align: left">Horizontal movement to the right</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Up</strong></td>
-<td style="text-align: left">Rotate the model up (decrease the phi angle of the spherical coordinates)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Down</strong></td>
-<td style="text-align: left">Rotate the model down (increase the phi angle of the spherical coordinates)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Left</strong></td>
-<td style="text-align: left">Rotate the model left (increase the theta angle of the spherical coordinates)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+Right</strong></td>
-<td style="text-align: left">Rotate the model right (decrease the theta angle of the spherical coordinates)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SPACE</strong></td>
-<td style="text-align: left">Reset the pivot to the center of the envelope</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>KEYPAD 2,4,6,8</strong></td>
-<td style="text-align: left">Quick rotation (increase/decrease phi/theta by 30°)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>CMD+MOUSE1</strong></td>
-<td style="text-align: left">Makes the camera rotate around the model</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>ALT+LEFT_MOUSE</strong></td>
-<td style="text-align: left">Enables ROI Agent Selection</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SHIFT+LEFT_MOUSE</strong></td>
-<td style="text-align: left">Enables ROI Zoom</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>SCROLL</strong></td>
-<td style="text-align: left">Zoom-in/out to the current target (center of the sphere)</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>WHEEL CLICK</strong></td>
-<td style="text-align: left">Reset the pivot to the center of the envelope</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Key</strong></th>
+      <th style="text-align: left"><strong>Function</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Double Click</strong></td>
+      <td style="text-align: left">Zoom Fit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>+</strong></td>
+      <td style="text-align: left">Zoom In</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>-</strong></td>
+      <td style="text-align: left">Zoom Out</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Up</strong></td>
+      <td style="text-align: left">Horizontal movement to the top</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Down</strong></td>
+      <td style="text-align: left">Horizontal movement to the bottom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Left</strong></td>
+      <td style="text-align: left">Horizontal movement to the left</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Right</strong></td>
+      <td style="text-align: left">Horizontal movement to the right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Up</strong></td>
+      <td style="text-align: left">Rotate the model up (decrease the phi angle of the spherical coordinates)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Down</strong></td>
+      <td style="text-align: left">Rotate the model down (increase the phi angle of the spherical coordinates)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Left</strong></td>
+      <td style="text-align: left">Rotate the model left (increase the theta angle of the spherical coordinates)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+Right</strong></td>
+      <td style="text-align: left">Rotate the model right (decrease the theta angle of the spherical coordinates)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SPACE</strong></td>
+      <td style="text-align: left">Reset the pivot to the center of the envelope</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>KEYPAD 2,4,6,8</strong></td>
+      <td style="text-align: left">Quick rotation (increase/decrease phi/theta by 30°)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>CMD+MOUSE1</strong></td>
+      <td style="text-align: left">Makes the camera rotate around the model</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>ALT+LEFT_MOUSE</strong></td>
+      <td style="text-align: left">Enables ROI Agent Selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SHIFT+LEFT_MOUSE</strong></td>
+      <td style="text-align: left">Enables ROI Zoom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>SCROLL</strong></td>
+      <td style="text-align: left">Zoom-in/out to the current target (center of the sphere)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>WHEEL CLICK</strong></td>
+      <td style="text-align: left">Reset the pivot to the center of the envelope</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

@@ -3611,110 +3611,84 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="using-database-access">Using Database Access</h1>
 
-<p>Database features of GAMA provide a set of actions on Database Management Systems (DBMS) and Multi-Dimensional Database for agents in GAMA. Database features are implemented in the irit.gaml.extensions.database plug-in with these features:
-  * Agents can execute SQL queries (create, Insert, select, update, drop, delete) to various kinds of DBMS.
-  * Agents can execute MDX (Multidimensional Expressions) queries to select multidimensional objects, such as cubes, and return multidimensional cellsets that contain the cube&#39;s data .
-These features are implemented in two kinds of component: <em>skills</em> (SQLSKILL, MDXSKILL) and agent (AgentDB)</p>
+<p>Database features of GAMA provide a set of actions on Database Management Systems (DBMS) and Multi-Dimensional Database for agents in GAMA. Database features are implemented in the irit.gaml.extensions.database plug-in with these features:</p>
+<ul>
+  <li>Agents can execute SQL queries (create, Insert, select, update, drop, delete) to various kinds of DBMS.</li>
+  <li>Agents can execute MDX (Multidimensional Expressions) queries to select multidimensional objects, such as cubes, and return multidimensional cellsets that contain the cube’s data .
+These features are implemented in two kinds of component: <em>skills</em> (SQLSKILL, MDXSKILL) and agent (AgentDB)</li>
+</ul>
 
 <p>SQLSKILL and AgentDB provide almost the same features (a same set of actions on DBMS) but with certain slight differences:</p>
 
 <ul>
-<li>An agent of species AgentDB will maintain a unique connection to the database during the whole simulation. The connection is thus initialized when the agent is created.</li>
-<li><p>In contrast, an agent of a species with the SQLSKILL skill will open a connection each time he wants to execute a query. This means that each action will be composed of three running steps:</p>
-
-<ul>
-<li>Make a database connection.</li>
-<li>Execute SQL statement.</li>
-<li>Close database connection.
-&gt; An agent with the SQLSKILL spends lot of time to create/close the connection each time it needs to send a query; it saves the database connection (DBMS often limit the number of simultaneous connections). In contrast, an AgentDB agent only needs to establish one database connection and it can be used for any actions. Because it does not need to create and close database connection for each action: therefore, actions of AgentDB agents are executed faster than actions of SQLSKILL ones but we must pay a connection for each agent.</li>
-</ul></li>
-<li><p>With an inheritance agent of species AgentDB  or an agent of a species using SQLSKILL, we can query data from relational database for creating species, defining environment or analyzing or storing simulation results into RDBMS. On the other hand, an agent of species with MDXKILL supports the OLAP technology to query data from data marts (multidimensional database).
-The database features help us to have more flexibility in management of simulation models and analysis of simulation results.</p></li>
+  <li>An agent of species AgentDB will maintain a unique connection to the database during the whole simulation. The connection is thus initialized when the agent is created.</li>
+  <li>In contrast, an agent of a species with the SQLSKILL skill will open a connection each time he wants to execute a query. This means that each action will be composed of three running steps:
+    <ul>
+      <li>Make a database connection.</li>
+      <li>Execute SQL statement.</li>
+      <li>Close database connection.
+        <blockquote>
+          <p>An agent with the SQLSKILL spends lot of time to create/close the connection each time it needs to send a query; it saves the database connection (DBMS often limit the number of simultaneous connections). In contrast, an AgentDB agent only needs to establish one database connection and it can be used for any actions. Because it does not need to create and close database connection for each action: therefore, actions of AgentDB agents are executed faster than actions of SQLSKILL ones but we must pay a connection for each agent.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>With an inheritance agent of species AgentDB  or an agent of a species using SQLSKILL, we can query data from relational database for creating species, defining environment or analyzing or storing simulation results into RDBMS. On the other hand, an agent of species with MDXKILL supports the OLAP technology to query data from data marts (multidimensional database).
+The database features help us to have more flexibility in management of simulation models and analysis of simulation results.</li>
 </ul>
 
 <h2 id="description">Description</h2>
 
 <ul>
-<li><strong>Plug-in</strong>: <em>irit.gaml.extensions.database</em></li>
-<li><strong>Author</strong>: TRUONG Minh Thai, Frederic AMBLARD, Benoit GAUDOU, Christophe SIBERTIN-BLANC</li>
+  <li><strong>Plug-in</strong>: <em>irit.gaml.extensions.database</em></li>
+  <li><strong>Author</strong>: TRUONG Minh Thai, Frederic AMBLARD, Benoit GAUDOU, Christophe SIBERTIN-BLANC</li>
 </ul>
 
 <h2 id="supported-dbms">Supported DBMS</h2>
 
-<p>The following DBMS are currently supported:
-  * SQLite
-  * MySQL Server
-  * PostgreSQL Server
-  * SQL Server
-  * Mondrian OLAP Server
-  * SQL Server Analysis Services</p>
+<p>The following DBMS are currently supported:</p>
+<ul>
+  <li>SQLite</li>
+  <li>MySQL Server</li>
+  <li>PostgreSQL Server</li>
+  <li>SQL Server</li>
+  <li>Mondrian OLAP Server</li>
+  <li>SQL Server Analysis Services</li>
+</ul>
 
 <p>Note that, other DBMSs require a dedicated server to work while SQLite on only needs a file to be accessed.
 All the actions can be used independently from the chosen DBMS. Only the connection parameters are DBMS-dependent.</p>
 
 <h2 id="sqlskill">SQLSKILL</h2>
-
 <h3 id="define-a-species-that-uses-the-sqlskill-skill">Define a species that uses the SQLSKILL skill</h3>
 
 <p>Example of declaration:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species toto skills: [SQLSKILL] {
-    //insert your descriptions here
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: [SQLSKILL] {
+	//insert your descriptions here
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Agents with such a skill can use additional actions (defined in the skill)</p>
 
 <h3 id="map-of-connection-parameters-for-sql">Map of connection parameters for SQL</h3>
 
 <p>In the actions defined in the SQLSkill, a parameter containing the connection parameters is required. It is a map with the following <em>key::value</em> pairs:</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left"><strong>Key</strong></th>
-<th style="text-align: left"><strong>Optional</strong></th>
-<th style="text-align: left"><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><em>dbtype</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot;, &quot;sqlite&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>host</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Host name or IP address of data server. It is absent when we work with SQlite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>port</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Port of connection. It is not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>database</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Name of database. It is the file name including the path when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>user</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Username. It is not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>passwd</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Password. It is not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left">srid</td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in <em>Preferences-&gt;External</em> configuration.</td>
-</tr>
-</tbody></table>
-
-<p><strong>Table 1</strong>: Connection parameter description</p>
+<p>| <strong>Key</strong> | <strong>Optional</strong> | <strong>Description</strong> |
+|:——-|:——–|:——————————————————–|
+| <em>dbtype</em> | No | DBMS type value. Its value is a string. We must use “mysql” when we want to connect to a MySQL. That is the same for “postgres”, “sqlite” or “sqlserver” (ignore case sensitive) |
+| <em>host</em>  | Yes | Host name or IP address of data server. It is absent when we work with SQlite. |
+| <em>port</em>  | Yes | Port of connection. It is not required when we work with SQLite.|
+| <em>database</em> | No | Name of database. It is the file name including the path when we work with SQLite. |
+| <em>user</em>  | Yes | Username. It is not required when we work with SQLite. |
+| <em>passwd</em> | Yes | Password. It is not required when we work with SQLite. |
+| srid    | Yes | srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in <em>Preferences-&gt;External</em> configuration. |
+<strong>Table 1</strong>: Connection parameter description</p>
 
 <p><strong>Example</strong>: Definitions of connection parameter</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// POSTGRES connection parameter
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// POSTGRES connection parameter
 map &lt;string, string&gt;  POSTGRES &lt;- [
      'host'::'localhost',
      'dbtype'::'postgres',
@@ -3745,77 +3719,97 @@ map &lt;string, string&gt;  MySQL &lt;- [
     'port'::'3306',
     'user'::'root',
     'passwd'::'abc'];
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="test-a-connection-to-database">Test a connection to database</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>testConnection</strong> (params: connection`</em>`parameter)_
-The action tests the connection to a given database.
-  * <strong>Return</strong>: boolean. It is:
-    * <em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)
-    * <em>false</em>: the agent cannot connect
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map of connection parameters
-  * <strong>Exceptions</strong>: <em>GamaRuntimeException</em></p>
+  <p><em><strong>testConnection</strong> (params: connection<code class="highlighter-rouge">_</code>parameter)</em>
+The action tests the connection to a given database.</p>
+  <ul>
+    <li><strong>Return</strong>: boolean. It is:
+      <ul>
+        <li><em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)</li>
+        <li><em>false</em>: the agent cannot connect</li>
+      </ul>
+    </li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map of connection parameters</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: Check a connection to MySQL</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (self testConnection(params:MySQL)){
-    write "Connection is OK" ;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MySQL)){
+	write "Connection is OK" ;
 }else{
-    write "Connection is false" ;
-}   
+	write "Connection is false" ;
+}	
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="select-data-from-database">Select data from database</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>select</strong> (param: connection`</em><code>parameter, select: selection</code><em><code>string,values: value</code></em>`list)_
-The action creates a connection to a DBMS and executes the select statement. If the connection or selection fails then it throws a GamaRuntimeException.
-  * <strong>Return</strong>: list &lt; list &gt;. If the selection succeeds, it returns a list with three elements:
-    * The first element is a list of column name.
-    * The second element is a list of column type.
-    * The third element is a data set.
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters
-    * <em>select</em>: (type = string) select string. The selection string can contain question marks.
-    * <em>values</em>: List of values that are used to replace question marks in appropriate. This is an optional parameter.
-  * <strong>Exceptions</strong>: <em>GamaRuntimeException</em></p>
+  <p><em><strong>select</strong> (param: connection<code class="highlighter-rouge">_</code>parameter, select: selection<code class="highlighter-rouge">_</code>string,values: value<code class="highlighter-rouge">_</code>list)</em>
+The action creates a connection to a DBMS and executes the select statement. If the connection or selection fails then it throws a GamaRuntimeException.</p>
+  <ul>
+    <li><strong>Return</strong>: list &lt; list &gt;. If the selection succeeds, it returns a list with three elements:
+      <ul>
+        <li>The first element is a list of column name.</li>
+        <li>The second element is a list of column type.</li>
+        <li>The third element is a data set.</li>
+      </ul>
+    </li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+        <li><em>select</em>: (type = string) select string. The selection string can contain question marks.</li>
+        <li><em>values</em>: List of values that are used to replace question marks in appropriate. This is an optional parameter.</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: select data from table points</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
 list&lt;list&gt; t &lt;- list&lt;list&gt; (self select(params:PARAMS, 
-                         select:"SELECT * FROM points ;"));
-</code></pre></div>
+		                 select:"SELECT * FROM points ;"));
+</code></pre></div></div>
+
 <p><strong>Example</strong>: select data from table point with question marks from table points</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map &lt;string, string&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
 list&lt;list&gt; t &lt;- list&lt;list&gt; (self select(params: PARAMS, 
                                            select: "SELECT temp_min FROM points where (day&gt;? and day&lt;?);"
                                            values: [10,20] ));
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="insert-data-into-database">Insert data into database</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>insert</strong> (param: connection`</em><code>parameter,  into:  table</code><em><code>name, columns: column</code></em><code>list, values: value</code><em>list)_The action creates a connection to a DBMS and executes the insert statement. If the connection or insertion fails then it throws a_GamaRuntimeException</em>.
-  * <strong>Return</strong>: int
-If the insertion succeeds, it returns a number of records inserted by the insert.
-  * <strong>Arguments</strong>:
-    <em><em>params</em>: (type = map) map containing the connection parameters.
-    *<em>into</em>: (type = string) table name.
-    *<em>columns</em>: (type=list)  list of column names of table. It is an optional argument. If it is not applicable then all columns of table are selected.
-    *<em>values</em>: (type=list) list of values that are used to insert into table corresponding to columns. Hence the columns and values must have same size.
-  * **Exceptions</em>*:_GamaRuntimeException</p>
+  <p><em><strong>insert</strong> (param: connection<code class="highlighter-rouge">_</code>parameter,  into:  table<code class="highlighter-rouge">_</code>name, columns: column<code class="highlighter-rouge">_</code>list, values: value`_list)_The action creates a connection to a DBMS and executes the insert statement. If the connection or insertion fails then it throws a_GamaRuntimeException</em>.</p>
+  <ul>
+    <li><strong>Return</strong>: int
+If the insertion succeeds, it returns a number of records inserted by the insert.</li>
+    <li><strong>Arguments</strong>:
+*<em>params</em>: (type = map) map containing the connection parameters.
+*<em>into</em>: (type = string) table name.
+*<em>columns</em>: (type=list)  list of column names of table. It is an optional argument. If it is not applicable then all columns of table are selected.
+*<em>values</em>: (type=list) list of values that are used to insert into table corresponding to columns. Hence the columns and values must have same size.</li>
+    <li><strong>Exceptions</strong>:_GamaRuntimeException</li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: Insert data into table registration</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 
 do insert (params: PARAMS, 
                into: "registration", 
@@ -3830,25 +3824,30 @@ int n &lt;- insert (params: PARAMS,
                         into: "registration", 
                        columns: ["id", "first", "last"], 
                        values: [104, 'Bill', 'Clark']);
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="execution-update-commands">Execution update commands</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>executeUpdate</strong> (param: connection`</em><code>parameter,  updateComm:  table</code><em><code>name, values: value</code></em>`list)_
-The action executeUpdate executes an update command (create/insert/delete/drop) by using the current database connection of the agent. If the database connection does not exist or the update command fails then it throws a GamaRuntimeException. Otherwise it returns an integer value.
-  * <strong>Return</strong>: int. If the insertion succeeds, it returns a number of records inserted by the insert.
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters
-    * <em>updateComm</em>: (type = string) SQL command string. It may be commands: <em>create</em>, <em>update</em>, <em>delete</em> and <em>drop</em> with or without question marks.
-    * <em>columns</em>: (type=list)  list of column names of table.
-    * <em>values</em>: (type=list) list of values that are used to replace question marks if appropriate. This is an optional parameter.
-  * <strong>Exceptions</strong>: <em>GamaRuntimeException</em></p>
+  <p><em><strong>executeUpdate</strong> (param: connection<code class="highlighter-rouge">_</code>parameter,  updateComm:  table<code class="highlighter-rouge">_</code>name, values: value<code class="highlighter-rouge">_</code>list)</em>
+The action executeUpdate executes an update command (create/insert/delete/drop) by using the current database connection of the agent. If the database connection does not exist or the update command fails then it throws a GamaRuntimeException. Otherwise it returns an integer value.</p>
+  <ul>
+    <li><strong>Return</strong>: int. If the insertion succeeds, it returns a number of records inserted by the insert.</li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+        <li><em>updateComm</em>: (type = string) SQL command string. It may be commands: <em>create</em>, <em>update</em>, <em>delete</em> and <em>drop</em> with or without question marks.</li>
+        <li><em>columns</em>: (type=list)  list of column names of table.</li>
+        <li><em>values</em>: (type=list) list of values that are used to replace question marks if appropriate. This is an optional parameter.</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+  </ul>
 </blockquote>
 
 <p><strong>Examples</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
 // Create table
 do executeUpdate (params: PARAMS, 
                               updateComm: "CREATE TABLE registration" 
@@ -3879,214 +3878,242 @@ int n &lt;- executeUpdate (params: PARAMS,
 
 // Drop table
 do executeUpdate (params: PARAMS, updateComm: "DROP TABLE registration");
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="mdxskill">MDXSKILL</h2>
-
 <p>MDXSKILL plays the role of an OLAP tool using select to query data from OLAP server to GAMA environment and then species can use the queried data for any analysis purposes.</p>
-
 <h3 id="define-a-species-that-uses-the-mdxskill-skill">Define a species that uses the MDXSKILL skill</h3>
-
 <p>Example of declaration:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">    species olap skills: [MDXSKILL]
-     {  
-        //insert your descriptions here
 
-     } 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	species olap skills: [MDXSKILL]
+	 {  
+		//insert your descriptions here
+		
+	 } 
       ...
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Agents with such a skill can use additional actions (defined in the skill)</p>
 
 <h3 id="map-of-connection-parameters-for-mdx">Map of connection parameters for MDX</h3>
-
 <p>In the actions defined in the SQLSkill, a parameter containing the connection parameters is required. It is a map with following key::value pairs:</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left"><strong>Key</strong></th>
-<th style="text-align: left"><strong>Optional</strong></th>
-<th style="text-align: left"><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><em>olaptype</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">OLAP Server type value. Its value is a string. We must use &quot;SSAS/XMLA&quot; when we want to connect to an SQL Server Analysis Services by using XML for Analysis. That is the same for &quot;MONDRIAN/XML&quot; or &quot;MONDRIAN&quot; (ignore case sensitive)</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>dbtype</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>host</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Host name or IP address of data server.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>port</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Port of connection. It is no required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>database</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Name of database. It is file name include path when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>catalog</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Name of catalog. It is an optional parameter. We do not need to use it when we connect to SSAS via XMLA and its file name includes the path when we connect a ROLAP database directly by using Mondrian API (see Example as below)</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>user</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Username.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>passwd</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Password.</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Key</strong></th>
+      <th style="text-align: left"><strong>Optional</strong></th>
+      <th style="text-align: left"><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>olaptype</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">OLAP Server type value. Its value is a string. We must use “SSAS/XMLA” when we want to connect to an SQL Server Analysis Services by using XML for Analysis. That is the same for “MONDRIAN/XML” or “MONDRIAN” (ignore case sensitive)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>dbtype</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">DBMS type value. Its value is a string. We must use “mysql” when we want to connect to a MySQL. That is the same for “postgres” or “sqlserver” (ignore case sensitive)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>host</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Host name or IP address of data server.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>port</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Port of connection. It is no required when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>database</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Name of database. It is file name include path when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>catalog</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Name of catalog. It is an optional parameter. We do not need to use it when we connect to SSAS via XMLA and its file name includes the path when we connect a ROLAP database directly by using Mondrian API (see Example as below)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>user</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Username.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>passwd</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Password.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Table 2</strong>: OLAP Connection parameter description</p>
 
 <p><strong>Example</strong>: Definitions of OLAP connection parameter</p>
-<div class="highlight"><pre><code class="language-" data-lang="">//Connect SQL Server Analysis Services via XMLA
-    map&lt;string,string&gt; SSAS &lt;- [
-                'olaptype'::'SSAS/XMLA',
-                'dbtype'::'sqlserver',
-                'host'::'172.17.88.166',
-                'port'::'80',
-                'database'::'olap',
-                'user'::'test',
-                'passwd'::'abc'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//Connect SQL Server Analysis Services via XMLA
+	map&lt;string,string&gt; SSAS &lt;- [
+				'olaptype'::'SSAS/XMLA',
+				'dbtype'::'sqlserver',
+				'host'::'172.17.88.166',
+				'port'::'80',
+				'database'::'olap',
+				'user'::'test',
+				'passwd'::'abc'];
 
 //Connect Mondriam server via XMLA
-    map&lt;string,string&gt;  MONDRIANXMLA &lt;- [
-                'olaptype'::"MONDRIAN/XMLA",
-                'dbtype'::'postgres',
-                'host'::'localhost',
-                'port'::'8080',
-                'database'::'MondrianFoodMart',
-                'catalog'::'FoodMart',
-                'user'::'test',
-                'passwd'::'abc'];
+	map&lt;string,string&gt;  MONDRIANXMLA &lt;- [
+				'olaptype'::"MONDRIAN/XMLA",
+				'dbtype'::'postgres',
+				'host'::'localhost',
+				'port'::'8080',
+				'database'::'MondrianFoodMart',
+				'catalog'::'FoodMart',
+				'user'::'test',
+				'passwd'::'abc'];
 
-//Connect a ROLAP server using Mondriam API 
-    map&lt;string,string&gt;  MONDRIAN &lt;- [
-                'olaptype'::'MONDRIAN',
-                'dbtype'::'postgres',
-                'host'::'localhost',
-                'port'::'5433',
-                'database'::'foodmart',
-                'catalog'::'../includes/FoodMart.xml',
-                'user'::'test',
+//Connect a ROLAP server using Mondriam API	
+	map&lt;string,string&gt;  MONDRIAN &lt;- [
+				'olaptype'::'MONDRIAN',
+				'dbtype'::'postgres',
+				'host'::'localhost',
+				'port'::'5433',
+				'database'::'foodmart',
+				'catalog'::'../includes/FoodMart.xml',
+				'user'::'test',
                                 'passwd'::'abc'];
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="test-a-connection-to-olap-database">Test a connection to OLAP database</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>testConnection</strong> (params: connection`</em>`parameter)_
-The action tests the connection to a given OLAP database.
-  * <strong>Return</strong>: boolean.  It is:
-    * <em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)
-    * <em>false</em>: the agent cannot connect
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map of connection parameters
-  * <strong>Exceptions</strong>: <em>GamaRuntimeException</em></p>
+  <p><em><strong>testConnection</strong> (params: connection<code class="highlighter-rouge">_</code>parameter)</em>
+The action tests the connection to a given OLAP database.</p>
+  <ul>
+    <li><strong>Return</strong>: boolean.  It is:
+      <ul>
+        <li><em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)</li>
+        <li><em>false</em>: the agent cannot connect</li>
+      </ul>
+    </li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map of connection parameters</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: Check a connection to MySQL</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (self testConnection(params:MONDIRANXMLA)){
-    write "Connection is OK";
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MONDIRANXMLA)){
+	write "Connection is OK";
 }else{
-    write "Connection is false";
-}   
-</code></pre></div>
+	write "Connection is false";
+}	
+</code></pre></div></div>
+
 <h3 id="select-data-from-olap-database">Select data from OLAP database</h3>
-
 <p><strong>Syntax</strong>:</p>
-
 <blockquote>
-<p><em><strong>select</strong> (param: connection`</em><code>parameter, onColumns: column</code><em><code>string, onRows: row</code></em><code>string from: cube</code><em><code>string, where: condition</code></em><code>string, values: value</code><em>`list)</em>
-The action creates a connection to an OLAP database and executes the select statement. If the connection or selection fails then it throws a <em>GamaRuntimeException</em>.
-  * <strong>Return</strong>: list &lt; list &gt;.  If the selection succeeds, it returns a list with three elements:
-    * The first element is a list of column name.
-    * The second element is a list of column type.
-    * The third element is a data set.
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters
-    * <em>onColumns</em>: (type = string) declare  the select string on columns. The selection string can contain question marks.
-    * <em>onRows</em>: (type = string) declare the selection string on rows. The selection string can contain question marks.
-    * <em>from</em>: (type = string) specify cube where data is selected. The cube_string can contain question marks.
-    * where_: (type = string) specify the selection conditions. The condiction_string can contains question marks. This is an optional parameter.
-    <em><em>values</em>: List of values that are used to replace question marks if appropriate. This is an optional parameter.
-  * **Exceptions</em>*:_GamaRuntimeException</p>
+  <p><em><strong>select</strong> (param: connection<code class="highlighter-rouge">_</code>parameter, onColumns: column<code class="highlighter-rouge">_</code>string, onRows: row<code class="highlighter-rouge">_</code>string from: cube<code class="highlighter-rouge">_</code>string, where: condition<code class="highlighter-rouge">_</code>string, values: value<code class="highlighter-rouge">_</code>list)</em>
+The action creates a connection to an OLAP database and executes the select statement. If the connection or selection fails then it throws a <em>GamaRuntimeException</em>.</p>
+  <ul>
+    <li><strong>Return</strong>: list &lt; list &gt;.  If the selection succeeds, it returns a list with three elements:
+      <ul>
+        <li>The first element is a list of column name.</li>
+        <li>The second element is a list of column type.</li>
+        <li>The third element is a data set.</li>
+      </ul>
+    </li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+        <li><em>onColumns</em>: (type = string) declare  the select string on columns. The selection string can contain question marks.</li>
+        <li><em>onRows</em>: (type = string) declare the selection string on rows. The selection string can contain question marks.</li>
+        <li><em>from</em>: (type = string) specify cube where data is selected. The cube_string can contain question marks.</li>
+        <li>where_: (type = string) specify the selection conditions. The condiction_string can contains question marks. This is an optional parameter.
+*<em>values</em>: List of values that are used to replace question marks if appropriate. This is an optional parameter.</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>:_GamaRuntimeException</li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: select data from SQL Server Analysis Service via XMLA</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (self testConnection[ params::SSAS]){
-    list l1  &lt;- list(self select (params: SSAS ,
-        onColumns: " { [Measures].[Quantity], [Measures].[Price] }",
-        onRows:" { { { [Time].[Year].[All].CHILDREN } * "
-        + " { [Product].[Product Category].[All].CHILDREN } * "
-        +"{ [Customer].[Company Name].&amp;[Alfreds Futterkiste], " 
-        +"[Customer].[Company Name].&amp;[Ana Trujillo Emparedadosy helados], " 
-        + "[Customer].[Company Name].&amp;[Antonio Moreno Taquería] } } } " ,
-        from : "FROM [Northwind Star] "));
-    write "result1:"+ l1;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection[ params::SSAS]){
+	list l1  &lt;- list(self select (params: SSAS ,
+		onColumns: " { [Measures].[Quantity], [Measures].[Price] }",
+		onRows:" { { { [Time].[Year].[All].CHILDREN } * "
+		+ " { [Product].[Product Category].[All].CHILDREN } * "
+		+"{ [Customer].[Company Name].&amp;[Alfreds Futterkiste], " 
+		+"[Customer].[Company Name].&amp;[Ana Trujillo Emparedadosy helados], " 
+		+ "[Customer].[Company Name].&amp;[Antonio Moreno Taquería] } } } " ,
+		from : "FROM [Northwind Star] "));
+	write "result1:"+ l1;
 }else {
-    write "Connect error";
+	write "Connect error";
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <p><strong>Example</strong>: select data from Mondrian via XMLA with question marks in selection</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (self testConnection(params:MONDRIANXMLA)){
-    list&lt;list&gt; l2  &lt;- list&lt;list&gt; (self select(params: MONDRIANXMLA, 
-    onColumns:" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} ",
-    onRows:"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"
-    +" [Product].[All Products])}, "
-    +" Crossjoin([Promotion Media].[All Media].Children, "
-    +" {[Product].[All Products]})), "
-    +" Crossjoin({[Promotion Media].[Daily Paper, Radio, TV]}, "
-    +" [Product].[All Products].Children)), "
-    +" Crossjoin({[Promotion Media].[Street Handout]}, " 
-    +" [Product].[All Products].Children)))  ",
-    from:" from [?] " ,
-    where :" where [Time].[?] " ,
-    values:["Sales",1997]));
-    write "result2:"+ l2;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (self testConnection(params:MONDRIANXMLA)){
+	list&lt;list&gt; l2  &lt;- list&lt;list&gt; (self select(params: MONDRIANXMLA, 
+	onColumns:" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} ",
+	onRows:"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"
+ 	+" [Product].[All Products])}, "
+	+" Crossjoin([Promotion Media].[All Media].Children, "
+	+" {[Product].[All Products]})), "
+	+" Crossjoin({[Promotion Media].[Daily Paper, Radio, TV]}, "
+	+" [Product].[All Products].Children)), "
+	+" Crossjoin({[Promotion Media].[Street Handout]}, " 
+	+" [Product].[All Products].Children)))  ",
+	from:" from [?] " ,
+	where :" where [Time].[?] " ,
+	values:["Sales",1997]));
+	write "result2:"+ l2;
 }else {
-    write "Connect error";
+	write "Connect error";
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="agentdb">AgentDB</h2>
 
 <p>AgentBD is a built-in species, which supports behaviors that look like actions in SQLSKILL but differs slightly with SQLSKILL in that it uses  only one connection for several actions. It means that AgentDB makes a connection to DBMS and keeps that connection for its later operations with DBMS.</p>
-
 <h3 id="define-a-species-that-is-an-inheritance-of-agentdb">Define a species that is an inheritance of agentDB</h3>
-
 <p>Example of declaration:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">species agentDB parent: AgentDB {  
-    //insert your descriptions here
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species agentDB parent: AgentDB {  
+	//insert your descriptions here
 } 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="connect-to-database">Connect to database</h3>
 
 <p><strong>Syntax</strong>:</p>
 
 <blockquote>
-<p><em><strong>Connect</strong> (param: connection`</em>`parameter)_
-This action makes a connection to DBMS. If a connection is established then it will assign the connection object into a built-in attribute of species (conn) otherwise it throws a GamaRuntimeException.
-  * <strong>Return</strong>: connection
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters
-  * <strong>Exceptions</strong>: GamaRuntimeException
-<strong>Example</strong>: Connect to PostgreSQL</p>
+  <p><em><strong>Connect</strong> (param: connection<code class="highlighter-rouge">_</code>parameter)</em>
+This action makes a connection to DBMS. If a connection is established then it will assign the connection object into a built-in attribute of species (conn) otherwise it throws a GamaRuntimeException.</p>
+  <ul>
+    <li><strong>Return</strong>: connection</li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: GamaRuntimeException
+<strong>Example</strong>: Connect to PostgreSQL</li>
+  </ul>
 </blockquote>
-<div class="highlight"><pre><code class="language-" data-lang="">// POSTGRES connection parameter
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// POSTGRES connection parameter
 map &lt;string, string&gt;  POSTGRES &lt;- [
                                         'host'::'localhost',
                                         'dbtype'::'postgres',
@@ -4097,109 +4124,132 @@ map &lt;string, string&gt;  POSTGRES &lt;- [
 ask agentDB {
       do connect (params: POSTGRES);
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="check-agent-connected-a-database-or-not">Check agent connected a database or not</h3>
 
 <p><strong>Syntax</strong>:</p>
 
 <blockquote>
-<p><em><strong>isConnected</strong> (param: connection`</em>`parameter)_
-This action checks if an agent is connecting to database or not.
-  * <strong>Return</strong>: Boolean.   If agent is connecting to a database then isConnected returns true; otherwise it returns false.
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters</p>
+  <p><em><strong>isConnected</strong> (param: connection<code class="highlighter-rouge">_</code>parameter)</em>
+This action checks if an agent is connecting to database or not.</p>
+  <ul>
+    <li><strong>Return</strong>: Boolean.   If agent is connecting to a database then isConnected returns true; otherwise it returns false.</li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+      </ul>
+    </li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ask agentDB {
-    if (self isConnected){
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
+	if (self isConnected){
               write "It already has a connection";
-    }else{
+	}else{
               do connect (params: POSTGRES);
         } 
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="close-the-current-connection">Close the current connection</h3>
 
 <p><strong>Syntax</strong>:</p>
 
 <blockquote>
-<p><em><strong>close</strong></em>
-This action closes the current database connection of species. If species does not has a database connection then it throws a GamaRuntimeException.
-  * <strong>Return</strong>: null
-If the current connection of species is close then the action return null value; otherwise it throws a GamaRuntimeException.</p>
+  <p><em><strong>close</strong></em>
+This action closes the current database connection of species. If species does not has a database connection then it throws a GamaRuntimeException.</p>
+  <ul>
+    <li><strong>Return</strong>: null
+If the current connection of species is close then the action return null value; otherwise it throws a GamaRuntimeException.</li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ask agentDB {
-    if (self isConnected){
-          do close;
-    }
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
+	if (self isConnected){
+	      do close;
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="get-connection-parameter">Get connection parameter</h3>
 
 <p><strong>Syntax</strong>:</p>
 
 <blockquote>
-<p><em><strong>getParameter</strong></em>
-This action returns the connection parameter of species.
-  * <strong>Return</strong>: map &lt; string, string &gt;</p>
+  <p><em><strong>getParameter</strong></em>
+This action returns the connection parameter of species.</p>
+  <ul>
+    <li><strong>Return</strong>: map &lt; string, string &gt;</li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ask agentDB {
-    if (self isConnected){
-        write "the connection parameter: " +(self getParameter);
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
+	if (self isConnected){
+		write "the connection parameter: " +(self getParameter);
         }
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="set-connection-parameter">Set connection parameter</h3>
 
 <p><strong>Syntax</strong>:</p>
 
 <blockquote>
-<p><em><strong>setParameter</strong> (param: connection`</em>`parameter)_
-This action sets the new values for connection parameter and closes the current connection of species. If it can not close the current connection then it will throw GamaRuntimeException. If the species wants to make the connection to database with the new values then action connect must be called.
-  * <strong>Return</strong>: null
-  * <strong>Arguments</strong>:
-    * <em>params</em>: (type = map) map containing the connection parameters
-  * <strong>Exceptions</strong>: <em>GamaRuntimeException</em></p>
+  <p><em><strong>setParameter</strong> (param: connection<code class="highlighter-rouge">_</code>parameter)</em>
+This action sets the new values for connection parameter and closes the current connection of species. If it can not close the current connection then it will throw GamaRuntimeException. If the species wants to make the connection to database with the new values then action connect must be called.</p>
+  <ul>
+    <li><strong>Return</strong>: null</li>
+    <li><strong>Arguments</strong>:
+      <ul>
+        <li><em>params</em>: (type = map) map containing the connection parameters</li>
+      </ul>
+    </li>
+    <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+  </ul>
 </blockquote>
 
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ask agentDB {
-    if (self isConnected){
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask agentDB {
+	if (self isConnected){
              do setParameter(params: MySQL);
              do connect(params: (self getParameter));
         }
 }
-</code></pre></div>
-<h3 id="retrieve-data-from-database-by-using-agentdb">Retrieve data from database by using AgentDB</h3>
+</code></pre></div></div>
 
+<h3 id="retrieve-data-from-database-by-using-agentdb">Retrieve data from database by using AgentDB</h3>
 <p>Because of the connection to database of AgentDB is kept alive then AgentDB can execute several SQL queries with only one connection. Hence AgentDB can do actions such as <strong>select</strong>, <strong>insert</strong>, <strong>executeUpdate</strong> with the same parameters of those actions of SQLSKILL <em>except <strong>params</strong> parameter is always absent</em>.</p>
 
 <p><strong>Examples</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, string&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 ask agentDB {
    do connect (params: PARAMS);
    // Create table
    do executeUpdate (updateComm: "CREATE TABLE registration" 
-    + "(id INTEGER PRIMARY KEY, " 
+	+ "(id INTEGER PRIMARY KEY, " 
         + " first TEXT NOT NULL, " + " last TEXT NOT NULL, " 
         + " age INTEGER);");
    // Insert into 
    do executeUpdate ( updateComm: "INSERT INTO registration " 
         + "VALUES(100, 'Zara', 'Ali', 18);");
    do insert (into: "registration", 
-     columns: ["id", "first", "last"], 
-     values: [103, 'Zaid tim', 'Kha']);
+	 columns: ["id", "first", "last"], 
+	 values: [103, 'Zaid tim', 'Kha']);
    // executeUpdate with question marks
    do executeUpdate (updateComm: "INSERT INTO registration VALUES(?, ?, ?, ?);",  
-     values: [101, 'Mr', 'Mme', 45]);
+	 values: [101, 'Mr', 'Mme', 45]);
    //select
     list&lt;list&gt; t &lt;- list&lt;list&gt; (self select( 
-     select:"SELECT * FROM registration;"));
+	 select:"SELECT * FROM registration;"));
     //update 
     int n &lt;-  executeUpdate (updateComm: "UPDATE registration SET age = 30 WHERE id IN (100, 101)");
      // delete
@@ -4207,84 +4257,91 @@ ask agentDB {
      // Drop table
       do executeUpdate (updateComm: "DROP TABLE registration");
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="using-database-features-to-define-environment-or-create-species">Using database features to define environment or create species</h2>
 
 <p>In Gama, we can use results of select action of SQLSKILL or AgentDB to create species or define boundary of environment in the same way we do with shape files. Further more, we can also save simulation data that are generated by simulation including geometry data to database.</p>
 
 <h3 id="define-the-boundary-of-the-environment-from-database">Define the boundary of the environment from database</h3>
-
 <ul>
-<li><strong>Step 1</strong>: specify select query by declaration a map object with keys as below:</li>
+  <li><strong>Step 1</strong>: specify select query by declaration a map object with keys as below:</li>
 </ul>
 
-<table><thead>
-<tr>
-<th style="text-align: left"><strong>Key</strong></th>
-<th style="text-align: left"><strong>Optional</strong></th>
-<th style="text-align: left"><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><em>dbtype</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot;, &quot;sqlite&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>host</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Host name or IP address of data server. It is absent when we work with SQlite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>port</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Port of connection. It is not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>database</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Name of database. It is the file name including the path when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>user</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Username. It is  not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>passwd</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">Password. It is  not required when we work with SQLite.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>srid</em></td>
-<td style="text-align: left">Yes</td>
-<td style="text-align: left">srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in Preferences-&gt;External configuration.</td>
-</tr>
-<tr>
-<td style="text-align: left"><em>select</em></td>
-<td style="text-align: left">No</td>
-<td style="text-align: left">Selection string</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Key</strong></th>
+      <th style="text-align: left"><strong>Optional</strong></th>
+      <th style="text-align: left"><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>dbtype</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">DBMS type value. Its value is a string. We must use “mysql” when we want to connect to a MySQL. That is the same for “postgres”, “sqlite” or “sqlserver” (ignore case sensitive)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>host</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Host name or IP address of data server. It is absent when we work with SQlite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>port</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Port of connection. It is not required when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>database</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Name of database. It is the file name including the path when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>user</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Username. It is  not required when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>passwd</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Password. It is  not required when we work with SQLite.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>srid</em></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in Preferences-&gt;External configuration.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>select</em></td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Selection string</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Table 3</strong>: Select boundary parameter description</p>
 
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">map&lt;string,string&gt; BOUNDS &lt;- [  
-    //'srid'::'32648',
-    'host'::'localhost',                                
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string,string&gt; BOUNDS &lt;- [	
+	//'srid'::'32648',
+	'host'::'localhost',								
         'dbtype'::'postgres',
-    'database'::'spatial_DB',
-    'port'::'5433',                             
+	'database'::'spatial_DB',
+	'port'::'5433',								
         'user'::'postgres',
-    'passwd'::'tmt',
-    'select'::'SELECT ST_AsBinary(geom) as geom FROM bounds;' ];
-</code></pre></div>
+	'passwd'::'tmt',
+	'select'::'SELECT ST_AsBinary(geom) as geom FROM bounds;' ];
+</code></pre></div></div>
+
 <ul>
-<li><strong>Step 2</strong>: define boundary of environment by using the map object in first step.</li>
+  <li><strong>Step 2</strong>: define boundary of environment by using the map object in first step.</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">geometry shape &lt;- envelope(BOUNDS);
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geometry shape &lt;- envelope(BOUNDS);
+</code></pre></div></div>
+
 <p>Note: We can do the same way if we work with MySQL, SQLite, or SQLServer and we must convert Geometry format in GIS database to binary format.</p>
 
 <h3 id="create-agents-from-the-result-of-a-select-action">Create agents from the result of a select action</h3>
@@ -4292,88 +4349,108 @@ ask agentDB {
 <p>If we are familiar with how to create agents from a shapefile then it becomes very simple to create agents from select result. We can do as below:</p>
 
 <ul>
-<li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
+  <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">species toto skills: SQLSKILL {
-    //insert your descriptions here 
-}   
-</code></pre></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: SQLSKILL {
+	//insert your descriptions here	
+}	
+</code></pre></div></div>
+
 <ul>
-<li><strong>Step 2</strong>: Define a connection and selection parameters</li>
+  <li><strong>Step 2</strong>: Define a connection and selection parameters</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
-    map&lt;string,string&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
-    string location &lt;- 'select ID_4, Name_4, ST_AsBinary(geometry) as geom from vnm_adm4 
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+	map&lt;string,string&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
+	string location &lt;- 'select ID_4, Name_4, ST_AsBinary(geometry) as geom from vnm_adm4 
                                       where id_2=38253 or id_2=38254;';
-    ...
+	...
 }      
-</code></pre></div>
+</code></pre></div></div>
+
 <ul>
-<li><strong>Step 3</strong>: Create species by using selected results</li>
+  <li><strong>Step 3</strong>: Create species by using selected results</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">init {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>init {
    create toto { 
-      create locations from: list(self select (params: PARAMS, 
-                                                           select: LOCATIONS)) 
+	  create locations from: list(self select (params: PARAMS, 
+		                                                   select: LOCATIONS)) 
                                    with:[ id:: "id_4", custom_name:: "name_4", shape::"geom"];
-    }
+	}
    ...
 }
-</code></pre></div>
-<h3 id="save-geometry-data-to-database">Save Geometry data to database</h3>
+</code></pre></div></div>
 
+<h3 id="save-geometry-data-to-database">Save Geometry data to database</h3>
 <p>If we are familiar with how to create agents from a shapefile then it becomes very simple to create agents from select result. We can do as below:</p>
 
 <ul>
-<li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
+  <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">species toto skills: SQLSKILL {  
-    //insert your descriptions here
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species toto skills: SQLSKILL {  
+	//insert your descriptions here
 } 
-</code></pre></div>
+</code></pre></div></div>
+
 <ul>
-<li><strong>Step 2</strong>: Define a connection and create GIS database and tables</li>
+  <li><strong>Step 2</strong>: Define a connection and create GIS database and tables</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">global {
-    map&lt;string,string&gt; PARAMS &lt;-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+	map&lt;string,string&gt; PARAMS &lt;-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
                                                             'port'::'5433', 'user'::'postgres', 'passwd'::'tmt'];
 
-    init {
-        create toto ;
-        ask toto {
-            if (self testConnection[ params::PARAMS]){
-                // create GIS database  
-                do executeUpdate(params:PARAMS, 
-                        updateComm: "CREATE DATABASE spatial_db with TEMPLATE = template_postgis;"); 
-                    remove key: "database" from: PARAMS;
-                put "spatial_db" key:"database" in: PARAMS;
-                //create table
+	init {
+		create toto ;
+		ask toto {
+			if (self testConnection[ params::PARAMS]){
+			    // create GIS database	
+ 			    do executeUpdate(params:PARAMS, 
+		                updateComm: "CREATE DATABASE spatial_db with TEMPLATE = template_postgis;"); 
+ 			    	remove key: "database" from: PARAMS;
+				put "spatial_db" key:"database" in: PARAMS;
+				//create table
                             do executeUpdate params: PARAMS 
-                  updateComm : "CREATE TABLE buildings "+
-                  "( "  +
-                                   " name character varying(255), " + 
+				  updateComm : "CREATE TABLE buildings "+
+				  "( "  +
+                   	               " name character varying(255), " + 
                                        " type character varying(255), " + 
                                        " geom GEOMETRY " + 
                                    ")";
-            }else {
-                write "Connection to MySQL can not be established ";
-            }   
-        }
-    }
+			}else {
+ 				write "Connection to MySQL can not be established ";
+ 			}	
+		}
+	}
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <ul>
-<li><strong>Step 3</strong>: Insert geometry data to GIS database</li>
+  <li><strong>Step 3</strong>: Insert geometry data to GIS database</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">ask building {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ask building {
    ask DB_Accessor {
-    do insert(params: PARAMS, 
+	do insert(params: PARAMS, 
                         into: "buildings",
-            columns: ["name", "type","geom"],
-            values: [myself.name,myself.type,myself.shape];
+			columns: ["name", "type","geom"],
+			values: [myself.name,myself.type,myself.shape];
    }
 }
-</code></pre></div>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (keyword|concept_database)">//</a>: # (endConcept</td>
+      <td>use_database)</td>
+    </tr>
+  </tbody>
+</table>
+
     </div>
     </div>
     </div>

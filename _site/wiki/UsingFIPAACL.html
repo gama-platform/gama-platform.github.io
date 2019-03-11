@@ -3616,141 +3616,165 @@ function closeRightMenu() {
 <h2 id="variables">Variables</h2>
 
 <ul>
-<li><strong>accept_proposals (list)</strong>: A list of &#39;accept_proposal&#39; performative messages of the agent&#39;s mailbox having .</li>
-<li><strong>agrees (list)</strong>: A list of &#39;accept_proposal&#39; performative messages.</li>
-<li><strong>cancels (list)</strong>: A list of &#39;cancel&#39; performative messages.</li>
-<li><strong>cfps (list)</strong>: A list of &#39;cfp&#39; (call for proposal) performative messages.</li>
-<li><strong>conversations (list)</strong>: A list containing the current conversations of agent. Ended conversations are automatically removed from this list.</li>
-<li><strong>failures (list)</strong>: A list of &#39;failure&#39; performative messages.</li>
-<li><strong>informs (list)</strong>: A list of &#39;inform&#39; performative messages.</li>
-<li><strong>messages (list)</strong>: The mailbox of the agent, a list of messages of all types of performatives.</li>
-<li><strong>proposes (list)</strong>: A list of &#39;propose&#39; performative messages .</li>
-<li><strong>queries (list)</strong>: A list of &#39;query&#39; performative messages.</li>
-<li><strong>refuses (list)</strong>: A list of &#39;propose&#39; performative messages.</li>
-<li><strong>reject_proposals (list)</strong>: A list of &#39;reject_proposals&#39; performative messages.</li>
-<li><strong>requests (list)</strong>: A list of &#39;request&#39; performative messages.</li>
-<li><strong>requestWhens (list)</strong>: A list of &#39;request-when&#39; performative messages.</li>
-<li><strong>subscribes (list)</strong>: A list of &#39;subscribe&#39; performative messages.</li>
+  <li><strong>accept_proposals (list)</strong>: A list of ‘accept_proposal’ performative messages of the agent’s mailbox having .</li>
+  <li><strong>agrees (list)</strong>: A list of ‘accept_proposal’ performative messages.</li>
+  <li><strong>cancels (list)</strong>: A list of ‘cancel’ performative messages.</li>
+  <li><strong>cfps (list)</strong>: A list of ‘cfp’ (call for proposal) performative messages.</li>
+  <li><strong>conversations (list)</strong>: A list containing the current conversations of agent. Ended conversations are automatically removed from this list.</li>
+  <li><strong>failures (list)</strong>: A list of ‘failure’ performative messages.</li>
+  <li><strong>informs (list)</strong>: A list of ‘inform’ performative messages.</li>
+  <li><strong>messages (list)</strong>: The mailbox of the agent, a list of messages of all types of performatives.</li>
+  <li><strong>proposes (list)</strong>: A list of ‘propose’ performative messages .</li>
+  <li><strong>queries (list)</strong>: A list of ‘query’ performative messages.</li>
+  <li><strong>refuses (list)</strong>: A list of ‘propose’ performative messages.</li>
+  <li><strong>reject_proposals (list)</strong>: A list of ‘reject_proposals’ performative messages.</li>
+  <li><strong>requests (list)</strong>: A list of ‘request’ performative messages.</li>
+  <li><strong>requestWhens (list)</strong>: A list of ‘request-when’ performative messages.</li>
+  <li><strong>subscribes (list)</strong>: A list of ‘subscribe’ performative messages.</li>
 </ul>
 
 <h3 id="actions">Actions</h3>
-
 <h4 id="accept_proposal">accept_proposal</h4>
-
-<p>Replies a message with an &#39;accept_proposal&#39; performative message
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with an ‘accept_proposal’ performative message</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="agree">agree</h4>
-
-<p>Replies a message with an &#39;agree&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with an ‘agree’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="cancel">cancel</h4>
-
-<p>Replies a message with a &#39;cancel&#39; peformative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘cancel’ peformative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="cfp">cfp</h4>
-
-<p>Replies a message with a &#39;cfp&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘cfp’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="end_conversation">end_conversation</h4>
-
-<p>Replies a message with an &#39;end_conversation&#39; peprformative message. This message marks the end of a conversation. In a &#39;no-protocol&#39; conversation, it is the responsible of the modeler to explicitly send this message to mark the end of a conversation/interaction protocol.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with an ‘end_conversation’ peprformative message. This message marks the end of a conversation. In a ‘no-protocol’ conversation, it is the responsible of the modeler to explicitly send this message to mark the end of a conversation/interaction protocol.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="failure">failure</h4>
-
-<p>Replies a message with a &#39;failure&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘failure’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="inform">inform</h4>
-
-<p>Replies a message with an &#39;inform&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with an ‘inform’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="propose">propose</h4>
-
-<p>Replies a message with a &#39;propose&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘propose’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="query">query</h4>
-
-<p>Replies a message with a &#39;query&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘query’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="refuse">refuse</h4>
-
-<p>Replies a message with a &#39;refuse&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘refuse’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="reject_proposal">reject_proposal</h4>
-
-<p>Replies a message with a &#39;reject_proposal&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘reject_proposal’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="reply">reply</h4>
-
-<p>Replies a message. This action should be only used to reply a message in a &#39;no-protocol&#39; conversation and with a &#39;user defined performative&#39;. For performatives supported by GAMA (i.e., standard FIPA performatives), please use the &#39;action&#39; with the same name of &#39;performative&#39;. For example, to reply a message with a &#39;request&#39; performative message, the modeller should use the &#39;request&#39; action.
-* returns: unknown
-* message (message): The message to be replied
-* performative (string): The performative of the replying message
-* content (list): The content of the replying message</p>
+<p>Replies a message. This action should be only used to reply a message in a ‘no-protocol’ conversation and with a ‘user defined performative’. For performatives supported by GAMA (i.e., standard FIPA performatives), please use the ‘action’ with the same name of ‘performative’. For example, to reply a message with a ‘request’ performative message, the modeller should use the ‘request’ action.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>performative (string): The performative of the replying message</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="request">request</h4>
-
-<p>Replies a message with a &#39;request&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<p>Replies a message with a ‘request’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
 <h4 id="send">send</h4>
-
-<p>Starts a conversation/interaction protocol.
-* returns: msi.gaml.extensions.fipa.Message
-* receivers (list): A list of receiver agents
-* content (list): The content of the message. A list of any GAML type
-* performative (string): A string, representing the message performative
-* protocol (string): A string representing the name of interaction protocol</p>
+<p>Starts a conversation/interaction protocol.</p>
+<ul>
+  <li>returns: msi.gaml.extensions.fipa.Message</li>
+  <li>receivers (list): A list of receiver agents</li>
+  <li>content (list): The content of the message. A list of any GAML type</li>
+  <li>performative (string): A string, representing the message performative</li>
+  <li>protocol (string): A string representing the name of interaction protocol</li>
+</ul>
 
 <h4 id="start_conversation">start_conversation</h4>
-
-<p>Starts a conversation/interaction protocol.
-* returns: msi.gaml.extensions.fipa.Message
-* receivers (list): A list of receiver agents
-* content (list): The content of the message. A list of any GAML type
-* performative (string): A string, representing the message performative
-* protocol (string): A string representing the name of interaction protocol</p>
+<p>Starts a conversation/interaction protocol.</p>
+<ul>
+  <li>returns: msi.gaml.extensions.fipa.Message</li>
+  <li>receivers (list): A list of receiver agents</li>
+  <li>content (list): The content of the message. A list of any GAML type</li>
+  <li>performative (string): A string, representing the message performative</li>
+  <li>protocol (string): A string representing the name of interaction protocol</li>
+</ul>
 
 <h4 id="subscribe">subscribe</h4>
+<p>Replies a message with a ‘subscribe’ performative message.</p>
+<ul>
+  <li>returns: unknown</li>
+  <li>message (message): The message to be replied</li>
+  <li>content (list): The content of the replying message</li>
+</ul>
 
-<p>Replies a message with a &#39;subscribe&#39; performative message.
-* returns: unknown
-* message (message): The message to be replied
-* content (list): The content of the replying message</p>
+<table>
+  <tbody>
+    <tr>
+      <td><a href="# (startConcept|fipa_acl)">//</a>: # (endConcept</td>
+      <td>fipa_acl)</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
     </div>

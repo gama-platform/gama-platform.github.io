@@ -3613,40 +3613,42 @@ function closeRightMenu() {
 
 <p><em>Author :  Patrick Taillandier</em></p>
 
-<p>this model shows how to visualize GIS data without having to create agents  </p>
+<p>this model shows how to visualize GIS data without having to create agents</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">GIS_visualization</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_buildings</span><span class="p">);</span>
-    <span class="k">string</span> <span class="n">texture</span> <span class="p">&lt;-</span> <span class="s2">"../images/building_texture/texture1.jpg"</span><span class="p">;</span>
-    <span class="k">string</span> <span class="n">roof_texture</span> <span class="p">&lt;-</span> <span class="s2">"../images/building_texture/roof_top.png"</span><span class="p">;</span>   
+	<span class="n">file</span> <span class="n">shape_file_buildings</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s2">"../includes/building.shp"</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_buildings</span><span class="p">);</span>
+	<span class="k">string</span> <span class="n">texture</span> <span class="p">&lt;-</span> <span class="s2">"../images/building_texture/texture1.jpg"</span><span class="p">;</span>
+	<span class="k">string</span> <span class="n">roof_texture</span> <span class="p">&lt;-</span> <span class="s2">"../images/building_texture/roof_top.png"</span><span class="p">;</span>	
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">GIS_visualization</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">minimum_cycle_duration</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">#</span><span class="n">s</span><span class="p">;</span>
 
-
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="p">//</span> <span class="n">display</span> <span class="k">of</span> <span class="n">buildings</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">texture</span> <span class="k">and</span> <span class="k">with</span> <span class="n">reading</span> <span class="n">their</span> <span class="n">HEIGHT</span> <span class="n">attribute</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span>
-        <span class="n">display</span> <span class="n">gis_displays_graphics</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>  <span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"Buildings as shapes"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
-                <span class="n">loop</span> <span class="n">bd</span> <span class="n">over</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">bd</span> <span class="n">depth</span><span class="p">:</span> <span class="n">rnd</span><span class="p">(</span><span class="m">50</span><span class="p">)</span> <span class="p">+</span> <span class="m">50</span> <span class="n">texture</span><span class="p">:[</span><span class="n">roof_texture</span><span class="p">,</span><span class="n">texture</span><span class="p">]</span> <span class="n">border</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span><span class="n">display</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="k">as</span> <span class="n">an</span> <span class="n">image</span>
-        <span class="n">display</span> <span class="n">gis_displays_image</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
-            <span class="n">image</span> <span class="s2">"Buildings as images"</span> <span class="n">gis</span><span class="p">:</span> <span class="n">shape_file_buildings</span><span class="p">.</span><span class="n">path</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">)</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="p">//</span> <span class="n">display</span> <span class="k">of</span> <span class="n">buildings</span> <span class="k">in</span> <span class="m">3</span><span class="n">D</span> <span class="k">with</span> <span class="n">texture</span> <span class="k">and</span> <span class="k">with</span> <span class="n">reading</span> <span class="n">their</span> <span class="n">HEIGHT</span> <span class="n">attribute</span> <span class="k">from</span> <span class="n">the</span> <span class="n">shapefile</span>
+		<span class="n">display</span> <span class="n">gis_displays_graphics</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span>  <span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"Buildings as shapes"</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span> <span class="p">{</span>
+				<span class="n">loop</span> <span class="n">bd</span> <span class="n">over</span><span class="p">:</span> <span class="n">shape_file_buildings</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">bd</span> <span class="n">depth</span><span class="p">:</span> <span class="n">rnd</span><span class="p">(</span><span class="m">50</span><span class="p">)</span> <span class="p">+</span> <span class="m">50</span> <span class="n">texture</span><span class="p">:[</span><span class="n">roof_texture</span><span class="p">,</span><span class="n">texture</span><span class="p">]</span> <span class="n">border</span><span class="p">:</span><span class="nb">false</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="p">//</span><span class="n">display</span> <span class="k">of</span> <span class="n">the</span> <span class="n">building</span> <span class="k">as</span> <span class="n">an</span> <span class="n">image</span>
+		<span class="n">display</span> <span class="n">gis_displays_image</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="p">{</span>
+			<span class="n">image</span> <span class="s2">"Buildings as images"</span> <span class="n">gis</span><span class="p">:</span> <span class="n">shape_file_buildings</span><span class="p">.</span><span class="n">path</span> <span class="n">color</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">)</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

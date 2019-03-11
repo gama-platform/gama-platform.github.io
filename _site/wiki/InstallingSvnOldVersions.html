@@ -3613,242 +3613,315 @@ function closeRightMenu() {
 
 <p>These installation procedures have been tested on MacOS X 10.6 to 10.9, and Windows 8. On Mac OS X 10.10 (Yosemite), please have a look here: <a href="Installation">install Java on Yosemite</a> for details about the Java version to use. <strong>Eclipse 3.8.2 is the recommended Eclipse version to install GAMA</strong>. Kepler install is still experimental.</p>
 
-<p><strong>Important note: the current SVN version is no more compatible with the GAMA 1.6.1 release.</strong>
-  * If you plan to create plugin that should be compatible with the release, please download the GAMA code source at revision r11988 (on Google Code).
-  * If you want to have the last GAMA version (new GUI and APIs), you can download the head revision. The eclipse install should also be updated:
-    * EMF should be updated to the latest release available (2.10.2 in Apr. 2015)
-    * Xtext should be updated to the latest release (2.8.2 in April 2015)
-    * SWT 4.4
-    * ummisco.gaml.editbox plugin is now mandatory.</p>
+<p><strong>Important note: the current SVN version is no more compatible with the GAMA 1.6.1 release.</strong></p>
+<ul>
+  <li>If you plan to create plugin that should be compatible with the release, please download the GAMA code source at revision r11988 (on Google Code).</li>
+  <li>If you want to have the last GAMA version (new GUI and APIs), you can download the head revision. The eclipse install should also be updated:
+    <ul>
+      <li>EMF should be updated to the latest release available (2.10.2 in Apr. 2015)</li>
+      <li>Xtext should be updated to the latest release (2.8.2 in April 2015)</li>
+      <li>SWT 4.4</li>
+      <li>ummisco.gaml.editbox plugin is now mandatory.</li>
+    </ul>
+  </li>
+</ul>
 
-<h2 id="detailed-instructions-for-eclipse-4-4-2-luna-sr2">Detailed Instructions for Eclipse 4.4.2 (Luna SR2)</h2>
-
+<h2 id="detailed-instructions-for-eclipse-442-luna-sr2">Detailed Instructions for Eclipse 4.4.2 (Luna SR2)</h2>
 <h3 id="get-and-configure-eclipse-luna">Get and configure Eclipse Luna</h3>
-
 <ol>
-<li>Download the Eclipse Modeling Tools version of Luna SR2
-
-<ul>
-<li><a href="https://eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr2">https://eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr2</a></li>
-</ul></li>
-<li>Unpack it anywhere and run it</li>
-<li>Choose a new workspace
-
-<ul>
-<li>A workspace is a folder in which Eclipse stores all your projects.</li>
-</ul></li>
-<li>Install the required plugins. � Help � -&gt; � Install new software �
-
-<ul>
-<li>In &quot;work with&quot;, write &quot;<a href="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/">http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</a>&quot;, click on &quot;Add&quot; and choose a name (e.g. Xtext)
-
-<ul>
-<li>In &quot;Xtext&quot;, install the following one:</li>
-<li>Xtext Complete SDK    2.8.2.v201504100559</li>
-</ul></li>
-</ul></li>
+  <li>Download the Eclipse Modeling Tools version of Luna SR2
+    * https://eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr2</li>
+  <li>Unpack it anywhere and run it</li>
+  <li>Choose a new workspace
+    * A workspace is a folder in which Eclipse stores all your projects.</li>
+  <li>Install the required plugins. � Help � -&gt; � Install new software �
+    * In “work with”, write “http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/”, click on “Add” and choose a name (e.g. Xtext)
+    <ul>
+      <li>In “Xtext”, install the following one:
+        <ul>
+          <li>Xtext Complete SDK	2.8.2.v201504100559</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ol>
 
 <h3 id="get-code-source-from-github">Get code source from GitHub</h3>
-
-<p>In Eclipse:
-  1. Windows &gt; Open Perspective &gt; Other�
-    * Git
-  1. Click on &quot;Clone a Git repository&quot;
+<p>In Eclipse:</p>
+<ol>
+  <li>Windows &gt; Open Perspective &gt; Other�
+    * Git</li>
+  <li>Click on “Clone a Git repository”
     * First window:
-      * URI: <a href="https://github.com/gama-platform/gama.git">https://github.com/gama-platform/gama.git</a>
-    * Branch Selection:
-      * Check master
-      * Next
-    * Local Destination
-      * Choose a Directory
-      * Finish</p>
+    <ul>
+      <li>URI: https://github.com/gama-platform/gama.git
+        <ul>
+          <li>Branch Selection:</li>
+        </ul>
+      </li>
+      <li>Check master</li>
+      <li>Next
+        <ul>
+          <li>Local Destination</li>
+        </ul>
+      </li>
+      <li>Choose a Directory</li>
+      <li>Finish</li>
+    </ul>
+  </li>
+</ol>
 
-<p>You have then to import projects:
-  1. Right-Click on Working Directory &gt; Import projects
+<p>You have then to import projects:</p>
+<ol>
+  <li>Right-Click on Working Directory &gt; Import projects
     * Select a wizard to use for importing projects:
-      * &quot;Import existing projects&quot; should be  checked
-      * &quot;Working Directory&quot; should be selected
-      * Next
-    * In Import Projects:
-      * Uncheck ��Search for nested project��
-      * Check the projects you want to import
-      * Finish</p>
+    <ul>
+      <li>“Import existing projects” should be  checked</li>
+      <li>“Working Directory” should be selected</li>
+      <li>Next
+        <ul>
+          <li>In Import Projects:</li>
+        </ul>
+      </li>
+      <li>Uncheck ��Search for nested project��</li>
+      <li>Check the projects you want to import</li>
+      <li>Finish</li>
+    </ul>
+  </li>
+</ol>
 
 <p>Go back to the Java perspective</p>
 
-<h2 id="detailed-instructions-for-eclipse-3-7-2-indigo">Detailed Instructions for Eclipse 3.7.2 (Indigo)</h2>
-
-<p><strong>PLEASE NOTE THAT SUPPORT FOR THIS INSTALLATION HAS BEEN STOPPED. IF YOU CANNOT RUN A NEWER VERSION OF ECLIPSE, THEN YOU HAVE TO CHECKOUT THE LATEST VERSION OF GAMA WORKING IN INDIGO (r11438 (on Google Code)).</strong>
-  1. Download the Eclipse Modeling Tools version of Indigo
-    * <a href="http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/indigosr2">http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/indigosr2</a>
-  1. Unpack it anywhere and run it
-  1. Choose a new workspace
-    * A workspace is a folder in which Eclipse stores all your projects.
-  1. Install the required plugins. � Help � -&gt; � Install new software �
-    * In &quot;Work with&quot;, type &quot;<a href="http://download.eclipse.org/technology/subversive/0.7/update-site/">http://download.eclipse.org/technology/subversive/0.7/update-site/</a>&quot; and install:
-      * In &quot;Subversive SVN Team Provider Plugin (Incubation)&quot;
-        * Subversive SVN Team Provider (Incubation) 0.7.9.I20120520-1700
-    * In &quot;work with&quot;, write &quot;<a href="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/">http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</a>&quot;, click on &quot;Add&quot; and choose a name (e.g. Xtext)
-      * In &quot;Xtext-2.4.1&quot;   (to see it, you have to uncheck the &quot;Show only the latest versions of available software&quot;)
-        * Xtext SDK 2.4.1.v201304180855
-    * If you plan to build a release version, in &quot;work with&quot;, write &quot;<a href="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/">http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/</a>&quot;, click on &quot;Add&quot; and choose a name (e.g. ICU)
-      * Type &#39;icu&#39; in the text filter.
-      * The site should propose you a list of plugins. Choose (if this version is not available, untick (&quot;Show only the latest versions&quot;).
-        * International Components for Unicode for Java (ICU4J) Replacement plug-in 4.4.2.v20110208
-  1. Eclipse proposes to restart -&gt; Restart now
-  1. Add SVN repository exploring perspective
-    * To activate this perspective, choose Window / Open Perspective / Other... and select &quot;SVN Repository Exploring&quot;
+<h2 id="detailed-instructions-for-eclipse-372-indigo">Detailed Instructions for Eclipse 3.7.2 (Indigo)</h2>
+<p><strong>PLEASE NOTE THAT SUPPORT FOR THIS INSTALLATION HAS BEEN STOPPED. IF YOU CANNOT RUN A NEWER VERSION OF ECLIPSE, THEN YOU HAVE TO CHECKOUT THE LATEST VERSION OF GAMA WORKING IN INDIGO (r11438 (on Google Code)).</strong></p>
+<ol>
+  <li>Download the Eclipse Modeling Tools version of Indigo
+    * http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/indigosr2</li>
+  <li>Unpack it anywhere and run it</li>
+  <li>Choose a new workspace
+    * A workspace is a folder in which Eclipse stores all your projects.</li>
+  <li>Install the required plugins. � Help � -&gt; � Install new software �
+    * In “Work with”, type “http://download.eclipse.org/technology/subversive/0.7/update-site/” and install:
+    <ul>
+      <li>In “Subversive SVN Team Provider Plugin (Incubation)”
+        <ul>
+          <li>Subversive SVN Team Provider (Incubation)	0.7.9.I20120520-1700</li>
+          <li>In “work with”, write “http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/”, click on “Add” and choose a name (e.g. Xtext)</li>
+        </ul>
+      </li>
+      <li>In “Xtext-2.4.1”   (to see it, you have to uncheck the “Show only the latest versions of available software”)
+        <ul>
+          <li>Xtext SDK	2.4.1.v201304180855</li>
+          <li>If you plan to build a release version, in “work with”, write “http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/”, click on “Add” and choose a name (e.g. ICU)</li>
+        </ul>
+      </li>
+      <li>Type ‘icu’ in the text filter.</li>
+      <li>The site should propose you a list of plugins. Choose (if this version is not available, untick (“Show only the latest versions”).
+        <ul>
+          <li>International Components for Unicode for Java (ICU4J) Replacement plug-in	4.4.2.v20110208</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Eclipse proposes to restart -&gt; Restart now</li>
+  <li>Add SVN repository exploring perspective
+    * To activate this perspective, choose Window / Open Perspective / Other… and select “SVN Repository Exploring”
     * A popup appears (Discovery of SVN connector)
     * Choose: SVN Kit 1.7.x
-      * Popup Unsigned content -&gt; ok
-    * Popup -&gt; restart now
-  1. Configure a new repository location:
-    * File &gt; New &gt; Other... &gt; SVN &gt; Repository Location
-    * URL: <a href="https://gama-platform.googlecode.com/svn">https://gama-platform.googlecode.com/svn</a>
-    * Finish (&amp; wait)
-  1. Checkout of the GAMA code source
-    * In the SVN repository view, navigate to the directory &quot;branches/GAMA_CURRENT&quot; and select &quot;Find/Checkout As...&quot; from the contectual menu.
-    * Choose &quot;Find projects in the children of the selected resource&quot; and follow the indications.
-    * Pop-up &quot;Check Out projects&quot;, all projects should be selected. Finish.
-    * Once the checkout is finished, switch to Java Perspective.</p>
+    <ul>
+      <li>Popup Unsigned content -&gt; ok
+        <ul>
+          <li>Popup -&gt; restart now</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Configure a new repository location:
+    * File &gt; New &gt; Other… &gt; SVN &gt; Repository Location
+    * URL: https://gama-platform.googlecode.com/svn
+    * Finish (&amp; wait)</li>
+  <li>Checkout of the GAMA code source
+    * In the SVN repository view, navigate to the directory “branches/GAMA_CURRENT” and select “Find/Checkout As…” from the contectual menu.
+    * Choose “Find projects in the children of the selected resource” and follow the indications.
+    * Pop-up “Check Out projects”, all projects should be selected. Finish.
+    * Once the checkout is finished, switch to Java Perspective.</li>
+</ol>
 
-<p>To compile and run GAMA properly, you will need to configure your Eclipse IDE and the GAMA <code>.product</code> file.
-  1. By default, Eclipse uses Java 7 when it is installed whereas GAMA only needs Java 6. On MacOS X in particular, we may have to change the version of the JDK to ensure that GAMA will run smoothly.
+<p>To compile and run GAMA properly, you will need to configure your Eclipse IDE and the GAMA <code class="highlighter-rouge">.product</code> file.</p>
+<ol>
+  <li>By default, Eclipse uses Java 7 when it is installed whereas GAMA only needs Java 6. On MacOS X in particular, we may have to change the version of the JDK to ensure that GAMA will run smoothly.
     * Window-&gt;Preferences
-    * In: Java / Compiler: set &quot;Compiler compliance level&quot; to 1.6
+    * In: Java / Compiler: set “Compiler compliance level” to 1.6
     * In: Java / Installed JREs -&gt; Add -&gt; Standard VM -&gt; JRE home -&gt; Directory and choose the directory of a Java 6 JDK (preferable) or a Java 7 JDK (except for MacOS X, see <a href="Installation">Installation</a>).
-      * Download the JDK 6 (for Windows &amp; Linux) <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR">here</a>
-      * Download the JDK 7 (for Windows &amp; Linux) <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
-      * Download the JDK 6 (for Mac OS X) <a href="http://support.apple.com/kb/DL1572">here</a>. To switch between 1.7 and 1.6 (if both are installed), look at the use of <code>java-home</code> on this <a href="http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html">page</a>.
-    * In: Java / Installed JREs -&gt; select Java 1.6 (for Mac) or 1.7 (on Windows &amp; Linux).
-  1. You should configure the GAMA <code>.product</code> file depending on your OS.
-    * In the <code>msi.gama.application</code> project, open the <code>gama1.6.1.feature_based_release.product</code> file.
-    * In: the &quot;Launching&quot; tab: check whether the launching options are correct
-      * In particular, for a 32bits OS, you have to change in &quot;VM Arguments&quot; &quot;-Xmx1536m&quot; into &quot;-Xmx1024m&quot;
-      * For 64bits OS, check that the option &quot;-d32&quot; is not in the &quot;VM Arguments&quot; (otherwise delete it) in the &quot;macosx&quot; specific tab.
-  1. Compile and Run GAMA
-    * Do a &quot;Project -&gt; Clean... (clean all projects)&quot;
-    * In the .product file, in &quot;Overview&quot; tab:
-      * click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins (from both Eclipse and the new XText). Do not forget to save it.
-      * The product, or some of the included features, may complain about missing plugins (identified by an error icon on the plugin icon in the dependencies view). It is normal for &quot;fragments&quot; that apply to another OS than yours and it is harmless in this case. If you are, however, concerned about this, you can install the &quot;delta-pack&quot; for Eclipse 3.7.2 or Eclipse 3.8.2 (follow these steps: <a href="http://ugosan.org/eclipse-rcp-delta-pack/">http://ugosan.org/eclipse-rcp-delta-pack/</a>. The delta pack itself can be downloaded from <a href="http://archive.eclipse.org/eclipse/downloads/drops/R-3.7.2-201202080800/download.php?dropFile=eclipse-3.7.2-delta-pack.zip">here</a>).
-      * If one of the missing plugins happens to be &quot;com.ibm.icu.base&quot; (and you did not want to install it as told above), you can replace it by &quot;com.ibm.icu&quot; without worries.
-      * As of GAMA 1.6.1, we use a version of the SWT binary fragments that is not the one shipped with Eclipse Indigo nor Juno. Although it is not mandatory to use it, it is required if you plan to produce release versions of GAMA from your product. To install it, simply download this <a href="https://drive.google.com/file/d/0B8DTAk4nDgyNNmN0NkMtX1RDRDA/edit?usp=sharing">file</a> and install it like the delta pack above.
-      * click on the � Launch an Eclipse application � link. Note that a run configuration will be automatically created allowing to only click on the run button for future runs.</p>
+    <ul>
+      <li>Download the JDK 6 (for Windows &amp; Linux) <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR">here</a></li>
+      <li>Download the JDK 7 (for Windows &amp; Linux) <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.</li>
+      <li>Download the JDK 6 (for Mac OS X) <a href="http://support.apple.com/kb/DL1572">here</a>. To switch between 1.7 and 1.6 (if both are installed), look at the use of <code class="highlighter-rouge">java-home</code> on this <a href="http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html">page</a>.
+        <ul>
+          <li>In: Java / Installed JREs -&gt; select Java 1.6 (for Mac) or 1.7 (on Windows &amp; Linux).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>You should configure the GAMA <code class="highlighter-rouge">.product</code> file depending on your OS.
+    * In the <code class="highlighter-rouge">msi.gama.application</code> project, open the <code class="highlighter-rouge">gama1.6.1.feature_based_release.product</code> file.
+    * In: the “Launching” tab: check whether the launching options are correct
+    <ul>
+      <li>In particular, for a 32bits OS, you have to change in “VM Arguments” “-Xmx1536m” into “-Xmx1024m”</li>
+      <li>For 64bits OS, check that the option “-d32” is not in the “VM Arguments” (otherwise delete it) in the “macosx” specific tab.</li>
+    </ul>
+  </li>
+  <li>Compile and Run GAMA
+    * Do a “Project -&gt; Clean… (clean all projects)”
+    * In the .product file, in “Overview” tab:
+    <ul>
+      <li>click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins (from both Eclipse and the new XText). Do not forget to save it.</li>
+      <li>The product, or some of the included features, may complain about missing plugins (identified by an error icon on the plugin icon in the dependencies view). It is normal for “fragments” that apply to another OS than yours and it is harmless in this case. If you are, however, concerned about this, you can install the “delta-pack” for Eclipse 3.7.2 or Eclipse 3.8.2 (follow these steps: http://ugosan.org/eclipse-rcp-delta-pack/. The delta pack itself can be downloaded from <a href="http://archive.eclipse.org/eclipse/downloads/drops/R-3.7.2-201202080800/download.php?dropFile=eclipse-3.7.2-delta-pack.zip">here</a>).</li>
+      <li>If one of the missing plugins happens to be “com.ibm.icu.base” (and you did not want to install it as told above), you can replace it by “com.ibm.icu” without worries.</li>
+      <li>As of GAMA 1.6.1, we use a version of the SWT binary fragments that is not the one shipped with Eclipse Indigo nor Juno. Although it is not mandatory to use it, it is required if you plan to produce release versions of GAMA from your product. To install it, simply download this <a href="https://drive.google.com/file/d/0B8DTAk4nDgyNNmN0NkMtX1RDRDA/edit?usp=sharing">file</a> and install it like the delta pack above.</li>
+      <li>click on the � Launch an Eclipse application � link. Note that a run configuration will be automatically created allowing to only click on the run button for future runs.</li>
+    </ul>
+  </li>
+</ol>
 
-<p><strong>If the GAMA launch crashes:</strong>
-  * Open Run configurations....
-  * In Eclipse Application / gama1.6.1.feature_based_release.product configuration, open the plug-ins pane
-  * After Launch with: , choose &quot;all workspace and enable plug-ins&quot;.</p>
+<p><strong>If the GAMA launch crashes:</strong></p>
+<ul>
+  <li>Open Run configurations….</li>
+  <li>In Eclipse Application / gama1.6.1.feature_based_release.product configuration, open the plug-ins pane</li>
+  <li>After Launch with: , choose “all workspace and enable plug-ins”.</li>
+</ul>
 
-<h2 id="detailed-instructions-for-eclipse-3-8-2">Detailed Instructions for Eclipse 3.8.2</h2>
+<h2 id="detailed-instructions-for-eclipse-382">Detailed Instructions for Eclipse 3.8.2</h2>
 
-<p>First note that GAMA will not work with the packaged Juno version (in fact version 4.2 of Eclipse). Instead, you will need to download the core Eclipse package (Eclipse SDK) from <a href="http://archive.eclipse.org/eclipse/downloads/drops/R-3.8.2-201301310800/">http://archive.eclipse.org/eclipse/downloads/drops/R-3.8.2-201301310800/</a> , and to install additional plugins using this repository: <a href="http://download.eclipse.org/releases/juno/">http://download.eclipse.org/releases/juno/</a> . Among these additional plugins, only the EMF (Eclipse Modeling Framework) components should be necessary. In &quot;Modeling&quot;:
-  * EMF - Eclipse Modeling Framework SDK
-  * EMF Validation Frameworkd SDK</p>
+<p>First note that GAMA will not work with the packaged Juno version (in fact version 4.2 of Eclipse). Instead, you will need to download the core Eclipse package (Eclipse SDK) from http://archive.eclipse.org/eclipse/downloads/drops/R-3.8.2-201301310800/ , and to install additional plugins using this repository: http://download.eclipse.org/releases/juno/ . Among these additional plugins, only the EMF (Eclipse Modeling Framework) components should be necessary. In “Modeling”:</p>
+<ul>
+  <li>EMF - Eclipse Modeling Framework SDK</li>
+  <li>EMF Validation Frameworkd SDK</li>
+</ul>
 
-<p>The same instructions (than for Eclipse 3.7.2) can then be applied to this installation, with three differences :
-  * The delta-pack for Juno is available <a href="http://archive.eclipse.org/eclipse/downloads/drops/R-3.8.2-201301310800/download.php?dropFile=eclipse-3.8.2-delta-pack.zip">here</a>.
-  * The name of the product to use is  <code>gama1.6.1.feature_based_Eclipse3_8_2_updatable_release.product</code>
-  * The version of XText to use is 2.8.2 and it should be obtained from <a href="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/">here</a>, as this site will also provide updates for EMF and other components necessary for XText to work (you may need to install these components first, notably EMF ones, if the installation of XText does not work).</p>
+<p>The same instructions (than for Eclipse 3.7.2) can then be applied to this installation, with three differences :</p>
+<ul>
+  <li>The delta-pack for Juno is available <a href="http://archive.eclipse.org/eclipse/downloads/drops/R-3.8.2-201301310800/download.php?dropFile=eclipse-3.8.2-delta-pack.zip">here</a>.</li>
+  <li>The name of the product to use is  <code class="highlighter-rouge">gama1.6.1.feature_based_Eclipse3_8_2_updatable_release.product</code></li>
+  <li>The version of XText to use is 2.8.2 and it should be obtained from <a href="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/">here</a>, as this site will also provide updates for EMF and other components necessary for XText to work (you may need to install these components first, notably EMF ones, if the installation of XText does not work).</li>
+</ul>
 
-<h2 id="detailed-instructions-for-eclipse-4-3-2-kepler">Detailed Instructions for Eclipse 4.3.2 (Kepler)</h2>
-
+<h2 id="detailed-instructions-for-eclipse-432-kepler">Detailed Instructions for Eclipse 4.3.2 (Kepler)</h2>
 <ol>
-<li>Download the Eclipse Modeling Tools version</li>
-<li><a href="http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplersr2">http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplersr2</a>
-
-<ol>
-<li>Unpack it anywhere and run it</li>
-<li>Choose a new workspace
-
-<ul>
-<li>A workspace is a folder in which Eclipse stores all your projects.</li>
-</ul></li>
-<li>Install the required plugins. � Help � -&gt; � Install new software �
-
-<ul>
-<li>In &quot;Work with&quot;, type &quot;<a href="http://download.eclipse.org/technology/subversive/0.7/update-site/">http://download.eclipse.org/technology/subversive/0.7/update-site/</a>&quot; and install:</li>
-<li>In &quot;Subversive SVN Team Provider Plugin (Incubation)&quot;
-
-<ul>
-<li>Subversive SVN Team Provider (Incubation)   0.7.9.I20120520-1700</li>
-</ul></li>
-<li>In &quot;work with&quot;, write &quot;<a href="http://download.itemis.de/updates/">http://download.itemis.de/updates/</a>&quot;, click on &quot;Add&quot; and choose a name (e.g. Xtext)</li>
-<li>In &quot;Xtext-2.5.3&quot;
-
-<ul>
-<li>Xtext SDK   2.5.3.v20140220820</li>
-</ul></li>
-<li>In &quot;Xtext Antlr-2.1.0&quot;
-
-<ul>
-<li>Xtext Antlr SDK 2.1.0.v201308291703</li>
-</ul></li>
-<li>If you plan to build a release version, in &quot;work with&quot;, write &quot;<a href="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/">http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/</a>&quot;, click on &quot;Add&quot; and choose a name (e.g. ICU)</li>
-<li>Type &#39;icu&#39; in the text filter.</li>
-<li>The site should propose you a list of plugins. Choose (if this version is not available, untick (&quot;Show only the latest versions&quot;).
-
-<ul>
-<li>International Components for Unicode for Java (ICU4J) Replacement plug-in   4.4.2.v20110208</li>
-</ul></li>
-</ul></li>
-<li>Eclipse proposes to restart -&gt; Restart now</li>
-<li>Add SVN repository exploring perspective
-
-<ul>
-<li>To activate this perspective, choose Window / Open Perspective / Other... and select &quot;SVN Repository Exploring&quot;</li>
-<li>A popup appears (Discovery of SVN connector)</li>
-<li>Choose: SVN Kit 1.7.x</li>
-<li>Popup Unsigned content -&gt; ok</li>
-<li>Popup -&gt; restart now</li>
-</ul></li>
-<li>New &gt; repository location
-
-<ul>
-<li><a href="https://gama-platform.googlecode.com/svn">https://gama-platform.googlecode.com/svn</a></li>
-<li>Finish (&amp; wait)</li>
-</ul></li>
-<li>Checkout of the GAMA code source
-
-<ul>
-<li>In the SVN repository view, navigate to the directory &quot;branches/GAMA_CURRENT&quot; and select &quot;Find/Checkout As...&quot; from the contectual menu.</li>
-<li>Choose &quot;Find projects in the children of the selected resource&quot; and follow the indications.</li>
-<li>Pop-up &quot;Check Out projects&quot;, all projects should be selected. Select &quot;Check out as a folders into workspace&quot;. Click &quot;Next&quot; and then &quot;Finish&quot;.</li>
-<li>Once the checkout is finished, switch to Java Perspective.</li>
-</ul></li>
-<li>Configure Build path of all projects :
-
-<ul>
-<li>In the Properties of project, Java build path category, Libraries tab, click on JRE System Libray to change Excution environment from Java 1.6 to Java 1.7</li>
-</ul></li>
-<li>Configure the GAMA <code>.product</code> file (gama1.6.1.feature_based_release.jogl2.product) :
-
-<ul>
-<li>In the <code>msi.gama.application</code> project, open the <code>gama1.6.1.feature_based_release.jogl2.product</code> file</li>
-<li>In the &quot;Dependencies&quot; tab:</li>
-<li>Choose all <code>org.eclipse.equinox.*</code> plugins and remove them.</li>
-<li>Click <code>Add</code> button, type in <code>org.eclipse.equinox</code> and add all displayed packages.</li>
-<li>Click <code>Add</code> button, type in <code>org.eclipse.e4</code>, then select all and click OK.</li>
-<li>Click <code>Add Required</code> button, this will add two more: <code>org.eclipse.emf.ecore</code> and <code>org.eclipse.emf.common</code></li>
-</ul></li>
-<li>Configure <code>ummisco.gama.feature.dependencies</code> project:
-
-<ul>
-<li>In the <code>ummisco.gama.feature.dependencies</code> project, open the <code>feature.xml</code> file</li>
-<li>In: the &quot;Plugin&quot; tab:</li>
-<li>Click <code>Add</code> and type in <code>org.w3c.dom</code>, choose <code>org.w3c.dom.events</code> and <code>org.w3c.dom.smil</code>, click OK.</li>
-</ul></li>
-<li>Compile and Run GAMA
-
-<ul>
-<li>Do a &quot;Project -&gt; Clean... (clean all projects)&quot;</li>
-<li>In <code>gama1.6.1.feature_based_release.jogl2.product</code> file, in &quot;Overview&quot; tab.</li>
-<li>click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins (from both Eclipse 3.7 and the new XText). Do not forget to save it.</li>
-<li>click on the � Launch an Eclipse application � link. Note that a run configuration will be automatically created allowing to only click on the run button for future runs.
+  <li>Download the Eclipse Modeling Tools version
+    <ul>
+      <li>http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplersr2
+        <ol>
+          <li>Unpack it anywhere and run it</li>
+          <li>Choose a new workspace</li>
+        </ol>
+      </li>
+    </ul>
+    <ul>
+      <li>A workspace is a folder in which Eclipse stores all your projects.
+        <ol>
+          <li>Install the required plugins. � Help � -&gt; � Install new software �</li>
+        </ol>
+      </li>
+      <li>In “Work with”, type “http://download.eclipse.org/technology/subversive/0.7/update-site/” and install:
+        <ul>
+          <li>In “Subversive SVN Team Provider Plugin (Incubation)”
+            <ul>
+              <li>Subversive SVN Team Provider (Incubation)	0.7.9.I20120520-1700</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>In “work with”, write “http://download.itemis.de/updates/”, click on “Add” and choose a name (e.g. Xtext)
+        <ul>
+          <li>In “Xtext-2.5.3”
+            <ul>
+              <li>Xtext SDK	2.5.3.v20140220820</li>
+            </ul>
+          </li>
+          <li>In “Xtext Antlr-2.1.0”
+            <ul>
+              <li>Xtext Antlr SDK 2.1.0.v201308291703</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>If you plan to build a release version, in “work with”, write “http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/”, click on “Add” and choose a name (e.g. ICU)
+        <ul>
+          <li>Type ‘icu’ in the text filter.</li>
+          <li>The site should propose you a list of plugins. Choose (if this version is not available, untick (“Show only the latest versions”).
+            <ul>
+              <li>International Components for Unicode for Java (ICU4J) Replacement plug-in	4.4.2.v20110208
+     1. Eclipse proposes to restart -&gt; Restart now
+     1. Add SVN repository exploring perspective</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>To activate this perspective, choose Window / Open Perspective / Other… and select “SVN Repository Exploring”</li>
+      <li>A popup appears (Discovery of SVN connector)</li>
+      <li>Choose: SVN Kit 1.7.x
+        <ul>
+          <li>Popup Unsigned content -&gt; ok</li>
+        </ul>
+      </li>
+      <li>Popup -&gt; restart now
+        <ol>
+          <li>New &gt; repository location</li>
+        </ol>
+      </li>
+      <li>https://gama-platform.googlecode.com/svn</li>
+      <li>Finish (&amp; wait)
+        <ol>
+          <li>Checkout of the GAMA code source</li>
+        </ol>
+      </li>
+      <li>In the SVN repository view, navigate to the directory “branches/GAMA_CURRENT” and select “Find/Checkout As…” from the contectual menu.</li>
+      <li>Choose “Find projects in the children of the selected resource” and follow the indications.</li>
+      <li>Pop-up “Check Out projects”, all projects should be selected. Select “Check out as a folders into workspace”. Click “Next” and then “Finish”.</li>
+      <li>Once the checkout is finished, switch to Java Perspective.
+        <ol>
+          <li>Configure Build path of all projects :</li>
+        </ol>
+      </li>
+      <li>In the Properties of project, Java build path category, Libraries tab, click on JRE System Libray to change Excution environment from Java 1.6 to Java 1.7
+        <ol>
+          <li>Configure the GAMA <code class="highlighter-rouge">.product</code> file (gama1.6.1.feature_based_release.jogl2.product) :</li>
+        </ol>
+      </li>
+      <li>In the <code class="highlighter-rouge">msi.gama.application</code> project, open the <code class="highlighter-rouge">gama1.6.1.feature_based_release.jogl2.product</code> file</li>
+      <li>In the “Dependencies” tab:
+        <ul>
+          <li>Choose all <code class="highlighter-rouge">org.eclipse.equinox.*</code> plugins and remove them.</li>
+        </ul>
+      </li>
+      <li>Click <code class="highlighter-rouge">Add</code> button, type in <code class="highlighter-rouge">org.eclipse.equinox</code> and add all displayed packages.</li>
+      <li>Click <code class="highlighter-rouge">Add</code> button, type in <code class="highlighter-rouge">org.eclipse.e4</code>, then select all and click OK.</li>
+      <li>Click <code class="highlighter-rouge">Add Required</code> button, this will add two more: <code class="highlighter-rouge">org.eclipse.emf.ecore</code> and <code class="highlighter-rouge">org.eclipse.emf.common</code>
+        <ol>
+          <li>Configure <code class="highlighter-rouge">ummisco.gama.feature.dependencies</code> project:</li>
+        </ol>
+      </li>
+      <li>In the <code class="highlighter-rouge">ummisco.gama.feature.dependencies</code> project, open the <code class="highlighter-rouge">feature.xml</code> file</li>
+      <li>In: the “Plugin” tab:
+        <ul>
+          <li>Click <code class="highlighter-rouge">Add</code> and type in <code class="highlighter-rouge">org.w3c.dom</code>, choose <code class="highlighter-rouge">org.w3c.dom.events</code> and <code class="highlighter-rouge">org.w3c.dom.smil</code>, click OK.
+            <ol>
+              <li>Compile and Run GAMA</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>Do a “Project -&gt; Clean… (clean all projects)”</li>
+      <li>In <code class="highlighter-rouge">gama1.6.1.feature_based_release.jogl2.product</code> file, in “Overview” tab.
+        <ul>
+          <li>click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins (from both Eclipse 3.7 and the new XText). Do not forget to save it.</li>
+          <li>click on the � Launch an Eclipse application � link. Note that a run configuration will be automatically created allowing to only click on the run button for future runs.
 Have fun!</li>
-</ul></li>
-</ol></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ol>
 
 <h2 id="install-additional-plug-ins">Install additional plug-ins</h2>
@@ -3864,66 +3937,55 @@ Have fun!</li>
 <p>The graphical modeling framework is based on the <a href="http://www.eclipse.org/graphiti/">Graphiti</a> plug-in.</p>
 
 <ol>
-<li>The first step consists in installing the graphiti plug-ins : � Help � -&gt; � Install new software �
-In &quot;Work with&quot;, choose &quot;Indigo - <a href="http://download.eclipse.org/releases/indigo">http://download.eclipse.org/releases/indigo</a>&quot; and install: Graphiti, Graphiti Export, Graphiti SDK and Graphiti SDK Plus.</li>
-<li>Eclipse proposes to restart -&gt; Restart now</li>
-<li>� Help � -&gt; � Check of Updates �</li>
-<li>Install the proposed updates</li>
-<li>Eclipse proposes to restart -&gt; Restart now</li>
-<li>From the GAMA SVN, checkout the idees.gama.graphicalmodeling, idees.gama.emf.metamodel and idees.gama.feature.graphical_modeling projects.
-
-<ul>
-<li>In the SVN repository view, navigate to the directory &quot;branches/GAMA_CURRENT&quot; and select the three mentioned projects and select &quot;Find/Checkout As...&quot; from the contectual menu.</li>
-<li>Choose &quot;Find projects in the children of the selected resource&quot; and follow the indications.</li>
-<li>Pop-up &quot;Check Out projects&quot;, all projects should be selected. Finish.</li>
-<li>Once the checkout is finished, switch to Java Perspective.</li>
-</ul></li>
-<li>You have to add the plugin to the GAMA <code>.product</code> file .
-
-<ul>
-<li>In the <code>msi.gama.application</code> project, open the <code>gama1.6.1.feature_based_release.product</code> file</li>
-<li>In: the &quot;Dependencies&quot; tab: click on &quot;Add ...&quot; and select the idees.gama.feature.graphical_modeling plugin</li>
-<li>In: the &quot;Dependencies&quot; tab: click on &quot;Add Required plug-ins&quot; then save the file</li>
-</ul></li>
-<li>Compile and Run GAMA
-
-<ul>
-<li>Do a &quot;Project -&gt; Clean... (clean all projects)&quot;</li>
-<li>In <code>gama1.6.1.feature_based_release.product</code> file, in &quot;Overview&quot; tab.
-
-<ul>
-<li>click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins. Do not forget to save it.</li>
-<li>click on the � Launch an Eclipse application � link. Note that, a run configuration will be automatically created allowing to only click on the run button for future runs.</li>
-</ul></li>
-</ul></li>
+  <li>The first step consists in installing the graphiti plug-ins : � Help � -&gt; � Install new software �
+In “Work with”, choose “Indigo - http://download.eclipse.org/releases/indigo” and install: Graphiti, Graphiti Export, Graphiti SDK and Graphiti SDK Plus.</li>
+  <li>Eclipse proposes to restart -&gt; Restart now</li>
+  <li>� Help � -&gt; � Check of Updates �</li>
+  <li>Install the proposed updates</li>
+  <li>Eclipse proposes to restart -&gt; Restart now</li>
+  <li>From the GAMA SVN, checkout the idees.gama.graphicalmodeling, idees.gama.emf.metamodel and idees.gama.feature.graphical_modeling projects.
+    * In the SVN repository view, navigate to the directory “branches/GAMA_CURRENT” and select the three mentioned projects and select “Find/Checkout As…” from the contectual menu.
+    * Choose “Find projects in the children of the selected resource” and follow the indications.
+    * Pop-up “Check Out projects”, all projects should be selected. Finish.
+    * Once the checkout is finished, switch to Java Perspective.</li>
+  <li>You have to add the plugin to the GAMA <code class="highlighter-rouge">.product</code> file .
+    * In the <code class="highlighter-rouge">msi.gama.application</code> project, open the <code class="highlighter-rouge">gama1.6.1.feature_based_release.product</code> file
+    * In: the “Dependencies” tab: click on “Add …” and select the idees.gama.feature.graphical_modeling plugin
+    * In: the “Dependencies” tab: click on “Add Required plug-ins” then save the file</li>
+  <li>Compile and Run GAMA
+    * Do a “Project -&gt; Clean… (clean all projects)”
+    * In <code class="highlighter-rouge">gama1.6.1.feature_based_release.product</code> file, in “Overview” tab.
+    <ul>
+      <li>click on the � Synchronize � link. This will ensure your product has updated the inclusion of the plugins. Do not forget to save it.</li>
+      <li>click on the � Launch an Eclipse application � link. Note that, a run configuration will be automatically created allowing to only click on the run button for future runs.</li>
+    </ul>
+  </li>
 </ol>
 
 <h4 id="note">Note</h4>
-
-<p>If you have some errors on the META-INF/MANIFEST.MF file (in particular on the line  <code>org.eclipse.draw2d;bundle-version=&quot;3.8.3&quot;</code>), you can follow next steps.</p>
+<p>If you have some errors on the META-INF/MANIFEST.MF file (in particular on the line  <code class="highlighter-rouge">org.eclipse.draw2d;bundle-version="3.8.3"</code>), you can follow next steps.</p>
 
 <ol>
-<li>Fix the MANIFEST.MF error (if any)
-
-<ul>
-<li>In the plug-in idees.gama.graphicalmodeling, open the file : META-INF/MANIFEST.MF</li>
-<li>In the &#39;Dependencies&#39; pane,
-
-<ul>
-<li>Select org.eclipse.draw2d (3.8.1) and click on the &#39;Properties&#39; button</li>
-<li>In &#39;Available version to match&#39;, select the one you have (mine is the v 3.7.2), and click on &#39;Match&#39; and &#39;OK&#39;</li>
-</ul></li>
-<li>Save the file</li>
-<li>Repeat Step 8 (clean, synchronize...)</li>
-</ul></li>
+  <li>Fix the MANIFEST.MF error (if any)
+    * In the plug-in idees.gama.graphicalmodeling, open the file : META-INF/MANIFEST.MF
+    * In the ‘Dependencies’ pane,
+    <ul>
+      <li>Select org.eclipse.draw2d (3.8.1) and click on the ‘Properties’ button</li>
+      <li>In ‘Available version to match’, select the one you have (mine is the v 3.7.2), and click on ‘Match’ and ‘OK’
+        <ul>
+          <li>Save the file</li>
+          <li>Repeat Step 8 (clean, synchronize…)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ol>
 
 <h3 id="install-additional-plug-ins-to-generate-the-documentation">Install additional plug-ins to generate the documentation</h3>
-
 <ol>
-<li>A plug-in to use Python should be installed as additional plug-ins: � Help � -&gt; � Install new software �
-In &quot;Work with&quot;, choose &quot;<a href="http://pydev.org/updates">http://pydev.org/updates</a>&quot; and install: PyDev for Eclipse.</li>
-<li>Configure the Python Interpreters:
+  <li>A plug-in to use Python should be installed as additional plug-ins: � Help � -&gt; � Install new software �
+In “Work with”, choose “http://pydev.org/updates” and install: PyDev for Eclipse.</li>
+  <li>Configure the Python Interpreters:
 Eclipse -&gt; Preferences -&gt; PyDev -&gt; Interpreters -&gt; Python Interpreter: Quick auto-config.</li>
 </ol>
 

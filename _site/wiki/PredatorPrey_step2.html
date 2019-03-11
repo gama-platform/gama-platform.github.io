@@ -3609,19 +3609,16 @@ function closeRightMenu() {
 </div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <p><code>[IN PROGRESS]</code></p>
-
+        <p><code class="highlighter-rouge">[IN PROGRESS]</code></p>
 <h1 id="2-vegetation-dynamic">2. Vegetation Dynamic</h1>
-
-<p>This second steps present the idea of environment or topological space. Defining a &quot;vegetation&quot; environment allows to define the movement of the preys through dynamic variables (use of the <em>update</em> facet). We will also discover more about displays.</p>
+<p>This second steps present the idea of environment or topological space. Defining a “vegetation” environment allows to define the movement of the preys through dynamic variables (use of the <em>update</em> facet). We will also discover more about displays.</p>
 
 <h2 id="formulation">Formulation</h2>
-
 <ul>
-<li>Definition of a grid (for the vegetation)</li>
-<li>Definition of a dynamic for each cell (food production)</li>
-<li>Display of the cell color according to the quantity of food</li>
-<li>Localization of the prey agents on the cells (at its center)</li>
+  <li>Definition of a grid (for the vegetation)</li>
+  <li>Definition of a dynamic for each cell (food production)</li>
+  <li>Display of the cell color according to the quantity of food</li>
+  <li>Localization of the prey agents on the cells (at its center)</li>
 </ul>
 
 <h2 id="model-definition">Model Definition</h2>
@@ -3630,122 +3627,126 @@ function closeRightMenu() {
 
 <p>In GAMA, grids are specific agent species with a particular topology. First, a grid allow yet constrains the movement of other (moving) agents but they can have variables and behaviors.</p>
 
-<p>A grid is defined as follows:
-<code>
-   grid grid_name width: nb_cols height: nb_lines neighbors: 4/6/8 {
+<p>A grid is defined as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   grid grid_name width: nb_cols height: nb_lines neighbors: 4/6/8 {
       ...
    }
-</code></p>
+</code></pre></div></div>
 
-<p>With:
-  * width : number of cells along x-axis
-  * height : number of cells along y-axis
-  * neighbors : neighborhood type (4 - Von Neumann, 6 - hexagon or 8 - Moore)</p>
+<p>With:</p>
+<ul>
+  <li>width : number of cells along x-axis</li>
+  <li>height : number of cells along y-axis</li>
+  <li>neighbors : neighborhood type (4 - Von Neumann, 6 - hexagon or 8 - Moore)</li>
+</ul>
 
 <p>In our model, we define a grid species, called <strong>vegetation_cell</strong> composed of 50x50 cells and with a Von Neumann neighborhood.
-In order for each grid agents (or cell of the grid) to represent the vegetation, we provide them with four variables:
-  * <em>maxFood</em> : maximum food that a cell can contain -&gt; type: <em>float</em> ; init value: 1.0
-  * <em>foodProd</em> : food produced at each simulation step -&gt; type: <em>float</em> ; init value: random number between 0 and 0.01
-  * <em>food</em> : current quantity of food -&gt; type: <em>float</em> ; init value: random number between 0 and 1.0; at each simulation step : food &lt;- food + foodProd
-  * <em>color</em> : color of the cell -&gt; type: <em>rgb</em> ; init value: color computed according to the food value: more the food value is close to 1.0, greener the color is, more the food value is close to 0,  whiter the color is; update : computation of the new color depending on the current level of food (at each simulation step).</p>
+In order for each grid agents (or cell of the grid) to represent the vegetation, we provide them with four variables:</p>
+<ul>
+  <li><em>maxFood</em> : maximum food that a cell can contain -&gt; type: <em>float</em> ; init value: 1.0</li>
+  <li><em>foodProd</em> : food produced at each simulation step -&gt; type: <em>float</em> ; init value: random number between 0 and 0.01</li>
+  <li><em>food</em> : current quantity of food -&gt; type: <em>float</em> ; init value: random number between 0 and 1.0; at each simulation step : food &lt;- food + foodProd</li>
+  <li><em>color</em> : color of the cell -&gt; type: <em>rgb</em> ; init value: color computed according to the food value: more the food value is close to 1.0, greener the color is, more the food value is close to 0,  whiter the color is; update : computation of the new color depending on the current level of food (at each simulation step).</li>
+</ul>
 
-<p>The <strong>update</strong> facet allows to give a behavior to the agents. Indeed, at each simulation step, each agent is activated (by default, in a random order) and first applies for each dynamic variable (in their definition order) its update expression. In the present case, it allows us to link the displayed color of the cell to its food level.
-<code>
-   grid vegetation_cell width: 50 height: 50 neighbors: 4 {
+<p>The <strong>update</strong> facet allows to give a behavior to the agents. Indeed, at each simulation step, each agent is activated (by default, in a random order) and first applies for each dynamic variable (in their definition order) its update expression. In the present case, it allows us to link the displayed color of the cell to its food level.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   grid vegetation_cell width: 50 height: 50 neighbors: 4 {
       float maxFood &lt;- 1.0 ;
       float foodProd &lt;- (rnd(1000) / 1000) * 0.01 ;
       float food &lt;- (rnd(1000) / 1000) update: food + foodProd max: maxFood;
       rgb color &lt;- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) ;
    }
-</code></p>
+</code></pre></div></div>
 
-<p>There are several ways to define colors in GAML:
-  * the simplest way consists in using the symbol <em>#</em> + the color name (for a limited set of  <a href="Index#Constants_and_colors">colors</a>):
-<code>
-   #blue
+<p>There are several ways to define colors in GAML:</p>
+<ul>
+  <li>the simplest way consists in using the symbol <em>#</em> + the color name (for a limited set of  <a href="Index#Constants_and_colors">colors</a>):
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #blue
    #red
-</code>
-  * Another way consists in defining the 3 rgb integer values: rgb(red, green, blue) with red, green and blue between 0 and 255 (as we used in the current model.
-<code>
-   rgb(0,0,0) : black ; rgb(255,255,255) : white
+</code></pre></div>    </div>
+  </li>
+  <li>Another way consists in defining the 3 rgb integer values: rgb(red, green, blue) with red, green and blue between 0 and 255 (as we used in the current model.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   rgb(0,0,0) : black ; rgb(255,255,255) : white
    rgb(255,0,0) : red ;  rgb(0,255,0) : green ;  rgb(0,0,255) : blue
-</code></p>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <h3 id="prey-agents">prey agents</h3>
-
 <p>In order to relate our prey agents to the vegetation cell grid, we add them with one new variable : <strong>my_cell</strong> of type vegetation_cell and for init value one of the vegetation_cell (chosen randomly).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">   species prey {
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   species prey {
       ...
       vegetation_cell myCell &lt;- one_of (vegetation_cell) ;
    } 
-</code></pre></div>
+</code></pre></div></div>
+
 <p>It is possible to obtain the list of all agents of a given species by using the name of the species while <strong>one_of</strong> to pick one element randomly from this list.</p>
 
-<p>We linked each prey agent to a vegetation_cell but we need to locate them onto the cell. To do so, we set the prey location as equals to the location of the vegetation cell (i.e. its centroid <strong>location</strong>), we use in the init block the <strong>&lt;-</strong> statement that allows to modify the value of a variable :
-<code>
-species prey {
+<p>We linked each prey agent to a vegetation_cell but we need to locate them onto the cell. To do so, we set the prey location as equals to the location of the vegetation cell (i.e. its centroid <strong>location</strong>), we use in the init block the <strong>&lt;-</strong> statement that allows to modify the value of a variable :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species prey {
      ...
      init {
          location &lt;- myCell.location;
      }
 }
-</code></p>
+</code></pre></div></div>
 
 <h3 id="display">display</h3>
-
-<p>In order to visualize the vegetation , we need to add it to the display. We use for that the statement <strong>grid</strong> with the optional facet <strong>lines</strong> to draw the border of the cells. Note that grid agents have built-in aspect thus it is not necessary to define one.
-<code>
-   output {
+<p>In order to visualize the vegetation , we need to add it to the display. We use for that the statement <strong>grid</strong> with the optional facet <strong>lines</strong> to draw the border of the cells. Note that grid agents have built-in aspect thus it is not necessary to define one.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   output {
       display main_display {
          grid vegetation_cell lines: #black;
          species prey aspect: base ;
       }
    }
-</code></p>
+</code></pre></div></div>
 
 <p>Note that the layers in a display work like layers in a GIS; the drawing order will be respected. In our model, the prey agents will be drawn above the vegetation_cell grid thus they need to be declared afterward.</p>
 
 <h2 id="complete-model">Complete Model</h2>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">prey_predator</span>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">prey_predator</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">int</span> <span class="n">nb_preys_init</span> <span class="p">&lt;-</span> <span class="m">200</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">prey</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
-    <span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">size</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span><span class="n">blue</span><span class="p">;</span>
+	<span class="n">vegetation_cell</span> <span class="n">myCell</span> <span class="p">&lt;-</span> <span class="n">one_of</span> <span class="p">(</span><span class="n">vegetation_cell</span><span class="p">)</span> <span class="p">;</span>
+		
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="n">location</span> <span class="p">&lt;-</span> <span class="n">myCell</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+	<span class="p">}</span>
+		
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">width</span><span class="p">:</span> <span class="m">50</span> <span class="n">height</span><span class="p">:</span> <span class="m">50</span> <span class="n">neighbors</span><span class="p">:</span> <span class="m">4</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
-    <span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">maxFood</span> <span class="p">&lt;-</span> <span class="m">1.0</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">foodProd</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="p">*</span> <span class="m">0.01</span> <span class="p">;</span>
+	<span class="n">float</span> <span class="n">food</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">rnd</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="p">/</span> <span class="m">1000</span><span class="p">)</span> <span class="k">max</span><span class="p">:</span> <span class="n">maxFood</span> <span class="n">update</span><span class="p">:</span> <span class="n">food</span> <span class="p">+</span> <span class="n">foodProd</span> <span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="n">update</span><span class="p">:</span> <span class="n">rgb</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)),</span> <span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*(</span><span class="m">1</span> <span class="p">-</span> <span class="n">food</span><span class="p">)))</span> <span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
-            <span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
-            <span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">parameter</span> <span class="s2">"Initial number of preys: "</span> <span class="n">var</span><span class="p">:</span> <span class="n">nb_preys_init</span> <span class="k">min</span><span class="p">:</span> <span class="m">1</span> <span class="k">max</span><span class="p">:</span> <span class="m">1000</span> <span class="n">category</span><span class="p">:</span> <span class="s2">"Prey"</span> <span class="p">;</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">main_display</span> <span class="p">{</span>
+			<span class="n">grid</span> <span class="n">vegetation_cell</span> <span class="n">lines</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span> <span class="p">;</span>
+			<span class="n">species</span> <span class="n">prey</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

@@ -3611,18 +3611,18 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="launching-gama">Launching GAMA</h1>
 
-<p>Running GAMA for the first time requires that you launch the application (<code>Gama.app</code> on MacOS X, <code>Gama.exe</code> on Windows, <code>Gama</code> on Linux, located in the folder called <code>Gama</code> once you have unzipped the archive). Other folders and files are present here, but you don&#39;t have to care about them for the moment. In case you are unable to launch the application, of if error messages appear, please refer to the <a href="Installation">installation</a> or <a href="Troubleshooting">troubleshooting</a> instructions.</p>
+<p>Running GAMA for the first time requires that you launch the application (<code class="highlighter-rouge">Gama.app</code> on MacOS X, <code class="highlighter-rouge">Gama.exe</code> on Windows, <code class="highlighter-rouge">Gama</code> on Linux, located in the folder called <code class="highlighter-rouge">Gama</code> once you have unzipped the archive). Other folders and files are present here, but you don’t have to care about them for the moment. In case you are unable to launch the application, of if error messages appear, please refer to the <a href="Installation">installation</a> or <a href="Troubleshooting">troubleshooting</a> instructions.</p>
 
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#launching-gama">Launching GAMA</a>
-
-<ul>
-<li><a href="#launching-the-application">Launching the Application</a></li>
-<li><a href="#choosing-a-workspace">Choosing a Workspace</a></li>
-<li><a href="#welcome-page">Welcome Page</a></li>
-</ul></li>
+  <li><a href="#launching-gama">Launching GAMA</a>
+    <ul>
+      <li><a href="#launching-the-application">Launching the Application</a></li>
+      <li><a href="#choosing-a-workspace">Choosing a Workspace</a></li>
+      <li><a href="#welcome-page">Welcome Page</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="launching-the-application">Launching the Application</h2>
@@ -3630,39 +3630,37 @@ function closeRightMenu() {
 <p>Note that GAMA can also be launched in two different other ways:</p>
 
 <ol>
-<li>In a so-called <em>headless mode</em> (i.e. without user interface, from the command line, in order to conduct experiments or to be run remotely). Please refer to <a href="Headless">the corresponding instructions</a>.</li>
-<li>From the terminal, using a path to a model file and the name or number of an experiment, in order to allow running this experiment directly (note that the two arguments are optional: if the second is omitted, the file is imported in the workspace if not already present and opened in an editor; if both are omitted, GAMA is launched as usual):</li>
+  <li>In a so-called <em>headless mode</em> (i.e. without user interface, from the command line, in order to conduct experiments or to be run remotely). Please refer to <a href="Headless">the corresponding instructions</a>.</li>
+  <li>From the terminal, using a path to a model file and the name or number of an experiment, in order to allow running this experiment directly (note that the two arguments are optional: if the second is omitted, the file is imported in the workspace if not already present and opened in an editor; if both are omitted, GAMA is launched as usual):</li>
 </ol>
 
 <ul>
-<li><code>Gama.app/Contents/MacOS/Gama path_to_a_model_file#experiment_name_or_number</code> on MacOS X</li>
-<li><code>Gama path_to_a_model_file#experiment_name_or_number</code> on Linux</li>
-<li><code>Gama.exe path_to_a_model_file#experiment_name_or_number</code> on Windows</li>
+  <li><code class="highlighter-rouge">Gama.app/Contents/MacOS/Gama path_to_a_model_file#experiment_name_or_number</code> on MacOS X</li>
+  <li><code class="highlighter-rouge">Gama path_to_a_model_file#experiment_name_or_number</code> on Linux</li>
+  <li><code class="highlighter-rouge">Gama.exe path_to_a_model_file#experiment_name_or_number</code> on Windows</li>
 </ul>
 
-<p><img src="resources/images/installationAndLaunching/0.folder.png" alt="Eclipse folder."></p>
+<p><img src="resources/images/installationAndLaunching/0.folder.png" alt="Eclipse folder." /></p>
 
 <h2 id="choosing-a-workspace">Choosing a Workspace</h2>
+<p>Past the splash screen, GAMA will ask you to choose a workspace in which to store your models and their associated data and settings. The workspace can be any folder in your filesystem on which you have read/write privileges. If you want GAMA to remember your choice next time you run it (it can be handy if you run Gama from the command line), simply check the corresponding option. If this dialog does not show up when launching GAMA, it probably means that you inherit from an older workspace used with GAMA 1.6 or 1.5.1 (and still “remembered”). In that case, a warning will be produced to indicate that the models library is out of date, offering you the possibility to create a new workspace.</p>
 
-<p>Past the splash screen, GAMA will ask you to choose a workspace in which to store your models and their associated data and settings. The workspace can be any folder in your filesystem on which you have read/write privileges. If you want GAMA to remember your choice next time you run it (it can be handy if you run Gama from the command line), simply check the corresponding option. If this dialog does not show up when launching GAMA, it probably means that you inherit from an older workspace used with GAMA 1.6 or 1.5.1 (and still &quot;remembered&quot;). In that case, a warning will be produced to indicate that the models library is out of date, offering you the possibility to create a new workspace.</p>
-
-<p><img src="resources/images/installationAndLaunching/1.workspace_choice.png" alt="Window to choose the workspace."></p>
+<p><img src="resources/images/installationAndLaunching/1.workspace_choice.png" alt="Window to choose the workspace." /></p>
 
 <p>You can enter its address or browse your filesystem using the appropriate button. If the folder already exists, it will be reused (after a warning if it is not already a workspace). If not, it will be created. It is always a good idea, when you launch a new version of GAMA for the first time, to create a new workspace. You will then, later, be able to <a href="ImportingModels">import your existing models</a> into it. Failing to do so might lead to odd errors in the various validation processes.</p>
 
-<p><img src="resources/images/installationAndLaunching/2.workspace_choice2.png" alt="This pop-up appears when the user wants to create a new workspace. Click on OK."></p>
+<p><img src="resources/images/installationAndLaunching/2.workspace_choice2.png" alt="This pop-up appears when the user wants to create a new workspace. Click on OK." /></p>
 
 <h2 id="welcome-page">Welcome Page</h2>
-
 <p>As soon as the workspace is created, GAMA will open and you will be presented with its <strong>first window</strong>. GAMA is based on <a href="http://www.eclipse.org">Eclipse</a> and reuses most of its visual metaphors for organizing the work of the modeler. The main window is then composed of several <strong>parts</strong>, which can be <strong>views</strong> or <strong>editors</strong>, and are organized in a <strong>perspective</strong>. GAMA proposes 2 main perspectives: <em>Modeling</em>, dedicated to the creation of models, and <em>Simulation</em>, dedicated to their execution and exploration. Other perspectives are available if you use shared models.</p>
 
 <p>The default perspective in which GAMA opens is <em>Modeling</em>. It is composed of a central area where <a href="GamlEditorGeneralities">GAML editors</a> are displayed, which is surrounded by a <a href="NavigatingWorkspace">Navigator view</a> on the left-hand side of the window, an Outline view (linked with the open editor) and the Problems view, which indicates errors and warnings present in the models stored in the workspace.</p>
 
-<p><img src="resources/images/installationAndLaunching/3.workbench_window.png" alt="GAMA after the first launch."></p>
+<p><img src="resources/images/installationAndLaunching/3.workbench_window.png" alt="GAMA after the first launch." /></p>
 
-<p>In the absence of previously open models, GAMA will display a <em>Welcome page</em> (actually a web page), from which you can find links to the website, current documentation, tutorials, etc. This page can be kept open (for instance if you want to display the documentation when editing models) but it can also be safely closed (and reopened later from the &quot;Views&quot; menu).</p>
+<p>In the absence of previously open models, GAMA will display a <em>Welcome page</em> (actually a web page), from which you can find links to the website, current documentation, tutorials, etc. This page can be kept open (for instance if you want to display the documentation when editing models) but it can also be safely closed (and reopened later from the “Views” menu).</p>
 
-<p><img src="resources/images/installationAndLaunching/5.welcome_page.png" alt="Menu to open new views."></p>
+<p><img src="resources/images/installationAndLaunching/5.welcome_page.png" alt="Menu to open new views." /></p>
 
 <p>From this point, you are now able to <a href="EditingModels">edit a new model</a>, <a href="NavigatingWorkspace">navigate in the models libraries</a>, or <a href="ImportingModels">import an existing model</a>.</p>
 

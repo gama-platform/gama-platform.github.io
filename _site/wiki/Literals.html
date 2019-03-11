@@ -3618,43 +3618,40 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of contents</h2>
 
 <ul>
-<li><a href="#literals">Literals</a>
-
-<ul>
-<li><a href="#simple-types">Simple Types</a></li>
-<li><a href="#literal-constructors">Literal Constructors</a></li>
-<li><a href="#universal-literal">Universal Literal</a></li>
-</ul></li>
+  <li><a href="#literals">Literals</a>
+    <ul>
+      <li><a href="#simple-types">Simple Types</a></li>
+      <li><a href="#literal-constructors">Literal Constructors</a></li>
+      <li><a href="#universal-literal">Universal Literal</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="simple-types">Simple Types</h2>
-
 <p>Values of simple (i.e. not composed) types can all be expressed using literal expressions. Namely:</p>
 
 <ul>
-<li><strong>bool</strong>: <code>true</code> and <code>false</code>.</li>
-<li><strong>int</strong>: decimal value, such as <code>100</code>, or hexadecimal value if preceded by <code>&#39;#&#39;</code> (e.g. <code>#AAAAAA</code>, which returns the int <code>11184810</code>)</li>
-<li><strong>float</strong>: the value in plain digits, using <code>&#39;.&#39;</code> for the decimal point (e.g. <code>123.297</code>)</li>
-<li><strong>string</strong>: a sequence of characters enclosed between quotes (<code>&#39;my string&#39;</code>) or double quotes (<code>&quot;my string&quot;</code>)</li>
+  <li><strong>bool</strong>: <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>int</strong>: decimal value, such as <code class="highlighter-rouge">100</code>, or hexadecimal value if preceded by <code class="highlighter-rouge">'#'</code> (e.g. <code class="highlighter-rouge">#AAAAAA</code>, which returns the int <code class="highlighter-rouge">11184810</code>)</li>
+  <li><strong>float</strong>: the value in plain digits, using <code class="highlighter-rouge">'.'</code> for the decimal point (e.g. <code class="highlighter-rouge">123.297</code>)</li>
+  <li><strong>string</strong>: a sequence of characters enclosed between quotes (<code class="highlighter-rouge">'my string'</code>) or double quotes (<code class="highlighter-rouge">"my string"</code>)</li>
 </ul>
 
 <h2 id="literal-constructors">Literal Constructors</h2>
-
 <p>Although they are not strictly literals in the sense given above, some special constructs (called <em>literal constructors</em>) allow the modeler to declare constants of other data types. They are actually <a href="Operators">operators</a> but can be thought of literals when used with constant operands.</p>
 
 <ul>
-<li><strong>pair</strong>: the key and the value separated by <code>::</code> (e.g. <code>12::&#39;abc&#39;</code>)</li>
-<li><strong>list</strong>: the elements, separated by commas, enclosed inside square brackets (e.g. <code>[12,15,15]</code>)</li>
-<li><strong>map</strong>: a list of pairs (e.g. <code>[12::&#39;abc&#39;, 13::&#39;def&#39;]</code>)</li>
-<li><strong>point</strong>: 2 or 3 int or float ordinates enclosed inside curly brackets (e.g. <code>{10.0,10.0,10.0}</code>)</li>
+  <li><strong>pair</strong>: the key and the value separated by <code class="highlighter-rouge">::</code> (e.g. <code class="highlighter-rouge">12::'abc'</code>)</li>
+  <li><strong>list</strong>: the elements, separated by commas, enclosed inside square brackets (e.g. <code class="highlighter-rouge">[12,15,15]</code>)</li>
+  <li><strong>map</strong>: a list of pairs (e.g. <code class="highlighter-rouge">[12::'abc', 13::'def']</code>)</li>
+  <li><strong>point</strong>: 2 or 3 int or float ordinates enclosed inside curly brackets (e.g. <code class="highlighter-rouge">{10.0,10.0,10.0}</code>)</li>
 </ul>
 
 <h2 id="universal-literal">Universal Literal</h2>
-
-<p>Finally, a special literal, of type <code>unknown</code>, is shared between the data types and all the agent types (aka species). Only <code>bool</code>, <code>int</code> and <code>float</code>, which do not derive from <code>unknown</code>, do not accept this literal. All the others will accept it (e.g. <code>string s &lt;- nil;</code> is ok).</p>
+<p>Finally, a special literal, of type <code class="highlighter-rouge">unknown</code>, is shared between the data types and all the agent types (aka species). Only <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">int</code> and <code class="highlighter-rouge">float</code>, which do not derive from <code class="highlighter-rouge">unknown</code>, do not accept this literal. All the others will accept it (e.g. <code class="highlighter-rouge">string s &lt;- nil;</code> is ok).</p>
 
 <ul>
-<li><strong>unknown</strong>: <code>nil</code>, which represents the non-initialized (or, literally, <em>unknown</em>) value.</li>
+  <li><strong>unknown</strong>: <code class="highlighter-rouge">nil</code>, which represents the non-initialized (or, literally, <em>unknown</em>) value.</li>
 </ul>
 
     </div>

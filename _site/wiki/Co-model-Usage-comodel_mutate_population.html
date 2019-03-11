@@ -3615,262 +3615,268 @@ function closeRightMenu() {
 
 <p>This is a simple comodel serve to demonstrate the importation and instatiation of micro-model  using the couplings  with the mutation the population of micro-model. A population can be a collection from itself and from other mircro-model</p>
 
-<p>Imported models : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">PreyPredator</span>
+<p>Imported models :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">PreyPredator</span>
  <span class="n">global</span>
 <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">perceipt_radius</span> <span class="p">&lt;-</span> <span class="m">20.0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">preyinit</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">predatorinit</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">predator</span><span class="p">);</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">prey</span><span class="p">);</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">preyinit</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">predator</span> <span class="n">number</span><span class="p">:</span> <span class="n">predatorinit</span><span class="p">;</span>
-        <span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">predator</span><span class="p">);</span>
-        <span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">prey</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">perceipt_radius</span> <span class="p">&lt;-</span> <span class="m">20.0</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">preyinit</span> <span class="p">&lt;-</span> <span class="m">500</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">predatorinit</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">predator</span><span class="p">);</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">prey</span><span class="p">);</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="nb">create</span> <span class="n">prey</span> <span class="n">number</span><span class="p">:</span> <span class="n">preyinit</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">predator</span> <span class="n">number</span><span class="p">:</span> <span class="n">predatorinit</span><span class="p">;</span>
+		<span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">predator</span><span class="p">);</span>
+		<span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;(</span><span class="n">prey</span><span class="p">);</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">generic_species</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span>
 <span class="p">{</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-    <span class="n">bool</span> <span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">live_with_my_goal</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="c1">!= nil)
-</span>        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
-            <span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">goal</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">point</span> <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">live_with_my_goal</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="c1">!= nil)
+</span>		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">goal</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">wander</span> <span class="n">speed</span><span class="p">:</span> <span class="n">speed</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">prey</span> <span class="n">parent</span><span class="p">:</span> <span class="n">generic_species</span>
 <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">);</span>
-    <span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">fleeing</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">((</span><span class="n">lstPredator</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each) and each distance_to self &lt; perceipt_radius))) &gt; 0)
-</span>        <span class="p">{</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-            <span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">lime</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">agent</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">any</span><span class="p">(((</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each) and !generic_species(each).is_chased))));
-</span>                <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="c1">!= nil and !dead(a))
-</span>                <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.5</span><span class="p">))</span>
-                    <span class="p">{</span>
-                        <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">a</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-                    <span class="p">}</span> <span class="k">else</span>
-                    <span class="p">{</span>
-                        <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
-                    <span class="p">}</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">fleeing</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">((</span><span class="n">lstPredator</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each) and each distance_to self &lt; perceipt_radius))) &gt; 0)
+</span>		<span class="p">{</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+			<span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">lime</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">agent</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">any</span><span class="p">(((</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each) and !generic_species(each).is_chased))));
+</span>				<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="c1">!= nil and !dead(a))
+</span>				<span class="p">{</span>
+					<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.5</span><span class="p">))</span>
+					<span class="p">{</span>
+						<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">a</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+					<span class="p">}</span> <span class="k">else</span>
+					<span class="p">{</span>
+						<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
+					<span class="p">}</span>
 
-                <span class="p">}</span> <span class="k">else</span>
-                <span class="p">{</span>
-                    <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
-                <span class="p">}</span>
+				<span class="p">}</span> <span class="k">else</span>
+				<span class="p">{</span>
+					<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">any_location_in</span><span class="p">(</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">);</span>
+				<span class="p">}</span>
 
-            <span class="p">}</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span>
+		<span class="p">}</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="c1">!= nil and self.location distance_to goal &lt; 0.5)
-</span>        <span class="p">{</span>
-            <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="c1">!= nil and self.location distance_to goal &lt; 0.5)
+</span>		<span class="p">{</span>
+			<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">((</span><span class="n">lstPredator</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each))) where (each distance_to self &lt;= perceipt_radius)) = 0)
-</span>        <span class="p">{</span>
-            <span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">((</span><span class="n">lstPredator</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span> <span class="c1">!= nil and !dead(each))) where (each distance_to self &lt;= perceipt_radius)) = 0)
+</span>		<span class="p">{</span>
+			<span class="n">is_chased</span> <span class="p">&lt;-</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">green</span><span class="p">;</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">0.2</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">predator</span> <span class="n">parent</span><span class="p">:</span> <span class="n">generic_species</span>
 <span class="p">{</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">triangle</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
-    <span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
-    <span class="n">reflex</span> <span class="n">hunting</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">list</span> <span class="n">tmp</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each) and each.shape distance_to self.shape &lt; perceipt_radius));
-</span>            <span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">agent</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">tmp</span> <span class="n">sort</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">));</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">any</span><span class="p">((</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each))));
-</span>                <span class="p">}</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">triangle</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+	<span class="n">rgb</span> <span class="n">color</span> <span class="p">&lt;-</span> <span class="p">#</span> <span class="n">red</span><span class="p">;</span>
+	<span class="n">reflex</span> <span class="n">hunting</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">goal</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">list</span> <span class="n">tmp</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each) and each.shape distance_to self.shape &lt; perceipt_radius));
+</span>			<span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">agent</span> <span class="n">a</span> <span class="p">&lt;-</span> <span class="n">first</span><span class="p">(</span><span class="n">tmp</span> <span class="n">sort</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">shape</span> <span class="n">distance_to</span> <span class="n">self</span><span class="p">.</span><span class="n">shape</span><span class="p">));</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">a</span> <span class="p">&lt;-</span> <span class="n">any</span><span class="p">((</span><span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each))));
+</span>				<span class="p">}</span>
 
-                <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="c1">!= nil)
-</span>                <span class="p">{</span>
-                    <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
-                    <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">a</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
-                <span class="p">}</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="c1">!= nil)
+</span>				<span class="p">{</span>
+					<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">2.0</span><span class="p">;</span>
+					<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">a</span><span class="p">.</span><span class="n">location</span><span class="p">;</span>
+				<span class="p">}</span>
 
-            <span class="p">}</span>
+			<span class="p">}</span>
 
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">self</span><span class="p">.</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">goal</span> <span class="p">&lt;</span> <span class="m">0.5</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="n">ask</span> <span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each) and each.location distance_to goal &lt; 0.5)
-</span>            <span class="p">{</span>
-                <span class="k">do</span> <span class="n">die</span><span class="p">;</span>
-            <span class="p">}</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">self</span><span class="p">.</span><span class="n">location</span> <span class="n">distance_to</span> <span class="n">goal</span> <span class="p">&lt;</span> <span class="m">0.5</span><span class="p">))</span>
+		<span class="p">{</span>
+			<span class="n">ask</span> <span class="n">lstPrey</span> <span class="n">where</span> <span class="p">(</span><span class="c1">!dead(each) and each.location distance_to goal &lt; 0.5)
+</span>			<span class="p">{</span>
+				<span class="k">do</span> <span class="n">die</span><span class="p">;</span>
+			<span class="p">}</span>
 
-            <span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
-            <span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
-        <span class="p">}</span>
+			<span class="n">goal</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+			<span class="n">speed</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="n">aspect</span> <span class="n">default</span>
-    <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">perceipt_radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">pink</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">rotate</span><span class="p">:</span> <span class="m">90</span> <span class="p">+</span> <span class="n">my</span> <span class="n">heading</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">default</span>
+	<span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">perceipt_radius</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span> <span class="n">pink</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="n">color</span> <span class="n">rotate</span><span class="p">:</span> <span class="m">90</span> <span class="p">+</span> <span class="n">my</span> <span class="n">heading</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">prey_predator_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="n">display</span> <span class="n">main_display</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="n">display</span> <span class="n">main_display</span>
 
-        <span class="p">{</span>
-            <span class="n">species</span> <span class="n">prey</span><span class="p">;</span>
-            <span class="n">species</span> <span class="n">predator</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="p">{</span>
+			<span class="n">species</span> <span class="n">prey</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">predator</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">PreyPredator_coupling</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">PreyPredator_coupling</span>
 <span class="n">import</span> <span class="s2">"PreyPredator.gaml"</span>
 
 <span class="n">global</span>
-<span class="p">{</span>   
+<span class="p">{</span>	
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">PreyPredator_coupling_exp</span> <span class="n">parent</span><span class="p">:</span><span class="n">prey_predator_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
 <span class="n">geometry</span> <span class="n">shape</span><span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="n">prey</span><span class="p">&gt;</span> <span class="n">getPrey</span><span class="p">{</span>
-        <span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">prey</span><span class="p">);</span>
-    <span class="p">}</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">predator</span><span class="p">&gt;</span> <span class="n">getPredator</span><span class="p">{</span>
-        <span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">predator</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="n">prey</span><span class="p">&gt;</span> <span class="n">getPrey</span><span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">prey</span><span class="p">);</span>
+	<span class="p">}</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">predator</span><span class="p">&gt;</span> <span class="n">getPredator</span><span class="p">{</span>
+		<span class="n">return</span> <span class="k">list</span><span class="p">(</span><span class="n">predator</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="p">//</span><span class="k">if</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">displays</span> <span class="k">in</span> <span class="n">parent</span> <span class="n">experiement</span> <span class="n">dont</span> <span class="n">show</span><span class="p">.</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 
-</code></pre></div>
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">comodel_with_the_coupling</span>
+</code></pre></div></div>
+
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">comodel_with_the_coupling</span>
 
 <span class="n">import</span> <span class="s2">"PreyPredator_coupling.gaml"</span> <span class="k">as</span> <span class="n">myP</span>
 
 
 <span class="n">global</span>
 <span class="p">{</span>
-    <span class="p">//</span> <span class="k">set</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">world</span> <span class="k">as</span> <span class="n">a</span> <span class="n">rectangle</span> <span class="m">200</span> <span class="n">x</span> <span class="m">100</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-    <span class="n">init</span>
-    <span class="p">{</span>
-        <span class="p">//</span><span class="n">instantiate</span> <span class="n">three</span> <span class="n">instant</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="n">PreyPredator</span>
-        <span class="nb">create</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span><span class="p">::</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">preyinit</span><span class="p">::</span><span class="n">rnd</span><span class="p">(</span><span class="m">20</span><span class="p">),</span> <span class="n">predatorinit</span><span class="p">::</span><span class="m">1</span><span class="p">]</span> <span class="n">number</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="p">//</span> <span class="k">set</span> <span class="n">the</span> <span class="n">shape</span> <span class="k">of</span> <span class="n">world</span> <span class="k">as</span> <span class="n">a</span> <span class="n">rectangle</span> <span class="m">200</span> <span class="n">x</span> <span class="m">100</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">rectangle</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+	<span class="n">init</span>
+	<span class="p">{</span>
+		<span class="p">//</span><span class="n">instantiate</span> <span class="n">three</span> <span class="n">instant</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="n">PreyPredator</span>
+		<span class="nb">create</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span><span class="n">shape</span><span class="p">::</span><span class="n">square</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="n">preyinit</span><span class="p">::</span><span class="n">rnd</span><span class="p">(</span><span class="m">20</span><span class="p">),</span> <span class="n">predatorinit</span><span class="p">::</span><span class="m">1</span><span class="p">]</span> <span class="n">number</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+		
+		<span class="p">//</span><span class="n">explicitly</span> <span class="n">save</span> <span class="n">the</span> <span class="n">orginal</span> <span class="n">population</span> <span class="k">of</span> <span class="n">predator</span> <span class="k">and</span> <span class="n">original</span> <span class="n">population</span> <span class="k">of</span> <span class="n">prey</span> <span class="k">of</span> <span class="n">each</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator0</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey0</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+		
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator1</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey1</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+		
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator2</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey2</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+		
+		<span class="p">//</span><span class="n">mutate</span> <span class="n">the</span> <span class="n">popuplation</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="n">by</span> <span class="n">assigning</span> <span class="n">the</span> <span class="k">list</span> <span class="n">above</span> <span class="k">to</span>  <span class="n">the</span> <span class="n">population</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="n">models</span>
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstpredator2</span><span class="p">;</span>
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstprey2</span><span class="p">;</span>
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstprey1</span><span class="p">;</span>
+		
+		
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstprey0</span> <span class="p">+</span> <span class="n">lstprey1</span><span class="p">;</span>
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstpredator1</span><span class="p">;</span>
+		<span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstpredator0</span> <span class="p">+</span> <span class="n">lstprey2</span><span class="p">;</span>
+		
+		<span class="p">//</span><span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">correspond</span> <span class="k">with</span> <span class="n">the</span> <span class="n">new</span> <span class="n">role</span> <span class="k">of</span> <span class="n">agent</span> <span class="k">in</span> <span class="n">the</span> <span class="n">new</span> <span class="n">populations</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">.</span><span class="n">lstPredator</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">triangle</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+		<span class="p">}</span>
 
-        <span class="p">//</span><span class="n">explicitly</span> <span class="n">save</span> <span class="n">the</span> <span class="n">orginal</span> <span class="n">population</span> <span class="k">of</span> <span class="n">predator</span> <span class="k">and</span> <span class="n">original</span> <span class="n">population</span> <span class="k">of</span> <span class="n">prey</span> <span class="k">of</span> <span class="n">each</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator0</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey0</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">.</span><span class="n">lstPrey</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">);</span>
+		<span class="p">}</span>
 
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator1</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey1</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+	<span class="p">}</span>
 
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstpredator2</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">getPredator</span><span class="p">();</span>
-        <span class="k">list</span><span class="p">&lt;</span><span class="n">agent</span><span class="p">&gt;</span> <span class="n">lstprey2</span> <span class="p">&lt;-</span> <span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">getPrey</span><span class="p">();</span>
+	<span class="n">reflex</span> <span class="n">simulate_micro_models</span>
+	<span class="p">{</span>
+		<span class="p">//</span> <span class="n">ask</span> <span class="n">all</span> <span class="n">simulation</span> <span class="k">do</span> <span class="n">their</span> <span class="n">job</span>
+		<span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="p">//</span><span class="n">mutate</span> <span class="n">the</span> <span class="n">popuplation</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="k">model</span> <span class="n">by</span> <span class="n">assigning</span> <span class="n">the</span> <span class="k">list</span> <span class="n">above</span> <span class="k">to</span>  <span class="n">the</span> <span class="n">population</span> <span class="k">of</span> <span class="n">micro</span><span class="p">-</span><span class="n">models</span>
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstpredator2</span><span class="p">;</span>
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstprey2</span><span class="p">;</span>
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPredator</span> <span class="p">&lt;-</span> <span class="n">lstprey1</span><span class="p">;</span>
-
-
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstprey0</span> <span class="p">+</span> <span class="n">lstprey1</span><span class="p">;</span>
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstpredator1</span><span class="p">;</span>
-        <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">simulation</span><span class="p">).</span><span class="n">lstPrey</span> <span class="p">&lt;-</span> <span class="n">lstpredator0</span> <span class="p">+</span> <span class="n">lstprey2</span><span class="p">;</span>
-
-        <span class="p">//</span><span class="n">change</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">correspond</span> <span class="k">with</span> <span class="n">the</span> <span class="n">new</span> <span class="n">role</span> <span class="k">of</span> <span class="n">agent</span> <span class="k">in</span> <span class="n">the</span> <span class="n">new</span> <span class="n">populations</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">.</span><span class="n">lstPredator</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">triangle</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">.</span><span class="n">lstPrey</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">circle</span><span class="p">(</span><span class="m">0.5</span><span class="p">);</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">simulate_micro_models</span>
-    <span class="p">{</span>
-        <span class="p">//</span> <span class="n">ask</span> <span class="n">all</span> <span class="n">simulation</span> <span class="k">do</span> <span class="n">their</span> <span class="n">job</span>
-        <span class="n">ask</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">simulation</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">do</span> <span class="n">_step_</span><span class="p">;</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">comodel_with_the_coupling_exp</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span>
 <span class="p">{</span>
-    <span class="n">output</span>
-    <span class="p">{</span>
-        <span class="p">//</span><span class="n">a</span> <span class="n">mixing</span> <span class="n">display</span> <span class="k">of</span> <span class="n">all</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">all</span> <span class="n">populations</span>
-        <span class="n">display</span> <span class="s2">"comodel"</span>
-        <span class="p">{</span>
-            <span class="n">agents</span> <span class="s2">"agentprey"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">getPrey</span><span class="p">());</span>
-            <span class="n">agents</span> <span class="s2">"agentpredator"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">getPredator</span><span class="p">());</span>
-        <span class="p">}</span>
+	<span class="n">output</span>
+	<span class="p">{</span>
+		<span class="p">//</span><span class="n">a</span> <span class="n">mixing</span> <span class="n">display</span> <span class="k">of</span> <span class="n">all</span> <span class="n">agents</span> <span class="k">from</span> <span class="n">all</span> <span class="n">populations</span>
+		<span class="n">display</span> <span class="s2">"comodel"</span>
+		<span class="p">{</span>
+			<span class="n">agents</span> <span class="s2">"agentprey"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">getPrey</span><span class="p">());</span>
+			<span class="n">agents</span> <span class="s2">"agentpredator"</span> <span class="n">value</span><span class="p">:</span> <span class="p">(</span><span class="n">myP</span><span class="p">.</span><span class="n">PreyPredator_coupling_exp</span> <span class="n">accumulate</span> <span class="n">each</span><span class="p">.</span><span class="n">getPredator</span><span class="p">());</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

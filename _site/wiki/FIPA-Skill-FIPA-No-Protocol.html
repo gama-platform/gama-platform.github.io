@@ -3611,73 +3611,75 @@ function closeRightMenu() {
     <div class="w3-threequarter">
         <h1 id="fipa-no-protocol">FIPA no protocol</h1>
 
-<p>This model demonstrates a usecase of &#39;no-protocol&#39; interaction protocol.
-&#39;no-protocol&#39; is a freestyle intecraction protocol in which the modeller
+<p>This model demonstrates a usecase of ‘no-protocol’ interaction protocol.
+‘no-protocol’ is a freestyle intecraction protocol in which the modeller
 (1) can send whatever type of message (i.e., message performative) in the corresponding conversation
-(2) is responsible for marking the end of the conversation by sending a message with &#39;end_conversation&#39; performative. </p>
+(2) is responsible for marking the end of the conversation by sending a message with ‘end_conversation’ performative.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">no_protocol_1</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">no_protocol_1</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
-        <span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
-
-        <span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
-
-        <span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="n">Participant</span> <span class="n">p</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">Initiator</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">Participant</span> <span class="n">returns</span><span class="p">:</span> <span class="n">ps</span><span class="p">;</span>
+		
+		<span class="n">p</span> <span class="p">&lt;-</span> <span class="n">ps</span> <span class="n">at</span> <span class="m">0</span><span class="p">;</span>
+		
+		<span class="nb">write</span> <span class="s1">'Step the simulation to observe the outcome in the console'</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Initiator</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; mailbox: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; mailbox: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">say_hello</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'no-protocol'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'inform'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Hello from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)]</span> <span class="p">];</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">read_hello_from_participant</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
-            <span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Goodbye from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)]</span> <span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">read_rebound_goodbye</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">mailbox</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">say_hello</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">start_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="k">to</span> <span class="p">::</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">protocol</span> <span class="p">::</span> <span class="s1">'no-protocol'</span><span class="p">,</span> <span class="n">performative</span> <span class="p">::</span> <span class="s1">'inform'</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Hello from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)]</span> <span class="p">];</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">read_hello_from_participant</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+			<span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Goodbye from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)]</span> <span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">read_rebound_goodbye</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">mailbox</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">Participant</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">fipa</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
-        <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; mailbox: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">print_debug_infor</span> <span class="p">{</span>
+		<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' with conversations: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">conversations</span><span class="p">))</span> <span class="p">+</span> <span class="s1">'; mailbox: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">mailbox</span><span class="p">));</span>
+	<span class="p">}</span>
 
-    <span class="n">reflex</span> <span class="n">reply_hello</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">loop</span> <span class="n">m</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
-            <span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">m</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Rebound hello from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)</span> <span class="p">]</span> <span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">reflex</span> <span class="n">read_goodbye</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
-            <span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
-            <span class="k">do</span> <span class="n">end_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Rebound goodbye from'</span> <span class="p">+</span> <span class="n">name</span><span class="p">)</span> <span class="p">]</span> <span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">reflex</span> <span class="n">reply_hello</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">m</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+			<span class="k">do</span> <span class="n">inform</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">m</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Rebound hello from '</span> <span class="p">+</span> <span class="n">name</span><span class="p">)</span> <span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="n">reflex</span> <span class="n">read_goodbye</span> <span class="n">when</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span> <span class="p">=</span> <span class="m">4</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">i</span> <span class="n">over</span><span class="p">:</span> <span class="n">informs</span> <span class="p">{</span>
+			<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s1">' receives message with content: '</span> <span class="p">+</span> <span class="p">(</span><span class="k">string</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contents</span><span class="p">));</span>
+			<span class="k">do</span> <span class="n">end_conversation</span> <span class="k">with</span><span class="p">:</span> <span class="p">[</span> <span class="n">message</span> <span class="p">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">contents</span> <span class="p">::</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Rebound goodbye from'</span> <span class="p">+</span> <span class="n">name</span><span class="p">)</span> <span class="p">]</span> <span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="n">experiment</span> <span class="n">test_no_protocol</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

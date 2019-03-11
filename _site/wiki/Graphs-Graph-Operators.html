@@ -3615,66 +3615,68 @@ function closeRightMenu() {
 
 <p>Model to show how to use the different existing operators for the graph species</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang="">
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">model</span> <span class="n">graphoperators</span>
 
 <span class="n">global</span> <span class="p">{</span>
-    <span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph</span><span class="p">;</span>
-    <span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">cliques</span><span class="p">;</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">;</span>
-
-        <span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span><span class="p">:</span> <span class="n">all</span> <span class="n">vertices</span> <span class="n">that</span> <span class="n">are</span> <span class="n">at</span> <span class="n">distance</span> <span class="p">&lt;=</span> <span class="m">20</span> <span class="n">are</span> <span class="n">connected</span>
-        <span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
-
-        <span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">betweenness_centrality</span> <span class="k">of</span> <span class="n">each</span> <span class="n">vertice</span>
-        <span class="n">map</span><span class="p">&lt;</span><span class="n">people</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">bc</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">&lt;</span><span class="n">people</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;(</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
-        <span class="n">float</span> <span class="n">max_centrality</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">values</span><span class="p">);</span>
-        <span class="n">float</span> <span class="n">min_centrality</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">values</span><span class="p">);</span>
-        <span class="n">ask</span> <span class="n">people</span> <span class="p">{</span>
-            <span class="n">centrality</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">bc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="p">-</span> <span class="n">min_centrality</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">max_centrality</span> <span class="p">-</span> <span class="n">min_centrality</span><span class="p">);</span>
-            <span class="n">centrality_color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">centrality</span><span class="p">)),</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">centrality</span><span class="p">)));</span>
-        <span class="p">}</span>
-        <span class="nb">write</span> <span class="s2">"mean vertice degree: "</span> <span class="p">+</span> <span class="n">mean</span><span class="p">(</span><span class="n">the_graph</span><span class="p">.</span><span class="n">vertices</span> <span class="n">collect</span> <span class="p">(</span><span class="n">the_graph</span> <span class="n">degree_of</span> <span class="n">each</span><span class="p">));</span>
-        <span class="nb">write</span> <span class="s2">"nb_cycles: "</span> <span class="p">+</span> <span class="n">nb_cycles</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
-        <span class="nb">write</span> <span class="s2">"alpha_index: "</span> <span class="p">+</span> <span class="n">alpha_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
-        <span class="nb">write</span> <span class="s2">"beta_index: "</span> <span class="p">+</span> <span class="n">beta_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
-        <span class="nb">write</span> <span class="s2">"gamma_index: "</span> <span class="p">+</span> <span class="n">gamma_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
-        <span class="nb">write</span> <span class="s2">"connectivity_index: "</span> <span class="p">+</span> <span class="n">connectivity_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
-        <span class="nb">write</span> <span class="s2">"connected_components_of: "</span> <span class="p">+</span> <span class="n">length</span><span class="p">(</span><span class="n">connected_components_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
-
-        <span class="nb">write</span> <span class="s2">"connected_components_of: "</span> <span class="p">+</span> <span class="n">length</span><span class="p">(</span><span class="n">connected_components_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
-
-        <span class="nb">write</span> <span class="s2">"maximal_cliques_of:"</span> <span class="p">+</span> <span class="p">(</span><span class="n">maximal_cliques_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">each</span><span class="p">)));</span>
-        <span class="nb">write</span> <span class="s2">"biggest_cliques_of:"</span> <span class="p">+</span> <span class="p">(</span><span class="n">biggest_cliques_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">each</span><span class="p">)));</span>
-    <span class="p">}</span>
+	<span class="n">graph</span><span class="p">&lt;</span><span class="n">geometry</span><span class="p">,</span><span class="n">geometry</span><span class="p">&gt;</span> <span class="n">the_graph</span><span class="p">;</span>
+	<span class="k">list</span><span class="p">&lt;</span><span class="k">list</span><span class="p">&gt;</span> <span class="n">cliques</span><span class="p">;</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">people</span> <span class="n">number</span><span class="p">:</span> <span class="m">50</span><span class="p">;</span>
+		
+		<span class="p">//</span><span class="n">creation</span> <span class="k">of</span> <span class="n">the</span> <span class="n">graph</span><span class="p">:</span> <span class="n">all</span> <span class="n">vertices</span> <span class="n">that</span> <span class="n">are</span> <span class="n">at</span> <span class="n">distance</span> <span class="p">&lt;=</span> <span class="m">20</span> <span class="n">are</span> <span class="n">connected</span>
+		<span class="n">the_graph</span> <span class="p">&lt;-</span> <span class="n">as_distance_graph</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+		
+		<span class="p">//</span><span class="n">compute</span> <span class="n">the</span> <span class="n">betweenness_centrality</span> <span class="k">of</span> <span class="n">each</span> <span class="n">vertice</span>
+		<span class="n">map</span><span class="p">&lt;</span><span class="n">people</span><span class="p">,</span><span class="n">float</span><span class="p">&gt;</span> <span class="n">bc</span> <span class="p">&lt;-</span> <span class="n">map</span><span class="p">&lt;</span><span class="n">people</span><span class="p">,</span> <span class="n">float</span><span class="p">&gt;(</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
+		<span class="n">float</span> <span class="n">max_centrality</span> <span class="p">&lt;-</span> <span class="k">max</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">values</span><span class="p">);</span>
+		<span class="n">float</span> <span class="n">min_centrality</span> <span class="p">&lt;-</span> <span class="k">min</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">values</span><span class="p">);</span>
+		<span class="n">ask</span> <span class="n">people</span> <span class="p">{</span>
+			<span class="n">centrality</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">bc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="p">-</span> <span class="n">min_centrality</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">max_centrality</span> <span class="p">-</span> <span class="n">min_centrality</span><span class="p">);</span>
+			<span class="n">centrality_color</span> <span class="p">&lt;-</span> <span class="n">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">centrality</span><span class="p">)),</span> <span class="n">int</span><span class="p">(</span><span class="m">255</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">centrality</span><span class="p">)));</span>
+		<span class="p">}</span>
+		<span class="nb">write</span> <span class="s2">"mean vertice degree: "</span> <span class="p">+</span> <span class="n">mean</span><span class="p">(</span><span class="n">the_graph</span><span class="p">.</span><span class="n">vertices</span> <span class="n">collect</span> <span class="p">(</span><span class="n">the_graph</span> <span class="n">degree_of</span> <span class="n">each</span><span class="p">));</span>
+		<span class="nb">write</span> <span class="s2">"nb_cycles: "</span> <span class="p">+</span> <span class="n">nb_cycles</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"alpha_index: "</span> <span class="p">+</span> <span class="n">alpha_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"beta_index: "</span> <span class="p">+</span> <span class="n">beta_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"gamma_index: "</span> <span class="p">+</span> <span class="n">gamma_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"connectivity_index: "</span> <span class="p">+</span> <span class="n">connectivity_index</span><span class="p">(</span><span class="n">the_graph</span><span class="p">);</span>
+		<span class="nb">write</span> <span class="s2">"connected_components_of: "</span> <span class="p">+</span> <span class="n">length</span><span class="p">(</span><span class="n">connected_components_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
+		
+		<span class="nb">write</span> <span class="s2">"connected_components_of: "</span> <span class="p">+</span> <span class="n">length</span><span class="p">(</span><span class="n">connected_components_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">));</span>
+		
+		<span class="nb">write</span> <span class="s2">"maximal_cliques_of:"</span> <span class="p">+</span> <span class="p">(</span><span class="n">maximal_cliques_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">each</span><span class="p">)));</span>
+		<span class="nb">write</span> <span class="s2">"biggest_cliques_of:"</span> <span class="p">+</span> <span class="p">(</span><span class="n">biggest_cliques_of</span><span class="p">(</span><span class="n">the_graph</span><span class="p">)</span> <span class="n">collect</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">each</span><span class="p">)));</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">people</span> <span class="p">{</span>
-    <span class="n">float</span> <span class="n">centrality</span><span class="p">;</span>
-    <span class="n">rgb</span> <span class="n">centrality_color</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">centrality</span><span class="p">{</span>
-        <span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">centrality_color</span><span class="p">;</span>
-
-    <span class="p">}</span>
+	<span class="n">float</span> <span class="n">centrality</span><span class="p">;</span>
+	<span class="n">rgb</span> <span class="n">centrality_color</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">centrality</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="n">centrality_color</span><span class="p">;</span>
+		
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">graphoperators</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-
-    <span class="n">output</span> <span class="p">{</span>
-
-        <span class="n">display</span> <span class="n">map</span> <span class="n">background</span><span class="p">:#</span><span class="n">lightgray</span><span class="p">{</span>
-            <span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
-                <span class="n">loop</span> <span class="n">edge</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
-                    <span class="n">draw</span> <span class="n">edge</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">centrality</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	
+	<span class="n">output</span> <span class="p">{</span>
+		
+		<span class="n">display</span> <span class="n">map</span> <span class="n">background</span><span class="p">:#</span><span class="n">lightgray</span><span class="p">{</span>
+			<span class="n">graphics</span> <span class="s2">"edges"</span> <span class="p">{</span>
+				<span class="n">loop</span> <span class="n">edge</span> <span class="n">over</span><span class="p">:</span> <span class="n">the_graph</span><span class="p">.</span><span class="n">edges</span> <span class="p">{</span>
+					<span class="n">draw</span> <span class="n">edge</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">black</span><span class="p">;</span>
+				<span class="p">}</span>
+ 			<span class="p">}</span>
+ 			<span class="n">species</span> <span class="n">people</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">centrality</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

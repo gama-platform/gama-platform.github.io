@@ -3615,53 +3615,55 @@ function closeRightMenu() {
 
 <p>This model creates buildings agents from the sqlite database using the result of a query</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">DB2agentSQLite</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">DB2agentSQLite</span>
 
 <span class="n">global</span> <span class="p">{</span>
-<span class="p">//</span>  <span class="n">file</span> <span class="n">buildingsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/building.shp'</span><span class="p">);</span>
-<span class="p">//</span>  <span class="n">file</span> <span class="n">boundsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/bounds.shp'</span><span class="p">);</span>
-<span class="p">//</span>  <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsShp</span><span class="p">);</span>
+<span class="p">//</span>	<span class="n">file</span> <span class="n">buildingsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/building.shp'</span><span class="p">);</span>
+<span class="p">//</span>	<span class="n">file</span> <span class="n">boundsShp</span> <span class="p">&lt;-</span> <span class="n">file</span><span class="p">(</span><span class="s1">'../../includes/bounds.shp'</span><span class="p">);</span>
+<span class="p">//</span>	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">boundsShp</span><span class="p">);</span>
 
-
-    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
-                                  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span><span class="p">,</span>
-                                 <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
-                                  <span class="s2">"select"</span><span class="p">::</span><span class="s2">"SELECT AsBinary(geom) as geom FROM bounds;"</span>                
-                                 <span class="p">];</span>
-    <span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
-                                  <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
-                                  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span>
-                                  <span class="p">];</span>
-
-    <span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, AsBinary(geom) as geom FROM buildings ;"</span><span class="p">;</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>         
-
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
-            <span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
-                             <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
-         <span class="p">}</span>
-    <span class="p">}</span>
+	
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">BOUNDS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
+								  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span><span class="p">,</span>
+								 <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
+								  <span class="s2">"select"</span><span class="p">::</span><span class="s2">"SELECT AsBinary(geom) as geom FROM bounds;"</span>				
+				  				 <span class="p">];</span>
+	<span class="n">map</span><span class="p">&lt;</span><span class="k">string</span><span class="p">,</span><span class="k">string</span><span class="p">&gt;</span> <span class="n">PARAMS</span> <span class="p">&lt;-</span> <span class="p">[</span><span class="s2">"dbtype"</span><span class="p">::</span><span class="s2">"sqlite"</span><span class="p">,</span>
+								  <span class="p">//</span><span class="s1">'srid'</span><span class="p">::</span><span class="s1">'32648'</span><span class="p">,</span>
+								  <span class="s1">'database'</span><span class="p">::</span><span class="s1">'../../includes/spatialite.db'</span>
+								  <span class="p">];</span>
+	
+	<span class="k">string</span> <span class="n">QUERY</span> <span class="p">&lt;-</span> <span class="s2">"SELECT name, type, AsBinary(geom) as geom FROM buildings ;"</span><span class="p">;</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">BOUNDS</span><span class="p">);</span>		  	
+	  	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">DB_accessor</span> <span class="p">{</span>
+			<span class="nb">create</span> <span class="n">buildings</span> <span class="k">from</span><span class="p">:</span> <span class="k">list</span><span class="p">(</span><span class="n">self</span> <span class="n">select</span> <span class="p">[</span><span class="n">params</span><span class="p">::</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">select</span><span class="p">::</span> <span class="n">QUERY</span><span class="p">])</span> 
+							 <span class="k">with</span><span class="p">:[</span> <span class="s1">'name'</span><span class="p">::</span><span class="s2">"name"</span><span class="p">,</span><span class="s1">'type'</span><span class="p">::</span><span class="s2">"type"</span><span class="p">,</span> <span class="s1">'shape'</span><span class="p">::</span> <span class="n">geometry</span><span class="p">(</span><span class="s2">"geom"</span><span class="p">)];</span>
+		 <span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">DB_accessor</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">SQLSKILL</span><span class="p">];</span>
 
 <span class="n">species</span> <span class="n">buildings</span> <span class="p">{</span>
-    <span class="k">string</span> <span class="n">type</span><span class="p">;</span>
-    <span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
-    <span class="p">}</span>   
-<span class="p">}</span>   
+	<span class="k">string</span> <span class="n">type</span><span class="p">;</span>
+	<span class="n">aspect</span> <span class="n">default</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">gray</span> <span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>	
 
 <span class="n">experiment</span> <span class="n">DB2agentSQLite</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
-            <span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">fullView</span> <span class="p">{</span>
+			<span class="n">species</span> <span class="n">buildings</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">default</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>

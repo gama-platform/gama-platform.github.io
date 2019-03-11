@@ -3613,38 +3613,40 @@ function closeRightMenu() {
 
 <p>_Author :  _</p>
 
-<p>Model which shows how to create a shape using a 3D Shapefile after this one has been loaded. </p>
+<p>Model which shows how to create a shape using a 3D Shapefile after this one has been loaded.</p>
 
-<p>Code of the model : </p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="k">model</span> <span class="n">shapefile_loading</span>
+<p>Code of the model :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">model</span> <span class="n">shapefile_loading</span>
 
 <span class="n">global</span> <span class="p">{</span>
-
-    <span class="p">//</span><span class="n">file</span> <span class="n">variable</span> <span class="n">that</span> <span class="n">will</span> <span class="n">store</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">file</span>
-    <span class="n">file</span> <span class="n">shape_file_gis_3d_objects</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s1">'../includes/Mobilier.shp'</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
-    <span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_gis_3d_objects</span><span class="p">);</span>
-    <span class="n">init</span> <span class="p">{</span>
-        <span class="nb">create</span> <span class="n">gis_3d_object</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_gis_3d_objects</span><span class="p">;</span>
-    <span class="p">}</span>
+	
+	<span class="p">//</span><span class="n">file</span> <span class="n">variable</span> <span class="n">that</span> <span class="n">will</span> <span class="n">store</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">file</span>
+	<span class="n">file</span> <span class="n">shape_file_gis_3d_objects</span> <span class="p">&lt;-</span> <span class="n">shape_file</span><span class="p">(</span><span class="s1">'../includes/Mobilier.shp'</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">envelope</span><span class="p">(</span><span class="n">shape_file_gis_3d_objects</span><span class="p">);</span>
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="nb">create</span> <span class="n">gis_3d_object</span> <span class="k">from</span><span class="p">:</span> <span class="n">shape_file_gis_3d_objects</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">species</span> <span class="n">gis_3d_object</span> <span class="p">{</span>
-    <span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
-        <span class="n">draw</span> <span class="n">shape</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
-    <span class="p">}</span>
+	<span class="n">aspect</span> <span class="n">base</span> <span class="p">{</span>
+		<span class="n">draw</span> <span class="n">shape</span> <span class="n">at</span><span class="p">:{</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">width</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="n">world</span><span class="p">.</span><span class="n">shape</span><span class="p">.</span><span class="n">height</span><span class="p">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">};</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">experiment</span> <span class="n">display_shape</span> <span class="n">type</span><span class="p">:</span> <span class="n">gui</span> <span class="p">{</span>
 
-    <span class="n">output</span> <span class="p">{</span>
-        <span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
-            <span class="n">species</span> <span class="n">gis_3d_object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="n">output</span> <span class="p">{</span>
+		<span class="n">display</span> <span class="n">city_display</span> <span class="n">type</span><span class="p">:</span> <span class="n">opengl</span> <span class="n">draw_env</span><span class="p">:</span><span class="nb">false</span><span class="p">{</span>
+			<span class="n">species</span> <span class="n">gis_3d_object</span> <span class="n">aspect</span><span class="p">:</span> <span class="n">base</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
     </div>
     </div>
     </div>
