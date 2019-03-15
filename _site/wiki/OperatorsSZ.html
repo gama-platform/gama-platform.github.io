@@ -4090,18 +4090,18 @@ geometry var0 &lt;- shape scaled_to {10,10}; // var0 equals a geometry correspon
 
 <h4 id="possible-use-10">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
-  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
 <h4 id="result-7">Result:</h4>
-<p>change the agentCause value of the given predicate
-change the agentCause value of the given emotion</p>
+<p>change the agentCause value of the given emotion
+change the agentCause value of the given predicate</p>
 
 <h4 id="examples-4">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate set_agent_cause agentA emotion set_agent_cause agentA 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion set_agent_cause agentA predicate set_agent_cause agentA 
 
 </code></pre></div></div>
 
