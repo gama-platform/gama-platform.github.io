@@ -2628,8 +2628,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance from a standard deviation.
 Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+Returns the variance from a standard deviation.
     	
 ----
 
