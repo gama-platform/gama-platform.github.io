@@ -1217,7 +1217,7 @@ type_returned_by_action result <- self name_of_action_or_primitive [arg1::expres
   * `perspective` (boolean): Whether to render the text in perspective or facing the user. Default is true.
   * `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}
   * `rounded` (boolean): specify whether the geometry have to be rounded (e.g. for squares)
-  * `size` (any type in [float, point]): size of the object to draw, expressed as a bounding box (width, height, depth). If expressed as a float, represents the size in the three directions.
+  * `size` (any type in [float, point]): Size of the shape/icon/image to draw, expressed as a bounding box (width, height, depth; if expressed as a float, represents the box as a cube). Does not apply to texts: use a font with the required size instead
   * `texture` (any type in [string, list, file]): the texture(s) that should be applied to the geometry. Either a path to a file or a list of paths
   * `width` (float): The line width to use for drawing this object 
  	
