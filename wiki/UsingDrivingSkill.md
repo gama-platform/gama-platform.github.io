@@ -48,10 +48,10 @@ It provides as well the road agents with one read only variable:
   * **agents\_on**: list of list (of driver agents); for each lane, the list of driver agents on the road.
 
 
-The\*roadNode skill**provides the road agents with several variables that will define the road properties:
-  ***roads\_in**: list of road agents; the list of road agents that have this node for target node.
-  ***roads\_out**: list of road agents; the list of road agents that have this node for source node.
-  ***stop**: list of list of road agents; list of stop signals, and for each stop signal, the list of concerned roads.**
+The **roadNode skill** provides the road agents with several variables that will define the road properties:
+  * **roads\_in**: list of road agents; the list of road agents that have this node for target node.
+  * **roads\_out**: list of road agents; the list of road agents that have this node for source node.
+  * **stop**: list of list of road agents; list of stop signals, and for each stop signal, the list of concerned roads.**
 
 
 It provides as well the road agents with one read only variable:
