@@ -4010,16 +4010,15 @@ float var1 &lt;- beta_index(graphEpidemio); // var1 equals the beta index of the
 <ul>
   <li><code class="highlighter-rouge">date</code> <strong><code class="highlighter-rouge">between</code></strong> <code class="highlighter-rouge">date</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">any expression</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">any expression</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-4">Result:</h4>
-<p>returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand</p>
-
-<p>returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
+<p>returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
+returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand</p>
 
 <h4 id="special-cases">Special cases:</h4>
 <ul>
@@ -4040,8 +4039,8 @@ bool var5 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02
 
 <h4 id="examples-2">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- between(5, 1, 10); // var0 equals true 
-bool var1 &lt;- between(5.0, 1.0, 10.0); // var1 equals true
+bool var0 &lt;- between(5.0, 1.0, 10.0); // var0 equals true 
+bool var1 &lt;- between(5, 1, 10); // var1 equals true
 
 </code></pre></div></div>
 
@@ -4238,13 +4237,13 @@ geometry var1 &lt;- box({10, 5 , 5}); // var1 equals a geometry as a rectangle w
 </ul>
 
 <h4 id="result-14">Result:</h4>
-<p>Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
-Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes</p>
+<p>Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
+Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes</p>
 
 <h4 id="examples-8">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;rgb&gt; var0 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
-list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
+list&lt;rgb&gt; var0 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
+list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
 
 </code></pre></div></div>
 
@@ -4264,13 +4263,13 @@ list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("OrRd");; 
 </ul>
 
 <h4 id="result-15">Result:</h4>
-<p>returns the list a palette with a given min number of classes and max number of classes)
-returns the list a palette with a given min number of classes)</p>
+<p>returns the list a palette with a given min number of classes)
+returns the list a palette with a given min number of classes and max number of classes)</p>
 
 <h4 id="examples-9">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;string&gt; var0 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(5,10);; // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
-list&lt;string&gt; var1 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(3);; // var1 equals a list of palettes that are composed of a min of 3 colors
+list&lt;string&gt; var0 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
+list&lt;string&gt; var1 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
 
 </code></pre></div></div>
 
@@ -4644,8 +4643,8 @@ A cone geometry which min and max angles are given by the operands.</p>
 
 <h4 id="examples-21">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 &lt;- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 &lt;- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 </code></pre></div></div>
 
@@ -4696,13 +4695,13 @@ geometry var0 &lt;- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a
 </ul>
 
 <h4 id="result-32">Result:</h4>
-<p>returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.</p>
+<p>returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.</p>
 
 <h4 id="examples-23">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph my_graph2 &lt;- graph([]);  
-list&lt;list&gt; var1 &lt;- connected_components_of (my_graph2, true); // var1 equals the list of all the components as listgraph my_graph &lt;- graph([]);  
-list&lt;list&gt; var3 &lt;- connected_components_of (my_graph); // var3 equals the list of all the components as list
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph my_graph &lt;- graph([]);  
+list&lt;list&gt; var1 &lt;- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph2 &lt;- graph([]);  
+list&lt;list&gt; var3 &lt;- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 
 </code></pre></div></div>
 
@@ -4973,8 +4972,8 @@ geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geo
 
 <h4 id="possible-use-44">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
+  <li><strong><code class="highlighter-rouge">copy_between</code></strong> (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
 <h4 id="result-42">Result:</h4>
@@ -4989,8 +4988,8 @@ geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geo
 
 <h4 id="examples-31">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var0 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
-string var1 &lt;- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
+string var0 &lt;- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
+list var1 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
 
 </code></pre></div></div>
 
@@ -5336,60 +5335,60 @@ geometry var0 &lt;- cube(10); // var0 equals a geometry as a square of side size
 <ul>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
 <h4 id="result-56">Result:</h4>
-<p>A quadratic Bezier curve geometry built from the three given points composed of 10 points.
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
+<p>A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.</p>
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A cubic Bezier curve geometry built from the four given points composed of a given number of points.</p>
 
 <h4 id="special-cases-23">Special cases:</h4>
 <ul>
   <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
   <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
 </ul>
 
 <h4 id="examples-41">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}); // var0 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var2 &lt;- curve({0,0},{10,10}, 0.5); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var3 &lt;- curve({0,0},{10,10}, 0.5, false, 100); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var4 &lt;- curve({0,0}, {0,10}, {10,10}); // var4 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var5 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var0 &lt;- curve({0,0},{10,10}, 0.5, false); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var1 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var3 &lt;- curve({0,0},{10,10}, 0.5, 90); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var4 &lt;- curve({0,0},{10,10}, 0.5, false, 100); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var5 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
 geometry var6 &lt;- curve({0,0},{10,10}, 0.5, 100, 90); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var7 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var8 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var8 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var9 &lt;- curve({0,0},{10,10}, 0.5, 90); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var10 &lt;- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side.
+geometry var7 &lt;- curve({0,0},{10,10}, 0.5); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var8 &lt;- curve({0,0}, {0,10}, {10,10}); // var8 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var9 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var9 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var10 &lt;- curve({0,0}, {0,10}, {10,10}); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
 
 </code></pre></div></div>
 
