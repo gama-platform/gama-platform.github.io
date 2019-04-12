@@ -2842,7 +2842,7 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 #### Facets 
 
   * `data` (any type), (omissible) : any expression, that will be saved in the file
-  * `attributes` (map): Allows to specify the attributes of a shape file where agents are saved. The keys of the map are the names of the attributes that will be present in the file, the values are whatever expressions neeeded to define their value
+  * `attributes` (map): Allows to specify the attributes of a shape file where agents are saved. Must be expressed as a literal map. The keys of the map are the names of the attributes that will be present in the file, the values are whatever expressions neeeded to define their value
   * `crs` (any type): the name of the projection, e.g. crs:"EPSG:4326" or its EPSG id, e.g. crs:4326. Here a list of the CRS codes (and EPSG id): http://spatialreference.org
   * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
   * `rewrite` (boolean): an expression that evaluates to a boolean, specifying whether the save will ecrase the file or append data at the end of it. Default is true
