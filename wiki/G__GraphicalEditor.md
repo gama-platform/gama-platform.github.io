@@ -6,8 +6,7 @@ wikiPagePath: wiki/G__GraphicalEditor.md
 ---
 # The Graphical Editor
 
-
-The graphical editor that allow to build diagram (gadl files) is based on the [Graphiti](http://www.eclipse.org/graphiti/) Eclipse plugin. It allows to define a GAMA model through a graphical interface. It a allows as well to produce a graphical model (diagram) from a gaml model.
+The graphical editor that allows defining a GAMA model through a graphical interface (gadl files). It is based on the Graphiti Eclipse plugin. It allows as well to produce a graphical model (diagram) from a gaml model.
 
 ![images/graphical_editor/gm_predator_prey.png](resources/images/graphicalEditor/gm_predator_prey.png)
 

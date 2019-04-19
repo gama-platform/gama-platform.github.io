@@ -3763,7 +3763,7 @@ The use of feature is also mandatory to define a plug-in that can be uploaded on
       <li>Group id: institution.gama.pluginsName</li>
       <li>Artifact id: institution.gama.pluginsName</li>
       <li>Version: 1.0.0-SNAPSHOT // must have -SNAPSHOT if the plugin version is x.x.x.qualifier</li>
-      <li>Packaging: eclipse-plugin</li>
+      <li>Packaging: eclipse-plugin  // this element is not in the list (jar/pom/war) because of the incompatible of tycho, maven and eclipse, so just type it in although it will be an warning</li>
     </ul>
   </li>
   <li>Finish</li>

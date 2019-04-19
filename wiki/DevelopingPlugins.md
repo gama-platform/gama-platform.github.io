@@ -124,7 +124,7 @@ a/ Add pom.xml for plugin institution.gama.pluginsName :
   * Group id: institution.gama.pluginsName
   * Artifact id: institution.gama.pluginsName
   * Version: 1.0.0-SNAPSHOT // must have -SNAPSHOT if the plugin version is x.x.x.qualifier
-  * Packaging: eclipse-plugin
+  * Packaging: eclipse-plugin  // this element is not in the list (jar/pom/war) because of the incompatible of tycho, maven and eclipse, so just type it in although it will be an warning
 * Finish
 
 b/ Configure pom.xml to recognize the parent pom.xml for Maven builds
