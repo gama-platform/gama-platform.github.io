@@ -342,63 +342,63 @@ Note that due to the fact that actions are written by modelers, the general func
 ### `-`
 
 #### Possible use: 
-  *  **`-`** (`int`) --->  `int`
-  *  **`-`** (`point`) --->  `point`
   *  **`-`** (`float`) --->  `float`
-  * `point` **`-`** `point` --->  `point`
-  *  **`-`** (`point` , `point`) --->  `point`
-  * `geometry` **`-`** `geometry` --->  `geometry`
-  *  **`-`** (`geometry` , `geometry`) --->  `geometry`
-  * `geometry` **`-`** `container<geometry>` --->  `geometry`
-  *  **`-`** (`geometry` , `container<geometry>`) --->  `geometry`
-  * `species` **`-`** `agent` --->  `list`
-  *  **`-`** (`species` , `agent`) --->  `list`
-  * `map` **`-`** `map` --->  `map`
-  *  **`-`** (`map` , `map`) --->  `map`
+  *  **`-`** (`point`) --->  `point`
+  *  **`-`** (`int`) --->  `int`
   * `point` **`-`** `float` --->  `point`
   *  **`-`** (`point` , `float`) --->  `point`
-  * `rgb` **`-`** `rgb` --->  `rgb`
-  *  **`-`** (`rgb` , `rgb`) --->  `rgb`
-  * `container` **`-`** `container` --->  `list`
-  *  **`-`** (`container` , `container`) --->  `list`
-  * `matrix` **`-`** `float` --->  `matrix`
-  *  **`-`** (`matrix` , `float`) --->  `matrix`
-  * `float` **`-`** `int` --->  `float`
-  *  **`-`** (`float` , `int`) --->  `float`
-  * `matrix` **`-`** `int` --->  `matrix`
-  *  **`-`** (`matrix` , `int`) --->  `matrix`
-  * `matrix` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`matrix` , `matrix`) --->  `matrix`
-  * `float` **`-`** `float` --->  `float`
-  *  **`-`** (`float` , `float`) --->  `float`
-  * `int` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`int` , `matrix`) --->  `matrix`
-  * `list` **`-`** `unknown` --->  `list`
-  *  **`-`** (`list` , `unknown`) --->  `list`
-  * `point` **`-`** `int` --->  `point`
-  *  **`-`** (`point` , `int`) --->  `point`
-  * `date` **`-`** `float` --->  `date`
-  *  **`-`** (`date` , `float`) --->  `date`
   * `date` **`-`** `int` --->  `date`
   *  **`-`** (`date` , `int`) --->  `date`
-  * `float` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`float` , `matrix`) --->  `matrix`
-  * `int` **`-`** `float` --->  `float`
-  *  **`-`** (`int` , `float`) --->  `float`
-  * `rgb` **`-`** `int` --->  `rgb`
-  *  **`-`** (`rgb` , `int`) --->  `rgb`
-  * `map` **`-`** `pair` --->  `map`
-  *  **`-`** (`map` , `pair`) --->  `map`
-  * `date` **`-`** `date` --->  `float`
-  *  **`-`** (`date` , `date`) --->  `float`
+  * `float` **`-`** `int` --->  `float`
+  *  **`-`** (`float` , `int`) --->  `float`
+  * `matrix` **`-`** `float` --->  `matrix`
+  *  **`-`** (`matrix` , `float`) --->  `matrix`
+  * `species` **`-`** `agent` --->  `list`
+  *  **`-`** (`species` , `agent`) --->  `list`
+  * `point` **`-`** `int` --->  `point`
+  *  **`-`** (`point` , `int`) --->  `point`
+  * `matrix` **`-`** `int` --->  `matrix`
+  *  **`-`** (`matrix` , `int`) --->  `matrix`
   * `int` **`-`** `int` --->  `int`
   *  **`-`** (`int` , `int`) --->  `int`
+  * `geometry` **`-`** `container<geometry>` --->  `geometry`
+  *  **`-`** (`geometry` , `container<geometry>`) --->  `geometry`
+  * `int` **`-`** `float` --->  `float`
+  *  **`-`** (`int` , `float`) --->  `float`
+  * `date` **`-`** `float` --->  `date`
+  *  **`-`** (`date` , `float`) --->  `date`
+  * `rgb` **`-`** `int` --->  `rgb`
+  *  **`-`** (`rgb` , `int`) --->  `rgb`
+  * `float` **`-`** `float` --->  `float`
+  *  **`-`** (`float` , `float`) --->  `float`
+  * `point` **`-`** `point` --->  `point`
+  *  **`-`** (`point` , `point`) --->  `point`
+  * `int` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`int` , `matrix`) --->  `matrix`
+  * `map` **`-`** `map` --->  `map`
+  *  **`-`** (`map` , `map`) --->  `map`
   * `geometry` **`-`** `float` --->  `geometry`
-  *  **`-`** (`geometry` , `float`) --->  `geometry` 
+  *  **`-`** (`geometry` , `float`) --->  `geometry`
+  * `geometry` **`-`** `geometry` --->  `geometry`
+  *  **`-`** (`geometry` , `geometry`) --->  `geometry`
+  * `rgb` **`-`** `rgb` --->  `rgb`
+  *  **`-`** (`rgb` , `rgb`) --->  `rgb`
+  * `date` **`-`** `date` --->  `float`
+  *  **`-`** (`date` , `date`) --->  `float`
+  * `float` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`float` , `matrix`) --->  `matrix`
+  * `container` **`-`** `container` --->  `list`
+  *  **`-`** (`container` , `container`) --->  `list`
+  * `matrix` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`matrix` , `matrix`) --->  `matrix`
+  * `map` **`-`** `pair` --->  `map`
+  *  **`-`** (`map` , `pair`) --->  `map`
+  * `list` **`-`** `unknown` --->  `list`
+  *  **`-`** (`list` , `unknown`) --->  `list` 
 
 #### Result: 
-If it is used as an unary operator, it returns the opposite of the operand.
-Returns the difference of the two operands.  
+Returns the difference of the two operands.
+If it is used as an unary operator, it returns the opposite of the operand.  
 
 #### Comment: 
 The behavior of the operator depends on the type of the operands.
@@ -406,70 +406,12 @@ The behavior of the operator depends on the type of the operands.
 #### Special cases:     
   * if the left operand is a species and the right operand is an agent of the species, - returns a list containing all the agents of the species minus this agent    
   * if both operands are containers and the right operand is empty, - returns the left operand    
-  * if both operands are points, returns their difference (coordinates per coordinates). 
-  
-```
- 
-point var10 <- {1, 2} - {4, 5}; // var10 equals {-3.0, -3.0}
-``` 
-
-    
-  * if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries 
-  
-```
- 
-geometry var11 <- geom1 - geom2; // var11 equals a geometry corresponding to difference between geom1 and geom2
-``` 
-
-    
-  * if the right-operand is a list of points, geometries or agents, returns the geometry resulting from the difference between the left-geometry and all of the right-geometries 
-  
-```
- 
-geometry var12 <- rectangle(10,10) - [circle(2), square(2)]; // var12 equals rectangle(10,10) - (circle(2) + square(2))
-``` 
-
-    
   * if left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the difference of the operand coordinate with this number. 
   
 ```
  
-point var13 <- {1, 2} - 4.5; // var13 equals {-3.5, -2.5, -4.5} 
-point var14 <- {1, 2} - 4; // var14 equals {-3.0,-2.0,-4.0}
-``` 
-
-    
-  * if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component 
-  
-```
- 
-rgb var15 <- rgb([255, 128, 32]) - rgb('red'); // var15 equals rgb([0,128,32])
-``` 
-
-    
-  * if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one 
-  
-```
- 
-list<int> var16 <- [1,2,3,4,5,6] - [2,4,9]; // var16 equals [1,3,5,6] 
-list<int> var17 <- [1,2,3,4,5,6] - [0,8]; // var17 equals [1,2,3,4,5,6]
-``` 
-
-    
-  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float. 
-  
-```
- 
-matrix var18 <- 3.5 - matrix([[2,5],[3,4]]); // var18 equals matrix([[1.5,-1.5],[0.5,-0.5]])
-``` 
-
-    
-  * if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object 
-  
-```
- 
-list<int> var19 <- [1,2,3,4,5,6] - 2; // var19 equals [1,3,4,5,6] 
-list<int> var20 <- [1,2,3,4,5,6] - 0; // var20 equals [1,2,3,4,5,6]
+point var0 <- {1, 2} - 4.5; // var0 equals {-3.5, -2.5, -4.5} 
+point var1 <- {1, 2} - 4; // var1 equals {-3.0,-2.0,-4.0}
 ``` 
 
     
@@ -477,23 +419,7 @@ list<int> var20 <- [1,2,3,4,5,6] - 0; // var20 equals [1,2,3,4,5,6]
   
 ```
  
-date var21 <- date('2000-01-01') - 86400; // var21 equals date('1999-12-31')
-``` 
-
-    
-  * if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand 
-  
-```
- 
-rgb var22 <- rgb([255, 128, 32]) - 3; // var22 equals rgb([252,125,29])
-``` 
-
-    
-  * if both operands are dates, returns the duration in seconds between date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2) 
-  
-```
- 
-float var23 <- date('2000-01-02') - date('2000-01-01'); // var23 equals 86400
+date var2 <- date('2000-01-01') - 86400; // var2 equals date('1999-12-31')
 ``` 
 
     
@@ -501,7 +427,39 @@ float var23 <- date('2000-01-02') - date('2000-01-01'); // var23 equals 86400
   
 ```
  
-int var24 <- 1 - 1; // var24 equals 0
+int var3 <- 1 - 1; // var3 equals 0
+``` 
+
+    
+  * if the right-operand is a list of points, geometries or agents, returns the geometry resulting from the difference between the left-geometry and all of the right-geometries 
+  
+```
+ 
+geometry var4 <- rectangle(10,10) - [circle(2), square(2)]; // var4 equals rectangle(10,10) - (circle(2) + square(2))
+``` 
+
+    
+  * if one operand is a color and the other an integer, returns a new color resulting from the subtraction of each component of the color with the right operand 
+  
+```
+ 
+rgb var5 <- rgb([255, 128, 32]) - 3; // var5 equals rgb([252,125,29])
+``` 
+
+    
+  * if both operands are points, returns their difference (coordinates per coordinates). 
+  
+```
+ 
+point var6 <- {1, 2} - {4, 5}; // var6 equals {-3.0, -3.0}
+``` 
+
+    
+  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float. 
+  
+```
+ 
+matrix var7 <- 3.5 - matrix([[2,5],[3,4]]); // var7 equals matrix([[1.5,-1.5],[0.5,-0.5]])
 ``` 
 
     
@@ -509,7 +467,49 @@ int var24 <- 1 - 1; // var24 equals 0
   
 ```
  
-geometry var25 <- shape - 5; // var25 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+geometry var8 <- shape - 5; // var8 equals a geometry corresponding to the geometry of the agent applying the operator reduced by a distance of 5
+``` 
+
+    
+  * if both operands are a point, a geometry or an agent, returns the geometry resulting from the difference between both geometries 
+  
+```
+ 
+geometry var9 <- geom1 - geom2; // var9 equals a geometry corresponding to difference between geom1 and geom2
+``` 
+
+    
+  * if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component 
+  
+```
+ 
+rgb var10 <- rgb([255, 128, 32]) - rgb('red'); // var10 equals rgb([0,128,32])
+``` 
+
+    
+  * if both operands are dates, returns the duration in seconds between date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2) 
+  
+```
+ 
+float var11 <- date('2000-01-02') - date('2000-01-01'); // var11 equals 86400
+``` 
+
+    
+  * if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one 
+  
+```
+ 
+list<int> var12 <- [1,2,3,4,5,6] - [2,4,9]; // var12 equals [1,3,5,6] 
+list<int> var13 <- [1,2,3,4,5,6] - [0,8]; // var13 equals [1,2,3,4,5,6]
+``` 
+
+    
+  * if the left operand is a list and the right operand is an object of any type (except list), - returns a list containing the elements of the left operand minus all the occurrences of this object 
+  
+```
+ 
+list<int> var14 <- [1,2,3,4,5,6] - 2; // var14 equals [1,3,4,5,6] 
+list<int> var15 <- [1,2,3,4,5,6] - 0; // var15 equals [1,2,3,4,5,6]
 ``` 
 
 
@@ -517,16 +517,16 @@ geometry var25 <- shape - 5; // var25 equals a geometry corresponding to the geo
 #### Examples: 
 ```
  
-int var0 <- - (-56); // var0 equals 56 
-point var1 <- -{3.0,5.0}; // var1 equals {-3.0,-5.0} 
-point var2 <- -{1.0,6.0,7.0}; // var2 equals {-1.0,-6.0,-7.0} 
-map var3 <- ['a'::1,'b'::2] - ['b'::2]; // var3 equals ['a'::1] 
-map var4 <- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var4 equals ['a'::1] 
-float var5 <- 1.0 - 1; // var5 equals 0.0 
-float var6 <- 3.7 - 1.2; // var6 equals 2.5 
-float var7 <- 3 - 1.2; // var7 equals 1.8 
-map var8 <- ['a'::1,'b'::2] - ('b'::2); // var8 equals ['a'::1] 
-map var9 <- ['a'::1,'b'::2] - ('c'::3); // var9 equals ['a'::1,'b'::2]
+float var16 <- 1.0 - 1; // var16 equals 0.0 
+float var17 <- 3.7 - 1.2; // var17 equals 2.5 
+float var18 <- 3 - 1.2; // var18 equals 1.8 
+map var19 <- ['a'::1,'b'::2] - ['b'::2]; // var19 equals ['a'::1] 
+map var20 <- ['a'::1,'b'::2] - ['b'::2,'c'::3]; // var20 equals ['a'::1] 
+map var21 <- ['a'::1,'b'::2] - ('b'::2); // var21 equals ['a'::1] 
+map var22 <- ['a'::1,'b'::2] - ('c'::3); // var22 equals ['a'::1,'b'::2] 
+point var23 <- -{3.0,5.0}; // var23 equals {-3.0,-5.0} 
+point var24 <- -{1.0,6.0,7.0}; // var24 equals {-1.0,-6.0,-7.0} 
+int var25 <- - (-56); // var25 equals 56
 
 ```
       
@@ -534,7 +534,7 @@ map var9 <- ['a'::1,'b'::2] - ('c'::3); // var9 equals ['a'::1,'b'::2]
 
 #### See also: 
 
-[-](OperatorsAA#-), [+](OperatorsAA#+), [milliseconds_between](OperatorsIM#milliseconds_between), [*](OperatorsAA#*), [/](OperatorsAA#/), 
+[+](OperatorsAA#+), [*](OperatorsAA#*), [/](OperatorsAA#/), [-](OperatorsAA#-), [milliseconds_between](OperatorsIM#milliseconds_between), 
     	
 ----
 
@@ -598,16 +598,16 @@ bool var0 <- ! (true); // var0 equals false
 ### `!=`
 
 #### Possible use: 
-  * `date` **`!=`** `date` --->  `bool`
-  *  **`!=`** (`date` , `date`) --->  `bool`
   * `int` **`!=`** `float` --->  `bool`
   *  **`!=`** (`int` , `float`) --->  `bool`
   * `float` **`!=`** `float` --->  `bool`
   *  **`!=`** (`float` , `float`) --->  `bool`
-  * `unknown` **`!=`** `unknown` --->  `bool`
-  *  **`!=`** (`unknown` , `unknown`) --->  `bool`
+  * `date` **`!=`** `date` --->  `bool`
+  *  **`!=`** (`date` , `date`) --->  `bool`
   * `float` **`!=`** `int` --->  `bool`
-  *  **`!=`** (`float` , `int`) --->  `bool` 
+  *  **`!=`** (`float` , `int`) --->  `bool`
+  * `unknown` **`!=`** `unknown` --->  `bool`
+  *  **`!=`** (`unknown` , `unknown`) --->  `bool` 
 
 #### Result: 
 true if both operands are different, false otherwise
@@ -615,15 +615,15 @@ true if both operands are different, false otherwise
 #### Examples: 
 ```
  
-bool var0 <- #now != #now minus_hours 1; // var0 equals true 
-bool var1 <- 3 != 3.0; // var1 equals false 
-bool var2 <- 4 != 4.7; // var2 equals true 
-bool var3 <- 3.0 != 3.0; // var3 equals false 
-bool var4 <- 4.0 != 4.7; // var4 equals true 
-bool var5 <- [2,3] != [2,3]; // var5 equals false 
-bool var6 <- [2,4] != [2,3]; // var6 equals true 
-bool var7 <- 3.0 != 3; // var7 equals false 
-bool var8 <- 4.7 != 4; // var8 equals true
+bool var0 <- 3 != 3.0; // var0 equals false 
+bool var1 <- 4 != 4.7; // var1 equals true 
+bool var2 <- 3.0 != 3.0; // var2 equals false 
+bool var3 <- 4.0 != 4.7; // var3 equals true 
+bool var4 <- #now != #now minus_hours 1; // var4 equals true 
+bool var5 <- 3.0 != 3; // var5 equals false 
+bool var6 <- 4.7 != 4; // var6 equals true 
+bool var7 <- [2,3] != [2,3]; // var7 equals false 
+bool var8 <- [2,4] != [2,3]; // var8 equals true
 
 ```
       
@@ -667,48 +667,47 @@ list<string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'b
 ### `/`
 
 #### Possible use: 
-  * `matrix` **`/`** `float` --->  `matrix`
-  *  **`/`** (`matrix` , `float`) --->  `matrix`
   * `float` **`/`** `float` --->  `float`
   *  **`/`** (`float` , `float`) --->  `float`
-  * `rgb` **`/`** `float` --->  `rgb`
-  *  **`/`** (`rgb` , `float`) --->  `rgb`
-  * `int` **`/`** `float` --->  `float`
-  *  **`/`** (`int` , `float`) --->  `float`
-  * `float` **`/`** `int` --->  `float`
-  *  **`/`** (`float` , `int`) --->  `float`
-  * `matrix` **`/`** `int` --->  `matrix`
-  *  **`/`** (`matrix` , `int`) --->  `matrix`
-  * `point` **`/`** `float` --->  `point`
-  *  **`/`** (`point` , `float`) --->  `point`
-  * `int` **`/`** `int` --->  `float`
-  *  **`/`** (`int` , `int`) --->  `float`
-  * `matrix` **`/`** `matrix` --->  `matrix`
-  *  **`/`** (`matrix` , `matrix`) --->  `matrix`
   * `rgb` **`/`** `int` --->  `rgb`
   *  **`/`** (`rgb` , `int`) --->  `rgb`
+  * `matrix` **`/`** `matrix` --->  `matrix`
+  *  **`/`** (`matrix` , `matrix`) --->  `matrix`
+  * `rgb` **`/`** `float` --->  `rgb`
+  *  **`/`** (`rgb` , `float`) --->  `rgb`
+  * `matrix` **`/`** `int` --->  `matrix`
+  *  **`/`** (`matrix` , `int`) --->  `matrix`
+  * `matrix` **`/`** `float` --->  `matrix`
+  *  **`/`** (`matrix` , `float`) --->  `matrix`
+  * `int` **`/`** `float` --->  `float`
+  *  **`/`** (`int` , `float`) --->  `float`
   * `point` **`/`** `int` --->  `point`
-  *  **`/`** (`point` , `int`) --->  `point` 
+  *  **`/`** (`point` , `int`) --->  `point`
+  * `int` **`/`** `int` --->  `float`
+  *  **`/`** (`int` , `int`) --->  `float`
+  * `point` **`/`** `float` --->  `point`
+  *  **`/`** (`point` , `float`) --->  `point`
+  * `float` **`/`** `int` --->  `float`
+  *  **`/`** (`float` , `int`) --->  `float` 
 
 #### Result: 
 Returns the division of the two operands.
 
 #### Special cases:     
   * if the right-hand operand is equal to zero, raises a "Division by zero" exception    
+  * if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand 
+  
+```
+ 
+rgb var0 <- rgb([255, 128, 32]) / 2; // var0 equals rgb([127,64,16])
+``` 
+
+    
   * if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated. 
   
 ```
  
-rgb var0 <- rgb([255, 128, 32]) / 2.5; // var0 equals rgb([102,51,13])
-``` 
-
-    
-  * if the left operand is a point, returns a new point with coordinates divided by the right operand 
-  
-```
- 
-point var1 <- {5, 7.5} / 2.5; // var1 equals {2, 3} 
-point var2 <- {2,5} / 4; // var2 equals {0.5,1.25}
+rgb var1 <- rgb([255, 128, 32]) / 2.5; // var1 equals rgb([102,51,13])
 ``` 
 
     
@@ -716,15 +715,16 @@ point var2 <- {2,5} / 4; // var2 equals {0.5,1.25}
   
 ```
  
-float var3 <- 3 / 5.0; // var3 equals 0.6
+float var2 <- 3 / 5.0; // var2 equals 0.6
 ``` 
 
     
-  * if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand 
+  * if the left operand is a point, returns a new point with coordinates divided by the right operand 
   
 ```
  
-rgb var4 <- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
+point var3 <- {5, 7.5} / 2.5; // var3 equals {2, 3} 
+point var4 <- {2,5} / 4; // var4 equals {0.5,1.25}
 ``` 
 
     
@@ -740,29 +740,29 @@ rgb var4 <- rgb([255, 128, 32]) / 2; // var4 equals rgb([127,64,16])
 ### `.`
 
 #### Possible use: 
-  * `matrix` **`.`** `matrix` --->  `matrix`
-  *  **`.`** (`matrix` , `matrix`) --->  `matrix`
   * `agent` **`.`** `any expression` --->  `unknown`
-  *  **`.`** (`agent` , `any expression`) --->  `unknown` 
+  *  **`.`** (`agent` , `any expression`) --->  `unknown`
+  * `matrix` **`.`** `matrix` --->  `matrix`
+  *  **`.`** (`matrix` , `matrix`) --->  `matrix` 
 
 #### Result: 
 It has two different uses: it can be the dot product between 2 matrices or return an evaluation of the expression (right-hand operand) in the scope the given agent.
 
 #### Special cases:     
   * if the agent is nil or dead, throws an exception    
-  * if both operands are matrix, returns the dot product of them 
-  
-```
- 
-matrix var0 <- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var0 equals matrix([[2,3],[3,5]])
-``` 
-
-    
   * if the left operand is an agent, it evaluates of the expression (right-hand operand) in the scope the given agent 
   
 ```
  
-unknown var1 <- agent1.location; // var1 equals the location of the agent agent1
+unknown var0 <- agent1.location; // var0 equals the location of the agent agent1
+``` 
+
+    
+  * if both operands are matrix, returns the dot product of them 
+  
+```
+ 
+matrix var1 <- matrix([[1,1],[1,2]]) . matrix([[1,1],[1,2]]); // var1 equals matrix([[2,3],[3,5]])
 ``` 
 
 
@@ -775,10 +775,10 @@ unknown var1 <- agent1.location; // var1 equals the location of the agent agent1
 #### Possible use: 
   * `int` **`^`** `int` --->  `float`
   *  **`^`** (`int` , `int`) --->  `float`
-  * `float` **`^`** `int` --->  `float`
-  *  **`^`** (`float` , `int`) --->  `float`
   * `int` **`^`** `float` --->  `float`
   *  **`^`** (`int` , `float`) --->  `float`
+  * `float` **`^`** `int` --->  `float`
+  *  **`^`** (`float` , `int`) --->  `float`
   * `float` **`^`** `float` --->  `float`
   *  **`^`** (`float` , `float`) --->  `float` 
 
@@ -822,48 +822,63 @@ float var1 <- 4.84 ^ 0.5; // var1 equals 2.2
 ### `*`
 
 #### Possible use: 
-  * `float` **`*`** `int` --->  `float`
-  *  **`*`** (`float` , `int`) --->  `float`
-  * `geometry` **`*`** `float` --->  `geometry`
-  *  **`*`** (`geometry` , `float`) --->  `geometry`
-  * `int` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`int` , `matrix`) --->  `matrix`
-  * `point` **`*`** `point` --->  `float`
-  *  **`*`** (`point` , `point`) --->  `float`
-  * `int` **`*`** `float` --->  `float`
-  *  **`*`** (`int` , `float`) --->  `float`
-  * `matrix` **`*`** `int` --->  `matrix`
-  *  **`*`** (`matrix` , `int`) --->  `matrix`
-  * `geometry` **`*`** `point` --->  `geometry`
-  *  **`*`** (`geometry` , `point`) --->  `geometry`
-  * `matrix` **`*`** `float` --->  `matrix`
-  *  **`*`** (`matrix` , `float`) --->  `matrix`
   * `point` **`*`** `int` --->  `point`
   *  **`*`** (`point` , `int`) --->  `point`
-  * `float` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`float` , `matrix`) --->  `matrix`
-  * `int` **`*`** `int` --->  `int`
-  *  **`*`** (`int` , `int`) --->  `int`
+  * `point` **`*`** `point` --->  `float`
+  *  **`*`** (`point` , `point`) --->  `float`
+  * `geometry` **`*`** `point` --->  `geometry`
+  *  **`*`** (`geometry` , `point`) --->  `geometry`
   * `point` **`*`** `float` --->  `point`
   *  **`*`** (`point` , `float`) --->  `point`
-  * `float` **`*`** `float` --->  `float`
-  *  **`*`** (`float` , `float`) --->  `float`
+  * `float` **`*`** `int` --->  `float`
+  *  **`*`** (`float` , `int`) --->  `float`
+  * `float` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`float` , `matrix`) --->  `matrix`
+  * `int` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`int` , `matrix`) --->  `matrix`
+  * `matrix` **`*`** `float` --->  `matrix`
+  *  **`*`** (`matrix` , `float`) --->  `matrix`
+  * `int` **`*`** `int` --->  `int`
+  *  **`*`** (`int` , `int`) --->  `int`
   * `matrix` **`*`** `matrix` --->  `matrix`
   *  **`*`** (`matrix` , `matrix`) --->  `matrix`
+  * `geometry` **`*`** `float` --->  `geometry`
+  *  **`*`** (`geometry` , `float`) --->  `geometry`
+  * `matrix` **`*`** `int` --->  `matrix`
+  *  **`*`** (`matrix` , `int`) --->  `matrix`
   * `rgb` **`*`** `int` --->  `rgb`
-  *  **`*`** (`rgb` , `int`) --->  `rgb` 
+  *  **`*`** (`rgb` , `int`) --->  `rgb`
+  * `float` **`*`** `float` --->  `float`
+  *  **`*`** (`float` , `float`) --->  `float`
+  * `int` **`*`** `float` --->  `float`
+  *  **`*`** (`int` , `float`) --->  `float` 
 
 #### Result: 
 Returns the product of the two operands.
 
 #### Special cases:     
-  * if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient 
+  * if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number 
   
 ```
  
-geometry var1 <- circle(10) * 2; // var1 equals circle(20) 
-geometry var2 <- (circle(10) * 2).location with_precision 9; // var2 equals (circle(20)).location with_precision 9 
-float var3 <- (circle(10) * 2).height with_precision 9; // var3 equals (circle(20)).height with_precision 9
+point var1 <- {2,5} * 4; // var1 equals {8.0, 20.0} 
+point var2 <- {2, 4} * 2.5; // var2 equals {5.0, 10.0}
+``` 
+
+    
+  * if both operands are points, returns their scalar product 
+  
+```
+ 
+float var3 <- {2,5} * {4.5, 5}; // var3 equals 34.0
+``` 
+
+    
+  * if the left-hand operand is a geometry and the right-hand operand a point, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficients in the 3 dimensions 
+  
+```
+ 
+geometry var4 <- shape * {0.5,0.5,2}; // var4 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
 ``` 
 
     
@@ -874,36 +889,21 @@ matrix<float> m <- (3.5 * matrix([[2,5],[3,4]]));	//m equals matrix([[7.0,17.5],
 ``` 
 
     
-  * if both operands are points, returns their scalar product 
-  
-```
- 
-float var5 <- {2,5} * {4.5, 5}; // var5 equals 34.0
-``` 
-
-    
-  * if the left-hand operand is a geometry and the right-hand operand a point, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficients in the 3 dimensions 
-  
-```
- 
-geometry var6 <- shape * {0.5,0.5,2}; // var6 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z
-``` 
-
-    
-  * if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number 
-  
-```
- 
-point var7 <- {2,5} * 4; // var7 equals {8.0, 20.0} 
-point var8 <- {2, 4} * 2.5; // var8 equals {5.0, 10.0}
-``` 
-
-    
   * if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float. 
   
 ```
  
-int var9 <- 1 * 1; // var9 equals 1
+int var6 <- 1 * 1; // var6 equals 1
+``` 
+
+    
+  * if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficient 
+  
+```
+ 
+geometry var7 <- circle(10) * 2; // var7 equals circle(20) 
+geometry var8 <- (circle(10) * 2).location with_precision 9; // var8 equals (circle(20)).location with_precision 9 
+float var9 <- (circle(10) * 2).height with_precision 9; // var9 equals (circle(20)).height with_precision 9
 ``` 
 
     
@@ -935,56 +935,56 @@ float var0 <- 2.5 * 2; // var0 equals 5.0
 ### `+`
 
 #### Possible use: 
-  * `geometry` **`+`** `geometry` --->  `geometry`
-  *  **`+`** (`geometry` , `geometry`) --->  `geometry`
   * `map` **`+`** `map` --->  `map`
   *  **`+`** (`map` , `map`) --->  `map`
-  * `string` **`+`** `string` --->  `string`
-  *  **`+`** (`string` , `string`) --->  `string`
-  * `rgb` **`+`** `int` --->  `rgb`
-  *  **`+`** (`rgb` , `int`) --->  `rgb`
-  * `point` **`+`** `point` --->  `point`
-  *  **`+`** (`point` , `point`) --->  `point`
-  * `container` **`+`** `container` --->  `container`
-  *  **`+`** (`container` , `container`) --->  `container`
-  * `float` **`+`** `float` --->  `float`
-  *  **`+`** (`float` , `float`) --->  `float`
-  * `point` **`+`** `int` --->  `point`
-  *  **`+`** (`point` , `int`) --->  `point`
-  * `float` **`+`** `int` --->  `float`
-  *  **`+`** (`float` , `int`) --->  `float`
-  * `container` **`+`** `unknown` --->  `list`
-  *  **`+`** (`container` , `unknown`) --->  `list`
-  * `int` **`+`** `matrix` --->  `matrix`
-  *  **`+`** (`int` , `matrix`) --->  `matrix`
-  * `int` **`+`** `float` --->  `float`
-  *  **`+`** (`int` , `float`) --->  `float`
-  * `date` **`+`** `float` --->  `date`
-  *  **`+`** (`date` , `float`) --->  `date`
-  * `rgb` **`+`** `rgb` --->  `rgb`
-  *  **`+`** (`rgb` , `rgb`) --->  `rgb`
-  * `date` **`+`** `string` --->  `string`
-  *  **`+`** (`date` , `string`) --->  `string`
-  * `date` **`+`** `int` --->  `date`
-  *  **`+`** (`date` , `int`) --->  `date`
+  * `matrix` **`+`** `int` --->  `matrix`
+  *  **`+`** (`matrix` , `int`) --->  `matrix`
   * `string` **`+`** `unknown` --->  `string`
   *  **`+`** (`string` , `unknown`) --->  `string`
-  * `matrix` **`+`** `matrix` --->  `matrix`
-  *  **`+`** (`matrix` , `matrix`) --->  `matrix`
-  * `int` **`+`** `int` --->  `int`
-  *  **`+`** (`int` , `int`) --->  `int`
-  * `geometry` **`+`** `float` --->  `geometry`
-  *  **`+`** (`geometry` , `float`) --->  `geometry`
+  * `container` **`+`** `unknown` --->  `list`
+  *  **`+`** (`container` , `unknown`) --->  `list`
+  * `date` **`+`** `int` --->  `date`
+  *  **`+`** (`date` , `int`) --->  `date`
+  * `int` **`+`** `float` --->  `float`
+  *  **`+`** (`int` , `float`) --->  `float`
+  * `point` **`+`** `int` --->  `point`
+  *  **`+`** (`point` , `int`) --->  `point`
+  * `date` **`+`** `string` --->  `string`
+  *  **`+`** (`date` , `string`) --->  `string`
+  * `rgb` **`+`** `rgb` --->  `rgb`
+  *  **`+`** (`rgb` , `rgb`) --->  `rgb`
   * `matrix` **`+`** `float` --->  `matrix`
   *  **`+`** (`matrix` , `float`) --->  `matrix`
+  * `float` **`+`** `int` --->  `float`
+  *  **`+`** (`float` , `int`) --->  `float`
+  * `int` **`+`** `int` --->  `int`
+  *  **`+`** (`int` , `int`) --->  `int`
+  * `matrix` **`+`** `matrix` --->  `matrix`
+  *  **`+`** (`matrix` , `matrix`) --->  `matrix`
+  * `date` **`+`** `float` --->  `date`
+  *  **`+`** (`date` , `float`) --->  `date`
+  * `int` **`+`** `matrix` --->  `matrix`
+  *  **`+`** (`int` , `matrix`) --->  `matrix`
+  * `string` **`+`** `string` --->  `string`
+  *  **`+`** (`string` , `string`) --->  `string`
+  * `float` **`+`** `float` --->  `float`
+  *  **`+`** (`float` , `float`) --->  `float`
+  * `point` **`+`** `point` --->  `point`
+  *  **`+`** (`point` , `point`) --->  `point`
+  * `map` **`+`** `pair` --->  `map`
+  *  **`+`** (`map` , `pair`) --->  `map`
+  * `geometry` **`+`** `geometry` --->  `geometry`
+  *  **`+`** (`geometry` , `geometry`) --->  `geometry`
+  * `container` **`+`** `container` --->  `container`
+  *  **`+`** (`container` , `container`) --->  `container`
+  * `geometry` **`+`** `float` --->  `geometry`
+  *  **`+`** (`geometry` , `float`) --->  `geometry`
+  * `rgb` **`+`** `int` --->  `rgb`
+  *  **`+`** (`rgb` , `int`) --->  `rgb`
   * `point` **`+`** `float` --->  `point`
   *  **`+`** (`point` , `float`) --->  `point`
   * `float` **`+`** `matrix` --->  `matrix`
   *  **`+`** (`float` , `matrix`) --->  `matrix`
-  * `map` **`+`** `pair` --->  `map`
-  *  **`+`** (`map` , `pair`) --->  `map`
-  * `matrix` **`+`** `int` --->  `matrix`
-  *  **`+`** (`matrix` , `int`) --->  `matrix`
   *  **`+`** (`geometry`, `float`, `int`) --->  `geometry`
   *  **`+`** (`geometry`, `float`, `int`, `int`) --->  `geometry` 
 
@@ -994,77 +994,11 @@ Returns the sum, union or concatenation of the two operands.
 #### Special cases:     
   * if one of the operands is nil, + throws an error    
   * if both operands are species, returns a special type of list called meta-population    
-  * if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries 
-  
-```
- 
-geometry var0 <- geom1 + geom2; // var0 equals a geometry corresponding to union between geom1 and geom2
-``` 
-
-    
-  * if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand 
-  
-```
- 
-rgb var1 <- rgb([255, 128, 32]) + 3; // var1 equals rgb([255,131,35])
-``` 
-
-    
-  * if both operands are points, returns their sum. 
-  
-```
- 
-point var2 <- {1, 2} + {4, 5}; // var2 equals {5.0, 7.0}
-``` 
-
-    
-  * if both operands are list, +returns the concatenation of both lists. 
-  
-```
- 
-list<int> var3 <- [1,2,3,4,5,6] + [2,4,9]; // var3 equals [1,2,3,4,5,6,2,4,9] 
-list<int> var4 <- [1,2,3,4,5,6] + [0,8]; // var4 equals [1,2,3,4,5,6,0,8]
-``` 
-
-    
-  * if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added 
-  
-```
- 
-list<int> var5 <- [1,2,3,4,5,6] + 2; // var5 equals [1,2,3,4,5,6,2] 
-list<int> var6 <- [1,2,3,4,5,6] + 0; // var6 equals [1,2,3,4,5,6,0]
-``` 
-
-    
-  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float. 
-  
-```
- 
-matrix var7 <- 3.5 + matrix([[2,5],[3,4]]); // var7 equals matrix([[5.5,8.5],[6.5,7.5]])
-``` 
-
-    
-  * if both operands are colors, returns a new color resulting from the sum of the two operands, component by component 
-  
-```
- 
-rgb var8 <- rgb([255, 128, 32]) + rgb('red'); // var8 equals rgb([255,128,32])
-``` 
-
-    
-  * if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds) 
-  
-```
- 
-date var9 <- date('2000-01-01') + 86400; // var9 equals date('2000-01-02')
-``` 
-
-    
   * if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand 
   
 ```
  
-geometry var10 <- circle(5) + (5,32); // var10 equals circle(10)
+geometry var6 <- circle(5) + (5,32); // var6 equals circle(10)
 ``` 
 
     
@@ -1072,15 +1006,32 @@ geometry var10 <- circle(5) + (5,32); // var10 equals circle(10)
   
 ```
  
-string var11 <- "hello " + 12; // var11 equals "hello 12"
+string var7 <- "hello " + 12; // var7 equals "hello 12"
 ``` 
 
     
-  * if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style 
+  * if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added 
   
 ```
  
-geometry var12 <- circle(5) + (5,32,#round); // var12 equals circle(10)
+list<int> var8 <- [1,2,3,4,5,6] + 2; // var8 equals [1,2,3,4,5,6,2] 
+list<int> var9 <- [1,2,3,4,5,6] + 0; // var9 equals [1,2,3,4,5,6,0]
+``` 
+
+    
+  * if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds) 
+  
+```
+ 
+date var10 <- date('2000-01-01') + 86400; // var10 equals date('2000-01-02')
+``` 
+
+    
+  * if both operands are colors, returns a new color resulting from the sum of the two operands, component by component 
+  
+```
+ 
+rgb var11 <- rgb([255, 128, 32]) + rgb('red'); // var11 equals rgb([255,128,32])
 ``` 
 
     
@@ -1088,7 +1039,48 @@ geometry var12 <- circle(5) + (5,32,#round); // var12 equals circle(10)
   
 ```
  
-int var13 <- 1 + 1; // var13 equals 2
+int var12 <- 1 + 1; // var12 equals 2
+``` 
+
+    
+  * if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float. 
+  
+```
+ 
+matrix var13 <- 3.5 + matrix([[2,5],[3,4]]); // var13 equals matrix([[5.5,8.5],[6.5,7.5]])
+``` 
+
+    
+  * if both operands are points, returns their sum. 
+  
+```
+ 
+point var14 <- {1, 2} + {4, 5}; // var14 equals {5.0, 7.0}
+``` 
+
+    
+  * if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries 
+  
+```
+ 
+geometry var15 <- geom1 + geom2; // var15 equals a geometry corresponding to union between geom1 and geom2
+``` 
+
+    
+  * if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style 
+  
+```
+ 
+geometry var16 <- circle(5) + (5,32,#round); // var16 equals circle(10)
+``` 
+
+    
+  * if both operands are list, +returns the concatenation of both lists. 
+  
+```
+ 
+list<int> var17 <- [1,2,3,4,5,6] + [2,4,9]; // var17 equals [1,2,3,4,5,6,2,4,9] 
+list<int> var18 <- [1,2,3,4,5,6] + [0,8]; // var18 equals [1,2,3,4,5,6,0,8]
 ``` 
 
     
@@ -1096,7 +1088,15 @@ int var13 <- 1 + 1; // var13 equals 2
   
 ```
  
-geometry var14 <- circle(5) + 5; // var14 equals circle(10)
+geometry var19 <- circle(5) + 5; // var19 equals circle(10)
+``` 
+
+    
+  * if one operand is a color and the other an integer, returns a new color resulting from the sum of each component of the color with the right operand 
+  
+```
+ 
+rgb var20 <- rgb([255, 128, 32]) + 3; // var20 equals rgb([255,131,35])
 ``` 
 
     
@@ -1104,8 +1104,8 @@ geometry var14 <- circle(5) + 5; // var14 equals circle(10)
   
 ```
  
-point var15 <- {1, 2} + 4; // var15 equals {5.0, 6.0,4.0} 
-point var16 <- {1, 2} + 4.5; // var16 equals {5.5, 6.5,4.5}
+point var21 <- {1, 2} + 4; // var21 equals {5.0, 6.0,4.0} 
+point var22 <- {1, 2} + 4.5; // var22 equals {5.5, 6.5,4.5}
 ``` 
 
 
@@ -1113,12 +1113,12 @@ point var16 <- {1, 2} + 4.5; // var16 equals {5.5, 6.5,4.5}
 #### Examples: 
 ```
  
-map var17 <- ['a'::1,'b'::2] + ['c'::3]; // var17 equals ['a'::1,'b'::2,'c'::3] 
-map var18 <- ['a'::1,'b'::2] + [5::3.0]; // var18 equals ['a'::1,'b'::2,5::3.0] 
-float var19 <- 1.0 + 1; // var19 equals 2.0 
-float var20 <- 1.0 + 2.5; // var20 equals 3.5 
-map var21 <- ['a'::1,'b'::2] + ('c'::3); // var21 equals ['a'::1,'b'::2,'c'::3] 
-map var22 <- ['a'::1,'b'::2] + ('c'::3); // var22 equals ['a'::1,'b'::2,'c'::3]
+map var0 <- ['a'::1,'b'::2] + ['c'::3]; // var0 equals ['a'::1,'b'::2,'c'::3] 
+map var1 <- ['a'::1,'b'::2] + [5::3.0]; // var1 equals ['a'::1,'b'::2,5::3.0] 
+float var2 <- 1.0 + 1; // var2 equals 2.0 
+float var3 <- 1.0 + 2.5; // var3 equals 3.5 
+map var4 <- ['a'::1,'b'::2] + ('c'::3); // var4 equals ['a'::1,'b'::2,'c'::3] 
+map var5 <- ['a'::1,'b'::2] + ('c'::3); // var5 equals ['a'::1,'b'::2,'c'::3]
 
 ```
       
@@ -1134,40 +1134,40 @@ map var22 <- ['a'::1,'b'::2] + ('c'::3); // var22 equals ['a'::1,'b'::2,'c'::3]
 ### `<`
 
 #### Possible use: 
-  * `string` **`<`** `string` --->  `bool`
-  *  **`<`** (`string` , `string`) --->  `bool`
-  * `float` **`<`** `float` --->  `bool`
-  *  **`<`** (`float` , `float`) --->  `bool`
   * `date` **`<`** `date` --->  `bool`
   *  **`<`** (`date` , `date`) --->  `bool`
-  * `float` **`<`** `int` --->  `bool`
-  *  **`<`** (`float` , `int`) --->  `bool`
-  * `int` **`<`** `int` --->  `bool`
-  *  **`<`** (`int` , `int`) --->  `bool`
   * `point` **`<`** `point` --->  `bool`
   *  **`<`** (`point` , `point`) --->  `bool`
   * `int` **`<`** `float` --->  `bool`
-  *  **`<`** (`int` , `float`) --->  `bool` 
+  *  **`<`** (`int` , `float`) --->  `bool`
+  * `int` **`<`** `int` --->  `bool`
+  *  **`<`** (`int` , `int`) --->  `bool`
+  * `float` **`<`** `int` --->  `bool`
+  *  **`<`** (`float` , `int`) --->  `bool`
+  * `float` **`<`** `float` --->  `bool`
+  *  **`<`** (`float` , `float`) --->  `bool`
+  * `string` **`<`** `string` --->  `bool`
+  *  **`<`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is less than the right-hand operand, false otherwise.
 
 #### Special cases:     
   * if one of the operands is nil, returns false    
-  * if both operands are String, uses a lexicographic comparison of two strings 
-  
-```
- 
-bool var0 <- 'abc' < 'aeb'; // var0 equals true
-``` 
-
-    
   * if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one. 
   
 ```
  
-bool var1 <- {5,7} < {4,6}; // var1 equals false 
-bool var2 <- {5,7} < {4,8}; // var2 equals false
+bool var5 <- {5,7} < {4,6}; // var5 equals false 
+bool var6 <- {5,7} < {4,8}; // var6 equals false
+``` 
+
+    
+  * if both operands are String, uses a lexicographic comparison of two strings 
+  
+```
+ 
+bool var7 <- 'abc' < 'aeb'; // var7 equals true
 ``` 
 
 
@@ -1175,11 +1175,11 @@ bool var2 <- {5,7} < {4,8}; // var2 equals false
 #### Examples: 
 ```
  
-bool var3 <- 3.5 < 7.6; // var3 equals true 
-bool var4 <- #now < #now minus_hours 1; // var4 equals false 
-bool var5 <- 3.5 < 7; // var5 equals true 
-bool var6 <- 3 < 7; // var6 equals true 
-bool var7 <- 3 < 2.5; // var7 equals false
+bool var0 <- #now < #now minus_hours 1; // var0 equals false 
+bool var1 <- 3 < 2.5; // var1 equals false 
+bool var2 <- 3 < 7; // var2 equals true 
+bool var3 <- 3.5 < 7; // var3 equals true 
+bool var4 <- 3.5 < 7.6; // var4 equals true
 
 ```
       
@@ -1195,20 +1195,20 @@ bool var7 <- 3 < 2.5; // var7 equals false
 ### `<=`
 
 #### Possible use: 
-  * `int` **`<=`** `float` --->  `bool`
-  *  **`<=`** (`int` , `float`) --->  `bool`
   * `float` **`<=`** `float` --->  `bool`
   *  **`<=`** (`float` , `float`) --->  `bool`
-  * `date` **`<=`** `date` --->  `bool`
-  *  **`<=`** (`date` , `date`) --->  `bool`
   * `string` **`<=`** `string` --->  `bool`
   *  **`<=`** (`string` , `string`) --->  `bool`
+  * `int` **`<=`** `float` --->  `bool`
+  *  **`<=`** (`int` , `float`) --->  `bool`
+  * `date` **`<=`** `date` --->  `bool`
+  *  **`<=`** (`date` , `date`) --->  `bool`
+  * `int` **`<=`** `int` --->  `bool`
+  *  **`<=`** (`int` , `int`) --->  `bool`
   * `point` **`<=`** `point` --->  `bool`
   *  **`<=`** (`point` , `point`) --->  `bool`
   * `float` **`<=`** `int` --->  `bool`
-  *  **`<=`** (`float` , `int`) --->  `bool`
-  * `int` **`<=`** `int` --->  `bool`
-  *  **`<=`** (`int` , `int`) --->  `bool` 
+  *  **`<=`** (`float` , `int`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is less or equal than the right-hand operand, false otherwise.
@@ -1236,11 +1236,11 @@ bool var2 <- {5,7} <= {4,8}; // var2 equals false
 #### Examples: 
 ```
  
-bool var3 <- 3 <= 2.5; // var3 equals false 
-bool var4 <- 3.5 <= 3.5; // var4 equals true 
+bool var3 <- 3.5 <= 3.5; // var3 equals true 
+bool var4 <- 3 <= 2.5; // var4 equals false 
 bool var5 <- #now <= #now minus_hours 1; // var5 equals false 
-bool var6 <- 7.0 <= 7; // var6 equals true 
-bool var7 <- 3 <= 7; // var7 equals true
+bool var6 <- 3 <= 7; // var6 equals true 
+bool var7 <- 7.0 <= 7; // var7 equals true
 
 ```
       
@@ -1262,18 +1262,18 @@ bool var7 <- 3 <= 7; // var7 equals true
 ### `=`
 
 #### Possible use: 
-  * `int` **`=`** `float` --->  `bool`
-  *  **`=`** (`int` , `float`) --->  `bool`
-  * `float` **`=`** `int` --->  `bool`
-  *  **`=`** (`float` , `int`) --->  `bool`
-  * `float` **`=`** `float` --->  `bool`
-  *  **`=`** (`float` , `float`) --->  `bool`
   * `date` **`=`** `date` --->  `bool`
   *  **`=`** (`date` , `date`) --->  `bool`
-  * `int` **`=`** `int` --->  `bool`
-  *  **`=`** (`int` , `int`) --->  `bool`
+  * `float` **`=`** `int` --->  `bool`
+  *  **`=`** (`float` , `int`) --->  `bool`
+  * `int` **`=`** `float` --->  `bool`
+  *  **`=`** (`int` , `float`) --->  `bool`
   * `unknown` **`=`** `unknown` --->  `bool`
-  *  **`=`** (`unknown` , `unknown`) --->  `bool` 
+  *  **`=`** (`unknown` , `unknown`) --->  `bool`
+  * `float` **`=`** `float` --->  `bool`
+  *  **`=`** (`float` , `float`) --->  `bool`
+  * `int` **`=`** `int` --->  `bool`
+  *  **`=`** (`int` , `int`) --->  `bool` 
 
 #### Result: 
 returns true if both operands are equal, false otherwise
@@ -1284,7 +1284,7 @@ returns true if both operands are equal, false otherwise
   
 ```
  
-bool var6 <- [2,3] = [2,3]; // var6 equals true
+bool var0 <- [2,3] = [2,3]; // var0 equals true
 ``` 
 
 
@@ -1292,12 +1292,12 @@ bool var6 <- [2,3] = [2,3]; // var6 equals true
 #### Examples: 
 ```
  
-bool var0 <- 3 = 3.0; // var0 equals true 
-bool var1 <- 4 = 4.7; // var1 equals false 
+bool var1 <- #now = #now minus_hours 1; // var1 equals false 
 bool var2 <- 4.7 = 4; // var2 equals false 
-bool var3 <- 4.5 = 4.7; // var3 equals false 
-bool var4 <- #now = #now minus_hours 1; // var4 equals false 
-bool var5 <- 4 = 5; // var5 equals false
+bool var3 <- 3 = 3.0; // var3 equals true 
+bool var4 <- 4 = 4.7; // var4 equals false 
+bool var5 <- 4.5 = 4.7; // var5 equals false 
+bool var6 <- 4 = 5; // var6 equals false
 
 ```
       
@@ -1313,20 +1313,20 @@ bool var5 <- 4 = 5; // var5 equals false
 ### `>`
 
 #### Possible use: 
-  * `date` **`>`** `date` --->  `bool`
-  *  **`>`** (`date` , `date`) --->  `bool`
-  * `int` **`>`** `float` --->  `bool`
-  *  **`>`** (`int` , `float`) --->  `bool`
-  * `float` **`>`** `float` --->  `bool`
-  *  **`>`** (`float` , `float`) --->  `bool`
   * `string` **`>`** `string` --->  `bool`
   *  **`>`** (`string` , `string`) --->  `bool`
+  * `int` **`>`** `float` --->  `bool`
+  *  **`>`** (`int` , `float`) --->  `bool`
   * `int` **`>`** `int` --->  `bool`
   *  **`>`** (`int` , `int`) --->  `bool`
-  * `float` **`>`** `int` --->  `bool`
-  *  **`>`** (`float` , `int`) --->  `bool`
+  * `date` **`>`** `date` --->  `bool`
+  *  **`>`** (`date` , `date`) --->  `bool`
+  * `float` **`>`** `float` --->  `bool`
+  *  **`>`** (`float` , `float`) --->  `bool`
   * `point` **`>`** `point` --->  `bool`
-  *  **`>`** (`point` , `point`) --->  `bool` 
+  *  **`>`** (`point` , `point`) --->  `bool`
+  * `float` **`>`** `int` --->  `bool`
+  *  **`>`** (`float` , `int`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is greater than the right-hand operand, false otherwise.
@@ -1337,7 +1337,7 @@ true if the left-hand operand is greater than the right-hand operand, false othe
   
 ```
  
-bool var5 <- 'abc' > 'aeb'; // var5 equals false
+bool var0 <- 'abc' > 'aeb'; // var0 equals false
 ``` 
 
     
@@ -1345,8 +1345,8 @@ bool var5 <- 'abc' > 'aeb'; // var5 equals false
   
 ```
  
-bool var6 <- {5,7} > {4,6}; // var6 equals true 
-bool var7 <- {5,7} > {4,8}; // var7 equals false
+bool var1 <- {5,7} > {4,6}; // var1 equals true 
+bool var2 <- {5,7} > {4,8}; // var2 equals false
 ``` 
 
 
@@ -1354,11 +1354,11 @@ bool var7 <- {5,7} > {4,8}; // var7 equals false
 #### Examples: 
 ```
  
-bool var0 <- #now > #now minus_hours 1; // var0 equals true 
-bool var1 <- 3 > 2.5; // var1 equals true 
-bool var2 <- 3.5 > 7.6; // var2 equals false 
-bool var3 <- 3 > 7; // var3 equals false 
-bool var4 <- 3.5 > 7; // var4 equals false
+bool var3 <- 3 > 2.5; // var3 equals true 
+bool var4 <- 3 > 7; // var4 equals false 
+bool var5 <- #now > #now minus_hours 1; // var5 equals true 
+bool var6 <- 3.5 > 7.6; // var6 equals false 
+bool var7 <- 3.5 > 7; // var7 equals false
 
 ```
       
@@ -1374,41 +1374,41 @@ bool var4 <- 3.5 > 7; // var4 equals false
 ### `>=`
 
 #### Possible use: 
-  * `string` **`>=`** `string` --->  `bool`
-  *  **`>=`** (`string` , `string`) --->  `bool`
-  * `int` **`>=`** `int` --->  `bool`
-  *  **`>=`** (`int` , `int`) --->  `bool`
-  * `date` **`>=`** `date` --->  `bool`
-  *  **`>=`** (`date` , `date`) --->  `bool`
   * `point` **`>=`** `point` --->  `bool`
   *  **`>=`** (`point` , `point`) --->  `bool`
-  * `float` **`>=`** `int` --->  `bool`
-  *  **`>=`** (`float` , `int`) --->  `bool`
+  * `string` **`>=`** `string` --->  `bool`
+  *  **`>=`** (`string` , `string`) --->  `bool`
+  * `date` **`>=`** `date` --->  `bool`
+  *  **`>=`** (`date` , `date`) --->  `bool`
+  * `int` **`>=`** `float` --->  `bool`
+  *  **`>=`** (`int` , `float`) --->  `bool`
   * `float` **`>=`** `float` --->  `bool`
   *  **`>=`** (`float` , `float`) --->  `bool`
-  * `int` **`>=`** `float` --->  `bool`
-  *  **`>=`** (`int` , `float`) --->  `bool` 
+  * `float` **`>=`** `int` --->  `bool`
+  *  **`>=`** (`float` , `int`) --->  `bool`
+  * `int` **`>=`** `int` --->  `bool`
+  *  **`>=`** (`int` , `int`) --->  `bool` 
 
 #### Result: 
 true if the left-hand operand is greater or equal than the right-hand operand, false otherwise.
 
 #### Special cases:     
   * if one of the operands is nil, returns false    
-  * if both operands are string, uses a lexicographic comparison of the two strings 
-  
-```
- 
-bool var0 <- 'abc' >= 'aeb'; // var0 equals false 
-bool var1 <- 'abc' >= 'abc'; // var1 equals true
-``` 
-
-    
   * if both operands are points, returns true if and only if the left component (x) of the left operand if greater or equal than x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one. 
   
 ```
  
-bool var2 <- {5,7} >= {4,6}; // var2 equals true 
-bool var3 <- {5,7} >= {4,8}; // var3 equals false
+bool var0 <- {5,7} >= {4,6}; // var0 equals true 
+bool var1 <- {5,7} >= {4,8}; // var1 equals false
+``` 
+
+    
+  * if both operands are string, uses a lexicographic comparison of the two strings 
+  
+```
+ 
+bool var2 <- 'abc' >= 'aeb'; // var2 equals false 
+bool var3 <- 'abc' >= 'abc'; // var3 equals true
 ``` 
 
 
@@ -1416,11 +1416,11 @@ bool var3 <- {5,7} >= {4,8}; // var3 equals false
 #### Examples: 
 ```
  
-bool var4 <- 3 >= 7; // var4 equals false 
-bool var5 <- #now >= #now minus_hours 1; // var5 equals true 
-bool var6 <- 3.5 >= 7; // var6 equals false 
-bool var7 <- 3.5 >= 3.5; // var7 equals true 
-bool var8 <- 3 >= 2.5; // var8 equals true
+bool var4 <- #now >= #now minus_hours 1; // var4 equals true 
+bool var5 <- 3 >= 2.5; // var5 equals true 
+bool var6 <- 3.5 >= 3.5; // var6 equals true 
+bool var7 <- 3.5 >= 7; // var7 equals false 
+bool var8 <- 3 >= 7; // var8 equals false
 
 ```
       
@@ -1578,18 +1578,18 @@ graph <- graph add_edge (source::target);
 ### `add_geometry`
 
 #### Possible use: 
-  *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `rgb`, `rgb`) --->  `msi.gaml.types.GamaKmlExport`
   *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `float`, `rgb`) --->  `msi.gaml.types.GamaKmlExport`
+  *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `rgb`, `rgb`) --->  `msi.gaml.types.GamaKmlExport`
   *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `float`, `rgb`, `rgb`) --->  `msi.gaml.types.GamaKmlExport`
   *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `float`, `rgb`, `rgb`, `date`) --->  `msi.gaml.types.GamaKmlExport`
   *  **`add_geometry`** (`msi.gaml.types.GamaKmlExport`, `geometry`, `float`, `rgb`, `rgb`, `date`, `date`) --->  `msi.gaml.types.GamaKmlExport` 
 
 #### Result: 
-the kml export manager with new geometry: take the following argument: (kml, geometry, linecolor,fillcolor)
-the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor)
+the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor, begin date, end date)
 the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, color)
+the kml export manager with new geometry: take the following argument: (kml, geometry, linecolor,fillcolor)
 the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor, end date)
-the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor, begin date, end date)    
+the kml export manager with new geometry: take the following argument: (kml, geometry,linewidth, linecolor,fillcolor)    
 
 
 #### See also: 
@@ -1612,8 +1612,8 @@ the kml export manager with new geometry: take the following argument: (kml, geo
   *  **`add_icon`** (`msi.gaml.types.GamaKmlExport`, `point`, `float`, `float`, `string`, `date`, `date`) --->  `msi.gaml.types.GamaKmlExport` 
 
 #### Result: 
-the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string), begin date, end date)
-the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string))    
+the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string))
+the kml export manager with new icons: take the following argument: (kml, location (point),orientation (float), scale (float), file_path (string), begin date, end date)    
 
 
 #### See also: 
@@ -2258,10 +2258,10 @@ matrix var0 <- self as_4_grid {10, 5}; // var0 equals the matrix of square geome
 ### `as_distance_graph`
 
 #### Possible use: 
-  * `container` **`as_distance_graph`** `map` --->  `graph`
-  *  **`as_distance_graph`** (`container` , `map`) --->  `graph`
   * `container` **`as_distance_graph`** `float` --->  `graph`
   *  **`as_distance_graph`** (`container` , `float`) --->  `graph`
+  * `container` **`as_distance_graph`** `map` --->  `graph`
+  *  **`as_distance_graph`** (`container` , `map`) --->  `graph`
   *  **`as_distance_graph`** (`container`, `float`, `species`) --->  `graph` 
 
 #### Result: 
@@ -2312,8 +2312,8 @@ as_driving_graph(road,node)  --:  build a graph while using the road agents as e
 ### `as_edge_graph`
 
 #### Possible use: 
-  *  **`as_edge_graph`** (`container`) --->  `graph`
   *  **`as_edge_graph`** (`map`) --->  `graph`
+  *  **`as_edge_graph`** (`container`) --->  `graph`
   * `container` **`as_edge_graph`** `float` --->  `graph`
   *  **`as_edge_graph`** (`container` , `float`) --->  `graph` 
 
@@ -2321,11 +2321,11 @@ as_driving_graph(road,node)  --:  build a graph while using the road agents as e
 creates a graph from the list/map of edges given as operand
 
 #### Special cases:     
-  * if the operand is a list, the graph will be built with elements of the list as edges 
+  * if the operand is a list and a tolerance (max distance in meters to consider that 2 points are the same node) is given, the graph will be built with elements of the list as edges and two edges will be connected by a node if the distance between their extremity (first or last points) are at distance lower or equal to the tolerance 
   
 ```
  
-graph var0 <- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var0 equals a graph with two edges and three vertices
+graph var0 <- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var0 equals a graph with two edges and three vertices
 ``` 
 
     
@@ -2337,11 +2337,11 @@ graph var1 <- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var1 equals a
 ``` 
 
     
-  * if the operand is a list and a tolerance (max distance in meters to consider that 2 points are the same node) is given, the graph will be built with elements of the list as edges and two edges will be connected by a node if the distance between their extremity (first or last points) are at distance lower or equal to the tolerance 
+  * if the operand is a list, the graph will be built with elements of the list as edges 
   
 ```
  
-graph var2 <- as_edge_graph([line([{1,5},{12,45}]),line([{13,45},{34,56}])],1); // var2 equals a graph with two edges and three vertices
+graph var2 <- as_edge_graph([line([{1,5},{12,45}]),line([{12,45},{34,56}])]); // var2 equals a graph with two edges and three vertices
 ``` 
 
     
@@ -2566,10 +2566,10 @@ float var1 <- asin (0); // var1 equals 0.0
 ### `at`
 
 #### Possible use: 
-  * `string` **`at`** `int` --->  `string`
-  *  **`at`** (`string` , `int`) --->  `string`
   * `container<KeyType,ValueType>` **`at`** `KeyType` --->  `ValueType`
-  *  **`at`** (`container<KeyType,ValueType>` , `KeyType`) --->  `ValueType` 
+  *  **`at`** (`container<KeyType,ValueType>` , `KeyType`) --->  `ValueType`
+  * `string` **`at`** `int` --->  `string`
+  *  **`at`** (`string` , `int`) --->  `string` 
 
 #### Result: 
 the element at the right operand index of the container  
@@ -2587,8 +2587,8 @@ The first element of the container is located at the index 0. In addition, if th
   
 ```
  
-int var1 <- [1, 2, 3] at 2; // var1 equals 3 
-point var2 <- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
+int var0 <- [1, 2, 3] at 2; // var0 equals 3 
+point var1 <- [{1,2}, {3,4}, {5,6}] at 0; // var1 equals {1.0,2.0}
 ``` 
 
 
@@ -2596,7 +2596,7 @@ point var2 <- [{1,2}, {3,4}, {5,6}] at 0; // var2 equals {1.0,2.0}
 #### Examples: 
 ```
  
-string var0 <- 'abcdef' at 0; // var0 equals 'a'
+string var2 <- 'abcdef' at 0; // var2 equals 'a'
 
 ```
       
@@ -2657,8 +2657,8 @@ geometry var0 <- self at_location {10, 20}; // var0 equals the geometry resultin
 ### `atan`
 
 #### Possible use: 
-  *  **`atan`** (`int`) --->  `float`
-  *  **`atan`** (`float`) --->  `float` 
+  *  **`atan`** (`float`) --->  `float`
+  *  **`atan`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-90,90], in decimal degrees) of the arctan of the operand (which can be any real number).
@@ -2803,13 +2803,12 @@ float var1 <- beta_index(graphEpidemio); // var1 equals the beta index of the gr
   * `date` **`between`** `date` --->  `bool`
   *  **`between`** (`date` , `date`) --->  `bool`
   *  **`between`** (`float`, `float`, `float`) --->  `bool`
-  *  **`between`** (`date`, `date`, `date`) --->  `bool`
+  *  **`between`** (`any expression`, `date`, `date`) --->  `bool`
   *  **`between`** (`int`, `int`, `int`) --->  `bool`
-  *  **`between`** (`any expression`, `date`, `date`) --->  `bool` 
+  *  **`between`** (`date`, `date`, `date`) --->  `bool` 
 
 #### Result: 
 returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
-
 returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 
 #### Special cases:     
@@ -3035,14 +3034,14 @@ geometry var1 <- box(10, 5 , 5); // var1 equals a geometry as a rectangle with w
   *  **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
 
 #### Result: 
-Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
+Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 
 #### Examples: 
 ```
  
-list<rgb> var0 <- list<rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
+list<rgb> var0 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
+list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
 
 ```
       
@@ -3457,8 +3456,8 @@ the center of the cone is by default the location of the current agent in which 
 #### Examples: 
 ```
  
-geometry var0 <- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 <- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 <- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 <- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 ```
       
@@ -3510,14 +3509,14 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
   *  **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
 
 #### Result: 
-returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.
+returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
 
 #### Examples: 
 ```
-graph my_graph2 <- graph([]);  
-list<list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as listgraph my_graph <- graph([]);  
-list<list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
+graph my_graph <- graph([]);  
+list<list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph2 <- graph([]);  
+list<list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 
 ```
       
@@ -3568,10 +3567,10 @@ Casts the operand into the type container
 ### `contains`
 
 #### Possible use: 
-  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
-  *  **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool`
   * `string` **`contains`** `string` --->  `bool`
-  *  **`contains`** (`string` , `string`) --->  `bool` 
+  *  **`contains`** (`string` , `string`) --->  `bool`
+  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
+  *  **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
 
 #### Result: 
 true, if the container contains the right operand, false otherwise  
@@ -3580,17 +3579,17 @@ true, if the container contains the right operand, false otherwise
 the contains operator behavior depends on the nature of the operand
 
 #### Special cases:     
+  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a map, contains returns true if the operand is a key of the map    
   * if it is a file, contains returns true it the operand is contained in the file content    
   * if it is a population, contains returns true if the operand is an agent of the population, false otherwise    
   * if it is a graph, contains returns true if the operand is a node or an edge of the graph, false otherwise    
-  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a list or a matrix, contains returns true if the list or matrix contains the right operand 
   
 ```
  
-bool var0 <- [1, 2, 3] contains 2; // var0 equals true 
-bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
+bool var1 <- [1, 2, 3] contains 2; // var1 equals true 
+bool var2 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var2 equals true
 ``` 
 
 
@@ -3598,7 +3597,7 @@ bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
 #### Examples: 
 ```
  
-bool var2 <- 'abcded' contains 'bc'; // var2 equals true
+bool var0 <- 'abcded' contains 'bc'; // var0 equals true
 
 ```
       
@@ -3695,10 +3694,10 @@ bool var4 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
 ### `contains_edge`
 
 #### Possible use: 
-  * `graph` **`contains_edge`** `pair` --->  `bool`
-  *  **`contains_edge`** (`graph` , `pair`) --->  `bool`
   * `graph` **`contains_edge`** `unknown` --->  `bool`
-  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool` 
+  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool`
+  * `graph` **`contains_edge`** `pair` --->  `bool`
+  *  **`contains_edge`** (`graph` , `pair`) --->  `bool` 
 
 #### Result: 
 returns true if the graph(left-hand operand) contains the given edge (righ-hand operand), false otherwise
@@ -3709,7 +3708,7 @@ returns true if the graph(left-hand operand) contains the given edge (righ-hand 
   
 ```
  
-bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
+bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 ``` 
 
 
@@ -3717,7 +3716,7 @@ bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
 #### Examples: 
 ```
 graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
-bool var2 <- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
+bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
 
 ```
       
@@ -3860,8 +3859,8 @@ Returns the correlation of two data sequences
 ### `cos`
 
 #### Possible use: 
-  *  **`cos`** (`float`) --->  `float`
-  *  **`cos`** (`int`) --->  `float` 
+  *  **`cos`** (`int`) --->  `float`
+  *  **`cos`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
@@ -4013,14 +4012,14 @@ map<string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 e
   *  **`cross`** (`float` , `float`) --->  `geometry` 
 
 #### Result: 
-A cross, which radius is equal to the first operand
 A cross, which radius is equal to the first operand and the width of the lines for the second
+A cross, which radius is equal to the first operand
 
 #### Examples: 
 ```
  
-geometry var0 <- cross(10); // var0 equals a geometry as a cross of radius 10 
-geometry var1 <- cross(10,2); // var1 equals a geometry as a cross of radius 10, and with a width of 2 for the lines 
+geometry var0 <- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines  
+geometry var1 <- cross(10); // var1 equals a geometry as a cross of radius 10
 
 ```
       
@@ -4091,19 +4090,19 @@ string var0 <- crs(my_shapefile); // var0 equals the crs of the shapefile
   *  **`CRS_transform`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
-  
-```
- 
-geometry var0 <- shape CRS_transform("EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
+  
+```
+ 
+geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 ``` 
 
 
@@ -4155,33 +4154,32 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 ### `curve`
 
 #### Possible use: 
-  *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry` 
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
 
 #### Result: 
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
 A quadratic Bezier curve geometry built from the three given points composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
 
 #### Special cases:     
-  * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
@@ -4190,25 +4188,26 @@ A cubic Bezier curve geometry built from the four given points composed of a giv
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
+  * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil
+  * if the operand is nil, returns nil
 
 #### Examples: 
 ```
  
-geometry var0 <- curve({0,0},{10,10}, 0.5, false, 100); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var2 <- curve({0,0}, {0,10}, {10,10}, 20); // var2 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var3 <- curve({0,0},{10,10}, 0.5, false); // var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
-geometry var4 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var5 <- curve({0,0},{10,10}, 0.5, 100, 90); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var6 <- curve({0,0},{10,10}, 0.5); // var6 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var7 <- curve({0,0},{10,10}, 0.5, 90); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var8 <- curve({0,0}, {0,10}, {10,10}); // var8 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var9 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var10 <- curve({0,0}, {0,10}, {10,10}); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+geometry var0 <- curve({0,0}, {0,10}, {10,10}); // var0 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var1 <- curve({0,0}, {0,10}, {10,10}, 20); // var1 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var2 <- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var3 <- curve({0,0},{10,10}, 0.5, 100, 90); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var4 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var5 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var6 <- curve({0,0}, {0,10}, {10,10}); // var6 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var7 <- curve({0,0},{10,10}, 0.5, false, 100); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var8 <- curve({0,0},{10,10}, 0.5, 90); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var9 <- curve({0,0},{10,10}, 0.5, false); // var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var10 <- curve({0,0},{10,10}, 0.5); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1.
 
 ```
       
@@ -4355,10 +4354,10 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem); // var0 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var1 <- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var2 <- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var0 <- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var1 <- dem(dem,z_factor); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var2 <- dem(dem,texture,z_factor); // var2 equals a geometry as a rectangle of width and height equal to the texture. 
+geometry var3 <- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
 
 ```
   
@@ -4526,10 +4525,10 @@ float var0 <- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the d
 ### `distance_to`
 
 #### Possible use: 
-  * `point` **`distance_to`** `point` --->  `float`
-  *  **`distance_to`** (`point` , `point`) --->  `float`
   * `geometry` **`distance_to`** `geometry` --->  `float`
-  *  **`distance_to`** (`geometry` , `geometry`) --->  `float` 
+  *  **`distance_to`** (`geometry` , `geometry`) --->  `float`
+  * `point` **`distance_to`** `point` --->  `float`
+  *  **`distance_to`** (`point` , `point`) --->  `float` 
 
 #### Result: 
 A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -4596,8 +4595,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 #### Examples: 
 ```
  
-map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
@@ -4626,8 +4625,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 ```
  
 map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -4643,14 +4642,14 @@ map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,
 ### `div`
 
 #### Possible use: 
-  * `float` **`div`** `float` --->  `int`
-  *  **`div`** (`float` , `float`) --->  `int`
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int`
+  * `float` **`div`** `int` --->  `int`
+  *  **`div`** (`float` , `int`) --->  `int`
   * `int` **`div`** `int` --->  `int`
   *  **`div`** (`int` , `int`) --->  `int`
-  * `float` **`div`** `int` --->  `int`
-  *  **`div`** (`float` , `int`) --->  `int` 
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
+  * `float` **`div`** `float` --->  `int`
+  *  **`div`** (`float` , `float`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -4663,10 +4662,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 #### Examples: 
 ```
  
-int var0 <- 40.1 div 4.5; // var0 equals 8 
-int var1 <- 40 div 4.1; // var1 equals 9 
-int var2 <- 40 div 3; // var2 equals 13 
-int var3 <- 40.5 div 3; // var3 equals 13
+int var0 <- 40.5 div 3; // var0 equals 13 
+int var1 <- 40 div 3; // var1 equals 13 
+int var2 <- 40 div 4.1; // var2 equals 9 
+int var3 <- 40.1 div 4.5; // var3 equals 8
 
 ```
       
@@ -4693,14 +4692,14 @@ int var3 <- 40.5 div 3; // var3 equals 13
   *  **`dtw`** (`list`, `list`, `int`) --->  `float` 
 
 #### Result: 
-returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 returns the dynamic time warping between the two series of value
+returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 
 #### Examples: 
 ```
  
-float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 2.0 
-float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var1 equals 2
+float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var0 equals 2 
+float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 2.0
 
 ```
   
@@ -4735,23 +4734,23 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 #### Possible use: 
   *  **`edge`** (`pair`) --->  `unknown`
   *  **`edge`** (`unknown`) --->  `unknown`
-  * `unknown` **`edge`** `int` --->  `unknown`
-  *  **`edge`** (`unknown` , `int`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   * `pair` **`edge`** `int` --->  `unknown`
   *  **`edge`** (`pair` , `int`) --->  `unknown`
+  * `unknown` **`edge`** `int` --->  `unknown`
+  *  **`edge`** (`unknown` , `int`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `int`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `int`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
     	
 ----
 
@@ -5039,17 +5038,17 @@ bool var1 <- even(-12); // var1 equals true
   *  **`every`** (`list` , `int`) --->  `list` 
 
 #### Result: 
-applies a step to an interval of dates defined by 'date1 to date2'
 true every operand * cycle, false otherwise
-Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency  
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+applies a step to an interval of dates defined by 'date1 to date2'
+Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero  
 
 #### Comment: 
 the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
 
 #### Examples: 
 ```
-(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
+if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
 
 ```
       
@@ -5057,7 +5056,7 @@ the value of the every operator depends on the cycle. It can be used to do somet
 
 #### See also: 
 
-[to](OperatorsSZ#to), [since](OperatorsSZ#since), [after](OperatorsAA#after), 
+[since](OperatorsSZ#since), [after](OperatorsAA#after), [to](OperatorsSZ#to), 
     	
 ----
 
@@ -5210,11 +5209,11 @@ geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the far
   *  **`file`** (`string` , `container`) --->  `file` 
 
 #### Result: 
-opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
-Creates a file in read/write mode, setting its contents to the container passed in parameter  
+Creates a file in read/write mode, setting its contents to the container passed in parameter
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.  
 
 #### Comment: 
-The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.png
+The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file('image_copy.png', file('image.png')); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.
 
 #### Special cases:     
   * If the specified string does not refer to an existing file, an exception is risen when the variable is used.
@@ -5667,18 +5666,18 @@ gamma_rnd(10.0,5.0)
   *  **`gauss`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-The operator can be used with an operand of type point {meand,standardDeviation}.
 A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.
+The operator can be used with an operand of type point {meand,standardDeviation}.
 
 #### Special cases:     
-  * when the operand is a point, it is read as {mean, standardDeviation}    
-  * when standardDeviation value is 0.0, it always returns the mean value
+  * when standardDeviation value is 0.0, it always returns the mean value    
+  * when the operand is a point, it is read as {mean, standardDeviation}
 
 #### Examples: 
 ```
  
-float var0 <- gauss({0,0.3}); // var0 equals 0.22354 
-float var1 <- gauss(0,0.3); // var1 equals 0.22354
+float var0 <- gauss(0,0.3); // var0 equals 0.22354 
+float var1 <- gauss({0,0.3}); // var1 equals 0.22354
 
 ```
       
@@ -5686,7 +5685,7 @@ float var1 <- gauss(0,0.3); // var1 equals 0.22354
 
 #### See also: 
 
-[truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), [skew_gauss](OperatorsSZ#skew_gauss), 
+[skew_gauss](OperatorsSZ#skew_gauss), [truncated_gauss](OperatorsSZ#truncated_gauss), [poisson](OperatorsNR#poisson), 
     	
 ----
 
@@ -5705,12 +5704,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -5718,7 +5717,7 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 
 #### Examples: 
 ```
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); 
+graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourListOfNodes, 		yourEdgeSpecy, 		3, 		5, 		true); graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		yourNodeSpecy, 		yourEdgeSpecy, 		3, 		5, 		true); 
 
 ```
       
@@ -5749,26 +5748,26 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
   * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); 
 
 ```
       
@@ -5795,21 +5794,21 @@ returns a random small-world network (following Watts-Strogatz model).
 The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
-  * "k": the base degree of each node. k must be greater than 2 and even.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes. Size must be greater than k.    
+  * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
+  * "k": the base degree of each node. k must be greater than 2 and even.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
   * "p": probability to "rewire" an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.    
   * "k": the base degree of each node. k must be greater than 2 and even.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
 
 ```
       
@@ -5900,29 +5899,30 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 [//]: # (keyword|operator_get)
 ### `get`
+   Same signification as [read](OperatorsNR#read)
 
 #### Possible use: 
-  * `agent` **`get`** `string` --->  `unknown`
-  *  **`get`** (`agent` , `string`) --->  `unknown`
   * `geometry` **`get`** `string` --->  `unknown`
-  *  **`get`** (`geometry` , `string`) --->  `unknown` 
+  *  **`get`** (`geometry` , `string`) --->  `unknown`
+  * `agent` **`get`** `string` --->  `unknown`
+  *  **`get`** (`agent` , `string`) --->  `unknown` 
 
 #### Result: 
-Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
 
 #### Special cases:     
-  * Reading the attribute of another agent 
-  
-```
-string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
-``` 
-
-    
   * Reading the attribute of a geometry 
   
 ```
 string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
+``` 
+
+    
+  * Reading the attribute of another agent 
+  
+```
+string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
 ``` 
 
 
@@ -7137,8 +7137,8 @@ the center of the hexagon is by default the location of the current agent in whi
 #### Examples: 
 ```
  
-geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var0 <- hexagon(10,5); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
 geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
 
 ```
@@ -7192,8 +7192,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  
@@ -7204,8 +7204,8 @@ h,s and b components should be floating-point values between 0.0 and 1.0 and whe
 #### Examples: 
 ```
  
-rgb var0 <- hsb (0.0,1.0,1.0); // var0 equals rgb("red") 
-rgb var1 <- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb("cyan",0)
+rgb var0 <- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0) 
+rgb var1 <- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
 
 ```
       
@@ -7292,10 +7292,10 @@ float var0 <- improved_generator(2,3,4,253); // var0 equals 10.2
 ### `in`
 
 #### Possible use: 
-  * `unknown` **`in`** `container` --->  `bool`
-  *  **`in`** (`unknown` , `container`) --->  `bool`
   * `string` **`in`** `string` --->  `bool`
-  *  **`in`** (`string` , `string`) --->  `bool` 
+  *  **`in`** (`string` , `string`) --->  `bool`
+  * `unknown` **`in`** `container` --->  `bool`
+  *  **`in`** (`unknown` , `container`) --->  `bool` 
 
 #### Result: 
 true if the right operand contains the left operand, false otherwise  
@@ -7304,17 +7304,17 @@ true if the right operand contains the left operand, false otherwise
 the definition of in depends on the container
 
 #### Special cases:     
-  * if the right operand is nil or empty, in returns false    
-  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
+  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;    
+  * if the right operand is nil or empty, in returns false
 
 #### Examples: 
 ```
  
-bool var0 <- 2 in [1,2,3,4,5,6]; // var0 equals true 
-bool var1 <- 7 in [1,2,3,4,5,6]; // var1 equals false 
-bool var2 <- 3 in [1::2, 3::4, 5::6]; // var2 equals false 
-bool var3 <- 6 in [1::2, 3::4, 5::6]; // var3 equals true 
-bool var4 <-  'bc' in 'abcded'; // var4 equals true
+bool var0 <-  'bc' in 'abcded'; // var0 equals true 
+bool var1 <- 2 in [1,2,3,4,5,6]; // var1 equals true 
+bool var2 <- 7 in [1,2,3,4,5,6]; // var2 equals false 
+bool var3 <- 3 in [1::2, 3::4, 5::6]; // var3 equals false 
+bool var4 <- 6 in [1::2, 3::4, 5::6]; // var4 equals true
 
 ```
       
@@ -7450,16 +7450,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
-  * `list` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`list` , `unknown`) --->  `int`
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
   * `map` **`index_of`** `unknown` --->  `unknown`
   *  **`index_of`** (`map` , `unknown`) --->  `unknown`
+  * `string` **`index_of`** `string` --->  `int`
+  *  **`index_of`** (`string` , `string`) --->  `int`
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
   * `species` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`species` , `unknown`) --->  `int`
-  * `string` **`index_of`** `string` --->  `int`
-  *  **`index_of`** (`string` , `string`) --->  `int` 
+  * `list` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`list` , `unknown`) --->  `int` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -7471,12 +7471,11 @@ The definition of index_of and the type of the index depend on the container
 #### Special cases:     
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
   * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
-  * if the left operand is a list, index_of returns the index as an integer 
+  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
   
 ```
  
-int var1 <- [1,2,3,4,5,6] index_of 4; // var1 equals 3 
-int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
+int var1 <-  "abcabcabc" index_of "ca"; // var1 equals 2
 ``` 
 
     
@@ -7484,15 +7483,16 @@ int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
   
 ```
  
-point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var3 equals {1.0,0.0}
+point var2 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var2 equals {1.0,0.0}
 ``` 
 
     
-  * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
+  * if the left operand is a list, index_of returns the index as an integer 
   
 ```
  
-int var4 <-  "abcabcabc" index_of "ca"; // var4 equals 2
+int var3 <- [1,2,3,4,5,6] index_of 4; // var3 equals 3 
+int var4 <- [4,2,3,4,5,4] index_of 4; // var4 equals 0
 ``` 
 
 
@@ -7630,17 +7630,17 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 ### `internal_at`
 
 #### Possible use: 
-  * `agent` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`agent` , `list`) --->  `unknown`
+  * `geometry` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
   * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
   *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType`
-  * `geometry` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `list`) --->  `unknown` 
+  * `agent` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`agent` , `list`) --->  `unknown` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
 For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]    
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
 
 #### See also: 
@@ -7887,12 +7887,12 @@ Tests whether the operand is a json file.
 ### `is_number`
 
 #### Possible use: 
-  *  **`is_number`** (`float`) --->  `bool`
-  *  **`is_number`** (`string`) --->  `bool` 
+  *  **`is_number`** (`string`) --->  `bool`
+  *  **`is_number`** (`float`) --->  `bool` 
 
 #### Result: 
-Returns whether the argument is a real number or not
-tests whether the operand represents a numerical value  
+tests whether the operand represents a numerical value
+Returns whether the argument is a real number or not  
 
 #### Comment: 
 Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
@@ -7900,14 +7900,14 @@ Note that the symbol . should be used for a float value (a string with , will no
 #### Examples: 
 ```
  
-bool var0 <- is_number(4.66); // var0 equals true 
-bool var1 <- is_number(#infinity); // var1 equals true 
-bool var2 <- is_number(#nan); // var2 equals false 
-bool var3 <- is_number("test"); // var3 equals false 
-bool var4 <- is_number("123.56"); // var4 equals true 
-bool var5 <- is_number("-1.2e5"); // var5 equals true 
-bool var6 <- is_number("1,2"); // var6 equals false 
-bool var7 <- is_number("#12FA"); // var7 equals true
+bool var0 <- is_number("test"); // var0 equals false 
+bool var1 <- is_number("123.56"); // var1 equals true 
+bool var2 <- is_number("-1.2e5"); // var2 equals true 
+bool var3 <- is_number("1,2"); // var3 equals false 
+bool var4 <- is_number("#12FA"); // var4 equals true 
+bool var5 <- is_number(4.66); // var5 equals true 
+bool var6 <- is_number(#infinity); // var6 equals true 
+bool var7 <- is_number(#nan); // var7 equals false
 
 ```
   
@@ -8256,14 +8256,14 @@ string var1 <- last ('abce'); // var1 equals 'e'
 #### Possible use: 
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
   * `matrix` **`last_index_of`** `unknown` --->  `point`
   *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
   * `map` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int` 
+  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -8436,8 +8436,8 @@ int var3 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 e
   *  **`line`** (`container<geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
-A polyline geometry from the given list of points represented as a cylinder of radius r.
 A polyline geometry from the given list of points.
+A polyline geometry from the given list of points represented as a cylinder of radius r.
 
 #### Special cases:     
   * if the operand is nil, returns the point geometry {0,0}    
@@ -8448,7 +8448,7 @@ A polyline geometry from the given list of points.
   
 ```
  
-geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals a polyline geometry composed of the 4 points.
+geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var1 equals a polyline geometry composed of the 4 points.
 ``` 
 
 
@@ -8456,7 +8456,7 @@ geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals 
 #### Examples: 
 ```
  
-geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var1 equals a polyline geometry composed of the 4 points.
+geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 equals a polyline geometry composed of the 4 points.
 
 ```
       
@@ -8569,13 +8569,13 @@ float var1 <- ln(exp(1)); // var1 equals 1.0
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
-returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA
-loads a graph from a file  
+loads a graph from a file
+returns a graph loaded from a given file encoded into a given format. The last boolean parameter indicates whether the resulting graph will be considered as spatial or not by GAMA  
 
 #### Comment: 
 Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Windows, for analysis and visualization of large networks. See: http://pajek.imfm.si/doku.php?id=pajek for more details."lgl": LGL is a compendium of applications for making the visualization of large networks and trees tractable. See: http://lgl.sourceforge.net/ for more details."dot": DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can use. See: http://en.wikipedia.org/wiki/DOT_language for more details."edge": This format is a simple text file with numeric vertex ids defining the edges."gexf": GEXF (Graph Exchange XML Format) is a language for describing complex networks structures, their associated data and dynamics. Started in 2007 at Gephi project by different actors, deeply involved in graph exchange issues, the gexf specifications are mature enough to claim being both extensible and open, and suitable for real specific applications. See: http://gexf.net/format/ for more details."graphml": GraphML is a comprehensive and easy-to-use file format for graphs based on XML. See: http://graphml.graphdrawing.org/ for more details."tlp" or "tulip": TLP is the Tulip software graph format. See: http://tulip.labri.fr/TulipDrupal/?q=tlp-file-format for more details. "ncol": This format is used by the Large Graph Layout progra. It is simply a symbolic weighted edge list. It is a simple text file with one edge per line. An edge is defined by two symbolic vertex names separated by whitespace. (The symbolic vertex names themselves cannot contain whitespace.) They might followed by an optional number, this will be the weight of the edge. See: http://bioinformatics.icmb.utexas.edu/lgl for more details.The map operand should includes following elements:
@@ -8589,17 +8589,17 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+``` 
+
+    
   * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
-``` 
-
-    
-  * "file": the file containing the network 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
     
@@ -8617,10 +8617,10 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
 ``` 
 
     
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  * "file": the file containing the network 
   
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
 
@@ -9600,38 +9600,38 @@ list var3 <- graphFromMap neighbors_of node({12,45}); // var3 equals [{1.0,5.0},
 
 #### Possible use: 
   *  **`new_emotion`** (`string`) --->  `emotion`
-  * `string` **`new_emotion`** `float` --->  `emotion`
-  *  **`new_emotion`** (`string` , `float`) --->  `emotion`
-  * `string` **`new_emotion`** `agent` --->  `emotion`
-  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
   * `string` **`new_emotion`** `predicate` --->  `emotion`
   *  **`new_emotion`** (`string` , `predicate`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
+  * `string` **`new_emotion`** `agent` --->  `emotion`
+  *  **`new_emotion`** (`string` , `agent`) --->  `emotion`
+  * `string` **`new_emotion`** `float` --->  `emotion`
+  *  **`new_emotion`** (`string` , `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `float`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `predicate`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `agent`) --->  `emotion`
-  *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`) --->  `emotion`
+  *  **`new_emotion`** (`string`, `float`, `float`, `agent`) --->  `emotion`
   *  **`new_emotion`** (`string`, `float`, `predicate`, `float`, `agent`) --->  `emotion` 
 
 #### Result: 
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
+a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name, intensity)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name,about)
 a new emotion with the given properties (name,intensity,about)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
 
 #### Examples: 
 ```
-emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3) emotion("joy") emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",eatFood) emotion("joy",12.3,eatFood) 
+emotion("joy",eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,4) emotion("joy",12.3) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy",12.3,eatFood,4) emotion("joy") emotion("joy",12.3,eatFood,4) 
 
 ```
   
@@ -9670,33 +9670,33 @@ file dirNewT <- new_folder("incl/");   	// dirNewT represents the repository "..
 
 #### Possible use: 
   *  **`new_mental_state`** (`string`) --->  `mental_state`
+  * `string` **`new_mental_state`** `predicate` --->  `mental_state`
+  *  **`new_mental_state`** (`string` , `predicate`) --->  `mental_state`
   * `string` **`new_mental_state`** `mental_state` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `mental_state`) --->  `mental_state`
   * `string` **`new_mental_state`** `emotion` --->  `mental_state`
   *  **`new_mental_state`** (`string` , `emotion`) --->  `mental_state`
-  * `string` **`new_mental_state`** `predicate` --->  `mental_state`
-  *  **`new_mental_state`** (`string` , `predicate`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `float`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `float`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `predicate`, `int`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `emotion`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `mental_state`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `mental_state`, `float`, `agent`) --->  `mental_state`
+  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `mental_state`
   *  **`new_mental_state`** (`string`, `mental_state`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state`
-  *  **`new_mental_state`** (`string`, `emotion`, `float`, `int`, `agent`) --->  `mental_state` 
+  *  **`new_mental_state`** (`string`, `predicate`, `float`, `int`, `agent`) --->  `mental_state` 
 
 #### Result: 
 a new mental state
@@ -9739,39 +9739,39 @@ new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_m
 
 #### Possible use: 
   *  **`new_predicate`** (`string`) --->  `predicate`
-  * `string` **`new_predicate`** `agent` --->  `predicate`
-  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
   * `string` **`new_predicate`** `bool` --->  `predicate`
   *  **`new_predicate`** (`string` , `bool`) --->  `predicate`
-  * `string` **`new_predicate`** `int` --->  `predicate`
-  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
+  * `string` **`new_predicate`** `agent` --->  `predicate`
+  *  **`new_predicate`** (`string` , `agent`) --->  `predicate`
   * `string` **`new_predicate`** `map` --->  `predicate`
   *  **`new_predicate`** (`string` , `map`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
-  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  * `string` **`new_predicate`** `int` --->  `predicate`
+  *  **`new_predicate`** (`string` , `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `agent`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `bool`) --->  `predicate`
+  *  **`new_predicate`** (`string`, `map`, `int`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `bool`, `agent`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`) --->  `predicate`
   *  **`new_predicate`** (`string`, `map`, `int`, `bool`, `agent`) --->  `predicate` 
 
 #### Result: 
-a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, is_true)
-a new predicate with the given properties (name, values, lifetime, is_true)
 a new predicate with the given properties (name, values, 	agentCause)
+a new predicate with the given is_true (name, is_true)
 a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values)
+a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, is_true, agentCause)
+a new predicate with the given properties (name, values, lifetime, is_true)
 
 #### Examples: 
 ```
-predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet") predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10,true) predicate("people to meet", ["time"::10], agentA) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) predicate("hasWater", true) predicate("hasWater", 10  predicate("people to meet", people1 ) 
+predicate("people to meet", ["time"::10], agentA) predicate("hasWater", true) predicate("people to meet", ["time"::10], 10, true, agentA) predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], true) predicate("people to meet", people1 ) predicate("hasWater", 10  predicate("people to meet") predicate("people to meet", ["time"::10], true) predicate("people to meet", ["time"::10], 10, agentA) predicate("people to meet", ["time"::10], true, agentA) predicate("people to meet", ["time"::10], 10,true) 
 
 ```
   
@@ -10356,34 +10356,34 @@ Casts the operand into the type path
 ### `path_between`
 
 #### Possible use: 
-  * `topology` **`path_between`** `container<geometry>` --->  `path`
-  *  **`path_between`** (`topology` , `container<geometry>`) --->  `path`
-  * `list<agent>` **`path_between`** `container<geometry>` --->  `path`
-  *  **`path_between`** (`list<agent>` , `container<geometry>`) --->  `path`
   * `msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>` **`path_between`** `container<geometry>` --->  `path`
   *  **`path_between`** (`msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>` , `container<geometry>`) --->  `path`
-  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
+  * `list<agent>` **`path_between`** `container<geometry>` --->  `path`
+  *  **`path_between`** (`list<agent>` , `container<geometry>`) --->  `path`
+  * `topology` **`path_between`** `container<geometry>` --->  `path`
+  *  **`path_between`** (`topology` , `container<geometry>`) --->  `path`
   *  **`path_between`** (`msi.gama.util.GamaMap<msi.gama.metamodel.agent.IAgent,java.lang.Object>`, `geometry`, `geometry`) --->  `path`
+  *  **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
   *  **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path`
   *  **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path` 
 
 #### Result: 
-The shortest path between two objects according to set of cells
+The shortest path between several objects according to set of cells with corresponding weights
 The shortest path between several objects according to set of cells
 The shortest path between two objects according to set of cells with corresponding weights
-The shortest path between several objects according to set of cells with corresponding weights
+The shortest path between two objects according to set of cells
 The shortest path between a list of two objects in a graph
 
 #### Examples: 
 ```
  
-path var0 <- my_topology path_between [ag1, ag2]; // var0 equals A path between ag1 and ag2 
-path var1 <- path_between (cell_grid where each.is_free, ag1, ag2); // var1 equals A path between ag1 and ag2 passing through the given cell_grid agents 
-path var2 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var2 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
-path var3 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var3 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
+path var0 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var0 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
+path var1 <- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); // var1 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents 
+path var2 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); // var2 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost 
+path var3 <- path_between (cell_grid where each.is_free, ag1, ag2); // var3 equals A path between ag1 and ag2 passing through the given cell_grid agents 
 path var4 <- my_topology path_between (ag1, ag2); // var4 equals A path between ag1 and ag2 
-path var5 <- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); // var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost 
-path var6 <- path_between (my_graph, ag1, ag2); // var6 equals A path between ag1 and ag2
+path var5 <- path_between (my_graph, ag1, ag2); // var5 equals A path between ag1 and ag2 
+path var6 <- my_topology path_between [ag1, ag2]; // var6 equals A path between ag1 and ag2
 
 ```
       
@@ -10399,10 +10399,10 @@ path var6 <- path_between (my_graph, ag1, ag2); // var6 equals A path between ag
 ### `path_to`
 
 #### Possible use: 
-  * `point` **`path_to`** `point` --->  `path`
-  *  **`path_to`** (`point` , `point`) --->  `path`
   * `geometry` **`path_to`** `geometry` --->  `path`
-  *  **`path_to`** (`geometry` , `geometry`) --->  `path` 
+  *  **`path_to`** (`geometry` , `geometry`) --->  `path`
+  * `point` **`path_to`** `point` --->  `path`
+  *  **`path_to`** (`point` , `point`) --->  `path` 
 
 #### Result: 
 A path between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -11109,9 +11109,9 @@ Constructs a file of type R. Allowed extensions are limited to r
   *  **`range`** (`int`, `int`, `int`) --->  `list` 
 
 #### Result: 
-Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
-Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
 Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end > start with a negative step) will similarly not be accepted and yield an exception
+Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
+Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
     	
 ----
 
@@ -11151,10 +11151,10 @@ agent_name <- read ('name'); //agent_name equals reads the 'name' variable of ag
 
 #### Possible use: 
   *  **`rectangle`** (`point`) --->  `geometry`
-  * `point` **`rectangle`** `point` --->  `geometry`
-  *  **`rectangle`** (`point` , `point`) --->  `geometry`
   * `float` **`rectangle`** `float` --->  `geometry`
-  *  **`rectangle`** (`float` , `float`) --->  `geometry` 
+  *  **`rectangle`** (`float` , `float`) --->  `geometry`
+  * `point` **`rectangle`** `point` --->  `geometry`
+  *  **`rectangle`** (`point` , `point`) --->  `geometry` 
 
 #### Result: 
 A rectangle geometry which side sizes are given by the operands.  
@@ -11170,9 +11170,9 @@ the center of the rectangle is by default the location of the current agent in w
 #### Examples: 
 ```
  
-geometry var0 <- rectangle({2.0,6.0}, {6.0,20.0}); // var0 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner. 
+geometry var0 <- rectangle({10, 5}); // var0 equals a geometry as a rectangle with width = 10 and height = 5. 
 geometry var1 <- rectangle(10, 5); // var1 equals a geometry as a rectangle with width = 10 and height = 5. 
-geometry var2 <- rectangle({10, 5}); // var2 equals a geometry as a rectangle with width = 10 and height = 5.
+geometry var2 <- rectangle({2.0,6.0}, {6.0,20.0}); // var2 equals a geometry as a rectangle with {2.0,6.0} as the upper-left corner, {6.0,20.0} as the lower-right corner.
 
 ```
       
@@ -11304,9 +11304,9 @@ restoreSimulationFromFile
 ### `reverse`
 
 #### Possible use: 
-  *  **`reverse`** (`msi.gama.util.GamaMap<K,V>`) --->  `container`
   *  **`reverse`** (`container<KeyType,ValueType>`) --->  `container`
-  *  **`reverse`** (`string`) --->  `string` 
+  *  **`reverse`** (`string`) --->  `string`
+  *  **`reverse`** (`msi.gama.util.GamaMap<K,V>`) --->  `container` 
 
 #### Result: 
 the operand elements in the reversed order in a copy of the operand.  
@@ -11380,12 +11380,12 @@ graph var1 <- graphEpidemio rewire_n 10; // var1 equals the graph with 3 edges r
 ### `rgb`
 
 #### Possible use: 
+  * `string` **`rgb`** `int` --->  `rgb`
+  *  **`rgb`** (`string` , `int`) --->  `rgb`
   * `rgb` **`rgb`** `float` --->  `rgb`
   *  **`rgb`** (`rgb` , `float`) --->  `rgb`
   * `rgb` **`rgb`** `int` --->  `rgb`
   *  **`rgb`** (`rgb` , `int`) --->  `rgb`
-  * `string` **`rgb`** `int` --->  `rgb`
-  *  **`rgb`** (`string` , `int`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `float`) --->  `rgb`
   *  **`rgb`** (`int`, `int`, `int`, `int`) --->  `rgb` 
@@ -11394,22 +11394,22 @@ graph var1 <- graphEpidemio rewire_n 10; // var1 equals the graph with 3 edges r
 Returns a color defined by red, green, blue components and an alpha blending value.
 
 #### Special cases:     
-  * It can be used with a color and an alpha between 0 and 1    
-  * It can be used with a color and an alpha between 0 and 255    
-  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
   * It can be used with a name of color and alpha (between 0 and 255)    
+  * It can be used with r=red, g=green, b=blue, each between 0 and 255    
   * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)    
-  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)
+  * It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)    
+  * It can be used with a color and an alpha between 0 and 1    
+  * It can be used with a color and an alpha between 0 and 255
 
 #### Examples: 
 ```
  
-rgb var0 <- rgb(rgb(255,0,0),0.5); // var0 equals a light red color 
-rgb var1 <- rgb(rgb(255,0,0),125); // var1 equals a light red color 
-rgb var2 <- rgb (255,0,0); // var2 equals #red 
-rgb var3 <- rgb ("red"); // var3 equals rgb(255,0,0) 
-rgb var4 <- rgb (255,0,0,0.5); // var4 equals a light red color 
-rgb var5 <- rgb (255,0,0,125); // var5 equals a light red color
+rgb var0 <- rgb ("red"); // var0 equals rgb(255,0,0) 
+rgb var1 <- rgb (255,0,0); // var1 equals #red 
+rgb var2 <- rgb (255,0,0,0.5); // var2 equals a light red color 
+rgb var3 <- rgb (255,0,0,125); // var3 equals a light red color 
+rgb var5 <- rgb(rgb(255,0,0),0.5); // var5 equals a light red color 
+rgb var6 <- rgb(rgb(255,0,0),125); // var6 equals a light red color
 
 ```
       
@@ -11467,18 +11467,18 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 ### `rnd`
 
 #### Possible use: 
+  *  **`rnd`** (`float`) --->  `float`
   *  **`rnd`** (`point`) --->  `point`
   *  **`rnd`** (`int`) --->  `int`
-  *  **`rnd`** (`float`) --->  `float`
+  * `float` **`rnd`** `float` --->  `float`
+  *  **`rnd`** (`float` , `float`) --->  `float`
   * `int` **`rnd`** `int` --->  `int`
   *  **`rnd`** (`int` , `int`) --->  `int`
   * `point` **`rnd`** `point` --->  `point`
   *  **`rnd`** (`point` , `point`) --->  `point`
-  * `float` **`rnd`** `float` --->  `float`
-  *  **`rnd`** (`float` , `float`) --->  `float`
-  *  **`rnd`** (`int`, `int`, `int`) --->  `int`
+  *  **`rnd`** (`point`, `point`, `float`) --->  `point`
   *  **`rnd`** (`float`, `float`, `float`) --->  `float`
-  *  **`rnd`** (`point`, `point`, `float`) --->  `point` 
+  *  **`rnd`** (`int`, `int`, `int`) --->  `int` 
 
 #### Result: 
 a random integer in the interval [0, operand]  
@@ -11487,22 +11487,22 @@ a random integer in the interval [0, operand]
 to obtain a probability between 0 and 1, use the expression (rnd n) / n, where n is used to indicate the precision
 
 #### Special cases:     
-  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]    
-  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]
+  * if the operand is a float, returns an uniformly distributed float random number in [0.0, to]    
+  * if the operand is a point, returns a point with three random float ordinates, each in the interval [0, ordinate of argument]
 
 #### Examples: 
 ```
  
-int var0 <- rnd (2, 12, 4); // var0 equals 2, 6 or 10 
-float var1 <- rnd (2.0, 4.0, 0.5); // var1 equals a float number between 2.0 and 4.0 every 0.5 
+float var0 <- rnd(3.4); // var0 equals a random float between 0.0 and 3.4 
+float var1 <- rnd (2.0, 4.0); // var1 equals a float number between 2.0 and 4.0 
 point var2 <- rnd ({2.5,3, 0.0}); // var2 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 
-point var3 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var3 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
-int var4 <- rnd (2, 4); // var4 equals 2, 3 or 4 
+int var3 <- rnd (2, 4); // var3 equals 2, 3 or 4 
+point var4 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); // var4 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 
 int var5 <- rnd (2); // var5 equals 0, 1 or 2 
 float var6 <- rnd (1000) / 1000; // var6 equals a float between 0 and 1 with a precision of 0.001 
-float var7 <- rnd(3.4); // var7 equals a random float between 0.0 and 3.4 
-point var8 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var8 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0 
-float var9 <- rnd (2.0, 4.0); // var9 equals a float number between 2.0 and 4.0
+float var7 <- rnd (2.0, 4.0, 0.5); // var7 equals a float number between 2.0 and 4.0 every 0.5 
+int var8 <- rnd (2, 12, 4); // var8 equals 2, 6 or 10 
+point var9 <- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); // var9 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0
 
 ```
       
@@ -11547,8 +11547,8 @@ int var0 <- rnd_choice([0.2,0.5,0.3]); // var0 equals 2/10 chances to return 0, 
   *  **`rnd_color`** (`int` , `int`) --->  `rgb` 
 
 #### Result: 
-rgb color
-Return a random color equivalent to rgb(rnd(first_op, last_op),rnd(first_op, last_op),rnd(first_op, last_op))  
+Return a random color equivalent to rgb(rnd(first_op, last_op),rnd(first_op, last_op),rnd(first_op, last_op))
+rgb color  
 
 #### Comment: 
 Return a random color equivalent to rgb(rnd(operand),rnd(operand),rnd(operand))
@@ -11556,8 +11556,8 @@ Return a random color equivalent to rgb(rnd(operand),rnd(operand),rnd(operand))
 #### Examples: 
 ```
  
-rgb var0 <- rnd_color(255); // var0 equals a random color, equivalent to rgb(rnd(255),rnd(255),rnd(255)) 
-rgb var1 <- rnd_color(100, 200); // var1 equals a random color, equivalent to rgb(rnd(100, 200),rnd(100, 200),rnd(100, 200))
+rgb var0 <- rnd_color(100, 200); // var0 equals a random color, equivalent to rgb(rnd(100, 200),rnd(100, 200),rnd(100, 200)) 
+rgb var1 <- rnd_color(255); // var1 equals a random color, equivalent to rgb(rnd(255),rnd(255),rnd(255))
 
 ```
       
@@ -11573,10 +11573,10 @@ rgb var1 <- rnd_color(100, 200); // var1 equals a random color, equivalent to rg
 ### `rotated_by`
 
 #### Possible use: 
-  * `geometry` **`rotated_by`** `float` --->  `geometry`
-  *  **`rotated_by`** (`geometry` , `float`) --->  `geometry`
   * `geometry` **`rotated_by`** `int` --->  `geometry`
   *  **`rotated_by`** (`geometry` , `int`) --->  `geometry`
+  * `geometry` **`rotated_by`** `float` --->  `geometry`
+  *  **`rotated_by`** (`geometry` , `float`) --->  `geometry`
   *  **`rotated_by`** (`geometry`, `float`, `point`) --->  `geometry` 
 
 #### Result: 
@@ -11840,18 +11840,18 @@ social_link set_agent agentA
 ### `set_agent_cause`
 
 #### Possible use: 
-  * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
-  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate`
   * `emotion` **`set_agent_cause`** `agent` --->  `emotion`
-  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion` 
+  *  **`set_agent_cause`** (`emotion` , `agent`) --->  `emotion`
+  * `predicate` **`set_agent_cause`** `agent` --->  `predicate`
+  *  **`set_agent_cause`** (`predicate` , `agent`) --->  `predicate` 
 
 #### Result: 
-change the agentCause value of the given predicate
 change the agentCause value of the given emotion
+change the agentCause value of the given predicate
 
 #### Examples: 
 ```
-predicate set_agent_cause agentA emotion set_agent_cause agentA 
+emotion set_agent_cause agentA predicate set_agent_cause agentA 
 
 ```
   
@@ -12099,7 +12099,7 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-shape <- triangle(3) set_z [5,10,14]; loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} 
+loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} shape <- triangle(3) set_z [5,10,14]; 
 
 ```
   
@@ -12121,9 +12121,9 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
-  *  **`shuffle`** (`container`) --->  `list`
   *  **`shuffle`** (`matrix`) --->  `matrix`
-  *  **`shuffle`** (`string`) --->  `string` 
+  *  **`shuffle`** (`string`) --->  `string`
+  *  **`shuffle`** (`container`) --->  `list` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -12134,9 +12134,9 @@ The elements of the operand in random order.
 #### Examples: 
 ```
  
-list var0 <- shuffle ([12, 13, 14]); // var0 equals [14,12,13] (for example) 
-matrix var1 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-string var2 <- shuffle ('abc'); // var2 equals 'bac' (for example)
+matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
+string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
+list var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
 
 ```
       
@@ -12327,9 +12327,9 @@ reflex when: since(starting_date) {}  	// this reflex will always be run every(2
 
 #### Result: 
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
 
 #### Examples: 
 ```
@@ -12353,8 +12353,8 @@ list<geometry> var3 <- skeletonize(self); // var3 equals the list of geometries 
   *  **`skew`** (`float` , `float`) --->  `float` 
 
 #### Result: 
-Returns the skew of a data sequence.
 Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+Returns the skew of a data sequence.
     	
 ----
 
@@ -12651,15 +12651,15 @@ list<geometry> var0 <- polyline([{1,2},{4,6}]) split_at {7,6}; // var0 equals [p
   *  **`split_geometry`** (`geometry`, `int`, `int`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
+A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10.0); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
-list<geometry> var1 <- to_rectangles(self, 10,20); // var1 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
+list<geometry> var0 <- to_rectangles(self, 10,20); // var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
+list<geometry> var1 <- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
 list<geometry> var2 <- to_rectangles(self, {10.0, 15.0}); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0
 
 ```
@@ -12718,8 +12718,8 @@ list<geometry> var1 <- split_lines([line([{0,10}, {20,10}]), line([{0,10}, {20,1
   *  **`split_using`** (`list`, `msi.gama.util.IList<? extends java.lang.Comparable>`, `bool`) --->  `list<list>` 
 
 #### Result: 
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound    
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound    
 
 
 #### See also: 
@@ -12908,8 +12908,8 @@ retur for each edge, its strahler number
   *  **`string`** (`date`, `string`, `string`) --->  `string` 
 
 #### Result: 
-converts a date to astring following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 converts a date to astring following a custom pattern and using a specific locale (e.g.: 'fr', 'en', etc.). The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a date to astring following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 
 #### Examples: 
 ```
@@ -13162,8 +13162,8 @@ Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in ra
 ### `tanh`
 
 #### Possible use: 
-  *  **`tanh`** (`int`) --->  `float`
-  *  **`tanh`** (`float`) --->  `float` 
+  *  **`tanh`** (`float`) --->  `float`
+  *  **`tanh`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
@@ -13303,19 +13303,19 @@ date('2000-01-01') to date('2010-01-01') // builds an interval between these two
   *  **`to_GAMA_CRS`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
-  
-```
- 
-geometry var0 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- to_GAMA_CRS({121,14}); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+geometry var0 <- to_GAMA_CRS({121,14}); // var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS 
+  
+```
+ 
+geometry var1 <- to_GAMA_CRS({121,14}, "EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS
 ``` 
 
 
@@ -13360,14 +13360,14 @@ string var11 <- to_gaml(node1); // var11 equals  1 as node
   *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list<geometry> var0 <- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 ```
   
@@ -13395,24 +13395,23 @@ list<geometry> var0 <- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equ
 
 [//]: # (keyword|operator_to_squares)
 ### `to_squares`
-   Same signification as [split_geometry](OperatorsSZ#split_geometry)
 
 #### Possible use: 
-  *  **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
+  *  **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var2 <- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var0 <- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var2 <- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
   
@@ -13434,8 +13433,8 @@ A list of geometries resulting after spliting the geometry into sub-geometries.
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size 
-list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var1 equals a list of three geometries corresponding to 3 sub-geometries
+list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var0 equals a list of three geometries corresponding to 3 sub-geometries 
+list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size
 
 ```
   
@@ -13700,20 +13699,20 @@ geometry var0 <- triangle(5); // var0 equals a geometry as a triangle with side_
   *  **`triangulate`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
-A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
+A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 
 #### Examples: 
 ```
  
 list<geometry> var0 <- triangulate(self,0.1, 1.0); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
 list<geometry> var1 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var2 <- triangulate(self); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var3 <- triangulate(self,0.1, 1.0); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var4 <- triangulate(self, 0.1); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list<geometry> var2 <- triangulate(self,0.1, 1.0); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var3 <- triangulate(self, 0.1); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var4 <- triangulate(self); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
 ```
   
@@ -13780,7 +13779,6 @@ the operator alters the operand graph, it does not create a new one.
 
 [//]: # (keyword|operator_union)
 ### `union`
-   Same signification as [+](OperatorsAA#+)
 
 #### Possible use: 
   *  **`union`** (`container<geometry>`) --->  `geometry`
@@ -13791,16 +13789,16 @@ the operator alters the operand graph, it does not create a new one.
 returns a new list containing all the elements of both containers without duplicated elements.
 
 #### Special cases:     
-  * if the left or right operand is nil, union throws an error    
-  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
+  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries    
+  * if the left or right operand is nil, union throws an error
 
 #### Examples: 
 ```
  
-list var0 <- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
-list var1 <- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
-list var2 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
-geometry var3 <- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
+geometry var0 <- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
+list var1 <- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
+list var2 <- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
+list var3 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
 
 ```
       
@@ -14252,23 +14250,23 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 #### Possible use: 
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
-  * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `geometry` **`with_precision`** `int` --->  `geometry`
-  *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
+  *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point` 
 
 #### Result: 
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 
 #### Examples: 
 ```
  
 float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
 float var1 <- 123 with_precision 2; // var1 equals 123.00 
-point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
-geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+geometry var2 <- self with_precision 2; // var2 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
 
 ```
       
