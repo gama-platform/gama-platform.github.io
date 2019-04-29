@@ -570,7 +570,7 @@ Blend two colors with an optional ratio (c1 `*` r + c2 `*` (1 - r)) between 0 an
   
 ```
  
-rgb var3 <- blend(#red, #blue); // var3 equals to a color very close to the purple
+rgb var1 <- blend(#red, #blue); // var1 equals to a color very close to the purple
 ``` 
 
 
@@ -578,7 +578,7 @@ rgb var3 <- blend(#red, #blue); // var3 equals to a color very close to the purp
 #### Examples: 
 ```
  
-rgb var1 <- blend(#red, #blue, 0.3); // var1 equals to a color between the purple and the blue
+rgb var3 <- blend(#red, #blue, 0.3); // var3 equals to a color between the purple and the blue
 
 ```
       
@@ -621,8 +621,8 @@ the center of the box is by default the location of the current agent in which h
 #### Examples: 
 ```
  
-geometry var0 <- box({10, 5 , 5}); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
-geometry var1 <- box(10, 5 , 5); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
+geometry var0 <- box(10, 5 , 5); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
+geometry var1 <- box({10, 5 , 5}); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
 
 ```
       
@@ -643,14 +643,14 @@ geometry var1 <- box(10, 5 , 5); // var1 equals a geometry as a rectangle with w
   *  **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
 
 #### Result: 
-Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
+Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 
 #### Examples: 
 ```
  
-list<rgb> var0 <- list<rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
+list<rgb> var0 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
+list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
 
 ```
       
@@ -671,14 +671,14 @@ list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equa
   *  **`brewer_palettes`** (`int` , `int`) --->  `list<string>` 
 
 #### Result: 
-returns the list a palette with a given min number of classes)
 returns the list a palette with a given min number of classes and max number of classes)
+returns the list a palette with a given min number of classes)
 
 #### Examples: 
 ```
  
-list<string> var0 <- list<string> palettes <- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
-list<string> var1 <- list<string> palettes <- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
+list<string> var0 <- list<string> palettes <- brewer_palettes(5,10);; // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
+list<string> var1 <- list<string> palettes <- brewer_palettes(3);; // var1 equals a list of palettes that are composed of a min of 3 colors
 
 ```
       
@@ -705,12 +705,12 @@ list<string> var1 <- list<string> palettes <- brewer_palettes(5,10);; // var1 eq
   *  **`build`** (`matrix<float>` , `string`) --->  `regression` 
 
 #### Result: 
-returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given ordinary least squares method. Usage: build(data)
 returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given method ("GLS" or "OLS"). Usage: build(data,method)
+returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given ordinary least squares method. Usage: build(data)
 
 #### Examples: 
 ```
-matrix([[1,2,3,4],[2,3,4,2]]) build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") 
+build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") matrix([[1,2,3,4],[2,3,4,2]]) 
 
 ```
   
@@ -922,8 +922,8 @@ list<point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] 
   *  **`closest_to`** (`container<agent>`, `geometry`, `int`) --->  `list<geometry>` 
 
 #### Result: 
-The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).
-An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).  
+An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).
+The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).  
 
 #### Comment: 
 the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.
@@ -931,8 +931,8 @@ the distance is computed in the topology of the calling agent (the agent in whic
 #### Examples: 
 ```
  
-list<geometry> var0 <- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5)  
-geometry var2 <- [ag1, ag2, ag3] closest_to(self); // var2 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self 
+geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self  
+list<geometry> var2 <- [ag1, ag2, ag3] closest_to(self, 2); // var2 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5) 
 
 ```
       
@@ -1303,10 +1303,10 @@ bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 ### `contains_edge`
 
 #### Possible use: 
-  * `graph` **`contains_edge`** `unknown` --->  `bool`
-  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool`
   * `graph` **`contains_edge`** `pair` --->  `bool`
-  *  **`contains_edge`** (`graph` , `pair`) --->  `bool` 
+  *  **`contains_edge`** (`graph` , `pair`) --->  `bool`
+  * `graph` **`contains_edge`** `unknown` --->  `bool`
+  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool` 
 
 #### Result: 
 returns true if the graph(left-hand operand) contains the given edge (righ-hand operand), false otherwise
@@ -1317,7 +1317,7 @@ returns true if the graph(left-hand operand) contains the given edge (righ-hand 
   
 ```
  
-bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
+bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
 ``` 
 
 
@@ -1325,7 +1325,7 @@ bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 #### Examples: 
 ```
 graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
-bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
+bool var2 <- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
 
 ```
       
@@ -1621,14 +1621,14 @@ map<string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 e
   *  **`cross`** (`float` , `float`) --->  `geometry` 
 
 #### Result: 
-A cross, which radius is equal to the first operand and the width of the lines for the second
 A cross, which radius is equal to the first operand
+A cross, which radius is equal to the first operand and the width of the lines for the second
 
 #### Examples: 
 ```
  
-geometry var0 <- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines  
-geometry var1 <- cross(10); // var1 equals a geometry as a cross of radius 10
+geometry var0 <- cross(10); // var0 equals a geometry as a cross of radius 10 
+geometry var1 <- cross(10,2); // var1 equals a geometry as a cross of radius 10, and with a width of 2 for the lines 
 
 ```
       
@@ -1699,19 +1699,19 @@ string var0 <- crs(my_shapefile); // var0 equals the crs of the shapefile
   *  **`CRS_transform`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
-  
-```
- 
-geometry var0 <- shape CRS_transform("EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
+  
+```
+ 
+geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 ``` 
 
 
@@ -1765,39 +1765,39 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 #### Possible use: 
   *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry` 
 
 #### Result: 
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
+A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 
 #### Special cases:     
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil    
-  * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
+  * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
@@ -1806,17 +1806,17 @@ A cubic Bezier curve geometry built from the two given points with the given coe
 #### Examples: 
 ```
  
-geometry var0 <- curve({0,0},{10,10}, 0.5); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var1 <- curve({0,0}, {0,10}, {10,10}, 20); // var1 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var2 <- curve({0,0},{10,10}, 0.5, false); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
-geometry var3 <- curve({0,0},{10,10}, 0.5, false, 100); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var4 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var5 <- curve({0,0}, {0,10}, {10,10}); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var6 <- curve({0,0}, {0,10}, {10,10}); // var6 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var7 <- curve({0,0},{10,10}, 0.5, 90); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var8 <- curve({0,0},{10,10}, 0.5, 100, 90); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var9 <- curve({0,0}, {0,10}, {10,10}); // var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var10 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var10 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
+geometry var0 <- curve({0,0},{10,10}, 0.5, 90); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var1 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var2 <- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var3 <- curve({0,0},{10,10}, 0.5); // var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var4 <- curve({0,0},{10,10}, 0.5, false); // var4 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var5 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var6 <- curve({0,0}, {0,10}, {10,10}, 20); // var6 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var7 <- curve({0,0}, {0,10}, {10,10}); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var8 <- curve({0,0},{10,10}, 0.5, false, 100); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var9 <- curve({0,0},{10,10}, 0.5, 100, 90); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var10 <- curve({0,0}, {0,10}, {10,10}); // var10 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
 
 ```
       
