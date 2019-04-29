@@ -262,7 +262,7 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`#minute`** (#minutes,#mn), value= 60.0, Comment: minute time unit: defined an exact duration of 60 seconds
 
 [//]: # (keyword|constant_#month)
-* **`#month`** (#months), value= 2592000.0, Comment: month time unit: does not define an exact duration. The duration will depend on the step/date at which this unit is computed.
+* **`#month`** (#months), value= 2592000.0, Comment: month time unit: defines an exact duration of 30 days. WARNING: this duration is of course not correct in terms of calendar
 
 [//]: # (keyword|constant_#msec)
 * **`#msec`** (#millisecond,#milliseconds,#ms), value= 0.001, Comment: millisecond time unit: defines an exact duration of 0.001 second
@@ -274,10 +274,10 @@ float one_cubic_inch <- 1 °sqin * 1 °inch;
 * **`#sec`** (#second,#seconds,#s), value= 1.0, Comment: second: the time basic unit, with a fixed value of 1. All other durations are expressed with respect to it
 
 [//]: # (keyword|constant_#week)
-* **`#week`** (#weeks), value= 604800.0, Comment: week time unit: defines an exact duration of  7 days
+* **`#week`** (#weeks), value= 604800.0, Comment: week time unit: defines an exact duration of 7 days
 
 [//]: # (keyword|constant_#year)
-* **`#year`** (#years,#y), value= 3.1104E7, Comment: year time unit: does not define an exact duration. The duration will depend on the step/date at which this unit is computed.
+* **`#year`** (#years,#y), value= 3.1536E7, Comment: year time unit: defines an exact duration of 365 days. WARNING: this duration is of course not correct in terms of calendar
 		
 ----
 
