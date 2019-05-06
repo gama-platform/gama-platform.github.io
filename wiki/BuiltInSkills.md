@@ -215,8 +215,8 @@ The fipa skill offers some primitives and built-in variables which enable agent 
  
 ### Variables
 	   
-  * **`accept_proposals`** (`list`): A list of 'accept_proposal' performative messages of the agent's mailbox having .   
-  * **`agrees`** (`list`): A list of 'accept_proposal' performative messages.   
+  * **`accept_proposals`** (`list`): A list of 'accept_proposal' performative messages in the agent's mailbox   
+  * **`agrees`** (`list`): A list of 'agree' performative messages.   
   * **`cancels`** (`list`): A list of 'cancel' performative messages.   
   * **`cfps`** (`list`): A list of 'cfp' (call for proposal) performative messages.   
   * **`conversations`** (`list`): A list containing the current conversations of agent. Ended conversations are automatically removed from this list.   
@@ -225,7 +225,7 @@ The fipa skill offers some primitives and built-in variables which enable agent 
   * **`proposes`** (`list`): A list of 'propose' performative messages .   
   * **`queries`** (`list`): A list of 'query' performative messages.   
   * **`refuses`** (`list`): A list of 'propose' performative messages.   
-  * **`reject_proposals`** (`list`): A list of 'reject_proposals' performative messages.   
+  * **`reject_proposals`** (`list`): A list of 'reject_proposal' performative messages.   
   * **`requests`** (`list`): A list of 'request' performative messages.   
   * **`requestWhens`** (`list`): A list of 'request-when' performative messages.   
   * **`subscribes`** (`list`): A list of 'subscribe' performative messages. 
