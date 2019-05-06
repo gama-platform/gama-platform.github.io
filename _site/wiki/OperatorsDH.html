@@ -3975,7 +3975,7 @@ converts a string to a date following a custom pattern and a specific locale (e.
 
 <h4 id="examples-1">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;list&gt; var0 &lt;- dbscan ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],10,2); // var0 equals []
+list&lt;list&gt; var0 &lt;- dbscan ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],10,2); // var0 equals [[0,1,2,3]]
 
 </code></pre></div></div>
 
@@ -4027,10 +4027,10 @@ int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3
 <h4 id="possible-use-4">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">file</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">file</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><code class="highlighter-rouge">file</code> <strong><code class="highlighter-rouge">dem</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">dem</code></strong> (<code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">file</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
@@ -4039,10 +4039,10 @@ int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3
 
 <h4 id="examples-4">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- dem(dem,z_factor); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 &lt;- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var2 &lt;- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var3 &lt;- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
+geometry var0 &lt;- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var1 &lt;- dem(dem,z_factor); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var2 &lt;- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var3 &lt;- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.
 
 </code></pre></div></div>
 
@@ -4204,10 +4204,10 @@ float var0 &lt;- my_topology distance_between [ag1, ag2, ag3]; // var0 equals th
 
 <h4 id="possible-use-12">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
-  <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">geometry</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">distance_to</code></strong> <code class="highlighter-rouge">point</code> —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">distance_to</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-12">Result:</h4>
@@ -4270,8 +4270,8 @@ list var0 &lt;- remove_duplicates([3,2,5,1,2,3,5,5,5]); // var0 equals [3,2,5,1]
 
 <h4 id="examples-11">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-map var0 &lt;- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 &lt;- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 </code></pre></div></div>
@@ -4298,8 +4298,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1
 <h4 id="examples-12">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 map var0 &lt;- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 &lt;- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 &lt;- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 &lt;- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 </code></pre></div></div>
 
@@ -4313,12 +4313,12 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[
 
 <h4 id="possible-use-16">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
@@ -4335,9 +4335,9 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[
 
 <h4 id="examples-13">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var0 &lt;- 40.5 div 3; // var0 equals 13 
+int var0 &lt;- 40 div 3; // var0 equals 13 
 int var1 &lt;- 40 div 4.1; // var1 equals 9 
-int var2 &lt;- 40 div 3; // var2 equals 13 
+int var2 &lt;- 40.5 div 3; // var2 equals 13 
 int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 
 </code></pre></div></div>
@@ -4363,13 +4363,13 @@ int var3 &lt;- 40.1 div 4.5; // var3 equals 8
 </ul>
 
 <h4 id="result-17">Result:</h4>
-<p>returns the dynamic time warping between the two series of value with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
-returns the dynamic time warping between the two series of value</p>
+<p>returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
+returns the dynamic time warping between the two series of values (step pattern used: symetric1)</p>
 
 <h4 id="examples-14">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 2.0 
-float var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var1 equals 2
+float var0 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 11.0 
+float var1 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); // var1 equals 38.0
 
 </code></pre></div></div>
 
@@ -4405,21 +4405,21 @@ float var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0]); // var1 equals 2
 <ul>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
@@ -4747,8 +4747,8 @@ expects a frequency (expressed in seconds of simulated time) as argument. Will r
 
 <h4 id="special-cases-8">Special cases:</h4>
 <ul>
-  <li>if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true</li>
   <li>returns -1 is the list of candidates is nil or empty</li>
+  <li>if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true</li>
 </ul>
 
 <h4 id="examples-24">Examples:</h4>
@@ -5200,11 +5200,11 @@ fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,
 </ul>
 
 <h4 id="result-51">Result:</h4>
-<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
 <h4 id="examples-38">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 </code></pre></div></div>
 
@@ -5323,25 +5323,25 @@ float var1 &lt;- gamma_index(graphEpidemio); // var1 equals the gamma index of t
 </ul>
 
 <h4 id="result-59">Result:</h4>
-<p>The operator can be used with an operand of type point {meand,standardDeviation}.
-A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.</p>
+<p>A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.
+The operator can be used with an operand of type point {meand,standardDeviation}.</p>
 
 <h4 id="special-cases-17">Special cases:</h4>
 <ul>
-  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
   <li>when standardDeviation value is 0.0, it always returns the mean value</li>
+  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
 </ul>
 
 <h4 id="examples-41">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- gauss({0,0.3}); // var0 equals 0.22354 
-float var1 &lt;- gauss(0,0.3); // var1 equals 0.22354
+float var0 &lt;- gauss(0,0.3); // var0 equals 0.22354 
+float var1 &lt;- gauss({0,0.3}); // var1 equals 0.22354
 
 </code></pre></div></div>
 
 <h4 id="see-also-26">See also:</h4>
 
-<p><a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNR#poisson">poisson</a>, <a href="OperatorsSZ#skew_gauss">skew_gauss</a>,</p>
+<p><a href="OperatorsSZ#skew_gauss">skew_gauss</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNR#poisson">poisson</a>,</p>
 
 <hr />
 
@@ -5390,8 +5390,8 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 <h4 id="possible-use-63">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">container&lt;agent&gt;</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">container&lt;agent&gt;</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
@@ -5409,6 +5409,10 @@ returns a fully connected graph.</p>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
+  <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“agents”: list of existing node agents</li>
   <li>“edges_species”: the species of edges</li>
@@ -5417,15 +5421,11 @@ returns a fully connected graph.</p>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
-  <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 
 <h4 id="examples-43">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
 
 </code></pre></div></div>
 
@@ -5557,29 +5557,29 @@ geometry var0 &lt;- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // va
 
 <h4 id="possible-use-69">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">agent</code> <strong><code class="highlighter-rouge">get</code></strong> <code class="highlighter-rouge">string</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-67">Result:</h4>
-<p>Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
-Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.</p>
+<p>Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.</p>
 
 <h4 id="special-cases-22">Special cases:</h4>
-<ul>
-  <li>Reading the attribute of another agent</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string agent_name &lt;- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
-</code></pre></div></div>
-
 <ul>
   <li>Reading the attribute of a geometry</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string geom_area &lt;- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable 
+</code></pre></div></div>
+
+<ul>
+  <li>Reading the attribute of another agent</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string agent_name &lt;- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable 
 </code></pre></div></div>
 
 <hr />
@@ -5648,7 +5648,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 <p>get the belief in the belief base with the given predicate.</p>
 
 <h4 id="examples-50">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_belief_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_belief_op(self,predicate("has_water")); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5666,7 +5667,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 <p>get the belief in the belief base with the given name.</p>
 
 <h4 id="examples-51">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_belief_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_belief_with_name_op(self,"has_water"); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5684,7 +5686,7 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 <p>get the beliefs in the belief base with the given predicate.</p>
 
 <h4 id="examples-52">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_beliefs_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_beliefs_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -5719,7 +5721,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 <p>get the current intention.</p>
 
 <h4 id="examples-54">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_current_intention_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_current_intention_op(self); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5754,7 +5757,8 @@ Reads an attribute of the specified geometry (left operand). The attribute name 
 <p>get the desire in the desire base with the given predicate.</p>
 
 <h4 id="examples-56">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_belief_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_belief_op(self,predicate("has_water")); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5791,7 +5795,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the desires in the desire base with the given predicate.</p>
 
 <h4 id="examples-58">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_desires_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_desires_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -5861,7 +5865,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-62">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_ideal_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_ideal_op(self,predicate("has_water")); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5879,7 +5884,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-63">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_ideal_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -5897,7 +5903,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-64">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_ideals_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_ideals_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -5950,7 +5956,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the intention in the intention base with the given predicate.</p>
 
 <h4 id="examples-67">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_intention_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_intention_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -5986,7 +5992,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the intentions in the intention base with the given predicate.</p>
 
 <h4 id="examples-69">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_intentions_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_intentions_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -6074,7 +6080,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the obligation in the obligation base with the given predicate.</p>
 
 <h4 id="examples-74">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_obligation_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_obligation_op(self,predicate("has_water")); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -6092,7 +6099,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the obligation in the obligation base with the given name.</p>
 
 <h4 id="examples-75">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_obligation_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -6110,7 +6118,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the obligations in the obligation base with the given predicate.</p>
 
 <h4 id="examples-76">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_obligations_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_obligations_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -6249,7 +6257,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the uncertainties in the uncertainty base with the given predicate.</p>
 
 <h4 id="examples-83">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertinties_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertainties_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
 
@@ -6285,7 +6293,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the uncertainty in the uncertainty base with the given predicate.</p>
 
 <h4 id="examples-85">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertainty_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_uncertainty_op(self,predicate("has_water")); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -6303,7 +6312,8 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
 <p>get the uncertainty in the uncertainty base with the given name.</p>
 
 <h4 id="examples-86">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertainty_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+mental_state var0 &lt;- get_uncertainty_with_name_op(self,"has_water"); // var0 equals nil
 
 </code></pre></div></div>
 
@@ -6515,7 +6525,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is a belief about the given predicate.</p>
 
 <h4 id="examples-92">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_belief_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_belief_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6533,7 +6544,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is a belief about the given name.</p>
 
 <h4 id="examples-93">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_belief_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_belief_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6551,7 +6563,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is a desire about the given predicate.</p>
 
 <h4 id="examples-94">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_desire_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_desire_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6569,7 +6582,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is a desire about the given name.</p>
 
 <h4 id="examples-95">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_desire_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_desire_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6587,7 +6601,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an ideal about the given predicate.</p>
 
 <h4 id="examples-96">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_ideal_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_ideal_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6605,7 +6620,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an ideal about the given name.</p>
 
 <h4 id="examples-97">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_ideal_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_ideal_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6623,7 +6639,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an intention about the given predicate.</p>
 
 <h4 id="examples-98">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_intention_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_intention_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6641,7 +6658,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an intention about the given name.</p>
 
 <h4 id="examples-99">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_intention_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_intention_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6659,7 +6677,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an obligation about the given predicate.</p>
 
 <h4 id="examples-100">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_obligation_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_obligation_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6677,7 +6696,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an obligation about the given name.</p>
 
 <h4 id="examples-101">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_obligation_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_obligation_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6695,7 +6715,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an uncertainty about the given predicate.</p>
 
 <h4 id="examples-102">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_uncertainty_op(self,has_water) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_uncertainty_op(self,predicate("has_water")); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6713,7 +6734,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 <p>indicates if there already is an uncertainty about the given name.</p>
 
 <h4 id="examples-103">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>has_uncertainty_with_name_op(self,"has_water") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var0 &lt;- has_uncertainty_with_name_op(self,"has_water"); // var0 equals false
 
 </code></pre></div></div>
 
@@ -6723,8 +6745,8 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 
 <h4 id="possible-use-134">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">hexagon</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
@@ -6744,9 +6766,9 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
 
 <h4 id="examples-104">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var1 &lt;- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 &lt;- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var0 &lt;- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var1 &lt;- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 &lt;- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
 
 </code></pre></div></div>
 

@@ -6,7 +6,7 @@ wikiPagePath: wiki/Installation.md
 ---
 # Installation
 
-GAMA 1.7 comes in 5 different versions (32 & 64 bits for Windows & Linux, and 64 bits for MacOS X). You first need to determine which version to use (it depends on your computer, which may, or not, support 64 bits instructions, but also on the version of Java already installed, as the number of bits of the two versions must match).
+GAMA 1.7 comes in 5 different versions (32 & 64 bits for Windows & Linux, and 64 bits for MacOS X). You first need to determine which version to use (it depends on your computer, which may, or not, support 64 bits instructions, but also on the version of Java already installed, as the number of bits of the two versions must match). GAMA 1.8 only comes in 3 versions for the 3 environments (by default in 64 bits).
 
 You can then download the right version from the [Downloads page](http://vps226121.ovh.net/download#GAMALATEST), expand the zip file wherever you want on your machine, and [launch GAMA](Launching).
 
