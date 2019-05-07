@@ -138,18 +138,8 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ----
 
-### DescriptiveStatistics
-[auto_correlation](OperatorsAA#auto_correlation), [correlation](OperatorsBC#correlation), [covariance](OperatorsBC#covariance), [durbin_watson](OperatorsDH#durbin_watson), [kurtosis](OperatorsIM#kurtosis), [moment](OperatorsIM#moment), [quantile](OperatorsNR#quantile), [quantile_inverse](OperatorsNR#quantile_inverse), [rank_interpolated](OperatorsNR#rank_interpolated), [rms](OperatorsNR#rms), [skew](OperatorsSZ#skew), [variance](OperatorsSZ#variance), 
-
-----
-
 ### Displays
 [horizontal](OperatorsDH#horizontal), [stack](OperatorsSZ#stack), [vertical](OperatorsSZ#vertical), 
-
-----
-
-### Distributions
-[binomial_coeff](OperatorsBC#binomial_coeff), [binomial_complemented](OperatorsBC#binomial_complemented), [binomial_sum](OperatorsBC#binomial_sum), [chi_square](OperatorsBC#chi_square), [chi_square_complemented](OperatorsBC#chi_square_complemented), [gamma_distribution](OperatorsDH#gamma_distribution), [gamma_distribution_complemented](OperatorsDH#gamma_distribution_complemented), [normal_area](OperatorsNR#normal_area), [normal_density](OperatorsNR#normal_density), [normal_inverse](OperatorsNR#normal_inverse), [pValue_for_fStat](OperatorsNR#pvalue_for_fstat), [pValue_for_tStat](OperatorsNR#pvalue_for_tstat), [student_area](OperatorsSZ#student_area), [student_t_inverse](OperatorsSZ#student_t_inverse), 
 
 ----
 
@@ -180,11 +170,6 @@ Note that due to the fact that actions are written by modelers, the general func
 
 ### GamaMetaType
 [type_of](OperatorsSZ#type_of), 
-
-----
-
-### GammaFunction
-[beta](OperatorsBC#beta), [gamma](OperatorsDH#gamma), [incomplete_beta](OperatorsIM#incomplete_beta), [incomplete_gamma](OperatorsIM#incomplete_gamma), [incomplete_gamma_complement](OperatorsIM#incomplete_gamma_complement), [log_gamma](OperatorsIM#log_gamma), 
 
 ----
 
@@ -299,7 +284,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Statistical operators
-[build](OperatorsBC#build), [corR](OperatorsBC#corr), [dbscan](OperatorsDH#dbscan), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [dtw](OperatorsDH#dtw), [frequency_of](OperatorsDH#frequency_of), [gamma_rnd](OperatorsDH#gamma_rnd), [geometric_mean](OperatorsDH#geometric_mean), [gini](OperatorsDH#gini), [harmonic_mean](OperatorsDH#harmonic_mean), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [kmeans](OperatorsIM#kmeans), [kurtosis](OperatorsIM#kurtosis), [max](OperatorsIM#max), [mean](OperatorsIM#mean), [mean_deviation](OperatorsIM#mean_deviation), [meanR](OperatorsIM#meanr), [median](OperatorsIM#median), [min](OperatorsIM#min), [moran](OperatorsIM#moran), [mul](OperatorsIM#mul), [predict](OperatorsNR#predict), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [skewness](OperatorsSZ#skewness), [split](OperatorsSZ#split), [split_in](OperatorsSZ#split_in), [split_using](OperatorsSZ#split_using), [standard_deviation](OperatorsSZ#standard_deviation), [sum](OperatorsSZ#sum), [variance](OperatorsSZ#variance), 
+[auto_correlation](OperatorsAA#auto_correlation), [beta](OperatorsBC#beta), [binomial_coeff](OperatorsBC#binomial_coeff), [binomial_complemented](OperatorsBC#binomial_complemented), [binomial_sum](OperatorsBC#binomial_sum), [build](OperatorsBC#build), [chi_square](OperatorsBC#chi_square), [chi_square_complemented](OperatorsBC#chi_square_complemented), [corR](OperatorsBC#corr), [correlation](OperatorsBC#correlation), [covariance](OperatorsBC#covariance), [dbscan](OperatorsDH#dbscan), [distribution_of](OperatorsDH#distribution_of), [distribution2d_of](OperatorsDH#distribution2d_of), [dtw](OperatorsDH#dtw), [durbin_watson](OperatorsDH#durbin_watson), [frequency_of](OperatorsDH#frequency_of), [gamma](OperatorsDH#gamma), [gamma_distribution](OperatorsDH#gamma_distribution), [gamma_distribution_complemented](OperatorsDH#gamma_distribution_complemented), [gamma_rnd](OperatorsDH#gamma_rnd), [geometric_mean](OperatorsDH#geometric_mean), [gini](OperatorsDH#gini), [harmonic_mean](OperatorsDH#harmonic_mean), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [incomplete_beta](OperatorsIM#incomplete_beta), [incomplete_gamma](OperatorsIM#incomplete_gamma), [incomplete_gamma_complement](OperatorsIM#incomplete_gamma_complement), [kmeans](OperatorsIM#kmeans), [kurtosis](OperatorsIM#kurtosis), [kurtosis](OperatorsIM#kurtosis), [log_gamma](OperatorsIM#log_gamma), [max](OperatorsIM#max), [mean](OperatorsIM#mean), [mean_deviation](OperatorsIM#mean_deviation), [meanR](OperatorsIM#meanr), [median](OperatorsIM#median), [min](OperatorsIM#min), [moment](OperatorsIM#moment), [moran](OperatorsIM#moran), [mul](OperatorsIM#mul), [normal_area](OperatorsNR#normal_area), [normal_density](OperatorsNR#normal_density), [normal_inverse](OperatorsNR#normal_inverse), [predict](OperatorsNR#predict), [pValue_for_fStat](OperatorsNR#pvalue_for_fstat), [pValue_for_tStat](OperatorsNR#pvalue_for_tstat), [quantile](OperatorsNR#quantile), [quantile_inverse](OperatorsNR#quantile_inverse), [rank_interpolated](OperatorsNR#rank_interpolated), [rms](OperatorsNR#rms), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [skew](OperatorsSZ#skew), [skewness](OperatorsSZ#skewness), [split](OperatorsSZ#split), [split_in](OperatorsSZ#split_in), [split_using](OperatorsSZ#split_using), [standard_deviation](OperatorsSZ#standard_deviation), [student_area](OperatorsSZ#student_area), [student_t_inverse](OperatorsSZ#student_t_inverse), [sum](OperatorsSZ#sum), [variance](OperatorsSZ#variance), [variance](OperatorsSZ#variance), 
 
 ----
 
@@ -412,30 +397,29 @@ float var1 <- beta_index(graphEpidemio); // var1 equals the beta index of the gr
   * `date` **`between`** `date` --->  `bool`
   *  **`between`** (`date` , `date`) --->  `bool`
   *  **`between`** (`float`, `float`, `float`) --->  `bool`
-  *  **`between`** (`any expression`, `date`, `date`) --->  `bool`
   *  **`between`** (`date`, `date`, `date`) --->  `bool`
-  *  **`between`** (`int`, `int`, `int`) --->  `bool` 
+  *  **`between`** (`int`, `int`, `int`) --->  `bool`
+  *  **`between`** (`any expression`, `date`, `date`) --->  `bool` 
 
 #### Result: 
 returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
 
-
 returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 
 #### Special cases:     
-  * returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others 
-  
-```
- 
-bool var0 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var0 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
-``` 
-
-    
   * returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates 
   
 ```
  
-bool var3 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var3 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
+bool var2 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
+``` 
+
+    
+  * returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others 
+  
+```
+ 
+bool var5 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
 ``` 
 
 
@@ -443,8 +427,8 @@ bool var3 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))
 #### Examples: 
 ```
  
-bool var6 <- between(5.0, 1.0, 10.0); // var6 equals true 
-bool var7 <- between(5, 1, 10); // var7 equals true
+bool var0 <- between(5.0, 1.0, 10.0); // var0 equals true 
+bool var1 <- between(5, 1, 10); // var1 equals true
 
 ```
   
@@ -572,7 +556,7 @@ Blend two colors with an optional ratio (c1 `*` r + c2 `*` (1 - r)) between 0 an
   
 ```
  
-rgb var3 <- blend(#red, #blue); // var3 equals to a color very close to the purple
+rgb var1 <- blend(#red, #blue); // var1 equals to a color very close to the purple
 ``` 
 
 
@@ -580,7 +564,7 @@ rgb var3 <- blend(#red, #blue); // var3 equals to a color very close to the purp
 #### Examples: 
 ```
  
-rgb var1 <- blend(#red, #blue, 0.3); // var1 equals to a color between the purple and the blue
+rgb var3 <- blend(#red, #blue, 0.3); // var3 equals to a color between the purple and the blue
 
 ```
       
@@ -645,14 +629,14 @@ geometry var1 <- box({10, 5 , 5}); // var1 equals a geometry as a rectangle with
   *  **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
 
 #### Result: 
-Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
+Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
 
 #### Examples: 
 ```
  
-list<rgb> var0 <- list<rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
+list<rgb> var0 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
+list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
 
 ```
       
@@ -924,8 +908,8 @@ list<point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] 
   *  **`closest_to`** (`container<agent>`, `geometry`, `int`) --->  `list<geometry>` 
 
 #### Result: 
-An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).
-The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).  
+The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).
+An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).  
 
 #### Comment: 
 the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.
@@ -933,8 +917,8 @@ the distance is computed in the topology of the calling agent (the agent in whic
 #### Examples: 
 ```
  
-geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self  
-list<geometry> var2 <- [ag1, ag2, ag3] closest_to(self, 2); // var2 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5) 
+list<geometry> var0 <- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5)  
+geometry var2 <- [ag1, ag2, ag3] closest_to(self); // var2 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self 
 
 ```
       
@@ -1039,9 +1023,9 @@ list<list> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","e
   *  **`command`** (`string`, `string`, `msi.gama.util.GamaMap<java.lang.String,java.lang.String>`) --->  `string` 
 
 #### Result: 
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
     	
 ----
 
@@ -1224,10 +1208,10 @@ bool var0 <- 'abcded' contains 'bc'; // var0 equals true
 ### `contains_all`
 
 #### Possible use: 
-  * `container` **`contains_all`** `container` --->  `bool`
-  *  **`contains_all`** (`container` , `container`) --->  `bool`
   * `string` **`contains_all`** `list` --->  `bool`
-  *  **`contains_all`** (`string` , `list`) --->  `bool` 
+  *  **`contains_all`** (`string` , `list`) --->  `bool`
+  * `container` **`contains_all`** `container` --->  `bool`
+  *  **`contains_all`** (`container` , `container`) --->  `bool` 
 
 #### Result: 
 true if the left operand contains all the elements of the right operand, false otherwise  
@@ -1241,7 +1225,7 @@ the definition of contains depends on the container
   
 ```
  
-bool var4 <- "abcabcabc" contains_all ["ca","xy"]; // var4 equals false
+bool var0 <- "abcabcabc" contains_all ["ca","xy"]; // var0 equals false
 ``` 
 
 
@@ -1249,10 +1233,10 @@ bool var4 <- "abcabcabc" contains_all ["ca","xy"]; // var4 equals false
 #### Examples: 
 ```
  
-bool var0 <- [1,2,3,4,5,6] contains_all [2,4]; // var0 equals true  
-bool var1 <- [1,2,3,4,5,6] contains_all [2,8]; // var1 equals false 
-bool var2 <- [1::2, 3::4, 5::6] contains_all [1,3]; // var2 equals false  
-bool var3 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
+bool var1 <- [1,2,3,4,5,6] contains_all [2,4]; // var1 equals true  
+bool var2 <- [1,2,3,4,5,6] contains_all [2,8]; // var2 equals false 
+bool var3 <- [1::2, 3::4, 5::6] contains_all [1,3]; // var3 equals false  
+bool var4 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
 
 ```
       
@@ -1409,8 +1393,8 @@ returns a copy of the operand.
 ### `copy_between`
 
 #### Possible use: 
-  *  **`copy_between`** (`string`, `int`, `int`) --->  `string`
-  *  **`copy_between`** (`list`, `int`, `int`) --->  `list` 
+  *  **`copy_between`** (`list`, `int`, `int`) --->  `list`
+  *  **`copy_between`** (`string`, `int`, `int`) --->  `string` 
 
 #### Result: 
 Returns a copy of the first operand between the indexes determined by the second (inclusive) and third operands (exclusive)
@@ -1423,8 +1407,8 @@ Returns a copy of the first operand between the indexes determined by the second
 #### Examples: 
 ```
  
-string var0 <- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
-list var1 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
+list var0 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
+string var1 <- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
 
 ```
   
@@ -1462,7 +1446,16 @@ unknown var2 <- corR(X, Y); // var2 equals 0.981980506061966
   *  **`correlation`** (`container` , `container`) --->  `float` 
 
 #### Result: 
-Returns the correlation of two data sequences
+Returns the correlation of two data sequences (having the same size)
+
+#### Examples: 
+```
+ 
+float var0 <- correlation([1,2,1,3,1,2], [1,2,1,3,1,2]) with_precision(4); // var0 equals 1.2 
+float var1 <- correlation([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // var1 equals -0.21
+
+```
+  
     	
 ----
 
@@ -1557,6 +1550,14 @@ int var6 <- [1::2, 3::4, 5::6] count (each > 4); // var6 equals 1
 
 #### Result: 
 Returns the covariance of two data sequences
+
+#### Examples: 
+```
+ 
+float var0 <- covariance([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // var0 equals -0.67
+
+```
+  
     	
 ----
 
@@ -1701,19 +1702,19 @@ string var0 <- crs(my_shapefile); // var0 equals the crs of the shapefile
   *  **`CRS_transform`** (`geometry` , `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
-  
-```
- 
-geometry var0 <- shape CRS_transform("EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-``` 
-
-    
   * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ```
  
-geometry var1 <- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+``` 
+
+    
+  * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
+  
+```
+ 
+geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 ``` 
 
 
@@ -1840,27 +1841,27 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 #### Possible use: 
   *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
 
 #### Result: 
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
 A cubic Bezier curve geometry built from the four given points composed of a given number of points.
 
 #### Special cases:     
@@ -1881,16 +1882,16 @@ A cubic Bezier curve geometry built from the four given points composed of a giv
 #### Examples: 
 ```
  
-geometry var0 <- curve({0,0},{10,10}, 0.5, 90); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var1 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var2 <- curve({0,0},{10,10}, 0.5, false, 100); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var0 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var1 <- curve({0,0},{10,10}, 0.5, false); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var2 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
 geometry var3 <- curve({0,0},{10,10}, 0.5, 100, 90); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var5 <- curve({0,0},{10,10}, 0.5); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var4 <- curve({0,0},{10,10}, 0.5, 90); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var5 <- curve({0,0}, {0,10}, {10,10}); // var5 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
 geometry var6 <- curve({0,0}, {0,10}, {10,10}, 20); // var6 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var7 <- curve({0,0}, {0,10}, {10,10}); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var8 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var9 <- curve({0,0},{10,10}, 0.5, false); // var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var7 <- curve({0,0},{10,10}, 0.5); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var8 <- curve({0,0}, {0,10}, {10,10}); // var8 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var9 <- curve({0,0},{10,10}, 0.5, false, 100); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
 geometry var10 <- curve({0,0}, {0,10}, {10,10}); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
 
 ```
