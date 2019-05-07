@@ -345,17 +345,17 @@ get the predicates is in the belief base (if several, returns the first one).
 	 
 #### **`get_beliefs`**
 get the list of predicates in the belief base
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`predicate`** (546704): predicate to check  
 	 
 #### **`get_beliefs_metal_state`**
 get the list of bliefs in the belief base containing the mental state
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_beliefs_with_name`**
 get the list of predicates is in the belief base with the given name.
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_current_intention`**
@@ -383,17 +383,17 @@ get the predicates is in the belief base (if several, returns the first one).
 	 
 #### **`get_desires`**
 get the list of predicates is in the desire base
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`predicate`** (546704): name of the predicates to check  
 	 
 #### **`get_desires_mental_state`**
 get the list of mental states is in the desire base
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`mental_state`** (546708): name of the mental states to check  
 	 
 #### **`get_desires_with_name`**
 get the list of predicates is in the belief base with the given name.
-* returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_emotion`**
@@ -433,17 +433,17 @@ get the predicates is in the belief base (if several, returns the first one).
 	 
 #### **`get_intentions`**
 get the list of predicates is in the intention base
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`predicate`** (546704): name of the predicates to check  
 	 
 #### **`get_intentions_mental_state`**
 get the list of mental state is in the intention base
-* returns: msi.gama.util.IList<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`mental_state`** (546708): mental state to check  
 	 
 #### **`get_intentions_with_name`**
 get the list of predicates is in the belief base with the given name.
-* returns: java.util.List<msi.gaml.architecture.simplebdi.MentalState> 			
+* returns: list<mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_obligation`**
@@ -458,7 +458,7 @@ get the first plan with the given name
 	 
 #### **`get_plans`**
 get the list of plans.
-* returns: java.util.List<msi.gaml.architecture.simplebdi.BDIPlan>  
+* returns: list<BDIPlan>  
 	 
 #### **`get_social_link`**
 get the social link (if several, returns the first one).
