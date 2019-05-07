@@ -26,9 +26,9 @@ GAMA integrates several agent control architectures that can be used in addition
   * [weighted\_tasks](#task-based): task-based control architecture. At any given time, only the task only the task with the maximal weight is executed.
   * [sorted\_tasks](#task-based): task-based control architecture. At any given time, the tasks are all executed in the order specified by their weights (highest first).
   * [probabilistic\_tasks](#task-based): task-based control architecture. This architecture uses the weights as a support for making a weighted probabilistic choice among the different tasks. If all tasks have the same weight, one is randomly chosen at each step.
-  * [user\_only](DefiningUserInteraction#user-control-architecture): allows users to take control over an agent during the course of the simulation. With this architecture, only the user control the agents (no reflexes).
-  * [user\_first](user-control-architecture): allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed before the agent reflexes.
-  * [user\_last](user-control-architecture): allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed after the agent reflexes.
+  * [user\_only](#user_only-user_first-user_last): allows users to take control over an agent during the course of the simulation. With this architecture, only the user control the agents (no reflexes).
+  * [user\_first](#user_only-user_first-user_last): allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed before the agent reflexes.
+  * [user\_last](#user_only-user_first-user_last): allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed after the agent reflexes.
   
 ## Index
 

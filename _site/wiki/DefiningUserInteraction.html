@@ -3801,8 +3801,8 @@ user_command kill_myself {
 
 <span class="n">global</span> <span class="p">{</span>
    <span class="n">init</span> <span class="p">{</span>
-      <span class="n">map</span> <span class="n">values</span> <span class="p">&lt;-</span> <span class="n">user_input</span><span class="p">(</span><span class="s2">"choose a number of agent to create"</span><span class="p">,[</span><span class="s2">"Number"</span> <span class="p">::</span> <span class="m">100</span><span class="p">]);</span>
-      <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span> <span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">values</span> <span class="n">at</span> <span class="s2">"Number"</span><span class="p">);</span>
+      <span class="n">map</span> <span class="n">values</span> <span class="p">&lt;-</span> <span class="n">user_input</span><span class="p">(</span><span class="s2">"Choose a number of agent to create"</span><span class="p">,[</span><span class="s2">"Number"</span> <span class="p">::</span> <span class="m">100</span><span class="p">]);</span>
+      <span class="nb">create</span> <span class="n">my_species</span> <span class="n">number</span><span class="p">:</span> <span class="n">int</span><span class="p">(</span><span class="n">values</span> <span class="n">at</span> <span class="s2">"Number"</span><span class="p">);</span>
    <span class="p">}</span>
 <span class="p">}</span>
 

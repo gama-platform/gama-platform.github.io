@@ -63,7 +63,7 @@ _**Note:** contrarily to previous Eclipse versions, import project from the Git 
 ![Context Local Repository](resources/images/developpingExtension/dialog_install_EOxy_ImportRespositorySource.png)
 
   * Click on Next,
-  * In the newt window, select your Git repository,
+  * In the new window, select your Git repository,
   * Click on Next,
   * In the **Select a wizard to used to import projects**, check that 
     * Import existing Eclipse projects is selected

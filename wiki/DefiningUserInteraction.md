@@ -196,8 +196,8 @@ model quick_user_command_model
 
 global {
    init {
-      map values <- user_input("choose a number of agent to create",["Number" :: 100]);
-      create my_species number : int(values at "Number");
+      map values <- user_input("Choose a number of agent to create",["Number" :: 100]);
+      create my_species number: int(values at "Number");
    }
 }
 
