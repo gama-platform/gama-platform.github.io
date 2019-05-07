@@ -240,7 +240,7 @@ species graph_agent parent: graph_node edge_species: edge_agent
 	
 	init {
 		int i<-0;
-		loop over:graph_agent {
+		loop g over:graph_agent {
 			if (flip(0.1)) {
 				add i to:list_connected_index;
 			}
@@ -368,7 +368,7 @@ species graph_agent parent: graph_node edge_species: edge_agent
 	
 	init {
 		int i<-0;
-		loop over:graph_agent {
+		loop g over:graph_agent {
 			if (flip(0.1)) {
 				add i to:list_connected_index;
 			}

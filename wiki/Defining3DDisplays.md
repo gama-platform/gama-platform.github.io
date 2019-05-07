@@ -93,8 +93,6 @@ Here are some examples that can be done using those 3 parameters. You can test i
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=lQVGD8aDKZY' target='_blank'><img src='http://img.youtube.com/vi/lQVGD8aDKZY/0.jpg' width='425' height=344 /></a>
 
-[Boids 3D Camera movement](https://code.google.com/p/gama-platform/source/browse/branches/GAMA_CURRENT/msi.gama.models/models/Features/3D Visualization/Toy Models/Boids 3D Camera movement.gaml)
-
 #### Default view
 ```
 display RealBoids   type:opengl{

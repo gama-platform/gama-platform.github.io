@@ -3832,7 +3832,7 @@ my_graph &lt;- my_graph add_edge (nodes at 4::nodes at 1);
 	
 	<span class="n">init</span> <span class="p">{</span>
 		<span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
 			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
 				<span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
 			<span class="p">}</span>
@@ -3954,7 +3954,7 @@ shortest_path &lt;- path_between (my_graph, source,destination);
 	
 	<span class="n">init</span> <span class="p">{</span>
 		<span class="n">int</span> <span class="n">i</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
-		<span class="n">loop</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
+		<span class="n">loop</span> <span class="n">g</span> <span class="n">over</span><span class="p">:</span><span class="n">graph_agent</span> <span class="p">{</span>
 			<span class="k">if</span> <span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="m">0.1</span><span class="p">))</span> <span class="p">{</span>
 				<span class="n">add</span> <span class="n">i</span> <span class="k">to</span><span class="p">:</span><span class="n">list_connected_index</span><span class="p">;</span>
 			<span class="p">}</span>

@@ -94,7 +94,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### 3D
-[box](OperatorsBC#box), [cone3D](OperatorsBC#cone3d), [cube](OperatorsBC#cube), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [hexagon](OperatorsDH#hexagon), [pyramid](OperatorsNR#pyramid), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [set_z](OperatorsSZ#set_z), [sphere](OperatorsSZ#sphere), [teapot](OperatorsSZ#teapot), 
+[box](OperatorsBC#box), [cone3D](OperatorsBC#cone3d), [cube](OperatorsBC#cube), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [hexagon](OperatorsDH#hexagon), [pyramid](OperatorsNR#pyramid), [set_z](OperatorsSZ#set_z), [sphere](OperatorsSZ#sphere), [teapot](OperatorsSZ#teapot), 
 
 ----
 
@@ -264,7 +264,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -361,10 +361,33 @@ map<agent,float> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80}::
 ### `image_file`
 
 #### Possible use: 
-  *  **`image_file`** (`string`) --->  `file` 
+  *  **`image_file`** (`string`) --->  `file`
+  * `string` **`image_file`** `msi.gama.util.matrix.IMatrix<java.lang.Integer>` --->  `file`
+  *  **`image_file`** (`string` , `msi.gama.util.matrix.IMatrix<java.lang.Integer>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type image. Allowed extensions are limited to tiff, jpg, jpeg, png, pict, bmp
+
+#### Special cases:     
+  * image_file(string):  
+  
+```
+
+``` 
+
+    
+  * image_file(string,msi.gama.util.matrix.IMatrix<java.lang.Integer>):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_image](OperatorsIM#is_image), 
     	
 ----
 
@@ -549,16 +572,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
-  * `species` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`species` , `unknown`) --->  `int`
-  * `map` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
   * `list` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`list` , `unknown`) --->  `int`
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
+  * `map` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map` , `unknown`) --->  `unknown`
   * `string` **`index_of`** `string` --->  `int`
-  *  **`index_of`** (`string` , `string`) --->  `int` 
+  *  **`index_of`** (`string` , `string`) --->  `int`
+  * `species` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`species` , `unknown`) --->  `int` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -568,22 +591,22 @@ the index of the first occurence of the right operand in the left operand contai
 The definition of index_of and the type of the index depend on the container
 
 #### Special cases:     
-  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
-  * if the left operand is a matrix, index_of returns the index as a point 
-  
-```
- 
-point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
-``` 
-
-    
+  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a list, index_of returns the index as an integer 
   
 ```
  
-int var2 <- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
-int var3 <- [4,2,3,4,5,4] index_of 4; // var3 equals 0
+int var1 <- [1,2,3,4,5,6] index_of 4; // var1 equals 3 
+int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
+``` 
+
+    
+  * if the left operand is a matrix, index_of returns the index as a point 
+  
+```
+ 
+point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var3 equals {1.0,0.0}
 ``` 
 
     
@@ -652,27 +675,27 @@ Casts the operand into the type int
 ### `inter`
 
 #### Possible use: 
-  * `container` **`inter`** `container` --->  `list`
-  *  **`inter`** (`container` , `container`) --->  `list`
   * `geometry` **`inter`** `geometry` --->  `geometry`
-  *  **`inter`** (`geometry` , `geometry`) --->  `geometry` 
+  *  **`inter`** (`geometry` , `geometry`) --->  `geometry`
+  * `container` **`inter`** `container` --->  `list`
+  *  **`inter`** (`container` , `container`) --->  `list` 
 
 #### Result: 
-the intersection of the two operands
-A geometry resulting from the intersection between the two geometries  
+A geometry resulting from the intersection between the two geometries
+the intersection of the two operands  
 
 #### Comment: 
 both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
 #### Special cases:     
-  * if an operand is a graph, it will be transformed into the set of its nodes    
   * returns nil if one of the operands is nil    
+  * if an operand is a graph, it will be transformed into the set of its nodes    
   * if an operand is a map, it will be transformed into the set of its values 
   
 ```
  
-list var0 <- [1::2, 3::4, 5::6] inter [2,4]; // var0 equals [2,4] 
-list var1 <- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
+list var3 <- [1::2, 3::4, 5::6] inter [2,4]; // var3 equals [2,4] 
+list var4 <- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
 ``` 
 
     
@@ -680,7 +703,7 @@ list var1 <- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
   
 ```
  
-list var2 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var2 equals [3,4]
+list var5 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
 ``` 
 
 
@@ -688,9 +711,9 @@ list var2 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var2 equals [3,4]
 #### Examples: 
 ```
  
-list var3 <- [1,2,3,4,5,6] inter [2,4]; // var3 equals [2,4] 
-list var4 <- [1,2,3,4,5,6] inter [0,8]; // var4 equals [] 
-geometry var5 <- square(10) inter circle(5); // var5 equals circle(5)
+geometry var0 <- square(10) inter circle(5); // var0 equals circle(5) 
+list var1 <- [1,2,3,4,5,6] inter [2,4]; // var1 equals [2,4] 
+list var2 <- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
 
 ```
       
@@ -698,7 +721,7 @@ geometry var5 <- square(10) inter circle(5); // var5 equals circle(5)
 
 #### See also: 
 
-[remove_duplicates](OperatorsNR#remove_duplicates), [union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), 
+[union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), [remove_duplicates](OperatorsNR#remove_duplicates), 
     	
 ----
 
@@ -729,16 +752,16 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 ### `internal_at`
 
 #### Possible use: 
-  * `agent` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`agent` , `list`) --->  `unknown`
   * `geometry` **`internal_at`** `list` --->  `unknown`
   *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
+  * `agent` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`agent` , `list`) --->  `unknown`
   * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
   *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
 For internal use only. Corresponds to the implementation of the access to containers with [index]    
 
 
@@ -859,7 +882,12 @@ bool var2 <- 1 is float; // var2 equals false
   *  **`is_csv`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a csv file.
+Tests whether the operand is a csv file.    
+
+
+#### See also: 
+
+[csv_file](OperatorsBC#csv_file), 
     	
 ----
 
@@ -870,7 +898,12 @@ Tests whether the operand is a csv file.
   *  **`is_dxf`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a dxf file.
+Tests whether the operand is a dxf file.    
+
+
+#### See also: 
+
+[dxf_file](OperatorsDH#dxf_file), 
     	
 ----
 
@@ -912,7 +945,12 @@ bool var1 <- is_finite(#infinity); // var1 equals false
   *  **`is_gaml`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a gaml file.
+Tests whether the operand is a gaml file.    
+
+
+#### See also: 
+
+[gaml_file](OperatorsDH#gaml_file), 
     	
 ----
 
@@ -923,7 +961,12 @@ Tests whether the operand is a gaml file.
   *  **`is_geojson`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a geojson file.
+Tests whether the operand is a geojson file.    
+
+
+#### See also: 
+
+[geojson_file](OperatorsDH#geojson_file), 
     	
 ----
 
@@ -934,7 +977,12 @@ Tests whether the operand is a geojson file.
   *  **`is_gif`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a gif file.
+Tests whether the operand is a gif file.    
+
+
+#### See also: 
+
+[gif_file](OperatorsDH#gif_file), 
     	
 ----
 
@@ -945,7 +993,12 @@ Tests whether the operand is a gif file.
   *  **`is_gml`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a gml file.
+Tests whether the operand is a gml file.    
+
+
+#### See also: 
+
+[gml_file](OperatorsDH#gml_file), 
     	
 ----
 
@@ -956,7 +1009,12 @@ Tests whether the operand is a gml file.
   *  **`is_grid`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a grid file.
+Tests whether the operand is a grid file.    
+
+
+#### See also: 
+
+[grid_file](OperatorsDH#grid_file), 
     	
 ----
 
@@ -967,7 +1025,12 @@ Tests whether the operand is a grid file.
   *  **`is_image`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a image file.
+Tests whether the operand is a image file.    
+
+
+#### See also: 
+
+[image_file](OperatorsIM#image_file), 
     	
 ----
 
@@ -978,7 +1041,12 @@ Tests whether the operand is a image file.
   *  **`is_json`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a json file.
+Tests whether the operand is a json file.    
+
+
+#### See also: 
+
+[json_file](OperatorsIM#json_file), 
     	
 ----
 
@@ -986,12 +1054,12 @@ Tests whether the operand is a json file.
 ### `is_number`
 
 #### Possible use: 
-  *  **`is_number`** (`string`) --->  `bool`
-  *  **`is_number`** (`float`) --->  `bool` 
+  *  **`is_number`** (`float`) --->  `bool`
+  *  **`is_number`** (`string`) --->  `bool` 
 
 #### Result: 
-tests whether the operand represents a numerical value
-Returns whether the argument is a real number or not  
+Returns whether the argument is a real number or not
+tests whether the operand represents a numerical value  
 
 #### Comment: 
 Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
@@ -999,14 +1067,14 @@ Note that the symbol . should be used for a float value (a string with , will no
 #### Examples: 
 ```
  
-bool var0 <- is_number("test"); // var0 equals false 
-bool var1 <- is_number("123.56"); // var1 equals true 
-bool var2 <- is_number("-1.2e5"); // var2 equals true 
-bool var3 <- is_number("1,2"); // var3 equals false 
-bool var4 <- is_number("#12FA"); // var4 equals true 
-bool var5 <- is_number(4.66); // var5 equals true 
-bool var6 <- is_number(#infinity); // var6 equals true 
-bool var7 <- is_number(#nan); // var7 equals false
+bool var0 <- is_number(4.66); // var0 equals true 
+bool var1 <- is_number(#infinity); // var1 equals true 
+bool var2 <- is_number(#nan); // var2 equals false 
+bool var3 <- is_number("test"); // var3 equals false 
+bool var4 <- is_number("123.56"); // var4 equals true 
+bool var5 <- is_number("-1.2e5"); // var5 equals true 
+bool var6 <- is_number("1,2"); // var6 equals false 
+bool var7 <- is_number("#12FA"); // var7 equals true
 
 ```
   
@@ -1020,7 +1088,12 @@ bool var7 <- is_number(#nan); // var7 equals false
   *  **`is_obj`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a obj file.
+Tests whether the operand is a obj file.    
+
+
+#### See also: 
+
+[obj_file](OperatorsNR#obj_file), 
     	
 ----
 
@@ -1031,7 +1104,12 @@ Tests whether the operand is a obj file.
   *  **`is_osm`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a osm file.
+Tests whether the operand is a osm file.    
+
+
+#### See also: 
+
+[osm_file](OperatorsNR#osm_file), 
     	
 ----
 
@@ -1042,7 +1120,12 @@ Tests whether the operand is a osm file.
   *  **`is_pgm`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a pgm file.
+Tests whether the operand is a pgm file.    
+
+
+#### See also: 
+
+[pgm_file](OperatorsNR#pgm_file), 
     	
 ----
 
@@ -1053,7 +1136,12 @@ Tests whether the operand is a pgm file.
   *  **`is_property`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a property file.
+Tests whether the operand is a property file.    
+
+
+#### See also: 
+
+[property_file](OperatorsNR#property_file), 
     	
 ----
 
@@ -1064,7 +1152,12 @@ Tests whether the operand is a property file.
   *  **`is_R`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a R file.
+Tests whether the operand is a R file.    
+
+
+#### See also: 
+
+[R_file](OperatorsNR#r_file), 
     	
 ----
 
@@ -1075,7 +1168,12 @@ Tests whether the operand is a R file.
   *  **`is_saved_simulation`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a saved_simulation file.
+Tests whether the operand is a saved_simulation file.    
+
+
+#### See also: 
+
+[saved_simulation_file](OperatorsSZ#saved_simulation_file), 
     	
 ----
 
@@ -1086,7 +1184,12 @@ Tests whether the operand is a saved_simulation file.
   *  **`is_shape`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a shape file.
+Tests whether the operand is a shape file.    
+
+
+#### See also: 
+
+[shape_file](OperatorsSZ#shape_file), 
     	
 ----
 
@@ -1117,7 +1220,12 @@ bool var0 <- agentA is_skill 'moving'; // var0 equals true
   *  **`is_svg`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a svg file.
+Tests whether the operand is a svg file.    
+
+
+#### See also: 
+
+[svg_file](OperatorsSZ#svg_file), 
     	
 ----
 
@@ -1128,7 +1236,12 @@ Tests whether the operand is a svg file.
   *  **`is_text`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a text file.
+Tests whether the operand is a text file.    
+
+
+#### See also: 
+
+[text_file](OperatorsSZ#text_file), 
     	
 ----
 
@@ -1139,7 +1252,12 @@ Tests whether the operand is a text file.
   *  **`is_threeds`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a threeds file.
+Tests whether the operand is a threeds file.    
+
+
+#### See also: 
+
+[threeds_file](OperatorsSZ#threeds_file), 
     	
 ----
 
@@ -1150,7 +1268,12 @@ Tests whether the operand is a threeds file.
   *  **`is_URL`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a URL file.
+Tests whether the operand is a URL file.    
+
+
+#### See also: 
+
+[URL_file](OperatorsSZ#url_file), 
     	
 ----
 
@@ -1172,7 +1295,12 @@ Returns whether or not the argument raises a warning when evaluated
   *  **`is_xml`** (`any`) --->  `bool` 
 
 #### Result: 
-Tests whether the operand is a xml file.
+Tests whether the operand is a xml file.    
+
+
+#### See also: 
+
+[xml_file](OperatorsSZ#xml_file), 
     	
 ----
 
@@ -1180,10 +1308,33 @@ Tests whether the operand is a xml file.
 ### `json_file`
 
 #### Possible use: 
-  *  **`json_file`** (`string`) --->  `file` 
+  *  **`json_file`** (`string`) --->  `file`
+  * `string` **`json_file`** `map<string,unknown>` --->  `file`
+  *  **`json_file`** (`string` , `map<string,unknown>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type json. Allowed extensions are limited to json
+
+#### Special cases:     
+  * json_file(string):  
+  
+```
+
+``` 
+
+    
+  * json_file(string,map<string,unknown>):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_json](OperatorsIM#is_json), 
     	
 ----
 
@@ -1238,8 +1389,8 @@ kappa([cat1,cat1,cat2,cat2,cat2],[cat2,cat1,cat2,cat1,cat3],[cat2,cat1,cat2,cat3
   *  **`kmeans`** (`list`, `int`, `int`) --->  `list<list>` 
 
 #### Result: 
-returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
 returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k). Usage: kmeans(data,k)
+returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
 
 #### Special cases:     
   * if the lengths of two vectors in the right-hand aren't equal, returns 0    
@@ -1248,8 +1399,8 @@ returns the list of clusters (list of instance indices) computed with the kmeans
 #### Examples: 
 ```
  
-list<list> var0 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); // var0 equals [[0,2,3],[1]] 
-list<list> var1 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var1 equals [[0,2,3],[1]]
+list<list> var0 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var0 equals [[0,2,3],[1]] 
+list<list> var1 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); // var1 equals [[0,2,3],[1]]
 
 ```
   
@@ -1307,8 +1458,8 @@ Returns the kurtosis (aka excess) of a data sequence
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`string`) --->  `string`
   *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`last`** (`string`) --->  `string`
   * `int` **`last`** `container` --->  `list`
   *  **`last`** (`int` , `container`) --->  `list` 
 
@@ -1326,19 +1477,19 @@ the last operator behavior depends on the nature of the operand
   * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
-  
-```
- 
-string var0 <- last ('abce'); // var0 equals 'e'
-``` 
-
-    
   * if it is a list, last returns the last element of the list, or nil if the list is empty 
   
 ```
  
-int var1 <- last ([1, 2, 3]); // var1 equals 3
+int var0 <- last ([1, 2, 3]); // var0 equals 3
+``` 
+
+    
+  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
+  
+```
+ 
+string var1 <- last ('abce'); // var1 equals 'e'
 ``` 
 
     
@@ -1356,14 +1507,14 @@ int var1 <- last ([1, 2, 3]); // var1 equals 3
 #### Possible use: 
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
-  * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int`
   * `map` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown` 
+  *  **`last_index_of`** (`map` , `unknown`) --->  `unknown`
+  * `matrix` **`last_index_of`** `unknown` --->  `point`
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -1381,20 +1532,12 @@ int var0 <- "abcabcabc" last_index_of "ca"; // var0 equals 5
 ``` 
 
     
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var1 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var1 equals {1.0,2.0}
-``` 
-
-    
   * if the left operand is a list, last_index_of returns the index as an integer 
   
 ```
  
-int var2 <- [1,2,3,4,5,6] last_index_of 4; // var2 equals 3 
-int var3 <- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
+int var1 <- [1,2,3,4,5,6] last_index_of 4; // var1 equals 3 
+int var2 <- [4,2,3,4,5,4] last_index_of 4; // var2 equals 5
 ``` 
 
     
@@ -1402,7 +1545,15 @@ int var3 <- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
   
 ```
  
-unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
+unknown var3 <- [1::2, 3::4, 5::4] last_index_of 4; // var3 equals 5
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+ 
+point var4 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var4 equals {1.0,2.0}
 ``` 
 
     
@@ -1410,7 +1561,7 @@ unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
 
 #### See also: 
 
-[at](OperatorsAA#at), [index_of](OperatorsIM#index_of), [last_index_of](OperatorsIM#last_index_of), 
+[at](OperatorsAA#at), [last_index_of](OperatorsIM#last_index_of), [index_of](OperatorsIM#index_of), 
     	
 ----
 
@@ -1634,8 +1785,8 @@ Note that the right operand  should be positive, and that the second one is eval
 ### `ln`
 
 #### Possible use: 
-  *  **`ln`** (`int`) --->  `float`
-  *  **`ln`** (`float`) --->  `float` 
+  *  **`ln`** (`float`) --->  `float`
+  *  **`ln`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the natural logarithm (base e) of the operand.
@@ -1646,8 +1797,8 @@ Returns the natural logarithm (base e) of the operand.
 #### Examples: 
 ```
  
-float var0 <- ln(1); // var0 equals 0.0 
-float var1 <- ln(exp(1)); // var1 equals 1.0
+float var0 <- ln(exp(1)); // var0 equals 1.0 
+float var1 <- ln(1); // var1 equals 0.0
 
 ```
       
@@ -1664,13 +1815,13 @@ float var1 <- ln(exp(1)); // var1 equals 1.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `file` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1689,6 +1840,13 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
+  * "format": the format of the file, "filename": the filename of the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
+``` 
+
+    
   * "file": the file containing the network 
   
 ```
@@ -1714,13 +1872,6 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
-``` 
-
-    
-  * "format": the format of the file, "filename": the filename of the file containing the network 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
 

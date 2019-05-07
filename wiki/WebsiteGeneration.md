@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2019/05/06 06:17:44_
+______________ _last update : 2019/05/07 06:26:23_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -394,7 +394,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 
 | **Concept name** | **in Doc** | **in GAML Ref** | **in Model Lib** | **TOTAL** |
 |:----------------------------|:-------------|:-------------|:-------------|:-------------|
-| 3d | 2 | 374 | 39 | 415 |
+| 3d | 2 | 352 | 39 | 393 |
 | action | 3 | 176 | _ | 180 |
 | agent_location | 1 | 462 | 0 | 463 |
 | agent_movement | 0 | 44 | 23 | 67 |
@@ -412,7 +412,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | cast | 1 | 374 | 1 | 376 |
 | chart | 0 | 110 | 5 | 115 |
 | clustering | 0 | 110 | 3 | 113 |
-| color | 1 | 396 | 4 | 401 |
+| color | 1 | 374 | 4 | 379 |
 | communication | 0 | 66 | 0 | 66 |
 | comodel | 0 | 0 | 8 | 8 |
 | comparison | 0 | 132 | 2 | 134 |
@@ -440,7 +440,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | filter | 1 | 264 | 0 | 265 |
 | fipa | 1 | 88 | 11 | 100 |
 | fsm | 1 | 0 | 0 | 1 |
-| geometry | 2 | 2178 | 0 | 2180 |
+| geometry | 2 | 2156 | 0 | 2158 |
 | gis | 0 | 110 | 24 | 134 |
 | global | 1 | _ | _ | 1 |
 | gml | 0 | 44 | 0 | 44 |
@@ -508,7 +508,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | shortest_path | 1 | 132 | 4 | 137 |
 | skill | 2 | 330 | 42 | 374 |
 | sound | 0 | 88 | 0 | 88 |
-| spatial_computation | 0 | 1672 | 7 | 1679 |
+| spatial_computation | 0 | 1650 | 7 | 1657 |
 | spatial_relation | 0 | 704 | 0 | 704 |
 | spatial_transformation | 0 | 594 | 2 | 596 |
 | species | 1 | 440 | _ | 441 |

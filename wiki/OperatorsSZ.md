@@ -94,7 +94,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### 3D
-[box](OperatorsBC#box), [cone3D](OperatorsBC#cone3d), [cube](OperatorsBC#cube), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [hexagon](OperatorsDH#hexagon), [pyramid](OperatorsNR#pyramid), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [set_z](OperatorsSZ#set_z), [sphere](OperatorsSZ#sphere), [teapot](OperatorsSZ#teapot), 
+[box](OperatorsBC#box), [cone3D](OperatorsBC#cone3d), [cube](OperatorsBC#cube), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [hexagon](OperatorsDH#hexagon), [pyramid](OperatorsNR#pyramid), [set_z](OperatorsSZ#set_z), [sphere](OperatorsSZ#sphere), [teapot](OperatorsSZ#teapot), 
 
 ----
 
@@ -264,7 +264,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rgb_to_xyz](OperatorsNR#rgb_to_xyz), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -387,10 +387,42 @@ Casts the operand into the type Sanction
 ### `saved_simulation_file`
 
 #### Possible use: 
-  *  **`saved_simulation_file`** (`string`) --->  `file` 
+  *  **`saved_simulation_file`** (`string`) --->  `file`
+  * `string` **`saved_simulation_file`** `list<agent>` --->  `file`
+  *  **`saved_simulation_file`** (`string` , `list<agent>`) --->  `file`
+  * `string` **`saved_simulation_file`** `bool` --->  `file`
+  *  **`saved_simulation_file`** (`string` , `bool`) --->  `file` 
 
 #### Result: 
 Constructs a file of type saved_simulation. Allowed extensions are limited to gsim, gasim
+
+#### Special cases:     
+  * saved_simulation_file(string): Constructor for saved simulation files: read the metadata and content. 
+  
+```
+
+``` 
+
+    
+  * saved_simulation_file(string,list<agent>): Constructor for saved simulation files from a list of agents: it is used with aim of saving a simulation agent. 
+  
+```
+
+``` 
+
+    
+  * saved_simulation_file(string,bool): Constructor for saved simulation files: read the metadata. If and only if the boolean operand is true, the content of the file is read. 
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_saved_simulation](OperatorsIM#is_saved_simulation), 
     	
 ----
 
@@ -754,7 +786,7 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);} shape <- triangle(3) set_z [5,10,14]; 
+triangle(3) set_z [5,10,14] set_z (triangle(3), 1, 3.0) 
 
 ```
   
@@ -765,10 +797,67 @@ loop i from: 0 to: length(shape.points) - 1{set shape <-  set_z (shape, i, 3.0);
 ### `shape_file`
 
 #### Possible use: 
-  *  **`shape_file`** (`string`) --->  `file` 
+  *  **`shape_file`** (`string`) --->  `file`
+  * `string` **`shape_file`** `int` --->  `file`
+  *  **`shape_file`** (`string` , `int`) --->  `file`
+  * `string` **`shape_file`** `string` --->  `file`
+  *  **`shape_file`** (`string` , `string`) --->  `file`
+  * `string` **`shape_file`** `bool` --->  `file`
+  *  **`shape_file`** (`string` , `bool`) --->  `file`
+  *  **`shape_file`** (`string`, `int`, `bool`) --->  `file`
+  *  **`shape_file`** (`string`, `string`, `bool`) --->  `file` 
 
 #### Result: 
 Constructs a file of type shape. Allowed extensions are limited to shp
+
+#### Special cases:     
+  * shape_file(string):  
+  
+```
+
+``` 
+
+    
+  * shape_file(string,int):  
+  
+```
+
+``` 
+
+    
+  * shape_file(string,string):  
+  
+```
+
+``` 
+
+    
+  * shape_file(string,bool):  
+  
+```
+
+``` 
+
+    
+  * shape_file(string,int,bool):  
+  
+```
+
+``` 
+
+    
+  * shape_file(string,string,bool):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_shape](OperatorsIM#is_shape), 
     	
 ----
 
@@ -776,9 +865,9 @@ Constructs a file of type shape. Allowed extensions are limited to shp
 ### `shuffle`
 
 #### Possible use: 
-  *  **`shuffle`** (`string`) --->  `string`
   *  **`shuffle`** (`matrix`) --->  `matrix`
-  *  **`shuffle`** (`container`) --->  `list` 
+  *  **`shuffle`** (`container`) --->  `list`
+  *  **`shuffle`** (`string`) --->  `string` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -789,9 +878,9 @@ The elements of the operand in random order.
 #### Examples: 
 ```
  
-string var0 <- shuffle ('abc'); // var0 equals 'bac' (for example) 
-matrix var1 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-list var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
+matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
+list var1 <- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
+string var2 <- shuffle ('abc'); // var2 equals 'bac' (for example)
 
 ```
       
@@ -981,8 +1070,8 @@ reflex when: since(starting_date) {}  	// this reflex will always be run every(2
   *  **`skeletonize`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 
@@ -1331,8 +1420,8 @@ list<geometry> var2 <- to_rectangles(self, {10.0, 15.0}); // var2 equals the lis
   *  **`split_in`** (`list`, `int`, `bool`) --->  `list<list>` 
 
 #### Result: 
-Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound    
+Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound    
 
 
 #### See also: 
@@ -1760,10 +1849,33 @@ unknown var0 <- [1,2] sum_of (each * 100 ); // var0 equals 300
 ### `svg_file`
 
 #### Possible use: 
-  *  **`svg_file`** (`string`) --->  `file` 
+  *  **`svg_file`** (`string`) --->  `file`
+  * `string` **`svg_file`** `point` --->  `file`
+  *  **`svg_file`** (`string` , `point`) --->  `file` 
 
 #### Result: 
 Constructs a file of type svg. Allowed extensions are limited to svg
+
+#### Special cases:     
+  * svg_file(string):  
+  
+```
+
+``` 
+
+    
+  * svg_file(string,point):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_svg](OperatorsIM#is_svg), 
     	
 ----
 
@@ -1817,8 +1929,8 @@ Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in ra
 ### `tanh`
 
 #### Possible use: 
-  *  **`tanh`** (`int`) --->  `float`
-  *  **`tanh`** (`float`) --->  `float` 
+  *  **`tanh`** (`float`) --->  `float`
+  *  **`tanh`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).
@@ -1897,10 +2009,33 @@ geometry var0 <- teapot(10); // var0 equals a geometry as a circle of radius 10 
 ### `text_file`
 
 #### Possible use: 
-  *  **`text_file`** (`string`) --->  `file` 
+  *  **`text_file`** (`string`) --->  `file`
+  * `string` **`text_file`** `list<string>` --->  `file`
+  *  **`text_file`** (`string` , `list<string>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type text. Allowed extensions are limited to txt, data, text
+
+#### Special cases:     
+  * text_file(string):  
+  
+```
+
+``` 
+
+    
+  * text_file(string,list<string>):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_text](OperatorsIM#is_text), 
     	
 ----
 
@@ -1918,6 +2053,20 @@ Constructs a file of type text. Allowed extensions are limited to txt, data, tex
 
 #### Result: 
 Constructs a file of type threeds. Allowed extensions are limited to 3ds, max
+
+#### Special cases:     
+  * threeds_file(string):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_threeds](OperatorsIM#is_threeds), 
     	
 ----
 
@@ -2016,14 +2165,14 @@ string var11 <- to_gaml(node1); // var11 equals  1 as node
   *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list<geometry> var0 <- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 ```
   
@@ -2051,23 +2200,22 @@ list<geometry> var0 <- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equ
 
 [//]: # (keyword|operator_to_squares)
 ### `to_squares`
-   Same signification as [split_geometry](OperatorsSZ#split_geometry)
 
 #### Possible use: 
-  *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
+  *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   *  **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var0 <- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_squares(self, 10.0, true); // var1 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list<geometry> var2 <- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
@@ -2090,8 +2238,8 @@ A list of geometries resulting after spliting the geometry into sub-geometries.
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size 
-list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var1 equals a list of three geometries corresponding to 3 sub-geometries
+list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var0 equals a list of three geometries corresponding to 3 sub-geometries 
+list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size
 
 ```
   
@@ -2356,19 +2504,19 @@ geometry var0 <- triangle(5); // var0 equals a geometry as a triangle with side_
   *  **`triangulate`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var1 <- triangulate(self); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var2 <- triangulate(self,0.1, 1.0); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var3 <- triangulate(self, 0.1); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var0 <- triangulate(self,0.1, 1.0); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var1 <- triangulate(self, 0.1); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var2 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var3 <- triangulate(self); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
 list<geometry> var4 <- triangulate(self,0.1, 1.0); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
 ```
@@ -2436,7 +2584,6 @@ the operator alters the operand graph, it does not create a new one.
 
 [//]: # (keyword|operator_union)
 ### `union`
-   Same signification as [+](OperatorsAA#+)
 
 #### Possible use: 
   *  **`union`** (`container<geometry>`) --->  `geometry`
@@ -2527,10 +2674,33 @@ string var0 <- upper_case("Abc"); // var0 equals 'ABC'
 ### `URL_file`
 
 #### Possible use: 
-  *  **`URL_file`** (`string`) --->  `file` 
+  *  **`URL_file`** (`string`) --->  `file`
+  * `string` **`URL_file`** `string` --->  `file`
+  *  **`URL_file`** (`string` , `string`) --->  `file` 
 
 #### Result: 
 Constructs a file of type URL. Allowed extensions are limited to url
+
+#### Special cases:     
+  * URL_file(string):  
+  
+```
+
+``` 
+
+    
+  * URL_file(string,string):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_URL](OperatorsIM#is_url), 
     	
 ----
 
@@ -2677,14 +2847,14 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
   *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries corresponding to the Voronoi diagram built from the list of points
 A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 
 ```
   
@@ -2908,23 +3078,23 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 #### Possible use: 
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
-  * `geometry` **`with_precision`** `int` --->  `geometry`
-  *  **`with_precision`** (`geometry` , `int`) --->  `geometry`
   * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point` 
+  *  **`with_precision`** (`point` , `int`) --->  `point`
+  * `geometry` **`with_precision`** `int` --->  `geometry`
+  *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
 float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
 float var1 <- 123 with_precision 2; // var1 equals 123.00 
-geometry var2 <- self with_precision 2; // var2 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
-point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
+point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
+geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 
 ```
       
@@ -3037,6 +3207,20 @@ file var0 <- shape_file("../images/point_eau.shp") writable false; // var0 equal
 
 #### Result: 
 Constructs a file of type xml. Allowed extensions are limited to xml
+
+#### Special cases:     
+  * xml_file(string):  
+  
+```
+
+``` 
+
+    
+
+
+#### See also: 
+
+[is_xml](OperatorsIM#is_xml), 
     	
 ----
 
