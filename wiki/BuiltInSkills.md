@@ -399,7 +399,7 @@ Replies a message with a 'subscribe' performative message.
 #### **`select`**
 
 
-* returns: list 			
+* returns: list<unknown> 			
 * **`params`** (map): Connection parameters 			
 * **`onColumns`** (string): select string with question marks 			
 * **`onRows`** (list): List of values that are used to replace question marks 			
