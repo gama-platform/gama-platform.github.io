@@ -378,7 +378,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2019/05/09 13:37:16_
+______________ _last update : 2019/05/09 17:32:06_
 
 **List of concepts to use for model library (except Syntax):**
 
@@ -499,7 +499,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | raster | 0 | 0 | 4 | 4 |
 | reflex | 1 | _ | _ | 1 |
 | refresh | 2 | _ | _ | 2 |
-| regression | 0 | 44 | 1 | 45 |
+| regression | 0 | 22 | 1 | 23 |
 | save_file | 0 | 88 | 7 | 95 |
 | scheduler | 2 | 44 | 0 | 46 |
 | serialize | 0 | 0 | 0 | 0 |
@@ -513,7 +513,7 @@ arithmetic, attribute, cast, condition, container, filter, list, logical, loop, 
 | spatial_transformation | 0 | 638 | 2 | 640 |
 | species | 1 | 440 | _ | 441 |
 | sport | 0 | _ | 2 | 2 |
-| statistic | 0 | 1386 | 5 | 1391 |
+| statistic | 0 | 1364 | 5 | 1369 |
 | string | 0 | 594 | 0 | 594 |
 | surface_unit | 0 | 88 | _ | 88 |
 | svg | 0 | 44 | 0 | 44 |

@@ -541,7 +541,7 @@ The network skill provides new features to let agents exchange message through n
 Action used by a networking agent to connect to a server or as a server.
 
 * returns: void 			
-* **`protocol`** (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares 'udp_server', 'udp_emitter', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
+* **`protocol`** (string): protocol type (MQTT (by default), TCP, UDP): the possible value ares 'udp_server', 'udp_emitter', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
 * **`port`** (int): Port number 			
 * **`with_name`** (string): name of the agent on the server 			
 * **`login`** (string): login for the connection to the server 			
@@ -568,7 +568,13 @@ Action used by a networking agent to connect to a server or as a server.
 leave a group of agent
 
 * returns: void 			
-* **`from`** (string): name of the group the agent wants to leave
+* **`from`** (string): name of the group the agent wants to leave  
+	 
+#### **`register_to_group`**
+
+
+* returns: void 			
+* **`to`** (string): 
     	
 ----
 
@@ -578,16 +584,13 @@ leave a group of agent
  
 ### Variables
 	   
-  * **`ang_damping`** (`float`):    
-  * **`collisionBound`** (`map`):    
-  * **`density`** (`float`):    
-  * **`friction`** (`float`):    
-  * **`lin_damping`** (`float`):    
-  * **`mass`** (`float`):    
-  * **`motor`** (`point`):    
-  * **`restitution`** (`float`):    
-  * **`space`** (`agent`):    
-  * **`velocity`** (`list`):  
+  * **`ang_damping`** (`float`): angular dampling   
+  * **`collisionBound`** (`map`): map describing the shape of the agent. format for sphere: ['shape'::'sphere', 'radius'::10.0]; for floor: ['shape'::'floor', 'x'::100.0, 'y'::100.0, 'z'::2.0]; if not defined, the shape attribute of the agent is used.   
+  * **`friction`** (`float`): coefficient of friction of the agent   
+  * **`lin_damping`** (`float`): linear dampling   
+  * **`mass`** (`float`): mass of the agent   
+  * **`restitution`** (`float`): coefficient of restitution force of the agent   
+  * **`velocity`** (`list`): velocity of the agent 
  	
 ### Actions
 	
