@@ -58,12 +58,12 @@ if speed = 5 {
 ## Table of Contents
 <wiki:toc max_depth="3" />
 
-[advanced_driving](#advanced_driving), [driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [network](#network), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
+[driving](#driving), [fipa](#fipa), [GAMASQL](#gamasql), [MDXSKILL](#mdxskill), [messaging](#messaging), [moving](#moving), [moving3D](#moving3d), [network](#network), [old_driving](#old_driving), [physics](#physics), [skill_road](#skill_road), [skill_road_node](#skill_road_node), [SQLSKILL](#sqlskill), 
     	
 ----
 
-[//]: # (keyword|skill_advanced_driving)
-## advanced_driving
+[//]: # (keyword|skill_driving)
+## driving
 
  
 ### Variables
@@ -164,48 +164,6 @@ action to test if the driver can take the given road
 
 * returns: bool 			
 * **`new_road`** (agent): the road to test
-    	
-----
-
-[//]: # (keyword|skill_driving)
-## driving
-
- 
-### Variables
-	   
-  * **`lanes_attribute`** (`string`): the name of the attribut of the road agent that determine the number of road lanes   
-  * **`living_space`** (`float`): the min distance between the agent and an obstacle (in meter)   
-  * **`obstacle_species`** (`list`): the list of species that are considered as obstacles   
-  * **`speed`** (`float`): the speed of the agent (in meter/second)   
-  * **`tolerance`** (`float`): the tolerance distance used for the computation (in meter) 
- 	
-### Actions
-	  
-	 
-#### **`follow_driving`**
-moves the agent along a given path passed in the arguments while considering the other agents in the network.
-
-* returns: path 			
-* **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`path`** (path): a path to be followed. 			
-* **`return_path`** (boolean): if true, return the path followed (by default: false) 			
-* **`move_weights`** (map): Weigths used for the moving. 			
-* **`living_space`** (float): min distance between the agent and an obstacle (replaces the current value of living_space) 			
-* **`tolerance`** (float): tolerance distance used for the computation (replaces the current value of tolerance) 			
-* **`lanes_attribute`** (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)  
-	 
-#### **`goto_driving`**
-moves the agent towards the target passed in the arguments while considering the other agents in the network (only for graph topology)
-
-* returns: path 			
-* **`target`** (geometry): the location or entity towards which to move. 			
-* **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
-* **`on`** (any type): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry) 			
-* **`return_path`** (boolean): if true, return the path followed (by default: false) 			
-* **`move_weights`** (map): Weigths used for the moving. 			
-* **`living_space`** (float): min distance between the agent and an obstacle (replaces the current value of living_space) 			
-* **`tolerance`** (float): tolerance distance used for the computation (replaces the current value of tolerance) 			
-* **`lanes_attribute`** (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)
     	
 ----
 
@@ -575,6 +533,48 @@ leave a group of agent
 
 * returns: void 			
 * **`to`** (string): 
+    	
+----
+
+[//]: # (keyword|skill_old_driving)
+## old_driving
+
+ 
+### Variables
+	   
+  * **`lanes_attribute`** (`string`): the name of the attribut of the road agent that determine the number of road lanes   
+  * **`living_space`** (`float`): the min distance between the agent and an obstacle (in meter)   
+  * **`obstacle_species`** (`list`): the list of species that are considered as obstacles   
+  * **`speed`** (`float`): the speed of the agent (in meter/second)   
+  * **`tolerance`** (`float`): the tolerance distance used for the computation (in meter) 
+ 	
+### Actions
+	  
+	 
+#### **`follow_driving`**
+moves the agent along a given path passed in the arguments while considering the other agents in the network.
+
+* returns: path 			
+* **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
+* **`path`** (path): a path to be followed. 			
+* **`return_path`** (boolean): if true, return the path followed (by default: false) 			
+* **`move_weights`** (map): Weigths used for the moving. 			
+* **`living_space`** (float): min distance between the agent and an obstacle (replaces the current value of living_space) 			
+* **`tolerance`** (float): tolerance distance used for the computation (replaces the current value of tolerance) 			
+* **`lanes_attribute`** (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)  
+	 
+#### **`goto_driving`**
+moves the agent towards the target passed in the arguments while considering the other agents in the network (only for graph topology)
+
+* returns: path 			
+* **`target`** (geometry): the location or entity towards which to move. 			
+* **`speed`** (float): the speed to use for this move (replaces the current value of speed) 			
+* **`on`** (any type): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry) 			
+* **`return_path`** (boolean): if true, return the path followed (by default: false) 			
+* **`move_weights`** (map): Weigths used for the moving. 			
+* **`living_space`** (float): min distance between the agent and an obstacle (replaces the current value of living_space) 			
+* **`tolerance`** (float): tolerance distance used for the computation (replaces the current value of tolerance) 			
+* **`lanes_attribute`** (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)
     	
 ----
 

@@ -41,9 +41,8 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
   * [Amouroux, E., Chu, T.Q., Boucher, A. and Drogoul, A. (2007) GAMA: an environment for implementing and running spatially explicit multi-agent simulations. In ‘Pacific Rim International Workshop on Multi-Agents', Bangkok, Thailand, pp. 359--371.](http://www.springerlink.com/content/88006131542n1204/)
 
 ## HDR theses
-* **Nicolas Marilleau**, ["Vers des agents cognitifs, affectifs et sociaux dans la simulation"](https://tel.archives-ouvertes.fr/tel-01959903), Normandie Université, defended November 30th, 2018.
+* **Nicolas Marilleau**, ["Distributed Approaches based on Agent Based Systems to model and simulate complex systems with a space"](https://tel.archives-ouvertes.fr/tel-01959903), Pierre and Marie Curie University, Paris, France 2016.](https://tel.archives-ouvertes.fr/tel-01428319/)
 
-* **Nicolas Marilleau**, "Approches distribuées à base d'agents pour modéliser et simuler les systèmes complexes spatialisés. \(Distributed Approaches based on Agent Based Systems to model and simulate complex systems with a space\)". Pierre and Marie Curie University, Paris, France 2016](https://tel.archives-ouvertes.fr/tel-01428319/)
 
 ## PhD theses
 
@@ -78,6 +77,10 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Houssou, N.L.J., Cordero, J.D., Bouadjio-Boulic, A., Morin, L., Maestripieri, N., Ferrant, S., Belem, M., Pelaez Sanchez, J.I., Saenz, M., Lerigoleur, E., Elger, A., Gaudou, B., Maurice, L., Saqalli, M., 2019. Synchronizing Histories of Exposure and Demography: The Construction of an Agent-Based Model of the Ecuadorian Amazon Colonization and Exposure to Oil Pollution Hazards. J. Artif. Soc. Soc. Simul. 22, 1. https://doi.org/10.18564/jasss.3957](http://jasss.soc.surrey.ac.uk/22/2/1.html)
 
 **2018**
+* [Marilleau, N., Lang, C., Giraudoux, P., 2018. Coupling agent-based with equation-based models to study spatially explicit megapopulation dynamics. Ecol. Model. 384, 34–42. https://doi.org/10.1016/j.ecolmodel.2018.06.011](https://www.sciencedirect.com/science/article/pii/S0304380018302163)
+
+* [Touhbi, S., Babram, M.A., Nguyen-Huu, T., Marilleau, N., Hbid, M.L., Cambier, C., Stinckwich, S., 2018. Time Headway analysis on urban roads of the city of Marrakesh. Procedia Comput. Sci. 130, 111–118. https://doi.org/10.1016/j.procs.2018.04.019](https://www.sciencedirect.com/science/article/pii/S1877050918303697)
+
 * [Laatabi, A., Marilleau, N., Nguyen-Huu, T., Hbid, H., Ait Babram, M., 2018. ODD+2D: An ODD Based Protocol for Mapping Data to Empirical ABMs. J. Artif. Soc. Soc. Simul. 21, 9. https://doi.org/10.18564/jasss.3646](http://jasss.soc.surrey.ac.uk/21/2/9.html)
 
 * [Chapuis K., Taillandier P., Gaudou B., Drogoul A., Daudé E. (2018) A Multi-modal Urban Traffic Agent-Based Framework to Study Individual Response to Catastrophic Events. In: Miller T., Oren N., Sakurai Y., Noda I., Savarimuthu B., Cao Son T. (eds) PRIMA 2018: Principles and Practice of Multi-Agent Systems. PRIMA 2018. Lecture Notes in Computer Science, vol 11224. Springer, Cham](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_28)
@@ -98,6 +101,12 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 * [Adam, C., Taillandier, P., Dugdale, J., Gaudou, B., 2017. BDI vs FSM Agents in Social Simulations for Raising Awareness in Disasters: A Case Study in Melbourne Bushfires. Int. J. Inf. Syst. Crisis Response Manag. 9, 27–44. https://doi.org/10.4018/IJISCRAM.2017010103](https://www.igi-global.com/article/bdi-vs-fsm-agents-in-social-simulations-for-raising-awareness-in-disasters/192104)
 
+* [Amalric, M., Anselme, B., Bécu, N., Delay, E., Marilleau, N., Pignon, C., Rousseaux, F., 2017. Sensibiliser au risque de submersion marine par le jeu ou faut-il qu’un jeu soit spatialement réaliste pour être efficace ? Sci. Jeu. https://doi.org/10.4000/sdj.859](https://journals.openedition.org/sdj/859)
+
+* [Emery, J., Marilleau, N., Martiny, N., Thévenin, T., Badram, M.A., Grignard, A., Hbdid, H., 2017. MARRAKAIR : UNE SIMULATION PARTICIPATIVE POUR OBSERVER LES ÉMISSIONS ATMOSPHÉRIQUES DU TRA- FIC ROUTIER EN MILIEU URBAIN 5.](https://hal.archives-ouvertes.fr/hal-01703019)
+
+* [Martiny, N., Emery, J., Ceamanos, X., Briottet, X., Marilleau, N., Thevenin, T., Léon, J.-F., 2017. La Qualité de l’air en ville à Très haute Résolution (Quali_ThR): Apport des images Pléiades dans la démarche SCAUP ?, in: FUTURMOB : Préparer La Transition Vers La Mobilité Autonome. Montbéliard, France.](https://hal.archives-ouvertes.fr/hal-01703019)
+
 * [Ta, X.-H., Gaudou, B., Longin, D., Ho, T.V., 2017. Emotional contagion model for group evacuation simulation. Informatica 41.](http://www.informatica.si/index.php/informatica/article/view/1661)
 
 * [Huynh, N.Q., Nguyen-Huu, T., Grignard, A., Huynh, H.X., Drogoul, A., 2017. Coupling equation based models and agent-based models: example of a multi-strains and switch SIR toy model. EAI Endorsed Trans. Context-Aware Syst. Appl. 4, 152334. https://doi.org/10.4108/eai.6-3-2017.152334](https://eudl.eu/doi/10.4108/eai.6-3-2017.152334)
@@ -105,6 +114,8 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Taillandier, P., Bourgais, M., Drogoul, A., Vercouter, L. Using parallel computing to improve the scalability of models with BDI agents. Social Simulation Conference, Sep 2017, Dublin, Ireland.](https://hal.inria.fr/hal-01573385v1)
 
 * [Philippon, D., Choisy, M., Drogoul, A., Gaudou, B., Marilleau, N., Taillandier, P., Truong, Q.C. (2017) Exploring Trade and Health Policies Influence on Dengue Spread with an Agent-Based Model, in: Nardin, L.G., Antunes, L. (Eds.), Multi-Agent Based Simulation XVII. Springer International Publishing, Cham, pp. 111–127.doi:10.1007/978-3-319-67477-3_6](https://link.springer.com/chapter/10.1007/978-3-319-67477-3_6)
+
+* [Marilleau, N., Giraudoux, P., Lang, C., 2017. Multi-agent simulation as a tool to study risk in a spatial context, in: International Forum on Disaster Risk Management. Kunming, China.](https://hal.archives-ouvertes.fr/hal-01512604)
 
 **2016**
 * [Fosset, P., Banos, A., Beck, E., Chardonnel, S., Lang, C., Marilleau, N., Piombini, A., Leysens, T., Conesa, A., Andre-Poyaud, I., Thevenin, T., 2016. Exploring Intra-Urban Accessibility and Impacts of Pollution Policies with an Agent-Based Simulation Platform: GaMiroD. Systems 4, 5. https://doi.org/10.3390/systems4010005](https://www.mdpi.com/2079-8954/4/1/5/htm)
@@ -125,11 +136,19 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 * [Truong, Q.C., Taillandier, P., Gaudou, B., Vo, M.Q., Nguyen, T.H., Drogoul, A. (2016) Exploring Agent Architectures for Farmer Behavior in Land-Use Change. A Case Study in Coastal Area of the Vietnamese Mekong Delta, in: Gaudou, B., Sichman, J.S. (Eds.), Multi-Agent Based Simulation XVI, Lecture Notes in Computer Science. Springer International Publishing, pp. 146–158. doi: 10.1007/978-3-319-31447-1_10.](https://link.springer.com/chapter/10.1007/978-3-319-31447-1_10)
 
+* [Lang, C., Marilleau, N., Giraudoux, P., 2016. Couplage de SMA avec des EDO pour simuler les phénomènes écologiques à grande échelle, in: 2ème Rencontre ”Informatique Scientifique à Besançon”. Besançon, France.](https://hal.archives-ouvertes.fr/hal-01408475)
+
+* [Giraudoux, P., Lang, C., Marilleau, N., 2016. Coupling agent based with equation based models for studying explicitly spatial population dynamics.](https://hal.inria.fr/hal-01367362/)
+
+* [Lucien, L., Lang, C., Marilleau, N., Philippe, L., 2016. A Proposition of Data Organization and Exchanges to Collaborate in an Autonomous Agent Context, in: 2016 IEEE Intl Conference on Computational Science and Engineering (CSE) and IEEE Intl Conference on Embedded and Ubiquitous Computing (EUC) and 15th Intl Symposium on Distributed Computing and Applications for Business Engineering (DCABES). Presented at the 2016 19th IEEE Intl Conference on Computational Science and Engineering (CSE), IEEE 14th Intl Conference on Embedded and Ubiquitous Computing (EUC), and 15th Intl Symposium on Distributed Computing and Applications for Business Engineering (DCABES), IEEE, Paris, pp. 561–568. https://doi.org/10.1109/CSE-EUC-DCABES.2016.242](https://ieeexplore.ieee.org/document/7982304)
+
 **2015**
 
 * [Gasmi, N., Grignard, A., Drogoul, A., Gaudou, B., Taillandier, P., Tessier, O., An, V.D., 2015. Reproducing and Exploring Past Events Using Agent-Based Geo-Historical Models, in: Grimaldo, F., Norling, E. (Eds.), Multi-Agent-Based Simulation XV. Springer International Publishing, Cham, pp. 151–163.](https://www.springerprofessional.de/en/reproducing-and-exploring-past-events-using-agent-based-geo-hist/2363996)
 
 * [Le, V.-M., Chevaleyre, Y., Ho Tuong Vinh, Zucker, J.-D., 2015. Hybrid of linear programming and genetic algorithm for optimizing agent-based simulation. Application to optimization of sign placement for tsunami evacuation, in: The 2015 IEEE RIVF International Conference on Computing & Communication Technologies - Research, Innovation, and Vision for Future (RIVF). Presented at the 2015 IEEE RIVF International Conference on Computing & Communication Technologies, Research, Innovation, and Vision for the Future (RIVF), IEEE, Can Tho, Vietnam, pp. 138–143. https://doi.org/10.1109/RIVF.2015.7049889](https://ieeexplore.ieee.org/document/7049889)
+
+* [Emery, J., Marilleau, N., Martiny, N., Thévenin, T., Villery, J., 2015. L’apport de la simulation multi-agent du trafic routier pour l’estimation des pollutions atmosphériques automobiles, in: Douzièmes Rencontres de Théo Quant. Besançon, France.](https://hal.archives-ouvertes.fr/hal-01155367)
 
 **2014**
 
@@ -143,6 +162,8 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
  * [Le, V.-M., Chevaleyre, Y., Zucker, J.-D., Tuong Vinh, H., 2014. Approaches to Optimize Local Evacuation Maps for Helping Evacuation in Case of Tsunami, in: Hanachi, C., Bénaben, F., Charoy, F. (Eds.), Information Systems for Crisis Response and Management in Mediterranean Countries. Springer International Publishing, Cham, pp. 21–31. https://doi.org/10.1007/978-3-319-11818-5_3](https://link.springer.com/chapter/10.1007%2F978-3-319-11818-5_3)
 
+ * [Emery, J., Marilleau, N., Thévenin, T., Martiny, N., 2014. Du comptage ponctuel à l’affectation par simulation multi-agents : application à la circulation routière de la ville de Dijon, in: Conférence Internationale de Géomatique et d’analyse Spatiale (SAGEO). Grenoble, France, p. CD-ROM.](https://hal.archives-ouvertes.fr/hal-01157482)
+
 **2013**
   * [Drogoul, A., Gaudou, B., Grignard, A., Taillandier, P., & Vo, D. A. (2013). Practical Approach To Agent-Based Modelling. In: Water and its Many Issues. Methods and Cross-cutting Analysis. Stéphane Lagrée (Eds.), Journées de Tam Dao, p. 277-300, Regional Social Sciences Summer University.](http://hal.archives-ouvertes.fr/docs/00/93/24/23/PDF/JTD2012_-_Atelier_-_EN.pdf)
 
@@ -151,6 +172,10 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
   * [Truong, M.-T., Amblard, F., Gaudou, B., Sibertin-Blanc, C., Truong, V. X., Drogoul, A., Hyunh, X. H., Le, M. N. (2013). An implementation of framework of business intelligence for agent-based simulation. In: Symposium on Information and Communication Technology (SoICT 2013), Da Nang, Viet Nam, 05/12/2013-06/12/2013, Quyet Thang Huynh, Thanh Binh Nguyen, Van Tien Do, Marc Bui, Hong Son Ngo (Eds.), ACM, p. 35-44.](http://dl.acm.org/citation.cfm?id=2542069)
 
   * [Le, V. M., Gaudou, B., Taillandier, P., Vo, D. A (2013). A New BDI Architecture To Formalize Cognitive Agent Behaviors Into Simulations. In: Advanced Methods and Technologies for Agent and Multi-Agent Systems (KES-AMSTA 2013), Hue, Vietnam, 27/05/2013-29/05/2013, Vol. 252, Dariusz Barbucha, Manh Thanh Le, Robert J. Howlett, C. Jain Lakhmi (Eds.), IOS Press, Frontiers in Artificial Intelligence and Applications, p. 395-403.](http://ebooks.iospress.nl/publication/32865)
+
+  * [Emery, J., Boyard-Micheau, J., Marilleau, N., Martiny, N., Thévenin, T., 2013. Exploitation of traffic counting data for traffic study in urban areas: from traffic assignment to simulation model validation, in: 18th European Colloquium in Theoretical and Quantitative Geography (ECTQG). Dourdan, France.](https://hal.archives-ouvertes.fr/hal-00881294)
+
+  * [Banos, A., Marilleau, N., 2013. Improving Individual Accessibility to the City, in: Gilbert, T., Kirkilionis, M., Nicolis, G. (Eds.), Proceedings of the European Conference on Complex Systems 2012, Springer Proceedings in Complexity. Springer International Publishing, pp. 989–992.](https://link.springer.com/chapter/10.1007/978-3-319-00395-5_118)
 
 **2012**
   * [Taillandier, P., Therond, O., Gaudou B. (2012), A new BDI agent architecture based on the belief theory. Application to the modelling of cropping plan decision-making. In 'International Environmental Modelling and Software Society', Germany, pp. 107-116.](http://www.iemss.org/sites/iemss2012//proceedings/H2_0404_Taillandier_et_al.pdf)
@@ -166,9 +191,9 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
   * [Nguyen Vu, Q. A., Canal, R., Gaudou, B., Hassas, S., Armetta, F. (2012), TrustSets - Using trust to detect deceitful agents in a distributed information collecting system. In: Journal of Ambient Intelligence and Humanized Computing, Springer-Verlag, Vol. 3 N. 4, p. 251-263.](http://link.springer.com/article/10.1007%2Fs12652-012-0140-0)
 
 **2011**
-  * Taillandier, P., Therond, O. (2011), Use of the Belief Theory to formalize Agent Decision Making Processes : Application to cropping Plan Decision Making. In ’25th European Simulation and Modelling Conference’, Guimaraes, Portugal, pp. 138-142.
+  * [Taillandier, P., Therond, O. (2011), Use of the Belief Theory to formalize Agent Decision Making Processes : Application to cropping Plan Decision Making. In ’25th European Simulation and Modelling Conference’, Guimaraes, Portugal, pp. 138-142.](https://hal.archives-ouvertes.fr/hal-00688405)
 
-  * Taillandier, P. & Amblard, F. (2011), Cartography of Multi-Agent Model Parameter Space through a reactive Dicotomous Approach. In ’25th European Simulation and Modelling Conference’, Guimaraes, Portugal, pp. 38-42.
+  * [Taillandier, P. & Amblard, F. (2011), Cartography of Multi-Agent Model Parameter Space through a reactive Dicotomous Approach. In ’25th European Simulation and Modelling Conference’, Guimaraes, Portugal, pp. 38-42.](https://hal.archives-ouvertes.fr/hal-00688412)
 
   * [Taillandier, P. & Stinckwich, S. (2011), Using the PROMETHEE Multi-Criteria Decision Making Method to Define New Exploration Strategies for Rescue Robots’, IEEE International Symposium on Safety, Security, and Rescue Robotics, Kyoto, Japon, pp. 321 - 326.](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6106747&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6106747)
 

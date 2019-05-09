@@ -3673,11 +3673,11 @@ function closeRightMenu() {
 <h2 id="table-of-contents">Table of Contents</h2>
 <wiki:toc max_depth="3" />
 
-<p><a href="#advanced_driving">advanced_driving</a>, <a href="#driving">driving</a>, <a href="#fipa">fipa</a>, <a href="#gamasql">GAMASQL</a>, <a href="#mdxskill">MDXSKILL</a>, <a href="#messaging">messaging</a>, <a href="#moving">moving</a>, <a href="#moving3d">moving3D</a>, <a href="#network">network</a>, <a href="#physics">physics</a>, <a href="#skill_road">skill_road</a>, <a href="#skill_road_node">skill_road_node</a>, <a href="#sqlskill">SQLSKILL</a>,</p>
+<p><a href="#driving">driving</a>, <a href="#fipa">fipa</a>, <a href="#gamasql">GAMASQL</a>, <a href="#mdxskill">MDXSKILL</a>, <a href="#messaging">messaging</a>, <a href="#moving">moving</a>, <a href="#moving3d">moving3D</a>, <a href="#network">network</a>, <a href="#old_driving">old_driving</a>, <a href="#physics">physics</a>, <a href="#skill_road">skill_road</a>, <a href="#skill_road_node">skill_road_node</a>, <a href="#sqlskill">SQLSKILL</a>,</p>
 
 <hr />
 
-<h2 id="advanced_driving">advanced_driving</h2>
+<h2 id="driving">driving</h2>
 
 <h3 id="variables">Variables</h3>
 
@@ -3801,55 +3801,10 @@ function closeRightMenu() {
 
 <hr />
 
-<h2 id="driving">driving</h2>
-
-<h3 id="variables-1">Variables</h3>
-
-<ul>
-  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (<code class="highlighter-rouge">string</code>): the name of the attribut of the road agent that determine the number of road lanes</li>
-  <li><strong><code class="highlighter-rouge">living_space</code></strong> (<code class="highlighter-rouge">float</code>): the min distance between the agent and an obstacle (in meter)</li>
-  <li><strong><code class="highlighter-rouge">obstacle_species</code></strong> (<code class="highlighter-rouge">list</code>): the list of species that are considered as obstacles</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): the speed of the agent (in meter/second)</li>
-  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (<code class="highlighter-rouge">float</code>): the tolerance distance used for the computation (in meter)</li>
-</ul>
-
-<h3 id="actions-1">Actions</h3>
-
-<h4 id="follow_driving"><strong><code class="highlighter-rouge">follow_driving</code></strong></h4>
-<p>moves the agent along a given path passed in the arguments while considering the other agents in the network.</p>
-
-<ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">path</code></strong> (path): a path to be followed.</li>
-  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
-  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weigths used for the moving.</li>
-  <li><strong><code class="highlighter-rouge">living_space</code></strong> (float): min distance between the agent and an obstacle (replaces the current value of living_space)</li>
-  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (float): tolerance distance used for the computation (replaces the current value of tolerance)</li>
-  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)</li>
-</ul>
-
-<h4 id="goto_driving"><strong><code class="highlighter-rouge">goto_driving</code></strong></h4>
-<p>moves the agent towards the target passed in the arguments while considering the other agents in the network (only for graph topology)</p>
-
-<ul>
-  <li>returns: path</li>
-  <li><strong><code class="highlighter-rouge">target</code></strong> (geometry): the location or entity towards which to move.</li>
-  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
-  <li><strong><code class="highlighter-rouge">on</code></strong> (any type): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry)</li>
-  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
-  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weigths used for the moving.</li>
-  <li><strong><code class="highlighter-rouge">living_space</code></strong> (float): min distance between the agent and an obstacle (replaces the current value of living_space)</li>
-  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (float): tolerance distance used for the computation (replaces the current value of tolerance)</li>
-  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)</li>
-</ul>
-
-<hr />
-
 <h2 id="fipa">fipa</h2>
 <p>The fipa skill offers some primitives and built-in variables which enable agent to communicate with each other using the FIPA interaction protocol.</p>
 
-<h3 id="variables-2">Variables</h3>
+<h3 id="variables-1">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">accept_proposals</code></strong> (<code class="highlighter-rouge">list</code>): A list of ‘accept_proposal’ performative messages in the agent’s mailbox</li>
@@ -3868,7 +3823,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">subscribes</code></strong> (<code class="highlighter-rouge">list</code>): A list of ‘subscribe’ performative messages.</li>
 </ul>
 
-<h3 id="actions-2">Actions</h3>
+<h3 id="actions-1">Actions</h3>
 
 <h4 id="accept_proposal"><strong><code class="highlighter-rouge">accept_proposal</code></strong></h4>
 <p>Replies a message with an ‘accept_proposal’ performative message.</p>
@@ -4023,9 +3978,9 @@ function closeRightMenu() {
 
 <h2 id="gamasql">GAMASQL</h2>
 
-<h3 id="variables-3">Variables</h3>
+<h3 id="variables-2">Variables</h3>
 
-<h3 id="actions-3">Actions</h3>
+<h3 id="actions-2">Actions</h3>
 
 <h4 id="read"><strong><code class="highlighter-rouge">read</code></strong></h4>
 
@@ -4056,9 +4011,9 @@ function closeRightMenu() {
 
 <h2 id="mdxskill">MDXSKILL</h2>
 
-<h3 id="variables-4">Variables</h3>
+<h3 id="variables-3">Variables</h3>
 
-<h3 id="actions-4">Actions</h3>
+<h3 id="actions-3">Actions</h3>
 
 <h4 id="select"><strong><code class="highlighter-rouge">select</code></strong></h4>
 
@@ -4090,13 +4045,13 @@ function closeRightMenu() {
 <h2 id="messaging">messaging</h2>
 <p>A simple skill that provides agents with a mailbox than can be filled with messages</p>
 
-<h3 id="variables-5">Variables</h3>
+<h3 id="variables-4">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">mailbox</code></strong> (<code class="highlighter-rouge">list</code>): The list of messages that can be consulted by the agent</li>
 </ul>
 
-<h3 id="actions-5">Actions</h3>
+<h3 id="actions-4">Actions</h3>
 
 <h4 id="send-1"><strong><code class="highlighter-rouge">send</code></strong></h4>
 
@@ -4111,7 +4066,7 @@ function closeRightMenu() {
 <h2 id="moving">moving</h2>
 <p>The moving skill is intended to define the minimal set of behaviours required for agents that are able to move on different topologies</p>
 
-<h3 id="variables-6">Variables</h3>
+<h3 id="variables-5">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">current_edge</code></strong> (<code class="highlighter-rouge">geometry</code>): Represents the agent/geometry on which the agent is located (only used with a graph)</li>
@@ -4123,7 +4078,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): Represents the speed of the agent (in meter/second)</li>
 </ul>
 
-<h3 id="actions-6">Actions</h3>
+<h3 id="actions-5">Actions</h3>
 
 <h4 id="follow"><strong><code class="highlighter-rouge">follow</code></strong></h4>
 <p>moves the agent along a given path passed in the arguments.</p>
@@ -4176,7 +4131,7 @@ function closeRightMenu() {
 <h2 id="moving3d">moving3D</h2>
 <p>The moving skill 3D is intended to define the minimal set of behaviours required for agents that are able to move on different topologies</p>
 
-<h3 id="variables-7">Variables</h3>
+<h3 id="variables-6">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">destination</code></strong> (<code class="highlighter-rouge">point</code>): continuously updated destination of the agent with respect to its speed and heading (read-only)</li>
@@ -4186,7 +4141,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): the speed of the agent (in meter/second)</li>
 </ul>
 
-<h3 id="actions-7">Actions</h3>
+<h3 id="actions-6">Actions</h3>
 
 <h4 id="move-1"><strong><code class="highlighter-rouge">move</code></strong></h4>
 <p>moves the agent forward, the distance being computed with respect to its speed and heading. The value of the corresponding variables are used unless arguments are passed.</p>
@@ -4205,7 +4160,7 @@ function closeRightMenu() {
 <h2 id="network">network</h2>
 <p>The network skill provides new features to let agents exchange message through network.</p>
 
-<h3 id="variables-8">Variables</h3>
+<h3 id="variables-7">Variables</h3>
 
 <ul>
   <li><strong><code class="highlighter-rouge">network_groups</code></strong> (<code class="highlighter-rouge">list</code>): The set of groups the agent belongs to</li>
@@ -4213,7 +4168,7 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">network_server</code></strong> (<code class="highlighter-rouge">list</code>): The list of all the servers to which the agent is connected</li>
 </ul>
 
-<h3 id="actions-8">Actions</h3>
+<h3 id="actions-7">Actions</h3>
 
 <h4 id="connect"><strong><code class="highlighter-rouge">connect</code></strong></h4>
 <p>Action used by a networking agent to connect to a server or as a server.</p>
@@ -4260,6 +4215,51 @@ function closeRightMenu() {
 <ul>
   <li>returns: void</li>
   <li><strong><code class="highlighter-rouge">to</code></strong> (string):</li>
+</ul>
+
+<hr />
+
+<h2 id="old_driving">old_driving</h2>
+
+<h3 id="variables-8">Variables</h3>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (<code class="highlighter-rouge">string</code>): the name of the attribut of the road agent that determine the number of road lanes</li>
+  <li><strong><code class="highlighter-rouge">living_space</code></strong> (<code class="highlighter-rouge">float</code>): the min distance between the agent and an obstacle (in meter)</li>
+  <li><strong><code class="highlighter-rouge">obstacle_species</code></strong> (<code class="highlighter-rouge">list</code>): the list of species that are considered as obstacles</li>
+  <li><strong><code class="highlighter-rouge">speed</code></strong> (<code class="highlighter-rouge">float</code>): the speed of the agent (in meter/second)</li>
+  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (<code class="highlighter-rouge">float</code>): the tolerance distance used for the computation (in meter)</li>
+</ul>
+
+<h3 id="actions-8">Actions</h3>
+
+<h4 id="follow_driving"><strong><code class="highlighter-rouge">follow_driving</code></strong></h4>
+<p>moves the agent along a given path passed in the arguments while considering the other agents in the network.</p>
+
+<ul>
+  <li>returns: path</li>
+  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
+  <li><strong><code class="highlighter-rouge">path</code></strong> (path): a path to be followed.</li>
+  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
+  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weigths used for the moving.</li>
+  <li><strong><code class="highlighter-rouge">living_space</code></strong> (float): min distance between the agent and an obstacle (replaces the current value of living_space)</li>
+  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (float): tolerance distance used for the computation (replaces the current value of tolerance)</li>
+  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)</li>
+</ul>
+
+<h4 id="goto_driving"><strong><code class="highlighter-rouge">goto_driving</code></strong></h4>
+<p>moves the agent towards the target passed in the arguments while considering the other agents in the network (only for graph topology)</p>
+
+<ul>
+  <li>returns: path</li>
+  <li><strong><code class="highlighter-rouge">target</code></strong> (geometry): the location or entity towards which to move.</li>
+  <li><strong><code class="highlighter-rouge">speed</code></strong> (float): the speed to use for this move (replaces the current value of speed)</li>
+  <li><strong><code class="highlighter-rouge">on</code></strong> (any type): list, agent, graph, geometry that restrains this move (the agent moves inside this geometry)</li>
+  <li><strong><code class="highlighter-rouge">return_path</code></strong> (boolean): if true, return the path followed (by default: false)</li>
+  <li><strong><code class="highlighter-rouge">move_weights</code></strong> (map): Weigths used for the moving.</li>
+  <li><strong><code class="highlighter-rouge">living_space</code></strong> (float): min distance between the agent and an obstacle (replaces the current value of living_space)</li>
+  <li><strong><code class="highlighter-rouge">tolerance</code></strong> (float): tolerance distance used for the computation (replaces the current value of tolerance)</li>
+  <li><strong><code class="highlighter-rouge">lanes_attribute</code></strong> (string): the name of the attribut of the road agent that determine the number of road lanes (replaces the current value of lanes_attribute)</li>
 </ul>
 
 <hr />
