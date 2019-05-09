@@ -13,10 +13,6 @@ An object of type IScope represents the context of execution of an agent (includ
 It also allows modifying this context, like changing values of local variables, adding new variables, although these functions should be reserved to very specific usages. Ordinarily, the scope is simply passed to core methods that allow to evaluate expressions, cast values, and so on.
 
 
-
-
-
-
 ## Use of an IScope
 
 A variable `scope` of type `IScope` can be used to:

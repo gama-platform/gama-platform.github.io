@@ -133,10 +133,13 @@ wikiPagePath: wiki/_Sidebar.md
 8. [Developing a Species](DevelopingSpecies)
 9. [Developing a Control Architecture](DevelopingControlArchitectures)
 10. [Index of annotations](DevelopingIndexAnnotations)
-11. [IScope](DevelopingIScope)
-12. [Creating a release of GAMA](CreatingAReleaseOfGama)
-12. [Documentation generation](Documentation)
-13. [Website generation](WebsiteGeneration)
+
+## [Developing GAMA](developingGAMA)
+1. [Introduction to GAMA Java API](IntroductionToGamaJavaAPI)
+2. [IScope](DevelopingIScope)
+3. [Creating a release of GAMA](CreatingAReleaseOfGama)
+4. [Documentation generation](Documentation)
+5. [Website generation](WebsiteGeneration)
 
 ## [Scientific References](References)
 
