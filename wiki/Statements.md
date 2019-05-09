@@ -65,13 +65,11 @@ wikiPagePath: wiki/Statements.md
   * **Environment**
     * [species](#species), 
   * **Experiment**
-    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [layout](#layout), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
+    * [action](#action), [annealing](#annealing), [exhaustive](#exhaustive), [genetic](#genetic), [hill_climbing](#hill_climbing), [output](#output), [parameter](#parameter), [permanent](#permanent), [reactive_tabu](#reactive_tabu), [reflex](#reflex), [setup](#setup), [simulate](#simulate), [state](#state), [tabu](#tabu), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
   * **Layer**
     * [add](#add), [benchmark](#benchmark), [draw](#draw), [error](#error), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [let](#let), [loop](#loop), [put](#put), [remove](#remove), [set](#set), [status](#status), [switch](#switch), [trace](#trace), [try](#try), [using](#using), [warn](#warn), [write](#write), 
   * **Model**
     * [action](#action), [aspect](#aspect), [equation](#equation), [experiment](#experiment), [law](#law), [norm](#norm), [output](#output), [perceive](#perceive), [plan](#plan), [reflex](#reflex), [rule](#rule), [run](#run), [sanction](#sanction), [setup](#setup), [species](#species), [start_simulation](#start_simulation), [state](#state), [task](#task), [test](#test), [user_command](#user_command), [user_init](#user_init), [user_panel](#user_panel), [Variable_container](#variable_container), [Variable_number](#variable_number), [Variable_regular](#variable_regular), 
-  * **Output**
-    * [layout](#layout), 
   * **Sequence of statements or action**
     * [add](#add), [ask](#ask), [assert](#assert), [assert](#assert), [benchmark](#benchmark), [break](#break), [capture](#capture), [conscious_contagion](#conscious_contagion), [create](#create), [data](#data), [datalist](#datalist), [diffuse](#diffuse), [do](#do), [draw](#draw), [emotional_contagion](#emotional_contagion), [enforcement](#enforcement), [error](#error), [focus](#focus), [focus_on](#focus_on), [highlight](#highlight), [if](#if), [inspect](#inspect), [let](#let), [loop](#loop), [migrate](#migrate), [put](#put), [release](#release), [remove](#remove), [return](#return), [save](#save), [set](#set), [simulate](#simulate), [socialize](#socialize), [solve](#solve), [status](#status), [switch](#switch), [trace](#trace), [transition](#transition), [try](#try), [unconscious_contagion](#unconscious_contagion), [using](#using), [warn](#warn), [write](#write), 
   * **Single statement**
@@ -95,7 +93,7 @@ wikiPagePath: wiki/Statements.md
   * **if**
     * [else](#else), 
   * **output**
-    * [display](#display), [inspect](#inspect), [monitor](#monitor), [output_file](#output_file), 
+    * [display](#display), [inspect](#inspect), [layout](#layout), [monitor](#monitor), [output_file](#output_file), 
   * **permanent**
     * [display](#display), [inspect](#inspect), [monitor](#monitor), [output_file](#output_file), 
   * **probabilistic_tasks**
@@ -1969,7 +1967,7 @@ layout horizontal([vertical([0::5000,1::5000])::5000,vertical([2::5000,3::5000])
 
 #### Embedments
 * The `layout` statement is of type: **Output**
-* The `layout` statement can be embedded into: Experiment, Output, 
+* The `layout` statement can be embedded into: output, 
 * The `layout` statement embeds statements: 
 
 ----
@@ -2258,7 +2256,7 @@ experiment exp_name type: gui {    // [inputs]    output {       // [display, fi
 #### Embedments
 * The `output` statement is of type: **Output**
 * The `output` statement can be embedded into: Model, Experiment, 
-* The `output` statement embeds statements: [display](#display),  [inspect](#inspect),  [monitor](#monitor),  [output_file](#output_file),  
+* The `output` statement embeds statements: [display](#display),  [inspect](#inspect),  [layout](#layout),  [monitor](#monitor),  [output_file](#output_file),  
 
 ----
 
@@ -3038,8 +3036,6 @@ socialize;
 #### Facets 
   
   * **`equation`** (an identifier), (omissible) : the equation system identifier to be numerically solved
-  * `cycle_length` (int): length of simulation cycle which will be synchronize with step of integrator (default value: 1)
-  * `discretizing_step` (int): number of discrete between 2 steps of simulation (default value: 0)
   * `integrated_times` (list): time interval inside integration process
   * `integrated_values` (list): list of variables's value inside integration process
   * `max_step` (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value

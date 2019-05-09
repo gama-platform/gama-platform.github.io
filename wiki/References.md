@@ -37,17 +37,25 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 
 ## PhD theses
-  * **Truong Xuan Viet**, ["Optimization by Simulation of an Environmental Surveillance Network: Application to the Fight against Rice Pests in the Mekong Delta (Vietnam)"](https://drive.google.com/a/ctu.edu.vn/file/d/0B7ArAu2_CEjCaTVzZURNUGlfWmc/edit?usp=sharing), University of Paris 6 & Ho Chi Minh University of Technology, defended June 24th, 2014.
 
-  * **Nguyen Nhi Gia Vinh**, ["Designing multi-scale models to support environmental decision: application to the control of Brown Plant Hopper invasions in the Mekong Delta (Vietnam)"](https://drive.google.com/file/d/0BwzSY8KTNM0nLUVMVXR3WDVJSjQ/edit?usp=sharing), University of Paris 6, defended Oct. 31st, 2013.
+* **Huynh Quang Nghi**, ["CoModels, engineering dynamic compositions of coupled models to support the simulation of complex systems"](https://tel.archives-ouvertes.fr/tel-01544874/document), University of Paris 6, defended December 5th, 2016.
 
-  * **Vo Duc An**, ["An operational architecture to handle multiple levels of representation in agent-based models"](https://dl.dropboxusercontent.com/u/70529600/manuscrit_VoDucAn.pdf), University of Paris 6, defended Nov. 30th 2012.
+* **Truong Chi Quang**, ["Integrating cognitive models of human decision-makingin agent-based models : an application to land useplanning under climate change in the Mekong river delta"](https://tel.archives-ouvertes.fr/tel-01543066/document), University of Paris 6 & Can Tho University, defended December 7th, 2016.
 
-  * **Amouroux Edouard**, ["KIMONO: a descriptive agent-based modeling methodology for the exploration of complex systems: an application to epidemiology"](http://tel.archives-ouvertes.fr/tel-00630779), University of Paris 6, defended Sept. 30th, 2011.
+* **Arnaud Grignard**, ["Modèles de visualisation à base d'agents"](https://tel.archives-ouvertes.fr/tel-01544874/document), University of Paris 6, defended October 2nd, 2015.
 
-  * **Chu Thanh Quang**, ["Using agent-based models and machine learning to enhance spatial decision support systems: Application to resource allocation in situations of urban catastrophes"](https://www.dropbox.com/s/i5ifnigqv7qltc9/CHU-Thanh-Quang_manuscrit.pdf), University of Paris 6, defended July 1st, 2011.
+* **Truong Xuan Viet**, ["Optimization by Simulation of an Environmental Surveillance Network: Application to the Fight against Rice Pests in the Mekong Delta (Vietnam)"](https://drive.google.com/a/ctu.edu.vn/file/d/0B7ArAu2_CEjCaTVzZURNUGlfWmc/edit?usp=sharing), University of Paris 6 & Ho Chi Minh University of Technology, defended June 24th, 2014.
 
-  * **Nguyen Ngoc Doanh**, ["Coupling Equation-Based and Individual-Based Models in the Study of Complex Systems: A Case Study in Theoretical Population Ecology"](https://docs.google.com/file/d/0B5s1B4Qq19ycMDg4MTNhMmUtMDNlMC00NzQyLWFlZjEtMjZhOGY5YjRhNWU5/edit?hl=fr), University of Paris 6, defended Dec. 14th, 2010.
+* **Nguyen Nhi Gia Vinh**, ["Designing multi-scale models to support environmental decision: application to the control of Brown Plant Hopper invasions in the Mekong Delta (Vietnam)"](https://drive.google.com/file/d/0BwzSY8KTNM0nLUVMVXR3WDVJSjQ/edit?usp=sharing), University of Paris 6, defended Oct. 31st, 2013.
+
+* **Vo Duc An**, ["An operational architecture to handle multiple levels of representation in agent-based models"](https://dl.dropboxusercontent.com/u/70529600/manuscrit_VoDucAn.pdf), University of Paris 6, defended Nov. 30th 2012.
+
+* **Amouroux Edouard**, ["KIMONO: a descriptive agent-based modeling methodology for the exploration of complex systems: an application to epidemiology"](http://tel.archives-ouvertes.fr/tel-00630779), University of Paris 6, defended Sept. 30th, 2011.
+
+* **Chu Thanh Quang**, ["Using agent-based models and machine learning to enhance spatial decision support systems: Application to resource allocation in situations of urban catastrophes"](https://www.dropbox.com/s/i5ifnigqv7qltc9/CHU-Thanh-Quang_manuscrit.pdf), University of Paris 6, defended July 1st, 2011.
+
+* **Nguyen Ngoc Doanh**, ["Coupling Equation-Based and Individual-Based Models in the Study of Complex Systems: A Case Study in Theoretical Population Ecology"](https://docs.google.com/file/d/0B5s1B4Qq19ycMDg4MTNhMmUtMDNlMC00NzQyLWFlZjEtMjZhOGY5YjRhNWU5/edit?hl=fr), University of Paris 6, defended Dec. 14th, 
+2010.
 
 
 

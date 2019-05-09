@@ -258,13 +258,13 @@ As `user_panel` is a specialization of `state`, the modeler has the possibility 
 
 This ensures a great flexibility for the design of the user interface proposed to the user, as it can be adapted to the different stages of the simulation, etc...
 
-Follows a simple example, where, every 10 steps, and depending on the value of an attribute called "advanced", either the basic or the advanced panel is proposed.
+Follows a simple example, where, every 10 steps, and depending on the value of an attribute called "advanced", either the basic or the advanced panel is proposed. (The full model is provided in the GAMA model library.)
 
 ```
 species user control:user_only {
    user_panel default initial: true {
-      transition to: "Basic Control" when: every (10) and !advanced_user_control;
-      transition to: "Advanced Control" when: every(10) and advanced_user_control;
+      transition to: "Basic Control" when: every (10 #cycles) and !advanced_user_control;
+      transition to: "Advanced Control" when: every(10 #cycles) and advanced_user_control;
    }
    
    user_panel "Basic Control" {
@@ -311,4 +311,4 @@ Finally, each agent provided with this architecture inherits a boolean attribute
 
 Some other control architectures are available in additional plugins. For instance, [BDI (Belief, desire, intention) architecture](UsingBDI) is available. Feel free to read about it if you want to learn more.
 
-You need some other control architectures for your model ? Feel free to make your suggestion to the team of developer through the [mailing list](https://groups.google.com/forum/#!forum/gama-platform). Remember also that GAMA is an open-source platform, you can design your own control architecture easily. Go to the section Community/contribute if you want to jump into coding !
+You need some other control architectures for your model? Feel free to make your suggestion to the team of developer through the [mailing list](https://groups.google.com/forum/#!forum/gama-platform). Remember also that GAMA is an open-source platform, you can design your own control architecture easily. Go to the section Community/contribute if you want to jump into coding!
