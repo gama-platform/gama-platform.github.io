@@ -3735,7 +3735,7 @@ function closeRightMenu() {
   </li>
   <li><strong>Experiment</strong>
     <ul>
-      <li><a href="#action">action</a>, <a href="#annealing">annealing</a>, <a href="#exhaustive">exhaustive</a>, <a href="#genetic">genetic</a>, <a href="#hill_climbing">hill_climbing</a>, <a href="#layout">layout</a>, <a href="#output">output</a>, <a href="#parameter">parameter</a>, <a href="#permanent">permanent</a>, <a href="#reactive_tabu">reactive_tabu</a>, <a href="#reflex">reflex</a>, <a href="#setup">setup</a>, <a href="#simulate">simulate</a>, <a href="#state">state</a>, <a href="#tabu">tabu</a>, <a href="#task">task</a>, <a href="#test">test</a>, <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>, <a href="#variable_container">Variable_container</a>, <a href="#variable_number">Variable_number</a>, <a href="#variable_regular">Variable_regular</a>,</li>
+      <li><a href="#action">action</a>, <a href="#annealing">annealing</a>, <a href="#exhaustive">exhaustive</a>, <a href="#genetic">genetic</a>, <a href="#hill_climbing">hill_climbing</a>, <a href="#output">output</a>, <a href="#parameter">parameter</a>, <a href="#permanent">permanent</a>, <a href="#reactive_tabu">reactive_tabu</a>, <a href="#reflex">reflex</a>, <a href="#setup">setup</a>, <a href="#simulate">simulate</a>, <a href="#state">state</a>, <a href="#tabu">tabu</a>, <a href="#task">task</a>, <a href="#test">test</a>, <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>, <a href="#variable_container">Variable_container</a>, <a href="#variable_number">Variable_number</a>, <a href="#variable_regular">Variable_regular</a>,</li>
     </ul>
   </li>
   <li><strong>Layer</strong>
@@ -3746,11 +3746,6 @@ function closeRightMenu() {
   <li><strong>Model</strong>
     <ul>
       <li><a href="#action">action</a>, <a href="#aspect">aspect</a>, <a href="#equation">equation</a>, <a href="#experiment">experiment</a>, <a href="#law">law</a>, <a href="#norm">norm</a>, <a href="#output">output</a>, <a href="#perceive">perceive</a>, <a href="#plan">plan</a>, <a href="#reflex">reflex</a>, <a href="#rule">rule</a>, <a href="#run">run</a>, <a href="#sanction">sanction</a>, <a href="#setup">setup</a>, <a href="#species">species</a>, <a href="#start_simulation">start_simulation</a>, <a href="#state">state</a>, <a href="#task">task</a>, <a href="#test">test</a>, <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>, <a href="#variable_container">Variable_container</a>, <a href="#variable_number">Variable_number</a>, <a href="#variable_regular">Variable_regular</a>,</li>
-    </ul>
-  </li>
-  <li><strong>Output</strong>
-    <ul>
-      <li><a href="#layout">layout</a>,</li>
     </ul>
   </li>
   <li><strong>Sequence of statements or action</strong>
@@ -3810,7 +3805,7 @@ function closeRightMenu() {
   </li>
   <li><strong>output</strong>
     <ul>
-      <li><a href="#display">display</a>, <a href="#inspect">inspect</a>, <a href="#monitor">monitor</a>, <a href="#output_file">output_file</a>,</li>
+      <li><a href="#display">display</a>, <a href="#inspect">inspect</a>, <a href="#layout">layout</a>, <a href="#monitor">monitor</a>, <a href="#output_file">output_file</a>,</li>
     </ul>
   </li>
   <li><strong>permanent</strong>
@@ -5874,7 +5869,7 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
 <h4 id="embedments-45">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">layout</code> statement is of type: <strong>Output</strong></li>
-  <li>The <code class="highlighter-rouge">layout</code> statement can be embedded into: Experiment, Output,</li>
+  <li>The <code class="highlighter-rouge">layout</code> statement can be embedded into: output,</li>
   <li>The <code class="highlighter-rouge">layout</code> statement embeds statements:</li>
 </ul>
 
@@ -6189,7 +6184,7 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
 <ul>
   <li>The <code class="highlighter-rouge">output</code> statement is of type: <strong>Output</strong></li>
   <li>The <code class="highlighter-rouge">output</code> statement can be embedded into: Model, Experiment,</li>
-  <li>The <code class="highlighter-rouge">output</code> statement embeds statements: <a href="#display">display</a>,  <a href="#inspect">inspect</a>,  <a href="#monitor">monitor</a>,  <a href="#output_file">output_file</a>,</li>
+  <li>The <code class="highlighter-rouge">output</code> statement embeds statements: <a href="#display">display</a>,  <a href="#inspect">inspect</a>,  <a href="#layout">layout</a>,  <a href="#monitor">monitor</a>,  <a href="#output_file">output_file</a>,</li>
 </ul>
 
 <hr />
@@ -7031,8 +7026,6 @@ list var &lt;- removeGraph.edges; // var equals []
 
 <ul>
   <li><strong><code class="highlighter-rouge">equation</code></strong> (an identifier), (omissible) : the equation system identifier to be numerically solved</li>
-  <li><code class="highlighter-rouge">cycle_length</code> (int): length of simulation cycle which will be synchronize with step of integrator (default value: 1)</li>
-  <li><code class="highlighter-rouge">discretizing_step</code> (int): number of discrete between 2 steps of simulation (default value: 0)</li>
   <li><code class="highlighter-rouge">integrated_times</code> (list): time interval inside integration process</li>
   <li><code class="highlighter-rouge">integrated_values</code> (list): list of variables’s value inside integration process</li>
   <li><code class="highlighter-rouge">max_step</code> (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>

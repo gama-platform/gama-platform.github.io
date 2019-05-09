@@ -4,7 +4,7 @@ title: Operators (I to M)
 wikiPageName: OperatorsIM
 wikiPagePath: wiki/OperatorsIM.md
 ---
-#Operators (I to M)
+# Operators (I to M)
  	
 ----
 
@@ -31,7 +31,6 @@ All of these alternative syntaxes are completely equivalent.
 
 Operators in GAML are purely functional, i.e. they are guaranteed to not have any side effects on their operands. For instance, the `shuffle` operator, which randomizes the positions of elements in a list, does not modify its list operand but returns a new shuffled list.
 
-<br/>
 ----
 
 ## Priority between operators
@@ -159,7 +158,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsBC#crs), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [get](OperatorsDH#get), [new_folder](OperatorsNR#new_folder), [osm_file](OperatorsNR#osm_file), [read](OperatorsNR#read), [step_sub_model](OperatorsSZ#step_sub_model), [writable](OperatorsSZ#writable), 
+[crs](OperatorsBC#crs), [csv_file](OperatorsBC#csv_file), [dxf_file](OperatorsDH#dxf_file), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [gaml_file](OperatorsDH#gaml_file), [geojson_file](OperatorsDH#geojson_file), [get](OperatorsDH#get), [gif_file](OperatorsDH#gif_file), [gml_file](OperatorsDH#gml_file), [grid_file](OperatorsDH#grid_file), [image_file](OperatorsIM#image_file), [is_csv](OperatorsIM#is_csv), [is_dxf](OperatorsIM#is_dxf), [is_gaml](OperatorsIM#is_gaml), [is_geojson](OperatorsIM#is_geojson), [is_gif](OperatorsIM#is_gif), [is_gml](OperatorsIM#is_gml), [is_grid](OperatorsIM#is_grid), [is_image](OperatorsIM#is_image), [is_json](OperatorsIM#is_json), [is_obj](OperatorsIM#is_obj), [is_osm](OperatorsIM#is_osm), [is_pgm](OperatorsIM#is_pgm), [is_property](OperatorsIM#is_property), [is_R](OperatorsIM#is_r), [is_saved_simulation](OperatorsIM#is_saved_simulation), [is_shape](OperatorsIM#is_shape), [is_svg](OperatorsIM#is_svg), [is_text](OperatorsIM#is_text), [is_threeds](OperatorsIM#is_threeds), [is_URL](OperatorsIM#is_url), [is_xml](OperatorsIM#is_xml), [json_file](OperatorsIM#json_file), [new_folder](OperatorsNR#new_folder), [obj_file](OperatorsNR#obj_file), [osm_file](OperatorsNR#osm_file), [pgm_file](OperatorsNR#pgm_file), [property_file](OperatorsNR#property_file), [R_file](OperatorsNR#r_file), [read](OperatorsNR#read), [saved_simulation_file](OperatorsSZ#saved_simulation_file), [shape_file](OperatorsSZ#shape_file), [step_sub_model](OperatorsSZ#step_sub_model), [svg_file](OperatorsSZ#svg_file), [text_file](OperatorsSZ#text_file), [threeds_file](OperatorsSZ#threeds_file), [URL_file](OperatorsSZ#url_file), [writable](OperatorsSZ#writable), [xml_file](OperatorsSZ#xml_file), 
 
 ----
 
@@ -174,7 +173,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Graphs-related operators
-[add_edge](OperatorsAA#add_edge), [add_node](OperatorsAA#add_node), [adjacency](OperatorsAA#adjacency), [agent_from_geometry](OperatorsAA#agent_from_geometry), [all_pairs_shortest_path](OperatorsAA#all_pairs_shortest_path), [alpha_index](OperatorsAA#alpha_index), [as_distance_graph](OperatorsAA#as_distance_graph), [as_edge_graph](OperatorsAA#as_edge_graph), [as_intersection_graph](OperatorsAA#as_intersection_graph), [as_path](OperatorsAA#as_path), [beta_index](OperatorsBC#beta_index), [betweenness_centrality](OperatorsBC#betweenness_centrality), [biggest_cliques_of](OperatorsBC#biggest_cliques_of), [connected_components_of](OperatorsBC#connected_components_of), [connectivity_index](OperatorsBC#connectivity_index), [contains_edge](OperatorsBC#contains_edge), [contains_vertex](OperatorsBC#contains_vertex), [degree_of](OperatorsDH#degree_of), [directed](OperatorsDH#directed), [edge](OperatorsDH#edge), [edge_between](OperatorsDH#edge_between), [edge_betweenness](OperatorsDH#edge_betweenness), [edges](OperatorsDH#edges), [gamma_index](OperatorsDH#gamma_index), [generate_barabasi_albert](OperatorsDH#generate_barabasi_albert), [generate_complete_graph](OperatorsDH#generate_complete_graph), [generate_watts_strogatz](OperatorsDH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsDH#grid_cells_to_graph), [in_degree_of](OperatorsIM#in_degree_of), [in_edges_of](OperatorsIM#in_edges_of), [layout](OperatorsIM#layout), [load_graph_from_file](OperatorsIM#load_graph_from_file), [load_shortest_paths](OperatorsIM#load_shortest_paths), [main_connected_component](OperatorsIM#main_connected_component), [max_flow_between](OperatorsIM#max_flow_between), [maximal_cliques_of](OperatorsIM#maximal_cliques_of), [nb_cycles](OperatorsNR#nb_cycles), [neighbors_of](OperatorsNR#neighbors_of), [node](OperatorsNR#node), [nodes](OperatorsNR#nodes), [out_degree_of](OperatorsNR#out_degree_of), [out_edges_of](OperatorsNR#out_edges_of), [path_between](OperatorsNR#path_between), [paths_between](OperatorsNR#paths_between), [predecessors_of](OperatorsNR#predecessors_of), [remove_node_from](OperatorsNR#remove_node_from), [rewire_n](OperatorsNR#rewire_n), [source_of](OperatorsSZ#source_of), [spatial_graph](OperatorsSZ#spatial_graph), [strahler](OperatorsSZ#strahler), [successors_of](OperatorsSZ#successors_of), [sum](OperatorsSZ#sum), [target_of](OperatorsSZ#target_of), [undirected](OperatorsSZ#undirected), [use_cache](OperatorsSZ#use_cache), [weight_of](OperatorsSZ#weight_of), [with_optimizer_type](OperatorsSZ#with_optimizer_type), [with_weights](OperatorsSZ#with_weights), 
+[add_edge](OperatorsAA#add_edge), [add_node](OperatorsAA#add_node), [adjacency](OperatorsAA#adjacency), [agent_from_geometry](OperatorsAA#agent_from_geometry), [all_pairs_shortest_path](OperatorsAA#all_pairs_shortest_path), [alpha_index](OperatorsAA#alpha_index), [as_distance_graph](OperatorsAA#as_distance_graph), [as_edge_graph](OperatorsAA#as_edge_graph), [as_intersection_graph](OperatorsAA#as_intersection_graph), [as_path](OperatorsAA#as_path), [beta_index](OperatorsBC#beta_index), [betweenness_centrality](OperatorsBC#betweenness_centrality), [biggest_cliques_of](OperatorsBC#biggest_cliques_of), [connected_components_of](OperatorsBC#connected_components_of), [connectivity_index](OperatorsBC#connectivity_index), [contains_edge](OperatorsBC#contains_edge), [contains_vertex](OperatorsBC#contains_vertex), [degree_of](OperatorsDH#degree_of), [directed](OperatorsDH#directed), [edge](OperatorsDH#edge), [edge_between](OperatorsDH#edge_between), [edge_betweenness](OperatorsDH#edge_betweenness), [edges](OperatorsDH#edges), [gamma_index](OperatorsDH#gamma_index), [generate_barabasi_albert](OperatorsDH#generate_barabasi_albert), [generate_complete_graph](OperatorsDH#generate_complete_graph), [generate_watts_strogatz](OperatorsDH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsDH#grid_cells_to_graph), [in_degree_of](OperatorsIM#in_degree_of), [in_edges_of](OperatorsIM#in_edges_of), [layout_circle](OperatorsIM#layout_circle), [layout_force](OperatorsIM#layout_force), [layout_grid](OperatorsIM#layout_grid), [load_graph_from_file](OperatorsIM#load_graph_from_file), [load_shortest_paths](OperatorsIM#load_shortest_paths), [main_connected_component](OperatorsIM#main_connected_component), [max_flow_between](OperatorsIM#max_flow_between), [maximal_cliques_of](OperatorsIM#maximal_cliques_of), [nb_cycles](OperatorsNR#nb_cycles), [neighbors_of](OperatorsNR#neighbors_of), [node](OperatorsNR#node), [nodes](OperatorsNR#nodes), [out_degree_of](OperatorsNR#out_degree_of), [out_edges_of](OperatorsNR#out_edges_of), [path_between](OperatorsNR#path_between), [paths_between](OperatorsNR#paths_between), [predecessors_of](OperatorsNR#predecessors_of), [remove_node_from](OperatorsNR#remove_node_from), [rewire_n](OperatorsNR#rewire_n), [source_of](OperatorsSZ#source_of), [spatial_graph](OperatorsSZ#spatial_graph), [strahler](OperatorsSZ#strahler), [successors_of](OperatorsSZ#successors_of), [sum](OperatorsSZ#sum), [target_of](OperatorsSZ#target_of), [undirected](OperatorsSZ#undirected), [use_cache](OperatorsSZ#use_cache), [weight_of](OperatorsSZ#weight_of), [with_optimizer_type](OperatorsSZ#with_optimizer_type), [with_weights](OperatorsSZ#with_weights), 
 
 ----
 
@@ -239,7 +238,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### ReverseOperators
-[restoreSimulation](OperatorsNR#restoresimulation), [restoreSimulationFromFile](OperatorsNR#restoresimulationfromfile), [saveAgent](OperatorsSZ#saveagent), [saveSimulation](OperatorsSZ#savesimulation), [serialize](OperatorsSZ#serialize), [serializeAgent](OperatorsSZ#serializeagent), 
+[restore_simulation](OperatorsNR#restore_simulation), [restore_simulation_from_file](OperatorsNR#restore_simulation_from_file), [save_agent](OperatorsSZ#save_agent), [save_simulation](OperatorsSZ#save_simulation), [serialize](OperatorsSZ#serialize), [serialize_agent](OperatorsSZ#serialize_agent), 
 
 ----
 
@@ -249,7 +248,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [inverse_rotation](OperatorsIM#inverse_rotation), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [rotation_composition](OperatorsNR#rotation_composition), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -274,7 +273,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsBC#crs_transform), [rotated_by](OperatorsNR#rotated_by), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsBC#crs_transform), [inverse_rotation](OperatorsIM#inverse_rotation), [rotated_by](OperatorsNR#rotated_by), [rotation_composition](OperatorsNR#rotation_composition), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -309,7 +308,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Types-related operators
-
+[action](OperatorsAA#action), [agent](OperatorsAA#agent), [attributes](OperatorsAA#attributes), [BDIPlan](OperatorsBC#bdiplan), [bool](OperatorsBC#bool), [container](OperatorsBC#container), [emotion](OperatorsDH#emotion), [file](OperatorsDH#file), [float](OperatorsDH#float), [gaml_type](OperatorsDH#gaml_type), [geometry](OperatorsDH#geometry), [graph](OperatorsDH#graph), [int](OperatorsIM#int), [kml](OperatorsIM#kml), [list](OperatorsIM#list), [map](OperatorsIM#map), [material](OperatorsIM#material), [matrix](OperatorsIM#matrix), [mental_state](OperatorsIM#mental_state), [Norm](OperatorsNR#norm), [pair](OperatorsNR#pair), [path](OperatorsNR#path), [point](OperatorsNR#point), [predicate](OperatorsNR#predicate), [regression](OperatorsNR#regression), [rgb](OperatorsNR#rgb), [Sanction](OperatorsSZ#sanction), [skill](OperatorsSZ#skill), [social_link](OperatorsSZ#social_link), [topology](OperatorsSZ#topology), [unknown](OperatorsSZ#unknown), 
 
 ----
 
@@ -327,7 +326,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ### `IDW`
 
 #### Possible use: 
-  *  **`IDW`** (`container<?,? extends msi.gama.metamodel.shape.IShape>`, `map<msi.gama.metamodel.shape.GamaPoint,java.lang.Double>`, `int`) --->  `map<msi.gama.metamodel.shape.IShape,java.lang.Double>` 
+  *  **`IDW`** (`container<unknown,geometry>`, `map<point,float>`, `int`) --->  `map<geometry,float>` 
 
 #### Result: 
 Inverse Distance Weighting (IDW) is a type of deterministic method for multivariate interpolation with a known scattered set of points. The assigned values to each geometry are calculated with a weighted average of the values available at the known points. See: http://en.wikipedia.org/wiki/Inverse_distance_weighting Usage: IDW (list of geometries, map of points (key: point, value: value), power parameter)
@@ -335,7 +334,7 @@ Inverse Distance Weighting (IDW) is a type of deterministic method for multivari
 #### Examples: 
 ```
  
-map<msi.gama.metamodel.shape.IShape,java.lang.Double> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80}::10.0, {100,10}::15.0], 2); // var0 equals for example, can return [ag1::12.0, ag2::23.0,ag3::12.0,ag4::14.0,ag5::17.0]
+map<geometry,float> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80}::10.0, {100,10}::15.0], 2); // var0 equals for example, can return [ag1::12.0, ag2::23.0,ag3::12.0,ag4::14.0,ag5::17.0]
 
 ```
   
@@ -557,14 +556,14 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
-  * `species` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`species` , `unknown`) --->  `int`
-  * `map<?,?>` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map<?,?>` , `unknown`) --->  `unknown`
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
   * `list` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`list` , `unknown`) --->  `int`
+  * `map<unknown,unknown>` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
+  * `species` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`species` , `unknown`) --->  `int`
   * `string` **`index_of`** `string` --->  `int`
   *  **`index_of`** (`string` , `string`) --->  `int` 
 
@@ -576,22 +575,22 @@ the index of the first occurence of the right operand in the left operand contai
 The definition of index_of and the type of the index depend on the container
 
 #### Special cases:     
-  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
-  * if the left operand is a matrix, index_of returns the index as a point 
-  
-```
- 
-point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
-``` 
-
-    
+  * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
   * if the left operand is a list, index_of returns the index as an integer 
   
 ```
  
-int var2 <- [1,2,3,4,5,6] index_of 4; // var2 equals 3 
-int var3 <- [4,2,3,4,5,4] index_of 4; // var3 equals 0
+int var1 <- [1,2,3,4,5,6] index_of 4; // var1 equals 3 
+int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
+``` 
+
+    
+  * if the left operand is a matrix, index_of returns the index as a point 
+  
+```
+ 
+point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var3 equals {1.0,0.0}
 ``` 
 
     
@@ -623,8 +622,8 @@ unknown var0 <- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3
 ### `inside`
 
 #### Possible use: 
-  * `container<?,? extends msi.gama.metamodel.shape.IShape>` **`inside`** `geometry` --->  `list<geometry>`
-  *  **`inside`** (`container<?,? extends msi.gama.metamodel.shape.IShape>` , `geometry`) --->  `list<geometry>` 
+  * `container<unknown,geometry>` **`inside`** `geometry` --->  `list<geometry>`
+  *  **`inside`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), covered by the operand (casted as a geometry).
@@ -649,10 +648,7 @@ list<geometry> var1 <- (species1 + species2) inside (self); // var1 equals the a
 ### `int`
 
 #### Possible use: 
-  *  **`int`** (`any`) --->  `int` 
-
-#### Result: 
-Casts the operand into the type int
+  *  **`int`** (`any`) --->  `int`
     	
 ----
 
@@ -660,27 +656,27 @@ Casts the operand into the type int
 ### `inter`
 
 #### Possible use: 
-  * `geometry` **`inter`** `geometry` --->  `geometry`
-  *  **`inter`** (`geometry` , `geometry`) --->  `geometry`
   * `container` **`inter`** `container` --->  `list`
-  *  **`inter`** (`container` , `container`) --->  `list` 
+  *  **`inter`** (`container` , `container`) --->  `list`
+  * `geometry` **`inter`** `geometry` --->  `geometry`
+  *  **`inter`** (`geometry` , `geometry`) --->  `geometry` 
 
 #### Result: 
-A geometry resulting from the intersection between the two geometries
-the intersection of the two operands  
+the intersection of the two operands
+A geometry resulting from the intersection between the two geometries  
 
 #### Comment: 
 both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
 #### Special cases:     
-  * returns nil if one of the operands is nil    
   * if an operand is a graph, it will be transformed into the set of its nodes    
+  * returns nil if one of the operands is nil    
   * if an operand is a map, it will be transformed into the set of its values 
   
 ```
  
-list var3 <- [1::2, 3::4, 5::6] inter [2,4]; // var3 equals [2,4] 
-list var4 <- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
+list var0 <- [1::2, 3::4, 5::6] inter [2,4]; // var0 equals [2,4] 
+list var1 <- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
 ``` 
 
     
@@ -688,7 +684,7 @@ list var4 <- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
   
 ```
  
-list var5 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
+list var2 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var2 equals [3,4]
 ``` 
 
 
@@ -696,9 +692,9 @@ list var5 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
 #### Examples: 
 ```
  
-geometry var0 <- square(10) inter circle(5); // var0 equals circle(5) 
-list var1 <- [1,2,3,4,5,6] inter [2,4]; // var1 equals [2,4] 
-list var2 <- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
+list var3 <- [1,2,3,4,5,6] inter [2,4]; // var3 equals [2,4] 
+list var4 <- [1,2,3,4,5,6] inter [0,8]; // var4 equals [] 
+geometry var5 <- square(10) inter circle(5); // var5 equals circle(5)
 
 ```
       
@@ -706,7 +702,7 @@ list var2 <- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
 
 #### See also: 
 
-[union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), [remove_duplicates](OperatorsNR#remove_duplicates), 
+[remove_duplicates](OperatorsNR#remove_duplicates), [union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), 
     	
 ----
 
@@ -737,17 +733,17 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 ### `internal_at`
 
 #### Possible use: 
-  * `agent` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`agent` , `list`) --->  `unknown`
   * `container<KeyType,ValueType>.Addressable<KeyType,ValueTyp>>` **`internal_at`** `list<KeyType>` --->  `ValueType`
   *  **`internal_at`** (`container<KeyType,ValueType>.Addressable<KeyType,ValueTyp>>` , `list<KeyType>`) --->  `ValueType`
   * `geometry` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `list`) --->  `unknown` 
+  *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
+  * `agent` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`agent` , `list`) --->  `unknown` 
 
 #### Result: 
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
 For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]    
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
 
 #### See also: 
@@ -835,6 +831,30 @@ matrix<float> var0 <- inverse(matrix([[4,3],[3,2]])); // var0 equals matrix([[-2
 [//]: # (keyword|operator_inverse_distance_weighting)
 ### `inverse_distance_weighting`
    Same signification as [IDW](OperatorsIM#IDW)
+    	
+----
+
+[//]: # (keyword|operator_inverse_rotation)
+### `inverse_rotation`
+
+#### Possible use: 
+  *  **`inverse_rotation`** (`pair<float,point>`) --->  `pair<float,point>` 
+
+#### Result: 
+The inverse rotation. It is a rotation around the same axes with the opposite angle.
+
+#### Examples: 
+```
+ 
+pair<float,point> var0 <- inverse_rotation(38::{1,1,1}); // var0 equals the inverse rotation  -38::{1,1,1}
+
+```
+      
+
+
+#### See also: 
+
+[rotation_composition](OperatorsNR#rotation_composition), 
     	
 ----
 
@@ -1039,12 +1059,12 @@ Tests whether the operand is a json file.
 ### `is_number`
 
 #### Possible use: 
-  *  **`is_number`** (`float`) --->  `bool`
-  *  **`is_number`** (`string`) --->  `bool` 
+  *  **`is_number`** (`string`) --->  `bool`
+  *  **`is_number`** (`float`) --->  `bool` 
 
 #### Result: 
-Returns whether the argument is a real number or not
-tests whether the operand represents a numerical value  
+tests whether the operand represents a numerical value
+Returns whether the argument is a real number or not  
 
 #### Comment: 
 Note that the symbol . should be used for a float value (a string with , will not be considered as a numeric value). Symbols e and E are also accepted. A hexadecimal value should begin with #.
@@ -1052,14 +1072,14 @@ Note that the symbol . should be used for a float value (a string with , will no
 #### Examples: 
 ```
  
-bool var0 <- is_number(4.66); // var0 equals true 
-bool var1 <- is_number(#infinity); // var1 equals true 
-bool var2 <- is_number(#nan); // var2 equals false 
-bool var3 <- is_number("test"); // var3 equals false 
-bool var4 <- is_number("123.56"); // var4 equals true 
-bool var5 <- is_number("-1.2e5"); // var5 equals true 
-bool var6 <- is_number("1,2"); // var6 equals false 
-bool var7 <- is_number("#12FA"); // var7 equals true
+bool var0 <- is_number("test"); // var0 equals false 
+bool var1 <- is_number("123.56"); // var1 equals true 
+bool var2 <- is_number("-1.2e5"); // var2 equals true 
+bool var3 <- is_number("1,2"); // var3 equals false 
+bool var4 <- is_number("#12FA"); // var4 equals true 
+bool var5 <- is_number(4.66); // var5 equals true 
+bool var6 <- is_number(#infinity); // var6 equals true 
+bool var7 <- is_number(#nan); // var7 equals false
 
 ```
   
@@ -1294,8 +1314,8 @@ Tests whether the operand is a xml file.
 
 #### Possible use: 
   *  **`json_file`** (`string`) --->  `file`
-  * `string` **`json_file`** `map<java.lang.String,java.lang.Object>` --->  `file`
-  *  **`json_file`** (`string` , `map<java.lang.String,java.lang.Object>`) --->  `file` 
+  * `string` **`json_file`** `map<string,unknown>` --->  `file`
+  *  **`json_file`** (`string` , `map<string,unknown>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type json. Allowed extensions are limited to json
@@ -1308,7 +1328,7 @@ Constructs a file of type json. Allowed extensions are limited to json
 ``` 
 
     
-  * json_file(string,map<java.lang.String,java.lang.Object>):  
+  * json_file(string,map<string,unknown>):  
   
 ```
 
@@ -1354,14 +1374,14 @@ float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
   *  **`kappa_sim`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float` 
 
 #### Result: 
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
 
 #### Examples: 
 ```
  
-float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var0 equals 0.2702702702702703 
-float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]; // var1 equals 0.3333333333333335
+float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]); // var0 equals 0.3333333333333335 
+float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var1 equals 0.2702702702702703
 
 ```
   
@@ -1399,10 +1419,7 @@ list<list> var1 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var1 equa
 ### `kml`
 
 #### Possible use: 
-  *  **`kml`** (`any`) --->  `kml` 
-
-#### Result: 
-Casts the operand into the type kml
+  *  **`kml`** (`any`) --->  `kml`
     	
 ----
 
@@ -1443,8 +1460,8 @@ Returns the kurtosis (aka excess) of a data sequence
 #### Examples: 
 ```
  
-float var0 <- kurtosis([13,2,1,4,1,2]) with_precision(4); // var0 equals 4.8083 
-float var1 <- kurtosis(3,12) with_precision(4); // var1 equals -2.9999
+float var0 <- kurtosis(3,12) with_precision(4); // var0 equals -2.9999 
+float var1 <- kurtosis([13,2,1,4,1,2]) with_precision(4); // var1 equals 4.8083
 
 ```
   
@@ -1455,8 +1472,8 @@ float var1 <- kurtosis(3,12) with_precision(4); // var1 equals -2.9999
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`string`) --->  `string`
   *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`last`** (`string`) --->  `string`
   * `int` **`last`** `container` --->  `list`
   *  **`last`** (`int` , `container`) --->  `list` 
 
@@ -1474,19 +1491,19 @@ the last operator behavior depends on the nature of the operand
   * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
-  
-```
- 
-string var0 <- last ('abce'); // var0 equals 'e'
-``` 
-
-    
   * if it is a list, last returns the last element of the list, or nil if the list is empty 
   
 ```
  
-int var1 <- last ([1, 2, 3]); // var1 equals 3
+int var0 <- last ([1, 2, 3]); // var0 equals 3
+``` 
+
+    
+  * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
+  
+```
+ 
+string var1 <- last ('abce'); // var1 equals 'e'
 ``` 
 
     
@@ -1502,16 +1519,16 @@ int var1 <- last ([1, 2, 3]); // var1 equals 3
 ### `last_index_of`
 
 #### Possible use: 
-  * `map<?,?>` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map<?,?>` , `unknown`) --->  `unknown`
+  * `string` **`last_index_of`** `string` --->  `int`
+  *  **`last_index_of`** (`string` , `string`) --->  `int`
   * `species` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`species` , `unknown`) --->  `int`
-  * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
+  * `map<unknown,unknown>` **`last_index_of`** `unknown` --->  `unknown`
+  *  **`last_index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int`
-  * `string` **`last_index_of`** `string` --->  `int`
-  *  **`last_index_of`** (`string` , `string`) --->  `int` 
+  * `matrix` **`last_index_of`** `unknown` --->  `point`
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -1521,19 +1538,19 @@ The definition of last_index_of and the type of the index depend on the containe
 
 #### Special cases:     
   * if the left operand is a species, the last index of an agent is the same as its index    
+  * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
+  
+```
+ 
+int var0 <- "abcabcabc" last_index_of "ca"; // var0 equals 5
+``` 
+
+    
   * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
   
 ```
  
-unknown var0 <- [1::2, 3::4, 5::4] last_index_of 4; // var0 equals 5
-``` 
-
-    
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var1 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var1 equals {1.0,2.0}
+unknown var1 <- [1::2, 3::4, 5::4] last_index_of 4; // var1 equals 5
 ``` 
 
     
@@ -1546,11 +1563,11 @@ int var3 <- [4,2,3,4,5,4] last_index_of 4; // var3 equals 5
 ``` 
 
     
-  * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
+  * if the left operand is a matrix, last_index_of returns the index as a point 
   
 ```
  
-int var4 <- "abcabcabc" last_index_of "ca"; // var4 equals 5
+point var4 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var4 equals {1.0,2.0}
 ``` 
 
     
@@ -1611,17 +1628,54 @@ unknown var3 <- (list(node) last_with (round(node(each).location.x) > 32); // va
     	
 ----
 
-[//]: # (keyword|operator_layout)
-### `layout`
+[//]: # (keyword|operator_layout_circle)
+### `layout_circle`
 
 #### Possible use: 
-  * `graph` **`layout`** `string` --->  `graph`
-  *  **`layout`** (`graph` , `string`) --->  `graph`
-  *  **`layout`** (`graph`, `string`, `int`) --->  `graph`
-  *  **`layout`** (`graph`, `string`, `int`, `map<java.lang.String,java.lang.Object>`) --->  `graph` 
+  * `graph` **`layout_circle`** `geometry` --->  `graph`
+  *  **`layout_circle`** (`graph` , `geometry`) --->  `graph` 
 
 #### Result: 
-layouts a GAMA graph.
+layouts a Gama graph on a circle with equidistance between nodes. For now there is no optimization on node ordering !
+
+#### Examples: 
+```
+layout_circle(graph, world.shape); 
+
+```
+  
+    	
+----
+
+[//]: # (keyword|operator_layout_force)
+### `layout_force`
+
+#### Possible use: 
+  *  **`layout_force`** (`graph`, `geometry`, `float`, `float`, `int`) --->  `graph`
+  *  **`layout_force`** (`graph`, `geometry`, `float`, `float`, `int`, `float`) --->  `graph` 
+
+#### Result: 
+layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_force, cooling_rate, max_iteration). graph is the graph to which applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_force is the coefficient used to compute the force, typical value is 0.4; cooling rate is the decreasing coefficient of the temperature, typical value is 0.01;  max_iteration is the maximal number of iterationsdistance of displacement for a vertice to be considered as in equilibrium
+layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_force, cooling_rate, max_iteration, equilibirum criterion). graph is the graph to which applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_force is the coefficien use to compute the force, typical value is 0.4; cooling rate is the decreasing coefficient of the temperature, typical value is 0.01;  max_iteration is the maximal number of iterations; equilibirum criterion is the maximaldistance of displacement for a vertice to be considered as in equilibrium
+    	
+----
+
+[//]: # (keyword|operator_layout_grid)
+### `layout_grid`
+
+#### Possible use: 
+  *  **`layout_grid`** (`graph`, `geometry`, `float`) --->  `graph` 
+
+#### Result: 
+layouts a Gama graph based on a grid latice. usage: layoutForce(graph, bounds, coeff_nb_cells). graph is the graph to which "
+					+ "applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_nb_cellsthe coefficient for the number of cells to locate the vertices (nb of places = coeff_nb_cells * nb of vertices).
+
+#### Examples: 
+```
+layout_grid(graph, world.shape); 
+
+```
+  
     	
 ----
 
@@ -1679,9 +1733,9 @@ int var3 <- length ('I am an agent'); // var3 equals 13
 ### `line`
 
 #### Possible use: 
-  *  **`line`** (`container<?,msi.gama.metamodel.shape.IShape>`) --->  `geometry`
-  * `container<?,msi.gama.metamodel.shape.IShape>` **`line`** `float` --->  `geometry`
-  *  **`line`** (`container<?,msi.gama.metamodel.shape.IShape>` , `float`) --->  `geometry` 
+  *  **`line`** (`container<unknown,geometry>`) --->  `geometry`
+  * `container<unknown,geometry>` **`line`** `float` --->  `geometry`
+  *  **`line`** (`container<unknown,geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
 A polyline geometry from the given list of points represented as a cylinder of radius r.
@@ -1751,10 +1805,7 @@ geometry var0 <- link (geom1,geom2); // var0 equals a link geometry between geom
 ### `list`
 
 #### Possible use: 
-  *  **`list`** (`any`) --->  `list` 
-
-#### Result: 
-Casts the operand into the type list
+  *  **`list`** (`any`) --->  `list`
     	
 ----
 
@@ -1769,7 +1820,15 @@ Casts the operand into the type list
 creates a list with a size provided by the first operand, and filled with the second operand  
 
 #### Comment: 
-Note that the right operand  should be positive, and that the second one is evaluated for each position  in the list.    
+Note that the first operand  should be positive, and that the second one is evaluated for each position  in the list.
+
+#### Examples: 
+```
+ 
+list var0 <- list_with(5,2); // var0 equals [2,2,2,2,2]
+
+```
+      
 
 
 #### See also: 
@@ -1782,8 +1841,8 @@ Note that the right operand  should be positive, and that the second one is eval
 ### `ln`
 
 #### Possible use: 
-  *  **`ln`** (`int`) --->  `float`
-  *  **`ln`** (`float`) --->  `float` 
+  *  **`ln`** (`float`) --->  `float`
+  *  **`ln`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the natural logarithm (base e) of the operand.
@@ -1794,8 +1853,8 @@ Returns the natural logarithm (base e) of the operand.
 #### Examples: 
 ```
  
-float var0 <- ln(1); // var0 equals 0.0 
-float var1 <- ln(exp(1)); // var1 equals 1.0
+float var0 <- ln(exp(1)); // var0 equals 1.0 
+float var1 <- ln(1); // var1 equals 0.0
 
 ```
       
@@ -1812,10 +1871,10 @@ float var1 <- ln(exp(1)); // var1 equals 1.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `file` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
@@ -1837,7 +1896,7 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
-  * "format": the format of the file, "file": the file containing the network 
+  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -1851,6 +1910,13 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
 ``` 
 
     
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+``` 
+
+    
   * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
@@ -1858,24 +1924,17 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
 ``` 
 
     
-  * "format": the format of the file, "filename": the filename of the file containing the network 
+  * "format": the format of the file, "file": the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
-``` 
-
-    
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
 ``` 
 
 
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); 
 
 ```
   
@@ -1921,8 +1980,8 @@ loaded submodel
 ### `log`
 
 #### Possible use: 
-  *  **`log`** (`float`) --->  `float`
-  *  **`log`** (`int`) --->  `float` 
+  *  **`log`** (`int`) --->  `float`
+  *  **`log`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the logarithm (base 10) of the operand.
@@ -1933,8 +1992,8 @@ Returns the logarithm (base 10) of the operand.
 #### Examples: 
 ```
  
-float var0 <- log(10); // var0 equals 1.0 
-float var1 <- log(1); // var1 equals 0.0
+float var0 <- log(1); // var0 equals 0.0 
+float var1 <- log(10); // var1 equals 1.0
 
 ```
       
@@ -2009,10 +2068,7 @@ graph var0 <- main_connected_component(my_graph); // var0 equals the sub-graph c
 ### `map`
 
 #### Possible use: 
-  *  **`map`** (`any`) --->  `map` 
-
-#### Result: 
-Casts the operand into the type map
+  *  **`map`** (`any`) --->  `map`
     	
 ----
 
@@ -2020,9 +2076,9 @@ Casts the operand into the type map
 ### `masked_by`
 
 #### Possible use: 
-  * `geometry` **`masked_by`** `container<?,msi.gama.metamodel.shape.IShape>` --->  `geometry`
-  *  **`masked_by`** (`geometry` , `container<?,msi.gama.metamodel.shape.IShape>`) --->  `geometry`
-  *  **`masked_by`** (`geometry`, `container<?,msi.gama.metamodel.shape.IShape>`, `int`) --->  `geometry`
+  * `geometry` **`masked_by`** `container<unknown,geometry>` --->  `geometry`
+  *  **`masked_by`** (`geometry` , `container<unknown,geometry>`) --->  `geometry`
+  *  **`masked_by`** (`geometry`, `container<unknown,geometry>`, `int`) --->  `geometry`
 
 #### Examples: 
 ```
@@ -2039,8 +2095,8 @@ geometry var1 <- perception_geom masked_by obstacle_list; // var1 equals the geo
 ### `material`
 
 #### Possible use: 
-  * `float` **`material`** `float` --->  `msi.gama.util.GamaMaterial`
-  *  **`material`** (`float` , `float`) --->  `msi.gama.util.GamaMaterial` 
+  * `float` **`material`** `float` --->  `material`
+  *  **`material`** (`float` , `float`) --->  `material` 
 
 #### Result: 
 Returns
@@ -2063,10 +2119,7 @@ Returns
 ### `material`
 
 #### Possible use: 
-  *  **`material`** (`any`) --->  `material` 
-
-#### Result: 
-Casts the operand into the type material
+  *  **`material`** (`any`) --->  `material`
     	
 ----
 
@@ -2074,10 +2127,7 @@ Casts the operand into the type material
 ### `matrix`
 
 #### Possible use: 
-  *  **`matrix`** (`any`) --->  `matrix` 
-
-#### Result: 
-Casts the operand into the type matrix
+  *  **`matrix`** (`any`) --->  `matrix`
     	
 ----
 
@@ -2149,7 +2199,7 @@ unknown var1 <- max([{1.0,3.0},{3.0,5.0},{9.0,1.0},{7.0,8.0}]); // var1 equals {
 ### `max_flow_between`
 
 #### Possible use: 
-  *  **`max_flow_between`** (`graph`, `unknown`, `unknown`) --->  `map<java.lang.Object,java.lang.Double>` 
+  *  **`max_flow_between`** (`graph`, `unknown`, `unknown`) --->  `map<unknown,float>` 
 
 #### Result: 
 The max flow (map<edge,flow> in a graph between the source and the sink using Edmonds-Karp algorithm
@@ -2373,10 +2423,7 @@ unknown var0 <- median ([4.5, 3.5, 5.5, 3.4, 7.0]); // var0 equals 4.5
 ### `mental_state`
 
 #### Possible use: 
-  *  **`mental_state`** (`any`) --->  `mental_state` 
-
-#### Result: 
-Casts the operand into the type mental_state
+  *  **`mental_state`** (`any`) --->  `mental_state`
     	
 ----
 

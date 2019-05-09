@@ -4,7 +4,7 @@ title: Operators (D to H)
 wikiPageName: OperatorsDH
 wikiPagePath: wiki/OperatorsDH.md
 ---
-#Operators (D to H)
+# Operators (D to H)
  	
 ----
 
@@ -31,7 +31,6 @@ All of these alternative syntaxes are completely equivalent.
 
 Operators in GAML are purely functional, i.e. they are guaranteed to not have any side effects on their operands. For instance, the `shuffle` operator, which randomizes the positions of elements in a list, does not modify its list operand but returns a new shuffled list.
 
-<br/>
 ----
 
 ## Priority between operators
@@ -159,7 +158,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsBC#crs), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [get](OperatorsDH#get), [new_folder](OperatorsNR#new_folder), [osm_file](OperatorsNR#osm_file), [read](OperatorsNR#read), [step_sub_model](OperatorsSZ#step_sub_model), [writable](OperatorsSZ#writable), 
+[crs](OperatorsBC#crs), [csv_file](OperatorsBC#csv_file), [dxf_file](OperatorsDH#dxf_file), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [gaml_file](OperatorsDH#gaml_file), [geojson_file](OperatorsDH#geojson_file), [get](OperatorsDH#get), [gif_file](OperatorsDH#gif_file), [gml_file](OperatorsDH#gml_file), [grid_file](OperatorsDH#grid_file), [image_file](OperatorsIM#image_file), [is_csv](OperatorsIM#is_csv), [is_dxf](OperatorsIM#is_dxf), [is_gaml](OperatorsIM#is_gaml), [is_geojson](OperatorsIM#is_geojson), [is_gif](OperatorsIM#is_gif), [is_gml](OperatorsIM#is_gml), [is_grid](OperatorsIM#is_grid), [is_image](OperatorsIM#is_image), [is_json](OperatorsIM#is_json), [is_obj](OperatorsIM#is_obj), [is_osm](OperatorsIM#is_osm), [is_pgm](OperatorsIM#is_pgm), [is_property](OperatorsIM#is_property), [is_R](OperatorsIM#is_r), [is_saved_simulation](OperatorsIM#is_saved_simulation), [is_shape](OperatorsIM#is_shape), [is_svg](OperatorsIM#is_svg), [is_text](OperatorsIM#is_text), [is_threeds](OperatorsIM#is_threeds), [is_URL](OperatorsIM#is_url), [is_xml](OperatorsIM#is_xml), [json_file](OperatorsIM#json_file), [new_folder](OperatorsNR#new_folder), [obj_file](OperatorsNR#obj_file), [osm_file](OperatorsNR#osm_file), [pgm_file](OperatorsNR#pgm_file), [property_file](OperatorsNR#property_file), [R_file](OperatorsNR#r_file), [read](OperatorsNR#read), [saved_simulation_file](OperatorsSZ#saved_simulation_file), [shape_file](OperatorsSZ#shape_file), [step_sub_model](OperatorsSZ#step_sub_model), [svg_file](OperatorsSZ#svg_file), [text_file](OperatorsSZ#text_file), [threeds_file](OperatorsSZ#threeds_file), [URL_file](OperatorsSZ#url_file), [writable](OperatorsSZ#writable), [xml_file](OperatorsSZ#xml_file), 
 
 ----
 
@@ -174,7 +173,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Graphs-related operators
-[add_edge](OperatorsAA#add_edge), [add_node](OperatorsAA#add_node), [adjacency](OperatorsAA#adjacency), [agent_from_geometry](OperatorsAA#agent_from_geometry), [all_pairs_shortest_path](OperatorsAA#all_pairs_shortest_path), [alpha_index](OperatorsAA#alpha_index), [as_distance_graph](OperatorsAA#as_distance_graph), [as_edge_graph](OperatorsAA#as_edge_graph), [as_intersection_graph](OperatorsAA#as_intersection_graph), [as_path](OperatorsAA#as_path), [beta_index](OperatorsBC#beta_index), [betweenness_centrality](OperatorsBC#betweenness_centrality), [biggest_cliques_of](OperatorsBC#biggest_cliques_of), [connected_components_of](OperatorsBC#connected_components_of), [connectivity_index](OperatorsBC#connectivity_index), [contains_edge](OperatorsBC#contains_edge), [contains_vertex](OperatorsBC#contains_vertex), [degree_of](OperatorsDH#degree_of), [directed](OperatorsDH#directed), [edge](OperatorsDH#edge), [edge_between](OperatorsDH#edge_between), [edge_betweenness](OperatorsDH#edge_betweenness), [edges](OperatorsDH#edges), [gamma_index](OperatorsDH#gamma_index), [generate_barabasi_albert](OperatorsDH#generate_barabasi_albert), [generate_complete_graph](OperatorsDH#generate_complete_graph), [generate_watts_strogatz](OperatorsDH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsDH#grid_cells_to_graph), [in_degree_of](OperatorsIM#in_degree_of), [in_edges_of](OperatorsIM#in_edges_of), [layout](OperatorsIM#layout), [load_graph_from_file](OperatorsIM#load_graph_from_file), [load_shortest_paths](OperatorsIM#load_shortest_paths), [main_connected_component](OperatorsIM#main_connected_component), [max_flow_between](OperatorsIM#max_flow_between), [maximal_cliques_of](OperatorsIM#maximal_cliques_of), [nb_cycles](OperatorsNR#nb_cycles), [neighbors_of](OperatorsNR#neighbors_of), [node](OperatorsNR#node), [nodes](OperatorsNR#nodes), [out_degree_of](OperatorsNR#out_degree_of), [out_edges_of](OperatorsNR#out_edges_of), [path_between](OperatorsNR#path_between), [paths_between](OperatorsNR#paths_between), [predecessors_of](OperatorsNR#predecessors_of), [remove_node_from](OperatorsNR#remove_node_from), [rewire_n](OperatorsNR#rewire_n), [source_of](OperatorsSZ#source_of), [spatial_graph](OperatorsSZ#spatial_graph), [strahler](OperatorsSZ#strahler), [successors_of](OperatorsSZ#successors_of), [sum](OperatorsSZ#sum), [target_of](OperatorsSZ#target_of), [undirected](OperatorsSZ#undirected), [use_cache](OperatorsSZ#use_cache), [weight_of](OperatorsSZ#weight_of), [with_optimizer_type](OperatorsSZ#with_optimizer_type), [with_weights](OperatorsSZ#with_weights), 
+[add_edge](OperatorsAA#add_edge), [add_node](OperatorsAA#add_node), [adjacency](OperatorsAA#adjacency), [agent_from_geometry](OperatorsAA#agent_from_geometry), [all_pairs_shortest_path](OperatorsAA#all_pairs_shortest_path), [alpha_index](OperatorsAA#alpha_index), [as_distance_graph](OperatorsAA#as_distance_graph), [as_edge_graph](OperatorsAA#as_edge_graph), [as_intersection_graph](OperatorsAA#as_intersection_graph), [as_path](OperatorsAA#as_path), [beta_index](OperatorsBC#beta_index), [betweenness_centrality](OperatorsBC#betweenness_centrality), [biggest_cliques_of](OperatorsBC#biggest_cliques_of), [connected_components_of](OperatorsBC#connected_components_of), [connectivity_index](OperatorsBC#connectivity_index), [contains_edge](OperatorsBC#contains_edge), [contains_vertex](OperatorsBC#contains_vertex), [degree_of](OperatorsDH#degree_of), [directed](OperatorsDH#directed), [edge](OperatorsDH#edge), [edge_between](OperatorsDH#edge_between), [edge_betweenness](OperatorsDH#edge_betweenness), [edges](OperatorsDH#edges), [gamma_index](OperatorsDH#gamma_index), [generate_barabasi_albert](OperatorsDH#generate_barabasi_albert), [generate_complete_graph](OperatorsDH#generate_complete_graph), [generate_watts_strogatz](OperatorsDH#generate_watts_strogatz), [grid_cells_to_graph](OperatorsDH#grid_cells_to_graph), [in_degree_of](OperatorsIM#in_degree_of), [in_edges_of](OperatorsIM#in_edges_of), [layout_circle](OperatorsIM#layout_circle), [layout_force](OperatorsIM#layout_force), [layout_grid](OperatorsIM#layout_grid), [load_graph_from_file](OperatorsIM#load_graph_from_file), [load_shortest_paths](OperatorsIM#load_shortest_paths), [main_connected_component](OperatorsIM#main_connected_component), [max_flow_between](OperatorsIM#max_flow_between), [maximal_cliques_of](OperatorsIM#maximal_cliques_of), [nb_cycles](OperatorsNR#nb_cycles), [neighbors_of](OperatorsNR#neighbors_of), [node](OperatorsNR#node), [nodes](OperatorsNR#nodes), [out_degree_of](OperatorsNR#out_degree_of), [out_edges_of](OperatorsNR#out_edges_of), [path_between](OperatorsNR#path_between), [paths_between](OperatorsNR#paths_between), [predecessors_of](OperatorsNR#predecessors_of), [remove_node_from](OperatorsNR#remove_node_from), [rewire_n](OperatorsNR#rewire_n), [source_of](OperatorsSZ#source_of), [spatial_graph](OperatorsSZ#spatial_graph), [strahler](OperatorsSZ#strahler), [successors_of](OperatorsSZ#successors_of), [sum](OperatorsSZ#sum), [target_of](OperatorsSZ#target_of), [undirected](OperatorsSZ#undirected), [use_cache](OperatorsSZ#use_cache), [weight_of](OperatorsSZ#weight_of), [with_optimizer_type](OperatorsSZ#with_optimizer_type), [with_weights](OperatorsSZ#with_weights), 
 
 ----
 
@@ -239,7 +238,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### ReverseOperators
-[restoreSimulation](OperatorsNR#restoresimulation), [restoreSimulationFromFile](OperatorsNR#restoresimulationfromfile), [saveAgent](OperatorsSZ#saveagent), [saveSimulation](OperatorsSZ#savesimulation), [serialize](OperatorsSZ#serialize), [serializeAgent](OperatorsSZ#serializeagent), 
+[restore_simulation](OperatorsNR#restore_simulation), [restore_simulation_from_file](OperatorsNR#restore_simulation_from_file), [save_agent](OperatorsSZ#save_agent), [save_simulation](OperatorsSZ#save_simulation), [serialize](OperatorsSZ#serialize), [serialize_agent](OperatorsSZ#serialize_agent), 
 
 ----
 
@@ -249,7 +248,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [add_point](OperatorsAA#add_point), [agent_closest_to](OperatorsAA#agent_closest_to), [agent_farthest_to](OperatorsAA#agent_farthest_to), [agents_at_distance](OperatorsAA#agents_at_distance), [agents_inside](OperatorsAA#agents_inside), [agents_overlapping](OperatorsAA#agents_overlapping), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [arc](OperatorsAA#arc), [around](OperatorsAA#around), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_distance](OperatorsAA#at_distance), [at_location](OperatorsAA#at_location), [box](OperatorsBC#box), [centroid](OperatorsBC#centroid), [circle](OperatorsBC#circle), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [closest_points_with](OperatorsBC#closest_points_with), [closest_to](OperatorsBC#closest_to), [cone](OperatorsBC#cone), [cone3D](OperatorsBC#cone3d), [convex_hull](OperatorsBC#convex_hull), [covers](OperatorsBC#covers), [cross](OperatorsBC#cross), [crosses](OperatorsBC#crosses), [crs](OperatorsBC#crs), [CRS_transform](OperatorsBC#crs_transform), [cube](OperatorsBC#cube), [curve](OperatorsBC#curve), [cylinder](OperatorsBC#cylinder), [dem](OperatorsDH#dem), [direction_between](OperatorsDH#direction_between), [disjoint_from](OperatorsDH#disjoint_from), [distance_between](OperatorsDH#distance_between), [distance_to](OperatorsDH#distance_to), [ellipse](OperatorsDH#ellipse), [envelope](OperatorsDH#envelope), [farthest_point_to](OperatorsDH#farthest_point_to), [farthest_to](OperatorsDH#farthest_to), [geometry_collection](OperatorsDH#geometry_collection), [gini](OperatorsDH#gini), [hexagon](OperatorsDH#hexagon), [hierarchical_clustering](OperatorsDH#hierarchical_clustering), [IDW](OperatorsIM#idw), [inside](OperatorsIM#inside), [inter](OperatorsIM#inter), [intersects](OperatorsIM#intersects), [inverse_rotation](OperatorsIM#inverse_rotation), [line](OperatorsIM#line), [link](OperatorsIM#link), [masked_by](OperatorsIM#masked_by), [moran](OperatorsIM#moran), [neighbors_at](OperatorsNR#neighbors_at), [neighbors_of](OperatorsNR#neighbors_of), [overlapping](OperatorsNR#overlapping), [overlaps](OperatorsNR#overlaps), [partially_overlaps](OperatorsNR#partially_overlaps), [path_between](OperatorsNR#path_between), [path_to](OperatorsNR#path_to), [plan](OperatorsNR#plan), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), [polygon](OperatorsNR#polygon), [polyhedron](OperatorsNR#polyhedron), [pyramid](OperatorsNR#pyramid), [rectangle](OperatorsNR#rectangle), [rotated_by](OperatorsNR#rotated_by), [rotation_composition](OperatorsNR#rotation_composition), [round](OperatorsNR#round), [scaled_to](OperatorsSZ#scaled_to), [set_z](OperatorsSZ#set_z), [simple_clustering_by_distance](OperatorsSZ#simple_clustering_by_distance), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [sphere](OperatorsSZ#sphere), [split_at](OperatorsSZ#split_at), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [square](OperatorsSZ#square), [squircle](OperatorsSZ#squircle), [teapot](OperatorsSZ#teapot), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [touches](OperatorsSZ#touches), [towards](OperatorsSZ#towards), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangle](OperatorsSZ#triangle), [triangulate](OperatorsSZ#triangulate), [union](OperatorsSZ#union), [using](OperatorsSZ#using), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -274,7 +273,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Spatial transformations operators
-[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsBC#crs_transform), [rotated_by](OperatorsNR#rotated_by), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
+[-](OperatorsAA#-), [*](OperatorsAA#*), [+](OperatorsAA#+), [as_4_grid](OperatorsAA#as_4_grid), [as_grid](OperatorsAA#as_grid), [as_hexagonal_grid](OperatorsAA#as_hexagonal_grid), [at_location](OperatorsAA#at_location), [clean](OperatorsBC#clean), [clean_network](OperatorsBC#clean_network), [convex_hull](OperatorsBC#convex_hull), [CRS_transform](OperatorsBC#crs_transform), [inverse_rotation](OperatorsIM#inverse_rotation), [rotated_by](OperatorsNR#rotated_by), [rotation_composition](OperatorsNR#rotation_composition), [scaled_to](OperatorsSZ#scaled_to), [simplification](OperatorsSZ#simplification), [skeletonize](OperatorsSZ#skeletonize), [smooth](OperatorsSZ#smooth), [split_geometry](OperatorsSZ#split_geometry), [split_lines](OperatorsSZ#split_lines), [to_GAMA_CRS](OperatorsSZ#to_gama_crs), [to_rectangles](OperatorsSZ#to_rectangles), [to_segments](OperatorsSZ#to_segments), [to_squares](OperatorsSZ#to_squares), [to_sub_geometries](OperatorsSZ#to_sub_geometries), [transformed_by](OperatorsSZ#transformed_by), [translated_by](OperatorsSZ#translated_by), [triangulate](OperatorsSZ#triangulate), [voronoi](OperatorsSZ#voronoi), [with_precision](OperatorsSZ#with_precision), [without_holes](OperatorsSZ#without_holes), 
 
 ----
 
@@ -309,7 +308,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Types-related operators
-
+[action](OperatorsAA#action), [agent](OperatorsAA#agent), [attributes](OperatorsAA#attributes), [BDIPlan](OperatorsBC#bdiplan), [bool](OperatorsBC#bool), [container](OperatorsBC#container), [emotion](OperatorsDH#emotion), [file](OperatorsDH#file), [float](OperatorsDH#float), [gaml_type](OperatorsDH#gaml_type), [geometry](OperatorsDH#geometry), [graph](OperatorsDH#graph), [int](OperatorsIM#int), [kml](OperatorsIM#kml), [list](OperatorsIM#list), [map](OperatorsIM#map), [material](OperatorsIM#material), [matrix](OperatorsIM#matrix), [mental_state](OperatorsIM#mental_state), [Norm](OperatorsNR#norm), [pair](OperatorsNR#pair), [path](OperatorsNR#path), [point](OperatorsNR#point), [predicate](OperatorsNR#predicate), [regression](OperatorsNR#regression), [rgb](OperatorsNR#rgb), [Sanction](OperatorsSZ#sanction), [skill](OperatorsSZ#skill), [social_link](OperatorsSZ#social_link), [topology](OperatorsSZ#topology), [unknown](OperatorsSZ#unknown), 
 
 ----
 
@@ -415,10 +414,10 @@ int var1 <- graphFromMap degree_of (node(3)); // var1 equals 3
 
 #### Possible use: 
   *  **`dem`** (`file`) --->  `geometry`
-  * `file` **`dem`** `file` --->  `geometry`
-  *  **`dem`** (`file` , `file`) --->  `geometry`
   * `file` **`dem`** `float` --->  `geometry`
   *  **`dem`** (`file` , `float`) --->  `geometry`
+  * `file` **`dem`** `file` --->  `geometry`
+  *  **`dem`** (`file` , `file`) --->  `geometry`
   *  **`dem`** (`file`, `file`, `float`) --->  `geometry` 
 
 #### Result: 
@@ -427,9 +426,9 @@ A polygon that is equivalent to the surface of the texture
 #### Examples: 
 ```
  
-geometry var0 <- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 <- dem(dem,z_factor); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var2 <- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var0 <- dem(dem,z_factor); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var1 <- dem(dem); // var1 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var2 <- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var3 <- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.
 
 ```
@@ -509,8 +508,8 @@ the operator alters the operand graph, it does not create a new one.
 ### `direction_between`
 
 #### Possible use: 
-  * `topology` **`direction_between`** `container<?,msi.gama.metamodel.shape.IShape>` --->  `float`
-  *  **`direction_between`** (`topology` , `container<?,msi.gama.metamodel.shape.IShape>`) --->  `float` 
+  * `topology` **`direction_between`** `container<unknown,geometry>` --->  `float`
+  *  **`direction_between`** (`topology` , `container<unknown,geometry>`) --->  `float` 
 
 #### Result: 
 A direction (in degree) between a list of two geometries (geometries, agents, points) considering a topology.
@@ -573,8 +572,8 @@ bool var4 <- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{
 ### `distance_between`
 
 #### Possible use: 
-  * `topology` **`distance_between`** `container<?,msi.gama.metamodel.shape.IShape>` --->  `float`
-  *  **`distance_between`** (`topology` , `container<?,msi.gama.metamodel.shape.IShape>`) --->  `float` 
+  * `topology` **`distance_between`** `container<unknown,geometry>` --->  `float`
+  *  **`distance_between`** (`topology` , `container<unknown,geometry>`) --->  `float` 
 
 #### Result: 
 A distance between a list of geometries (geometries, agents, points) considering a topology.
@@ -631,14 +630,28 @@ float var0 <- ag1 distance_to ag2; // var0 equals the distance between ag1 and a
 produces a set from the elements of the operand (i.e. a list without duplicated elements)
 
 #### Special cases:     
-  * if the operand is nil, remove_duplicates returns nil    
   * if the operand is a graph, remove_duplicates returns the set of nodes    
-  * if the operand is a matrix, remove_duplicates returns a matrix without duplicated row    
+  * if the operand is nil, remove_duplicates returns nil 
+  
+```
+ 
+list var1 <- remove_duplicates([]); // var1 equals []
+``` 
+
+    
   * if the operand is a map, remove_duplicates returns the set of values without duplicate 
   
 ```
  
-list var1 <- remove_duplicates([1::3,2::4,3::3,5::7]); // var1 equals [3,4,7]
+list var2 <- remove_duplicates([1::3,2::4,3::3,5::7]); // var2 equals [3,4,7]
+``` 
+
+    
+  * if the operand is a matrix, remove_duplicates returns a list containing all the elments with duplicated. 
+  
+```
+ 
+list var3 <- remove_duplicates([["c11","c12","c13","c13"],["c21","c22","c23","c23"]]); // var3 equals [["c11","c12","c13","c21","c22","c23"]]
 ``` 
 
 
@@ -697,9 +710,9 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
  
-map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var0 <- distribution2d_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution2d_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -715,12 +728,12 @@ map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1
 ### `div`
 
 #### Possible use: 
+  * `float` **`div`** `int` --->  `int`
+  *  **`div`** (`float` , `int`) --->  `int`
   * `int` **`div`** `int` --->  `int`
   *  **`div`** (`int` , `int`) --->  `int`
   * `float` **`div`** `float` --->  `int`
   *  **`div`** (`float` , `float`) --->  `int`
-  * `float` **`div`** `int` --->  `int`
-  *  **`div`** (`float` , `int`) --->  `int`
   * `int` **`div`** `float` --->  `int`
   *  **`div`** (`int` , `float`) --->  `int` 
 
@@ -735,9 +748,9 @@ Returns the truncation of the division of the left-hand operand by the right-han
 #### Examples: 
 ```
  
-int var0 <- 40 div 3; // var0 equals 13 
-int var1 <- 40.1 div 4.5; // var1 equals 8 
-int var2 <- 40.5 div 3; // var2 equals 13 
+int var0 <- 40.5 div 3; // var0 equals 13 
+int var1 <- 40 div 3; // var1 equals 13 
+int var2 <- 40.1 div 4.5; // var2 equals 8 
 int var3 <- 40 div 4.1; // var3 equals 9
 
 ```
@@ -804,40 +817,23 @@ float var0 <- durbin_watson([13,2,1,4,1,2]) with_precision(4); // var0 equals 0.
 #### Possible use: 
   *  **`dxf_file`** (`string`) --->  `file`
   * `string` **`dxf_file`** `float` --->  `file`
-  *  **`dxf_file`** (`string` , `float`) --->  `file`
-  * `string` **`dxf_file`** `point` --->  `file`
-  *  **`dxf_file`** (`string` , `point`) --->  `file`
-  *  **`dxf_file`** (`string`, `float`, `point`) --->  `file` 
+  *  **`dxf_file`** (`string` , `float`) --->  `file` 
 
 #### Result: 
 Constructs a file of type dxf. Allowed extensions are limited to dxf
 
 #### Special cases:     
-  * dxf_file(string):  
+  * dxf_file(string): This file constructor allows to read a dxf (.dxf) file 
   
 ```
-
+file f <- dxf_file("file"); 
 ``` 
 
     
-  * dxf_file(string,float):  
+  * dxf_file(string,float): This file constructor allows to read a dxf (.dxf) file and specify the unit (meter by default) 
   
 ```
-
-``` 
-
-    
-  * dxf_file(string,float,point):  
-  
-```
-
-``` 
-
-    
-  * dxf_file(string,point):  
-  
-```
-
+file f <- dxf_file("file",#m); 
 ``` 
 
     
@@ -853,25 +849,25 @@ Constructs a file of type dxf. Allowed extensions are limited to dxf
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`unknown`) --->  `unknown`
   *  **`edge`** (`pair`) --->  `unknown`
-  * `unknown` **`edge`** `unknown` --->  `unknown`
-  *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
-  * `pair` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`pair` , `float`) --->  `unknown`
-  * `pair` **`edge`** `int` --->  `unknown`
-  *  **`edge`** (`pair` , `int`) --->  `unknown`
+  *  **`edge`** (`unknown`) --->  `unknown`
   * `unknown` **`edge`** `int` --->  `unknown`
   *  **`edge`** (`unknown` , `int`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  * `pair` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`pair` , `float`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
+  * `unknown` **`edge`** `unknown` --->  `unknown`
+  *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
+  * `pair` **`edge`** `int` --->  `unknown`
+  *  **`edge`** (`pair` , `int`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `int`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `int`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown`
     	
 ----
 
@@ -950,7 +946,7 @@ list<float> var0 <- eigenvalues(matrix([[5,-3],[6,-4]])); // var0 equals [2.0000
 ### `electre_DM`
 
 #### Possible use: 
-  *  **`electre_DM`** (`list<list>`, `list<map<java.lang.String,java.lang.Object>>`, `float`) --->  `int` 
+  *  **`electre_DM`** (`list<list>`, `list<map<string,unknown>>`, `float`) --->  `int` 
 
 #### Result: 
 The index of the best candidate according to a method based on the ELECTRE methods. The principle of the ELECTRE methods is to compare the possible candidates by pair. These methods analyses the possible outranking relation existing between two candidates. An candidate outranks another if this one is at least as good as the other one. The ELECTRE methods are based on two concepts: the concordance and the discordance. The concordance characterizes the fact that, for an outranking relation to be validated, a sufficient majority of criteria should be in favor of this assertion. The discordance characterizes the fact that, for an outranking relation to be validated, none of the criteria in the minority should oppose too strongly this assertion. These two conditions must be true for validating the outranking assertion. More information about the ELECTRE methods can be found in [http://www.springerlink.com/content/g367r44322876223/	Figueira,  J., Mousseau, V., Roy, B.: ELECTRE Methods. In: Figueira, J., Greco, S., and Ehrgott, M., (Eds.), Multiple Criteria Decision Analysis: State of the Art Surveys, Springer, New York, 133--162 (2005)]. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains fives elements: a name, a weight, a preference value (p), an indifference value (q) and a veto value (v). The preference value represents the threshold from which the difference between two criterion values allows to prefer one vector of values over another. The indifference value represents the threshold from which the difference between two criterion values is considered significant. The veto value represents the threshold from which the difference between two criterion values disqualifies the candidate that obtained the smaller value; the last operand is the fuzzy cut.
@@ -1008,10 +1004,7 @@ geometry var0 <- ellipse(10, 10); // var0 equals a geometry as an ellipse of wid
 ### `emotion`
 
 #### Possible use: 
-  *  **`emotion`** (`any`) --->  `emotion` 
-
-#### Result: 
-Casts the operand into the type emotion
+  *  **`emotion`** (`any`) --->  `emotion`
     	
 ----
 
@@ -1161,25 +1154,25 @@ bool var1 <- even(-12); // var1 equals true
 ### `every`
 
 #### Possible use: 
-  *  **`every`** (`any expression`) --->  `bool`
   *  **`every`** (`int`) --->  `bool`
-  * `list` **`every`** `int` --->  `list`
-  *  **`every`** (`list` , `int`) --->  `list`
+  *  **`every`** (`any expression`) --->  `bool`
   * `msi.gama.util.GamaDateInterval` **`every`** `any expression` --->  `list<date>`
-  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `list<date>` 
+  *  **`every`** (`msi.gama.util.GamaDateInterval` , `any expression`) --->  `list<date>`
+  * `list` **`every`** `int` --->  `list`
+  *  **`every`** (`list` , `int`) --->  `list` 
 
 #### Result: 
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+applies a step to an interval of dates defined by 'date1 to date2'
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
 true every operand * cycle, false otherwise
-applies a step to an interval of dates defined by 'date1 to date2'  
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency  
 
 #### Comment: 
-Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.
+the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point
 
 #### Examples: 
 ```
-reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
+(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
 
 ```
       
@@ -1187,7 +1180,7 @@ reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition 
 
 #### See also: 
 
-[since](OperatorsSZ#since), [after](OperatorsAA#after), [to](OperatorsSZ#to), 
+[to](OperatorsSZ#to), [since](OperatorsSZ#since), [after](OperatorsAA#after), 
     	
 ----
 
@@ -1201,9 +1194,9 @@ reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition 
 ### `evidence_theory_DM`
 
 #### Possible use: 
-  * `list<list>` **`evidence_theory_DM`** `list<map<java.lang.String,java.lang.Object>>` --->  `int`
-  *  **`evidence_theory_DM`** (`list<list>` , `list<map<java.lang.String,java.lang.Object>>`) --->  `int`
-  *  **`evidence_theory_DM`** (`list<list>`, `list<map<java.lang.String,java.lang.Object>>`, `bool`) --->  `int` 
+  * `list<list>` **`evidence_theory_DM`** `list<map<string,unknown>>` --->  `int`
+  *  **`evidence_theory_DM`** (`list<list>` , `list<map<string,unknown>>`) --->  `int`
+  *  **`evidence_theory_DM`** (`list<list>`, `list<map<string,unknown>>`, `bool`) --->  `int` 
 
 #### Result: 
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
@@ -1244,7 +1237,7 @@ Returns Euler's number e raised to the power of the operand.
 #### Examples: 
 ```
  
-float var0 <- exp (0); // var0 equals 1.0
+float var0 <- exp (0.0); // var0 equals 1.0
 
 ```
       
@@ -1307,8 +1300,8 @@ point var0 <- geom farthest_point_to(pt); // var0 equals the farthest point of g
 ### `farthest_to`
 
 #### Possible use: 
-  * `container<?,? extends msi.gama.metamodel.shape.IShape>` **`farthest_to`** `geometry` --->  `geometry`
-  *  **`farthest_to`** (`container<?,? extends msi.gama.metamodel.shape.IShape>` , `geometry`) --->  `geometry` 
+  * `container<unknown,geometry>` **`farthest_to`** `geometry` --->  `geometry`
+  *  **`farthest_to`** (`container<unknown,geometry>` , `geometry`) --->  `geometry` 
 
 #### Result: 
 An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the farthest to the operand (casted as a geometry).  
@@ -1367,10 +1360,7 @@ let fileT type: file value: file("../includes/Stupid_Cell.Data");  			// fileT r
 ### `file`
 
 #### Possible use: 
-  *  **`file`** (`any`) --->  `file` 
-
-#### Result: 
-Casts the operand into the type file
+  *  **`file`** (`any`) --->  `file`
     	
 ----
 
@@ -1396,8 +1386,8 @@ string file_name <-"../includes/buildings.shp"; 		if file_exists(file_name){ 			
 ### `first`
 
 #### Possible use: 
-  *  **`first`** (`container<KeyType,ValueType>`) --->  `ValueType`
   *  **`first`** (`string`) --->  `string`
+  *  **`first`** (`container<KeyType,ValueType>`) --->  `ValueType`
   * `int` **`first`** `container` --->  `list`
   *  **`first`** (`int` , `container`) --->  `list` 
 
@@ -1415,19 +1405,19 @@ the first operator behavior depends on the nature of the operand
   * if it is a matrix, first returns the element at {0,0} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a list, first returns the first element of the list, or nil if the list is empty 
-  
-```
- 
-int var0 <- first ([1, 2, 3]); // var0 equals 1
-``` 
-
-    
   * if it is a string, first returns a string composed of its first character 
   
 ```
  
-string var1 <- first ('abce'); // var1 equals 'a'
+string var0 <- first ('abce'); // var0 equals 'a'
+``` 
+
+    
+  * if it is a list, first returns the first element of the list, or nil if the list is empty 
+  
+```
+ 
+int var1 <- first ([1, 2, 3]); // var1 equals 1
 ``` 
 
     
@@ -1518,10 +1508,7 @@ bool var0 <- flip (0.66666); // var0 equals 2/3 chances to return true.
 ### `float`
 
 #### Possible use: 
-  *  **`float`** (`any`) --->  `float` 
-
-#### Result: 
-Casts the operand into the type float
+  *  **`float`** (`any`) --->  `float`
     	
 ----
 
@@ -1658,16 +1645,16 @@ int var0 <- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "pri
 ### `fuzzy_kappa`
 
 #### Possible use: 
-  *  **`fuzzy_kappa`** (`msi.gama.util.IAddressableContainer<java.lang.Integer,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
-  *  **`fuzzy_kappa`** (`msi.gama.util.IAddressableContainer<java.lang.Integer,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
+  *  **`fuzzy_kappa`** (`msi.gama.util.IAddressableContainer<int,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
+  *  **`fuzzy_kappa`** (`msi.gama.util.IAddressableContainer<int,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
 
 #### Result: 
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 
 #### Examples: 
 ```
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
 
 ```
   
@@ -1678,8 +1665,8 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
 ### `fuzzy_kappa_sim`
 
 #### Possible use: 
-  *  **`fuzzy_kappa_sim`** (`msi.gama.util.IAddressableContainer<java.lang.Integer,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
-  *  **`fuzzy_kappa_sim`** (`msi.gama.util.IAddressableContainer<java.lang.Integer,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
+  *  **`fuzzy_kappa_sim`** (`msi.gama.util.IAddressableContainer<int,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
+  *  **`fuzzy_kappa_sim`** (`msi.gama.util.IAddressableContainer<int,msi.gama.metamodel.agent.IAgent,java.lang.Integer,msi.gama.metamodel.agent.IAgent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
 
 #### Result: 
 fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
@@ -1731,10 +1718,7 @@ Constructs a file of type gaml. Allowed extensions are limited to gaml, experime
 ### `gaml_type`
 
 #### Possible use: 
-  *  **`gaml_type`** (`any`) --->  `gaml_type` 
-
-#### Result: 
-Casts the operand into the type gaml_type
+  *  **`gaml_type`** (`any`) --->  `gaml_type`
     	
 ----
 
@@ -1853,7 +1837,7 @@ float var1 <- gauss({0,0.3}); // var1 equals 0.22354
 ### `generate_barabasi_albert`
 
 #### Possible use: 
-  *  **`generate_barabasi_albert`** (`container<?,msi.gama.metamodel.agent.IAgent>`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_barabasi_albert`** (`container<unknown,agent>`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_barabasi_albert`** (`species`, `species`, `int`, `int`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1893,9 +1877,9 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 		
 ### `generate_complete_graph`
 
 #### Possible use: 
-  *  **`generate_complete_graph`** (`container<?,msi.gama.metamodel.agent.IAgent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`container<?,msi.gama.metamodel.agent.IAgent>`, `species`, `float`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container<unknown,agent>`, `species`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container<unknown,agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1908,26 +1892,26 @@ returns a fully connected graph.
 Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:Arguments should include following elements:
 
 #### Special cases:     
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "vertices_specy": the species of vertices    
-  * "edges_species": the species of edges    
-  * "size": the graph will contain size nodes.    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "vertices_specy": the species of vertices    
+  * "edges_species": the species of edges    
+  * "size": the graph will contain size nodes.    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); 
 
 ```
       
@@ -1943,7 +1927,7 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 			myListOf
 ### `generate_watts_strogatz`
 
 #### Possible use: 
-  *  **`generate_watts_strogatz`** (`container<?,msi.gama.metamodel.agent.IAgent>`, `species`, `float`, `int`, `bool`) --->  `graph`
+  *  **`generate_watts_strogatz`** (`container<unknown,agent>`, `species`, `float`, `int`, `bool`) --->  `graph`
   *  **`generate_watts_strogatz`** (`species`, `species`, `int`, `float`, `int`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1989,6 +1973,8 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOf
   *  **`geojson_file`** (`string` , `int`) --->  `file`
   * `string` **`geojson_file`** `string` --->  `file`
   *  **`geojson_file`** (`string` , `string`) --->  `file`
+  * `string` **`geojson_file`** `bool` --->  `file`
+  *  **`geojson_file`** (`string` , `bool`) --->  `file`
   *  **`geojson_file`** (`string`, `int`, `bool`) --->  `file`
   *  **`geojson_file`** (`string`, `string`, `bool`) --->  `file` 
 
@@ -1996,38 +1982,45 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 			myListOf
 Constructs a file of type geojson. Allowed extensions are limited to json, geojson, geo.json
 
 #### Special cases:     
-  * geojson_file(string):  
+  * geojson_file(string): This file constructor allows to read a geojson file according to epsg reference (https://geojson.org/) 
   
 ```
-
+file f <- geojson_file("file"); 
 ``` 
 
     
-  * geojson_file(string,int,bool):  
+  * geojson_file(string,int): This file constructor allows to read a geojson file and specifying the coordinates system code, as an int 
   
 ```
-
+file f <- geojson_file("file", "32648"); 
 ``` 
 
     
-  * geojson_file(string,int):  
+  * geojson_file(string,string): This file constructor allows to read a geojson file and specifying the coordinates system code (epg,...,), as a string 
   
 ```
-
+file f <- geojson_file("file", "EPSG:32648"); 
 ``` 
 
     
-  * geojson_file(string,string):  
+  * geojson_file(string,bool): This file constructor allows to read a geojson file and take a potential z value (not taken in account by default) 
   
 ```
-
+file f <- geojson_file("file", true); 
 ``` 
 
     
-  * geojson_file(string,string,bool):  
+  * geojson_file(string,int,bool): This file constructor allows to read a geojson file, specifying the coordinates system code, as an int and take a potential z value (not taken in account by default) 
   
 ```
+file f <- geojson_file("file", "32648", true); 
+``` 
 
+    
+  * geojson_file(string,string,bool): This file constructor allows to read a geojson file, specifying the coordinates system code (epg,...,), as a string and take a potential z value (not taken in account by default 
+  
+```
+file f <- geojson_file("file", "EPSG:32648",true); 
 ``` 
 
     
@@ -2070,10 +2063,7 @@ float var0 <- geometric_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.9623263434
 ### `geometry`
 
 #### Possible use: 
-  *  **`geometry`** (`any`) --->  `geometry` 
-
-#### Result: 
-Casts the operand into the type geometry
+  *  **`geometry`** (`any`) --->  `geometry`
     	
 ----
 
@@ -2081,7 +2071,7 @@ Casts the operand into the type geometry
 ### `geometry_collection`
 
 #### Possible use: 
-  *  **`geometry_collection`** (`container<?,msi.gama.metamodel.shape.IShape>`) --->  `geometry` 
+  *  **`geometry_collection`** (`container<unknown,geometry>`) --->  `geometry` 
 
 #### Result: 
 A geometry collection (multi-geometry) composed of the given list of geometries.
@@ -2107,7 +2097,6 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 [//]: # (keyword|operator_get)
 ### `get`
-   Same signification as [read](OperatorsNR#read)
 
 #### Possible use: 
   * `geometry` **`get`** `string` --->  `unknown`
@@ -2177,8 +2166,8 @@ get_agent(social_link1)
 ### `get_agent_cause`
 
 #### Possible use: 
-  *  **`get_agent_cause`** (`emotion`) --->  `agent`
-  *  **`get_agent_cause`** (`predicate`) --->  `agent` 
+  *  **`get_agent_cause`** (`predicate`) --->  `agent`
+  *  **`get_agent_cause`** (`emotion`) --->  `agent` 
 
 #### Result: 
 get the agent cause value of the given emotion
@@ -2922,10 +2911,10 @@ mental_state var0 <- get_uncertainty_with_name_op(self,"has_water"); // var0 equ
 Constructs a file of type gif. Allowed extensions are limited to gif
 
 #### Special cases:     
-  * gif_file(string):  
+  * gif_file(string): This file constructor allows to read a gif file 
   
 ```
-
+gif_file f <- gif_file("file"); 
 ``` 
 
     
@@ -2955,7 +2944,7 @@ Constructs a file of type gif. Allowed extensions are limited to gif
   
 ```
  
-float var0 <- gini([1.0, 0.5, 2.0]); // var0 equals the gini index computed
+float var0 <- gini([1.0, 0.5, 2.0]); // var0 equals the gini index computed i.e. 0.2857143
 ``` 
 
 
@@ -2980,45 +2969,45 @@ float var0 <- gini([1.0, 0.5, 2.0]); // var0 equals the gini index computed
 Constructs a file of type gml. Allowed extensions are limited to gml
 
 #### Special cases:     
-  * gml_file(string):  
+  * gml_file(string): This file constructor allows to read a gml file according to epsg reference (www.opengeospatial.org/) 
   
 ```
-
+file f <- gml_file("file"); 
 ``` 
 
     
-  * gml_file(string,int):  
+  * gml_file(string,int): This file constructor allows to read a gml file and specifying the coordinates system code, as an int 
   
 ```
-
+file f <- gml_file("file", "32648"); 
 ``` 
 
     
-  * gml_file(string,string):  
+  * gml_file(string,string): This file constructor allows to read a gml file and specifying the coordinates system code (epg,...,), as a string 
   
 ```
-
+file f <- gml_file("file", "EPSG:32648"); 
 ``` 
 
     
-  * gml_file(string,bool):  
+  * gml_file(string,bool): This file constructor allows to read a gml file and take a potential z value (not taken in account by default) 
   
 ```
-
+file f <- gml_file("file", true); 
 ``` 
 
     
-  * gml_file(string,int,bool):  
+  * gml_file(string,int,bool): This file constructor allows to read a gml file, specifying the coordinates system code, as an int and take a potential z value (not taken in account by default) 
   
 ```
-
+file f <- gml_file("file", "32648", true); 
 ``` 
 
     
-  * gml_file(string,string,bool):  
+  * gml_file(string,string,bool): This file constructor allows to read a gml file, specifying the coordinates system code (epg,...,), as a string and take a potential z value (not taken in account by default 
   
 ```
-
+file f <- gml_file("file", "EPSG:32648",true); 
 ``` 
 
     
@@ -3034,10 +3023,7 @@ Constructs a file of type gml. Allowed extensions are limited to gml
 ### `graph`
 
 #### Possible use: 
-  *  **`graph`** (`any`) --->  `graph` 
-
-#### Result: 
-Casts the operand into the type graph
+  *  **`graph`** (`any`) --->  `graph`
     	
 ----
 
@@ -3480,8 +3466,8 @@ the center of the hexagon is by default the location of the current agent in whi
 ```
  
 geometry var0 <- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon({10,5}); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
 
 ```
       
@@ -3497,8 +3483,8 @@ geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width 
 ### `hierarchical_clustering`
 
 #### Possible use: 
-  * `container<?,msi.gama.metamodel.agent.IAgent>` **`hierarchical_clustering`** `float` --->  `list`
-  *  **`hierarchical_clustering`** (`container<?,msi.gama.metamodel.agent.IAgent>` , `float`) --->  `list` 
+  * `container<unknown,agent>` **`hierarchical_clustering`** `float` --->  `list`
+  *  **`hierarchical_clustering`** (`container<unknown,agent>` , `float`) --->  `list` 
 
 #### Result: 
 A tree (list of list) contained groups of agents clustered by distance considering a distance min between two groups.  
@@ -3525,7 +3511,7 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 ### `horizontal`
 
 #### Possible use: 
-  *  **`horizontal`** (`map<java.lang.Object,java.lang.Integer>`) --->  `msi.gama.util.tree.GamaNode<string>`
+  *  **`horizontal`** (`map<unknown,int>`) --->  `unknown<string>`
     	
 ----
 
@@ -3534,8 +3520,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  

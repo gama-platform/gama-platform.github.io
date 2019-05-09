@@ -178,4 +178,4 @@ This operator should never be called
 
 * returns: `unknown`
  			
-* → **`step`** (`float`): 
+* → **`step`** (`float`): allows to define the time step considered for the physical world agent. If not defined, the physical world agent will use the step global variable.
