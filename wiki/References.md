@@ -78,9 +78,15 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 * [Chapuis K., Taillandier P., Gaudou B., Drogoul A., Daudé E. (2018) A Multi-modal Urban Traffic Agent-Based Framework to Study Individual Response to Catastrophic Events. In: Miller T., Oren N., Sakurai Y., Noda I., Savarimuthu B., Cao Son T. (eds) PRIMA 2018: Principles and Practice of Multi-Agent Systems. PRIMA 2018. Lecture Notes in Computer Science, vol 11224. Springer, Cham](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_28)
 
+* [Valette, M., Gaudou, B., Longin, D., Taillandier, P., 2018. Modeling a Real-Case Situation of Egress Using BDI Agents with Emotions and Social Skills, in: Miller, T., Oren, N., Sakurai, Y., Noda, I., Savarimuthu, B.T.R., Cao Son, T. (Eds.), PRIMA 2018: Principles and Practice of Multi-Agent Systems. Springer International Publishing, Cham, pp. 3–18. https://doi.org/10.1007/978-3-030-03098-8_1](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_1)
+
 * [Humann, J., Spero, E. (2018) Modeling and Simulation of multi-UAV, multi-Operator Surveillance Systems, 2018 Annual IEEE International Systems Conference (SysCon), Vancouver, BC.](https://ieeexplore.ieee.org/document/8369546)
 
 **2017**
+* [Ta, X.-H., Gaudou, B., Longin, D., Ho, T.V., 2017. Emotional contagion model for group evacuation simulation. Informatica 41.](http://www.informatica.si/index.php/informatica/article/view/1661)
+
+* [Huynh, N.Q., Nguyen-Huu, T., Grignard, A., Huynh, H.X., Drogoul, A., 2017. Coupling equation based models and agent-based models: example of a multi-strains and switch SIR toy model. EAI Endorsed Trans. Context-Aware Syst. Appl. 4, 152334. https://doi.org/10.4108/eai.6-3-2017.152334](https://eudl.eu/doi/10.4108/eai.6-3-2017.152334)
+
 * [Taillandier, P., Bourgais, M., Drogoul, A., Vercouter, L. Using parallel computing to improve the scalability of models with BDI agents. Social Simulation Conference, Sep 2017, Dublin, Ireland.](https://hal.inria.fr/hal-01573385v1)
 
 * [Philippon, D., Choisy, M., Drogoul, A., Gaudou, B., Marilleau, N., Taillandier, P., Truong, Q.C. (2017) Exploring Trade and Health Policies Influence on Dengue Spread with an Agent-Based Model, in: Nardin, L.G., Antunes, L. (Eds.), Multi-Agent Based Simulation XVII. Springer International Publishing, Cham, pp. 111–127.doi:10.1007/978-3-319-67477-3_6](https://link.springer.com/chapter/10.1007/978-3-319-67477-3_6)
@@ -98,6 +104,10 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Grignard, A., Fantino, G., Lauer, J.W., Verpeaux, A., Drogoul, A., 2016. Agent-Based Visualization: A Simulation Tool for the Analysis of River Morphosedimentary Adjustments, in: Gaudou, B., Sichman, J.S. (Eds.), Multi-Agent Based Simulation XVI. Springer International Publishing, Cham, pp. 109–120. https://doi.org/10.1007/978-3-319-31447-1_7](https://link.springer.com/chapter/10.1007/978-3-319-31447-1_7)
 
 * [Truong, Q.C., Taillandier, P., Gaudou, B., Vo, M.Q., Nguyen, T.H., Drogoul, A. (2016) Exploring Agent Architectures for Farmer Behavior in Land-Use Change. A Case Study in Coastal Area of the Vietnamese Mekong Delta, in: Gaudou, B., Sichman, J.S. (Eds.), Multi-Agent Based Simulation XVI, Lecture Notes in Computer Science. Springer International Publishing, pp. 146–158. doi: 10.1007/978-3-319-31447-1_10.](https://link.springer.com/chapter/10.1007/978-3-319-31447-1_10)
+
+**2015**
+
+* [Gasmi, N., Grignard, A., Drogoul, A., Gaudou, B., Taillandier, P., Tessier, O., An, V.D., 2015. Reproducing and Exploring Past Events Using Agent-Based Geo-Historical Models, in: Grimaldo, F., Norling, E. (Eds.), Multi-Agent-Based Simulation XV. Springer International Publishing, Cham, pp. 151–163.](https://www.springerprofessional.de/en/reproducing-and-exploring-past-events-using-agent-based-geo-hist/2363996)
 
 **2014**
 
