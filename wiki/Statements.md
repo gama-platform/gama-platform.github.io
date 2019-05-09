@@ -3041,9 +3041,11 @@ socialize;
   * `max_step` (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value
   * `method` (an identifier), takes values in: {Euler, ThreeEighthes, Midpoint, Gill, Luther, rk4, dp853, AdamsBashforth, AdamsMoulton, DormandPrince54, GraggBulirschStoer, HighamHall54}: integrate method (can be only "Euler", "ThreeEighthes", "Midpoint", "Gill", "Luther", "rk4" or "dp853", "AdamsBashforth", "AdamsMoulton", "DormandPrince54", "GraggBulirschStoer",  "HighamHall54") (default value: "rk4")
   * `min_step` (float): minimal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value
+  * `nSteps` (float): Adams-Bashforth and Adams-Moulton methods only. The number of past steps used for computation excluding the one being computed (default value: 2
   * `scalAbsoluteTolerance` (float): allowed absolute error (used with dp853 method only)
   * `scalRelativeTolerance` (float): allowed relative error (used with dp853 method only)
   * `step` (float): integration step, use with most integrator methods (default value: 1)
+  * `step_size` (float): integration step, use with most integrator methods (default value: 1)
   * `time_final` (float): target time for the integration (can be set to a value smaller than t0 for backward integration)
   * `time_initial` (float): initial time 
  	

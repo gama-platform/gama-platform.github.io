@@ -25,4 +25,3 @@ The following sections describe this extension process.
   * 8. [Developing a Species](DevelopingSpecies)
   * 9. [Developing a Control Architecture](DevelopingControlArchitectures)
   * 10. [Index of annotations](DevelopingIndexAnnotations)
-  * 11. [IScope](DevelopingIScope)

@@ -2032,6 +2032,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/IntroductionToGamaJavaAPI.html": {
+         "title": "Introduction to GAMA Java API",
+         "url": "/wiki/IntroductionToGamaJavaAPI.html"
+       }
+        ,
+      
        "/wiki/KnownIssues.html": {
          "title": "Known issues",
          "url": "/wiki/KnownIssues.html"
@@ -3262,6 +3268,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/developingGAMA.html": {
+         "title": "Get into the GAMA Java API",
+         "url": "/wiki/developingGAMA.html"
+       }
+        ,
+      
        "/wiki/docGAMAv17.pdf.html": {
          "title": "",
          "url": "/wiki/docGAMAv17.pdf.html"
@@ -3583,6 +3595,10 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/DevelopingSpecies" class="wiki_menu" >Developing a Species</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingControlArchitectures" class="wiki_menu" >Developing a Control Architecture</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingIndexAnnotations" class="wiki_menu" >Index of annotations</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/developingGAMA" class="wiki_menu" >Developing GAMA</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/IntroductionToGamaJavaAPI" class="wiki_menu" >Introduction to GAMA Java API</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingIScope" class="wiki_menu" >IScope</a></div>
  <div style='padding-left:1em'><a href="/wiki/CreatingAReleaseOfGama" class="wiki_menu" >Creating a release of GAMA</a></div>
  <div style='padding-left:1em'><a href="/wiki/Documentation" class="wiki_menu" >Documentation generation</a></div>
@@ -7031,9 +7047,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">max_step</code> (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
   <li><code class="highlighter-rouge">method</code> (an identifier), takes values in: {Euler, ThreeEighthes, Midpoint, Gill, Luther, rk4, dp853, AdamsBashforth, AdamsMoulton, DormandPrince54, GraggBulirschStoer, HighamHall54}: integrate method (can be only “Euler”, “ThreeEighthes”, “Midpoint”, “Gill”, “Luther”, “rk4” or “dp853”, “AdamsBashforth”, “AdamsMoulton”, “DormandPrince54”, “GraggBulirschStoer”,  “HighamHall54”) (default value: “rk4”)</li>
   <li><code class="highlighter-rouge">min_step</code> (float): minimal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
+  <li><code class="highlighter-rouge">nSteps</code> (float): Adams-Bashforth and Adams-Moulton methods only. The number of past steps used for computation excluding the one being computed (default value: 2</li>
   <li><code class="highlighter-rouge">scalAbsoluteTolerance</code> (float): allowed absolute error (used with dp853 method only)</li>
   <li><code class="highlighter-rouge">scalRelativeTolerance</code> (float): allowed relative error (used with dp853 method only)</li>
   <li><code class="highlighter-rouge">step</code> (float): integration step, use with most integrator methods (default value: 1)</li>
+  <li><code class="highlighter-rouge">step_size</code> (float): integration step, use with most integrator methods (default value: 1)</li>
   <li><code class="highlighter-rouge">time_final</code> (float): target time for the integration (can be set to a value smaller than t0 for backward integration)</li>
   <li><code class="highlighter-rouge">time_initial</code> (float): initial time</li>
 </ul>

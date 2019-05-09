@@ -2032,6 +2032,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/IntroductionToGamaJavaAPI.html": {
+         "title": "Introduction to GAMA Java API",
+         "url": "/wiki/IntroductionToGamaJavaAPI.html"
+       }
+        ,
+      
        "/wiki/KnownIssues.html": {
          "title": "Known issues",
          "url": "/wiki/KnownIssues.html"
@@ -3262,6 +3268,12 @@ var json_pages = (function () {
        }
         ,
       
+       "/wiki/developingGAMA.html": {
+         "title": "Get into the GAMA Java API",
+         "url": "/wiki/developingGAMA.html"
+       }
+        ,
+      
        "/wiki/docGAMAv17.pdf.html": {
          "title": "",
          "url": "/wiki/docGAMAv17.pdf.html"
@@ -3583,6 +3595,10 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/DevelopingSpecies" class="wiki_menu" >Developing a Species</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingControlArchitectures" class="wiki_menu" >Developing a Control Architecture</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingIndexAnnotations" class="wiki_menu" >Index of annotations</a></div>
+<div style='padding-left:0em'></div>
+</div>      <div id='sub' class='w3-bar-block w3-small'>
+<b><a href="/wiki/developingGAMA" class="wiki_menu" >Developing GAMA</a></b><br/>
+ <div style='padding-left:1em'><a href="/wiki/IntroductionToGamaJavaAPI" class="wiki_menu" >Introduction to GAMA Java API</a></div>
  <div style='padding-left:1em'><a href="/wiki/DevelopingIScope" class="wiki_menu" >IScope</a></div>
  <div style='padding-left:1em'><a href="/wiki/CreatingAReleaseOfGama" class="wiki_menu" >Creating a release of GAMA</a></div>
  <div style='padding-left:1em'><a href="/wiki/Documentation" class="wiki_menu" >Documentation generation</a></div>
@@ -3836,7 +3852,7 @@ function closeRightMenu() {
 <hr />
 
 <h3 id="random-operators">Random operators</h3>
-<p><a href="OperatorsBC#binomial">binomial</a>, <a href="OperatorsDH#flip">flip</a>, <a href="OperatorsDH#gauss">gauss</a>, <a href="OperatorsIM#improved_generator">improved_generator</a>, <a href="OperatorsNR#open_simplex_generator">open_simplex_generator</a>, <a href="OperatorsNR#poisson">poisson</a>, <a href="OperatorsNR#rnd">rnd</a>, <a href="OperatorsNR#rnd_choice">rnd_choice</a>, <a href="OperatorsSZ#sample">sample</a>, <a href="OperatorsSZ#shuffle">shuffle</a>, <a href="OperatorsSZ#simplex_generator">simplex_generator</a>, <a href="OperatorsSZ#skew_gauss">skew_gauss</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>,</p>
+<p><a href="OperatorsBC#binomial">binomial</a>, <a href="OperatorsDH#flip">flip</a>, <a href="OperatorsDH#gauss">gauss</a>, <a href="OperatorsNR#open_simplex_generator">open_simplex_generator</a>, <a href="OperatorsNR#poisson">poisson</a>, <a href="OperatorsNR#rnd">rnd</a>, <a href="OperatorsNR#rnd_choice">rnd_choice</a>, <a href="OperatorsSZ#sample">sample</a>, <a href="OperatorsSZ#shuffle">shuffle</a>, <a href="OperatorsSZ#simplex_generator">simplex_generator</a>, <a href="OperatorsSZ#skew_gauss">skew_gauss</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>,</p>
 
 <hr />
 
@@ -3963,6 +3979,15 @@ function closeRightMenu() {
 <h4 id="result-1">Result:</h4>
 <p>Returns the beta function with arguments a, b.</p>
 
+<h4 id="comment">Comment:</h4>
+<p>Checked on R. beta(4,5)</p>
+
+<h4 id="examples-1">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+float var0 &lt;- beta(4,5) with_precision(4); // var0 equals 0.0036
+
+</code></pre></div></div>
+
 <hr />
 
 <h3 id="beta_index"><code class="highlighter-rouge">beta_index</code></h3>
@@ -3975,7 +4000,7 @@ function closeRightMenu() {
 <h4 id="result-2">Result:</h4>
 <p>returns the beta index of the graph (Measures the level of connectivity in a graph and is expressed by the relationship between the number of links (e) over the number of nodes (v) : beta = e/v.</p>
 
-<h4 id="examples-1">Examples:</h4>
+<h4 id="examples-2">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphEpidemio &lt;- graph([]);  
 float var1 &lt;- beta_index(graphEpidemio); // var1 equals the beta index of the graph
 
@@ -3995,35 +4020,36 @@ float var1 &lt;- beta_index(graphEpidemio); // var1 equals the beta index of the
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">date</code> , <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">any expression</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">date</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">between</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-3">Result:</h4>
-<p>returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
-returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
+<p>returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand</p>
+
+<p>returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
 
 <h4 id="special-cases">Special cases:</h4>
-<ul>
-  <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with ‘every’ to express a frequency between two dates</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var2 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
-</code></pre></div></div>
-
 <ul>
   <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var5 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
+bool var0 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var0 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) 
 </code></pre></div></div>
 
-<h4 id="examples-2">Examples:</h4>
+<ul>
+  <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with ‘every’ to express a frequency between two dates</li>
+</ul>
+
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- between(5, 1, 10); // var0 equals true 
-bool var1 &lt;- between(5.0, 1.0, 10.0); // var1 equals true
+bool var3 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var3 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  
+</code></pre></div></div>
+
+<h4 id="examples-3">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var6 &lt;- between(5, 1, 10); // var6 equals true 
+bool var7 &lt;- between(5.0, 1.0, 10.0); // var7 equals true
 
 </code></pre></div></div>
 
@@ -4039,7 +4065,7 @@ bool var1 &lt;- between(5.0, 1.0, 10.0); // var1 equals true
 <h4 id="result-4">Result:</h4>
 <p>returns a map containing for each vertex (key), its betweenness centrality (value): number of shortest paths passing through each vertex</p>
 
-<h4 id="examples-3">Examples:</h4>
+<h4 id="examples-4">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphEpidemio &lt;- graph([]);  
 map var1 &lt;- betweenness_centrality(graphEpidemio); // var1 equals the betweenness centrality index of the graph
 
@@ -4057,7 +4083,7 @@ map var1 &lt;- betweenness_centrality(graphEpidemio); // var1 equals the between
 <h4 id="result-5">Result:</h4>
 <p>returns the biggest cliques of a graph using the Bron-Kerbosch clique detection algorithm</p>
 
-<h4 id="examples-4">Examples:</h4>
+<h4 id="examples-5">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph my_graph &lt;- graph([]);  
 list&lt;list&gt; var1 &lt;- biggest_cliques_of (my_graph); // var1 equals the list of the biggest cliques as list
 
@@ -4080,10 +4106,10 @@ list&lt;list&gt; var1 &lt;- biggest_cliques_of (my_graph); // var1 equals the li
 <h4 id="result-6">Result:</h4>
 <p>A value from a random variable following a binomial distribution. The operands represent the number of experiments n and the success probability p.</p>
 
-<h4 id="comment">Comment:</h4>
+<h4 id="comment-1">Comment:</h4>
 <p>The binomial distribution is the discrete probability distribution of the number of successes in a sequence of n independent yes/no experiments, each of which yields success with probability p, cf. Binomial distribution on Wikipedia.</p>
 
-<h4 id="examples-5">Examples:</h4>
+<h4 id="examples-6">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- binomial(15,0.6); // var0 equals a random positive integer
 
@@ -4150,12 +4176,12 @@ int var0 &lt;- binomial(15,0.6); // var0 equals a random positive integer
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var3 &lt;- blend(#red, #blue); // var3 equals to a color very close to the purple
+rgb var1 &lt;- blend(#red, #blue); // var1 equals to a color very close to the purple
 </code></pre></div></div>
 
-<h4 id="examples-6">Examples:</h4>
+<h4 id="examples-7">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-rgb var1 &lt;- blend(#red, #blue, 0.3); // var1 equals to a color between the purple and the blue
+rgb var3 &lt;- blend(#red, #blue, 0.3); // var3 equals to a color between the purple and the blue
 
 </code></pre></div></div>
 
@@ -4185,7 +4211,7 @@ rgb var1 &lt;- blend(#red, #blue, 0.3); // var1 equals to a color between the pu
 <h4 id="result-11">Result:</h4>
 <p>A box geometry which side sizes are given by the operands.</p>
 
-<h4 id="comment-1">Comment:</h4>
+<h4 id="comment-2">Comment:</h4>
 <p>the center of the box is by default the location of the current agent in which has been called this operator.the center of the box is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-2">Special cases:</h4>
@@ -4194,10 +4220,10 @@ rgb var1 &lt;- blend(#red, #blue, 0.3); // var1 equals to a color between the pu
   <li>returns nil if the operand is nil.</li>
 </ul>
 
-<h4 id="examples-7">Examples:</h4>
+<h4 id="examples-8">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- box({10, 5 , 5}); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
-geometry var1 &lt;- box(10, 5 , 5); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
+geometry var0 &lt;- box(10, 5 , 5); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
+geometry var1 &lt;- box({10, 5 , 5}); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
 
 </code></pre></div></div>
 
@@ -4217,13 +4243,13 @@ geometry var1 &lt;- box(10, 5 , 5); // var1 equals a geometry as a rectangle wit
 </ul>
 
 <h4 id="result-12">Result:</h4>
-<p>Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
-Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes</p>
+<p>Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
+Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes</p>
 
-<h4 id="examples-8">Examples:</h4>
+<h4 id="examples-9">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;rgb&gt; var0 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
+list&lt;rgb&gt; var0 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
+list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
 
 </code></pre></div></div>
 
@@ -4243,13 +4269,13 @@ list&lt;rgb&gt; var1 &lt;- list&lt;rgb&gt; colors &lt;- brewer_colors("Pastel1",
 </ul>
 
 <h4 id="result-13">Result:</h4>
-<p>returns the list a palette with a given min number of classes and max number of classes)
-returns the list a palette with a given min number of classes)</p>
+<p>returns the list a palette with a given min number of classes)
+returns the list a palette with a given min number of classes and max number of classes)</p>
 
-<h4 id="examples-9">Examples:</h4>
+<h4 id="examples-10">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;string&gt; var0 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(5,10);; // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
-list&lt;string&gt; var1 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(3);; // var1 equals a list of palettes that are composed of a min of 3 colors
+list&lt;string&gt; var0 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
+list&lt;string&gt; var1 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
 
 </code></pre></div></div>
 
@@ -4277,7 +4303,7 @@ list&lt;string&gt; var1 &lt;- list&lt;string&gt; palettes &lt;- brewer_palettes(
 <p>returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given ordinary least squares method. Usage: build(data)
 returns the regression build from the matrix data (a row = an instance, the last value of each line is the y value) while using the given method (“GLS” or “OLS”). Usage: build(data,method)</p>
 
-<h4 id="examples-10">Examples:</h4>
+<h4 id="examples-11">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix([[1,2,3,4],[2,3,4,2]]) build(matrix([[1,2,3,4],[2,3,4,2]]),"GLS") 
 
 </code></pre></div></div>
@@ -4294,7 +4320,7 @@ returns the regression build from the matrix data (a row = an instance, the last
 <h4 id="result-15">Result:</h4>
 <p>Maps the operand to the smallest following integer, i.e. the smallest integer not less than x.</p>
 
-<h4 id="examples-11">Examples:</h4>
+<h4 id="examples-12">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- ceil(3); // var0 equals 3.0 
 float var1 &lt;- ceil(3.5); // var1 equals 4.0 
@@ -4318,7 +4344,7 @@ float var2 &lt;- ceil(-4.7); // var2 equals -4.0
 <h4 id="result-16">Result:</h4>
 <p>Centroid (weighted sum of the centroids of a decomposition of the area into triangles) of the operand-geometry. Can be different to the location of the geometry</p>
 
-<h4 id="examples-12">Examples:</h4>
+<h4 id="examples-13">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 point var0 &lt;- centroid(world); // var0 equals the centroid of the square, for example : {50.0,50.0}.
 
@@ -4384,10 +4410,10 @@ string var0 &lt;- char (34); // var0 equals '"'
 </ul>
 
 <h4 id="result-19">Result:</h4>
-<p>A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
-A circle geometry which radius is equal to the operand.</p>
+<p>A circle geometry which radius is equal to the operand.
+A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.</p>
 
-<h4 id="comment-2">Comment:</h4>
+<h4 id="comment-3">Comment:</h4>
 <p>the center of the circle is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-4">Special cases:</h4>
@@ -4396,10 +4422,10 @@ A circle geometry which radius is equal to the operand.</p>
   <li>returns a point if the operand is lower or equal to 0.</li>
 </ul>
 
-<h4 id="examples-13">Examples:</h4>
+<h4 id="examples-14">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}. 
-geometry var1 &lt;- circle(10); // var1 equals a geometry as a circle of radius 10.
+geometry var0 &lt;- circle(10); // var0 equals a geometry as a circle of radius 10. 
+geometry var1 &lt;- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
 
 </code></pre></div></div>
 
@@ -4419,10 +4445,10 @@ geometry var1 &lt;- circle(10); // var1 equals a geometry as a circle of radius 
 <h4 id="result-20">Result:</h4>
 <p>A geometry corresponding to the cleaning of the operand (geometry, agent, point)</p>
 
-<h4 id="comment-3">Comment:</h4>
+<h4 id="comment-4">Comment:</h4>
 <p>The cleaning corresponds to a buffer with a distance of 0.0</p>
 
-<h4 id="examples-14">Examples:</h4>
+<h4 id="examples-15">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- clean(self); // var0 equals returns the geometry resulting from the cleaning of the geometry of the agent applying the operator.
 
@@ -4440,10 +4466,10 @@ geometry var0 &lt;- clean(self); // var0 equals returns the geometry resulting f
 <h4 id="result-21">Result:</h4>
 <p>A list of polylines corresponding to the cleaning of the first operand (list of polyline geometry or agents), considering the tolerance distance given by the second operand; the third operator is used to define if the operator should as well split the lines at their intersections(true to split the lines); the last operandis used to specify if the operator should as well keep only the main connected component of the network. Usage: clean_network(lines:list of geometries or agents, tolerance: float, split_lines: bool, keepMainConnectedComponent: bool)</p>
 
-<h4 id="comment-4">Comment:</h4>
+<h4 id="comment-5">Comment:</h4>
 <p>The cleaned set of polylines</p>
 
-<h4 id="examples-15">Examples:</h4>
+<h4 id="examples-16">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;geometry&gt; var0 &lt;- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections.
 
@@ -4462,7 +4488,7 @@ list&lt;geometry&gt; var0 &lt;- clean_network(my_road_shapefile.contents, 1.0, t
 <h4 id="result-22">Result:</h4>
 <p>A list of two closest points between the two geometries.</p>
 
-<h4 id="examples-16">Examples:</h4>
+<h4 id="examples-17">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;point&gt; var0 &lt;- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
 
@@ -4484,16 +4510,16 @@ list&lt;point&gt; var0 &lt;- geom1 closest_points_with(geom2); // var0 equals [p
 </ul>
 
 <h4 id="result-23">Result:</h4>
-<p>An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).
-The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).</p>
+<p>The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).
+An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).</p>
 
-<h4 id="comment-5">Comment:</h4>
+<h4 id="comment-6">Comment:</h4>
 <p>the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.</p>
 
-<h4 id="examples-17">Examples:</h4>
+<h4 id="examples-18">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- [ag1, ag2, ag3] closest_to(self); // var0 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self  
-list&lt;geometry&gt; var2 &lt;- [ag1, ag2, ag3] closest_to(self, 2); // var2 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5) 
+list&lt;geometry&gt; var0 &lt;- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to (self, 5)  
+geometry var2 &lt;- [ag1, ag2, ag3] closest_to(self); // var2 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator.(species1 + species2) closest_to self 
 
 </code></pre></div></div>
 
@@ -4514,7 +4540,7 @@ list&lt;geometry&gt; var2 &lt;- [ag1, ag2, ag3] closest_to(self, 2); // var2 equ
 <h4 id="result-24">Result:</h4>
 <p>returns a new list, in which each element is the evaluation of the right-hand operand.</p>
 
-<h4 id="comment-6">Comment:</h4>
+<h4 id="comment-7">Comment:</h4>
 <p>collect is similar to accumulate except that accumulate always produces flat lists if the right-hand operand returns a list.In addition, collect can be applied to any container.</p>
 
 <h4 id="special-cases-5">Special cases:</h4>
@@ -4522,7 +4548,7 @@ list&lt;geometry&gt; var2 &lt;- [ag1, ag2, ag3] closest_to(self, 2); // var2 equ
   <li>if the left-hand operand is nil, collect throws an error</li>
 </ul>
 
-<h4 id="examples-18">Examples:</h4>
+<h4 id="examples-19">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list var0 &lt;- [1,2,4] collect (each *2); // var0 equals [2,4,8] 
 list var1 &lt;- [1,2,4] collect ([2,4]); // var1 equals [[2,4],[2,4],[2,4]] 
@@ -4548,7 +4574,7 @@ list var3 &lt;- (list(node) collect (node(each).location.x * 2); // var3 equals 
 <h4 id="result-25">Result:</h4>
 <p>returns the column at a num_col (right-hand operand)</p>
 
-<h4 id="examples-19">Examples:</h4>
+<h4 id="examples-20">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;unknown&gt; var0 &lt;- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2; // var0 equals ["el31","el32","el33"]
 
@@ -4570,7 +4596,7 @@ list&lt;unknown&gt; var0 &lt;- matrix([["el11","el12","el13"],["el21","el22","el
 <h4 id="result-26">Result:</h4>
 <p>returns a list of the columns of the matrix, with each column as a list of elements</p>
 
-<h4 id="examples-20">Examples:</h4>
+<h4 id="examples-21">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;list&lt;unknown&gt;&gt; var0 &lt;- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
 
@@ -4593,9 +4619,9 @@ list&lt;list&lt;unknown&gt;&gt; var0 &lt;- columns_list(matrix([["el11","el12","
 </ul>
 
 <h4 id="result-27">Result:</h4>
-<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
+<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string</p>
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ‘ &amp;’ is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.</p>
 
 <hr />
 
@@ -4612,7 +4638,7 @@ command allows GAMA to issue a system command using the system terminal or shell
 <p>A cone geometry which min and max angles are given by the operands.
 A cone geometry which min and max angles are given by the operands.</p>
 
-<h4 id="comment-7">Comment:</h4>
+<h4 id="comment-8">Comment:</h4>
 <p>the center of the cone is by default the location of the current agent in which has been called this operator.the center of the cone is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-6">Special cases:</h4>
@@ -4621,10 +4647,10 @@ A cone geometry which min and max angles are given by the operands.</p>
   <li>returns nil if the operand is nil.</li>
 </ul>
 
-<h4 id="examples-21">Examples:</h4>
+<h4 id="examples-22">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 &lt;- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 &lt;- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 </code></pre></div></div>
 
@@ -4645,7 +4671,7 @@ geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min 
 <h4 id="result-29">Result:</h4>
 <p>A cone geometry which base radius size is equal to the first operand, and which the height is equal to the second operand.</p>
 
-<h4 id="comment-8">Comment:</h4>
+<h4 id="comment-9">Comment:</h4>
 <p>the center of the cone is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-7">Special cases:</h4>
@@ -4653,7 +4679,7 @@ geometry var1 &lt;- cone({0, 45}); // var1 equals a geometry as a cone with min 
   <li>returns a point if the operand is lower or equal to 0.</li>
 </ul>
 
-<h4 id="examples-22">Examples:</h4>
+<h4 id="examples-23">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a base circle of radius 10 and a height of 5.
 
@@ -4675,13 +4701,13 @@ geometry var0 &lt;- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a
 </ul>
 
 <h4 id="result-30">Result:</h4>
-<p>returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.</p>
+<p>returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.</p>
 
-<h4 id="examples-23">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph my_graph2 &lt;- graph([]);  
-list&lt;list&gt; var1 &lt;- connected_components_of (my_graph2, true); // var1 equals the list of all the components as listgraph my_graph &lt;- graph([]);  
-list&lt;list&gt; var3 &lt;- connected_components_of (my_graph); // var3 equals the list of all the components as list
+<h4 id="examples-24">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph my_graph &lt;- graph([]);  
+list&lt;list&gt; var1 &lt;- connected_components_of (my_graph); // var1 equals the list of all the components as listgraph my_graph2 &lt;- graph([]);  
+list&lt;list&gt; var3 &lt;- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 
 </code></pre></div></div>
 
@@ -4701,7 +4727,7 @@ list&lt;list&gt; var3 &lt;- connected_components_of (my_graph); // var3 equals t
 <h4 id="result-31">Result:</h4>
 <p>returns a simple connectivity index. This number is estimated through the number of nodes (v) and of sub-graphs (p) : IC = (v - p) /(v - 1).</p>
 
-<h4 id="examples-24">Examples:</h4>
+<h4 id="examples-25">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphEpidemio &lt;- graph([]);  
 float var1 &lt;- connectivity_index(graphEpidemio); // var1 equals the connectivity index of the graph
 
@@ -4735,7 +4761,7 @@ float var1 &lt;- connectivity_index(graphEpidemio); // var1 equals the connectiv
 <h4 id="result-32">Result:</h4>
 <p>true, if the container contains the right operand, false otherwise</p>
 
-<h4 id="comment-9">Comment:</h4>
+<h4 id="comment-10">Comment:</h4>
 <p>the contains operator behavior depends on the nature of the operand</p>
 
 <h4 id="special-cases-8">Special cases:</h4>
@@ -4753,7 +4779,7 @@ bool var0 &lt;- [1, 2, 3] contains 2; // var0 equals true
 bool var1 &lt;- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
 </code></pre></div></div>
 
-<h4 id="examples-25">Examples:</h4>
+<h4 id="examples-26">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var2 &lt;- 'abcded' contains 'bc'; // var2 equals true
 
@@ -4769,16 +4795,16 @@ bool var2 &lt;- 'abcded' contains 'bc'; // var2 equals true
 
 <h4 id="possible-use-37">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">contains_all</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_all</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-33">Result:</h4>
 <p>true if the left operand contains all the elements of the right operand, false otherwise</p>
 
-<h4 id="comment-10">Comment:</h4>
+<h4 id="comment-11">Comment:</h4>
 <p>the definition of contains depends on the container</p>
 
 <h4 id="special-cases-9">Special cases:</h4>
@@ -4788,15 +4814,15 @@ bool var2 &lt;- 'abcded' contains 'bc'; // var2 equals true
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var4 &lt;- "abcabcabc" contains_all ["ca","xy"]; // var4 equals false
+bool var0 &lt;- "abcabcabc" contains_all ["ca","xy"]; // var0 equals false
 </code></pre></div></div>
 
-<h4 id="examples-26">Examples:</h4>
+<h4 id="examples-27">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- [1,2,3,4,5,6] contains_all [2,4]; // var0 equals true  
-bool var1 &lt;- [1,2,3,4,5,6] contains_all [2,8]; // var1 equals false 
-bool var2 &lt;- [1::2, 3::4, 5::6] contains_all [1,3]; // var2 equals false  
-bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
+bool var1 &lt;- [1,2,3,4,5,6] contains_all [2,4]; // var1 equals true  
+bool var2 &lt;- [1,2,3,4,5,6] contains_all [2,8]; // var2 equals false 
+bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [1,3]; // var3 equals false  
+bool var4 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
 
 </code></pre></div></div>
 
@@ -4810,16 +4836,16 @@ bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
 
 <h4 id="possible-use-38">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">contains_any</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_any</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">container</code> <strong><code class="highlighter-rouge">contains_any</code></strong> <code class="highlighter-rouge">container</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_any</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">string</code> <strong><code class="highlighter-rouge">contains_any</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_any</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-34">Result:</h4>
 <p>true if the left operand contains one of the elements of the right operand, false otherwise</p>
 
-<h4 id="comment-11">Comment:</h4>
+<h4 id="comment-12">Comment:</h4>
 <p>the definition of contains depends on the container</p>
 
 <h4 id="special-cases-10">Special cases:</h4>
@@ -4827,13 +4853,13 @@ bool var3 &lt;- [1::2, 3::4, 5::6] contains_all [2,4]; // var3 equals true
   <li>if the right operand is nil or empty, contains_any returns false</li>
 </ul>
 
-<h4 id="examples-27">Examples:</h4>
+<h4 id="examples-28">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- "abcabcabc" contains_any ["ca","xy"]; // var0 equals true 
-bool var1 &lt;- [1,2,3,4,5,6] contains_any [2,4]; // var1 equals true  
-bool var2 &lt;- [1,2,3,4,5,6] contains_any [2,8]; // var2 equals true 
-bool var3 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; // var3 equals false 
-bool var4 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
+bool var0 &lt;- [1,2,3,4,5,6] contains_any [2,4]; // var0 equals true  
+bool var1 &lt;- [1,2,3,4,5,6] contains_any [2,8]; // var1 equals true 
+bool var2 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; // var2 equals false 
+bool var3 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var3 equals true 
+bool var4 &lt;- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 
 </code></pre></div></div>
 
@@ -4847,10 +4873,10 @@ bool var4 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
 
 <h4 id="possible-use-39">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">contains_edge</code></strong> <code class="highlighter-rouge">pair</code> —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">contains_edge</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
 <h4 id="result-35">Result:</h4>
@@ -4863,12 +4889,12 @@ bool var4 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
+bool var2 &lt;- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 </code></pre></div></div>
 
-<h4 id="examples-28">Examples:</h4>
+<h4 id="examples-29">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
-bool var2 &lt;- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
+bool var1 &lt;- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
 
 </code></pre></div></div>
 
@@ -4894,7 +4920,7 @@ bool var2 &lt;- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals t
   <li>if the left-hand operand is nil, returns false</li>
 </ul>
 
-<h4 id="examples-29">Examples:</h4>
+<h4 id="examples-30">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphFromMap&lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
 bool var1 &lt;- graphFromMap contains_vertex {1,5}; // var1 equals true
 
@@ -4925,7 +4951,7 @@ bool var1 &lt;- graphFromMap contains_vertex {1,5}; // var1 equals true
 <h4 id="result-37">Result:</h4>
 <p>A geometry corresponding to the convex hull of the operand.</p>
 
-<h4 id="examples-30">Examples:</h4>
+<h4 id="examples-31">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geometry of the agent applying the operator
 
@@ -4963,7 +4989,7 @@ geometry var0 &lt;- convex_hull(self); // var0 equals the convex hull of the geo
   <li>If the first operand is nil, raises an error</li>
 </ul>
 
-<h4 id="examples-31">Examples:</h4>
+<h4 id="examples-32">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 string var0 &lt;- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
 list var1 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
@@ -4988,7 +5014,7 @@ list var1 &lt;-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
   <li>if the lengths of two vectors in the right-hand aren’t equal, returns 0</li>
 </ul>
 
-<h4 id="examples-32">Examples:</h4>
+<h4 id="examples-33">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list X &lt;- [1, 2, 3]; list Y &lt;- [1, 2, 4];  
 unknown var2 &lt;- corR(X, Y); // var2 equals 0.981980506061966
 
@@ -5007,7 +5033,7 @@ unknown var2 &lt;- corR(X, Y); // var2 equals 0.981980506061966
 <h4 id="result-41">Result:</h4>
 <p>Returns the correlation of two data sequences (having the same size)</p>
 
-<h4 id="examples-33">Examples:</h4>
+<h4 id="examples-34">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- correlation([1,2,1,3,1,2], [1,2,1,3,1,2]) with_precision(4); // var0 equals 1.2 
 float var1 &lt;- correlation([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // var1 equals -0.21
@@ -5020,8 +5046,8 @@ float var1 &lt;- correlation([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); /
 
 <h4 id="possible-use-47">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">cos</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">cos</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">cos</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-42">Result:</h4>
@@ -5032,14 +5058,14 @@ float var1 &lt;- correlation([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); /
   <li>Operand values out of the range [0-359] are normalized.</li>
 </ul>
 
-<h4 id="examples-34">Examples:</h4>
+<h4 id="examples-35">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- cos (0); // var0 equals 1.0 
-float var1 &lt;- cos(360); // var1 equals 1.0 
-float var2 &lt;- cos(-720); // var2 equals 1.0 
-float var3 &lt;- cos (0.0); // var3 equals 1.0 
-float var4 &lt;- cos(360.0); // var4 equals 1.0 
-float var5 &lt;- cos(-720.0); // var5 equals 1.0
+float var0 &lt;- cos (0.0); // var0 equals 1.0 
+float var1 &lt;- cos(360.0); // var1 equals 1.0 
+float var2 &lt;- cos(-720.0); // var2 equals 1.0 
+float var3 &lt;- cos (0); // var3 equals 1.0 
+float var4 &lt;- cos(360); // var4 equals 1.0 
+float var5 &lt;- cos(-720); // var5 equals 1.0
 
 </code></pre></div></div>
 
@@ -5064,7 +5090,7 @@ float var5 &lt;- cos(-720.0); // var5 equals 1.0
   <li>Operand values out of the range [0-359] are normalized.</li>
 </ul>
 
-<h4 id="examples-35">Examples:</h4>
+<h4 id="examples-36">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- cos_rad(0.0); // var0 equals 1.0 
 float var1 &lt;- cos_rad(#pi); // var1 equals -1.0
@@ -5088,7 +5114,7 @@ float var1 &lt;- cos_rad(#pi); // var1 equals -1.0
 <h4 id="result-44">Result:</h4>
 <p>returns an int, equal to the number of elements of the left-hand operand that make the right-hand operand evaluate to true.</p>
 
-<h4 id="comment-12">Comment:</h4>
+<h4 id="comment-13">Comment:</h4>
 <p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the elements.</p>
 
 <h4 id="special-cases-17">Special cases:</h4>
@@ -5096,7 +5122,7 @@ float var1 &lt;- cos_rad(#pi); // var1 equals -1.0
   <li>if the left-hand operand is nil, count throws an error</li>
 </ul>
 
-<h4 id="examples-36">Examples:</h4>
+<h4 id="examples-37">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- [1,2,3,4,5,6,7,8] count (each &gt; 3); // var0 equals 5// Number of nodes of graph g2 without any out edge graph g2 &lt;- graph([]);  
 int var3 &lt;- g2 count (length(g2 out_edges_of each) = 0  ) ; // var3 equals the total number of out edges// Number of agents node with x &gt; 32 int n &lt;- (list(node) count (round(node(each).location.x) &gt; 32);  
@@ -5121,7 +5147,7 @@ int var6 &lt;- [1::2, 3::4, 5::6] count (each &gt; 4); // var6 equals 1
 <h4 id="result-45">Result:</h4>
 <p>Returns the covariance of two data sequences</p>
 
-<h4 id="examples-37">Examples:</h4>
+<h4 id="examples-38">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- covariance([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // var0 equals -0.67
 
@@ -5145,7 +5171,7 @@ float var0 &lt;- covariance([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); //
   <li>if one of the operand is null, returns false.</li>
 </ul>
 
-<h4 id="examples-38">Examples:</h4>
+<h4 id="examples-39">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- square(5) covers square(2); // var0 equals true
 
@@ -5174,7 +5200,7 @@ bool var0 &lt;- square(5) covers square(2); // var0 equals true
   <li>if both operands have different lengths, choose the minimum length between the two operandsfor the size of the map</li>
 </ul>
 
-<h4 id="examples-39">Examples:</h4>
+<h4 id="examples-40">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 map&lt;int,string&gt; var0 &lt;- create_map([0,1,2],['a','b','c']); // var0 equals [0::'a',1::'b',2::'c'] 
 map&lt;int,float&gt; var1 &lt;- create_map([0,1],[0.1,0.2,0.3]); // var1 equals [0::0.1,1::0.2] 
@@ -5197,7 +5223,7 @@ map&lt;string,float&gt; var2 &lt;- create_map(['a','b','c','d'],[1.0,2.0,3.0]); 
 <p>A cross, which radius is equal to the first operand and the width of the lines for the second
 A cross, which radius is equal to the first operand</p>
 
-<h4 id="examples-40">Examples:</h4>
+<h4 id="examples-41">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines  
 geometry var1 &lt;- cross(10); // var1 equals a geometry as a cross of radius 10
@@ -5227,7 +5253,7 @@ geometry var1 &lt;- cross(10); // var1 equals a geometry as a cross of radius 10
   <li>if one operand is a point, returns false.</li>
 </ul>
 
-<h4 id="examples-41">Examples:</h4>
+<h4 id="examples-42">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- polyline([{10,10},{20,20}]) crosses polyline([{10,20},{20,10}]); // var0 equals true 
 bool var1 &lt;- polyline([{10,10},{20,20}]) crosses {15,15}; // var1 equals true 
@@ -5251,7 +5277,7 @@ bool var2 &lt;- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,2
 <h4 id="result-50">Result:</h4>
 <p>the Coordinate Reference System (CRS) of the GIS file</p>
 
-<h4 id="examples-42">Examples:</h4>
+<h4 id="examples-43">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 string var0 &lt;- crs(my_shapefile); // var0 equals the crs of the shapefile
 
@@ -5270,19 +5296,19 @@ string var0 &lt;- crs(my_shapefile); // var0 equals the crs of the shapefile
 
 <h4 id="special-cases-21">Special cases:</h4>
 <ul>
-  <li>returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System)</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- shape CRS_transform("EPSG:4326"); // var0 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-</code></pre></div></div>
-
-<ul>
   <li>returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world’s agent one</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var1 &lt;- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var0 &lt;- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+</code></pre></div></div>
+
+<ul>
+  <li>returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+geometry var1 &lt;- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 </code></pre></div></div>
 
 <hr />
@@ -5380,7 +5406,7 @@ geometry var1 &lt;- CRS_transform(shape); // var1 equals a geometry correspondin
 <h4 id="result-52">Result:</h4>
 <p>A cube geometry which side size is equal to the operand.</p>
 
-<h4 id="comment-13">Comment:</h4>
+<h4 id="comment-14">Comment:</h4>
 <p>the center of the cube is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-23">Special cases:</h4>
@@ -5388,7 +5414,7 @@ geometry var1 &lt;- CRS_transform(shape); // var1 equals a geometry correspondin
   <li>returns nil if the operand is nil.</li>
 </ul>
 
-<h4 id="examples-43">Examples:</h4>
+<h4 id="examples-44">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- cube(10); // var0 equals a geometry as a square of side size 10.
 
@@ -5406,60 +5432,60 @@ geometry var0 &lt;- cube(10); // var0 equals a geometry as a square of side size
 <ul>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">curve</code></strong> (<code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">point</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
 <h4 id="result-53">Result:</h4>
-<p>A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+<p>A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
+A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
 A quadratic Bezier curve geometry built from the three given points composed of 10 points.
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the four given points composed of 10 points.
-A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.</p>
+A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.</p>
 
 <h4 id="special-cases-24">Special cases:</h4>
 <ul>
   <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
   <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
+  <li>if the operand is nil, returns nil</li>
   <li>if the last operand (number of points) is inferior to 2, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
-  <li>if the operand is nil, returns nil</li>
   <li>if the operand is nil, returns nil</li>
 </ul>
 
-<h4 id="examples-44">Examples:</h4>
+<h4 id="examples-45">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var2 &lt;- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var3 &lt;- curve({0,0},{10,10}, 0.5, 90); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var4 &lt;- curve({0,0},{10,10}, 0.5, 100, 90); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var5 &lt;- curve({0,0}, {0,10}, {10,10}); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var6 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var6 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var7 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var8 &lt;- curve({0,0},{10,10}, 0.5); // var8 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var9 &lt;- curve({0,0},{10,10}, 0.5, false, 100); // var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var10 &lt;- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side.
+geometry var0 &lt;- curve({0,0}, {0,10}, {10,10}, 20); // var0 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var1 &lt;- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var2 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var3 &lt;- curve({0,0}, {0,10}, {10,10}); // var3 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var4 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var5 &lt;- curve({0,0},{10,10}, 0.5, false); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
+geometry var6 &lt;- curve({0,0},{10,10}, 0.5); // var6 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var7 &lt;- curve({0,0},{10,10}, 0.5, 90); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var8 &lt;- curve({0,0},{10,10}, 0.5, 100, 90); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var9 &lt;- curve({0,0}, {0,10}, {10,10}); // var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var10 &lt;- curve({0,0},{10,10}, 0.5, false, 100); // var10 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
 
 </code></pre></div></div>
 
@@ -5480,7 +5506,7 @@ geometry var10 &lt;- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic B
 <h4 id="result-54">Result:</h4>
 <p>A cylinder geometry which radius is equal to the operand.</p>
 
-<h4 id="comment-14">Comment:</h4>
+<h4 id="comment-15">Comment:</h4>
 <p>the center of the cylinder is by default the location of the current agent in which has been called this operator.</p>
 
 <h4 id="special-cases-25">Special cases:</h4>
@@ -5488,7 +5514,7 @@ geometry var10 &lt;- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic B
   <li>returns a point if the operand is lower or equal to 0.</li>
 </ul>
 
-<h4 id="examples-45">Examples:</h4>
+<h4 id="examples-46">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- cylinder(10,10); // var0 equals a geometry as a circle of radius 10.
 
