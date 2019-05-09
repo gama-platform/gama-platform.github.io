@@ -4220,7 +4220,7 @@ function closeRightMenu() {
 
 <ul>
   <li>returns: void</li>
-  <li><strong><code class="highlighter-rouge">protocol</code></strong> (string): protocol type (UDP, TCP, MQTT (by default)): the possible value ares ‘udp_server’, ‘udp_emitter’, ‘tcp_server’, ‘tcp_client’, otherwise the MQTT protocol is used.</li>
+  <li><strong><code class="highlighter-rouge">protocol</code></strong> (string): protocol type (MQTT (by default), TCP, UDP): the possible value ares ‘udp_server’, ‘udp_emitter’, ‘tcp_server’, ‘tcp_client’, otherwise the MQTT protocol is used.</li>
   <li><strong><code class="highlighter-rouge">port</code></strong> (int): Port number</li>
   <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): name of the agent on the server</li>
   <li><strong><code class="highlighter-rouge">login</code></strong> (string): login for the connection to the server</li>
@@ -4255,6 +4255,13 @@ function closeRightMenu() {
   <li><strong><code class="highlighter-rouge">from</code></strong> (string): name of the group the agent wants to leave</li>
 </ul>
 
+<h4 id="register_to_group"><strong><code class="highlighter-rouge">register_to_group</code></strong></h4>
+
+<ul>
+  <li>returns: void</li>
+  <li><strong><code class="highlighter-rouge">to</code></strong> (string):</li>
+</ul>
+
 <hr />
 
 <h2 id="physics">physics</h2>
@@ -4262,16 +4269,13 @@ function closeRightMenu() {
 <h3 id="variables-9">Variables</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">ang_damping</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">collisionBound</code></strong> (<code class="highlighter-rouge">map</code>):</li>
-  <li><strong><code class="highlighter-rouge">density</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">friction</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">lin_damping</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">mass</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">motor</code></strong> (<code class="highlighter-rouge">point</code>):</li>
-  <li><strong><code class="highlighter-rouge">restitution</code></strong> (<code class="highlighter-rouge">float</code>):</li>
-  <li><strong><code class="highlighter-rouge">space</code></strong> (<code class="highlighter-rouge">agent</code>):</li>
-  <li><strong><code class="highlighter-rouge">velocity</code></strong> (<code class="highlighter-rouge">list</code>):</li>
+  <li><strong><code class="highlighter-rouge">ang_damping</code></strong> (<code class="highlighter-rouge">float</code>): angular dampling</li>
+  <li><strong><code class="highlighter-rouge">collisionBound</code></strong> (<code class="highlighter-rouge">map</code>): map describing the shape of the agent. format for sphere: [‘shape’::’sphere’, ‘radius’::10.0]; for floor: [‘shape’::’floor’, ‘x’::100.0, ‘y’::100.0, ‘z’::2.0]; if not defined, the shape attribute of the agent is used.</li>
+  <li><strong><code class="highlighter-rouge">friction</code></strong> (<code class="highlighter-rouge">float</code>): coefficient of friction of the agent</li>
+  <li><strong><code class="highlighter-rouge">lin_damping</code></strong> (<code class="highlighter-rouge">float</code>): linear dampling</li>
+  <li><strong><code class="highlighter-rouge">mass</code></strong> (<code class="highlighter-rouge">float</code>): mass of the agent</li>
+  <li><strong><code class="highlighter-rouge">restitution</code></strong> (<code class="highlighter-rouge">float</code>): coefficient of restitution force of the agent</li>
+  <li><strong><code class="highlighter-rouge">velocity</code></strong> (<code class="highlighter-rouge">list</code>): velocity of the agent</li>
 </ul>
 
 <h3 id="actions-9">Actions</h3>

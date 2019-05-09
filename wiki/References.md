@@ -40,7 +40,10 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
   * [Amouroux, E., Chu, T.Q., Boucher, A. and Drogoul, A. (2007) GAMA: an environment for implementing and running spatially explicit multi-agent simulations. In ‘Pacific Rim International Workshop on Multi-Agents', Bangkok, Thailand, pp. 359--371.](http://www.springerlink.com/content/88006131542n1204/)
 
+## HDR theses
+* **Nicolas Marilleau**, ["Vers des agents cognitifs, affectifs et sociaux dans la simulation"](https://tel.archives-ouvertes.fr/tel-01959903), Normandie Université, defended November 30th, 2018.
 
+* **Nicolas Marilleau**, "Approches distribuées à base d'agents pour modéliser et simuler les systèmes complexes spatialisés. \(Distributed Approaches based on Agent Based Systems to model and simulate complex systems with a space\)". Pierre and Marie Curie University, Paris, France 2016](https://tel.archives-ouvertes.fr/tel-01428319/)
 
 ## PhD theses
 
@@ -72,17 +75,29 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 ## Research papers that use GAMA as modeling/simulation support
 
 **2019**
-
+* [Houssou, N.L.J., Cordero, J.D., Bouadjio-Boulic, A., Morin, L., Maestripieri, N., Ferrant, S., Belem, M., Pelaez Sanchez, J.I., Saenz, M., Lerigoleur, E., Elger, A., Gaudou, B., Maurice, L., Saqalli, M., 2019. Synchronizing Histories of Exposure and Demography: The Construction of an Agent-Based Model of the Ecuadorian Amazon Colonization and Exposure to Oil Pollution Hazards. J. Artif. Soc. Soc. Simul. 22, 1. https://doi.org/10.18564/jasss.3957](http://jasss.soc.surrey.ac.uk/22/2/1.html)
 
 **2018**
+* [Laatabi, A., Marilleau, N., Nguyen-Huu, T., Hbid, H., Ait Babram, M., 2018. ODD+2D: An ODD Based Protocol for Mapping Data to Empirical ABMs. J. Artif. Soc. Soc. Simul. 21, 9. https://doi.org/10.18564/jasss.3646](http://jasss.soc.surrey.ac.uk/21/2/9.html)
 
 * [Chapuis K., Taillandier P., Gaudou B., Drogoul A., Daudé E. (2018) A Multi-modal Urban Traffic Agent-Based Framework to Study Individual Response to Catastrophic Events. In: Miller T., Oren N., Sakurai Y., Noda I., Savarimuthu B., Cao Son T. (eds) PRIMA 2018: Principles and Practice of Multi-Agent Systems. PRIMA 2018. Lecture Notes in Computer Science, vol 11224. Springer, Cham](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_28)
+
+* [Bourgais, M., Taillandier, P., Vercouter, L., Adam, C., 2018. Emotion Modeling in Social Simulation: A Survey. J. Artif. Soc. Soc. Simul. 21, 5.](http://jasss.soc.surrey.ac.uk/21/2/5.html) 
+
+* [Grillot, M., Guerrin, F., Gaudou, B., Masse, D., Vayssières, J., 2018. Multi-level analysis of nutrient cycling within agro-sylvo-pastoral landscapes in West Africa using an agent-based model. Environ. Model. Softw. 107, 267–280. https://doi.org/10.1016/j.envsoft.2018.05.003](https://www.sciencedirect.com/science/article/pii/S1364815217304000)
 
 * [Valette, M., Gaudou, B., Longin, D., Taillandier, P., 2018. Modeling a Real-Case Situation of Egress Using BDI Agents with Emotions and Social Skills, in: Miller, T., Oren, N., Sakurai, Y., Noda, I., Savarimuthu, B.T.R., Cao Son, T. (Eds.), PRIMA 2018: Principles and Practice of Multi-Agent Systems. Springer International Publishing, Cham, pp. 3–18. https://doi.org/10.1007/978-3-030-03098-8_1](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_1)
 
 * [Humann, J., Spero, E. (2018) Modeling and Simulation of multi-UAV, multi-Operator Surveillance Systems, 2018 Annual IEEE International Systems Conference (SysCon), Vancouver, BC.](https://ieeexplore.ieee.org/document/8369546)
 
 **2017**
+
+* [Becu, N., Amalric, M., Anselme, B., Beck, E., Bertin, X., Delay, E., Long, N., Marilleau, N., Pignon-Mussaud, C., Rousseaux, F., 2017. Participatory simulation to foster social learning on coastal flooding prevention. Environ. Model. Softw. 98, 1–11. https://doi.org/10.1016/j.envsoft.2017.09.003](https://www.sciencedirect.com/science/article/pii/S1364815216310477)
+
+* [Adam, C., Gaudou, B., 2017. Modelling Human Behaviours in Disasters from Interviews: Application to Melbourne Bushfires. J. Artif. Soc. Soc. Simul. 20, 12. https://doi.org/10.18564/jasss.3395](http://jasss.soc.surrey.ac.uk/20/3/12.html)
+
+* [Adam, C., Taillandier, P., Dugdale, J., Gaudou, B., 2017. BDI vs FSM Agents in Social Simulations for Raising Awareness in Disasters: A Case Study in Melbourne Bushfires. Int. J. Inf. Syst. Crisis Response Manag. 9, 27–44. https://doi.org/10.4018/IJISCRAM.2017010103](https://www.igi-global.com/article/bdi-vs-fsm-agents-in-social-simulations-for-raising-awareness-in-disasters/192104)
+
 * [Ta, X.-H., Gaudou, B., Longin, D., Ho, T.V., 2017. Emotional contagion model for group evacuation simulation. Informatica 41.](http://www.informatica.si/index.php/informatica/article/view/1661)
 
 * [Huynh, N.Q., Nguyen-Huu, T., Grignard, A., Huynh, H.X., Drogoul, A., 2017. Coupling equation based models and agent-based models: example of a multi-strains and switch SIR toy model. EAI Endorsed Trans. Context-Aware Syst. Appl. 4, 152334. https://doi.org/10.4108/eai.6-3-2017.152334](https://eudl.eu/doi/10.4108/eai.6-3-2017.152334)
@@ -92,6 +107,11 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Philippon, D., Choisy, M., Drogoul, A., Gaudou, B., Marilleau, N., Taillandier, P., Truong, Q.C. (2017) Exploring Trade and Health Policies Influence on Dengue Spread with an Agent-Based Model, in: Nardin, L.G., Antunes, L. (Eds.), Multi-Agent Based Simulation XVII. Springer International Publishing, Cham, pp. 111–127.doi:10.1007/978-3-319-67477-3_6](https://link.springer.com/chapter/10.1007/978-3-319-67477-3_6)
 
 **2016**
+* [Fosset, P., Banos, A., Beck, E., Chardonnel, S., Lang, C., Marilleau, N., Piombini, A., Leysens, T., Conesa, A., Andre-Poyaud, I., Thevenin, T., 2016. Exploring Intra-Urban Accessibility and Impacts of Pollution Policies with an Agent-Based Simulation Platform: GaMiroD. Systems 4, 5. https://doi.org/10.3390/systems4010005](https://www.mdpi.com/2079-8954/4/1/5/htm)
+
+* [Lucien, L., Lang, C., Marilleau, N., Philippe, L., 2016. Multiagent Hybrid Architecture for Collaborative Exchanges between Communicating Vehicles in an Urban Context. Procedia Comput. Sci. 83, 695–699. https://doi.org/10.1016/j.procs.2016.04.154](https://www.sciencedirect.com/science/article/pii/S1877050916301855)
+
+* [Laatabi, A., Marilleau, N., Nguyen-Huu, T., Hbid, H., Babram, M.A., 2016. Formalizing Data to Agent Model Mapping Using MOF: Application to a Model of Residential Mobility in Marrakesh, in: Jezic, G., Chen-Burger, Y.-H.J., Howlett, R.J., Jain, L.C. (Eds.), Agent and Multi-Agent Systems: Technology and Applications. Springer International Publishing, Cham, pp. 107–117. https://doi.org/10.1007/978-3-319-39883-9_9](https://link.springer.com/chapter/10.1007/978-3-319-39883-9_9)
 
 * [Taillandier, P., Banos, A., Drogoul, A., Gaudou, B., Marilleau, N., Truong, Q.C. (2016) Simulating Urban Growth with Raster and Vector models: A case study for the city of Can Tho, Vietnam, in: Osman, N., Sierra, C. (Eds.), Autonomous Agents and Multiagent Systems, Lecture Notes in Computer Science. Springer International Publishing, pp. 154–171. Doi: 10.1007/978-3-319-46840-2_10.](https://link.springer.com/chapter/10.1007/978-3-319-46840-2_10)
 
@@ -109,16 +129,19 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 * [Gasmi, N., Grignard, A., Drogoul, A., Gaudou, B., Taillandier, P., Tessier, O., An, V.D., 2015. Reproducing and Exploring Past Events Using Agent-Based Geo-Historical Models, in: Grimaldo, F., Norling, E. (Eds.), Multi-Agent-Based Simulation XV. Springer International Publishing, Cham, pp. 151–163.](https://www.springerprofessional.de/en/reproducing-and-exploring-past-events-using-agent-based-geo-hist/2363996)
 
+* [Le, V.-M., Chevaleyre, Y., Ho Tuong Vinh, Zucker, J.-D., 2015. Hybrid of linear programming and genetic algorithm for optimizing agent-based simulation. Application to optimization of sign placement for tsunami evacuation, in: The 2015 IEEE RIVF International Conference on Computing & Communication Technologies - Research, Innovation, and Vision for Future (RIVF). Presented at the 2015 IEEE RIVF International Conference on Computing & Communication Technologies, Research, Innovation, and Vision for the Future (RIVF), IEEE, Can Tho, Vietnam, pp. 138–143. https://doi.org/10.1109/RIVF.2015.7049889](https://ieeexplore.ieee.org/document/7049889)
+
 **2014**
 
   * [Macatulad, E. G., Blanco, A. C. (2014) 3DGIS-BASED MULTI-AGENT GEOSIMULATION AND VISUALIZATION OF BUILDING EVACUATION USING GAMA PLATFORM. The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XL-2, 2014. ISPRS Technical Commission II Symposium, 6 – 8 October 2014, Toronto, Canada.](http://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XL-2/87/2014/isprsarchives-XL-2-87-2014.pdf) 
-
 
   * [Bhamidipati, S. (2014) A simulation framework for asset management in climate-change adaptation of transportation infrastructure. In: Proceedings of 42nd European Transport Conference. Frankfurt, Germany.](http://abstracts.aetransport.org/paper/download/id/4317)
 
   * [Gaudou, B., Sibertin-Blanc, C., Thérond, O., Amblard, F., Auda, Y., Arcangeli, J.-P., Balestrat, M., Charron-Moirez, M.-H., Gondet, E., Hong, Y., Lardy, R., Louail, T., Mayor, E., Panzoli, D., Sauvage, S., Sanchez-Perez, J., Taillandier, P., Nguyen, V. B., Vavasseur, M., Mazzega, P. (2014). The MAELIA multi-agent platform for integrated assessment of low-water management issues. In: International Workshop on Multi-Agent-Based Simulation (MABS 2013), Saint-Paul, MN, USA, 06/05/2013-07/05/2013, Vol. 8235, Shah Jamal Alam, H. Van Dyke Parunak, (Eds.), Springer, Lecture Notes in Computer Science, p. 85-110.](http://simsoc.free.fr/ressources/articles/2013/MAELIAmabs13.pdf)
 
   * [Gaudou, B., Lorini, E., Mayor, E. (2014.) Moral Guilt: An Agent-Based Model Analysis. In: Conference of the European Social Simulation Association (ESSA 2013), Warsaw, 16/09/2013-20/09/2013, Vol. 229, Springer, Advances in Intelligent Systems and Computing, p. 95-106.](http://www.irit.fr/EmoTES/Documents/Conference/Conf_ic_2013_Gaudou_et_al.pdf)
+
+ * [Le, V.-M., Chevaleyre, Y., Zucker, J.-D., Tuong Vinh, H., 2014. Approaches to Optimize Local Evacuation Maps for Helping Evacuation in Case of Tsunami, in: Hanachi, C., Bénaben, F., Charoy, F. (Eds.), Information Systems for Crisis Response and Management in Mediterranean Countries. Springer International Publishing, Cham, pp. 21–31. https://doi.org/10.1007/978-3-319-11818-5_3](https://link.springer.com/chapter/10.1007%2F978-3-319-11818-5_3)
 
 **2013**
   * [Drogoul, A., Gaudou, B., Grignard, A., Taillandier, P., & Vo, D. A. (2013). Practical Approach To Agent-Based Modelling. In: Water and its Many Issues. Methods and Cross-cutting Analysis. Stéphane Lagrée (Eds.), Journées de Tam Dao, p. 277-300, Regional Social Sciences Summer University.](http://hal.archives-ouvertes.fr/docs/00/93/24/23/PDF/JTD2012_-_Atelier_-_EN.pdf)
