@@ -4124,18 +4124,18 @@ geometry var0 &lt;- shape scaled_to {10,10}; // var0 equals a geometry correspon
 
 <h4 id="possible-use-10">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
-  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
   <li><code class="highlighter-rouge">predicate</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">predicate</code></li>
   <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
+  <li><code class="highlighter-rouge">emotion</code> <strong><code class="highlighter-rouge">set_agent_cause</code></strong> <code class="highlighter-rouge">agent</code> —&gt;  <code class="highlighter-rouge">emotion</code></li>
+  <li><strong><code class="highlighter-rouge">set_agent_cause</code></strong> (<code class="highlighter-rouge">emotion</code> , <code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
 </ul>
 
 <h4 id="result-6">Result:</h4>
-<p>change the agentCause value of the given emotion
-change the agentCause value of the given predicate</p>
+<p>change the agentCause value of the given predicate
+change the agentCause value of the given emotion</p>
 
 <h4 id="examples-4">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion set_agent_cause agentA predicate set_agent_cause agentA 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate set_agent_cause agentA emotion set_agent_cause agentA 
 
 </code></pre></div></div>
 
@@ -4370,7 +4370,7 @@ change the agentCause value of the given predicate</p>
 <p>Sets the z ordinate of the n-th point of a geometry to the value provided by the third argument</p>
 
 <h4 id="examples-17">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set_z (triangle(3), 1, 3.0) triangle(3) set_z [5,10,14] 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>triangle(3) set_z [5,10,14] set_z (triangle(3), 1, 3.0) 
 
 </code></pre></div></div>
 
@@ -4447,9 +4447,9 @@ change the agentCause value of the given predicate</p>
 
 <h4 id="possible-use-25">Possible use:</h4>
 <ul>
+  <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
   <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">matrix</code>) —&gt;  <code class="highlighter-rouge">matrix</code></li>
   <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
-  <li><strong><code class="highlighter-rouge">shuffle</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
 <h4 id="result-21">Result:</h4>
@@ -4462,9 +4462,9 @@ change the agentCause value of the given predicate</p>
 
 <h4 id="examples-18">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-matrix var0 &lt;- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-string var1 &lt;- shuffle ('abc'); // var1 equals 'bac' (for example) 
-list var2 &lt;- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
+list var0 &lt;- shuffle ([12, 13, 14]); // var0 equals [14,12,13] (for example) 
+matrix var1 &lt;- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var1 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
+string var2 &lt;- shuffle ('abc'); // var2 equals 'bac' (for example)
 
 </code></pre></div></div>
 
@@ -4645,9 +4645,9 @@ float var1 &lt;- sin_rad(#pi/2); // var1 equals 1.0
 </ul>
 
 <h4 id="result-29">Result:</h4>
-<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
+<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation</p>
 
 <h4 id="examples-26">Examples:</h4>
@@ -4671,16 +4671,16 @@ list&lt;geometry&gt; var3 &lt;- skeletonize(self); // var3 equals the list of ge
 </ul>
 
 <h4 id="result-30">Result:</h4>
-<p>Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
-Returns the skew of a data sequence when the 3rd moment has already been computed.</p>
+<p>Returns the skew of a data sequence when the 3rd moment has already been computed.
+Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3</p>
 
 <h4 id="comment-1">Comment:</h4>
 <p>In R moment(c(1, 3, 5, 6, 9, 11, 12, 13), order=3,center=TRUE) is -10.125 and sd(c(1,3,5,6,9,11,12,13)) = 4.407785The value of the skewness tested here is different because there are different types of estimatorJoanes and Gill (1998) discuss three methods for estimating skewness:Type 1: g_1 = m_3 / m_2^(3/2). This is the typical definition used in many older textbooks.Type 2: G_1 = g_1 * sqrt(n(n-1)) / (n-2). Used in SAS and SPSS.Type 3: b_1 = m_3 / s^3 = g_1 ((n-1)/n)^(3/2). Used in MINITAB and BMDP.In R skewness(c(1, 3, 5, 6, 9, 11, 12, 13),type=3) is -0.1182316</p>
 
 <h4 id="examples-27">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- skew([1,3,5,6,9,11,12,13]) with_precision(2); // var0 equals -0.14 
-float var1 &lt;- skew(-10.125,4.407785) with_precision(2); // var1 equals -0.12
+float var0 &lt;- skew(-10.125,4.407785) with_precision(2); // var0 equals -0.12 
+float var1 &lt;- skew([1,3,5,6,9,11,12,13]) with_precision(2); // var1 equals -0.14
 
 </code></pre></div></div>
 
@@ -5051,13 +5051,13 @@ list&lt;geometry&gt; var1 &lt;- split_lines([line([{0,10}, {20,10}]), line([{0,1
 </ul>
 
 <h4 id="result-44">Result:</h4>
-<p>Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound</p>
+<p>Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound</p>
 
 <h4 id="examples-40">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;float&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
-list&lt;list&lt;unknown&gt;&gt; var1 &lt;- split_using(li,[1.0,3.0,4.2]); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]list&lt;float&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
-list&lt;list&lt;unknown&gt;&gt; var3 &lt;- split_using(l,[1.0,3.0,4.2], true); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list&lt;float&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
+list&lt;list&lt;unknown&gt;&gt; var1 &lt;- split_using(l,[1.0,3.0,4.2], true); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]list&lt;float&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
+list&lt;list&lt;unknown&gt;&gt; var3 &lt;- split_using(li,[1.0,3.0,4.2]); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
 
 </code></pre></div></div>
 
@@ -5077,16 +5077,16 @@ list&lt;list&lt;unknown&gt;&gt; var3 &lt;- split_using(l,[1.0,3.0,4.2], true); /
 </ul>
 
 <h4 id="result-45">Result:</h4>
-<p>Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.</p>
+<p>Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).</p>
 
 <h4 id="comment-4">Comment:</h4>
 <p>Delimiters themselves are excluded from the resulting list.Delimiters themselves are excluded from the resulting list.</p>
 
 <h4 id="examples-41">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list var0 &lt;- 'aa::bb:cc' split_with ('::', true); // var0 equals ['aa','bb:cc'] 
-list var1 &lt;- 'to be or not to be,that is the question' split_with ' ,'; // var1 equals ['to','be','or','not','to','be','that','is','the','question']
+list var0 &lt;- 'to be or not to be,that is the question' split_with ' ,'; // var0 equals ['to','be','or','not','to','be','that','is','the','question'] 
+list var1 &lt;- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc']
 
 </code></pre></div></div>
 
@@ -5096,8 +5096,8 @@ list var1 &lt;- 'to be or not to be,that is the question' split_with ' ,'; // va
 
 <h4 id="possible-use-52">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sqrt</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-46">Result:</h4>
@@ -5137,7 +5137,8 @@ float var1 &lt;- sqrt(4); // var1 equals 2.0
 
 <h4 id="examples-43">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- square(10); // var0 equals a geometry as a square of side size 10.
+geometry var0 &lt;- square(10); // var0 equals a geometry as a square of side size 10. 
+float var1 &lt;- var0.area; // var1 equals 100.0
 
 </code></pre></div></div>
 
@@ -5270,6 +5271,12 @@ converts a date to astring following a custom pattern. The pattern can use “%Y
 <h4 id="result-53">Result:</h4>
 <p>Returns the area to the left of x in the Student T distribution with the given degrees of freedom.</p>
 
+<h4 id="examples-47">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+float var0 &lt;- student_area(1.64,3) with_precision(2); // var0 equals 0.9
+
+</code></pre></div></div>
+
 <hr />
 
 <h3 id="student_t_inverse"><code class="highlighter-rouge">student_t_inverse</code></h3>
@@ -5282,6 +5289,12 @@ converts a date to astring following a custom pattern. The pattern can use “%Y
 
 <h4 id="result-54">Result:</h4>
 <p>Returns the value, t, for which the area under the Student-t probability density function (integrated from minus infinity to t) is equal to x.</p>
+
+<h4 id="examples-48">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+float var0 &lt;- student_t_inverse(0.9,3) with_precision(2); // var0 equals 1.64
+
+</code></pre></div></div>
 
 <hr />
 
@@ -5336,7 +5349,7 @@ converts a date to astring following a custom pattern. The pattern can use “%Y
 <h4 id="result-55">Result:</h4>
 <p>returns the list of successors (i.e. targets of out edges) of the given vertex (right-hand operand) in the given graph (left-hand operand)</p>
 
-<h4 id="examples-47">Examples:</h4>
+<h4 id="examples-49">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list var1 &lt;- graphEpidemio successors_of ({1,5}); // var1 equals [{12,45}] 
 list var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals []
@@ -5353,8 +5366,8 @@ list var2 &lt;- graphEpidemio successors_of node({34,56}); // var2 equals []
 
 <h4 id="possible-use-63">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">sum</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <h4 id="result-56">Result:</h4>
@@ -5416,7 +5429,7 @@ unknown var1 &lt;- sum([{1.0,3.0},{3.0,5.0},{9.0,1.0},{7.0,8.0}]); // var1 equal
 unknown var1 &lt;- [1::2, 3::4, 5::6] sum_of (each + 3); // var1 equals 21
 </code></pre></div></div>
 
-<h4 id="examples-48">Examples:</h4>
+<h4 id="examples-50">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 unknown var0 &lt;- [1,2] sum_of (each * 100 ); // var0 equals 300
 
@@ -5465,8 +5478,8 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); // var0 equals 300
 
 <h4 id="possible-use-66">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">tan</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-59">Result:</h4>
@@ -5478,7 +5491,7 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); // var0 equals 300
   <li>The tangent is only defined for any real number except 90 + k <code class="highlighter-rouge">*</code> 180 (k an positive or negative integer). Nevertheless notice that tan(90) returns 1.633123935319537E16 (whereas we could except infinity).</li>
 </ul>
 
-<h4 id="examples-49">Examples:</h4>
+<h4 id="examples-51">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- tan (0); // var0 equals 0.0 
 float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
@@ -5501,7 +5514,7 @@ float var1 &lt;- tan(90); // var1 equals 1.633123935319537E16
 <h4 id="result-60">Result:</h4>
 <p>Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in radians).</p>
 
-<h4 id="examples-50">Examples:</h4>
+<h4 id="examples-52">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- tan_rad(0); // var0 equals 0.0
 
@@ -5524,7 +5537,7 @@ float var0 &lt;- tan_rad(0); // var0 equals 0.0
 <h4 id="result-61">Result:</h4>
 <p>Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).</p>
 
-<h4 id="examples-51">Examples:</h4>
+<h4 id="examples-53">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- tanh(0); // var0 equals 0.0 
 float var1 &lt;- tanh(100); // var1 equals 1.0
@@ -5549,7 +5562,7 @@ float var1 &lt;- tanh(100); // var1 equals 1.0
   <li>if the lef-hand operand (the graph) is nil, returns nil</li>
 </ul>
 
-<h4 id="examples-52">Examples:</h4>
+<h4 id="examples-54">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphEpidemio &lt;- generate_barabasi_albert( ["edges_species"::edge,"vertices_specy"::node,"size"::3,"m"::5] );  
 unknown var1 &lt;- graphEpidemio source_of(edge(3)); // var1 equals node1graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
 unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); // var3 equals {12,45}
@@ -5580,7 +5593,7 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); // var3 equals {
   <li>returns a point if the operand is lower or equal to 0.</li>
 </ul>
 
-<h4 id="examples-53">Examples:</h4>
+<h4 id="examples-55">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- teapot(10); // var0 equals a geometry as a circle of radius 10 but displays a teapot.
 
@@ -5669,7 +5682,7 @@ geometry var0 &lt;- teapot(10); // var0 equals a geometry as a circle of radius 
 <h4 id="comment-12">Comment:</h4>
 <p>The default step can be overruled by using the every operator applied to this interval</p>
 
-<h4 id="examples-54">Examples:</h4>
+<h4 id="examples-56">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>date('2000-01-01') to date('2010-01-01') // builds an interval between these two dates (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval 
 
 </code></pre></div></div>
@@ -5718,7 +5731,7 @@ geometry var1 &lt;- to_GAMA_CRS({121,14}, "EPSG:4326"); // var1 equals a geometr
 <h4 id="result-67">Result:</h4>
 <p>returns the literal description of an expression or description – action, behavior, species, aspect, even model – in gaml</p>
 
-<h4 id="examples-55">Examples:</h4>
+<h4 id="examples-57">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 string var0 &lt;- to_gaml(0); // var0 equals '0' 
 string var1 &lt;- to_gaml(3.78); // var1 equals '3.78' 
@@ -5746,13 +5759,13 @@ string var11 &lt;- to_gaml(node1); // var11 equals  1 as node
 </ul>
 
 <h4 id="result-68">Result:</h4>
-<p>A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry</p>
+<p>A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry</p>
 
-<h4 id="examples-56">Examples:</h4>
+<h4 id="examples-58">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list&lt;geometry&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var1 &lt;- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 </code></pre></div></div>
 
@@ -5768,7 +5781,7 @@ list&lt;geometry&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); // var1
 <h4 id="result-69">Result:</h4>
 <p>A list of a segments resulting from the decomposition of the geometry (or its contours for polygons) into sgements</p>
 
-<h4 id="examples-57">Examples:</h4>
+<h4 id="examples-59">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;geometry&gt; var0 &lt;- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equals [line([{10,10},{80,10}]), line([{80,10},{80,80}])]
 
@@ -5780,21 +5793,21 @@ list&lt;geometry&gt; var0 &lt;- to_segments(line([{10,10},{80,10},{80,80}])); //
 
 <h4 id="possible-use-78">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
+  <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
   <li><strong><code class="highlighter-rouge">to_squares</code></strong> (<code class="highlighter-rouge">geometry</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list&lt;geometry&gt;</code></li>
 </ul>
 
 <h4 id="result-70">Result:</h4>
-<p>A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+<p>A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry</p>
 
-<h4 id="examples-58">Examples:</h4>
+<h4 id="examples-60">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list&lt;geometry&gt; var0 &lt;- to_squares(self, 10, true); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list&lt;geometry&gt; var1 &lt;- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list&lt;geometry&gt; var2 &lt;- to_squares(self, 10, true); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list&lt;geometry&gt; var2 &lt;- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 </code></pre></div></div>
 
@@ -5813,10 +5826,10 @@ list&lt;geometry&gt; var2 &lt;- to_squares(self, 10, true); // var2 equals the l
 <p>A list of geometries resulting after spliting the geometry into sub-geometries.
 A list of geometries resulting after spliting the geometry into sub-geometries.</p>
 
-<h4 id="examples-59">Examples:</h4>
+<h4 id="examples-61">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var0 equals a list of three geometries corresponding to 3 sub-geometries 
-list&lt;geometry&gt; var1 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size
+list&lt;geometry&gt; var0 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size 
+list&lt;geometry&gt; var1 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var1 equals a list of three geometries corresponding to 3 sub-geometries
 
 </code></pre></div></div>
 
@@ -5853,7 +5866,7 @@ list&lt;geometry&gt; var1 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 
   <li>otherwise, casts the operand to a geometry and build a topology from it.</li>
 </ul>
 
-<h4 id="examples-60">Examples:</h4>
+<h4 id="examples-62">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 topology var0 &lt;- topology(0); // var0 equals niltopology(a_graph)	--: Multiple topology in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354] 
 
@@ -5893,7 +5906,7 @@ topology var0 &lt;- topology(0); // var0 equals niltopology(a_graph)	--: Multipl
   <li>if one of the operand is null, returns false.</li>
 </ul>
 
-<h4 id="examples-61">Examples:</h4>
+<h4 id="examples-63">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- polyline([{10,10},{20,20}]) touches {15,15}; // var0 equals false 
 bool var1 &lt;- polyline([{10,10},{20,20}]) touches {10,10}; // var1 equals true 
@@ -5926,7 +5939,7 @@ bool var10 &lt;- polygon([{10,10},{10,20},{20,20},{20,10}]) touches {10,15}; // 
 <h4 id="result-74">Result:</h4>
 <p>The direction (in degree) between the two geometries (geometries, agents, points) considering the topology of the agent applying the operator.</p>
 
-<h4 id="examples-62">Examples:</h4>
+<h4 id="examples-64">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- ag1 towards ag2; // var0 equals the direction between ag1 and ag2 and ag3 considering the topology of the agent applying the operator
 
@@ -5948,7 +5961,7 @@ float var0 &lt;- ag1 towards ag2; // var0 equals the direction between ag1 and a
 <h4 id="result-75">Result:</h4>
 <p>The trace of the given matrix (the sum of the elements on the main diagonal).</p>
 
-<h4 id="examples-63">Examples:</h4>
+<h4 id="examples-65">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- trace(matrix([[1,2],[3,4]])); // var0 equals 5
 
@@ -5967,7 +5980,7 @@ float var0 &lt;- trace(matrix([[1,2],[3,4]])); // var0 equals 5
 <h4 id="result-76">Result:</h4>
 <p>A geometry resulting from the application of a rotation and a scaling (right-operand : point {angle(degree), scale factor} of the left-hand operand (geometry, agent, point)</p>
 
-<h4 id="examples-64">Examples:</h4>
+<h4 id="examples-66">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- self transformed_by {45, 0.5}; // var0 equals the geometry resulting from 45 degrees rotation and 50% scaling of the geometry of the agent applying the operator.
 
@@ -5990,7 +6003,7 @@ geometry var0 &lt;- self transformed_by {45, 0.5}; // var0 equals the geometry r
 <h4 id="result-77">Result:</h4>
 <p>A geometry resulting from the application of a translation by the right-hand operand distance to the left-hand operand (geometry, agent, point)</p>
 
-<h4 id="examples-65">Examples:</h4>
+<h4 id="examples-67">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- self translated_by {10,10,10}; // var0 equals the geometry resulting from applying the translation to the left-hand geometry (or agent).
 
@@ -6017,7 +6030,7 @@ geometry var0 &lt;- self translated_by {10,10,10}; // var0 equals the geometry r
 <h4 id="result-78">Result:</h4>
 <p>The transposition of the given matrix</p>
 
-<h4 id="examples-66">Examples:</h4>
+<h4 id="examples-68">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 matrix var0 &lt;- transpose(matrix([[5,-3],[6,-4]])); // var0 equals matrix([[5,6],[-3,-4]])
 
@@ -6043,7 +6056,7 @@ matrix var0 &lt;- transpose(matrix([[5,-3],[6,-4]])); // var0 equals matrix([[5,
   <li>returns nil if the operand is nil.</li>
 </ul>
 
-<h4 id="examples-67">Examples:</h4>
+<h4 id="examples-69">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- triangle(5); // var0 equals a geometry as a triangle with side_size = 5.
 
@@ -6069,16 +6082,16 @@ geometry var0 &lt;- triangle(5); // var0 equals a geometry as a triangle with si
 
 <h4 id="result-80">Result:</h4>
 <p>A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines</p>
 
-<h4 id="examples-68">Examples:</h4>
+<h4 id="examples-70">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list&lt;geometry&gt; var0 &lt;- triangulate(self, 0.1); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list&lt;geometry&gt; var1 &lt;- triangulate(self); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list&lt;geometry&gt; var2 &lt;- triangulate(self,0.1, 1.0); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list&lt;geometry&gt; var1 &lt;- triangulate(self,0.1, 1.0); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list&lt;geometry&gt; var2 &lt;- triangulate(self); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
 list&lt;geometry&gt; var3 &lt;- triangulate(self,0.1, 1.0); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
 list&lt;geometry&gt; var4 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
@@ -6090,8 +6103,8 @@ list&lt;geometry&gt; var4 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,
 
 <h4 id="possible-use-90">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
+  <li><strong><code class="highlighter-rouge">truncated_gauss</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
 <h4 id="result-81">Result:</h4>
@@ -6099,15 +6112,15 @@ list&lt;geometry&gt; var4 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,
 
 <h4 id="special-cases-25">Special cases:</h4>
 <ul>
-  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
   <li>if the operand is a list, only the two first elements are taken into account as [mean, standardDeviation]</li>
   <li>when truncated_gauss is called with a list of only one element mean, it will always return 0.0</li>
+  <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
 </ul>
 
-<h4 id="examples-69">Examples:</h4>
+<h4 id="examples-71">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- truncated_gauss ({0, 0.3}); // var0 equals a float between -0.3 and 0.3 
-float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
+float var0 &lt;- truncated_gauss ([0.5, 0.0]); // var0 equals 0.5 
+float var1 &lt;- truncated_gauss ({0, 0.3}); // var1 equals a float between -0.3 and 0.3
 
 </code></pre></div></div>
 
@@ -6127,7 +6140,7 @@ float var1 &lt;- truncated_gauss ([0.5, 0.0]); // var1 equals 0.5
 <h4 id="result-82">Result:</h4>
 <p>Returns the GAML type of the operand</p>
 
-<h4 id="examples-70">Examples:</h4>
+<h4 id="examples-72">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 string var0 &lt;- string(type_of("a string")); // var0 equals "string" 
 string var1 &lt;- string(type_of([1,2,3,4,5])); // var1 equals "list&lt;int&gt;"geometry g0 &lt;- to_GAMA_CRS({121,14}, "EPSG:4326");   
@@ -6157,7 +6170,6 @@ string var3 &lt;- string(type_of(g0)); // var3 equals "point"
 <hr />
 
 <h3 id="union"><code class="highlighter-rouge">union</code></h3>
-<p>Same signification as <a href="OperatorsAA#+">+</a></p>
 
 <h4 id="possible-use-93">Possible use:</h4>
 <ul>
@@ -6175,7 +6187,7 @@ string var3 &lt;- string(type_of(g0)); // var3 equals "point"
   <li>if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries</li>
 </ul>
 
-<h4 id="examples-71">Examples:</h4>
+<h4 id="examples-73">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list var0 &lt;- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
 list var1 &lt;- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
@@ -6211,7 +6223,7 @@ geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corr
 <h4 id="result-85">Result:</h4>
 <p>Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of ‘current_date &lt;= argument’</p>
 
-<h4 id="examples-72">Examples:</h4>
+<h4 id="examples-74">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex when: until(starting_date) {} 	// This reflex will be run only once at the beginning of the simulation 
 
 </code></pre></div></div>
@@ -6228,7 +6240,7 @@ geometry var3 &lt;- union([geom1, geom2, geom3]); // var3 equals a geometry corr
 <h4 id="result-86">Result:</h4>
 <p>Converts all of the characters in the string operand to upper case</p>
 
-<h4 id="examples-73">Examples:</h4>
+<h4 id="examples-75">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 
@@ -6275,7 +6287,7 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
 <h4 id="comment-17">Comment:</h4>
 <p>This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :</p>
 
-<h4 id="examples-74">Examples:</h4>
+<h4 id="examples-76">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string,unknown&gt; values &lt;- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map&lt;string,unknown&gt; values2 &lt;- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 
 </code></pre></div></div>
@@ -6298,7 +6310,7 @@ string var0 &lt;- upper_case("Abc"); // var0 equals 'ABC'
   <li>has no effect if the topology passed as a parameter is nil</li>
 </ul>
 
-<h4 id="examples-75">Examples:</h4>
+<h4 id="examples-77">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 unknown var0 &lt;- (agents closest_to self) using topology(world); // var0 equals the closest agent to self (the caller) in the continuous topology of the world
 
@@ -6319,7 +6331,7 @@ unknown var0 &lt;- (agents closest_to self) using topology(world); // var0 equal
 <h4 id="comment-18">Comment:</h4>
 <p>The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.</p>
 
-<h4 id="examples-76">Examples:</h4>
+<h4 id="examples-78">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
 
@@ -6346,7 +6358,7 @@ Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / siz
 <h4 id="comment-19">Comment:</h4>
 <p>In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.</p>
 
-<h4 id="examples-77">Examples:</h4>
+<h4 id="examples-79">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- int(variance([1,3,5,6,9,11,12,13])); // var0 equals 17 
 int var1 &lt;- int(variance(4,16,84)); // var1 equals 5
@@ -6369,7 +6381,7 @@ int var1 &lt;- int(variance(4,16,84)); // var1 equals 5
 <h4 id="comment-20">Comment:</h4>
 <p>in the right-hand operand, the keyword each can be used to represent, in turn, each of the right-hand operand elements.</p>
 
-<h4 id="examples-78">Examples:</h4>
+<h4 id="examples-80">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- [1,2,3,4,5,6] variance_of each with_precision 2; // var0 equals 2.92
 
@@ -6400,13 +6412,13 @@ float var0 &lt;- [1,2,3,4,5,6] variance_of each with_precision 2; // var0 equals
 </ul>
 
 <h4 id="result-93">Result:</h4>
-<p>A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
-A list of geometries corresponding to the Voronoi diagram built from the list of points</p>
+<p>A list of geometries corresponding to the Voronoi diagram built from the list of points
+A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip</p>
 
-<h4 id="examples-79">Examples:</h4>
+<h4 id="examples-81">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
-list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+list&lt;geometry&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
+list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
 
 </code></pre></div></div>
 
@@ -6433,7 +6445,7 @@ list&lt;geometry&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}
   <li>if the right-hand operand is neither a node, nor an edge, returns 1.</li>
 </ul>
 
-<h4 id="examples-80">Examples:</h4>
+<h4 id="examples-82">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]);  
 float var1 &lt;- graphFromMap weight_of(link({1,5},{12,45})); // var1 equals 1.0
 
@@ -6457,7 +6469,7 @@ float var1 &lt;- graphFromMap weight_of(link({1,5},{12,45})); // var1 equals 1.0
   <li>returns -1 is the list of candidates is nil or empty</li>
 </ul>
 
-<h4 id="examples-81">Examples:</h4>
+<h4 id="examples-83">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- weighted_means_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "weight" :: 2.0],["name"::"price", "weight" :: 1.0]]); // var0 equals 1
 
@@ -6493,7 +6505,7 @@ int var0 &lt;- weighted_means_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"u
 list var4 &lt;- [1::2, 3::4, 5::6] where (each &gt;= 4); // var4 equals [4, 6]
 </code></pre></div></div>
 
-<h4 id="examples-82">Examples:</h4>
+<h4 id="examples-84">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list var0 &lt;- [1,2,3,4,5,6,7,8] where (each &gt; 3); // var0 equals [4, 5, 6, 7, 8]  
 list var2 &lt;- g2 where (length(g2 out_edges_of each) = 0 ); // var2 equals [node9, node7, node10, node8, node11] 
@@ -6518,7 +6530,7 @@ list var3 &lt;- (list(node) where (round(node(each).location.x) &gt; 32); // var
 <h4 id="result-97">Result:</h4>
 <p>change the parameters of the given predicate</p>
 
-<h4 id="examples-83">Examples:</h4>
+<h4 id="examples-85">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate with_lifetime 10 
 
 </code></pre></div></div>
@@ -6544,7 +6556,7 @@ list var3 &lt;- (list(node) where (round(node(each).location.x) &gt; 32); // var
   <li>if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand</li>
 </ul>
 
-<h4 id="examples-84">Examples:</h4>
+<h4 id="examples-86">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 unknown var0 &lt;- [1,2,3,4,5,6,7,8] with_max_of (each ); // var0 equals 8 
 unknown var2 &lt;- g2 with_max_of (length(g2 out_edges_of each)  ) ; // var2 equals node4 
@@ -6578,7 +6590,7 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_max_of (each); // var4 equals 6
   <li>if the left-hand operand is nil, with_max_of returns the default value of the right-hand operand</li>
 </ul>
 
-<h4 id="examples-85">Examples:</h4>
+<h4 id="examples-87">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 unknown var0 &lt;- [1,2,3,4,5,6,7,8] with_min_of (each ); // var0 equals 1 
 unknown var2 &lt;- g2 with_min_of (length(g2 out_edges_of each)  ); // var2 equals node11 
@@ -6607,7 +6619,7 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 <h4 id="comment-25">Comment:</h4>
 <p>the right-hand operand can be “Djikstra”, “Bellmann”, “Astar” to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.</p>
 
-<h4 id="examples-86">Examples:</h4>
+<h4 id="examples-88">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graphEpidemio &lt;- graphEpidemio with_optimizer_type "static"; 
 
 </code></pre></div></div>
@@ -6622,25 +6634,25 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 
 <h4 id="possible-use-112">Possible use:</h4>
 <ul>
+  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
   <li><code class="highlighter-rouge">point</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">point</code></li>
   <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">point</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
-  <li><code class="highlighter-rouge">geometry</code> <strong><code class="highlighter-rouge">with_precision</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
-  <li><strong><code class="highlighter-rouge">with_precision</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
 <h4 id="result-101">Result:</h4>
-<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
-Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.</p>
+<p>A geometry corresponding to the rounding of points of the operand considering a given precison.
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand</p>
 
-<h4 id="examples-87">Examples:</h4>
+<h4 id="examples-89">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- 12345.78943 with_precision 2; // var0 equals 12345.79 
-float var1 &lt;- 123 with_precision 2; // var1 equals 123.00 
-point var2 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
-geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
+geometry var0 &lt;- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
+float var1 &lt;- 12345.78943 with_precision 2; // var1 equals 12345.79 
+float var2 &lt;- 123 with_precision 2; // var2 equals 123.00 
+point var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
 
 </code></pre></div></div>
 
@@ -6661,7 +6673,7 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 <h4 id="result-102">Result:</h4>
 <p>change the parameters of the given predicate</p>
 
-<h4 id="examples-88">Examples:</h4>
+<h4 id="examples-90">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predicate with_values ["time"::10] 
 
 </code></pre></div></div>
@@ -6672,10 +6684,10 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 
 <h4 id="possible-use-114">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
-  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">map</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
   <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><code class="highlighter-rouge">graph</code> <strong><code class="highlighter-rouge">with_weights</code></strong> <code class="highlighter-rouge">list</code> —&gt;  <code class="highlighter-rouge">graph</code></li>
+  <li><strong><code class="highlighter-rouge">with_weights</code></strong> (<code class="highlighter-rouge">graph</code> , <code class="highlighter-rouge">list</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
 <h4 id="result-103">Result:</h4>
@@ -6705,7 +6717,7 @@ geometry var3 &lt;- self with_precision 2; // var3 equals the geometry resulting
 <h4 id="result-104">Result:</h4>
 <p>A geometry corresponding to the operand geometry (geometry, agent, point) without its holes</p>
 
-<h4 id="examples-89">Examples:</h4>
+<h4 id="examples-91">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- solid(self); // var0 equals the geometry corresponding to the geometry of the agent applying the operator without its holes.
 
@@ -6727,7 +6739,7 @@ geometry var0 &lt;- solid(self); // var0 equals the geometry corresponding to th
 <h4 id="comment-27">Comment:</h4>
 <p>A file is created using its native flags. This operator can change them. Beware that this change is system-wide (and not only restrained to GAMA): changing a file to read-only mode (e.g. “writable(f, false)”)</p>
 
-<h4 id="examples-90">Examples:</h4>
+<h4 id="examples-92">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 file var0 &lt;- shape_file("../images/point_eau.shp") writable false; // var0 equals returns a file in read-only mode
 
@@ -6777,7 +6789,7 @@ file var0 &lt;- shape_file("../images/point_eau.shp") writable false; // var0 eq
 <h4 id="comment-28">Comment:</h4>
 <p>both operands are always casted to bool before applying the operator. Thus, an expression like 1 xor 0 is accepted and returns true.</p>
 
-<h4 id="examples-91">Examples:</h4>
+<h4 id="examples-93">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- xor(true,false); // var0 equals true 
 bool var1 &lt;- xor(false,false); // var1 equals false 
@@ -6804,7 +6816,7 @@ bool var4 &lt;- true xor true; // var4 equals false
 <h4 id="result-108">Result:</h4>
 <p>Provide the exact number of years between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 
-<h4 id="examples-92">Examples:</h4>
+<h4 id="examples-94">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 int var0 &lt;- years_between(date('2000-01-01'), date('2010-01-01')); // var0 equals 10
 
