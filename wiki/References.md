@@ -41,7 +41,10 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
   * [Amouroux, E., Chu, T.Q., Boucher, A. and Drogoul, A. (2007) GAMA: an environment for implementing and running spatially explicit multi-agent simulations. In ‘Pacific Rim International Workshop on Multi-Agents', Bangkok, Thailand, pp. 359--371.](http://www.springerlink.com/content/88006131542n1204/)
 
 ## HDR theses
-* **Nicolas Marilleau**, ["Distributed Approaches based on Agent Based Systems to model and simulate complex systems with a space"](https://tel.archives-ouvertes.fr/tel-01959903), Pierre and Marie Curie University, Paris, France 2016.](https://tel.archives-ouvertes.fr/tel-01428319/)
+
+* **Benoit Gaudou**, ["Toward complex models of complex systems - One step further in the art of Agent-Based Modelling"](https://www.researchgate.net/profile/Benoit_Gaudou/publication/312383963_Toward_complex_models_of_complex_systems_-_One_step_further_in_the_art_of_Agent-Based_Modelling/links/587cd54a08ae4445c06b2b7b.pdf), University Toulouse 1 Capitole, France 2016.
+
+* **Nicolas Marilleau**, ["Distributed Approaches based on Agent Based Systems to model and simulate complex systems with a space"](https://hal.inria.fr/UMMISCO/tel-01428319v1), Pierre and Marie Curie University, Paris, France 2016.
 
 
 ## PhD theses
@@ -74,10 +77,39 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 ## Research papers that use GAMA as modeling/simulation support
 
 **2019**
+* [Rodrique, K., Tuong, H., Manh, N., 2019. An Agent-based Simulation for Studying Air Pollution from Traffic in Urban Areas: The Case of Hanoi City. Int. J. Adv. Comput. Sci. Appl. 10. https://doi.org/10.14569/IJACSA.2019.0100376](https://thesai.org/Publications/ViewPaper?Volume=10&Issue=3&Code=IJACSA&SerialNo=76)
+
+* [Micolier, A., Taillandier, F., Taillandier, P., Bos, F., 2019. Li-BIM, an agent-based approach to simulate occupant-building interaction from the Building-Information Modelling. Eng. Appl. Artif. Intell. 82, 44–59. https://doi.org/10.1016/j.engappai.2019.03.008](https://www.sciencedirect.com/science/article/pii/S0952197619300582?fbclid=IwAR197vrRbRq5BOKJqOZRRqHtnOfRxvZ2yJfvvQWQSXLL-p5y1akuDehR4jg)
+
 * [Houssou, N.L.J., Cordero, J.D., Bouadjio-Boulic, A., Morin, L., Maestripieri, N., Ferrant, S., Belem, M., Pelaez Sanchez, J.I., Saenz, M., Lerigoleur, E., Elger, A., Gaudou, B., Maurice, L., Saqalli, M., 2019. Synchronizing Histories of Exposure and Demography: The Construction of an Agent-Based Model of the Ecuadorian Amazon Colonization and Exposure to Oil Pollution Hazards. J. Artif. Soc. Soc. Simul. 22, 1. https://doi.org/10.18564/jasss.3957](http://jasss.soc.surrey.ac.uk/22/2/1.html)
+
+* [Knapps, V., Zimmermann, K.-H., 2019. Distributed Monitoring of Topological Events via Homology. ArXiv190104146 Cs Math.](https://arxiv.org/pdf/1901.04146.pdf?fbclid=IwAR2HitGdAVByVBjr8z5AYu9Rxl16fzge8P4vYbXCoxLtoVGDDmk1ZjZw_vg)
 
 **2018**
 * [Marilleau, N., Lang, C., Giraudoux, P., 2018. Coupling agent-based with equation-based models to study spatially explicit megapopulation dynamics. Ecol. Model. 384, 34–42. https://doi.org/10.1016/j.ecolmodel.2018.06.011](https://www.sciencedirect.com/science/article/pii/S0304380018302163)
+
+* [Alfeo, A.L., Ferrer, E.C., Carrillo, Y.L., Grignard, A., Pastor, L.A., Sleeper, D.T., Cimino, M.G.C.A., Lepri, B., Vaglini, G., Larson, K., Dorigo, M., Pentland, A. `Sandy’, 2018. Urban Swarms: A new approach for autonomous waste management. ArXiv181007910 Cs.](https://arxiv.org/pdf/1810.07910.pdf?fbclid=IwAR1l03b-whlHCWsKG6B_0Dv8CboY12epzCHyNYbcft_CZKHWpZETZvBcGis)
+
+* [Qu, H., Drummond, F., 2018. Simulation-based modeling of wild blueberry pollination. Comput. Electron. Agric. 144, 94–101. https://doi.org/10.1016/j.compag.2017.11.003](https://www.sciencedirect.com/science/article/pii/S0168169916310274?fbclid=IwAR2pwkfBJAfZFl6B0En6uZvSloIqLw8ge_oEQ9Bnt0eKk-QgUbNapl2Ke_E)
+
+* [Shaham, Y., Benenson, I., 2018. Modeling fire spread in cities with non-flammable construction. Int. J. Disaster Risk Reduct. 31, 1337–1353. https://doi.org/10.1016/j.ijdrr.2018.03.010](https://www.sciencedirect.com/science/article/pii/S2212420918302991?fbclid=IwAR2zpwWzjazONUVbYjU-YyriG76HViaI-lJn0ShejD2AAkp8MX5siejsNYE)
+
+
+* [Mewes, B., Schumann, A.H., 2018. IPA (v1): a framework for agent-based modelling of soil water movement. Geosci. Model Dev. 11, 2175–2187. https://doi.org/10.5194/gmd-11-2175-2018](https://www.geosci-model-dev.net/11/2175/2018/gmd-11-2175-2018.pdf)
+
+* [Grignard, A., Macià, N., Alonso Pastor, L., Noyman, A., Zhang, Y., Larson, K., 2018. CityScope Andorra: A Multi-level Interactive and Tangible Agent-based Visualization, in: Proceedings of the 17th International Conference on Autonomous Agents and MultiAgent Systems, AAMAS ’18. International Foundation for Autonomous Agents and Multiagent Systems, Richland, SC, pp. 1939–1940.](https://dl.acm.org/citation.cfm?id=3238030&fbclid=IwAR1q0nOhOs0xw1yttMjeQ_P41fKaDWX-EN-hzL92s9rPdunEuCpQSFyFmsU)
+
+* [Zhang, Y., Grignard, A., Lyons, K., Aubuchon, A., Larson, K., 2018. Real-time Machine Learning Prediction of an Agent-Based Model for Urban Decision-making (Extended Abstract) 3.](http://ifaamas.org/Proceedings/aamas2018/pdfs/p2171.pdf)
+
+* [Bandyopadhyay, M., Singh, V., 2018. Agent-based geosimulation for assessment of urban emergency response plans. Arab. J. Geosci. 11, 165. https://doi.org/10.1007/s12517-018-3523-5](https://link.springer.com/article/10.1007/s12517-018-3523-5?fbclid=IwAR3O4FZnj0Z0S1bxVtm9cZIaa3WsDZeRQweFE2jz5WQwjh-UGHOfMHrd6HA)
+
+* [Samad, T., Iqbal, S., Malik, A.W., Arif, O., Bloodsworth, P., 2018. A multi-agent framework for cloud-based management of collaborative robots. Int. J. Adv. Robot. Syst. 15, 172988141878507. https://doi.org/10.1177/1729881418785073](https://journals.sagepub.com/doi/10.1177/1729881418785073?fbclid=IwAR1f8fpYevgnIP1WQVgktpxKFvS25nP1909EkpxqaCqnn0rwXSqnNoNXtcU)
+
+* [Humann, J., Spero, E., 2018. Modeling and simulation of multi-UAV, multi-operator surveillance systems, in: 2018 Annual IEEE International Systems Conference (SysCon). Presented at the 2018 Annual IEEE International Systems Conference (SysCon), pp. 1–8. https://doi.org/10.1109/SYSCON.2018.8369546](https://ieeexplore.ieee.org/abstract/document/8369546?fbclid=IwAR0qCeI1WHraRCeff7jDY7leNZOpeW-nUgUM24wdzvZZ-EVo3osE00vYbaE)
+
+* [Mazzoli, M., Re, T., Bertilone, R., Maggiora, M., Pellegrino, J., 2018. Agent Based Rumor Spreading in a scale-free network. ArXiv180505999 Cs.](https://arxiv.org/pdf/1805.05999.pdf?fbclid=IwAR0IBcHTAewId0jtn1MMqOhxMeO-19qnaA_1V6Wy1o8r6E9zzUWL4XRp4Pw)
+
+* [Grignard, A., Alonso, L., Taillandier, P., Gaudou, B., Nguyen-Huu, T., Gruel, W., Larson, K., 2018a. The Impact of New Mobility Modes on a City: A Generic Approach Using ABM, in: Morales, A.J., Gershenson, C., Braha, D., Minai, A.A., Bar-Yam, Y. (Eds.), Unifying Themes in Complex Systems IX, Springer Proceedings in Complexity. Springer International Publishing, pp. 272–280.](https://link.springer.com/chapter/10.1007/978-3-319-96661-8_29)
 
 * [Touhbi, S., Babram, M.A., Nguyen-Huu, T., Marilleau, N., Hbid, M.L., Cambier, C., Stinckwich, S., 2018. Time Headway analysis on urban roads of the city of Marrakesh. Procedia Comput. Sci. 130, 111–118. https://doi.org/10.1016/j.procs.2018.04.019](https://www.sciencedirect.com/science/article/pii/S1877050918303697)
 
@@ -92,6 +124,12 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Valette, M., Gaudou, B., Longin, D., Taillandier, P., 2018. Modeling a Real-Case Situation of Egress Using BDI Agents with Emotions and Social Skills, in: Miller, T., Oren, N., Sakurai, Y., Noda, I., Savarimuthu, B.T.R., Cao Son, T. (Eds.), PRIMA 2018: Principles and Practice of Multi-Agent Systems. Springer International Publishing, Cham, pp. 3–18. https://doi.org/10.1007/978-3-030-03098-8_1](https://link.springer.com/chapter/10.1007/978-3-030-03098-8_1)
 
 * [Humann, J., Spero, E. (2018) Modeling and Simulation of multi-UAV, multi-Operator Surveillance Systems, 2018 Annual IEEE International Systems Conference (SysCon), Vancouver, BC.](https://ieeexplore.ieee.org/document/8369546)
+
+* [Lammoglia, A., Leturcq, S., Delay, E., 2018. Le modèle VitiTerroir pour simuler la dynamique spatiale des vignobles sur le temps long (1836-2014). Exemple d’application au département d’Indre-et-Loire. Cybergeo Eur. J. Geogr. https://doi.org/10.4000/cybergeo.29324](https://journals.openedition.org/cybergeo/29324?fbclid=IwAR0EZmIGxzsUEMY4movt59gB9xV0XiL35B0B-ELg2-eFMJvMNL12ohqlbdQ)
+
+* [Amores, D., Vasardani, M., Tanin, E., 2018. Early Detection of Herding Behaviour during Emergency Evacuations 15 pages. https://doi.org/10.4230/lipics.giscience.2018.1](http://drops.dagstuhl.de/opus/volltexte/2018/9329/pdf/LIPIcs-GISCIENCE-2018-1.pdf?fbclid=IwAR0oHXmLM8V8wX7kqBjH0-o_sXzEPEriIhDTa9FrpfLdiBQQgAE5Sl7NAFM)
+
+* [Rakotoarisoa, M.M., Fleurant, C., Taibi, A.N., Rouan, M., Caillault, S., Razakamanana, T., Ballouche, A., 2018. Un modèle multi-agents pour évaluer la vulnérabilité aux inondations : le cas des villages aux alentours du Fleuve Fiherenana (Madagascar). Cybergeo Eur. J. Geogr. https://doi.org/10.4000/cybergeo.29144](https://journals.openedition.org/cybergeo/29144?fbclid=IwAR324KnZAEbK2cTV1x3L-DG-1Ggzp67kKFt6puZ8PwMcRCf5XIYT6Sv9wAI)
 
 **2017**
 
@@ -119,6 +157,8 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 
 **2016**
 * [Fosset, P., Banos, A., Beck, E., Chardonnel, S., Lang, C., Marilleau, N., Piombini, A., Leysens, T., Conesa, A., Andre-Poyaud, I., Thevenin, T., 2016. Exploring Intra-Urban Accessibility and Impacts of Pollution Policies with an Agent-Based Simulation Platform: GaMiroD. Systems 4, 5. https://doi.org/10.3390/systems4010005](https://www.mdpi.com/2079-8954/4/1/5/htm)
+
+* [Grignard, A., Fantino, G., Lauer, J.W., Verpeaux, A., Drogoul, A., 2016. Agent-Based Visualization: A Simulation Tool for the Analysis of River Morphosedimentary Adjustments, in: Gaudou, B., Sichman, J.S. (Eds.), Multi-Agent Based Simulation XVI. Springer International Publishing, Cham, pp. 109–120. https://doi.org/10.1007/978-3-319-31447-1_7](https://link.springer.com/chapter/10.1007/978-3-319-96661-8_29?fbclid=IwAR2k4X7QTJ5LuD2ScbJwcQjrq0Xqkl0U7PNWdxvOis6Ydl1bAepRGnCzdtM)
 
 * [Lucien, L., Lang, C., Marilleau, N., Philippe, L., 2016. Multiagent Hybrid Architecture for Collaborative Exchanges between Communicating Vehicles in an Urban Context. Procedia Comput. Sci. 83, 695–699. https://doi.org/10.1016/j.procs.2016.04.154](https://www.sciencedirect.com/science/article/pii/S1877050916301855)
 
