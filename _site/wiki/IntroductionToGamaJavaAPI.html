@@ -3720,6 +3720,17 @@ function closeRightMenu() {
 
 <h2 id="exception">Exception</h2>
 
+<p>An exception that can appear in the GAMA platform can be run using the <code class="highlighter-rouge">GamaRuntimeException</code> class. This class allows throwing an error (using <code class="highlighter-rouge">error(String,IScope)</code> method) or a warning (using <code class="highlighter-rouge">warning(String,IScope)</code> method).</p>
+
+<p>In particular, it can be useful to catch the Java Exception and to throw a GAMA exception.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try {
+        ...
+} catch(Exception e) {
+	throw GamaRuntimeException.error("informative message", scope);
+}
+</code></pre></div></div>
+
 <p>GamaRuntimeException</p>
 
 <h2 id="debug">Debug</h2>
