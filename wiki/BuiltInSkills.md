@@ -523,17 +523,17 @@ Action used by a networking agent to connect to a server or as a server.
 
 * returns: bool  
 	 
-#### **`leave_the_group`**
+#### **`join_group`**
+
+
+* returns: void 			
+* **`with_name`** (string):   
+	 
+#### **`leave_group`**
 leave a group of agent
 
 * returns: void 			
-* **`from`** (string): name of the group the agent wants to leave  
-	 
-#### **`register_to_group`**
-
-
-* returns: void 			
-* **`to`** (string):   
+* **`with_name`** (string): name of the group the agent wants to leave  
 	 
 #### **`simulate_step`**
 Simulate a step to test the skill. It must be used for Gama-platform test only

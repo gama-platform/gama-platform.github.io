@@ -93,6 +93,18 @@ boolean b = scope.interrupted();
 
 ## Exception
 
+An exception that can appear in the GAMA platform can be run using the `GamaRuntimeException` class. This class allows throwing an error (using `error(String,IScope)` method) or a warning (using `warning(String,IScope)` method). 
+
+In particular, it can be useful to catch the Java Exception and to throw a GAMA exception.
+
+```
+try {
+        ...
+} catch(Exception e) {
+	throw GamaRuntimeException.error("informative message", scope);
+}
+```
+
 GamaRuntimeException
 
 ## Debug

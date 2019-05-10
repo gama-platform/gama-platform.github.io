@@ -66,10 +66,8 @@ GAMA is being designed, developed and maintained by an active group of researche
 * **[Philippe Caillou](https://www.lri.fr/~caillou)**, Associate professor at the [University Paris Sud 11](http://www.u-psud.fr), member of the [LRI](http://www.lri.fr) and [INRIA](http://www.inria.fr) project-team [TAO](https://tao.lri.fr/tiki-index.php). Contributes since 2012 and actually working on charts, simulation analysis and BDI agents.
 * **[Vo Duc An](https://www.researchgate.net/profile/Duc-An_Vo)**, Post-doctoral Researcher, working on synthetic population generation in agent-based modelling, at the [UMMISCO](http://www.ummisco.ird.fr) International Research Unit of the [IRD](http://www.ird.fr). Has contributed to bringing the platform to the Eclipse RCP environment and to the development of several features (e.g., the FIPA-compliant agent communication capability, the multi-level architecture).
 * **[Truong Xuan Viet](https://www.researchgate.net/profile/Viet_Truong_Xuan)**, software engineering lecturer at [CTU](http://www.ctu.edu.vn) and PhD fellow ([PDI-MSC](http://www.ummisco.ird.fr/pdi/)) at [UPMC](http://www.upmc.fr/). Contributes since 2011 to the development of new features related to R caller, online GIS (OPENGIS: Web Map Service - WMS, Web Feature Services - WMS, Google map, etc).
-  * Samuel Thiriot
-
-
-
+* Samuel Thiriot
+* **[Jean-Daniel.Zucker](https://www.researchgate.net/profile/Jean-daniel_Zucker)**, Senior Researcher at the [IRD](http://www.ird.fr), member and director of the [UMMISCO](http://www.ummisco.ird.fr) International Research Unit. Mostly working on Machine Learning and also optimization using agent-based modeling and simulation. Has contributed to different models and advised different students on GAMA since its beginning.
 
 ## Citing GAMA
 If you use GAMA in your research and want to cite it (in a paper, presentation, whatever), please use this reference:

@@ -5,25 +5,24 @@ wikiPageName: Contribute
 wikiPagePath: wiki/Contribute.md
 ---
 # Contribute
+GAMA is a free opensource software and we take pride in sharing the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extend by developing additional plugins.
 
-Since GAMA is a free opensource software, we are proud to share the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extend through the use of additional plugins.
-
-## Table of content
+## Table of contents
 
 * [Developer documentation](#developer-documentation)
 * [Source code](#source-code)
-* [GAMA Dev mailing list](#gama-dev-mailing-list)
+* [GAMA Developer mailing list](#gama-dev-mailing-list)
 * [Developers](#developers)
 * [Citing GAMA](#citing-gama)
 
 ## Developer documentation
 
-A more complete documentation exists on Github at the following address : [https://github.com/gama-platform/gama/wiki](https://github.com/gama-platform/gama/wiki). You can find here the last updated version of the documentation (the documentation of the latest git version), and also a [developer documentation](https://github.com/gama-platform/gama/wiki/DevelopingExtensions) (which is not available in the "regular" website).
+A complete documentation exists on Github at the following address : [https://github.com/gama-platform/gama/wiki](https://github.com/gama-platform/gama/wiki). You can find here the latest version of the documentation (the documentation of the latest git version) and also a [developer documentation](https://github.com/gama-platform/gama/wiki/DevelopingExtensions) (which is not available on the "regular" website).
 
 ## Source Code
 
-GAMA can be downloaded as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
-The source code is available from this GITHub repository:
+GAMA can be downloaded as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary, if you want to contribute to the platform.
+The source code is available from this GitHub repository:
 
 ```
 https://github.com/gama-platform/gama
