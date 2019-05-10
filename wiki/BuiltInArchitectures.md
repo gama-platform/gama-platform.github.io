@@ -462,12 +462,12 @@ get the list of plans.
 	 
 #### **`get_social_link`**
 get the social link (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.SocialLink 			
+* returns: social_link 			
 * **`social_link`** (546707): social link to check  
 	 
 #### **`get_social_link_with_agent`**
 get the social link with the agent concerned (if several, returns the first one).
-* returns: msi.gaml.architecture.simplebdi.SocialLink 			
+* returns: social_link 			
 * **`agent`** (agent): an agent with who I get a social link  
 	 
 #### **`get_uncertainty`**

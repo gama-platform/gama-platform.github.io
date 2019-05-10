@@ -3044,10 +3044,10 @@ socialize;
   * `nSteps` (float): Adams-Bashforth and Adams-Moulton methods only. The number of past steps used for computation excluding the one being computed (default value: 2
   * `scalAbsoluteTolerance` (float): allowed absolute error (used with dp853 method only)
   * `scalRelativeTolerance` (float): allowed relative error (used with dp853 method only)
-  * `step` (float): integration step, use with most integrator methods (default value: 1)
-  * `step_size` (float): integration step, use with most integrator methods (default value: 1)
-  * `time_final` (float): target time for the integration (can be set to a value smaller than t0 for backward integration)
-  * `time_initial` (float): initial time 
+  * `step` (float): (deprecated) integration step, use with fixed step integrator methods (default value: 0.005*step)
+  * `step_size` (float): integration step, use with fixed step integrator methods (default value: 0.005*step)
+  * `t0` (float): the first bound of the integration interval (defaut value: cycle*step, the time at the begining of the current cycle.)
+  * `tf` (float): the second bound of the integration interval. Can be smaller than t0 for a backward integration (defaut value: cycle*step, the time at the begining of the current cycle.) 
  	
 #### Definition
 

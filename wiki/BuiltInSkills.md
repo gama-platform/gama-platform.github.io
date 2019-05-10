@@ -504,6 +504,7 @@ Action used by a networking agent to connect to a server or as a server.
 * **`with_name`** (string): name of the agent on the server 			
 * **`login`** (string): login for the connection to the server 			
 * **`password`** (string): password associated to the login 			
+* **`force_network_use`** (boolean): force the use of the network even interaction between local agents 			
 * **`to`** (string): server URL (localhost or a server URL)  
 	 
 #### **`execute`**
@@ -532,7 +533,12 @@ leave a group of agent
 
 
 * returns: void 			
-* **`to`** (string): 
+* **`to`** (string):   
+	 
+#### **`simulate_step`**
+Simulate a step to test the skill. It must be used for Gama-platform test only
+
+* returns: void
     	
 ----
 

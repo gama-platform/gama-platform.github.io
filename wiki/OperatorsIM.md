@@ -545,16 +545,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
-  * `species` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`species` , `unknown`) --->  `int`
   * `list` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`list` , `unknown`) --->  `int`
-  * `matrix` **`index_of`** `unknown` --->  `point`
-  *  **`index_of`** (`matrix` , `unknown`) --->  `point`
+  * `species` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`species` , `unknown`) --->  `int`
+  * `string` **`index_of`** `string` --->  `int`
+  *  **`index_of`** (`string` , `string`) --->  `int`
   * `map<unknown,unknown>` **`index_of`** `unknown` --->  `unknown`
   *  **`index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
-  * `string` **`index_of`** `string` --->  `int`
-  *  **`index_of`** (`string` , `string`) --->  `int` 
+  * `matrix` **`index_of`** `unknown` --->  `point`
+  *  **`index_of`** (`matrix` , `unknown`) --->  `point` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container
@@ -575,19 +575,19 @@ int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
 ``` 
 
     
-  * if the left operand is a matrix, index_of returns the index as a point 
-  
-```
- 
-point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var3 equals {1.0,0.0}
-``` 
-
-    
   * if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string 
   
 ```
  
-int var4 <-  "abcabcabc" index_of "ca"; // var4 equals 2
+int var3 <-  "abcabcabc" index_of "ca"; // var3 equals 2
+``` 
+
+    
+  * if the left operand is a matrix, index_of returns the index as a point 
+  
+```
+ 
+point var4 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var4 equals {1.0,0.0}
 ``` 
 
 
@@ -722,17 +722,17 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 ### `internal_at`
 
 #### Possible use: 
+  * `geometry` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
   * `agent` **`internal_at`** `list` --->  `unknown`
   *  **`internal_at`** (`agent` , `list`) --->  `unknown`
-  * `container<KeyType,ValueType>.Addressable<KeyType,ValueTyp>>` **`internal_at`** `list<KeyType>` --->  `ValueType`
-  *  **`internal_at`** (`container<KeyType,ValueType>.Addressable<KeyType,ValueTyp>>` , `list<KeyType>`) --->  `ValueType`
-  * `geometry` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `list`) --->  `unknown` 
+  * `container<KeyType,ValueType>` **`internal_at`** `list<KeyType>` --->  `ValueType`
+  *  **`internal_at`** (`container<KeyType,ValueType>` , `list<KeyType>`) --->  `ValueType` 
 
 #### Result: 
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
 For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
-For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]    
+For internal use only. Corresponds to the implementation of the access to containers with [index]    
 
 
 #### See also: 
@@ -1340,15 +1340,15 @@ Constructs a file of type json. Allowed extensions are limited to json
   *  **`kappa`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float` 
 
 #### Result: 
-kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
 kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
+kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20.
 
 #### Examples: 
 ```
- 
-float var0 <- kappa(["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var0 equals 0.29411764705882354kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])  
-float var2 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 0.3333333333333334 
-float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
+kappa([cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2],[cat1,cat2,cat3])  
+float var1 <- kappa([1,3,5,1,5],[1,1,1,1,5],[1,3,5]); // var1 equals 0.3333333333333334 
+float var2 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var2 equals 1.0 
+float var3 <- kappa(["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var3 equals 0.29411764705882354
 
 ```
   
@@ -1363,14 +1363,14 @@ float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
   *  **`kappa_sim`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float` 
 
 #### Result: 
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
 
 #### Examples: 
 ```
  
-float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var0 equals 0.2702702702702703 
-float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]); // var1 equals 0.3333333333333335
+float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]); // var0 equals 0.3333333333333335 
+float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var1 equals 0.2702702702702703
 
 ```
   
@@ -1461,8 +1461,8 @@ float var1 <- kurtosis(3,12) with_precision(4); // var1 equals -2.9999
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
   *  **`last`** (`string`) --->  `string`
+  *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
   * `int` **`last`** `container` --->  `list`
   *  **`last`** (`int` , `container`) --->  `list` 
 
@@ -1480,19 +1480,19 @@ the last operator behavior depends on the nature of the operand
   * if it is a matrix, last returns the element at {length-1,length-1} in the matrix    
   * for a matrix of int or float, it will return 0 if the matrix is empty    
   * for a matrix of object or geometry, it will return nil if the matrix is empty    
-  * if it is a list, last returns the last element of the list, or nil if the list is empty 
-  
-```
- 
-int var0 <- last ([1, 2, 3]); // var0 equals 3
-``` 
-
-    
   * if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty 
   
 ```
  
-string var1 <- last ('abce'); // var1 equals 'e'
+string var0 <- last ('abce'); // var0 equals 'e'
+``` 
+
+    
+  * if it is a list, last returns the last element of the list, or nil if the list is empty 
+  
+```
+ 
+int var1 <- last ([1, 2, 3]); // var1 equals 3
 ``` 
 
     
@@ -1508,14 +1508,14 @@ string var1 <- last ('abce'); // var1 equals 'e'
 ### `last_index_of`
 
 #### Possible use: 
-  * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
   * `map<unknown,unknown>` **`last_index_of`** `unknown` --->  `unknown`
   *  **`last_index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
+  * `matrix` **`last_index_of`** `unknown` --->  `point`
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int` 
 
@@ -1527,19 +1527,11 @@ The definition of last_index_of and the type of the index depend on the containe
 
 #### Special cases:     
   * if the left operand is a species, the last index of an agent is the same as its index    
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var0 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var0 equals {1.0,2.0}
-``` 
-
-    
   * if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string 
   
 ```
  
-int var1 <- "abcabcabc" last_index_of "ca"; // var1 equals 5
+int var0 <- "abcabcabc" last_index_of "ca"; // var0 equals 5
 ``` 
 
     
@@ -1547,7 +1539,15 @@ int var1 <- "abcabcabc" last_index_of "ca"; // var1 equals 5
   
 ```
  
-unknown var2 <- [1::2, 3::4, 5::4] last_index_of 4; // var2 equals 5
+unknown var1 <- [1::2, 3::4, 5::4] last_index_of 4; // var1 equals 5
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+ 
+point var2 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var2 equals {1.0,2.0}
 ``` 
 
     
@@ -1644,8 +1644,8 @@ layout_circle(graph, world.shape);
   *  **`layout_force`** (`graph`, `geometry`, `float`, `float`, `int`, `float`) --->  `graph` 
 
 #### Result: 
-layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_force, cooling_rate, max_iteration, equilibirum criterion). graph is the graph to which applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_force is the coefficien use to compute the force, typical value is 0.4; cooling rate is the decreasing coefficient of the temperature, typical value is 0.01;  max_iteration is the maximal number of iterations; equilibirum criterion is the maximaldistance of displacement for a vertice to be considered as in equilibrium
 layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_force, cooling_rate, max_iteration). graph is the graph to which applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_force is the coefficient used to compute the force, typical value is 0.4; cooling rate is the decreasing coefficient of the temperature, typical value is 0.01;  max_iteration is the maximal number of iterationsdistance of displacement for a vertice to be considered as in equilibrium
+layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_force, cooling_rate, max_iteration, equilibirum criterion). graph is the graph to which applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_force is the coefficien use to compute the force, typical value is 0.4; cooling rate is the decreasing coefficient of the temperature, typical value is 0.01;  max_iteration is the maximal number of iterations; equilibirum criterion is the maximaldistance of displacement for a vertice to be considered as in equilibrium
     	
 ----
 
@@ -1727,8 +1727,8 @@ int var3 <- length(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var3 e
   *  **`line`** (`container<unknown,geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
-A polyline geometry from the given list of points.
 A polyline geometry from the given list of points represented as a cylinder of radius r.
+A polyline geometry from the given list of points.
 
 #### Special cases:     
   * if the operand is nil, returns the point geometry {0,0}    
@@ -1739,7 +1739,7 @@ A polyline geometry from the given list of points represented as a cylinder of r
   
 ```
  
-geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var1 equals a polyline geometry composed of the 4 points.
+geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals a polyline geometry composed of the 4 points.
 ``` 
 
 
@@ -1747,7 +1747,7 @@ geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var1 equals 
 #### Examples: 
 ```
  
-geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 equals a polyline geometry composed of the 4 points.
+geometry var1 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}]); // var1 equals a polyline geometry composed of the 4 points.
 
 ```
       
@@ -1830,8 +1830,8 @@ list var0 <- list_with(5,2); // var0 equals [2,2,2,2,2]
 ### `ln`
 
 #### Possible use: 
-  *  **`ln`** (`float`) --->  `float`
-  *  **`ln`** (`int`) --->  `float` 
+  *  **`ln`** (`int`) --->  `float`
+  *  **`ln`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the natural logarithm (base e) of the operand.
@@ -1842,8 +1842,8 @@ Returns the natural logarithm (base e) of the operand.
 #### Examples: 
 ```
  
-float var0 <- ln(exp(1)); // var0 equals 1.0 
-float var1 <- ln(1); // var1 equals 0.0
+float var0 <- ln(1); // var0 equals 0.0 
+float var1 <- ln(exp(1)); // var1 equals 1.0
 
 ```
       
@@ -1860,13 +1860,13 @@ float var1 <- ln(1); // var1 equals 0.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `file` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -1885,7 +1885,7 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
-  * "file": the file containing the network 
+  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
@@ -1896,6 +1896,13 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
   
 ```
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy ); 
+``` 
+
+    
+  * "file": the file containing the network 
+  
+```
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
     
@@ -1912,18 +1919,11 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 		
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
 ``` 
 
-    
-  * "format": the format of the file, "filename": the filename of the file containing the network 
-  
-```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"example_of_Pajek_file"); 
-``` 
-
 
 
 #### Examples: 
 ```
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy); graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 			"pajek", 			"./example_of_Pajek_file", 			myVertexSpecy, 			myEdgeSpecy , true); 
 
 ```
   
@@ -1954,8 +1954,8 @@ graph var0 <- load_shortest_paths(shortest_paths_matrix); // var0 equals return 
 ### `load_sub_model`
 
 #### Possible use: 
-  * `string` **`load_sub_model`** `string` --->  `msi.gama.kernel.experiment.IExperimentAgent`
-  *  **`load_sub_model`** (`string` , `string`) --->  `msi.gama.kernel.experiment.IExperimentAgent` 
+  * `string` **`load_sub_model`** `string` --->  `agent`
+  *  **`load_sub_model`** (`string` , `string`) --->  `agent` 
 
 #### Result: 
 Load a submodel  
