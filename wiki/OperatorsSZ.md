@@ -158,7 +158,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Files-related operators
-[crs](OperatorsBC#crs), [csv_file](OperatorsBC#csv_file), [dxf_file](OperatorsDH#dxf_file), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [gaml_file](OperatorsDH#gaml_file), [geojson_file](OperatorsDH#geojson_file), [get](OperatorsDH#get), [gif_file](OperatorsDH#gif_file), [gml_file](OperatorsDH#gml_file), [grid_file](OperatorsDH#grid_file), [image_file](OperatorsIM#image_file), [is_csv](OperatorsIM#is_csv), [is_dxf](OperatorsIM#is_dxf), [is_gaml](OperatorsIM#is_gaml), [is_geojson](OperatorsIM#is_geojson), [is_gif](OperatorsIM#is_gif), [is_gml](OperatorsIM#is_gml), [is_grid](OperatorsIM#is_grid), [is_image](OperatorsIM#is_image), [is_json](OperatorsIM#is_json), [is_obj](OperatorsIM#is_obj), [is_osm](OperatorsIM#is_osm), [is_pgm](OperatorsIM#is_pgm), [is_property](OperatorsIM#is_property), [is_R](OperatorsIM#is_r), [is_saved_simulation](OperatorsIM#is_saved_simulation), [is_shape](OperatorsIM#is_shape), [is_svg](OperatorsIM#is_svg), [is_text](OperatorsIM#is_text), [is_threeds](OperatorsIM#is_threeds), [is_URL](OperatorsIM#is_url), [is_xml](OperatorsIM#is_xml), [json_file](OperatorsIM#json_file), [new_folder](OperatorsNR#new_folder), [obj_file](OperatorsNR#obj_file), [osm_file](OperatorsNR#osm_file), [pgm_file](OperatorsNR#pgm_file), [property_file](OperatorsNR#property_file), [R_file](OperatorsNR#r_file), [read](OperatorsNR#read), [saved_simulation_file](OperatorsSZ#saved_simulation_file), [shape_file](OperatorsSZ#shape_file), [step_sub_model](OperatorsSZ#step_sub_model), [svg_file](OperatorsSZ#svg_file), [text_file](OperatorsSZ#text_file), [threeds_file](OperatorsSZ#threeds_file), [URL_file](OperatorsSZ#url_file), [writable](OperatorsSZ#writable), [xml_file](OperatorsSZ#xml_file), 
+[crs](OperatorsBC#crs), [csv_file](OperatorsBC#csv_file), [dxf_file](OperatorsDH#dxf_file), [evaluate_sub_model](OperatorsDH#evaluate_sub_model), [file](OperatorsDH#file), [file_exists](OperatorsDH#file_exists), [folder](OperatorsDH#folder), [gaml_file](OperatorsDH#gaml_file), [geojson_file](OperatorsDH#geojson_file), [get](OperatorsDH#get), [gif_file](OperatorsDH#gif_file), [gml_file](OperatorsDH#gml_file), [grid_file](OperatorsDH#grid_file), [image_file](OperatorsIM#image_file), [is_csv](OperatorsIM#is_csv), [is_dxf](OperatorsIM#is_dxf), [is_gaml](OperatorsIM#is_gaml), [is_geojson](OperatorsIM#is_geojson), [is_gif](OperatorsIM#is_gif), [is_gml](OperatorsIM#is_gml), [is_grid](OperatorsIM#is_grid), [is_image](OperatorsIM#is_image), [is_json](OperatorsIM#is_json), [is_obj](OperatorsIM#is_obj), [is_osm](OperatorsIM#is_osm), [is_pgm](OperatorsIM#is_pgm), [is_property](OperatorsIM#is_property), [is_R](OperatorsIM#is_r), [is_saved_simulation](OperatorsIM#is_saved_simulation), [is_shape](OperatorsIM#is_shape), [is_svg](OperatorsIM#is_svg), [is_text](OperatorsIM#is_text), [is_threeds](OperatorsIM#is_threeds), [is_xml](OperatorsIM#is_xml), [json_file](OperatorsIM#json_file), [new_folder](OperatorsNR#new_folder), [obj_file](OperatorsNR#obj_file), [osm_file](OperatorsNR#osm_file), [pgm_file](OperatorsNR#pgm_file), [property_file](OperatorsNR#property_file), [R_file](OperatorsNR#r_file), [read](OperatorsNR#read), [saved_simulation_file](OperatorsSZ#saved_simulation_file), [shape_file](OperatorsSZ#shape_file), [step_sub_model](OperatorsSZ#step_sub_model), [svg_file](OperatorsSZ#svg_file), [text_file](OperatorsSZ#text_file), [threeds_file](OperatorsSZ#threeds_file), [writable](OperatorsSZ#writable), [xml_file](OperatorsSZ#xml_file), 
 
 ----
 
@@ -333,14 +333,14 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`sample`** (`list`, `int`, `bool`, `list`) --->  `list` 
 
 #### Result: 
-takes a sample of the specified size from the elements of x using either with or without replacement with given weights
 takes a sample of the specified size from the elements of x using either with or without replacement
+takes a sample of the specified size from the elements of x using either with or without replacement with given weights
 
 #### Examples: 
 ```
  
-list var0 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var0 equals [10,2] 
-list var1 <- sample([2,10,1],2,false); // var1 equals [10,1]
+list var0 <- sample([2,10,1],2,false); // var0 equals [10,1] 
+list var1 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var1 equals [10,2]
 
 ```
   
@@ -767,7 +767,7 @@ Sets the z ordinate of the n-th point of a geometry to the value provided by the
 
 #### Examples: 
 ```
-triangle(3) set_z [5,10,14] set_z (triangle(3), 1, 3.0) 
+set_z (triangle(3), 1, 3.0) triangle(3) set_z [5,10,14] 
 
 ```
   
@@ -792,45 +792,45 @@ triangle(3) set_z [5,10,14] set_z (triangle(3), 1, 3.0)
 Constructs a file of type shape. Allowed extensions are limited to shp
 
 #### Special cases:     
-  * shape_file(string): This file constructor allows to read a shapefile (.shp) file according to epsg reference (http://www.epsg.org/) 
+  * shape_file(string): This file constructor allows to read a shapefile (.shp) file 
   
 ```
-file f <- shape_file("file"); 
+file f <- shape_file("file.shp"); 
 ``` 
 
     
   * shape_file(string,int): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code, as an int (epsg code) 
   
 ```
-file f <- shape_file("file", "32648"); 
+file f <- shape_file("file.shp", "32648"); 
 ``` 
 
     
   * shape_file(string,string): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code (epg,...,), as a string 
   
 ```
-file f <- shape_file("file", "EPSG:32648"); 
+file f <- shape_file("file.shp", "EPSG:32648"); 
 ``` 
 
     
   * shape_file(string,bool): This file constructor allows to read a shapefile (.shp) file and take a potential z value (not taken in account by default) 
   
 ```
-file f <- shape_file("file", true); 
+file f <- shape_file("file.shp", true); 
 ``` 
 
     
   * shape_file(string,int,bool): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code, as an int (epsg code) and take a potential z value (not taken in account by default) 
   
 ```
-file f <- shape_file("file", "32648", true); 
+file f <- shape_file("file.shp", "32648", true); 
 ``` 
 
     
   * shape_file(string,string,bool): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code (epg,...,), as a string and take a potential z value (not taken in account by default) 
   
 ```
-file f <- shape_file("file", "EPSG:32648",true); 
+file f <- shape_file("file.shp", "EPSG:32648",true); 
 ``` 
 
     
@@ -847,8 +847,8 @@ file f <- shape_file("file", "EPSG:32648",true);
 
 #### Possible use: 
   *  **`shuffle`** (`matrix`) --->  `matrix`
-  *  **`shuffle`** (`container`) --->  `list`
-  *  **`shuffle`** (`string`) --->  `string` 
+  *  **`shuffle`** (`string`) --->  `string`
+  *  **`shuffle`** (`container`) --->  `list` 
 
 #### Result: 
 The elements of the operand in random order.
@@ -860,8 +860,8 @@ The elements of the operand in random order.
 ```
  
 matrix var0 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var0 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example) 
-list var1 <- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
-string var2 <- shuffle ('abc'); // var2 equals 'bac' (for example)
+string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
+list var2 <- shuffle ([12, 13, 14]); // var2 equals [14,12,13] (for example)
 
 ```
       
@@ -971,8 +971,8 @@ geometry var0 <- self simplification 0.1; // var0 equals the geometry resulting 
 ### `sin`
 
 #### Possible use: 
-  *  **`sin`** (`float`) --->  `float`
-  *  **`sin`** (`int`) --->  `float` 
+  *  **`sin`** (`int`) --->  `float`
+  *  **`sin`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the sinus of the operand (in decimal degrees). The argument is casted to an int before being evaluated.
@@ -983,8 +983,8 @@ Returns the value (in [-1,1]) of the sinus of the operand (in decimal degrees). 
 #### Examples: 
 ```
  
-float var0 <- sin(360) with_precision 10 with_precision 10; // var0 equals 0.0 
-float var1 <- sin (0); // var1 equals 0.0
+float var0 <- sin (0); // var0 equals 0.0 
+float var1 <- sin(360) with_precision 10 with_precision 10; // var1 equals 0.0
 
 ```
       
@@ -1054,8 +1054,8 @@ reflex when: since(starting_date) {}  	// this reflex will always be run every(2
 #### Result: 
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 
 #### Examples: 
 ```
@@ -1384,23 +1384,23 @@ list<geometry> var0 <- polyline([{1,2},{4,6}]) split_at {7,6}; // var0 equals [p
 ### `split_geometry`
 
 #### Possible use: 
-  * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
-  *  **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
   * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
   *  **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
+  * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
+  *  **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
   *  **`split_geometry`** (`geometry`, `int`, `int`) --->  `list<geometry>` 
 
 #### Result: 
+A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
 A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
-A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_squares(self, 10.0); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
-list<geometry> var1 <- to_rectangles(self, 10,20); // var1 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
-list<geometry> var2 <- to_rectangles(self, {10.0, 15.0}); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0
+list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
+list<geometry> var1 <- to_squares(self, 10.0); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
+list<geometry> var2 <- to_rectangles(self, 10,20); // var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
 
 ```
   
@@ -1467,14 +1467,14 @@ list<geometry> var1 <- split_lines([line([{0,10}, {20,10}]), line([{0,10}, {20,1
   *  **`split_using`** (`list<unknown>`, `list<? extends java.lang.Comparable>`, `bool`) --->  `list<list<unknown>>` 
 
 #### Result: 
-Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
 Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
+Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound
 
 #### Examples: 
 ```
-list<float> l <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
-list<list<unknown>> var1 <- split_using(l,[1.0,3.0,4.2], true); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
-list<list<unknown>> var3 <- split_using(li,[1.0,3.0,4.2]); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
+list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
+list<list<unknown>> var1 <- split_using(li,[1.0,3.0,4.2]); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]list<float> l <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0];  
+list<list<unknown>> var3 <- split_using(l,[1.0,3.0,4.2], true); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
 
 ```
       
@@ -1495,8 +1495,8 @@ list<list<unknown>> var3 <- split_using(li,[1.0,3.0,4.2]); // var3 equals [[],[1
   *  **`split_with`** (`string`, `string`, `bool`) --->  `list` 
 
 #### Result: 
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.
-Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).  
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited either by each of the characters of the right-hand operand (false) or by the whole right-hand operand (true).
+Returns a list containing the sub-strings (tokens) of the left-hand operand delimited by each of the characters of the right-hand operand.  
 
 #### Comment: 
 Delimiters themselves are excluded from the resulting list.Delimiters themselves are excluded from the resulting list.
@@ -1504,8 +1504,8 @@ Delimiters themselves are excluded from the resulting list.Delimiters themselves
 #### Examples: 
 ```
  
-list var0 <- 'to be or not to be,that is the question' split_with ' ,'; // var0 equals ['to','be','or','not','to','be','that','is','the','question'] 
-list var1 <- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc']
+list var0 <- 'aa::bb:cc' split_with ('::', true); // var0 equals ['aa','bb:cc'] 
+list var1 <- 'to be or not to be,that is the question' split_with ' ,'; // var1 equals ['to','be','or','not','to','be','that','is','the','question']
 
 ```
   
@@ -1666,8 +1666,8 @@ retur for each edge, its strahler number
   *  **`string`** (`date`, `string`, `string`) --->  `string` 
 
 #### Result: 
-converts a date to astring following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 converts a date to astring following a custom pattern and using a specific locale (e.g.: 'fr', 'en', etc.). The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a date to astring following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date & time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 
 #### Examples: 
 ```
@@ -1871,17 +1871,17 @@ unknown var0 <- [1,2] sum_of (each * 100 ); // var0 equals 300
 Constructs a file of type svg. Allowed extensions are limited to svg
 
 #### Special cases:     
-  * svg_file(string):  
+  * svg_file(string): This file constructor allows to read a svg file 
   
 ```
-
+file f <-svg_file("file.svg"); 
 ``` 
 
     
-  * svg_file(string,point):  
+  * svg_file(string,point): This file constructor allows to read a svg file, specifying the size of the bounding box 
   
 ```
-
+file f <-svg_file("file.svg", {10,10}); 
 ``` 
 
     
@@ -1897,8 +1897,8 @@ Constructs a file of type svg. Allowed extensions are limited to svg
 ### `tan`
 
 #### Possible use: 
-  *  **`tan`** (`float`) --->  `float`
-  *  **`tan`** (`int`) --->  `float` 
+  *  **`tan`** (`int`) --->  `float`
+  *  **`tan`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees).
@@ -2039,17 +2039,17 @@ geometry var0 <- teapot(10); // var0 equals a geometry as a circle of radius 10 
 Constructs a file of type text. Allowed extensions are limited to txt, data, text
 
 #### Special cases:     
-  * text_file(string):  
+  * text_file(string): This file constructor allows to read a text file (.txt, .data, .text) 
   
 ```
-
+file f <-text_file("file.txt"); 
 ``` 
 
     
-  * text_file(string,list<string>):  
+  * text_file(string,list<string>): This file constructor allows to store a list of string in a text file (it does not save it - just store it in memory) 
   
 ```
-
+file f <-text_file("file.txt", ["item1","item2","item3"]); 
 ``` 
 
     
@@ -2094,6 +2094,7 @@ threeds_file f <- threeds_file("file");
 
 [//]: # (keyword|operator_to)
 ### `to`
+   Same signification as [until](OperatorsSZ#until)
 
 #### Possible use: 
   * `date` **`to`** `date` --->  `list<date>`
@@ -2185,14 +2186,14 @@ string var11 <- to_gaml(node1); // var11 equals  1 as node
   *  **`to_rectangles`** (`geometry`, `int`, `int`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}, true); // var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_rectangles(self, 5, 20, true); // var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
+list<geometry> var0 <- to_rectangles(self, 5, 20, true); // var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}, true); // var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept
 
 ```
   
@@ -2220,7 +2221,6 @@ list<geometry> var0 <- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equ
 
 [//]: # (keyword|operator_to_squares)
 ### `to_squares`
-   Same signification as [split_geometry](OperatorsSZ#split_geometry)
 
 #### Possible use: 
   *  **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
@@ -2229,15 +2229,15 @@ list<geometry> var0 <- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equ
 
 #### Result: 
 A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
 #### Examples: 
 ```
  
 list<geometry> var0 <- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var2 <- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var1 <- to_squares(self, 10, true, 0.99); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var2 <- to_squares(self, 10, true); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 
 ```
   
@@ -2259,8 +2259,8 @@ A list of geometries resulting after spliting the geometry into sub-geometries.
 #### Examples: 
 ```
  
-list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size 
-list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var1 equals a list of three geometries corresponding to 3 sub-geometries
+list<geometry> var0 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); // var0 equals a list of three geometries corresponding to 3 sub-geometries 
+list<geometry> var1 <- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); // var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size
 
 ```
   
@@ -2522,20 +2522,20 @@ geometry var0 <- triangle(5); // var0 equals a geometry as a triangle with side_
   *  **`triangulate`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- triangulate(self); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var1 <- triangulate(self,0.1, 1.0); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var2 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var3 <- triangulate(self, 0.1); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var4 <- triangulate(self,0.1, 1.0); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list<geometry> var0 <- triangulate(self, 0.1); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var1 <- triangulate(self); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var2 <- triangulate(self,0.1, 1.0); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var3 <- triangulate(self,0.1, 1.0); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var4 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 
 ```
   
@@ -2626,16 +2626,16 @@ the operator alters the operand graph, it does not create a new one.
 returns a new list containing all the elements of both containers without duplicated elements.
 
 #### Special cases:     
-  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries    
-  * if the left or right operand is nil, union throws an error
+  * if the left or right operand is nil, union throws an error    
+  * if the right-operand is a container of points, geometries or agents, returns the geometry resulting from the union all the geometries
 
 #### Examples: 
 ```
  
-geometry var0 <- union([geom1, geom2, geom3]); // var0 equals a geometry corresponding to union between geom1, geom2 and geom3 
-list var1 <- [1,2,3,4,5,6] union [2,4,9]; // var1 equals [1,2,3,4,5,6,9] 
-list var2 <- [1,2,3,4,5,6] union [0,8]; // var2 equals [1,2,3,4,5,6,0,8] 
-list var3 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var3 equals [1,3,2,4,5,6,8,0]
+list var0 <- [1,2,3,4,5,6] union [2,4,9]; // var0 equals [1,2,3,4,5,6,9] 
+list var1 <- [1,2,3,4,5,6] union [0,8]; // var1 equals [1,2,3,4,5,6,0,8] 
+list var2 <- [1,3,2,4,5,6,8,5,6] union [0,8]; // var2 equals [1,3,2,4,5,6,8,0] 
+geometry var3 <- union([geom1, geom2, geom3]); // var3 equals a geometry corresponding to union between geom1, geom2 and geom3
 
 ```
       
@@ -2699,40 +2699,6 @@ string var0 <- upper_case("Abc"); // var0 equals 'ABC'
     	
 ----
 
-[//]: # (keyword|operator_URL_file)
-### `URL_file`
-
-#### Possible use: 
-  *  **`URL_file`** (`string`) --->  `file`
-  * `string` **`URL_file`** `string` --->  `file`
-  *  **`URL_file`** (`string` , `string`) --->  `file` 
-
-#### Result: 
-Constructs a file of type URL. Allowed extensions are limited to url
-
-#### Special cases:     
-  * URL_file(string):  
-  
-```
-
-``` 
-
-    
-  * URL_file(string,string):  
-  
-```
-
-``` 
-
-    
-
-
-#### See also: 
-
-[is_URL](OperatorsIM#is_url), 
-    	
-----
-
 [//]: # (keyword|operator_use_cache)
 ### `use_cache`
 
@@ -2769,7 +2735,7 @@ This operator takes a map [string::value] as argument, displays a dialog asking 
 
 #### Examples: 
 ```
-map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; 
+map<string,unknown> values <- user_input(["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values at "Number") with: [location:: (point(values at "Location"))]; map<string,unknown> values2 <- user_input("Enter numer of agents and locations",["Number" :: 100, "Location" :: {10, 10}]); create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 
 ```
   
@@ -2834,8 +2800,8 @@ float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875
   *  **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
-Returns the variance from a standard deviation.  
+Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.  
 
 #### Comment: 
 In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.
@@ -2843,8 +2809,8 @@ In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+
 #### Examples: 
 ```
  
-int var0 <- int(variance(4,16,84)); // var0 equals 5 
-int var1 <- int(variance([1,3,5,6,9,11,12,13])); // var1 equals 17
+int var0 <- int(variance([1,3,5,6,9,11,12,13])); // var0 equals 17 
+int var1 <- int(variance(4,16,84)); // var1 equals 5
 
 ```
   
@@ -2896,14 +2862,14 @@ float var0 <- [1,2,3,4,5,6] variance_of each with_precision 2; // var0 equals 2.
   *  **`voronoi`** (`list<point>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries corresponding to the Voronoi diagram built from the list of points
 A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points
 
 #### Examples: 
 ```
  
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
 
 ```
   
@@ -3125,24 +3091,24 @@ graphEpidemio <- graphEpidemio with_optimizer_type "static";
 ### `with_precision`
 
 #### Possible use: 
-  * `point` **`with_precision`** `int` --->  `point`
-  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `float` **`with_precision`** `int` --->  `float`
   *  **`with_precision`** (`float` , `int`) --->  `float`
+  * `point` **`with_precision`** `int` --->  `point`
+  *  **`with_precision`** (`point` , `int`) --->  `point`
   * `geometry` **`with_precision`** `int` --->  `geometry`
   *  **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
-Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
 A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ```
  
-point var0 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var0 equals {12345.79, 12345.79, 12345.79} 
-float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
-float var2 <- 123 with_precision 2; // var2 equals 123.00 
+float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
+float var1 <- 123 with_precision 2; // var1 equals 123.00 
+point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
 geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 
 ```
@@ -3258,10 +3224,10 @@ file var0 <- shape_file("../images/point_eau.shp") writable false; // var0 equal
 Constructs a file of type xml. Allowed extensions are limited to xml
 
 #### Special cases:     
-  * xml_file(string):  
+  * xml_file(string): This file constructor allows to read a xml file 
   
 ```
-
+file f <-xml_file("file.xml"); 
 ``` 
 
     
