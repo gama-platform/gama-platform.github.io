@@ -2296,9 +2296,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/NewVersionChanges.html": {
+       "/wiki/New-Version-Changes.html": {
          "title": "Java version",
-         "url": "/wiki/NewVersionChanges.html"
+         "url": "/wiki/New-Version-Changes.html"
        }
         ,
       
@@ -2434,9 +2434,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/PedagogicalMaterials.html": {
+       "/wiki/Pedagogical-Materials.html": {
          "title": "Initiation to algorithms with Scratch",
-         "url": "/wiki/PedagogicalMaterials.html"
+         "url": "/wiki/Pedagogical-Materials.html"
        }
         ,
       
@@ -3543,6 +3543,7 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
  <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/G__GraphicalEditor" class="wiki_menu" >Using Graphical Editor</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
 <div style='padding-left:0em'></div>
@@ -6156,16 +6157,22 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
 <h4 id="facets-52">Facets</h4>
 
 <ul>
-  <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) :</li>
-  <li><code class="highlighter-rouge">finished_when</code> (boolean):</li>
-  <li><code class="highlighter-rouge">instantaneous</code> (boolean):</li>
-  <li><code class="highlighter-rouge">intention</code> (546704):</li>
-  <li><code class="highlighter-rouge">lifetime</code> (int):</li>
-  <li><code class="highlighter-rouge">obligation</code> (546704):</li>
-  <li><code class="highlighter-rouge">priority</code> (float):</li>
-  <li><code class="highlighter-rouge">threshold</code> (float):</li>
-  <li><code class="highlighter-rouge">when</code> (boolean):</li>
+  <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : the name of the norm</li>
+  <li><code class="highlighter-rouge">finished_when</code> (boolean): the boolean condition when the norm is finished</li>
+  <li><code class="highlighter-rouge">instantaneous</code> (boolean): indicates if the norm is instananeous</li>
+  <li><code class="highlighter-rouge">intention</code> (546704): the intention triggering the norm</li>
+  <li><code class="highlighter-rouge">lifetime</code> (int): the lifetime of the norm</li>
+  <li><code class="highlighter-rouge">obligation</code> (546704): the obligation triggering of the norm</li>
+  <li><code class="highlighter-rouge">priority</code> (float): the priority value of the norm</li>
+  <li><code class="highlighter-rouge">threshold</code> (float): the threshold to trigger the norm</li>
+  <li><code class="highlighter-rouge">when</code> (boolean): the boolean condition when the norm is active</li>
 </ul>
+
+<h4 id="definition-52">Definition</h4>
+
+<p>a norm indicates what action the agent has to do in a certain context and with and obedience value higher than the threshold</p>
+
+<h4 id="usages-52">Usages</h4>
 
 <h4 id="embedments-52">Embedments</h4>
 <ul>
@@ -6179,11 +6186,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
 <h3 id="output">output</h3>
 <h4 id="facets-53">Facets</h4>
 
-<h4 id="definition-52">Definition</h4>
+<h4 id="definition-53">Definition</h4>
 
 <p><code class="highlighter-rouge">output</code> blocks define how to visualize a simulation (with one or more display blocks that define separate windows). It will include a set of displays, monitors and files statements. It will be taken into account only if the experiment type is <code class="highlighter-rouge">gui</code>.</p>
 
-<h4 id="usages-52">Usages</h4>
+<h4 id="usages-53">Usages</h4>
 
 <ul>
   <li>Its basic syntax is:</li>
@@ -6219,11 +6226,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">type</code> (an identifier), takes values in: {csv, text, xml}: The type of your output data</li>
 </ul>
 
-<h4 id="definition-53">Definition</h4>
+<h4 id="definition-54">Definition</h4>
 
 <p>Represents an output that writes the result of expressions into a file</p>
 
-<h4 id="usages-53">Usages</h4>
+<h4 id="usages-54">Usages</h4>
 
 <h4 id="embedments-54">Embedments</h4>
 <ul>
@@ -6250,11 +6257,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">transparency</code> (float): the transparency rate of the overlay (between 0 and 1, 1 means no transparency) when it is displayed inside the view. The bottom overlay will remain at 0.75</li>
 </ul>
 
-<h4 id="definition-54">Definition</h4>
+<h4 id="definition-55">Definition</h4>
 
 <p><code class="highlighter-rouge">overlay</code> allows the modeler to display a line to the already existing bottom overlay, where the results of ‘left’, ‘center’ and ‘right’ facets, when they are defined, are displayed with the corresponding color if defined.</p>
 
-<h4 id="usages-54">Usages</h4>
+<h4 id="usages-55">Usages</h4>
 
 <ul>
   <li>To display information in the bottom overlay, the syntax is:</li>
@@ -6296,11 +6303,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">unit</code> (a label): the variable unit</li>
 </ul>
 
-<h4 id="definition-55">Definition</h4>
+<h4 id="definition-56">Definition</h4>
 
 <p>The parameter statement specifies which global attributes (i) will change through the successive simulations (in batch experiments), (ii) can be modified by user via the interface (in gui experiments). In GUI experiments, parameters are displayed depending on their type.</p>
 
-<h4 id="usages-55">Usages</h4>
+<h4 id="usages-56">Usages</h4>
 
 <ul>
   <li>In gui experiment, the general syntax is the following:</li>
@@ -6339,11 +6346,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">when</code> (boolean): a boolean to tell when does the perceive is active</li>
 </ul>
 
-<h4 id="definition-56">Definition</h4>
+<h4 id="definition-57">Definition</h4>
 
 <p>Allow the agent, with a bdi architecture, to perceive others agents</p>
 
-<h4 id="usages-56">Usages</h4>
+<h4 id="usages-57">Usages</h4>
 
 <ul>
   <li>the basic syntax to perceive agents inside a circle of perception</li>
@@ -6370,11 +6377,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">toolbars</code> (boolean): Whether the displays should show their toolbar or not</li>
 </ul>
 
-<h4 id="definition-57">Definition</h4>
+<h4 id="definition-58">Definition</h4>
 
 <p>Represents the outputs of the experiment itself. In a batch experiment, the permanent section allows to define an output block that will NOT be re-initialized at the beginning of each simulation but will be filled at the end of each simulation.</p>
 
-<h4 id="usages-57">Usages</h4>
+<h4 id="usages-58">Usages</h4>
 
 <ul>
   <li>For instance, this permanent section will allow to display for each simulation the end value of the food_gathered variable:</li>
@@ -6406,6 +6413,12 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">when</code> (boolean):</li>
 </ul>
 
+<h4 id="definition-59">Definition</h4>
+
+<p>define an action plan performed by an agent using the BDI engine</p>
+
+<h4 id="usages-59">Usages</h4>
+
 <h4 id="embedments-59">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">plan</code> statement is of type: <strong>Behavior</strong></li>
@@ -6428,11 +6441,11 @@ list var &lt;- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline
   <li><code class="highlighter-rouge">weight</code> (float): an expression that evaluates to a float</li>
 </ul>
 
-<h4 id="definition-58">Definition</h4>
+<h4 id="definition-60">Definition</h4>
 
 <p>Allows the agent to replace a value in a container at a given position (in a list or a map) or for a given key (in a map). Note that the behavior and the type of the attributes depends on the specific kind of container.</p>
 
-<h4 id="usages-58">Usages</h4>
+<h4 id="usages-60">Usages</h4>
 
 <ul>
   <li>The allowed parameters configurations are the following ones:</li>
@@ -6491,11 +6504,11 @@ putMap &lt;- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in
   <li><code class="highlighter-rouge">tabu_list_size_min</code> (int): minimal size of the tabu list</li>
 </ul>
 
-<h4 id="definition-59">Definition</h4>
+<h4 id="definition-61">Definition</h4>
 
 <p>This algorithm is a simple implementation of the Reactive Tabu Search algorithm ((Battiti et al., 1993)). This Reactive Tabu Search is an enhance version of the Tabu search. It adds two new elements to the classic Tabu Search. The first one concerns the size of the tabu list: in the Reactive Tabu Search, this one is not constant anymore but it dynamically evolves according to the context. Thus, when the exploration process visits too often the same solutions, the tabu list is extended in order to favor the diversification of the search process. On the other hand, when the process has not visited an already known solution for a high number of iterations, the tabu list is shortened in order to favor the intensification of the search process. The second new element concerns the adding of cycle detection capacities. Thus, when a cycle is detected, the process applies random movements in order to break the cycle. See [batch161 the batch dedicated page].</p>
 
-<h4 id="usages-59">Usages</h4>
+<h4 id="usages-61">Usages</h4>
 
 <ul>
   <li>As other batch methods, the basic syntax of the reactive_tabu statement uses <code class="highlighter-rouge">method reactive_tabu</code> instead of the expected <code class="highlighter-rouge">reactive_tabu name: id</code> :</li>
@@ -6528,11 +6541,11 @@ putMap &lt;- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in
   <li><code class="highlighter-rouge">when</code> (boolean): an expression that evaluates a boolean, the condition to fulfill in order to execute the statements embedded in the reflex.</li>
 </ul>
 
-<h4 id="definition-60">Definition</h4>
+<h4 id="definition-62">Definition</h4>
 
 <p>Reflexes are sequences of statements that can be executed by the agent. Reflexes prefixed by the ‘reflex’ keyword are executed continuously. Reflexes prefixed by ‘init’ are executed only immediately after the agent has been created. Reflexes prefixed by ‘abort’ just before the agent is killed. If a facet when: is defined, a reflex is executed only if the boolean expression evaluates to true.</p>
 
-<h4 id="usages-60">Usages</h4>
+<h4 id="usages-62">Usages</h4>
 
 <ul>
   <li>Example:</li>
@@ -6560,11 +6573,11 @@ putMap &lt;- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in
   <li><code class="highlighter-rouge">returns</code> (a new identifier): a new variable containing a list of the newly released agent(s)</li>
 </ul>
 
-<h4 id="definition-61">Definition</h4>
+<h4 id="definition-63">Definition</h4>
 
 <p>Allows an agent to release its micro-agent(s). The preliminary for an agent to release its micro-agents is that species of these micro-agents are sub-species of other species (cf. [Species161#Nesting_species Nesting species]). The released agents won’t be micro-agents of the calling agent anymore. Being released from a macro-agent, the micro-agents will change their species and host (macro-agent).</p>
 
-<h4 id="usages-61">Usages</h4>
+<h4 id="usages-63">Usages</h4>
 
 <ul>
   <li>We consider the following species. Agents of “C” species can be released from a “B” agent to become agents of “A” species. Agents of “D” species cannot be released from the “A” agent because species “D” has no parent species.</li>
@@ -6614,11 +6627,11 @@ putMap &lt;- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in
   <li><code class="highlighter-rouge">vertex</code> (any type):</li>
 </ul>
 
-<h4 id="definition-62">Definition</h4>
+<h4 id="definition-64">Definition</h4>
 
 <p>Allows the agent to remove an element from a container (a list, matrix, map…).</p>
 
-<h4 id="usages-62">Usages</h4>
+<h4 id="usages-64">Usages</h4>
 
 <ul>
   <li>This statement should be used in the following ways, depending on the kind of container used and the expected action on it:</li>
@@ -6687,11 +6700,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">value</code> (any type), (omissible) : an expression that is returned</li>
 </ul>
 
-<h4 id="definition-63">Definition</h4>
+<h4 id="definition-65">Definition</h4>
 
 <p>Allows to immediately stop and tell which value to return from the evaluation of the surrounding action or top-level statement (reflex, init, etc.). Usually used within the declaration of an action. For more details about actions, see the following [Section161 section].</p>
 
-<h4 id="usages-63">Usages</h4>
+<h4 id="usages-65">Usages</h4>
 
 <ul>
   <li>Example:</li>
@@ -6764,11 +6777,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">when</code> (boolean):</li>
 </ul>
 
-<h4 id="definition-64">Definition</h4>
+<h4 id="definition-66">Definition</h4>
 
 <p>enables to add a desire or a belief or to remove a belief, a desire or an intention if the agent gets the belief or/and desire or/and condition mentioned.</p>
 
-<h4 id="usages-64">Usages</h4>
+<h4 id="usages-66">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -6815,6 +6828,12 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) :</li>
 </ul>
 
+<h4 id="definition-67">Definition</h4>
+
+<p>declare the actions an agent execute when enforcing norms of others during a perception</p>
+
+<h4 id="usages-67">Usages</h4>
+
 <h4 id="embedments-68">Embedments</h4>
 <ul>
   <li>The <code class="highlighter-rouge">sanction</code> statement is of type: <strong>Behavior</strong></li>
@@ -6838,11 +6857,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">with</code> (map): Allows to define the attributes of a shape file. Keys of the map are the attributes of agents to save, values are the names of attributes in the shape file</li>
 </ul>
 
-<h4 id="definition-65">Definition</h4>
+<h4 id="definition-68">Definition</h4>
 
 <p>Allows to save data in a file. The type of file can be “shp”, “asc”, “geotiff”, “text” or “csv”.</p>
 
-<h4 id="usages-65">Usages</h4>
+<h4 id="usages-68">Usages</h4>
 
 <ul>
   <li>Its simple syntax is:</li>
@@ -6921,11 +6940,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><strong><code class="highlighter-rouge">value</code></strong> (any type): the value to affect to the variable or attribute</li>
 </ul>
 
-<h4 id="definition-66">Definition</h4>
+<h4 id="definition-69">Definition</h4>
 
 <p>Allows to assign a value to the variable or attribute specified</p>
 
-<h4 id="usages-66">Usages</h4>
+<h4 id="usages-69">Usages</h4>
 
 <h4 id="embedments-70">Embedments</h4>
 <ul>
@@ -6939,11 +6958,11 @@ list var &lt;- removeGraph.edges; // var equals []
 <h3 id="setup">setup</h3>
 <h4 id="facets-71">Facets</h4>
 
-<h4 id="definition-67">Definition</h4>
+<h4 id="definition-70">Definition</h4>
 
 <p>The setup statement is used to define the set of instructions that will be executed before every [#test test].</p>
 
-<h4 id="usages-67">Usages</h4>
+<h4 id="usages-70">Usages</h4>
 
 <ul>
   <li>As every test should be independent from the others, the setup will mainly contain initialization of variables that will be used in each test.</li>
@@ -6979,11 +6998,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">with_output</code> (map):</li>
 </ul>
 
-<h4 id="definition-68">Definition</h4>
+<h4 id="definition-71">Definition</h4>
 
 <p>Allows an agent, the sender agent (that can be the [Sections161#global world agent]), to ask another (or other) agent(s) to perform a set of statements. It obeys the following syntax, where the target attribute denotes the receiver agent(s):</p>
 
-<h4 id="usages-68">Usages</h4>
+<h4 id="usages-71">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -7015,11 +7034,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to socialize only with a certain condition</li>
 </ul>
 
-<h4 id="definition-69">Definition</h4>
+<h4 id="definition-72">Definition</h4>
 
 <p>enables to directly add a social link from a perceived agent.</p>
 
-<h4 id="usages-69">Usages</h4>
+<h4 id="usages-72">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -7056,11 +7075,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">tf</code> (float): the second bound of the integration interval. Can be smaller than t0 for a backward integration (defaut value: cycle*step, the time at the begining of the current cycle.)</li>
 </ul>
 
-<h4 id="definition-70">Definition</h4>
+<h4 id="definition-73">Definition</h4>
 
 <p>Solves all equations which matched the given name, with all systems of agents that should solved simultaneously.</p>
 
-<h4 id="usages-70">Usages</h4>
+<h4 id="usages-73">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -7110,11 +7129,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">width</code> (int): (grid only), the width of the grid (in terms of agent number)</li>
 </ul>
 
-<h4 id="definition-71">Definition</h4>
+<h4 id="definition-74">Definition</h4>
 
 <p>The species statement allows modelers to define new species in the model. <code class="highlighter-rouge">global</code> and <code class="highlighter-rouge">grid</code> are speciel cases of species: <code class="highlighter-rouge">global</code> being the definition of the global agent (which has automatically one instance, world) and <code class="highlighter-rouge">grid</code> being a species with a grid topology.</p>
 
-<h4 id="usages-71">Usages</h4>
+<h4 id="usages-74">Usages</h4>
 
 <ul>
   <li>Here is an example of a species definition with a FSM architecture and the additional skill moving:</li>
@@ -7181,11 +7200,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">initial</code> (boolean): specifies whether the state is the initial one (default value = false)</li>
 </ul>
 
-<h4 id="definition-72">Definition</h4>
+<h4 id="definition-75">Definition</h4>
 
 <p>A state, like a reflex, can contains several statements that can be executed at each time step by the agent.</p>
 
-<h4 id="usages-72">Usages</h4>
+<h4 id="usages-75">Usages</h4>
 
 <ul>
   <li>Here is an exemple integrating 2 states and the statements in the FSM architecture:</li>
@@ -7215,11 +7234,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">color</code> (rgb): The color used for displaying the background of the status message</li>
 </ul>
 
-<h4 id="definition-73">Definition</h4>
+<h4 id="definition-76">Definition</h4>
 
 <p>The statement makes the agent output an arbitrary message in the status box.</p>
 
-<h4 id="usages-73">Usages</h4>
+<h4 id="usages-76">Usages</h4>
 
 <ul>
   <li>Outputting a message</li>
@@ -7244,11 +7263,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><strong><code class="highlighter-rouge">value</code></strong> (any type), (omissible) : an expression</li>
 </ul>
 
-<h4 id="definition-74">Definition</h4>
+<h4 id="definition-77">Definition</h4>
 
 <p>The “switch… match” statement is a powerful replacement for imbricated “if … else …” constructs. All the blocks that match are executed in the order they are defined. The block prefixed by default is executed only if none have matched (otherwise it is not).</p>
 
-<h4 id="usages-74">Usages</h4>
+<h4 id="usages-77">Usages</h4>
 
 <ul>
   <li>The prototypical syntax is as follows:</li>
@@ -7289,11 +7308,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">tabu_list_size</code> (int): size of the tabu list</li>
 </ul>
 
-<h4 id="definition-75">Definition</h4>
+<h4 id="definition-78">Definition</h4>
 
 <p>This algorithm is an implementation of the Tabu Search algorithm. See the wikipedia article and [batch161 the batch dedicated page].</p>
 
-<h4 id="usages-75">Usages</h4>
+<h4 id="usages-78">Usages</h4>
 
 <ul>
   <li>As other batch methods, the basic syntax of the tabu statement uses <code class="highlighter-rouge">method tabu</code> instead of the expected <code class="highlighter-rouge">tabu name: id</code> :</li>
@@ -7326,11 +7345,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><strong><code class="highlighter-rouge">weight</code></strong> (float): the priority level of the task</li>
 </ul>
 
-<h4 id="definition-76">Definition</h4>
+<h4 id="definition-79">Definition</h4>
 
 <p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
 
-<h4 id="usages-76">Usages</h4>
+<h4 id="usages-79">Usages</h4>
 
 <h4 id="embedments-81">Embedments</h4>
 <ul>
@@ -7348,11 +7367,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">name</code> (an identifier), (omissible) : identifier of the test</li>
 </ul>
 
-<h4 id="definition-77">Definition</h4>
+<h4 id="definition-80">Definition</h4>
 
 <p>The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue.</p>
 
-<h4 id="usages-77">Usages</h4>
+<h4 id="usages-80">Usages</h4>
 
 <ul>
   <li>An example of use:</li>
@@ -7377,11 +7396,11 @@ list var &lt;- removeGraph.edges; // var equals []
 <h3 id="trace">trace</h3>
 <h4 id="facets-83">Facets</h4>
 
-<h4 id="definition-78">Definition</h4>
+<h4 id="definition-81">Definition</h4>
 
 <p>All the statements executed in the trace statement are displayed in the console.</p>
 
-<h4 id="usages-78">Usages</h4>
+<h4 id="usages-81">Usages</h4>
 
 <h4 id="embedments-83">Embedments</h4>
 <ul>
@@ -7400,11 +7419,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">when</code> (boolean), (omissible) : a condition to be fulfilled to have a transition to another given state</li>
 </ul>
 
-<h4 id="definition-79">Definition</h4>
+<h4 id="definition-82">Definition</h4>
 
 <p>In an FSM architecture, <code class="highlighter-rouge">transition</code> specifies the next state of the life cycle. The transition occurs when the condition is fulfilled. The embedded statements are executed when the transition is triggered.</p>
 
-<h4 id="usages-79">Usages</h4>
+<h4 id="usages-82">Usages</h4>
 
 <ul>
   <li>In the following example, the transition is executed when after 2 steps:</li>
@@ -7429,11 +7448,11 @@ list var &lt;- removeGraph.edges; // var equals []
 <h3 id="try">try</h3>
 <h4 id="facets-85">Facets</h4>
 
-<h4 id="definition-80">Definition</h4>
+<h4 id="definition-83">Definition</h4>
 
 <p>Allows the agent to execute a sequence of statements and to catch any runtime error that might happen in a subsequent <code class="highlighter-rouge">catch</code> block, either to ignore it (not a good idea, usually) or to safely stop the model</p>
 
-<h4 id="usages-80">Usages</h4>
+<h4 id="usages-83">Usages</h4>
 
 <ul>
   <li>The generic syntax is:</li>
@@ -7471,11 +7490,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">when</code> (boolean): A boolean value to get the emotion only with a certain condition</li>
 </ul>
 
-<h4 id="definition-81">Definition</h4>
+<h4 id="definition-84">Definition</h4>
 
 <p>enables to directly copy an emotion presents in the perceived specie.</p>
 
-<h4 id="usages-81">Usages</h4>
+<h4 id="usages-84">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -7506,11 +7525,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">with</code> (map): the map of the parameters::values required by the action</li>
 </ul>
 
-<h4 id="definition-82">Definition</h4>
+<h4 id="definition-85">Definition</h4>
 
 <p>Anywhere in the global block, in a species or in an (GUI) experiment, user_command statements allows to either call directly an existing action (with or without arguments) or to be followed by a block that describes what to do when this command is run.</p>
 
-<h4 id="usages-82">Usages</h4>
+<h4 id="usages-85">Usages</h4>
 
 <ul>
   <li>The general syntax is for example:</li>
@@ -7540,11 +7559,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">initial</code> (boolean): Whether or not this panel will be the initial one</li>
 </ul>
 
-<h4 id="definition-83">Definition</h4>
+<h4 id="definition-86">Definition</h4>
 
 <p>Used in the user control architecture, user_init is executed only once when the agent is created. It opens a special panel (if it contains user_commands statements). It is the equivalent to the init block in the basic agent architecture.</p>
 
-<h4 id="usages-83">Usages</h4>
+<h4 id="usages-86">Usages</h4>
 
 <ul>
   <li>See also: <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_input">user_input</a>,</li>
@@ -7573,11 +7592,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">type</code> (a datatype identifier): the variable type</li>
 </ul>
 
-<h4 id="definition-84">Definition</h4>
+<h4 id="definition-87">Definition</h4>
 
 <p>It allows to let the user define the value of a variable.</p>
 
-<h4 id="usages-84">Usages</h4>
+<h4 id="usages-87">Usages</h4>
 
 <ul>
   <li>Other examples of use:
@@ -7604,11 +7623,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">initial</code> (boolean): Whether or not this panel will be the initial one</li>
 </ul>
 
-<h4 id="definition-85">Definition</h4>
+<h4 id="definition-88">Definition</h4>
 
 <p>It is the basic behavior of the user control architecture (it is similar to state for the FSM architecture). This user_panel translates, in the interface, in a semi-modal view that awaits the user to choose action buttons, change attributes of the controlled agent, etc. Each user_panel, like a state in FSM, can have a enter and exit sections, but it is only defined in terms of a set of user_commands which describe the different action buttons present in the panel.</p>
 
-<h4 id="usages-85">Usages</h4>
+<h4 id="usages-88">Usages</h4>
 
 <ul>
   <li>The general syntax is for example:</li>
@@ -7637,11 +7656,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><strong><code class="highlighter-rouge">topology</code></strong> (topology), (omissible) : the topology</li>
 </ul>
 
-<h4 id="definition-86">Definition</h4>
+<h4 id="definition-89">Definition</h4>
 
 <p><code class="highlighter-rouge">using</code> is a statement that allows to set the topology to use by its sub-statements. They can gather it by asking the scope to provide it.</p>
 
-<h4 id="usages-86">Usages</h4>
+<h4 id="usages-89">Usages</h4>
 
 <ul>
   <li>All the spatial operations are topology-dependent (e.g. neighbors are not the same in a continuous and in a grid topology). So <code class="highlighter-rouge">using</code> statement allows modelers to specify the topology in which the spatial operation will be computed.</li>
@@ -7679,11 +7698,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">value</code> (any type):</li>
 </ul>
 
-<h4 id="definition-87">Definition</h4>
+<h4 id="definition-90">Definition</h4>
 
 <p>Allows to declare an attribute of a species or an experiment</p>
 
-<h4 id="usages-87">Usages</h4>
+<h4 id="usages-90">Usages</h4>
 
 <h4 id="embedments-92">Embedments</h4>
 <ul>
@@ -7714,11 +7733,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">value</code> (any type in [int, float]):</li>
 </ul>
 
-<h4 id="definition-88">Definition</h4>
+<h4 id="definition-91">Definition</h4>
 
 <p>Allows to declare an attribute of a species or experiment</p>
 
-<h4 id="usages-88">Usages</h4>
+<h4 id="usages-91">Usages</h4>
 
 <h4 id="embedments-93">Embedments</h4>
 <ul>
@@ -7748,11 +7767,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">value</code> (any type):</li>
 </ul>
 
-<h4 id="definition-89">Definition</h4>
+<h4 id="definition-92">Definition</h4>
 
 <p>Allows to declare an attribute of a species or an experiment</p>
 
-<h4 id="usages-89">Usages</h4>
+<h4 id="usages-92">Usages</h4>
 
 <h4 id="embedments-94">Embedments</h4>
 <ul>
@@ -7770,11 +7789,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><strong><code class="highlighter-rouge">message</code></strong> (string), (omissible) : the message to display as a warning.</li>
 </ul>
 
-<h4 id="definition-90">Definition</h4>
+<h4 id="definition-93">Definition</h4>
 
 <p>The statement makes the agent output an arbitrary message in the error view as a warning.</p>
 
-<h4 id="usages-90">Usages</h4>
+<h4 id="usages-93">Usages</h4>
 
 <ul>
   <li>Emmitting a warning</li>
@@ -7800,11 +7819,11 @@ list var &lt;- removeGraph.edges; // var equals []
   <li><code class="highlighter-rouge">color</code> (rgb): The color with wich the message will be displayed. Note that different simulations will have different (default) colors to use for this purpose if this facet is not specified</li>
 </ul>
 
-<h4 id="definition-91">Definition</h4>
+<h4 id="definition-94">Definition</h4>
 
 <p>The statement makes the agent output an arbitrary message in the console.</p>
 
-<h4 id="usages-91">Usages</h4>
+<h4 id="usages-94">Usages</h4>
 
 <ul>
   <li>Outputting a message</li>

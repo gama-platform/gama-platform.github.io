@@ -2296,9 +2296,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/NewVersionChanges.html": {
+       "/wiki/New-Version-Changes.html": {
          "title": "Java version",
-         "url": "/wiki/NewVersionChanges.html"
+         "url": "/wiki/New-Version-Changes.html"
        }
         ,
       
@@ -2434,9 +2434,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/PedagogicalMaterials.html": {
+       "/wiki/Pedagogical-Materials.html": {
          "title": "Initiation to algorithms with Scratch",
-         "url": "/wiki/PedagogicalMaterials.html"
+         "url": "/wiki/Pedagogical-Materials.html"
        }
         ,
       
@@ -3543,6 +3543,7 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
  <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/G__GraphicalEditor" class="wiki_menu" >Using Graphical Editor</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
 <div style='padding-left:0em'></div>
@@ -3720,6 +3721,8 @@ function closeRightMenu() {
 
 <h2 id="exception">Exception</h2>
 
+<p><a href="https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gama/runtime/exceptions">exceptions</a> in GAMA</p>
+
 <p>An exception that can appear in the GAMA platform can be run using the <code class="highlighter-rouge">GamaRuntimeException</code> class. This class allows throwing an error (using <code class="highlighter-rouge">error(String,IScope)</code> method) or a warning (using <code class="highlighter-rouge">warning(String,IScope)</code> method).</p>
 
 <p>In particular, it can be useful to catch the Java Exception and to throw a GAMA exception.</p>
@@ -3731,25 +3734,37 @@ function closeRightMenu() {
 }
 </code></pre></div></div>
 
-<p>GamaRuntimeException</p>
-
 <h2 id="debug">Debug</h2>
 
-<p>Benchmark and also static debug (?)</p>
+<p>Main class for debug is in ummisco.gama.dev.utils : <a href="https://github.com/gama-platform/gama/tree/master/ummisco.gama.annotations/src/ummisco/gama/dev/utils">DEBUG</a></p>
+
+<ul>
+  <li>
+    <p>Turn on or off the debug for one class: <code class="highlighter-rouge">DEBUG.ON()</code> or <code class="highlighter-rouge">DEBUG.OFF()</code></p>
+  </li>
+  <li>
+    <p>You can benchmark a method call using : <code class="highlighter-rouge">DEBUG.TIME("Title to log", () -&gt; methodToBenchmark(...))</code></p>
+  </li>
+  <li>
+    <p>You can use different built-in level to print: <code class="highlighter-rouge">DEBUG.ERR(string s)</code> <code class="highlighter-rouge">DEBUG.LOG(string s)</code> <code class="highlighter-rouge">DEBUG.OUT(Object message)</code></p>
+  </li>
+</ul>
 
 <h2 id="test">Test</h2>
 
 <p>There is Gaml primitives and statement to define test:</p>
 
-<p>test “Operator + (1)” {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test "Operator + (1)" {
 	assert (circle(5) + 5).height with_precision 1 = 20.0;
 	assert (circle(5) + 5).location with_precision 9 = (circle(10)).location with_precision 9;
-}</p>
+}
+</code></pre></div></div>
 
 <p>Everything can be made using Java Annotation (translated to Gaml test) :</p>
 
-<p>examples = { @example (value=”…“,equals=”…” )  }
-test = {« …”} / don’t forget to turn test arg of examples to false</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>examples = { @example (value="...",equals="..." )  }
+test = {« ..."} / don’t forget to turn test arg of examples to false
+</code></pre></div></div>
 
 <hr />
 <h1 id="packages">Packages</h1>

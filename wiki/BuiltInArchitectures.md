@@ -36,7 +36,7 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 ----
 
 [//]: # (keyword|architecture_parallel_bdi)
-## parallel_bdi 
+## parallel_bdicompute the bdi architecture in parallel 
 ### Variables
 	 
  	
@@ -66,40 +66,40 @@ wikiPagePath: wiki/BuiltInArchitectures.md
 ----
 
 [//]: # (keyword|architecture_simple_bdi)
-## simple_bdi 
+## simple_bdithis arcitecture enables to define a behaviour using BDI. It is an implementation of the BEN architecture (Behaviour with Emotions and Norms) 
 ### Variables
 	   
-* **`agreeableness`** (float):    
-* **`belief_base`** (list):    
-* **`charisma`** (float):    
-* **`conscientiousness`** (float):    
-* **`current_norm`** (any type):    
-* **`current_plan`** (any type):    
-* **`desire_base`** (list):    
-* **`emotion_base`** (list):    
-* **`extroversion`** (float):    
-* **`ideal_base`** (list):    
-* **`intention_base`** (list):    
+* **`agreeableness`** (float): an agreeableness value for the personality   
+* **`belief_base`** (list): the belief base of the agent   
+* **`charisma`** (float): a charisma value. By default, it is computed with personality   
+* **`conscientiousness`** (float): a conscientiousness value for the personality   
+* **`current_norm`** (any type): the current norm of the agent   
+* **`current_plan`** (any type): thecurrent plan of the agent   
+* **`desire_base`** (list): the desire base of the agent   
+* **`emotion_base`** (list): the emotion base of the agent   
+* **`extroversion`** (float): an extraversion value for the personality   
+* **`ideal_base`** (list): the ideal base of the agent   
+* **`intention_base`** (list): the intention base of the agent   
 * **`intention_persistence`** (float): intention persistence   
-* **`law_base`** (list):    
-* **`neurotism`** (float):    
-* **`norm_base`** (list):    
-* **`obedience`** (float):    
-* **`obligation_base`** (list):    
-* **`openness`** (float):    
-* **`plan_base`** (list):    
+* **`law_base`** (list): the law base of the agent   
+* **`neurotism`** (float): a neurotism value for the personality   
+* **`norm_base`** (list): the norm base of the agent   
+* **`obedience`** (float): an obedience value. By default, it is computed with personality   
+* **`obligation_base`** (list): the obligation base of the agent   
+* **`openness`** (float): an openness value for the personality   
+* **`plan_base`** (list): the plan base of the agent   
 * **`plan_persistence`** (float): plan persistence   
-* **`probabilistic_choice`** (boolean):    
-* **`receptivity`** (float):    
-* **`sanction_base`** (list):    
-* **`social_link_base`** (list):    
-* **`thinking`** (list):    
-* **`uncertainty_base`** (list):    
-* **`use_emotions_architecture`** (boolean):    
-* **`use_norms`** (boolean):    
-* **`use_persistence`** (boolean):    
-* **`use_personality`** (boolean):    
-* **`use_social_architecture`** (boolean):  
+* **`probabilistic_choice`** (boolean): indicates if the choice is deterministic or probabilistic   
+* **`receptivity`** (float): a receptivity value. By default, it is computed with personality   
+* **`sanction_base`** (list): the sanction base of the agent   
+* **`social_link_base`** (list): the social link base of the agent   
+* **`thinking`** (list): the list of the last thoughts of the agent   
+* **`uncertainty_base`** (list): the uncertainty base of the agent   
+* **`use_emotions_architecture`** (boolean): indicates if emotions are automaticaly computed   
+* **`use_norms`** (boolean): indicates if the normative engine is used   
+* **`use_persistence`** (boolean): indicates if the persistence coefficient is computed with personality (false) or with the value given by the modeler   
+* **`use_personality`** (boolean): indicates if the personnality is used   
+* **`use_social_architecture`** (boolean): indicates if social relations are automaticaly computed 
  	
 ### Actions 
 	  

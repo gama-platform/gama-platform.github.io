@@ -501,7 +501,7 @@ Action used by a networking agent to connect to a server or as a server.
 * returns: void 			
 * **`protocol`** (string): protocol type (MQTT (by default), TCP, UDP): the possible value ares 'udp_server', 'udp_emitter', 'tcp_server', 'tcp_client', otherwise the MQTT protocol is used. 			
 * **`port`** (int): Port number 			
-* **`with_name`** (string): name of the agent on the server 			
+* **`with_name`** (string): ID of the agent (its name) for the simulation 			
 * **`login`** (string): login for the connection to the server 			
 * **`password`** (string): password associated to the login 			
 * **`force_network_use`** (boolean): force the use of the network even interaction between local agents 			
@@ -524,13 +524,13 @@ Action used by a networking agent to connect to a server or as a server.
 * returns: bool  
 	 
 #### **`join_group`**
-
+allow an agent to join a group of agents in order to broadcast messages to other membersor to receive messages sent by other members. Note that all members of the group called : "ALL".
 
 * returns: void 			
-* **`with_name`** (string):   
+* **`with_name`** (string): name of the group  
 	 
 #### **`leave_group`**
-leave a group of agent
+leave a group of agents. The leaving agent will not receive any message from the group. Overwhise, it can send messages to the left group
 
 * returns: void 			
 * **`with_name`** (string): name of the group the agent wants to leave  

@@ -2296,9 +2296,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/NewVersionChanges.html": {
+       "/wiki/New-Version-Changes.html": {
          "title": "Java version",
-         "url": "/wiki/NewVersionChanges.html"
+         "url": "/wiki/New-Version-Changes.html"
        }
         ,
       
@@ -2434,9 +2434,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/PedagogicalMaterials.html": {
+       "/wiki/Pedagogical-Materials.html": {
          "title": "Initiation to algorithms with Scratch",
-         "url": "/wiki/PedagogicalMaterials.html"
+         "url": "/wiki/Pedagogical-Materials.html"
        }
         ,
       
@@ -3543,6 +3543,7 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
  <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/G__GraphicalEditor" class="wiki_menu" >Using Graphical Editor</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
 <div style='padding-left:0em'></div>
@@ -4177,7 +4178,7 @@ function closeRightMenu() {
   <li>returns: void</li>
   <li><strong><code class="highlighter-rouge">protocol</code></strong> (string): protocol type (MQTT (by default), TCP, UDP): the possible value ares ‘udp_server’, ‘udp_emitter’, ‘tcp_server’, ‘tcp_client’, otherwise the MQTT protocol is used.</li>
   <li><strong><code class="highlighter-rouge">port</code></strong> (int): Port number</li>
-  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): name of the agent on the server</li>
+  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): ID of the agent (its name) for the simulation</li>
   <li><strong><code class="highlighter-rouge">login</code></strong> (string): login for the connection to the server</li>
   <li><strong><code class="highlighter-rouge">password</code></strong> (string): password associated to the login</li>
   <li><strong><code class="highlighter-rouge">force_network_use</code></strong> (boolean): force the use of the network even interaction between local agents</li>
@@ -4204,14 +4205,15 @@ function closeRightMenu() {
 </ul>
 
 <h4 id="join_group"><strong><code class="highlighter-rouge">join_group</code></strong></h4>
+<p>allow an agent to join a group of agents in order to broadcast messages to other membersor to receive messages sent by other members. Note that all members of the group called : “ALL”.</p>
 
 <ul>
   <li>returns: void</li>
-  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string):</li>
+  <li><strong><code class="highlighter-rouge">with_name</code></strong> (string): name of the group</li>
 </ul>
 
 <h4 id="leave_group"><strong><code class="highlighter-rouge">leave_group</code></strong></h4>
-<p>leave a group of agent</p>
+<p>leave a group of agents. The leaving agent will not receive any message from the group. Overwhise, it can send messages to the left group</p>
 
 <ul>
   <li>returns: void</li>

@@ -93,6 +93,8 @@ boolean b = scope.interrupted();
 
 ## Exception
 
+[exceptions](https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gama/runtime/exceptions) in GAMA
+
 An exception that can appear in the GAMA platform can be run using the `GamaRuntimeException` class. This class allows throwing an error (using `error(String,IScope)` method) or a warning (using `warning(String,IScope)` method). 
 
 In particular, it can be useful to catch the Java Exception and to throw a GAMA exception.
@@ -105,25 +107,33 @@ try {
 }
 ```
 
-GamaRuntimeException
-
 ## Debug
 
-Benchmark and also static debug (?)
+Main class for debug is in ummisco.gama.dev.utils : [DEBUG](https://github.com/gama-platform/gama/tree/master/ummisco.gama.annotations/src/ummisco/gama/dev/utils) 
+
+- Turn on or off the debug for one class: `DEBUG.ON()` or `DEBUG.OFF()`
+
+- You can benchmark a method call using : `DEBUG.TIME("Title to log", () -> methodToBenchmark(...))`
+
+- You can use different built-in level to print: `DEBUG.ERR(string s)` `DEBUG.LOG(string s)` `DEBUG.OUT(Object message)`
 
 ## Test
 
 There is Gaml primitives and statement to define test:
 
+```
 test "Operator + (1)" {
 	assert (circle(5) + 5).height with_precision 1 = 20.0;
 	assert (circle(5) + 5).location with_precision 9 = (circle(10)).location with_precision 9;
 }
+```
 
 Everything can be made using Java Annotation (translated to Gaml test) : 
 
+```
 examples = { @example (value="...",equals="..." )  }
 test = {« ..."} / don’t forget to turn test arg of examples to false
+```
 
 ***
 # Packages

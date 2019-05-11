@@ -2296,9 +2296,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/NewVersionChanges.html": {
+       "/wiki/New-Version-Changes.html": {
          "title": "Java version",
-         "url": "/wiki/NewVersionChanges.html"
+         "url": "/wiki/New-Version-Changes.html"
        }
         ,
       
@@ -2434,9 +2434,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/PedagogicalMaterials.html": {
+       "/wiki/Pedagogical-Materials.html": {
          "title": "Initiation to algorithms with Scratch",
-         "url": "/wiki/PedagogicalMaterials.html"
+         "url": "/wiki/Pedagogical-Materials.html"
        }
         ,
       
@@ -3543,6 +3543,7 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
  <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/G__GraphicalEditor" class="wiki_menu" >Using Graphical Editor</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
 <div style='padding-left:0em'></div>
@@ -3657,7 +3658,7 @@ function closeRightMenu() {
 
 <hr />
 
-<h2 id="parallel_bdi">parallel_bdi</h2>
+<h2 id="parallel_bdicompute-the-bdi-architecture-in-parallel">parallel_bdicompute the bdi architecture in parallel</h2>
 <h3 id="variables-1">Variables</h3>
 
 <h3 id="actions-1">Actions</h3>
@@ -3678,41 +3679,41 @@ function closeRightMenu() {
 
 <hr />
 
-<h2 id="simple_bdi">simple_bdi</h2>
+<h2 id="simple_bdithis-arcitecture-enables-to-define-a-behaviour-using-bdi-it-is-an-implementation-of-the-ben-architecture-behaviour-with-emotions-and-norms">simple_bdithis arcitecture enables to define a behaviour using BDI. It is an implementation of the BEN architecture (Behaviour with Emotions and Norms)</h2>
 <h3 id="variables-4">Variables</h3>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">agreeableness</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">belief_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">charisma</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">conscientiousness</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">current_norm</code></strong> (any type):</li>
-  <li><strong><code class="highlighter-rouge">current_plan</code></strong> (any type):</li>
-  <li><strong><code class="highlighter-rouge">desire_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">emotion_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">extroversion</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">ideal_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">intention_base</code></strong> (list):</li>
+  <li><strong><code class="highlighter-rouge">agreeableness</code></strong> (float): an agreeableness value for the personality</li>
+  <li><strong><code class="highlighter-rouge">belief_base</code></strong> (list): the belief base of the agent</li>
+  <li><strong><code class="highlighter-rouge">charisma</code></strong> (float): a charisma value. By default, it is computed with personality</li>
+  <li><strong><code class="highlighter-rouge">conscientiousness</code></strong> (float): a conscientiousness value for the personality</li>
+  <li><strong><code class="highlighter-rouge">current_norm</code></strong> (any type): the current norm of the agent</li>
+  <li><strong><code class="highlighter-rouge">current_plan</code></strong> (any type): thecurrent plan of the agent</li>
+  <li><strong><code class="highlighter-rouge">desire_base</code></strong> (list): the desire base of the agent</li>
+  <li><strong><code class="highlighter-rouge">emotion_base</code></strong> (list): the emotion base of the agent</li>
+  <li><strong><code class="highlighter-rouge">extroversion</code></strong> (float): an extraversion value for the personality</li>
+  <li><strong><code class="highlighter-rouge">ideal_base</code></strong> (list): the ideal base of the agent</li>
+  <li><strong><code class="highlighter-rouge">intention_base</code></strong> (list): the intention base of the agent</li>
   <li><strong><code class="highlighter-rouge">intention_persistence</code></strong> (float): intention persistence</li>
-  <li><strong><code class="highlighter-rouge">law_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">neurotism</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">norm_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">obedience</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">obligation_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">openness</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">plan_base</code></strong> (list):</li>
+  <li><strong><code class="highlighter-rouge">law_base</code></strong> (list): the law base of the agent</li>
+  <li><strong><code class="highlighter-rouge">neurotism</code></strong> (float): a neurotism value for the personality</li>
+  <li><strong><code class="highlighter-rouge">norm_base</code></strong> (list): the norm base of the agent</li>
+  <li><strong><code class="highlighter-rouge">obedience</code></strong> (float): an obedience value. By default, it is computed with personality</li>
+  <li><strong><code class="highlighter-rouge">obligation_base</code></strong> (list): the obligation base of the agent</li>
+  <li><strong><code class="highlighter-rouge">openness</code></strong> (float): an openness value for the personality</li>
+  <li><strong><code class="highlighter-rouge">plan_base</code></strong> (list): the plan base of the agent</li>
   <li><strong><code class="highlighter-rouge">plan_persistence</code></strong> (float): plan persistence</li>
-  <li><strong><code class="highlighter-rouge">probabilistic_choice</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">receptivity</code></strong> (float):</li>
-  <li><strong><code class="highlighter-rouge">sanction_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">social_link_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">thinking</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">uncertainty_base</code></strong> (list):</li>
-  <li><strong><code class="highlighter-rouge">use_emotions_architecture</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">use_norms</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">use_persistence</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">use_personality</code></strong> (boolean):</li>
-  <li><strong><code class="highlighter-rouge">use_social_architecture</code></strong> (boolean):</li>
+  <li><strong><code class="highlighter-rouge">probabilistic_choice</code></strong> (boolean): indicates if the choice is deterministic or probabilistic</li>
+  <li><strong><code class="highlighter-rouge">receptivity</code></strong> (float): a receptivity value. By default, it is computed with personality</li>
+  <li><strong><code class="highlighter-rouge">sanction_base</code></strong> (list): the sanction base of the agent</li>
+  <li><strong><code class="highlighter-rouge">social_link_base</code></strong> (list): the social link base of the agent</li>
+  <li><strong><code class="highlighter-rouge">thinking</code></strong> (list): the list of the last thoughts of the agent</li>
+  <li><strong><code class="highlighter-rouge">uncertainty_base</code></strong> (list): the uncertainty base of the agent</li>
+  <li><strong><code class="highlighter-rouge">use_emotions_architecture</code></strong> (boolean): indicates if emotions are automaticaly computed</li>
+  <li><strong><code class="highlighter-rouge">use_norms</code></strong> (boolean): indicates if the normative engine is used</li>
+  <li><strong><code class="highlighter-rouge">use_persistence</code></strong> (boolean): indicates if the persistence coefficient is computed with personality (false) or with the value given by the modeler</li>
+  <li><strong><code class="highlighter-rouge">use_personality</code></strong> (boolean): indicates if the personnality is used</li>
+  <li><strong><code class="highlighter-rouge">use_social_architecture</code></strong> (boolean): indicates if social relations are automaticaly computed</li>
 </ul>
 
 <h3 id="actions-4">Actions</h3>

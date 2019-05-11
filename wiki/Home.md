@@ -25,6 +25,7 @@ Example of application domains where GAMA is mostly present :
 * Epidemiology
 * Environment
 
+## Training sessions
 Some [training sessions](TrainingSession) about topics such as "urban management", "epidemiology", "risk management" are also provided by the team.
 Since GAMA is an open-source software that continues to grow, if you have any particular needs for improvement, feel free to [share it to its active community](https://groups.google.com/forum/#!forum/gama-platform) !
 
