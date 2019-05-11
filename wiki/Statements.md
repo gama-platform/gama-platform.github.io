@@ -2216,15 +2216,22 @@ monitor "nb preys" value: length(prey as list) refresh_every: 5;
 ### norm 
 #### Facets 
 
-  * `name` (an identifier), (omissible) : 
-  * `finished_when` (boolean): 
-  * `instantaneous` (boolean): 
-  * `intention` (546704): 
-  * `lifetime` (int): 
-  * `obligation` (546704): 
-  * `priority` (float): 
-  * `threshold` (float): 
-  * `when` (boolean): 
+  * `name` (an identifier), (omissible) : the name of the norm
+  * `finished_when` (boolean): the boolean condition when the norm is finished
+  * `instantaneous` (boolean): indicates if the norm is instananeous
+  * `intention` (546704): the intention triggering the norm
+  * `lifetime` (int): the lifetime of the norm
+  * `obligation` (546704): the obligation triggering of the norm
+  * `priority` (float): the priority value of the norm
+  * `threshold` (float): the threshold to trigger the norm
+  * `when` (boolean): the boolean condition when the norm is active 
+ 	
+#### Definition
+
+a norm indicates what action the agent has to do in a certain context and with and obedience value higher than the threshold
+
+#### Usages
+
 
 #### Embedments
 * The `norm` statement is of type: **Behavior**
@@ -2445,7 +2452,14 @@ permanent { 	display Ants background: rgb('white') refresh_every: 1 { 		chart "F
   * `intention` (546704): 
   * `priority` (float): 
   * `threshold` (float): 
-  * `when` (boolean): 
+  * `when` (boolean):  
+ 	
+#### Definition
+
+define an action plan performed by an agent using the BDI engine
+
+#### Usages
+
 
 #### Embedments
 * The `plan` statement is of type: **Behavior**
@@ -2826,7 +2840,14 @@ rule belief: new_predicate("test") when: flip(0.5) new_desire: new_predicate("te
 ### sanction 
 #### Facets 
 
-  * `name` (an identifier), (omissible) : 
+  * `name` (an identifier), (omissible) :  
+ 	
+#### Definition
+
+declare the actions an agent execute when enforcing norms of others during a perception
+
+#### Usages
+
 
 #### Embedments
 * The `sanction` statement is of type: **Behavior**

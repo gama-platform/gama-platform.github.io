@@ -471,7 +471,7 @@ experiment MyExperiment type: gui {
 					draw (shortest_path.shape+1) color: #magenta;
 				}
 				loop edges over: my_graph.edges {
-					draw edges color: #black;
+					draw geometry(edges) color: #black;
 				}
 			}
 		}

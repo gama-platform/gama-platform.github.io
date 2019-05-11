@@ -85,8 +85,9 @@ wikiPagePath: wiki/_Sidebar.md
 11. [Save and restore Simulations](Save-and-restore-simulations)
 12. [Using network](UsingNetwork)
 13. [Headless mode](Headless-mode-for-dummies)
-14. [FAQ](FAQ)
-15. [Known Issues](KnownIssues)
+14. [Using Graphical Editor](G__GraphicalEditor)
+15. [FAQ](FAQ)
+16. [Known Issues](KnownIssues)
 
 ## [GAML References](GamlReference)
 1. [Built-in Species](BuiltInSpecies)

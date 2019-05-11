@@ -23,7 +23,7 @@ With these restrictions in mind, it is however possible to install interesting a
 	* [Selected Plugins](#selected-plugins)
 		* [Overview](#overview)
 		* [Git](#git)
-		* [CKEditor] (#ckeditor)
+		* [CKEditor](#ckeditor)
 		* [Startexplorer](#startexplorer)
 		* [Pathtools](#pathtools)
 		* [CSV Edit](#csv-edit)

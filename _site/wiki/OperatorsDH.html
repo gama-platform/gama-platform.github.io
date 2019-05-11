@@ -2296,9 +2296,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/NewVersionChanges.html": {
+       "/wiki/New-Version-Changes.html": {
          "title": "Java version",
-         "url": "/wiki/NewVersionChanges.html"
+         "url": "/wiki/New-Version-Changes.html"
        }
         ,
       
@@ -2434,9 +2434,9 @@ var json_pages = (function () {
        }
         ,
       
-       "/wiki/PedagogicalMaterials.html": {
+       "/wiki/Pedagogical-Materials.html": {
          "title": "Initiation to algorithms with Scratch",
-         "url": "/wiki/PedagogicalMaterials.html"
+         "url": "/wiki/Pedagogical-Materials.html"
        }
         ,
       
@@ -3543,6 +3543,7 @@ function closeRightMenu() {
  <div style='padding-left:1em'><a href="/wiki/Save-and-restore-simulations" class="wiki_menu" >Save and restore Simulations</a></div>
  <div style='padding-left:1em'><a href="/wiki/UsingNetwork" class="wiki_menu" >Using network</a></div>
  <div style='padding-left:1em'><a href="/wiki/Headless-mode-for-dummies" class="wiki_menu" >Headless mode</a></div>
+ <div style='padding-left:1em'><a href="/wiki/G__GraphicalEditor" class="wiki_menu" >Using Graphical Editor</a></div>
  <div style='padding-left:1em'><a href="/wiki/FAQ" class="wiki_menu" >FAQ</a></div>
  <div style='padding-left:1em'><a href="/wiki/KnownIssues" class="wiki_menu" >Known Issues</a></div>
 <div style='padding-left:0em'></div>
@@ -4042,9 +4043,9 @@ int var1 &lt;- graphFromMap degree_of (node(3)); // var1 equals 3
 <h4 id="examples-4">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 geometry var0 &lt;- dem(dem,z_factor); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var1 &lt;- dem(dem,texture); // var1 equals a geometry as a rectangle of weight and height equal to the texture. 
-geometry var2 &lt;- dem(dem,texture,z_factor); // var2 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var3 &lt;- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
+geometry var1 &lt;- dem(dem); // var1 equals returns a geometry as a rectangle of width and height equal to the texture. 
+geometry var2 &lt;- dem(dem,texture); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 &lt;- dem(dem,texture,z_factor); // var3 equals a geometry as a rectangle of width and height equal to the texture.
 
 </code></pre></div></div>
 
@@ -4314,8 +4315,8 @@ map var2 &lt;- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[
 <h4 id="examples-12">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 map var0 &lt;- distribution2d_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 &lt;- distribution2d_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 &lt;- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 &lt;- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 &lt;- distribution2d_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 </code></pre></div></div>
 
@@ -4329,12 +4330,12 @@ map var2 &lt;- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2
 
 <h4 id="possible-use-16">Possible use:</h4>
 <ul>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
-  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">int</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">div</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">div</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
@@ -4351,9 +4352,9 @@ map var2 &lt;- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2
 
 <h4 id="examples-13">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-int var0 &lt;- 40 div 3; // var0 equals 13 
+int var0 &lt;- 40.1 div 4.5; // var0 equals 8 
 int var1 &lt;- 40 div 4.1; // var1 equals 9 
-int var2 &lt;- 40.1 div 4.5; // var2 equals 8 
+int var2 &lt;- 40 div 3; // var2 equals 13 
 int var3 &lt;- 40.5 div 3; // var3 equals 13
 
 </code></pre></div></div>
@@ -4379,13 +4380,13 @@ int var3 &lt;- 40.5 div 3; // var3 equals 13
 </ul>
 
 <h4 id="result-17">Result:</h4>
-<p>returns the dynamic time warping between the two series of values (step pattern used: symetric1)
-returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)</p>
+<p>returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
+returns the dynamic time warping between the two series of values (step pattern used: symetric1)</p>
 
 <h4 id="examples-14">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); // var0 equals 38.0 
-float var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 11.0
+float var0 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 11.0 
+float var1 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); // var1 equals 38.0
 
 </code></pre></div></div>
 
@@ -4446,25 +4447,25 @@ float var0 &lt;- durbin_watson([13,2,1,4,1,2]) with_precision(4); // var0 equals
 
 <h4 id="possible-use-20">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">pair</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">unknown</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><code class="highlighter-rouge">unknown</code> <strong><code class="highlighter-rouge">edge</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">pair</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
-  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
   <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
+  <li><strong><code class="highlighter-rouge">edge</code></strong> (<code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">unknown</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
 <hr />
@@ -4602,17 +4603,19 @@ geometry var0 &lt;- ellipse(10, 10); // var0 equals a geometry as an ellipse of 
   <li><strong><code class="highlighter-rouge">emotion</code></strong> (<code class="highlighter-rouge">any</code>) —&gt;  <code class="highlighter-rouge">emotion</code></li>
 </ul>
 
+<h4 id="result-25">Result:</h4>
+
 <hr />
 
 <h3 id="empty"><code class="highlighter-rouge">empty</code></h3>
 
 <h4 id="possible-use-28">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
+  <li><strong><code class="highlighter-rouge">empty</code></strong> (<code class="highlighter-rouge">container&lt;KeyType,ValueType&gt;</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-25">Result:</h4>
+<h4 id="result-26">Result:</h4>
 <p>true if the operand is empty, false otherwise.</p>
 
 <h4 id="comment-2">Comment:</h4>
@@ -4626,19 +4629,19 @@ geometry var0 &lt;- ellipse(10, 10); // var0 equals a geometry as an ellipse of 
   <li>if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise</li>
   <li>if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise</li>
   <li>if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise</li>
-  <li>if it is a list, empty returns true if there is no element in the list, and false otherwise</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var0 &lt;- empty([]); // var0 equals true
-</code></pre></div></div>
-
-<ul>
   <li>if it is a string, empty returns true if the string does not contain any character, and false otherwise</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-bool var1 &lt;- empty ('abced'); // var1 equals false
+bool var0 &lt;- empty ('abced'); // var0 equals false
+</code></pre></div></div>
+
+<ul>
+  <li>if it is a list, empty returns true if there is no element in the list, and false otherwise</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+bool var1 &lt;- empty([]); // var1 equals true
 </code></pre></div></div>
 
 <hr />
@@ -4655,7 +4658,7 @@ bool var1 &lt;- empty ('abced'); // var1 equals false
   <li><strong><code class="highlighter-rouge">envelope</code></strong> (<code class="highlighter-rouge">unknown</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-26">Result:</h4>
+<h4 id="result-27">Result:</h4>
 <p>A 3D geometry that represents the box that surrounds the geometries or the surface described by the arguments. More general than geometry(arguments).envelope, as it allows to pass int, double, point, image files, shape files, asc files, or any list combining these arguments, in which case the envelope will be correctly expanded. If an envelope cannot be determined from the arguments, a default one of dimensions (0,100, 0, 100, 0, 100) is returned</p>
 
 <h4 id="special-cases-8">Special cases:</h4>
@@ -4679,7 +4682,7 @@ float var4 &lt;- envelope(polygon([{0,0}, {20,0}, {10,10}, {10,0}])).area; // va
   <li><strong><code class="highlighter-rouge">eval_gaml</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-27">Result:</h4>
+<h4 id="result-28">Result:</h4>
 <p>evaluates the given GAML string.</p>
 
 <h4 id="examples-22">Examples:</h4>
@@ -4697,7 +4700,7 @@ unknown var0 &lt;- eval_gaml("2+3"); // var0 equals 5
   <li><strong><code class="highlighter-rouge">eval_when</code></strong> (<code class="highlighter-rouge">BDIPlan</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-28">Result:</h4>
+<h4 id="result-29">Result:</h4>
 <p>evaluate the facet when of a given plan</p>
 
 <h4 id="examples-23">Examples:</h4>
@@ -4715,7 +4718,7 @@ unknown var0 &lt;- eval_gaml("2+3"); // var0 equals 5
   <li><strong><code class="highlighter-rouge">evaluate_sub_model</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-29">Result:</h4>
+<h4 id="result-30">Result:</h4>
 <p>Load a submodel</p>
 
 <h4 id="comment-3">Comment:</h4>
@@ -4730,7 +4733,7 @@ unknown var0 &lt;- eval_gaml("2+3"); // var0 equals 5
   <li><strong><code class="highlighter-rouge">even</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-30">Result:</h4>
+<h4 id="result-31">Result:</h4>
 <p>Returns true if the operand is even and false if it is odd.</p>
 
 <h4 id="special-cases-9">Special cases:</h4>
@@ -4752,31 +4755,31 @@ bool var1 &lt;- even(-12); // var1 equals true
 
 <h4 id="possible-use-34">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
-  <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">list</code></li>
-  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
   <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">any expression</code> —&gt;  <code class="highlighter-rouge">list&lt;date&gt;</code></li>
   <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">list&lt;date&gt;</code></li>
+  <li><code class="highlighter-rouge">list</code> <strong><code class="highlighter-rouge">every</code></strong> <code class="highlighter-rouge">int</code> —&gt;  <code class="highlighter-rouge">list</code></li>
+  <li><strong><code class="highlighter-rouge">every</code></strong> (<code class="highlighter-rouge">list</code> , <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-31">Result:</h4>
-<p>Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-applies a step to an interval of dates defined by ‘date1 to date2’
-true every operand * cycle, false otherwise</p>
+<h4 id="result-32">Result:</h4>
+<p>applies a step to an interval of dates defined by ‘date1 to date2’
+Retrieves elements from the first argument every <code class="highlighter-rouge">step</code> (second argument) elements. Raises an error if the step is negative or equal to zero
+true every operand * cycle, false otherwise
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency</p>
 
 <h4 id="comment-4">Comment:</h4>
-<p>Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.</p>
+<p>the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with ‘since’, ‘after’, ‘before’, ‘until’ or ‘between’, so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point</p>
 
 <h4 id="examples-25">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time (date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(date('2000-01-01') to date('2010-01-01')) every (#month) // builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval if every(2#cycle) {write "the cycle number is even";} 	     else {write "the cycle number is odd";} reflex when: every(2#days) since date('2000-01-01') { .. } state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
 
 </code></pre></div></div>
 
 <h4 id="see-also-13">See also:</h4>
 
-<p><a href="OperatorsSZ#since">since</a>, <a href="OperatorsAA#after">after</a>, <a href="OperatorsSZ#to">to</a>,</p>
+<p><a href="OperatorsSZ#to">to</a>, <a href="OperatorsSZ#since">since</a>, <a href="OperatorsAA#after">after</a>,</p>
 
 <hr />
 
@@ -4794,7 +4797,7 @@ true every operand * cycle, false otherwise</p>
   <li><strong><code class="highlighter-rouge">evidence_theory_DM</code></strong> (<code class="highlighter-rouge">list&lt;list&gt;</code>, <code class="highlighter-rouge">list&lt;map&lt;string,unknown&gt;&gt;</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-32">Result:</h4>
+<h4 id="result-33">Result:</h4>
 <p>The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&amp;version=1.0&amp;verb=Display&amp;handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325–339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion “this candidate is the best” at threshold s1 (v1p), a value for the assertion “this candidate is the best” at threshold s2 (v2p), a value for the assertion “this candidate is not the best” at threshold s1 (v1c), a value for the assertion “this candidate is not the best” at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c &lt;= 1.0; v2p + v2c &lt;= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)</p>
 
 <h4 id="special-cases-10">Special cases:</h4>
@@ -4824,7 +4827,7 @@ int var1 &lt;- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"
   <li><strong><code class="highlighter-rouge">exp</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-33">Result:</h4>
+<h4 id="result-34">Result:</h4>
 <p>Returns Euler’s number e raised to the power of the operand.</p>
 
 <h4 id="special-cases-11">Special cases:</h4>
@@ -4852,7 +4855,7 @@ float var0 &lt;- exp (0.0); // var0 equals 1.0
   <li><strong><code class="highlighter-rouge">fact</code></strong> (<code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-34">Result:</h4>
+<h4 id="result-35">Result:</h4>
 <p>Returns the factorial of the operand.</p>
 
 <h4 id="special-cases-12">Special cases:</h4>
@@ -4876,7 +4879,7 @@ float var0 &lt;- fact(4); // var0 equals 24
   <li><strong><code class="highlighter-rouge">farthest_point_to</code></strong> (<code class="highlighter-rouge">geometry</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">point</code></li>
 </ul>
 
-<h4 id="result-35">Result:</h4>
+<h4 id="result-36">Result:</h4>
 <p>the farthest point of the left-operand to the left-point.</p>
 
 <h4 id="examples-29">Examples:</h4>
@@ -4899,7 +4902,7 @@ point var0 &lt;- geom farthest_point_to(pt); // var0 equals the farthest point o
   <li><strong><code class="highlighter-rouge">farthest_to</code></strong> (<code class="highlighter-rouge">container&lt;unknown,geometry&gt;</code> , <code class="highlighter-rouge">geometry</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-36">Result:</h4>
+<h4 id="result-37">Result:</h4>
 <p>An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the farthest to the operand (casted as a geometry).</p>
 
 <h4 id="comment-5">Comment:</h4>
@@ -4926,12 +4929,12 @@ geometry var0 &lt;- [ag1, ag2, ag3] closest_to(self); // var0 equals return the 
   <li><strong><code class="highlighter-rouge">file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-37">Result:</h4>
-<p>opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.
-Creates a file in read/write mode, setting its contents to the container passed in parameter</p>
+<h4 id="result-38">Result:</h4>
+<p>Creates a file in read/write mode, setting its contents to the container passed in parameter
+opens a file in read only mode, creates a GAML file object, and tries to determine and store the file content in the contents attribute.</p>
 
 <h4 id="comment-6">Comment:</h4>
-<p>The file should have a supported extension, see file type definition for supported file extensions.The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file(‘image_copy.png’, file(‘image.png’)); will copy image.png to image_copy.png</p>
+<p>The type of container to pass will depend on the type of file (see the management of files in the documentation). Can be used to copy files since files are considered as containers. For example: save file(‘image_copy.png’, file(‘image.png’)); will copy image.png to image_copy.pngThe file should have a supported extension, see file type definition for supported file extensions.</p>
 
 <h4 id="special-cases-13">Special cases:</h4>
 <ul>
@@ -4965,7 +4968,7 @@ Creates a file in read/write mode, setting its contents to the container passed 
   <li><strong><code class="highlighter-rouge">file_exists</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-38">Result:</h4>
+<h4 id="result-39">Result:</h4>
 <p>Test whether the parameter is the path to an existing file.</p>
 
 <h4 id="examples-32">Examples:</h4>
@@ -4985,7 +4988,7 @@ Creates a file in read/write mode, setting its contents to the container passed 
   <li><strong><code class="highlighter-rouge">first</code></strong> (<code class="highlighter-rouge">int</code> , <code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-39">Result:</h4>
+<h4 id="result-40">Result:</h4>
 <p>the first value of the operand</p>
 
 <h4 id="comment-7">Comment:</h4>
@@ -5034,7 +5037,7 @@ string var1 &lt;- first ('abce'); // var1 equals 'a'
   <li><strong><code class="highlighter-rouge">first_with</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-40">Result:</h4>
+<h4 id="result-41">Result:</h4>
 <p>the first element of the left-hand operand that makes the right-hand operand evaluate to true.</p>
 
 <h4 id="comment-8">Comment:</h4>
@@ -5072,7 +5075,7 @@ unknown var3 &lt;- (list(node) first_with (round(node(each).location.x) &gt; 32)
   <li><strong><code class="highlighter-rouge">flip</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-41">Result:</h4>
+<h4 id="result-42">Result:</h4>
 <p>true or false given the probability represented by the operand</p>
 
 <h4 id="special-cases-16">Special cases:</h4>
@@ -5108,7 +5111,7 @@ bool var0 &lt;- flip (0.66666); // var0 equals 2/3 chances to return true.
   <li><strong><code class="highlighter-rouge">floor</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-42">Result:</h4>
+<h4 id="result-43">Result:</h4>
 <p>Maps the operand to the largest previous following integer, i.e. the largest integer not greater than x.</p>
 
 <h4 id="examples-35">Examples:</h4>
@@ -5132,7 +5135,7 @@ float var2 &lt;- floor(-4.7); // var2 equals -5.0
   <li><strong><code class="highlighter-rouge">folder</code></strong> (<code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-43">Result:</h4>
+<h4 id="result-44">Result:</h4>
 <p>opens an existing repository</p>
 
 <h4 id="special-cases-17">Special cases:</h4>
@@ -5158,7 +5161,7 @@ float var2 &lt;- floor(-4.7); // var2 equals -5.0
   <li><strong><code class="highlighter-rouge">font</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">font</code></li>
 </ul>
 
-<h4 id="result-44">Result:</h4>
+<h4 id="result-45">Result:</h4>
 <p>Creates a new font, by specifying its name (either a font face name like ‘Lucida Grande Bold’ or ‘Helvetica’, or a logical name like ‘Dialog’, ‘SansSerif’, ‘Serif’, etc.), a size in points and a style, either #bold, #italic or #plain or a combination (addition) of them.</p>
 
 <h4 id="examples-37">Examples:</h4>
@@ -5177,7 +5180,7 @@ font var0 &lt;- font ('Helvetica Neue',12, #bold + #italic); // var0 equals a bo
   <li><strong><code class="highlighter-rouge">frequency_of</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
 </ul>
 
-<h4 id="result-45">Result:</h4>
+<h4 id="result-46">Result:</h4>
 <p>Returns a map with keys equal to the application of the right-hand argument (like collect) and values equal to the frequency of this key (i.e. how many times it has been obtained)</p>
 
 <h4 id="examples-38">Examples:</h4>
@@ -5200,7 +5203,7 @@ map var0 &lt;- [1, 2, 3, 3, 4, 4, 5, 3, 3, 4] frequency_of each; // var0 equals 
   <li><strong><code class="highlighter-rouge">fuzzy_choquet_DM</code></strong> (<code class="highlighter-rouge">list&lt;list&gt;</code>, <code class="highlighter-rouge">list&lt;string&gt;</code>, <code class="highlighter-rouge">map</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-46">Result:</h4>
+<h4 id="result-47">Result:</h4>
 <p>The index of the candidate that maximizes the Fuzzy Choquet Integral value. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of string); the third operand the weights of each sub-set of criteria (map with list for key and float for value)</p>
 
 <h4 id="special-cases-18">Special cases:</h4>
@@ -5228,7 +5231,7 @@ int var0 &lt;- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "
   <li><strong><code class="highlighter-rouge">fuzzy_kappa</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-47">Result:</h4>
+<h4 id="result-48">Result:</h4>
 <p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
 
@@ -5247,12 +5250,12 @@ fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,
   <li><strong><code class="highlighter-rouge">fuzzy_kappa_sim</code></strong> (<code class="highlighter-rouge">list&lt;agent&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">list&lt;float&gt;</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>, <code class="highlighter-rouge">matrix&lt;float&gt;</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">list&lt;unknown&gt;</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-48">Result:</h4>
-<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<h4 id="result-49">Result:</h4>
+<p>fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 
 <h4 id="examples-41">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
 
 </code></pre></div></div>
 
@@ -5266,7 +5269,7 @@ fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_l
   <li><strong><code class="highlighter-rouge">gaml_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-49">Result:</h4>
+<h4 id="result-50">Result:</h4>
 <p>Constructs a file of type gaml. Allowed extensions are limited to gaml, experiment</p>
 
 <h4 id="special-cases-19">Special cases:</h4>
@@ -5306,7 +5309,7 @@ fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_l
   <li><strong><code class="highlighter-rouge">gamma</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-50">Result:</h4>
+<h4 id="result-51">Result:</h4>
 <p>Returns the value of the Gamma function at x.</p>
 
 <h4 id="examples-42">Examples:</h4>
@@ -5324,7 +5327,7 @@ float var0 &lt;- gamma(5); // var0 equals 24.0
   <li><strong><code class="highlighter-rouge">gamma_distribution</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-51">Result:</h4>
+<h4 id="result-52">Result:</h4>
 <p>Returns the integral from zero to x of the gamma probability density function.</p>
 
 <h4 id="comment-9">Comment:</h4>
@@ -5345,7 +5348,7 @@ float var0 &lt;- gamma_distribution(2,3,0.9) with_precision(3); // var0 equals 0
   <li><strong><code class="highlighter-rouge">gamma_distribution_complemented</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-52">Result:</h4>
+<h4 id="result-53">Result:</h4>
 <p>Returns the integral from x to infinity of the gamma probability density function.</p>
 
 <h4 id="examples-44">Examples:</h4>
@@ -5363,7 +5366,7 @@ float var0 &lt;- gamma_distribution_complemented(2,3,0.9) with_precision(3); // 
   <li><strong><code class="highlighter-rouge">gamma_index</code></strong> (<code class="highlighter-rouge">graph</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-53">Result:</h4>
+<h4 id="result-54">Result:</h4>
 <p>returns the gamma index of the graph (A measure of connectivity that considers the relationship between the number of observed links and the number of possible links: gamma = e/(3 <code class="highlighter-rouge">*</code> (v - 2)) - for planar graph.</p>
 
 <h4 id="examples-45">Examples:</h4>
@@ -5386,7 +5389,7 @@ float var1 &lt;- gamma_index(graphEpidemio); // var1 equals the gamma index of t
   <li><strong><code class="highlighter-rouge">gamma_rnd</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-54">Result:</h4>
+<h4 id="result-55">Result:</h4>
 <p>returns a random value from a gamma distribution with specified values of the shape and scale parameters</p>
 
 <h4 id="examples-46">Examples:</h4>
@@ -5406,26 +5409,26 @@ float var0 &lt;- gamma_distribution_complemented(2,3,0.9) with_precision(3); // 
   <li><strong><code class="highlighter-rouge">gauss</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-55">Result:</h4>
-<p>A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.
-The operator can be used with an operand of type point {meand,standardDeviation}.</p>
+<h4 id="result-56">Result:</h4>
+<p>The operator can be used with an operand of type point {meand,standardDeviation}.
+A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.</p>
 
 <h4 id="special-cases-20">Special cases:</h4>
 <ul>
-  <li>when standardDeviation value is 0.0, it always returns the mean value</li>
   <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
+  <li>when standardDeviation value is 0.0, it always returns the mean value</li>
 </ul>
 
 <h4 id="examples-47">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-float var0 &lt;- gauss(0,0.3); // var0 equals 0.22354 
-float var1 &lt;- gauss({0,0.3}); // var1 equals 0.22354
+float var0 &lt;- gauss({0,0.3}); // var0 equals 0.22354 
+float var1 &lt;- gauss(0,0.3); // var1 equals 0.22354
 
 </code></pre></div></div>
 
 <h4 id="see-also-27">See also:</h4>
 
-<p><a href="OperatorsSZ#skew_gauss">skew_gauss</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNR#poisson">poisson</a>,</p>
+<p><a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsNR#poisson">poisson</a>, <a href="OperatorsSZ#skew_gauss">skew_gauss</a>,</p>
 
 <hr />
 
@@ -5437,7 +5440,7 @@ float var1 &lt;- gauss({0,0.3}); // var1 equals 0.22354
   <li><strong><code class="highlighter-rouge">generate_barabasi_albert</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-56">Result:</h4>
+<h4 id="result-57">Result:</h4>
 <p>returns a random scale-free network (following Barabasi-Albert (BA) model).
 returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
 
@@ -5479,7 +5482,7 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).</p>
   <li><strong><code class="highlighter-rouge">generate_complete_graph</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-57">Result:</h4>
+<h4 id="result-58">Result:</h4>
 <p>returns a fully connected graph.
 returns a fully connected graph.
 returns a fully connected graph.
@@ -5490,13 +5493,13 @@ returns a fully connected graph.</p>
 
 <h4 id="special-cases-22">Special cases:</h4>
 <ul>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain size nodes.</li>
   <li>“layoutRadius”: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“agents”: list of existing node agents</li>
   <li>“edges_species”: the species of edges</li>
@@ -5509,7 +5512,7 @@ returns a fully connected graph.</p>
 </ul>
 
 <h4 id="examples-49">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myListOfNodes, 			myEdgeSpecy, 			25, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 			myVertexSpecy, 			myEdgeSpecy, 			10, 		true); 
 
 </code></pre></div></div>
 
@@ -5527,7 +5530,7 @@ returns a fully connected graph.</p>
   <li><strong><code class="highlighter-rouge">generate_watts_strogatz</code></strong> (<code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">species</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-58">Result:</h4>
+<h4 id="result-59">Result:</h4>
 <p>returns a random small-world network (following Watts-Strogatz model).
 returns a random small-world network (following Watts-Strogatz model).</p>
 
@@ -5536,21 +5539,21 @@ returns a random small-world network (following Watts-Strogatz model).</p>
 
 <h4 id="special-cases-23">Special cases:</h4>
 <ul>
-  <li>“agents”: list of existing node agents</li>
-  <li>“edges_species”: the species of edges</li>
-  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
-  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
-  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
   <li>“vertices_specy”: the species of vertices</li>
   <li>“edges_species”: the species of edges</li>
   <li>“size”: the graph will contain (size + 1) nodes. Size must be greater than k.</li>
   <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
   <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
   <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
+  <li>“agents”: list of existing node agents</li>
+  <li>“edges_species”: the species of edges</li>
+  <li>“p”: probability to “rewire” an edge. So it must be between 0 and 1. The parameter is often called beta in the literature.</li>
+  <li>“k”: the base degree of each node. k must be greater than 2 and even.</li>
+  <li>“synchronized”: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 
 <h4 id="examples-50">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myVertexSpecy, 			myEdgeSpecy, 			2, 			0.3, 			2, 		true); graph&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 			myListOfNodes, 			myEdgeSpecy, 			0.3, 			2, 		true); 
 
 </code></pre></div></div>
 
@@ -5575,7 +5578,7 @@ returns a random small-world network (following Watts-Strogatz model).</p>
   <li><strong><code class="highlighter-rouge">geojson_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-59">Result:</h4>
+<h4 id="result-60">Result:</h4>
 <p>Constructs a file of type geojson. Allowed extensions are limited to json, geojson, geo.json</p>
 
 <h4 id="special-cases-24">Special cases:</h4>
@@ -5634,7 +5637,7 @@ returns a random small-world network (following Watts-Strogatz model).</p>
   <li><strong><code class="highlighter-rouge">geometric_mean</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-60">Result:</h4>
+<h4 id="result-61">Result:</h4>
 <p>the geometric mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</a> for more details.</p>
 
 <h4 id="comment-13">Comment:</h4>
@@ -5668,7 +5671,7 @@ float var0 &lt;- geometric_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.9623263
   <li><strong><code class="highlighter-rouge">geometry_collection</code></strong> (<code class="highlighter-rouge">container&lt;unknown,geometry&gt;</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-61">Result:</h4>
+<h4 id="result-62">Result:</h4>
 <p>A geometry collection (multi-geometry) composed of the given list of geometries.</p>
 
 <h4 id="special-cases-25">Special cases:</h4>
@@ -5690,7 +5693,6 @@ geometry var0 &lt;- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // va
 <hr />
 
 <h3 id="get"><code class="highlighter-rouge">get</code></h3>
-<p>Same signification as <a href="OperatorsNR#read">read</a></p>
 
 <h4 id="possible-use-69">Possible use:</h4>
 <ul>
@@ -5700,7 +5702,7 @@ geometry var0 &lt;- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // va
   <li><strong><code class="highlighter-rouge">get</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">unknown</code></li>
 </ul>
 
-<h4 id="result-62">Result:</h4>
+<h4 id="result-63">Result:</h4>
 <p>Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.</p>
 
@@ -5728,7 +5730,7 @@ Reads an attribute of the specified agent (left operand). The attribute name is 
   <li><strong><code class="highlighter-rouge">get_about</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-63">Result:</h4>
+<h4 id="result-64">Result:</h4>
 <p>get the about value of the given emotion</p>
 
 <h4 id="examples-53">Examples:</h4>
@@ -5745,7 +5747,7 @@ Reads an attribute of the specified agent (left operand). The attribute name is 
   <li><strong><code class="highlighter-rouge">get_agent</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-64">Result:</h4>
+<h4 id="result-65">Result:</h4>
 <p>get the agent value of the given social link</p>
 
 <h4 id="examples-54">Examples:</h4>
@@ -5763,7 +5765,7 @@ Reads an attribute of the specified agent (left operand). The attribute name is 
   <li><strong><code class="highlighter-rouge">get_agent_cause</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-65">Result:</h4>
+<h4 id="result-66">Result:</h4>
 <p>get the agent cause value of the given emotion
 evaluate the agent_cause value of a predicate</p>
 
@@ -5782,7 +5784,7 @@ evaluate the agent_cause value of a predicate</p>
   <li><strong><code class="highlighter-rouge">get_belief_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-66">Result:</h4>
+<h4 id="result-67">Result:</h4>
 <p>get the belief in the belief base with the given predicate.</p>
 
 <h4 id="examples-56">Examples:</h4>
@@ -5801,7 +5803,7 @@ mental_state var0 &lt;- get_belief_op(self,predicate("has_water")); // var0 equa
   <li><strong><code class="highlighter-rouge">get_belief_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-67">Result:</h4>
+<h4 id="result-68">Result:</h4>
 <p>get the belief in the belief base with the given name.</p>
 
 <h4 id="examples-57">Examples:</h4>
@@ -5820,7 +5822,7 @@ mental_state var0 &lt;- get_belief_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_beliefs_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-68">Result:</h4>
+<h4 id="result-69">Result:</h4>
 <p>get the beliefs in the belief base with the given predicate.</p>
 
 <h4 id="examples-58">Examples:</h4>
@@ -5838,7 +5840,7 @@ mental_state var0 &lt;- get_belief_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_beliefs_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-69">Result:</h4>
+<h4 id="result-70">Result:</h4>
 <p>get the list of beliefs in the belief base which predicate has the given name.</p>
 
 <h4 id="examples-59">Examples:</h4>
@@ -5855,7 +5857,7 @@ mental_state var0 &lt;- get_belief_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_current_intention_op</code></strong> (<code class="highlighter-rouge">agent</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-70">Result:</h4>
+<h4 id="result-71">Result:</h4>
 <p>get the current intention.</p>
 
 <h4 id="examples-60">Examples:</h4>
@@ -5873,7 +5875,7 @@ mental_state var0 &lt;- get_current_intention_op(self); // var0 equals nil
   <li><strong><code class="highlighter-rouge">get_decay</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-71">Result:</h4>
+<h4 id="result-72">Result:</h4>
 <p>get the decay value of the given emotion</p>
 
 <h4 id="examples-61">Examples:</h4>
@@ -5891,7 +5893,7 @@ mental_state var0 &lt;- get_current_intention_op(self); // var0 equals nil
   <li><strong><code class="highlighter-rouge">get_desire_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-72">Result:</h4>
+<h4 id="result-73">Result:</h4>
 <p>get the desire in the desire base with the given predicate.</p>
 
 <h4 id="examples-62">Examples:</h4>
@@ -5910,7 +5912,7 @@ mental_state var0 &lt;- get_belief_op(self,predicate("has_water")); // var0 equa
   <li><strong><code class="highlighter-rouge">get_desire_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-73">Result:</h4>
+<h4 id="result-74">Result:</h4>
 <p>get the desire in the desire base with the given name.</p>
 
 <h4 id="examples-63">Examples:</h4>
@@ -5929,7 +5931,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_desires_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-74">Result:</h4>
+<h4 id="result-75">Result:</h4>
 <p>get the desires in the desire base with the given predicate.</p>
 
 <h4 id="examples-64">Examples:</h4>
@@ -5947,7 +5949,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_desires_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-75">Result:</h4>
+<h4 id="result-76">Result:</h4>
 <p>get the list of desires in the desire base which predicate has the given name.</p>
 
 <h4 id="examples-65">Examples:</h4>
@@ -5964,7 +5966,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_dominance</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-76">Result:</h4>
+<h4 id="result-77">Result:</h4>
 <p>get the dominance value of the given social link</p>
 
 <h4 id="examples-66">Examples:</h4>
@@ -5981,7 +5983,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_familiarity</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-77">Result:</h4>
+<h4 id="result-78">Result:</h4>
 <p>get the familiarity value of the given social link</p>
 
 <h4 id="examples-67">Examples:</h4>
@@ -5999,7 +6001,7 @@ mental_state var0 &lt;- get_desire_with_name_op(self,"has_water"); // var0 equal
   <li><strong><code class="highlighter-rouge">get_ideal_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-78">Result:</h4>
+<h4 id="result-79">Result:</h4>
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-68">Examples:</h4>
@@ -6018,7 +6020,7 @@ mental_state var0 &lt;- get_ideal_op(self,predicate("has_water")); // var0 equal
   <li><strong><code class="highlighter-rouge">get_ideal_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-79">Result:</h4>
+<h4 id="result-80">Result:</h4>
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-69">Examples:</h4>
@@ -6037,7 +6039,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_ideals_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-80">Result:</h4>
+<h4 id="result-81">Result:</h4>
 <p>get the ideal in the ideal base with the given name.</p>
 
 <h4 id="examples-70">Examples:</h4>
@@ -6055,7 +6057,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_ideals_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-81">Result:</h4>
+<h4 id="result-82">Result:</h4>
 <p>get the list of ideals in the ideal base which predicate has the given name.</p>
 
 <h4 id="examples-71">Examples:</h4>
@@ -6072,11 +6074,11 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_intensity</code></strong> (<code class="highlighter-rouge">emotion</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-82">Result:</h4>
+<h4 id="result-83">Result:</h4>
 <p>get the intensity value of the given emotion</p>
 
 <h4 id="examples-72">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emotion set_intensity 12 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_intensity(emo1) 
 
 </code></pre></div></div>
 
@@ -6090,7 +6092,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_intention_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-83">Result:</h4>
+<h4 id="result-84">Result:</h4>
 <p>get the intention in the intention base with the given predicate.</p>
 
 <h4 id="examples-73">Examples:</h4>
@@ -6108,7 +6110,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_intention_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-84">Result:</h4>
+<h4 id="result-85">Result:</h4>
 <p>get the intention in the intention base with the given name.</p>
 
 <h4 id="examples-74">Examples:</h4>
@@ -6126,7 +6128,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_intentions_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-85">Result:</h4>
+<h4 id="result-86">Result:</h4>
 <p>get the intentions in the intention base with the given predicate.</p>
 
 <h4 id="examples-75">Examples:</h4>
@@ -6144,7 +6146,7 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
   <li><strong><code class="highlighter-rouge">get_intentions_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-86">Result:</h4>
+<h4 id="result-87">Result:</h4>
 <p>get the list of intentions in the intention base which predicate has the given name.</p>
 
 <h4 id="examples-76">Examples:</h4>
@@ -6158,16 +6160,16 @@ mental_state var0 &lt;- get_ideal_with_name_op(self,"has_water"); // var0 equals
 
 <h4 id="possible-use-94">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">mental_state</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
   <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
+  <li><strong><code class="highlighter-rouge">get_lifetime</code></strong> (<code class="highlighter-rouge">mental_state</code>) —&gt;  <code class="highlighter-rouge">int</code></li>
 </ul>
 
-<h4 id="result-87">Result:</h4>
-<p>get the lifetime value of the given mental state
-evaluate the lifetime value of a predicate</p>
+<h4 id="result-88">Result:</h4>
+<p>evaluate the lifetime value of a predicate
+get the lifetime value of the given mental state</p>
 
 <h4 id="examples-77">Examples:</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_lifetime(mental_state1) get_agent_cause(pred1) 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_agent_cause(pred1) get_lifetime(mental_state1) 
 
 </code></pre></div></div>
 
@@ -6180,7 +6182,7 @@ evaluate the lifetime value of a predicate</p>
   <li><strong><code class="highlighter-rouge">get_liking</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-88">Result:</h4>
+<h4 id="result-89">Result:</h4>
 <p>get the liking value of the given social link</p>
 
 <h4 id="examples-78">Examples:</h4>
@@ -6197,7 +6199,7 @@ evaluate the lifetime value of a predicate</p>
   <li><strong><code class="highlighter-rouge">get_modality</code></strong> (<code class="highlighter-rouge">mental_state</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
-<h4 id="result-89">Result:</h4>
+<h4 id="result-90">Result:</h4>
 <p>get the modality value of the given mental state</p>
 
 <h4 id="examples-79">Examples:</h4>
@@ -6215,7 +6217,7 @@ evaluate the lifetime value of a predicate</p>
   <li><strong><code class="highlighter-rouge">get_obligation_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-90">Result:</h4>
+<h4 id="result-91">Result:</h4>
 <p>get the obligation in the obligation base with the given predicate.</p>
 
 <h4 id="examples-80">Examples:</h4>
@@ -6234,7 +6236,7 @@ mental_state var0 &lt;- get_obligation_op(self,predicate("has_water")); // var0 
   <li><strong><code class="highlighter-rouge">get_obligation_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-91">Result:</h4>
+<h4 id="result-92">Result:</h4>
 <p>get the obligation in the obligation base with the given name.</p>
 
 <h4 id="examples-81">Examples:</h4>
@@ -6253,7 +6255,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_obligations_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-92">Result:</h4>
+<h4 id="result-93">Result:</h4>
 <p>get the obligations in the obligation base with the given predicate.</p>
 
 <h4 id="examples-82">Examples:</h4>
@@ -6271,7 +6273,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_obligations_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-93">Result:</h4>
+<h4 id="result-94">Result:</h4>
 <p>get the list of obligations in the obligation base which predicate has the given name.</p>
 
 <h4 id="examples-83">Examples:</h4>
@@ -6288,7 +6290,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_plan_name</code></strong> (<code class="highlighter-rouge">BDIPlan</code>) —&gt;  <code class="highlighter-rouge">string</code></li>
 </ul>
 
-<h4 id="result-94">Result:</h4>
+<h4 id="result-95">Result:</h4>
 <p>get the name of a given plan</p>
 
 <h4 id="examples-84">Examples:</h4>
@@ -6305,7 +6307,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_predicate</code></strong> (<code class="highlighter-rouge">mental_state</code>) —&gt;  <code class="highlighter-rouge">predicate</code></li>
 </ul>
 
-<h4 id="result-95">Result:</h4>
+<h4 id="result-96">Result:</h4>
 <p>get the predicate value of the given mental state</p>
 
 <h4 id="examples-85">Examples:</h4>
@@ -6322,7 +6324,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_solidarity</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-96">Result:</h4>
+<h4 id="result-97">Result:</h4>
 <p>get the solidarity value of the given social link</p>
 
 <h4 id="examples-86">Examples:</h4>
@@ -6339,7 +6341,7 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_strength</code></strong> (<code class="highlighter-rouge">mental_state</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-97">Result:</h4>
+<h4 id="result-98">Result:</h4>
 <p>get the strength value of the given mental state</p>
 
 <h4 id="examples-87">Examples:</h4>
@@ -6356,6 +6358,14 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_super_intention</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
+<h4 id="result-99">Result:</h4>
+<p>get the super intention linked to a mental state</p>
+
+<h4 id="examples-88">Examples:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_super_intention(get_belief(pred1)) 
+
+</code></pre></div></div>
+
 <hr />
 
 <h3 id="get_trust"><code class="highlighter-rouge">get_trust</code></h3>
@@ -6365,10 +6375,10 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_trust</code></strong> (<code class="highlighter-rouge">social_link</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-98">Result:</h4>
+<h4 id="result-100">Result:</h4>
 <p>get the familiarity value of the given social link</p>
 
-<h4 id="examples-88">Examples:</h4>
+<h4 id="examples-89">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_familiarity(social_link1) 
 
 </code></pre></div></div>
@@ -6382,10 +6392,10 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_truth</code></strong> (<code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-99">Result:</h4>
+<h4 id="result-101">Result:</h4>
 <p>evaluate the truth value of a predicate</p>
 
-<h4 id="examples-89">Examples:</h4>
+<h4 id="examples-90">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_truth(pred1) 
 
 </code></pre></div></div>
@@ -6400,10 +6410,10 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_uncertainties_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-100">Result:</h4>
+<h4 id="result-102">Result:</h4>
 <p>get the uncertainties in the uncertainty base with the given predicate.</p>
 
-<h4 id="examples-90">Examples:</h4>
+<h4 id="examples-91">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertainties_op(self,predicate("has_water")) 
 
 </code></pre></div></div>
@@ -6418,10 +6428,10 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_uncertainties_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">list&lt;mental_state&gt;</code></li>
 </ul>
 
-<h4 id="result-101">Result:</h4>
+<h4 id="result-103">Result:</h4>
 <p>get the list of uncertainties in the uncertainty base which predicate has the given name.</p>
 
-<h4 id="examples-91">Examples:</h4>
+<h4 id="examples-92">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_uncertainties_with_name_op(self,"has_water") 
 
 </code></pre></div></div>
@@ -6436,10 +6446,10 @@ mental_state var0 &lt;- get_obligation_with_name_op(self,"has_water"); // var0 e
   <li><strong><code class="highlighter-rouge">get_uncertainty_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-102">Result:</h4>
+<h4 id="result-104">Result:</h4>
 <p>get the uncertainty in the uncertainty base with the given predicate.</p>
 
-<h4 id="examples-92">Examples:</h4>
+<h4 id="examples-93">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 mental_state var0 &lt;- get_uncertainty_op(self,predicate("has_water")); // var0 equals nil
 
@@ -6455,10 +6465,10 @@ mental_state var0 &lt;- get_uncertainty_op(self,predicate("has_water")); // var0
   <li><strong><code class="highlighter-rouge">get_uncertainty_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">mental_state</code></li>
 </ul>
 
-<h4 id="result-103">Result:</h4>
+<h4 id="result-105">Result:</h4>
 <p>get the uncertainty in the uncertainty base with the given name.</p>
 
-<h4 id="examples-93">Examples:</h4>
+<h4 id="examples-94">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 mental_state var0 &lt;- get_uncertainty_with_name_op(self,"has_water"); // var0 equals nil
 
@@ -6475,7 +6485,7 @@ mental_state var0 &lt;- get_uncertainty_with_name_op(self,"has_water"); // var0 
   <li><strong><code class="highlighter-rouge">gif_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">matrix&lt;int&gt;</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-104">Result:</h4>
+<h4 id="result-106">Result:</h4>
 <p>Constructs a file of type gif. Allowed extensions are limited to gif</p>
 
 <h4 id="special-cases-27">Special cases:</h4>
@@ -6532,7 +6542,7 @@ float var0 &lt;- gini([1.0, 0.5, 2.0]); // var0 equals the gini index computed i
   <li><strong><code class="highlighter-rouge">gml_file</code></strong> (<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">bool</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-105">Result:</h4>
+<h4 id="result-107">Result:</h4>
 <p>Constructs a file of type gml. Allowed extensions are limited to gml</p>
 
 <h4 id="special-cases-29">Special cases:</h4>
@@ -6600,13 +6610,13 @@ float var0 &lt;- gini([1.0, 0.5, 2.0]); // var0 equals the gini index computed i
   <li><strong><code class="highlighter-rouge">grayscale</code></strong> (<code class="highlighter-rouge">rgb</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
 </ul>
 
-<h4 id="result-106">Result:</h4>
+<h4 id="result-108">Result:</h4>
 <p>Converts rgb color to grayscale value</p>
 
 <h4 id="comment-14">Comment:</h4>
 <p>r=red, g=green, b=blue. Between 0 and 255 and gray = 0.299 <code class="highlighter-rouge">*</code> red + 0.587 <code class="highlighter-rouge">*</code> green + 0.114 <code class="highlighter-rouge">*</code> blue (Photoshop value)</p>
 
-<h4 id="examples-94">Examples:</h4>
+<h4 id="examples-95">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 rgb var0 &lt;- grayscale (rgb(255,0,0)); // var0 equals to a dark grey
 
@@ -6626,7 +6636,7 @@ rgb var0 &lt;- grayscale (rgb(255,0,0)); // var0 equals to a dark grey
   <li><strong><code class="highlighter-rouge">grid_at</code></strong> (<code class="highlighter-rouge">species</code> , <code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">agent</code></li>
 </ul>
 
-<h4 id="result-107">Result:</h4>
+<h4 id="result-109">Result:</h4>
 <p>returns the cell of the grid (right-hand operand) at the position given by the right-hand operand</p>
 
 <h4 id="comment-15">Comment:</h4>
@@ -6637,7 +6647,7 @@ rgb var0 &lt;- grayscale (rgb(255,0,0)); // var0 equals to a dark grey
   <li>if the left-hand operand is not a grid cell species, returns nil</li>
 </ul>
 
-<h4 id="examples-95">Examples:</h4>
+<h4 id="examples-96">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 agent var0 &lt;- grid_cell grid_at {1,2}; // var0 equals the agent grid_cell with grid_x=1 and grid_y = 2
 
@@ -6652,10 +6662,10 @@ agent var0 &lt;- grid_cell grid_at {1,2}; // var0 equals the agent grid_cell wit
   <li><strong><code class="highlighter-rouge">grid_cells_to_graph</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">graph</code></li>
 </ul>
 
-<h4 id="result-108">Result:</h4>
+<h4 id="result-110">Result:</h4>
 <p>creates a graph from a list of cells (operand). An edge is created between neighbors.</p>
 
-<h4 id="examples-96">Examples:</h4>
+<h4 id="examples-97">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_cell_graph&lt;-grid_cells_to_graph(cells_list) 
 
 </code></pre></div></div>
@@ -6673,7 +6683,7 @@ agent var0 &lt;- grid_cell grid_at {1,2}; // var0 equals the agent grid_cell wit
   <li><strong><code class="highlighter-rouge">grid_file</code></strong> (<code class="highlighter-rouge">string</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">file</code></li>
 </ul>
 
-<h4 id="result-109">Result:</h4>
+<h4 id="result-111">Result:</h4>
 <p>Constructs a file of type grid. Allowed extensions are limited to asc, tif</p>
 
 <h4 id="special-cases-31">Special cases:</h4>
@@ -6712,7 +6722,7 @@ agent var0 &lt;- grid_cell grid_at {1,2}; // var0 equals the agent grid_cell wit
   <li><strong><code class="highlighter-rouge">group_by</code></strong> (<code class="highlighter-rouge">container</code> , <code class="highlighter-rouge">any expression</code>) —&gt;  <code class="highlighter-rouge">map</code></li>
 </ul>
 
-<h4 id="result-110">Result:</h4>
+<h4 id="result-112">Result:</h4>
 <p>Returns a map, where the keys take the possible values of the right-hand operand and the map values are the list of elements of the left-hand operand associated to the key value</p>
 
 <h4 id="comment-16">Comment:</h4>
@@ -6723,7 +6733,7 @@ agent var0 &lt;- grid_cell grid_at {1,2}; // var0 equals the agent grid_cell wit
   <li>if the left-hand operand is nil, group_by throws an error</li>
 </ul>
 
-<h4 id="examples-97">Examples:</h4>
+<h4 id="examples-98">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 map var0 &lt;- [1,2,3,4,5,6,7,8] group_by (each &gt; 3); // var0 equals [false::[1, 2, 3], true::[4, 5, 6, 7, 8]] 
 map var1 &lt;- g2 group_by (length(g2 out_edges_of each) ); // var1 equals [ 0::[node9, node7, node10, node8, node11], 1::[node6], 2::[node5], 3::[node4]] 
@@ -6745,13 +6755,13 @@ map&lt;bool,list&gt; var3 &lt;- [1::2, 3::4, 5::6] group_by (each &gt; 4); // va
   <li><strong><code class="highlighter-rouge">harmonic_mean</code></strong> (<code class="highlighter-rouge">container</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-111">Result:</h4>
+<h4 id="result-113">Result:</h4>
 <p>the harmonic mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</a> for more details.</p>
 
 <h4 id="comment-17">Comment:</h4>
 <p>The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.</p>
 
-<h4 id="examples-98">Examples:</h4>
+<h4 id="examples-99">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.804159445407279
 
@@ -6771,10 +6781,10 @@ float var0 &lt;- harmonic_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.80415944
   <li><strong><code class="highlighter-rouge">has_belief_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-112">Result:</h4>
+<h4 id="result-114">Result:</h4>
 <p>indicates if there already is a belief about the given predicate.</p>
 
-<h4 id="examples-99">Examples:</h4>
+<h4 id="examples-100">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_belief_op(self,predicate("has_water")); // var0 equals false
 
@@ -6790,10 +6800,10 @@ bool var0 &lt;- has_belief_op(self,predicate("has_water")); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_belief_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-113">Result:</h4>
+<h4 id="result-115">Result:</h4>
 <p>indicates if there already is a belief about the given name.</p>
 
-<h4 id="examples-100">Examples:</h4>
+<h4 id="examples-101">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_belief_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6809,10 +6819,10 @@ bool var0 &lt;- has_belief_with_name_op(self,"has_water"); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_desire_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-114">Result:</h4>
+<h4 id="result-116">Result:</h4>
 <p>indicates if there already is a desire about the given predicate.</p>
 
-<h4 id="examples-101">Examples:</h4>
+<h4 id="examples-102">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_desire_op(self,predicate("has_water")); // var0 equals false
 
@@ -6828,10 +6838,10 @@ bool var0 &lt;- has_desire_op(self,predicate("has_water")); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_desire_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-115">Result:</h4>
+<h4 id="result-117">Result:</h4>
 <p>indicates if there already is a desire about the given name.</p>
 
-<h4 id="examples-102">Examples:</h4>
+<h4 id="examples-103">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_desire_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6847,10 +6857,10 @@ bool var0 &lt;- has_desire_with_name_op(self,"has_water"); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_ideal_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-116">Result:</h4>
+<h4 id="result-118">Result:</h4>
 <p>indicates if there already is an ideal about the given predicate.</p>
 
-<h4 id="examples-103">Examples:</h4>
+<h4 id="examples-104">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_ideal_op(self,predicate("has_water")); // var0 equals false
 
@@ -6866,10 +6876,10 @@ bool var0 &lt;- has_ideal_op(self,predicate("has_water")); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_ideal_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-117">Result:</h4>
+<h4 id="result-119">Result:</h4>
 <p>indicates if there already is an ideal about the given name.</p>
 
-<h4 id="examples-104">Examples:</h4>
+<h4 id="examples-105">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_ideal_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6885,10 +6895,10 @@ bool var0 &lt;- has_ideal_with_name_op(self,"has_water"); // var0 equals false
   <li><strong><code class="highlighter-rouge">has_intention_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-118">Result:</h4>
+<h4 id="result-120">Result:</h4>
 <p>indicates if there already is an intention about the given predicate.</p>
 
-<h4 id="examples-105">Examples:</h4>
+<h4 id="examples-106">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_intention_op(self,predicate("has_water")); // var0 equals false
 
@@ -6904,10 +6914,10 @@ bool var0 &lt;- has_intention_op(self,predicate("has_water")); // var0 equals fa
   <li><strong><code class="highlighter-rouge">has_intention_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-119">Result:</h4>
+<h4 id="result-121">Result:</h4>
 <p>indicates if there already is an intention about the given name.</p>
 
-<h4 id="examples-106">Examples:</h4>
+<h4 id="examples-107">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_intention_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6923,10 +6933,10 @@ bool var0 &lt;- has_intention_with_name_op(self,"has_water"); // var0 equals fal
   <li><strong><code class="highlighter-rouge">has_obligation_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-120">Result:</h4>
+<h4 id="result-122">Result:</h4>
 <p>indicates if there already is an obligation about the given predicate.</p>
 
-<h4 id="examples-107">Examples:</h4>
+<h4 id="examples-108">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_obligation_op(self,predicate("has_water")); // var0 equals false
 
@@ -6942,10 +6952,10 @@ bool var0 &lt;- has_obligation_op(self,predicate("has_water")); // var0 equals f
   <li><strong><code class="highlighter-rouge">has_obligation_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-121">Result:</h4>
+<h4 id="result-123">Result:</h4>
 <p>indicates if there already is an obligation about the given name.</p>
 
-<h4 id="examples-108">Examples:</h4>
+<h4 id="examples-109">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_obligation_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6961,10 +6971,10 @@ bool var0 &lt;- has_obligation_with_name_op(self,"has_water"); // var0 equals fa
   <li><strong><code class="highlighter-rouge">has_uncertainty_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">predicate</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-122">Result:</h4>
+<h4 id="result-124">Result:</h4>
 <p>indicates if there already is an uncertainty about the given predicate.</p>
 
-<h4 id="examples-109">Examples:</h4>
+<h4 id="examples-110">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_uncertainty_op(self,predicate("has_water")); // var0 equals false
 
@@ -6980,10 +6990,10 @@ bool var0 &lt;- has_uncertainty_op(self,predicate("has_water")); // var0 equals 
   <li><strong><code class="highlighter-rouge">has_uncertainty_with_name_op</code></strong> (<code class="highlighter-rouge">agent</code> , <code class="highlighter-rouge">string</code>) —&gt;  <code class="highlighter-rouge">bool</code></li>
 </ul>
 
-<h4 id="result-123">Result:</h4>
+<h4 id="result-125">Result:</h4>
 <p>indicates if there already is an uncertainty about the given name.</p>
 
-<h4 id="examples-110">Examples:</h4>
+<h4 id="examples-111">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 bool var0 &lt;- has_uncertainty_with_name_op(self,"has_water"); // var0 equals false
 
@@ -6995,13 +7005,13 @@ bool var0 &lt;- has_uncertainty_with_name_op(self,"has_water"); // var0 equals f
 
 <h4 id="possible-use-134">Possible use:</h4>
 <ul>
-  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">point</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
+  <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><code class="highlighter-rouge">float</code> <strong><code class="highlighter-rouge">hexagon</code></strong> <code class="highlighter-rouge">float</code> —&gt;  <code class="highlighter-rouge">geometry</code></li>
   <li><strong><code class="highlighter-rouge">hexagon</code></strong> (<code class="highlighter-rouge">float</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">geometry</code></li>
 </ul>
 
-<h4 id="result-124">Result:</h4>
+<h4 id="result-126">Result:</h4>
 <p>A hexagon geometry which the given with and height</p>
 
 <h4 id="comment-18">Comment:</h4>
@@ -7014,11 +7024,11 @@ bool var0 &lt;- has_uncertainty_with_name_op(self,"has_water"); // var0 equals f
   <li>returns nil if the operand is nil.</li>
 </ul>
 
-<h4 id="examples-111">Examples:</h4>
+<h4 id="examples-112">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
-geometry var0 &lt;- hexagon(10,5); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var0 &lt;- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
 geometry var1 &lt;- hexagon(10); // var1 equals a geometry as a hexagon of width of 10 and height of 10. 
-geometry var2 &lt;- hexagon({10,5}); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
+geometry var2 &lt;- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
 
 </code></pre></div></div>
 
@@ -7036,13 +7046,13 @@ geometry var2 &lt;- hexagon({10,5}); // var2 equals a geometry as a hexagon of w
   <li><strong><code class="highlighter-rouge">hierarchical_clustering</code></strong> (<code class="highlighter-rouge">container&lt;unknown,agent&gt;</code> , <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">list</code></li>
 </ul>
 
-<h4 id="result-125">Result:</h4>
+<h4 id="result-127">Result:</h4>
 <p>A tree (list of list) contained groups of agents clustered by distance considering a distance min between two groups.</p>
 
 <h4 id="comment-19">Comment:</h4>
 <p>use of hierarchical clustering with Minimum for linkage criterion between two groups of agents.</p>
 
-<h4 id="examples-112">Examples:</h4>
+<h4 id="examples-113">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 list var0 &lt;- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equals for example, can return [[[ag1],[ag3]], [ag2], [[[ag4],[ag5]],[ag6]]
 
@@ -7068,17 +7078,17 @@ list var0 &lt;- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 
 <h4 id="possible-use-137">Possible use:</h4>
 <ul>
   <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
-  <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
   <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">int</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
+  <li><strong><code class="highlighter-rouge">hsb</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">rgb</code></li>
 </ul>
 
-<h4 id="result-126">Result:</h4>
+<h4 id="result-128">Result:</h4>
 <p>Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color</p>
 
 <h4 id="comment-20">Comment:</h4>
 <p>h,s and b components should be floating-point values between 0.0 and 1.0 and when used alpha should be an integer (between 0 and 255) or a float (between 0 and 1) . Examples: Red=(0.0,1.0,1.0), Yellow=(0.16,1.0,1.0), Green=(0.33,1.0,1.0), Cyan=(0.5,1.0,1.0), Blue=(0.66,1.0,1.0), Magenta=(0.83,1.0,1.0)</p>
 
-<h4 id="examples-113">Examples:</h4>
+<h4 id="examples-114">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 rgb var0 &lt;- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0) 
 rgb var1 &lt;- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
@@ -7098,7 +7108,7 @@ rgb var1 &lt;- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
   <li><strong><code class="highlighter-rouge">hypot</code></strong> (<code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">float</code>) —&gt;  <code class="highlighter-rouge">float</code></li>
 </ul>
 
-<h4 id="result-127">Result:</h4>
+<h4 id="result-129">Result:</h4>
 <p>Returns sqrt(x2 +y2) without intermediate overflow or underflow.</p>
 
 <h4 id="special-cases-34">Special cases:</h4>
@@ -7106,7 +7116,7 @@ rgb var1 &lt;- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
   <li>If either argument is infinite, then the result is positive infinity. If either argument is NaN and neither argument is infinite, then the result is NaN.</li>
 </ul>
 
-<h4 id="examples-114">Examples:</h4>
+<h4 id="examples-115">Examples:</h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 float var0 &lt;- hypot(0,1,0,1); // var0 equals sqrt(2)
 

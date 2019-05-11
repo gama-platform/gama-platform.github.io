@@ -29,8 +29,6 @@ The training session was divided into 2 parts :
 
 Trainers : Drogoul Alexis, Gaudou Benoit, Trung Quang, Philippon Damien, Mazars Julien.
 
-[Here the link to download the different projects](notDoneYet) (Gama version : 1.61)
-
 ## A Glance at Sustainable Urban Development (JTD)
 
 **_July 2014 - Da lat (Vietnam)_**

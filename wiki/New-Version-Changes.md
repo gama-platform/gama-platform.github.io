@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Java version
-wikiPageName: NewVersionChanges
-wikiPagePath: wiki/NewVersionChanges.md
+wikiPageName: New-Version-Changes
+wikiPagePath: wiki/New-Version-Changes.md
 ---
 # Java version
 
@@ -69,7 +69,7 @@ gives examples
  * experiments can now have their own file (`xxx.experiment`) and specify the model they are targeting by providing the path to the model in the new `model:` facet (similar to `import`). 
  * experiments can sport a new type: `test`, a specialised type of batch experiment that can be run automatically from the GUI or in headless and reports back the result of the tests found in its model
 
-## Data importation
+## Data import
  * draw of complex shapes through obj file
  * new types fo files are taken into account: geotiff and dxf
  * viewers for common files
