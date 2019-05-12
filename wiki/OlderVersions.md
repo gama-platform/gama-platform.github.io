@@ -12,14 +12,22 @@ GAMA exists since 2007 and has undergone a number of changes since its first rel
 
 
 
+## GAMA 1.8 (May 2019)
+
+Version 1.8 is the current version of GAMA. It improves many features over version 1.7 :
+
+![images/splash_1_8.png](resources/images/splashscreens/splash_1_8.png)
+
+## GAMA 1.7 RC 2 (April 2017)
+
+This version introduced many features over 1.6.1 :
 
 
-
-
+![images/splash_1_7.png](resources/images/splashscreens/splash_1_7.png)
 
 ## GAMA 1.6.1 (June 2014)
 
-Version 1.6.1 is the current version of GAMA. It improves many features over version 1.6 :
+GAMA 1.6.1 improves many features over version 1.6 :
 
   * OpenGL displays improvements
   * Various enhancements for displays (overlay, focus, light, trace, DEM, colors with alpha, addition of CSS colors..)
