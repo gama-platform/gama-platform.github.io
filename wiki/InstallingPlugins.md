@@ -75,44 +75,44 @@ In addition to the RSS reader described above, below is a list of plugins that h
 
 ### Git
   * Git is a version control system (like CVS or SVN, extensively used in GAMA) http://git-scm.com/. Free sharing space are provided on [GitHub](https://github.com/) among others. Installing Git allows to share or gather models that are available in Git repositories.
-  * Update site (general): `http://download.eclipse.org/releases/mars/` (Alternatively, you can use `http://download.eclipse.org/egit/updates`)
+  * Update site (general): [http://download.eclipse.org/releases/mars/](http://download.eclipse.org/releases/mars/) (Alternatively, you can use [http://download.eclipse.org/egit/updates](http://download.eclipse.org/egit/updates))
   * Select the two following plugins:
     * Eclipse EGit
     * Git Team Provider Core
     
 ### CKEditor
   * CKEditor is a lightweight and powerful web-based editor, perfect for almost WYSIWYG edition of HTML files. It can be installed, directly in GAMA, in order to edit .html, .htm, .xml, .svg, etc. files directly without leaving the platform. No other dependencies are required. A must ! 
-  * Update site: `http://kosz.bitbucket.org/eclipse-ckeditor/update-site`
+  * Update site:  [http://kosz.bitbucket.org/eclipse-ckeditor/update-site](http://kosz.bitbucket.org/eclipse-ckeditor/update-site)
 
 ### Startexplorer
   * A nice utility that allows the user to select files, folders or projects in the [Navigator](NavigatingWorkspace) and open them in the filesystem (either the UI Explorer, Finder, whatever, or in a terminal).
-  * Update site: `http://basti1302.github.com/startexplorer/update/`
+  * Update site: [http://basti1302.github.com/startexplorer/update/](http://basti1302.github.com/startexplorer/update/)
 
 ![images/start_explorer.png](resources/images/installationAndLaunching/start_explorer.png)
 
 
 ### Pathtools
   * Same purpose as StartExplorer, but much more complete, and additionally offers the possibility to add new commands to handle files (open them in specific editors, execute external programs on them, etc.). Very nice and professional. Works flawlessly in GAMA except that contributions to the toolbar are not accepted (so you have to rely on the commands present in the [Navigator](NavigatingWorkspace) pop-up menu).
-  * Update site: `http://pathtools.googlecode.com/svn/trunk/PathToolsUpdateSite/site.xml`
-  * Website: `https://pathtools.googlecode.com`
+  * Update site: [http://pathtools.googlecode.com/svn/trunk/PathToolsUpdateSite/site.xml](http://pathtools.googlecode.com/svn/trunk/PathToolsUpdateSite/site.xml)
+  * Website: [https://pathtools.googlecode.com](https://pathtools.googlecode.com)
 
 ### CSV Edit
 
   * An editor for CSV files. Quite handy if you do not want to launch Excel every time you need to inspect or change the CSV data files used in models.
-  * Update site: `http://csvedit.googlecode.com/svn/trunk/csvedit.update`
+  * Update site: [http://csvedit.googlecode.com/svn/trunk/csvedit.update](http://csvedit.googlecode.com/svn/trunk/csvedit.update)
 
 ![images/csv_edit.png](resources/images/installationAndLaunching/csv_edit.png)
 
 ### TM Terminal
 
   * A powerful, yet simple, terminal which can connect locally or via ssh or other methods. 
-  * Update site (general): `http://download.eclipse.org/releases/mars/`
+  * Update site (general): [http://download.eclipse.org/releases/mars/](http://download.eclipse.org/releases/mars/)
   * Select the following plugin: TM Terminal
 
 
 ### Quickimage
 
   * A lightweight viewer of images, which can be useful when several images are used in a model.
-  * Update site: `http://psnet.nu/eclipse/updates`
+  * Update site: [http://psnet.nu/eclipse/updates](http://psnet.nu/eclipse/updates)
 
 ![images/quick_image.png](resources/images/installationAndLaunching/quick_image.png)

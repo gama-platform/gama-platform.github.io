@@ -10,7 +10,7 @@ This introduction to the Java API is dedicated to programmers that want to parti
 
 ## Table of content
 
-[Concepts](#Concept)
+[Concepts](#Concepts)
 
  * 1.[Factories](#Factories)
  * 2.[Spatial](#Spatial)
@@ -93,7 +93,7 @@ boolean b = scope.interrupted();
 
 ## Exception
 
-[exceptions](https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gama/runtime/exceptions) in GAMA
+[Exceptions](https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gama/runtime/exceptions) in GAMA
 
 An exception that can appear in the GAMA platform can be run using the `GamaRuntimeException` class. This class allows throwing an error (using `error(String,IScope)` method) or a warning (using `warning(String,IScope)` method). 
 
@@ -139,15 +139,19 @@ test = {« ..."} / don’t forget to turn test arg of examples to false
 # Packages
 ***
 
-## Core 
+## Core
 
-Main plugin of the GAMA Platform that define the core functionalities together with most Gaml operators
+Main plugin of the GAMA Platform that define the core functionalities: most Gaml operators, statements, skills, types, etc.
 
 ### Metamodel
 ***
+`IAgent`, `IPopulation`, `IShape`, `ITopology`, 
+
 ### Ouputs
 ***
+
 ### Util
 ***
+
 ### Operators
 The packages where you can find all the operators defined in the core of Gama 
