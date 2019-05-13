@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Shortest Path Computation on a Graph · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Shortest Path Computation on a Graph · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Shortest Path Computation on a Graph</h1></header><article><div><span><p><em>Author :  Patrick Taillandier</em></p>
+<p>Model to show how to use the optimizer methods to compute the shortest path for the agents placed on a network with all of them having the same goal location. It also shows how to save these paths computed into a text file.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> Network
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>('../includes/gis/roads.shp') ;
+    <span class="hljs-literal">graph</span> the_graph; 
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_in);
+    <span class="hljs-literal">bool</span> save_shortest_paths &lt;- false;
+    <span class="hljs-literal">bool</span> load_shortest_paths &lt;- false;
+    <span class="hljs-literal">string</span> shortest_paths_file &lt;- <span class="hljs-string">"../includes/shortest_paths.csv"</span>;
+    <span class="hljs-literal">bool</span> memorize_shortest_paths &lt;- true;
+    
+    <span class="hljs-comment">/*4 type of optimizer can be used for the shortest path computation:
+     *    - Djikstra: the default one - ensure to find the best shortest path - compute one shortest path at a time (by default, memorise the shortest path found)
+     *    - Bellmann: ensure to find the best shortest path - compute one shortest path at a time (by default, memorise the shortest path found)
+     *    - AStar: do not ensure to find the best shortest path - compute one shortest path at a time (by default, memorise the shortest path found)
+     *    - Floyd Warshall: ensure to find the best shortest path - compute all the shortest pathes at the same time (and keep them in memory)
+     */</span>
+    <span class="hljs-literal">string</span> optimizer_type &lt;- <span class="hljs-string">"Djikstra"</span>;
+    <span class="hljs-literal">int</span> nb_people &lt;- 100;
+    init {    
+        create road from: shape_file_in ;
+        the_graph &lt;- as_edge_graph(<span class="hljs-literal">list</span>(road));
+        
+        <span class="hljs-comment">//allows to choose the type of algorithm to use compute the shortest paths</span>
+        the_graph &lt;- the_graph with_optimizer_type optimizer_type;
+        
+        <span class="hljs-comment">//allows to define if the shortest paths computed should be memorized (in a cache) or not</span>
+        the_graph &lt;- the_graph use_cache memorize_shortest_paths;
+        
+        <span class="hljs-comment">//computes all the shortest paths, puts them in a matrix, then saves the matrix in a file</span>
+        <span class="hljs-keyword">if</span> save_shortest_paths {
+            <span class="hljs-literal">matrix</span> ssp &lt;- all_pairs_shortest_path(the_graph);
+            save ssp type:<span class="hljs-string">"text"</span> to:shortest_paths_file;
+            
+        <span class="hljs-comment">//loads the file of the shortest paths as a matrix and uses it to initialize all the shortest paths of the graph</span>
+        } else <span class="hljs-keyword">if</span> load_shortest_paths {
+            the_graph &lt;- the_graph load_shortest_paths <span class="hljs-literal">matrix</span>(<span class="hljs-literal">file</span>(shortest_paths_file));
+        }
+        
+        create goal number: 1 {
+            location &lt;- any_location_in (one_of(road));
+        }
+        create people number: nb_people {
+            target &lt;- one_of (goal) ;
+            location &lt;- any_location_in (one_of(road));
+        } 
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+    <span class="hljs-literal">float</span> speed_coef ;
+    aspect default {
+        draw shape color: #black ;
+    }
+} 
+    
+<span class="hljs-class">species <span class="hljs-title">goal</span> </span>{
+    aspect default {
+        draw circle(50) color: #red;
+    }
+}
+    
+<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+    goal target;
+    <span class="hljs-literal">path</span> my_path; 
+    
+    aspect default {
+        draw circle(50) color: #green;
+    }
+    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
+        do goto on:the_graph target:target speed:1;
+    }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">goto_network</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    parameter <span class="hljs-string">"Type of optimizer"</span> var: optimizer_type among: [<span class="hljs-string">"Djikstra"</span>, <span class="hljs-string">"AStar"</span>, <span class="hljs-string">"Bellmann"</span>, <span class="hljs-string">"Floyd Warshall"</span>];
+    parameter <span class="hljs-string">"Number of people"</span> var: nb_people min: 1 max: 1000000;
+    parameter <span class="hljs-string">"Computed all the shortest paths and save the results"</span> var: save_shortest_paths;
+    parameter <span class="hljs-string">"Load the shortest paths from the file"</span> var: load_shortest_paths;
+    
+    output {
+        <span class="hljs-class">display <span class="hljs-title">objects_display</span> </span>{
+            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">goal</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

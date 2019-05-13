@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>ODE_LotkaVolterra · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="ODE_LotkaVolterra · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">ODE_LotkaVolterra</h1></header><article><div><span><p><em>Author : Huynh Quang Nghi &amp; Nathalie Corson</em></p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> ODE_LotkaVolterra_InfluenceTimeStep
+
+<span class="hljs-class">global </span>{
+
+    <span class="hljs-literal">float</span> prey_birth_rate ;         <span class="hljs-comment">// natural birth rate of preys</span>
+    <span class="hljs-literal">float</span> predation_rate ;          <span class="hljs-comment">// death rate of preys due to predators</span>
+    <span class="hljs-literal">float</span> predator_death_rate ;     <span class="hljs-comment">// natural death rate of predators</span>
+    <span class="hljs-literal">float</span> predation_efficiency ;    <span class="hljs-comment">// birth rate of predators due to prey consumption</span>
+    
+    <span class="hljs-literal">float</span> nb_prey_init ;            <span class="hljs-comment">// initial number of preys</span>
+    <span class="hljs-literal">float</span> nb_predator_init  ;       <span class="hljs-comment">// initial number of predators</span>
+    
+    <span class="hljs-literal">float</span> integration_step ;    <span class="hljs-comment">// integration time step of the Runge Kutta 4 method</span>
+    <span class="hljs-literal">float</span> t;                    <span class="hljs-comment">// simulation time : t = n * integration_time_step  where n is the number of already computed time step</span>
+    
+    
+    <span class="hljs-literal">float</span> integration_time_step1  &lt;- 1.0;  <span class="hljs-comment">// first integration time step to compare </span>
+    <span class="hljs-literal">float</span> integration_time_step2  &lt;- 0.1;  <span class="hljs-comment">// second integration time step to compare </span>
+    <span class="hljs-literal">float</span> integration_time_step3  &lt;- 0.01;  <span class="hljs-comment">// third integration time step to compare </span>
+    
+    <span class="hljs-literal">list</span>&lt;LotkaVolterra_agent&gt; LV_agents;
+    
+    init{
+        create LotkaVolterra_agent number: 1 with:[integration_time_step::integration_time_step1];  <span class="hljs-comment">// creation of an agent containing the ODE model with an integration time step of value integration_time_step1</span>
+        create LotkaVolterra_agent number: 1 with:[integration_time_step::integration_time_step2];  <span class="hljs-comment">// creation of an agent containing the ODE model with an integration time step of value integration_time_step2</span>
+        create LotkaVolterra_agent number: 1 with:[integration_time_step::integration_time_step3];  <span class="hljs-comment">// creation of an agent containing the ODE model with an integration time step of value integration_time_step3</span>
+        LV_agents &lt;- <span class="hljs-literal">list</span>(LotkaVolterra_agent);
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">LotkaVolterra_agent</span> </span>{
+    
+    <span class="hljs-literal">float</span> nb_prey &lt;- nb_prey_init ;                 <span class="hljs-comment">// number of preys initialized with the values given by the user</span>
+    <span class="hljs-literal">float</span> nb_predator &lt;- nb_predator_init ;         <span class="hljs-comment">// number of predators initialized with the values given by the user</span>
+    
+    <span class="hljs-literal">float</span> integration_time_step ;                   <span class="hljs-comment">// integration time step used in the Runge Kutta 4 method</span>
+  
+    equation lotka_volterra { 
+        diff(nb_prey,t) =   nb_prey * (prey_birth_rate - predation_rate * nb_predator);                     <span class="hljs-comment">// evolution of the number of preys duting an integration time step</span>
+        diff(nb_predator,t) = - nb_predator * (predator_death_rate - predation_efficiency * nb_prey);       <span class="hljs-comment">// evolution of the number of predator during an integration time step</span>
+      }
+      <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{        
+        solve lotka_volterra method: <span class="hljs-string">"rk4"</span> step:integration_time_step;<span class="hljs-comment">// cycle_length:1/integration_time_step;          // use of runge kutta 4 method with an integration time step of value integration_time_step</span>
+       }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">maths</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+        
+    parameter <span class="hljs-string">"Prey birth rate"</span> var: prey_birth_rate &lt;- 0.05 min: 0.0 max: 1.0 category: <span class="hljs-string">"Prey"</span>;                        <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.05 and this value must be between 0 and 1</span>
+    parameter <span class="hljs-string">"Predation rate"</span> var: predation_rate &lt;- 0.001 min: 0.0 max: 1.0 category: <span class="hljs-string">"Prey"</span>;                         <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.001 and this value must be between 0 and 1</span>
+    parameter <span class="hljs-string">"Predator death rate"</span> var: predator_death_rate &lt;- 0.03 min: 0.0 max: 1.0 category: <span class="hljs-string">"Predator"</span>;            <span class="hljs-comment">// the user defines the value of parameter predator_death_rate on the interface, the default value is 0.03 and this value must be between 0 and 1</span>
+    parameter <span class="hljs-string">"Predation efficiency"</span> var: predation_efficiency &lt;- 0.0002 min: 0.0 max: 1.0 category: <span class="hljs-string">"Predator"</span>;        <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 0.0002 and this value must be between 0 and 1</span>
+    
+    parameter <span class="hljs-string">"Initial number of prey"</span> var: nb_prey_init &lt;- 250.0 min: 1.0 category: <span class="hljs-string">"Prey"</span>;                            <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 250, the minimum possible value is 1</span>
+    parameter <span class="hljs-string">"Initial number of predator"</span> var: nb_predator_init &lt;- 45.0 min: 1.0 category: <span class="hljs-string">"Predator"</span>;                 <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 45, the minimum possible value is 1</span>
+    
+    parameter <span class="hljs-string">"Integration time step of the first chart "</span> var:  integration_time_step1 &lt;- 1.0  min: 0.0 max:1.0 category: <span class="hljs-string">"Integration time steps"</span>;     <span class="hljs-comment">// the user defines the value of the first integration step he wants to compare, the default value is 1 and this value must be between 0 and 1</span>
+    parameter <span class="hljs-string">"Integration time step of the second chart "</span> var:  integration_time_step2 &lt;- 0.1  min: 0.0 max: 1.0 category: <span class="hljs-string">"Integration time steps"</span>;   <span class="hljs-comment">// the user defines the value of the second integration step he wants to compare, the default value is 0.1 and this value must be between 0 and 1</span>
+    parameter <span class="hljs-string">"Integration time step of the third chart "</span> var:  integration_time_step3 &lt;- 0.01  min: 0.0 max: 1.0 category: <span class="hljs-string">"Integration time steps"</span>;   <span class="hljs-comment">// the user defines the value of the third integration step he wants to compare, the default value is 0.01 and this value must be between 0 and 1</span>
+        
+    output {        
+        <span class="hljs-class">display <span class="hljs-title">TimeSeries</span>  </span>{   <span class="hljs-comment">// creation of a display to show time series of the model, values are plotted at every step. Since there is more than one chart plotted in one display, every chart has a position and a size</span>
+            chart <span class="hljs-string">"Lotka Volterra Time Series - Integration time step = 1 "</span> type: series background: #white position: {0,0} size:{1,0.33} x_range: 1000 {       <span class="hljs-comment">// one chart, of type 'serie', is named Lotka Volterra Time Series - Integration time step = 1, it shows quantities according to time, and the background is white</span>
+                data 'Number of preys' value: first(LotkaVolterra_agent where (each.integration_time_step = 1.0)).nb_prey color: #green ;           <span class="hljs-comment">// number of preys in the case where the integration time step is 1 is plotted in green     </span>
+                data 'Number of predators' value: first(LotkaVolterra_agent where (each.integration_time_step = 1.0)).nb_predator color: #red ;     <span class="hljs-comment">// number of predators in the case where the integration time step is 1 is plotted in red   </span>
+            }
+            chart <span class="hljs-string">"Lotka Volterra Time Series - Integration time step = 0.1 "</span> type: series background: #white position: {0,0.33} size:{1,0.33} x_range: 1000{
+                data 'Number of preys' value: first(LotkaVolterra_agent where (each.integration_time_step = 0.1)).nb_prey color: #green ;               
+                data 'Number of predators' value: first(LotkaVolterra_agent where (each.integration_time_step = 0.1)).nb_predator color: #red ;
+            }
+            chart <span class="hljs-string">"Lotka Volterra Time Series - Integration time step = 0.01 "</span> type: series background: #white position: {0,0.66} size:{1,0.33}x_range: 1000{
+                data 'Number of preys' value: first(LotkaVolterra_agent where (each.integration_time_step = 0.01)).nb_prey color: #green ;              
+                data 'Number of predators' value: first(LotkaVolterra_agent where (each.integration_time_step = 0.01)).nb_predator color: #red ;
+            }
+        }
+        <span class="hljs-class">display <span class="hljs-title">PhasePortrait</span> </span>{         
+            chart <span class="hljs-string">"Lotka Volterra Phase Portrait - Integration time step = 1"</span> type: xy background: #white position: {0,0} size:{1,0.33} {       <span class="hljs-comment">// creation of a display to show phase portrait of the model, values are plotted at every step. Since there is more than one chart plotted in one display, every chart has a position and a size</span>
+            data 'Number of preys according to number of predators' value:{LV_agents[0].nb_prey, LV_agents[0].nb_predator} color: #black ;  <span class="hljs-comment">// number of predators are plotted in black according to the number of preys in the case where the integration time step is 1       </span>
+            }
+            chart <span class="hljs-string">"Lotka Volterra Phase Portrait - Integration time step = 0.1"</span> type: xy background: #white position: {0,0.33} size:{1,0.33}{
+            data 'Number of preys according to number of predators' value:{LV_agents[1].nb_prey, LV_agents[1].nb_predator} color: #black ;              
+            }
+            chart <span class="hljs-string">"Lotka Volterra Phase Portrait - Integration time step = 0.01"</span> type: xy background: #white position: {0,0.66} size:{1,0.33} {
+            data 'Number of preys according to number of predators' value:{LV_agents[1].nb_prey, LV_agents[1].nb_predator} color: #black ;              
+            }
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

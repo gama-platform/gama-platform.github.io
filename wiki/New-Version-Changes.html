@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>New-Version-Changes · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now &lt;strong&gt;requires JDK/JVM 1.8&lt;/strong&gt; to run. Please note that GAMA &lt;strong&gt;has not been tested with JDK 1.9 and 1.10&lt;/strong&gt;.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="New-Version-Changes · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="&lt;p&gt;Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now &lt;strong&gt;requires JDK/JVM 1.8&lt;/strong&gt; to run. Please note that GAMA &lt;strong&gt;has not been tested with JDK 1.9 and 1.10&lt;/strong&gt;.&lt;/p&gt;
+"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">New-Version-Changes</h1></header><article><div><span><p>Due to changes in the libraries used by GAMA 1.7 and 1.8, this version now <strong>requires JDK/JVM 1.8</strong> to run. Please note that GAMA <strong>has not been tested with JDK 1.9 and 1.10</strong>.</p>
+<h2><a class="anchor" aria-hidden="true" id="changes-between-161-and-17-18-that-can-influence-the-dynamics-of-models"></a><a href="#changes-between-161-and-17-18-that-can-influence-the-dynamics-of-models" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models</h2>
+<ul>
+<li>Initialization order between the initialization of variables and the execution of the <code>init</code> block in grids
+init -&gt; vars in 1.6.1 / vars -&gt; init in 1.7</li>
+<li>Initialization order of agents -&gt; now, the init block of the agents are not executed at the end of the global init, but during it.
+put a sample model to explain the order of creation and its differences</li>
+<li>Initialization of vars to their default value
+map ? list ?</li>
+<li>Systematic casting and verification of types
+give examples</li>
+<li>header of CSV files: be careful, in GAMA 1.7, if the first line is detected as a header, it is not read when the file is casted as a matrix (so the first row of the matrix is not the header, but the first line of data)
+gives examples</li>
+<li>the step of batch experiments is now executed after all repetitions of simulations are done (not after each one). They can however be still accessed using the attributes <code>simulations</code> (see Batch.gaml in Models Library)</li>
+<li>signal and diffuse have been merged into a single statement</li>
+<li>facets do not accept a space between their identifier and the <code>:</code> anymore.</li>
+<li>simplification of equation/solve statements and deprecation of old facets</li>
+<li>in FIPA skill, <code>content</code>is replaced everywhere with <code>contents</code></li>
+<li>in FIPA skill, <code>receivers</code> is replaced everywhere with <code>to</code></li>
+<li>in FIPA skill, <code>messages</code> is replaced by <code>mailbox</code></li>
+<li>The pseudo-attribute <code>user_location</code> has been removed (not deprecated, unfortunately) and replaced by the &quot;unit&quot; <code>#user_location</code>.</li>
+<li>The actions called by an <code>event</code> layer do not need anymore to define <code>point</code> and <code>list&lt;agent&gt;</code> arguments to receive the mouse location and the list of agents selected. Instead, they can now use <code>#user_location</code> and they have to compute the selected agents by themselves (using an arbitrary function).</li>
+<li>The random number generators now better handle seeding (larger range), but it can change the series of values previously obtained from a given seed in 1.6.1</li>
+<li>all models now have a starting_date and a current_date. They then dont begin at an hypothetical &quot;zero&quot; date, but at the epoch date defined by ISO 8601 (1970/1/1). It should not change models that dont rely on dates, except that:</li>
+<li>the #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.</li>
+<li><code>as_time</code>, <code>as_system_time</code>, <code>as_date</code> and <code>as_system_date</code> have been removed</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="simulations"></a><a href="#simulations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simulations</h2>
+<ul>
+<li>simulations can now be run in parallel withing an experiment (with their outputs, displays, etc.)</li>
+<li>batch experiments inherit from this possibility and can now run their repetitions in parallel too.</li>
+<li>concurrency between agents is now possible and can be controlled on a species/grid/ask basis (from multi-threaded concurrency to complete parallelism within a species/grid or between the targets of an <code>ask</code> statement)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="language"></a><a href="#language" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Language</h2>
+<ul>
+<li><code>gama</code> : a new immutable agent that can be invoked to change preferences or access to platform-only properties (like <code>machine-time</code>)</li>
+<li><code>abort</code>: a new behavior (like <code>reflex</code> or <code>init</code>) that is executed once when the agent is about to die</li>
+<li><code>try</code> and <code>catch</code> statements now provide a robust way to catch errors happening in the simulations.</li>
+<li><code>super</code> (instead of <code>self</code>) and <code>invoke</code> (instead of <code>do</code>) can now be used to call an action defined in a parent species.</li>
+<li><code>date</code> : new data type that offers the possibility to use a real calendar, to define a <code>starting_date</code> and to query a <code>current_date</code> from a simulation, to parse dates from date files or to output them in custom formats. Dates can be added, subtracted, compared. Various new operators (<code>minus_months</code>, etc.) allow for a fine manipulation of their data. Time units (<code>#sec</code>, <code>#s</code>, <code>#mn</code>, <code>#minute</code>, <code>#h</code>, <code>#hour</code>, <code>#day</code>, etc.) can be used in conjunction with them. Interval of dates (date1 to date2) can be created and used as a basis for loops, etc. Various simple operators allow for defining conditions based on the current_date (after(date1), before(date2), since(date1), etc.).</li>
+<li><code>font</code> type allows to define fonts more precisely in <code>draw</code> statements</li>
+<li>BDI control architecture for agents</li>
+<li>file management, new operators, new statements, new skills(?), new built-in variables, files can now download their contents from the web by using standard http: https: addresses instead of file paths.</li>
+<li>The <code>save</code> can now directly manipulate files and ... save them. So something like <code>save shape_file(&quot;bb.shp&quot;, my_agents collect each.shape);</code> is possible. In addition, a new facet <code>attributes</code> allows to define complex attributes to be saved.</li>
+<li><code>assert</code> has a simpler syntax and can be used in any behaviour to raise an error if a condition is not met.</li>
+<li><code>test</code> is a new type of experiments (<code>experiment aaa type: test ...</code>), equivalent to a <code>batch</code> with an exhaustive search method, which automatically displays the status of tests found in the model.</li>
+<li>new operators (<code>sum_of</code>, <code>product_of</code>, etc.)</li>
+<li>casting of files works</li>
+<li>co-modeling (importation of micro-models that can be managed within a macro-model)</li>
+<li>populations of agents can now be easily exported to CSV files using the <code>save</code> statement</li>
+<li>Simple <code>messaging</code> skill between agents</li>
+<li>Terminal commands can now be issued from within GAMA using the <code>console</code> operator</li>
+<li>New <code>status</code> statement allows to change the text of the status.</li>
+<li>light statement in 3D display provides the possibility to custom your lights (point lights, direction lights, spot lights)</li>
+<li>Displays can now inherit from other displays (facets <code>parent</code> and <code>virtual</code> to describe abstract displays)</li>
+<li><code>on_change:</code> facet for attributes/parameters allows to define a sequence of statements to run whenever the value changes.</li>
+<li><code>species</code> and <code>experiment</code> now support the <code>virtual</code> boolean facet (virtual species can not be instantiated, and virtual experiments do not show up).</li>
+<li><code>experiment</code> now supports the <code>auto_run</code> boolean facet (to run automatically when launched)</li>
+<li><code>experiment</code> now supports the <code>benchmark</code> boolean facet (to produce a CSV summary of the time spent in the different statements / operators of GAMA)</li>
+<li>experiments can now have their own file (<code>xxx.experiment</code>) and specify the model they are targeting by providing the path to the model in the new <code>model:</code> facet (similar to <code>import</code>).</li>
+<li>experiments can sport a new type: <code>test</code>, a specialised type of batch experiment that can be run automatically from the GUI or in headless and reports back the result of the tests found in its model</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="data-import"></a><a href="#data-import" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data import</h2>
+<ul>
+<li>draw of complex shapes through obj file</li>
+<li>new types fo files are taken into account: geotiff and dxf</li>
+<li>viewers for common files</li>
+<li>addition of plugin and test models</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="navigator"></a><a href="#navigator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigator</h2>
+<ul>
+<li>Shapefiles are now copied, pasted and deleted together with their support files</li>
+<li>External files are automatically linked from the workspace and the links are filed under an automatically created <code>external</code> folder in the project</li>
+<li>The &quot;Refresh&quot; command in the navigator pop-up refreshes the files, cleans the metadata and recompiles the models in order to obtain a &quot;fresh&quot; workspace again</li>
+<li>A search control allows to instantaneously find models based on their names (not contents)</li>
+<li>Wizards for creating <code>.experiment</code> file and test experiments</li>
+<li>The new project Wizard now leads by default to the new file wizard</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="editor"></a><a href="#editor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editor</h2>
+<ul>
+<li>doc on built-in elements, templates, shortcuts to common tasks, hyperlinks to files used</li>
+<li>improvement in time, gathering of infos/todos</li>
+<li>warnings can be removed from model files</li>
+<li>resources / files can be dropped into editors to obtain declaration/import of the corresponding files</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="headless"></a><a href="#headless" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Headless</h2>
+<ul>
+<li>A new option <code>-validate path/to/dir</code> allows to run a complete validation of all the models in the directory</li>
+<li>A new option <code>-test path/to/dir</code> allows to run all the tests defined in a directory</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="models-library"></a><a href="#models-library" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Models library:</h2>
+<ul>
+<li>New models (make a list)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="preferences"></a><a href="#preferences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Preferences</h2>
+<ul>
+<li>For performances and bug fixes in displays</li>
+<li>For charts defaults</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="simulation-displays"></a><a href="#simulation-displays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simulation displays</h2>
+<ul>
+<li>OpenGL displays should be up to 3 times faster in rendering</li>
+<li>fullscreen mode for displays (ESC key)</li>
+<li>CTRL+O for overlay and CTRL+L for layers side controls</li>
+<li>cleaner OpenGL displays (less garbage, better drawing of lines, rotation helper, sticky ROI, etc.)</li>
+<li>possibility to use a new OpenGl pipeline and to define keystoning parameters (for projections)</li>
+<li>faster java2D displays (esp. on zoom)</li>
+<li>better user interaction (mouse move, hover, key listener)</li>
+<li>a whole new set of charts</li>
+<li>getting values when moving the mouse on charts</li>
+<li>possibility to declare <code>permanent layout:</code> + <code>#splitted</code>, <code>#horizontal</code>, <code>#vertical</code>, <code>#stacked</code> in the <code>output</code> section to automatically layout the display view.</li>
+<li>Outputs can now be managed from the &quot;Views&quot; menu. Closed outputs can be reopened.</li>
+<li>Changing simulation names is reflected in their display titles (and it can be dynamic)</li>
+<li>OpenGL displays now handle rotations of 2D and 3D shapes, combinations of textures and colours, and keystoning</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="error-view"></a><a href="#error-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error view</h2>
+<ul>
+<li>Much faster (up to 100x !) display of errors</li>
+<li>Contextual menu to copy the text of errors to clipboard or open the editor on it</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="validation"></a><a href="#validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validation</h2>
+<ul>
+<li>Faster validation of multi-file models (x2 approx.)</li>
+<li>Much less memory used compared to 1.6.1 (/10 approx.)</li>
+<li>No more &quot;false positive&quot; errors</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="console"></a><a href="#console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Console</h2>
+<ul>
+<li>Interactive console allows to directly interact with agents (experiments, simulations and any agent) and get a direct feedback on the impact of code execution using a new interpreter integrated with the console. Available in the modeling perspective (to interact with the new <code>gama</code> agent) as well as the simulation perspective (to interact with the current <code>experiment</code> agent).</li>
+<li>Console now accepts colored text output</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="monitor-view"></a><a href="#monitor-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitor view</h2>
+<ul>
+<li>monitors can have colors</li>
+<li>monitors now have contextual menus depending on the value displayed (save as CSV, inspect, browse...)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="gama-wide-online-help-on-the-language"></a><a href="#gama-wide-online-help-on-the-language" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GAMA-wide online help on the language</h2>
+<ul>
+<li>A global search engine is now available in the top-right corner of the GAMA window to look for GAML idioms</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="serialization"></a><a href="#serialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialization</h2>
+<ul>
+<li>Serialize simulations and replay them (to come)</li>
+<li>Serialization and deserialization of agents between simulations (to come)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="allow-tcp-udp-and-mqqt-communications-between-agents-in-different-simulations-to-come"></a><a href="#allow-tcp-udp-and-mqqt-communications-between-agents-in-different-simulations-to-come" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Allow TCP, UDP and MQQT communications between agents in different simulations (to come)</h2>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#changes-between-161-and-17-18-that-can-influence-the-dynamics-of-models">Changes between 1.6.1 and 1.7/1.8 that can influence the dynamics of models</a></li><li><a href="#simulations">Simulations</a></li><li><a href="#language">Language</a></li><li><a href="#data-import">Data import</a></li><li><a href="#navigator">Navigator</a></li><li><a href="#editor">Editor</a></li><li><a href="#headless">Headless</a></li><li><a href="#models-library">Models library:</a></li><li><a href="#preferences">Preferences</a></li><li><a href="#simulation-displays">Simulation displays</a></li><li><a href="#error-view">Error view</a></li><li><a href="#validation">Validation</a></li><li><a href="#console">Console</a></li><li><a href="#monitor-view">Monitor view</a></li><li><a href="#gama-wide-online-help-on-the-language">GAMA-wide online help on the language</a></li><li><a href="#serialization">Serialization</a></li><li><a href="#allow-tcp-udp-and-mqqt-communications-between-agents-in-different-simulations-to-come">Allow TCP, UDP and MQQT communications between agents in different simulations (to come)</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

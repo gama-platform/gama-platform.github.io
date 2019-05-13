@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Multicriteria · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Multicriteria · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Multicriteria</h1></header><article><div><span><p><em>Author : Patrick Taillandier</em></p>
+<p>This model show how to use different methods of multicriteria analysis to look for the best house. Four methods are used : the Weighted_Means method , the Electre method , the Promethee method  an the Evidence Theory method. Each method uses different criteria with different weights according to the methods used.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> multicriteria
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-literal">float</span> weight_standing &lt;- 1.0;
+    <span class="hljs-literal">float</span> weight_price &lt;- 1.0;
+    <span class="hljs-literal">float</span> weight_distance &lt;- 1.0;
+    <span class="hljs-literal">float</span> weight_area &lt;- 1.0;
+    <span class="hljs-literal">float</span> p_standing &lt;- 0.5;
+    <span class="hljs-literal">float</span> p_price &lt;- 0.5;
+    <span class="hljs-literal">float</span> p_distance &lt;- 0.5;
+    <span class="hljs-literal">float</span> p_area &lt;- 0.5;
+    <span class="hljs-literal">float</span> q_standing &lt;- 0.0;
+    <span class="hljs-literal">float</span> q_price &lt;- 0.0;
+    <span class="hljs-literal">float</span> q_distance &lt;- 0.0;
+    <span class="hljs-literal">float</span> q_area &lt;- 0.0;
+    <span class="hljs-literal">float</span> v_standing &lt;- 1.0;
+    <span class="hljs-literal">float</span> v_price &lt;- 1.0;
+    <span class="hljs-literal">float</span> v_distance &lt;- 1.0;
+    <span class="hljs-literal">float</span> v_area &lt;- 1.0;
+    <span class="hljs-literal">float</span> s_standing &lt;- 1.0;
+    <span class="hljs-literal">float</span> s_price &lt;- 1.0;
+    <span class="hljs-literal">float</span> s_distance &lt;- 1.0;
+    <span class="hljs-literal">float</span> s_area &lt;- 1.0;
+    <span class="hljs-literal">float</span> s1_standing &lt;- 0.0;
+    <span class="hljs-literal">float</span> s1_price &lt;- 0.0;
+    <span class="hljs-literal">float</span> s1_distance &lt;- 0.0;
+    <span class="hljs-literal">float</span> s1_area &lt;- 0.0;
+    <span class="hljs-literal">float</span> s2_standing &lt;- 1.0;
+    <span class="hljs-literal">float</span> s2_price &lt;- 1.0;
+    <span class="hljs-literal">float</span> s2_distance &lt;- 1.0;
+    <span class="hljs-literal">float</span> s2_area &lt;- 1.0;
+    <span class="hljs-literal">float</span> v1p_standing &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1p_price &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1p_distance &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1p_area &lt;- 0.0;
+    <span class="hljs-literal">float</span> v2p_standing &lt;- 1.0;
+    <span class="hljs-literal">float</span> v2p_price &lt;- 1.0;
+    <span class="hljs-literal">float</span> v2p_distance &lt;- 1.0;
+    <span class="hljs-literal">float</span> v2p_area &lt;- 1.0;
+    <span class="hljs-literal">float</span> v1c_standing &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1c_price &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1c_distance &lt;- 0.0;
+    <span class="hljs-literal">float</span> v1c_area &lt;- 0.0;
+    <span class="hljs-literal">float</span> v2c_standing &lt;- 0.0;
+    <span class="hljs-literal">float</span> v2c_price &lt;- 0.0;
+    <span class="hljs-literal">float</span> v2c_distance &lt;- 0.0;
+    <span class="hljs-literal">float</span> v2c_area &lt;- 0.0;
+    
+    <span class="hljs-comment">//Lists that will store the different criteria to use for each method linked with their weights</span>
+    <span class="hljs-literal">list</span> criteria_WM &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area]]; 
+    <span class="hljs-literal">list</span> criteria_Electre &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing, <span class="hljs-string">"p"</span>::p_standing, <span class="hljs-string">"q"</span>::q_standing, <span class="hljs-string">"v"</span>::v_standing, <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price, <span class="hljs-string">"p"</span>::p_price, <span class="hljs-string">"q"</span>::q_price, <span class="hljs-string">"v"</span>::v_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance, <span class="hljs-string">"p"</span>::p_distance, <span class="hljs-string">"q"</span>::q_distance, <span class="hljs-string">"v"</span>::v_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area,  <span class="hljs-string">"p"</span>::p_area, <span class="hljs-string">"q"</span>::q_area, <span class="hljs-string">"v"</span>::v_area,  <span class="hljs-string">"maximize"</span> :: true]]; 
+    <span class="hljs-literal">list</span> criteria_Promethee &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing, <span class="hljs-string">"p"</span>::p_standing, <span class="hljs-string">"q"</span>::q_standing, <span class="hljs-string">"s"</span>::s_standing, <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price, <span class="hljs-string">"p"</span>::p_price, <span class="hljs-string">"q"</span>::q_price, <span class="hljs-string">"s"</span>::s_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance, <span class="hljs-string">"p"</span>::p_distance, <span class="hljs-string">"q"</span>::q_distance, <span class="hljs-string">"s"</span>::s_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area,  <span class="hljs-string">"p"</span>::p_area, <span class="hljs-string">"q"</span>::q_area, <span class="hljs-string">"s"</span>::s_area,  <span class="hljs-string">"maximize"</span> :: true]];  
+    <span class="hljs-literal">list</span> criteria_ET &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"s1"</span>::s1_standing, <span class="hljs-string">"s2"</span>::s2_standing, <span class="hljs-string">"v1p"</span>::v1p_standing, <span class="hljs-string">"v2p"</span>::v2p_standing, <span class="hljs-string">"v1c"</span>::v1c_standing, <span class="hljs-string">"v2c"</span>::v2c_standing,<span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"s1"</span>::s1_price, <span class="hljs-string">"s2"</span>::s2_price, <span class="hljs-string">"v1p"</span>::v1p_price, <span class="hljs-string">"v2p"</span>::v2p_price, <span class="hljs-string">"v1c"</span>::v1c_price, <span class="hljs-string">"v2c"</span>::v2c_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"s1"</span>::s1_distance, <span class="hljs-string">"s2"</span>::s2_distance, <span class="hljs-string">"v1p"</span>::v1p_distance, <span class="hljs-string">"v2p"</span>::v2p_distance, <span class="hljs-string">"v1c"</span>::v1c_distance, <span class="hljs-string">"v2c"</span>::v2c_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"s1"</span>::s1_area, <span class="hljs-string">"s2"</span>::s2_area, <span class="hljs-string">"v1p"</span>::v1p_area, <span class="hljs-string">"v2p"</span>::v2p_area, <span class="hljs-string">"v1c"</span>::v1c_area, <span class="hljs-string">"v2c"</span>::v2c_area, <span class="hljs-string">"maximize"</span> :: true]];
+    
+    
+    init {
+        create people;
+        <span class="hljs-literal">geometry</span> free_space &lt;- copy(shape);
+        free_space &lt;- free_space - 10;
+        create house number: 15 {
+            location &lt;- any_location_in (free_space);
+            free_space &lt;- free_space - (shape + 10);
+        }
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">reset_selected</span> </span>{
+        ask house {
+            is_selected_WM &lt;- false;
+            is_selected_electre &lt;- false;
+            is_selected_promethee &lt;- false;
+            is_selected_ET &lt;- false;
+        }
+        criteria_WM &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area]]; 
+        criteria_Electre &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing, <span class="hljs-string">"p"</span>::p_standing, <span class="hljs-string">"q"</span>::q_standing, <span class="hljs-string">"v"</span>::v_standing, <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price, <span class="hljs-string">"p"</span>::p_price, <span class="hljs-string">"q"</span>::q_price, <span class="hljs-string">"v"</span>::v_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance, <span class="hljs-string">"p"</span>::p_distance, <span class="hljs-string">"q"</span>::q_distance, <span class="hljs-string">"v"</span>::v_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area,  <span class="hljs-string">"p"</span>::p_area, <span class="hljs-string">"q"</span>::q_area, <span class="hljs-string">"v"</span>::v_area,  <span class="hljs-string">"maximize"</span> :: true]]; 
+        criteria_Promethee &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"weight"</span> :: weight_standing, <span class="hljs-string">"p"</span>::p_standing, <span class="hljs-string">"q"</span>::q_standing, <span class="hljs-string">"s"</span>::s_standing, <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"weight"</span> :: weight_price, <span class="hljs-string">"p"</span>::p_price, <span class="hljs-string">"q"</span>::q_price, <span class="hljs-string">"s"</span>::s_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"weight"</span> ::weight_distance, <span class="hljs-string">"p"</span>::p_distance, <span class="hljs-string">"q"</span>::q_distance, <span class="hljs-string">"s"</span>::s_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"weight"</span> :: weight_area,  <span class="hljs-string">"p"</span>::p_area, <span class="hljs-string">"q"</span>::q_area, <span class="hljs-string">"s"</span>::s_area,  <span class="hljs-string">"maximize"</span> :: true]]; 
+        criteria_ET &lt;- [[<span class="hljs-string">"name"</span>::<span class="hljs-string">"standing"</span>, <span class="hljs-string">"s1"</span>::s1_standing, <span class="hljs-string">"s2"</span>::s2_standing, <span class="hljs-string">"v1p"</span>::v1p_standing, <span class="hljs-string">"v2p"</span>::v2p_standing, <span class="hljs-string">"v1c"</span>::v1c_standing, <span class="hljs-string">"v2c"</span>::v2c_standing,<span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"price"</span>, <span class="hljs-string">"s1"</span>::s1_price, <span class="hljs-string">"s2"</span>::s2_price, <span class="hljs-string">"v1p"</span>::v1p_price, <span class="hljs-string">"v2p"</span>::v2p_price, <span class="hljs-string">"v1c"</span>::v1c_price, <span class="hljs-string">"v2c"</span>::v2c_price,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"distance"</span>, <span class="hljs-string">"s1"</span>::s1_distance, <span class="hljs-string">"s2"</span>::s2_distance, <span class="hljs-string">"v1p"</span>::v1p_distance, <span class="hljs-string">"v2p"</span>::v2p_distance, <span class="hljs-string">"v1c"</span>::v1c_distance, <span class="hljs-string">"v2c"</span>::v2c_distance,  <span class="hljs-string">"maximize"</span> :: true],[<span class="hljs-string">"name"</span>::<span class="hljs-string">"area"</span>, <span class="hljs-string">"s1"</span>::s1_area, <span class="hljs-string">"s2"</span>::s2_area, <span class="hljs-string">"v1p"</span>::v1p_area, <span class="hljs-string">"v2p"</span>::v2p_area, <span class="hljs-string">"v1c"</span>::v1c_area, <span class="hljs-string">"v2c"</span>::v2c_area, <span class="hljs-string">"maximize"</span> :: true]];
+    }
+    
+}
+    
+
+<span class="hljs-class">species <span class="hljs-title">people</span>  </span>{
+    aspect default {
+        draw sphere(2) color: °red;
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">choose_house_weighted_means</span> </span>{
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
+        <span class="hljs-literal">int</span> choice &lt;- weighted_means_DM(cands, criteria_WM);
+        <span class="hljs-keyword">if</span> (choice &gt;= 0) {
+            ask (house at choice) {is_selected_WM &lt;- true;}
+        }
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">choose_house_promethee</span> </span>{
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
+        <span class="hljs-literal">int</span> choice &lt;- promethee_DM(cands, criteria_Promethee);
+        <span class="hljs-keyword">if</span> (choice &gt;= 0) {
+            ask (house at choice) {is_selected_promethee &lt;- true;}
+        }
+    }
+    <span class="hljs-class">reflex <span class="hljs-title">choose_house_electre</span> </span>{
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
+        <span class="hljs-literal">int</span> choice &lt;- electre_DM(cands, criteria_Electre, 0.7);
+        <span class="hljs-keyword">if</span> (choice &gt;= 0) {
+            ask (house at choice) {is_selected_electre &lt;- true;}
+        }
+    }
+    <span class="hljs-class">reflex <span class="hljs-title">choose_house_evidence_theory</span> </span>{
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
+        <span class="hljs-literal">int</span> choice &lt;- evidence_theory_DM(cands, criteria_ET, true);
+        <span class="hljs-keyword">if</span> (choice &gt;= 0) {
+            ask (house at choice) {is_selected_ET &lt;- true;}
+        }
+    }
+    
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; houses_eval {
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; candidates;
+        loop bat over: house {
+            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; cand;
+            add bat.standing / 5 to: cand;
+            add ((500000 - bat.price) / 500000) to: cand;
+            add ((100 - (self distance_to bat)) / 100) to: cand;
+            add (bat.shape.area / 15^2) to: cand;
+            add cand to: candidates;
+        }
+        return candidates;
+    }
+    
+}
+
+<span class="hljs-class">species <span class="hljs-title">house</span> </span>{
+    <span class="hljs-literal">bool</span> is_selected_WM &lt;- false;
+    <span class="hljs-literal">bool</span> is_selected_electre &lt;- false;
+    <span class="hljs-literal">bool</span> is_selected_promethee &lt;- false;
+    <span class="hljs-literal">bool</span> is_selected_ET &lt;- false;
+    <span class="hljs-literal">geometry</span> shape &lt;- square(5 + rnd(10));
+    <span class="hljs-literal">float</span> price &lt;- 100000.0 + rnd (400000);
+    <span class="hljs-literal">int</span> standing &lt;- rnd(5);
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(255 * (1 - standing/5.0),255 * (1 - standing/5.0),255);
+    <span class="hljs-literal">float</span> height &lt;- price / 50000;
+    aspect weighted_means {
+        <span class="hljs-keyword">if</span> (is_selected_WM) {
+            draw shape + 2.0 color: °red;
+        }
+        draw shape color: color depth: height;
+    }
+    aspect electre_means {
+        <span class="hljs-keyword">if</span> (is_selected_electre) {
+            draw shape + 2.0 color: °red;
+        }
+        draw shape color: color depth: height;
+    }
+    aspect promethee_means {
+        <span class="hljs-keyword">if</span> (is_selected_promethee) {
+            draw shape + 2.0 color: °red;
+        }
+        draw shape color: color depth: height;
+    }
+    aspect evidence_theory_means {
+        <span class="hljs-keyword">if</span> (is_selected_ET) {
+            draw shape + 2.0 color: °red;
+        }
+        draw shape color: color depth: height;
+    }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">multicriteria</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    parameter <span class="hljs-string">"weight of the standing criterion"</span> var:weight_standing category: <span class="hljs-string">"Weight"</span>;
+    parameter <span class="hljs-string">"weight of the price criterion"</span> var:weight_price category: <span class="hljs-string">"Weight"</span>;
+    parameter <span class="hljs-string">"weight of the distance criterion"</span> var:weight_distance category: <span class="hljs-string">"Weight"</span>;
+    parameter <span class="hljs-string">"weight of the area criterion"</span> var:weight_area category: <span class="hljs-string">"Weight"</span>;
+    parameter <span class="hljs-string">"preference threshold of the standing criterion"</span> var:p_standing category: <span class="hljs-string">"Preference"</span>;
+    parameter <span class="hljs-string">"preference threshold of the price criterion"</span> var:p_price category: <span class="hljs-string">"Preference"</span>;
+    parameter <span class="hljs-string">"preference threshold of the distance criterion"</span> var:p_distance category: <span class="hljs-string">"Preference"</span>;
+    parameter <span class="hljs-string">"preference threshold of the area criterion"</span> var:p_area category: <span class="hljs-string">"Preference"</span>;
+    parameter <span class="hljs-string">"indifference threshold of the standing criterion"</span> var:q_standing category: <span class="hljs-string">"Indifference"</span>;
+    parameter <span class="hljs-string">"indifference threshold of the price criterion"</span> var:q_price category: <span class="hljs-string">"Indifference"</span>;
+    parameter <span class="hljs-string">"indifference threshold of the distance criterion"</span> var:q_distance category: <span class="hljs-string">"Indifference"</span>;
+    parameter <span class="hljs-string">"indifference threshold of the area criterion"</span> var:q_area category: <span class="hljs-string">"Indifference"</span>;
+    parameter <span class="hljs-string">"veto threshold of the standing criterion"</span> var:v_standing category: <span class="hljs-string">"Veto"</span>;
+    parameter <span class="hljs-string">"veto threshold of the price criterion"</span> var:v_price category: <span class="hljs-string">"Veto"</span>;
+    parameter <span class="hljs-string">"veto threshold of the distance criterion"</span> var:v_distance category: <span class="hljs-string">"Veto"</span>;
+    parameter <span class="hljs-string">"veto threshold of the area criterion"</span> var:v_area category: <span class="hljs-string">"Veto"</span>;
+    parameter <span class="hljs-string">"max prefence value of the standing criterion"</span> var:v_standing category: <span class="hljs-string">"Max preference value"</span>;
+    parameter <span class="hljs-string">"max prefence value of the price criterion"</span> var:v_price category: <span class="hljs-string">"Max preference value"</span>;
+    parameter <span class="hljs-string">"max prefence value of the distance criterion"</span> var:v_distance category: <span class="hljs-string">"Max preference value"</span>;
+    parameter <span class="hljs-string">"max prefence value of the area criterion"</span> var:v_area category: <span class="hljs-string">"Max preference value"</span>;
+    parameter <span class="hljs-string">"min criterion threshold of the standing criterion"</span> var:s1_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min criterion threshold of the price criterion"</span> var:s1_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min criterion threshold of the distance criterion"</span> var:s1_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min criterion threshold of the area criterion"</span> var:s1_area category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max criterion threshold of the standing criterion"</span> var:s2_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max criterion threshold of the price criterion"</span> var:s2_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max criterion threshold of the distance criterion"</span> var:s2_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max criterion threshold of the area criterion"</span> var:s2_area category:<span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min preference of the standing criterion"</span> var:v1p_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min preference of the price criterion"</span> var:v1p_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min preference of the distance criterion"</span> var:v1p_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min preference of the area criterion"</span> var:v1p_area category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max preference of the standing criterion"</span> var:v2p_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max preference of the price criterion"</span> var:v2p_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max preference of the distance criterion"</span> var:v2p_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max preference of the area criterion"</span> var:v2p_area category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min rejection of the standing criterion"</span> var:v1c_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min rejection of the price criterion"</span> var:v1c_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min rejection of the distance criterion"</span> var:v1c_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"min rejection of the area criterion"</span> var:v1c_area category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max rejection of the standing criterion"</span> var:v2c_standing category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max rejection of the price criterion"</span> var:v2c_price category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max rejection of the distance criterion"</span> var:v2c_distance category: <span class="hljs-string">"Evidence Theory"</span>;
+    parameter <span class="hljs-string">"max rejection of the area criterion"</span> var:v2c_area category: <span class="hljs-string">"Evidence Theory"</span>;
+    output {
+        <span class="hljs-class">display <span class="hljs-title">Map_Weighted_Means</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
+            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">weighted_means</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        }
+        <span class="hljs-class">display <span class="hljs-title">Map_Electre</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
+            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">electre_means</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        }
+        <span class="hljs-class">display <span class="hljs-title">Map_Promethee</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
+            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">promethee_means</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        }
+        <span class="hljs-class">display <span class="hljs-title">Map_Evidence_theory</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
+            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">evidence_theory_means</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
