@@ -35,8 +35,6 @@ From the data collected, we made some modeling choice:
 * Each time, people arrived at a building they are staying a certain time 
 * Infected people are never cured
 
-![images/Luneray_model.png](resources/images/tutorials/Luneray_model.png)
-
 ## Step List
 
 This tutorial is composed of 5 steps corresponding to 5 models. For each step we present its purpose, an explicit formulation and the corresponding GAML code.

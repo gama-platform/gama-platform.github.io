@@ -1,8 +1,8 @@
 ---
 layout: default
 title: 5. Norms, obligation and enforcement
-wikiPageName: GoldMinerModel_step5
-wikiPagePath: wiki/GoldMinerModel_step5.md
+wikiPageName: BDIAgents_step5
+wikiPagePath: wiki/BDIAgents_step5.md
 ---
 # 5. Norms, obligation and enforcement
 This last step consists in adding social norms, obligations and enforcement into the agents 'behavior.

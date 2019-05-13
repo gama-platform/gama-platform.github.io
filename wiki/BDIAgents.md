@@ -19,8 +19,8 @@ The model built in this tutorial concerns gold miners that try to find and sell 
 
 This tutorial is composed of 5 steps corresponding to 5 models. For each step we present its purpose, an explicit formulation and the corresponding GAML code.
 
-  1. [Creation of the basic model: gold mines and market](GoldMinerModel_step1)
-  1. [Definition of the BDI miners](GoldMinerModel_step2)
-  1. [Definition of social relations between miners](GoldMinerModel_step3)
-  1. [Use of emotions and personality for the miners](GoldMinerModel_step4)
-  1. [Adding norms, obligations and enforcement](GoldMinerModel_step5)
+  1. [Creation of the basic model: gold mines and market](BDIAgents_step1)
+  1. [Definition of the BDI miners](BDIAgents_step2)
+  1. [Definition of social relations between miners](BDIAgents_step3)
+  1. [Use of emotions and personality for the miners](BDIAgents_step4)
+  1. [Adding norms, obligations and enforcement](BDIAgents_step5)

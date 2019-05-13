@@ -1,8 +1,8 @@
 ---
 layout: default
 title: 4. Emotions and Personality
-wikiPageName: GoldMinerModel_step4
-wikiPagePath: wiki/GoldMinerModel_step4.md
+wikiPageName: BDIAgents_step4
+wikiPagePath: wiki/BDIAgents_step4.md
 ---
 # 4. Emotions and Personality
 This fourth step consists in adding emotions that will impact the gold miner agent behavior and defining the personality of the agents.

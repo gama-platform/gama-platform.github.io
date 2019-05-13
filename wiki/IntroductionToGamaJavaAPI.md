@@ -22,7 +22,7 @@ This introduction to the Java API is dedicated to programmers that want to parti
 
 [Packages](#Packages)
 
- * 1.[Core](#Core)
+ * 1.[Core](#Core)
 
 
 ***
@@ -46,7 +46,9 @@ The Spatial class provide several static access to the main methods to create, q
 
 ### Operators 
 
-union, intersection, minus and other cross geometry operations
+Use as `Spatial.Operators` follow by the operator, usually one of Gaml language:
+
+[union](https://roiarthurb.github.io/BC2019-Gama-Site/wiki/OperatorsSZ#union), intersection, minus and other cross geometry operations
 
 ### Queries 
 

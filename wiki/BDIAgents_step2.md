@@ -1,8 +1,8 @@
 ---
 layout: default
 title: 2. BDI Agents
-wikiPageName: GoldMinerModel_step2
-wikiPagePath: wiki/GoldMinerModel_step2.md
+wikiPageName: BDIAgents_step2
+wikiPagePath: wiki/BDIAgents_step2.md
 ---
 # 2. BDI Agents
 This second step consists in defining the gold miner agents using the GAMA BDI architecture.
