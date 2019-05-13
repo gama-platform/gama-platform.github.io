@@ -22,7 +22,7 @@ const users = [
 ];
 */
 
-const BASE_URL = '/BC2019-Gama-Site/';
+const BASE_URL = '/';
 
 const KEYWORDS = {
     keyword: 'species else for if while',
@@ -35,15 +35,15 @@ const siteConfig = {
 	 *		SETUP
 	 *	Modify at your own risk
 	 */
-  url: 'https://roiarthurb.github.io', // Your website URL
+  url: 'https://gama-platform.github.io', // Your website URL
   baseUrl: BASE_URL, // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'BC2019-Gama-Site',
-  organizationName: 'RoiArthurB',
+  projectName: 'gama-platform.github.io',
+  organizationName: 'gama-platform',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -194,9 +194,9 @@ const siteConfig = {
 	 */
 
 	/* path to images for header/footer */
-  headerIcon: '/img/gama-logo_white.png',
-  footerIcon: '/img/gama-logo.png',
-  favicon: '/img/gama-logo.png',
+  headerIcon: 'img/gama-logo_white.png',
+  footerIcon: 'img/gama-logo.png',
+  favicon: 'img/gama-logo.png',
 
 	/* Sidebar Menu Collapsible titles */
   docsSideNavCollapsible: true,

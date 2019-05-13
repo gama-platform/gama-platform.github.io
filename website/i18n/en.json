@@ -1570,11 +1570,29 @@
       "Contribute": "Contribute"
     },
     "categories": {
+      "Tutorials": "Tutorials",
+      "Predator Prey": "Predator Prey",
+      "Road Traffic": "Road Traffic",
+      "3D Tutorial": "3D Tutorial",
+      "Incremental Model": "Incremental Model",
+      "Luneray's flu": "Luneray's flu",
+      "Co-modeling": "Co-modeling",
+      "BDI Agents": "BDI Agents",
       "Home": "Home",
       "Introduction": "Introduction",
       "Changes from 1.6.1 to 1.8": "Changes from 1.6.1 to 1.8",
       "Platform": "Platform",
-      "Learn GAML step by step": "Learn GAML step by step"
+      "Learn GAML step by step": "Learn GAML step by step",
+      "Recipes": "Recipes",
+      "GAML References": "GAML References",
+      "Pedagogical materials": "Pedagogical materials",
+      "Developing Extensions": "Developing Extensions",
+      "Developing GAMA": "Developing GAMA",
+      "Scientific References": "Scientific References",
+      "Projects using GAMA": "Projects using GAMA",
+      "Training Session": "Training Session",
+      "Events": "Events",
+      "Older versions": "Older versions"
     }
   },
   "pages-strings": {
