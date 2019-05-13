@@ -8,6 +8,10 @@ branches:
 cache:
   yarn: true
 before_script:
+
+# Go in project dir
+  - cd sources
+
 #  Setup
   - git config --global user.name "${GH_NAME}"
   - git config --global user.email "${GH_EMAIL}"
