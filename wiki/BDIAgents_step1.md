@@ -1,8 +1,8 @@
 ---
 layout: default
 title: 1. Skeleton model
-wikiPageName: GoldMinerModel_step1
-wikiPagePath: wiki/GoldMinerModel_step1.md
+wikiPageName: BDIAgents_step1
+wikiPagePath: wiki/BDIAgents_step1.md
 ---
 # 1. Skeleton model
 This first step consists in defining the skeleton model with the gold mines and the gold market.

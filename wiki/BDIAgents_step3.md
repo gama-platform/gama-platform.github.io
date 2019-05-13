@@ -1,8 +1,8 @@
 ---
 layout: default
 title: 3. Social relation
-wikiPageName: GoldMinerModel_step3
-wikiPagePath: wiki/GoldMinerModel_step3.md
+wikiPageName: BDIAgents_step3
+wikiPagePath: wiki/BDIAgents_step3.md
 ---
 # 3. Social relation
 This third step consists in adding social relation between agents and the possibility to share information about the known gold mines.

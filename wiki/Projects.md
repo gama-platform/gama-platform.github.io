@@ -4,9 +4,7 @@ title: Projects
 wikiPageName: Projects
 wikiPagePath: wiki/Projects.md
 ---
-## Projects
-
-___________________________________________________________
+# Projects
 
 ## References
 

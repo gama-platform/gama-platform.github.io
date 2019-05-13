@@ -1,5 +1,5 @@
 
-    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>3. Social relation</title></head>
+    <!doctype html><html lang="en"><head><meta charset="utf-8"><title>5. Norms, obligation and enforcement</title></head>
     <body>
     <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/w3.css">
@@ -427,6 +427,36 @@ var json_pages = (function () {
        "/wiki/BDIAgents.html": {
          "title": "BDI Agents",
          "url": "/wiki/BDIAgents.html"
+       }
+        ,
+      
+       "/wiki/BDIAgents_step1.html": {
+         "title": "1. Skeleton model",
+         "url": "/wiki/BDIAgents_step1.html"
+       }
+        ,
+      
+       "/wiki/BDIAgents_step2.html": {
+         "title": "2. BDI Agents",
+         "url": "/wiki/BDIAgents_step2.html"
+       }
+        ,
+      
+       "/wiki/BDIAgents_step3.html": {
+         "title": "3. Social relation",
+         "url": "/wiki/BDIAgents_step3.html"
+       }
+        ,
+      
+       "/wiki/BDIAgents_step4.html": {
+         "title": "4. Emotions and Personality",
+         "url": "/wiki/BDIAgents_step4.html"
+       }
+        ,
+      
+       "/wiki/BDIAgents_step5.html": {
+         "title": "5. Norms, obligation and enforcement",
+         "url": "/wiki/BDIAgents_step5.html"
        }
         ,
       
@@ -1729,36 +1759,6 @@ var json_pages = (function () {
        "/wiki/GlobalSpecies.html": {
          "title": "The global species",
          "url": "/wiki/GlobalSpecies.html"
-       }
-        ,
-      
-       "/wiki/GoldMinerModel_step1.html": {
-         "title": "1. Skeleton model",
-         "url": "/wiki/GoldMinerModel_step1.html"
-       }
-        ,
-      
-       "/wiki/GoldMinerModel_step2.html": {
-         "title": "2. BDI Agents",
-         "url": "/wiki/GoldMinerModel_step2.html"
-       }
-        ,
-      
-       "/wiki/GoldMinerModel_step3.html": {
-         "title": "3. Social relation",
-         "url": "/wiki/GoldMinerModel_step3.html"
-       }
-        ,
-      
-       "/wiki/GoldMinerModel_step4.html": {
-         "title": "4. Emotions and Personality",
-         "url": "/wiki/GoldMinerModel_step4.html"
-       }
-        ,
-      
-       "/wiki/GoldMinerModel_step5.html": {
-         "title": "5. Norms, obligation and enforcement",
-         "url": "/wiki/GoldMinerModel_step5.html"
        }
         ,
       
@@ -3626,70 +3626,68 @@ function closeRightMenu() {
 </div></div></nav></div></div>
     <div class="w3-twothird w3-margin-left">
     <div class="w3-threequarter">
-        <h1 id="3-social-relation">3. Social relation</h1>
-<p>This third step consists in adding social relation between agents and the possibility to share information about the known gold mines.</p>
+        <h1 id="5-norms-obligation-and-enforcement">5. Norms, obligation and enforcement</h1>
+<p>This last step consists in adding social norms, obligations and enforcement into the agents ‘behavior.</p>
 
 <h2 id="formulation">Formulation</h2>
 <ul>
   <li>Definition of global predicates</li>
-  <li>Definition of the gold miner species</li>
-  <li>Definition of the gold miner perceptions with socialization</li>
-  <li>Definition of a new gold miner plan to share information</li>
+  <li>Definition of the policeman species</li>
+  <li>Definition of the enforcement done by policeman species</li>
+  <li>Definition of the law agents have to follow</li>
+  <li>Definition of a gold miner norm to fulfill its obligation and its social norms</li>
+  <li>Definition of the enforcement done by gold miners</li>
 </ul>
 
-<h2 id="social-relation">Social relation</h2>
-<p>The BDI architecture of GAMA allows to define explicit social relations between agents. Based on the work of <a href="http://www.jbe-platform.com/content/books/9789027299055">Svennevig</a>, a social link with another agent is defined as a tuple &lt;agent,liking, dominance, solidarity, familiarity, trust&gt; with the following elements:</p>
-<ul>
-  <li>Agent: the agent concerned by the link, identified by its name.</li>
-  <li>Liking: a real value between -1 and 1 representing the degree of liking with the agent concerned by the link. A value of -1 indicates that the concerned agent is hated, a value of 1 indicates that the concerned agent is liked.</li>
-  <li>Dominance: a real value between -1 and 1 representing the degree of power exerted on the agent concerned by the link. A value of -1 indicates that the concerned agent is dominating, a value of 1 indicates that the concerned agent is dominated.– Solidarity: a real value between 0 and 1 representing the degree of solidarity with the agent concerned by the link. A value of 0 indicates no solidarity with the concerned agent, a value of 1 indicates a complete solidarity with the concerned agent.</li>
-  <li>Familiarity: a real value between 0 and 1 representing the degree of familiarity with the agent concerned by the link. A value of 0 indicates no familiarity with the concerned agent, a value of 1 indicates a complete familiarity with the concerned agent.</li>
-  <li>Trust : a real value between -1 and +1 representing the degree of trust with the agent concerned by th link. A value of -1 indicates a doubt about the agent concerned, a value of 1 indicates a complete trust with the concerned agent.</li>
-</ul>
-
-<p>With this definition, a social relation is not necessarily symmetric. For example, let’s take two agents, Alice and Bob, with a social link towards each other. The agent Bob may have a social link &lt;Alice,1,-0.5,0.6,0.8,-0.2&gt; (Bob likes Alice with a value of 1, he thinks he is dominated by Alice, he is solidary with Alice with a value of 0.6, he is familiar with Alice with a value of 0.8 and he doubts about her with a value 0.2) and Alice may have a social link &lt;Bob,-0.2,0.2,0.4,0.5,0.8&gt; (Alice dislikes Bob with a value of 0.2, she thinks she is dominating Bob, she is solidary with Bob with a value of 0.4, she is familiar with Bob with a value of 0.5 and she trusts Bob with a value of 0.5).</p>
+<h2 id="norms-obligations-and-enforcement">Norms, obligations, and enforcement</h2>
+<p>The BDI architecture of GAMA allows defining explicit social norms, laws that lead to obligations and an enforcement process to sanction or reward the other agent depending on their behavior toward norms. 
+A social norm is a set of actions executed under certain conditions which are known by the people has the right things to do in that conditions. As it is, it can be assimilated into a plan. However, a norm can be violated which mean an agent chose to disobey and do not execute it while it should. To do this, each agent has an obedient value, between 0 and 1 ad computed from its personality and each norm has a threshold. If the obedient value of the agent is above the threshold, the norm is executed.
+An obligation is a mental state that can be assimilated with a desire. It is created by a law that indicates under which conditions the agent has to follow a particular obligation. Once again, the law can have a threshold value to be activated or not depending on the obedient value of the agent. If an agent has an obligation, it will give up its current intention and current plan to get this obligation as its intention. Then, it will choose a specific norm to answer this obligation, once again with a threshold on the obedient value.
+Finally, an enforcement mechanism can be defined during the perception process. Norms, laws, and obligation can be enforced. If a violation is detected, a sanction can be executed. If the norm/law/obligation is fulfilled, a reward can be executed.</p>
 
 <h2 id="model-definition">Model Definition</h2>
-<h3 id="predicates">predicates</h3>
-<p>We add a new global predicate called <em>share_information</em> that represents the information that the miner wants to share information.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>global {
+<h3 id="law">law</h3>
+<p>We add a law to the gold miner species that will create the obligation to get a gold if a gold nugget is perceived. This law replaces a rule and expresses the fact that miners are working or not, depending on their obedience value.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
 	...
-	predicate share_information &lt;- new_predicate("share information") ;
+	law working belief: mine_location new_obligation: has_gold 
+   when:not has_obligation(has_gold) and not has_belief(has_gold) strength: 2.0 threshold:thresholdLaw;
+	
         ...
 }
 </code></pre></div></div>
 
-<h3 id="perception">perception</h3>
-<p>We add a new perceive statement for the miner agents. This perceive will allow to create a social relation with the miners that are located at a distance lower or equal to “viewdist” to the agent. 
-For each of these miner agents, the agents create a new social relation using the <em>socialize</em> statement with a liking value that depends on the color of the agents: more the agent are close, higher will be the liking value.</p>
-
+<h3 id="norms">norms</h3>
+<p>The miners will have two norms. A first one to answer the obligation to collect gold. This norms replaces the previous plan created for this purpose. However, a new plan is declared to get 3 pieces of gold at each time. This plan will be considered illegal by the policeman species.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
 	...
-        perceive target:miner in:viewdist {
-		socialize liking: 1 -  point(mycolor.red, mycolor.green, mycolor.blue) distance_to point(myself.mycolor.red, myself.mycolor.green, myself.mycolor.blue) / ( 255);
+        norm doingJob obligation:has_gold finished_when: has_belief(has_gold) threshold:thresholdObligation{
+		if (target = nil) {
+			do add_subintention(has_gold,choose_goldmine, true);
+			do current_intention_on_hold();
+		} else {
+			do goto target: target ;
+			if (target = location)  {
+				goldmine current_mine&lt;- goldmine first_with (target = each.location);
+				if current_mine.quantity &gt; 0 {
+					gold_transported &lt;- gold_transported+1;
+				 	do add_belief(has_gold);
+					ask current_mine {quantity &lt;- quantity - 1;}	
+				} else {
+					do add_belief(new_predicate(empty_mine_location, ["location_value"::target]));
+					do remove_belief(new_predicate(mine_at_location, ["location_value"::target]));
+				}
+				target &lt;- nil;
+			}
+		}	
 	}
 }
 </code></pre></div></div>
 
-<p>We also modify the perceive statement previously defined in order to add the desire to share information with a strength of 5 if the agent finds a gold mine.</p>
+<p>The second norm is a social norm to communicate the list of known mines to one’s friends. It replaces the previous plan that did this action, while a new plan is added to give a wrong list of mines to one’s friend.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
 	...
-	perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
-		focus mine_at_location var:location;
-		ask myself {
-			do add_desire(predicate:share_information, strength: 5.0);
-			do remove_intention(find_gold, false);
-		}
-	}
-</code></pre></div></div>
-
-<h3 id="plan">plan</h3>
-<p>At last, we add a new plan for the miner agents called <em>share_information_to_friends</em> to achieve the intention <em>share_information</em> that is instantaneous.
-In this plan, the miner agent first defines its list of friends, i.e. the miners with which it has a social link and that it likes (linking higher than 0). then for each friend, it share its list of known mines (beliefs about their location), then its knowledge about the mines that are empty (beliefs about their location). At last, it removes the desire and intention to <em>share_information</em>.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
-	...
-	plan share_information_to_friends intention: share_information instantaneous: true{
+	norm share_information intention:share_information threshold:thresholdNorm instantaneous: true{
 		list&lt;miner&gt; my_friends &lt;- list&lt;miner&gt;((social_link_base where (each.liking &gt; 0)) collect each.agent);
 		loop known_goldmine over: get_beliefs_with_name(mine_at_location) {
 			ask my_friends {
@@ -3704,6 +3702,77 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 		
 		do remove_intention(share_information, true); 
 	}
+</code></pre></div></div>
+
+<h3 id="enforcement-of-the-social-norm">enforcement of the social norm</h3>
+<p>Finally for the gold-miner agent, an enforcement is defined about the social norm to communicate the location of mines to other agents. A sanction and a reward are declared to change the liking value with the agent controlled, depending if the norm is violated or fulfilled.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species miner skills: [moving] control:simple_bdi {
+	...
+	perceive target:miner in:viewdist {
+		myself.agent_perceived&lt;-self;
+		enforcement norm:"share_information" sanction:"sanctionToNorm" reward:"rewardToNorm";
+	}
+		
+	sanction sanctionToNorm{
+		do change_liking(agent_perceived,-0.1);
+	}	
+	
+	sanction rewardToNorm{
+		do change_liking(agent_perceived,0.1);
+	}
+}
+</code></pre></div></div>
+
+<h3 id="definition-of-policeman-species">Definition of policeman species</h3>
+<p>Finally, we define a policeman species that will wander through the map and enforce the miners about the law and the obligation. The sanctions will be a fine collected by policemen.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>species policeman skills: [moving] control:simple_bdi {
+	predicate patroling &lt;- new_predicate("patrolling");
+	float viewdist &lt;- 1000.0;
+	miner agent_perceived &lt;- nil;
+	
+	init {
+		do add_desire(patroling);
+	}
+	
+	perceive target:miner in: viewdist{
+		myself.agent_perceived &lt;- self;
+		enforcement law:"working" sanction:"sanctionToLaw";
+		enforcement obligation:has_gold sanction: "sanctionToObligation" reward:"rewardToObligation";
+	}
+	
+	sanction sanctionToLaw{
+		ask agent_perceived{
+			thresholdLaw &lt;- 0.0;
+			gold_sold &lt;- gold_sold-5;
+		}
+		fine &lt;- fine +5;
+	}
+	
+	sanction sanctionToObligation {
+		ask agent_perceived{
+			gold_sold &lt;- gold_sold-3;
+			do remove_intention(sell_gold,true);
+			thresholdObligation &lt;- self.thresholdObligation - 0.1;
+		}
+		fine &lt;- fine + 3;
+	}
+	
+	sanction rewardToObligation{
+		ask agent_perceived{
+			gold_sold &lt;- gold_sold+2;
+		}
+		fine &lt;- fine -2;
+	}
+	
+	plan patrol intention: patroling{
+		do wander;
+	}
+	
+	aspect base{
+		draw circle(viewdist) color: #blue depth:0.0;
+	}
 }
 </code></pre></div></div>
 
@@ -3714,6 +3783,8 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 <span class="n">global</span> <span class="p">{</span>
 	<span class="n">int</span> <span class="n">nb_mines</span> <span class="p">&lt;-</span> <span class="m">10</span><span class="p">;</span> 
 	<span class="n">int</span> <span class="n">nbminer</span><span class="p">&lt;-</span><span class="m">5</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">nb_police</span> <span class="p">&lt;-</span> <span class="m">1</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">fine</span> <span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
 	<span class="n">market</span> <span class="n">the_market</span><span class="p">;</span>
 	
 	<span class="k">string</span> <span class="n">mine_at_location</span> <span class="p">&lt;-</span> <span class="s2">"mine_at_location"</span><span class="p">;</span>
@@ -3729,6 +3800,9 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 	<span class="n">predicate</span> <span class="n">sell_gold</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"sell gold"</span><span class="p">)</span> <span class="p">;</span>
 	<span class="n">predicate</span> <span class="n">share_information</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"share information"</span><span class="p">)</span> <span class="p">;</span>
 	
+	
+	<span class="n">emotion</span> <span class="n">joy</span> <span class="p">&lt;-</span> <span class="n">new_emotion</span><span class="p">(</span><span class="s2">"joy"</span><span class="p">);</span>
+	
 	<span class="n">float</span> <span class="n">inequality</span> <span class="p">&lt;-</span> <span class="m">0.0</span> <span class="n">update</span><span class="p">:</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">miner</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">gold_sold</span><span class="p">);</span>
 	
 	<span class="n">geometry</span> <span class="n">shape</span> <span class="p">&lt;-</span> <span class="n">square</span><span class="p">(</span><span class="m">20</span> <span class="p">#</span><span class="n">km</span><span class="p">);</span>
@@ -3739,10 +3813,16 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 		<span class="p">}</span>
 		<span class="nb">create</span> <span class="n">goldmine</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_mines</span><span class="p">;</span>
 		<span class="nb">create</span> <span class="n">miner</span> <span class="n">number</span><span class="p">:</span><span class="n">nbminer</span><span class="p">;</span>
+		<span class="nb">create</span> <span class="n">policeman</span> <span class="n">number</span><span class="p">:</span><span class="n">nb_police</span><span class="p">;</span>
 	<span class="p">}</span>
 	
 	<span class="n">reflex</span> <span class="n">end_simulation</span> <span class="n">when</span><span class="p">:</span> <span class="k">sum</span><span class="p">(</span><span class="n">goldmine</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span> <span class="p">=</span> <span class="m">0</span> <span class="k">and</span> <span class="n">empty</span><span class="p">(</span><span class="n">miner</span> <span class="n">where</span> <span class="n">each</span><span class="p">.</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)){</span>
 		<span class="k">do</span> <span class="n">pause</span><span class="p">;</span>
+		<span class="n">ask</span> <span class="n">miner</span><span class="p">{</span>
+			<span class="nb">write</span> <span class="n">name</span> <span class="p">+</span> <span class="s2">" : "</span> <span class="p">+</span><span class="n">gold_sold</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="nb">write</span> <span class="s2">"**********************"</span><span class="p">;</span>
+		<span class="nb">write</span> <span class="s2">"fine : "</span> <span class="p">+</span> <span class="n">fine</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -3767,6 +3847,53 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 	<span class="p">}</span>
 <span class="p">}</span>
 
+<span class="n">species</span> <span class="n">policeman</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span><span class="n">simple_bdi</span> <span class="p">{</span>
+	<span class="n">predicate</span> <span class="n">patroling</span> <span class="p">&lt;-</span> <span class="n">new_predicate</span><span class="p">(</span><span class="s2">"patrolling"</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">viewdist</span> <span class="p">&lt;-</span> <span class="m">1000.0</span><span class="p">;</span>
+	<span class="n">miner</span> <span class="n">agent_perceived</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+	
+	<span class="n">init</span> <span class="p">{</span>
+		<span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">patroling</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">miner</span> <span class="k">in</span><span class="p">:</span> <span class="n">viewdist</span><span class="p">{</span>
+		<span class="n">enforcement</span> <span class="n">law</span><span class="p">:</span><span class="s2">"working"</span> <span class="n">sanction</span><span class="p">:</span><span class="s2">"sanctionToLaw"</span><span class="p">;</span>
+		<span class="n">enforcement</span> <span class="n">obligation</span><span class="p">:</span><span class="n">has_gold</span> <span class="p">/*</span><span class="n">when</span><span class="p">:</span><span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)*/</span> <span class="n">sanction</span><span class="p">:</span> <span class="s2">"sanctionToObligation"</span> <span class="n">reward</span><span class="p">:</span><span class="s2">"rewardToObligation"</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">sanction</span> <span class="n">sanctionToLaw</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">agent_perceived</span><span class="p">{</span>
+			<span class="n">thresholdLaw</span> <span class="p">&lt;-</span> <span class="m">0.0</span><span class="p">;</span>
+			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span><span class="p">-</span><span class="m">5</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">fine</span> <span class="p">&lt;-</span> <span class="n">fine</span> <span class="p">+</span><span class="m">5</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">sanction</span> <span class="n">sanctionToObligation</span> <span class="p">{</span>
+		<span class="n">ask</span> <span class="n">agent_perceived</span><span class="p">{</span>
+			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span><span class="p">-</span><span class="m">3</span><span class="p">;</span>
+			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+			<span class="n">thresholdObligation</span> <span class="p">&lt;-</span> <span class="n">self</span><span class="p">.</span><span class="n">thresholdObligation</span> <span class="p">-</span> <span class="m">0.1</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">fine</span> <span class="p">&lt;-</span> <span class="n">fine</span> <span class="p">+</span> <span class="m">3</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">sanction</span> <span class="n">rewardToObligation</span><span class="p">{</span>
+		<span class="n">ask</span> <span class="n">agent_perceived</span><span class="p">{</span>
+			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span><span class="p">+</span><span class="m">2</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">fine</span> <span class="p">&lt;-</span> <span class="n">fine</span> <span class="p">-</span><span class="m">2</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">plan</span> <span class="n">patrol</span> <span class="n">intention</span><span class="p">:</span> <span class="n">patroling</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">aspect</span> <span class="n">base</span><span class="p">{</span>
+		<span class="n">draw</span> <span class="n">circle</span><span class="p">(</span><span class="n">viewdist</span><span class="p">)</span> <span class="n">color</span><span class="p">:</span> <span class="p">#</span><span class="n">blue</span> <span class="n">depth</span><span class="p">:</span><span class="m">0.0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
 <span class="n">species</span> <span class="n">miner</span> <span class="n">skills</span><span class="p">:</span> <span class="p">[</span><span class="n">moving</span><span class="p">]</span> <span class="n">control</span><span class="p">:</span><span class="n">simple_bdi</span> <span class="p">{</span>
 	
 	<span class="n">float</span> <span class="n">viewdist</span><span class="p">&lt;-</span><span class="m">1000.0</span><span class="p">;</span>
@@ -3774,36 +3901,92 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 	<span class="n">rgb</span> <span class="n">mycolor</span><span class="p">&lt;-</span><span class="n">rnd_color</span><span class="p">(</span><span class="m">255</span><span class="p">);</span>
 	<span class="n">point</span> <span class="n">target</span><span class="p">;</span>
 	<span class="n">int</span> <span class="n">gold_sold</span><span class="p">;</span>
-
-        <span class="n">bool</span> <span class="n">use_social_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">int</span> <span class="n">gold_transported</span><span class="p">&lt;-</span><span class="m">0</span><span class="p">;</span>
+	<span class="n">agent</span> <span class="n">agent_perceived</span><span class="p">&lt;-</span><span class="n">nil</span><span class="p">;</span>
+	
+    <span class="n">bool</span> <span class="n">use_social_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">use_emotions_architecture</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">bool</span> <span class="n">use_personality</span> <span class="p">&lt;-</span> <span class="nb">true</span><span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">openness</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.12</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">conscientiousness</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.12</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">extraversion</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.12</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">agreeableness</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.12</span><span class="p">);</span>
+	<span class="n">float</span> <span class="n">neurotism</span> <span class="p">&lt;-</span> <span class="n">gauss</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.12</span><span class="p">);</span>
+	
+	<span class="n">float</span> <span class="n">plan_persistence</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">intention_persistence</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	
+	<span class="n">float</span> <span class="n">thresholdLaw</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">thresholdObligation</span> <span class="p">&lt;-</span> <span class="m">1.0</span><span class="p">;</span>
+	<span class="n">float</span> <span class="n">thresholdNorm</span> <span class="p">&lt;-</span> <span class="m">0.5</span><span class="p">;</span>
 	
 	<span class="n">init</span>
 	<span class="p">{</span>
 		<span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">find_gold</span><span class="p">);</span>
 	<span class="p">}</span>
 	
+	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">self</span><span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">gold_transported</span><span class="p">&gt;</span><span class="m">0</span><span class="p">){</span>
+			<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
 	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">miner</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">socialize</span> <span class="n">liking</span><span class="p">:</span> <span class="m">1</span> <span class="p">-</span>  <span class="n">point</span><span class="p">(</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="n">distance_to</span> <span class="n">point</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span> <span class="m">255</span><span class="p">);</span>
+		<span class="n">myself</span><span class="p">.</span><span class="n">agent_perceived</span><span class="p">&lt;-</span><span class="n">self</span><span class="p">;</span>
+		<span class="n">socialize</span> <span class="n">liking</span><span class="p">:</span> <span class="n">point</span><span class="p">(</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="n">distance_to</span> <span class="n">point</span><span class="p">(</span><span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">green</span><span class="p">,</span> <span class="n">myself</span><span class="p">.</span><span class="n">mycolor</span><span class="p">.</span><span class="n">blue</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span> <span class="m">255</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+		<span class="n">enforcement</span> <span class="n">norm</span><span class="p">:</span><span class="s2">"share_information"</span> <span class="n">sanction</span><span class="p">:</span><span class="s2">"sanctionToNorm"</span> <span class="n">reward</span><span class="p">:</span><span class="s2">"rewardToNorm"</span><span class="p">;</span>
+	<span class="p">}</span>
+		
+	<span class="n">sanction</span> <span class="n">sanctionToNorm</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">change_liking</span><span class="p">(</span><span class="n">agent_perceived</span><span class="p">,-</span><span class="m">0.1</span><span class="p">);</span>
+	<span class="p">}</span>	
+	
+	<span class="n">sanction</span> <span class="n">rewardToNorm</span><span class="p">{</span>
+		<span class="k">do</span> <span class="n">change_liking</span><span class="p">(</span><span class="n">agent_perceived</span><span class="p">,</span><span class="m">0.1</span><span class="p">);</span>
 	<span class="p">}</span>
 		
 	<span class="n">perceive</span> <span class="n">target</span><span class="p">:</span><span class="n">goldmine</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="k">in</span><span class="p">:</span><span class="n">viewdist</span> <span class="p">{</span>
-		<span class="n">focus</span> <span class="n">id</span><span class="p">:</span> <span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
+		<span class="n">focus</span> <span class="n">id</span><span class="p">:</span><span class="n">mine_at_location</span> <span class="n">var</span><span class="p">:</span><span class="n">location</span><span class="p">;</span>
 		<span class="n">ask</span> <span class="n">myself</span> <span class="p">{</span>
-			<span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span><span class="n">share_information</span><span class="p">,</span> <span class="n">strength</span><span class="p">:</span> <span class="m">5.0</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">has_emotion</span><span class="p">(</span><span class="n">joy</span><span class="p">))</span> <span class="p">{</span><span class="k">do</span> <span class="n">add_desire</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span><span class="n">share_information</span><span class="p">,</span> <span class="n">strength</span><span class="p">:</span> <span class="m">5.0</span><span class="p">);}</span>
 			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">find_gold</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
 	
-	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span><span class="p">;</span>
 	<span class="n">rule</span> <span class="n">belief</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">new_desire</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">strength</span><span class="p">:</span> <span class="m">3.0</span><span class="p">;</span>
 	
-		
+	<span class="n">law</span> <span class="n">working</span> <span class="n">belief</span><span class="p">:</span> <span class="n">mine_location</span> <span class="n">new_obligation</span><span class="p">:</span> <span class="n">has_gold</span> <span class="n">when</span><span class="p">:</span><span class="k">not</span> <span class="n">has_obligation</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)</span> <span class="k">and</span> <span class="k">not</span> <span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)</span> <span class="n">strength</span><span class="p">:</span> <span class="m">2.0</span> <span class="n">threshold</span><span class="p">:</span><span class="n">thresholdLaw</span><span class="p">;</span>
+	
 	<span class="n">plan</span> <span class="n">letsWander</span> <span class="n">intention</span><span class="p">:</span><span class="n">find_gold</span> 
 	<span class="p">{</span>
 		<span class="k">do</span> <span class="n">wander</span><span class="p">;</span>
 	<span class="p">}</span>
 	
-	<span class="n">plan</span> <span class="n">getGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span> 
+	<span class="n">norm</span> <span class="n">doingJob</span> <span class="n">obligation</span><span class="p">:</span><span class="n">has_gold</span> <span class="n">finished_when</span><span class="p">:</span> <span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">)</span> <span class="n">threshold</span><span class="p">:</span><span class="n">thresholdObligation</span><span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+			<span class="k">do</span> <span class="n">current_intention_on_hold</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">target</span> <span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
+				<span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
+				<span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+					<span class="n">gold_transported</span> <span class="p">&lt;-</span> <span class="n">gold_transported</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+				 	<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
+					<span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>	
+				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+					<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
+					<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
+				<span class="p">}</span>
+				<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>	
+	<span class="p">}</span>
+	
+	<span class="n">plan</span> <span class="n">getMoreGold</span> <span class="n">intention</span><span class="p">:</span><span class="n">has_gold</span>
 	<span class="p">{</span>
 		<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">{</span>
 			<span class="k">do</span> <span class="n">add_subintention</span><span class="p">(</span><span class="n">has_gold</span><span class="p">,</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
@@ -3813,10 +3996,17 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 			<span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
 				<span class="n">goldmine</span> <span class="n">current_mine</span><span class="p">&lt;-</span> <span class="n">goldmine</span> <span class="n">first_with</span> <span class="p">(</span><span class="n">target</span> <span class="p">=</span> <span class="n">each</span><span class="p">.</span><span class="n">location</span><span class="p">);</span>
 				<span class="k">if</span> <span class="n">current_mine</span><span class="p">.</span><span class="n">quantity</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+					<span class="n">gold_transported</span> <span class="p">&lt;-</span> <span class="m">3</span><span class="p">;</span>
 				 	<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
-					<span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">1</span><span class="p">;}</span>	
+					<span class="n">ask</span> <span class="n">current_mine</span> <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">quantity</span><span class="p">&gt;=</span><span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+						<span class="n">quantity</span> <span class="p">&lt;-</span> <span class="n">quantity</span> <span class="p">-</span> <span class="m">3</span><span class="p">;</span>
+					<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+						<span class="n">quantity</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
+					<span class="p">}</span> 
+					<span class="p">}</span>	
 				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 					<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
+					<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">new_predicate</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">,</span> <span class="p">[</span><span class="s2">"location_value"</span><span class="p">::</span><span class="n">target</span><span class="p">]));</span>
 				<span class="p">}</span>
 				<span class="n">target</span> <span class="p">&lt;-</span> <span class="n">nil</span><span class="p">;</span>
 			<span class="p">}</span>
@@ -3835,15 +4025,17 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">choose_goldmine</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
 	<span class="p">}</span>
 	
-	<span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="p">{</span>
+	<span class="n">plan</span> <span class="n">return_to_base</span> <span class="n">intention</span><span class="p">:</span> <span class="n">sell_gold</span> <span class="n">when</span><span class="p">:</span> <span class="n">has_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">){</span>
 		<span class="k">do</span> <span class="n">goto</span> <span class="n">target</span><span class="p">:</span> <span class="n">the_market</span> <span class="p">;</span>
 		<span class="k">if</span> <span class="p">(</span><span class="n">the_market</span><span class="p">.</span><span class="n">location</span> <span class="p">=</span> <span class="n">location</span><span class="p">)</span>  <span class="p">{</span>
 			<span class="k">do</span> <span class="n">remove_belief</span><span class="p">(</span><span class="n">has_gold</span><span class="p">);</span>
 			<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">sell_gold</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+			<span class="n">gold_sold</span> <span class="p">&lt;-</span> <span class="n">gold_sold</span> <span class="p">+</span> <span class="n">gold_transported</span><span class="p">;</span>
+			<span class="n">gold_transported</span> <span class="p">&lt;-</span> <span class="m">0</span><span class="p">;</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="n">plan</span> <span class="n">share_information_to_friends</span> <span class="n">intention</span><span class="p">:</span> <span class="n">share_information</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
+	
+	<span class="n">norm</span> <span class="n">share_information</span> <span class="n">intention</span><span class="p">:</span><span class="n">share_information</span> <span class="n">threshold</span><span class="p">:</span><span class="n">thresholdNorm</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
 		<span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;</span> <span class="n">my_friends</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;((</span><span class="n">social_link_base</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">liking</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">agent</span><span class="p">);</span>
 		<span class="n">loop</span> <span class="n">known_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">mine_at_location</span><span class="p">)</span> <span class="p">{</span>
 			<span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
@@ -3856,6 +4048,16 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 			<span class="p">}</span>
 		<span class="p">}</span>
 		
+		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">share_information</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
+	<span class="p">}</span>
+	
+	<span class="n">plan</span> <span class="n">share_information_to_friends</span> <span class="n">intention</span><span class="p">:</span> <span class="n">share_information</span> <span class="n">instantaneous</span><span class="p">:</span> <span class="nb">true</span><span class="p">{</span>
+		<span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;</span> <span class="n">my_friends</span> <span class="p">&lt;-</span> <span class="k">list</span><span class="p">&lt;</span><span class="n">miner</span><span class="p">&gt;((</span><span class="n">social_link_base</span> <span class="n">where</span> <span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">liking</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span> <span class="n">collect</span> <span class="n">each</span><span class="p">.</span><span class="n">agent</span><span class="p">);</span>
+		<span class="n">loop</span> <span class="n">known_goldmine</span> <span class="n">over</span><span class="p">:</span> <span class="n">get_beliefs_with_name</span><span class="p">(</span><span class="n">empty_mine_location</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">ask</span> <span class="n">my_friends</span> <span class="p">{</span>
+				<span class="k">do</span> <span class="n">add_belief</span><span class="p">(</span><span class="n">known_goldmine</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>		
 		<span class="k">do</span> <span class="n">remove_intention</span><span class="p">(</span><span class="n">share_information</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> 
 	<span class="p">}</span>
 
@@ -3872,7 +4074,9 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 			<span class="n">species</span> <span class="n">market</span> <span class="p">;</span>
 			<span class="n">species</span> <span class="n">goldmine</span> <span class="p">;</span>
 			<span class="n">species</span> <span class="n">miner</span><span class="p">;</span>
+			<span class="n">species</span> <span class="n">policeman</span> <span class="n">aspect</span><span class="p">:</span><span class="n">base</span><span class="p">;</span>
 		<span class="p">}</span>
+		
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -3880,8 +4084,8 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 <ol>
   <li><a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a></li>
   <li><a href="GoldMinerModel_step2">Definition of the BDI miners</a></li>
+  <li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
   <li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
-  <li><a href="GoldMinerModel_step5">Adding norms, obligations and enforcement</a></li>
 </ol>
 
     </div>
